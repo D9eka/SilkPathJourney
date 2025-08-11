@@ -8,6 +8,9 @@ namespace Internal.Scripts
     public class MainInstaller : MonoInstaller
     {
         [SerializeField] private UnityEngine.Camera _mainCamera;
+        [Space] 
+        [SerializeField] private Village[] _villages;
+        [SerializeField] private Village _currentVillage;
 
         public override void InstallBindings()
         {
@@ -21,6 +24,11 @@ namespace Internal.Scripts
         
             Container.BindInterfacesAndSelfTo<InputManager>()
                 .AsSingle()
+                .NonLazy();
+
+            Container.Bind<MoverController>()
+                .AsSingle()
+                .WithArguments(_villages, _currentVillage)
                 .NonLazy();
         }
     }
