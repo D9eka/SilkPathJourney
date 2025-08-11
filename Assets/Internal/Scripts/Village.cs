@@ -6,37 +6,30 @@ namespace Internal.Scripts
     public class Village : MonoBehaviour
     {
         [SerializeField] private Vector2 _cameraPosition;
-        [Space]
-        [SerializeField] private VillageInteractableObject _villageInteractableObject;
-        [SerializeField] private SelectVillageInteractableObject[] _selectVillageInteractableObjects;
-        [SerializeField] private BuildingInteractableObject[] _buildings;
+        [SerializeField] private InteractableObject _villageInteractableObject;
+        [SerializeField] private InteractableObject[] _selectVillageInteractableObjects;
+        [SerializeField] private InteractableObject[] _buildings;
 
         public Vector2 CameraPosition => _cameraPosition;
-        public VillageInteractableObject VillageInteractableObject => _villageInteractableObject;
-        public SelectVillageInteractableObject[] SelectVillageInteractableObjects => _selectVillageInteractableObjects;
+        public InteractableObject VillageInteractableObject => _villageInteractableObject;
+        public InteractableObject[] SelectVillageInteractableObjects => _selectVillageInteractableObjects;
+        public InteractableObject[] Buildings => _buildings;
 
         private void Awake()
         {
-            _villageInteractableObject.Initialize(this);
             _villageInteractableObject.SwitchObjectState(false);
         }
 
-        public void SwitchInputState(bool state)
-        {
+        public void SwitchInputState(bool state) =>
             _villageInteractableObject.SwitchObjectState(state);
-        }
 
         public void SwitchVillageInteractableObjectsState(bool state)
         {
-            foreach (var interactableObject in _buildings)
-            {
-                interactableObject.SwitchObjectState(state);
-            }
-            
-            foreach (var selectVillageInteractableObject in _selectVillageInteractableObjects)
-            {
-                selectVillageInteractableObject.SwitchObjectState(state);
-            }
+            foreach (var building in _buildings)
+                building.SwitchObjectState(state);
+
+            foreach (var selectVillage in _selectVillageInteractableObjects)
+                selectVillage.SwitchObjectState(state);
         }
     }
 }
