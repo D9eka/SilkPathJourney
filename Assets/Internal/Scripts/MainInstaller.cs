@@ -14,6 +14,11 @@ namespace Internal.Scripts
             Container.Bind<UnityEngine.Camera>().FromInstance(_mainCamera)
                 .AsSingle()
                 .NonLazy();
+            
+            Container.Bind<CameraController>().FromInstance(_mainCamera.GetComponent<CameraController>())
+                .AsSingle()
+                .NonLazy();
+        
             Container.BindInterfacesAndSelfTo<InputManager>()
                 .AsSingle()
                 .NonLazy();
