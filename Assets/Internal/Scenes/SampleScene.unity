@@ -21652,6 +21652,8 @@ GameObject:
   - component: {fileID: 241281028}
   - component: {fileID: 241281027}
   - component: {fileID: 241281026}
+  - component: {fileID: 241281030}
+  - component: {fileID: 241281029}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -21691,6 +21693,7 @@ MonoBehaviour:
   _scriptableObjectInstallers: []
   _monoInstallers:
   - {fileID: 241281026}
+  - {fileID: 241281030}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -21723,6 +21726,31 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &241281029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241281025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0370b3933da44b7ea0c8dee4642b4685, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targets: []
+--- !u!114 &241281030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241281025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31d615472bc64ab18572489e75937a04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &241715642
 GameObject:
   m_ObjectHideFlags: 0
@@ -46627,7 +46655,6 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
-  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -46709,18 +46736,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &519420033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c426fbb01efe072458ee9d65cedb2b88, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &520140150
 GameObject:
   m_ObjectHideFlags: 0

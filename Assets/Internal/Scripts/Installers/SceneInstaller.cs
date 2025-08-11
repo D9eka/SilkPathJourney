@@ -1,11 +1,10 @@
-using Internal.Scripts.Camera;
 using Internal.Scripts.Input;
 using Plugins.Zenject.Source.Install;
 using UnityEngine;
 
-namespace Internal.Scripts
+namespace Internal.Scripts.Installers
 {
-    public class MainInstaller : MonoInstaller
+    public class SceneInstaller : MonoInstaller
     {
         [SerializeField] private UnityEngine.Camera _mainCamera;
         [Space] 
@@ -17,15 +16,11 @@ namespace Internal.Scripts
             Container.Bind<UnityEngine.Camera>().FromInstance(_mainCamera)
                 .AsSingle()
                 .NonLazy();
-            
-            Container.Bind<CameraController>().FromInstance(_mainCamera.GetComponent<CameraController>())
-                .AsSingle()
-                .NonLazy();
         
             Container.BindInterfacesAndSelfTo<InputManager>()
                 .AsSingle()
                 .NonLazy();
-
+            
             Container.Bind<MoverController>()
                 .AsSingle()
                 .WithArguments(_villages, _currentVillage)

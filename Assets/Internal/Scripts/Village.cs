@@ -19,11 +19,6 @@ namespace Internal.Scripts
         {
             _villageInteractableObject.Initialize(this);
             _villageInteractableObject.SwitchObjectState(false);
-
-            foreach (SelectVillageInteractableObject selectVillageInteractableObject in _selectVillageInteractableObjects)
-            {
-                selectVillageInteractableObject.Click += SelectVillageInteractable_Click;
-            }
         }
 
         public void SwitchInputState(bool state)
@@ -42,11 +37,6 @@ namespace Internal.Scripts
             {
                 selectVillageInteractableObject.SwitchObjectState(state);
             }
-        }
-
-        private void SelectVillageInteractable_Click()
-        {
-            SwitchVillageInteractableObjectsState(false);
         }
     }
 }
