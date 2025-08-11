@@ -1,4 +1,5 @@
 using Internal.Scripts.Input;
+using Internal.Scripts.InteractableObjects;
 using Plugins.Zenject.Source.Install;
 using UnityEngine;
 
@@ -20,10 +21,18 @@ namespace Internal.Scripts.Installers
             Container.BindInterfacesAndSelfTo<InputManager>()
                 .AsSingle()
                 .NonLazy();
-            
-            Container.Bind<MoverController>()
+
+            Container.Bind<Village[]>()
+                .FromInstance(_villages)
+                .AsSingle();
+
+            Container.Bind<Village>()
+                .WithId("CurrentVillage")
+                .FromInstance(_currentVillage)
+                .AsSingle();
+
+            Container.BindInterfacesAndSelfTo<VillageNavigator>()
                 .AsSingle()
-                .WithArguments(_villages, _currentVillage)
                 .NonLazy();
         }
     }
