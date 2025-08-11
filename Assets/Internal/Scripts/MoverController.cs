@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using Internal.Scripts.Camera;
 using Internal.Scripts.InteractableObjects;
+using UnityEngine;
 
 namespace Internal.Scripts
 {
@@ -51,10 +53,39 @@ namespace Internal.Scripts
             }
 
             _isVillageSelectionStarted = true;
-            _cameraController.ZoomCamera(219, () =>
+            
+            foreach (Village village in _villages)
+            {
+                village.SwitchVillageInteractableObjectsState(false);
+            }
+            
+            Transform[] villagesToFocus = GetVillagesToFocus();
+            _cameraController.FocusOnObjects(villagesToFocus, () =>
             {
                 SwitchVillagesState(true);
             });
+        }
+
+        private Transform[] GetVillagesToFocus()
+        {
+            List<Transform> villagesToFocus = new List<Transform>();
+            for (int i = 0; i < _villages.Length; i++)
+            {
+                if (_villages[i] == _currentVillage)
+                {
+                    villagesToFocus.Add(_villages[i].transform);
+                    if (i > 0)
+                    {
+                        villagesToFocus.Add(_villages[i - 1].transform);
+                    }
+                    if (i < _villages.Length - 1)
+                    {
+                        villagesToFocus.Add(_villages[i + 1].transform);
+                    }
+                }
+            }
+
+            return villagesToFocus.ToArray();
         }
 
         private void SwitchVillagesState(bool state)
@@ -69,10 +100,12 @@ namespace Internal.Scripts
         {
             _isVillageSelectionStarted = false;
             SwitchVillagesState(false);
-            _currentVillage = village;
-
-            _cameraController.ZoomCamera(17, () =>
-                _cameraController.MoveCamera(village.CameraPosition, EnableCurrentVillage));
+            
+            _cameraController.FocusOnObjects(new [] { _currentVillage.transform }, () =>
+            {
+                _currentVillage = village;
+                _cameraController.MoveCamera(_currentVillage.CameraPosition, EnableCurrentVillage);
+            });
         }
 
         private void EnableCurrentVillage()

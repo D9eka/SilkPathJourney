@@ -1,49 +1,26 @@
 using System;
-using DG.Tweening;
+using Internal.Scripts.Camera.AutoFit;
+using Internal.Scripts.Camera.Move;
+using Internal.Scripts.Camera.Zoom;
 using UnityEngine;
 
 namespace Internal.Scripts.Camera
 {
-    public class CameraController : MonoBehaviour
+    public class CameraController
     {
-        private UnityEngine.Camera _camera;
+        private readonly ICameraMover _mover;
+        private readonly ICameraZoomer _zoomer;
+        private readonly ICameraAutoFitter _autoFitter;
 
-        private void Awake()
+        public CameraController(ICameraMover mover, ICameraZoomer zoomer, ICameraAutoFitter autoFitter)
         {
-            _camera = GetComponent<UnityEngine.Camera>();
+            _mover = mover;
+            _zoomer = zoomer;
+            _autoFitter = autoFitter;
         }
 
-        public void ZoomCamera(float size, Action onComplete = null)
-        {
-            float duration = Math.Abs(_camera.orthographicSize - size) / 10f;
-            _camera.DOOrthoSize(size, 3f)
-                .OnComplete(() =>
-                {
-                    onComplete?.Invoke();
-                });
-        }
-
-        public void MoveCamera(Vector2 position, Action onComplete = null)
-        {
-            Vector3 endPosition = new Vector3(position.x, position.y, _camera.transform.position.z);
-            float duration = Math.Abs(Vector3.Distance(_camera.transform.position, endPosition)) / 10f;
-            _camera.transform.DOMove(endPosition, duration)
-                .OnComplete(() =>
-                {
-                    onComplete?.Invoke();
-                });
-        }
-
-        [ContextMenu("ZoomToWorld")]
-        public void ZoomToWorld()
-        {
-            ZoomCamera(219);
-        }
-
-        [ContextMenu("ZoomToVillage")]
-        public void ZoomToVillage()
-        {
-            ZoomCamera(17);
-        }
+        public void MoveCamera(Vector2 position, Action onComplete = null) => _mover.MoveTo(position, onComplete);
+        public void ZoomCamera(float size, Action onComplete = null) => _zoomer.ZoomTo(size, onComplete);
+        public void FocusOnObjects(Transform[] targets, Action onComplete = null) => _autoFitter.FocusOnObjects(targets, onComplete);
     }
 }
