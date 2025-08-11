@@ -1,5 +1,4 @@
 using Internal.Scripts.InteractableObjects;
-using Internal.Scripts.InteractableObjects.Abstraction;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -11,7 +10,8 @@ namespace Internal.Scripts.Input
     {
         private readonly UnityEngine.Camera _mainCamera;
         private PlayerInputActions _inputActions;
-        private IClickable _currentHover;
+
+        private InteractableObject _currentHover;
 
         [Inject]
         public InputManager(UnityEngine.Camera mainCamera)
@@ -53,22 +53,20 @@ namespace Internal.Scripts.Input
                 return;
 
             Vector2 screenPos = Mouse.current.position.ReadValue();
-            Vector2 worldPos = _mainCamera.ScreenToWorldPoint(screenPos);
-            
             RaycastHit2D hit = Physics2D.GetRayIntersection(_mainCamera.ScreenPointToRay(screenPos));
 
-            if (hit.collider != null && hit.collider.TryGetComponent<IClickable>(out var clickable))
+            if (hit.collider != null && hit.collider.TryGetComponent(out InteractableObject view))
             {
-                if (_currentHover != clickable)
+                if (_currentHover != view)
                 {
-                    _currentHover?.OnHoverExit();
-                    _currentHover = clickable;
-                    _currentHover.OnHoverEnter();
+                    _currentHover?.TriggerHoverExit();
+                    _currentHover = view;
+                    _currentHover.TriggerHoverEnter();
                 }
             }
             else
             {
-                _currentHover?.OnHoverExit();
+                _currentHover?.TriggerHoverExit();
                 _currentHover = null;
             }
         }
@@ -79,12 +77,11 @@ namespace Internal.Scripts.Input
                 return;
 
             Vector2 screenPos = Mouse.current.position.ReadValue();
-            
             RaycastHit2D hit = Physics2D.GetRayIntersection(_mainCamera.ScreenPointToRay(screenPos));
 
-            if (hit.collider != null && hit.collider.TryGetComponent<IClickable>(out var clickable))
+            if (hit.collider != null && hit.collider.TryGetComponent(out InteractableObject view))
             {
-                clickable.OnClick();
+                view.TriggerClick();
             }
         }
     }

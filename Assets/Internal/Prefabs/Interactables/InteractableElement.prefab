@@ -96,6 +96,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2983272608316309414}
+  - component: {fileID: 305031811091932491}
   - component: {fileID: 7338579208901322875}
   m_Layer: 0
   m_Name: InteractableElement
@@ -122,6 +123,25 @@ Transform:
   - {fileID: 7231589143854046698}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &305031811091932491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2352556499347382404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cd371810bdd476fada9a512e53ea2f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spriteRenderer: {fileID: 4284190147291707071}
+  _outline: {fileID: 3996711751057516325}
+  _textMesh: {fileID: 4406079475975477812}
+  _textOffsetY: 0
+  _textSizeModifier: {x: 1.5, y: 0.25}
+  _interactableName: Building
+  _size: {x: 4, y: 4}
 --- !u!61 &7338579208901322875
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -290,7 +310,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 2}
-  m_SizeDelta: {x: 4, y: 2}
+  m_SizeDelta: {x: 6, y: 1}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!23 &4269661778827693161
 MeshRenderer:
@@ -384,7 +404,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 11.2
+  m_fontSize: 11.3
   m_fontSizeBase: 10.97
   m_fontWeight: 400
   m_enableAutoSizing: 1
