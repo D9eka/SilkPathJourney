@@ -25,10 +25,10 @@ namespace Internal.Scripts
 
         public void SwitchVillageInteractableObjectsState(bool state)
         {
-            foreach (var building in _buildings)
+            foreach (InteractableObject building in _buildings)
                 building.SwitchObjectState(state);
 
-            foreach (var selectVillage in _selectVillageInteractableObjects)
+            foreach (InteractableObject selectVillage in _selectVillageInteractableObjects)
                 selectVillage.SwitchObjectState(state);
         }
     }

@@ -1,5 +1,7 @@
 using Internal.Scripts.Input;
 using Internal.Scripts.InteractableObjects;
+using Internal.Scripts.Road.Generator;
+using Internal.Scripts.Road.Graph;
 using Plugins.Zenject.Source.Install;
 using UnityEngine;
 
@@ -11,6 +13,9 @@ namespace Internal.Scripts.Installers
         [Space] 
         [SerializeField] private Village[] _villages;
         [SerializeField] private Village _currentVillage;
+        [Space]
+        [SerializeField] private NodeAuthoring[] _nodes;
+        [SerializeField] private EdgeAuthoring[] _edges;
 
         public override void InstallBindings()
         {
@@ -34,6 +39,10 @@ namespace Internal.Scripts.Installers
             Container.BindInterfacesAndSelfTo<VillageNavigator>()
                 .AsSingle()
                 .NonLazy();
+            
+            RoadGraphGenerator graphGenerator = new RoadGraphGenerator();
+            RoadGraph roadGraph = graphGenerator.BuildGraph(_nodes, _edges);
+            Container.BindInstance(roadGraph).AsSingle();
         }
     }
 }

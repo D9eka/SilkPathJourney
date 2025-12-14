@@ -28,7 +28,7 @@ namespace Internal.Scripts.Camera.AutoFit
                 return;
             }
 
-            if (!TryCalculateBounds(targets, out var bounds))
+            if (!TryCalculateBounds(targets, out Bounds bounds))
             {
                 onComplete?.Invoke();
                 return;
@@ -57,7 +57,7 @@ namespace Internal.Scripts.Camera.AutoFit
             float minX = float.MaxValue, maxX = float.MinValue;
             float minY = float.MaxValue, maxY = float.MinValue;
 
-            foreach (var target in targets)
+            foreach (Transform target in targets)
             {
                 if (target == null)
                 {
