@@ -6,7 +6,7 @@ namespace Internal.Scripts.Tests.Camera
 {
     public class CameraTest : MonoBehaviour
     {
-        [SerializeField] private Transform[] targets;
+        [SerializeField] private Transform[] _targets;
         
         [Inject] 
         private CameraController _cameraController;
@@ -14,7 +14,7 @@ namespace Internal.Scripts.Tests.Camera
         [ContextMenu("Test Focus")]
         private void TestFocus()
         {
-            _cameraController.FocusOnObjects(targets);
+            _cameraController.FocusOnObjects(_targets);
         }
     }
 }

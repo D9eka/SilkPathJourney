@@ -54,7 +54,7 @@ namespace Internal.Scripts
 
             _isVillageSelectionInProgress = true;
 
-            foreach (var village in _villages)
+            foreach (Village village in _villages)
             {
                 village.SwitchVillageInteractableObjectsState(false);
             }
@@ -91,7 +91,7 @@ namespace Internal.Scripts
 
         private void SetVillagesInputState(bool isEnabled)
         {
-            foreach (var village in _villages)
+            foreach (Village village in _villages)
             {
                 village.SwitchInputState(isEnabled);
             }
@@ -111,7 +111,7 @@ namespace Internal.Scripts
 
         private void EnableCurrentVillageInteractables()
         {
-            foreach (var village in _villages)
+            foreach (Village village in _villages)
             {
                 village.SwitchVillageInteractableObjectsState(village == _currentVillage);
             }
