@@ -13,7 +13,7 @@ namespace Internal.Scripts.Camera.Installers
             Container.Bind<ICameraZoomer>().To<CameraZoomer>().AsSingle();
             Container.Bind<ICameraAutoFitter>().To<CameraAutoFitter>().AsSingle();
 
-            Container.Bind<CameraController>().AsSingle();
+            Container.BindInterfacesAndSelfTo<CameraController>().AsSingle();
         }
     }
 }

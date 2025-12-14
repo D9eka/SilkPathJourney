@@ -1,57 +1,42 @@
 using System.Collections.Generic;
-using System.Linq;
 using Internal.Scripts.Road.Graph;
 using Internal.Scripts.Road.Orientation;
+using Internal.Scripts.Road.Pathfinder;
 using Internal.Scripts.Road.Paths;
 using UnityEngine;
 using Zenject;
 
 namespace Internal.Scripts.Road.Follower
 {
+    [RequireComponent(typeof(Transform))]
     public sealed class RoadFollowerView : MonoBehaviour
     {
-        [SerializeField] private int _startFromNodeId;
-        [SerializeField] private int _startToNodeId;
-        [SerializeField] private float _speed = 3f;
+        [SerializeField] private float _speed = 15f;
         [SerializeField] private float _rotationSpeed = 10f;
+        
+        private Transform _controller;
+        private RoutePathCursor _cursor;
+        private IOrientationStrategy _orientationStrategy;
+        private IRoadPathfinderStrategy _roadPathfinderStrategy;
 
         private RoadGraph _graph;
-        private Transform _controller;
-        private PathCursor _cursor;
-        private IOrientationStrategy _orientationStrategy;
+        private RoadNode _currentRoadNode;
 
         [Inject]
-        public void Construct(RoadGraph graph)
+        public void Construct(RoadGraph graph, IOrientationStrategy orientationStrategy, 
+            IRoadPathfinderStrategy roadPathfinderStrategy, int startPointId)
         {
             _graph = graph;
+            _orientationStrategy = orientationStrategy;
+            _roadPathfinderStrategy = roadPathfinderStrategy;
+            _currentRoadNode = _graph.Nodes[startPointId];
         }
 
-        private void Start()
+        private void Awake()
         {
             _controller = GetComponent<Transform>();
-
-            if (!_graph.TryGetNode(_startFromNodeId, out RoadNode from) ||
-                !_graph.TryGetNode(_startToNodeId, out RoadNode to))
-            {
-                Debug.LogError("Invalid start nodes");
-                enabled = false;
-                return;
-            }
-
-            RoadEdge edge = from.OutgoingEdges.FirstOrDefault(e => e.To == to);
-            if (edge == null)
-            {
-                Debug.LogError("No edge from startFromNodeId to startToNodeId");
-                enabled = false;
-                return;
-            }
-
-            _cursor = new PathCursor(edge);
-            _cursor.JunctionReached += OnJunctionReached;
-
-            _orientationStrategy = new Orientation2DStrategy(_rotationSpeed);
-
-            transform.position = _cursor.Position;
+            transform.position = _currentRoadNode.Position;
+            _orientationStrategy.SetRotationSpeed(_rotationSpeed);
         }
 
         private void Update()
@@ -69,21 +54,45 @@ namespace Internal.Scripts.Road.Follower
             
             _orientationStrategy?.Apply(transform, forward, Time.deltaTime);
         }
-
-        private void OnJunctionReached(RoadNode node)
+        
+        public void GoToNode(int nodeId)
         {
-            IReadOnlyList<RoadEdge> options = node.OutgoingEdges;
+            if (!_graph.TryGetNode(nodeId, out RoadNode to))
+            {
+                Debug.LogError("Invalid end node");
+                return;
+            }
 
-            if (options.Count == 0) return;
-
-            // TODO: заменить на выбор игрока.
-            RoadEdge chosen = options[0];
-            _cursor.SwitchToEdge(chosen);
+            SetupCursor(_currentRoadNode, to);
         }
 
-        public void ChooseEdge(RoadEdge edge)
+        private void SetupCursor(RoadNode from, RoadNode to)
         {
-            _cursor.SwitchToEdge(edge);
+            List<RoadNode> path = _roadPathfinderStrategy.FindPathNodes(_graph, from, to);
+            if (path.Count == 0)
+            {
+                Debug.LogError("No path from startFromNodeId to startToNodeId");
+                return;
+            }
+
+            if (_cursor == null)
+            {
+                _cursor = new RoutePathCursor(path);
+                _cursor.CurrentNodeChanged += CursorOnCurrentNodeChanged;
+                _cursor.Finished += CursorOnFinished;
+            }
+            
+            _cursor = new RoutePathCursor(path);
+        }
+
+        private void CursorOnCurrentNodeChanged(RoadNode currentNode)
+        {
+            _currentRoadNode = currentNode;
+        }
+
+        private void CursorOnFinished()
+        {
+            transform.position = _currentRoadNode.Position;
         }
     }
 }
