@@ -6,9 +6,14 @@ namespace Internal.Scripts.Road.Orientation
     {
         private const float MIN_VECTOR_DEVIATION = 0.0001f;
         
-        private readonly float _rotationSpeed;
+        private float _rotationSpeed;
 
-        public Orientation2DStrategy(float rotationSpeed)
+        public Orientation2DStrategy(float rotationSpeed = 1f)
+        {
+            _rotationSpeed = rotationSpeed;
+        }
+
+        public void SetRotationSpeed(float rotationSpeed)
         {
             _rotationSpeed = rotationSpeed;
         }

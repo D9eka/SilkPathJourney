@@ -5,30 +5,26 @@ namespace Internal.Scripts
 {
     public class Village : MonoBehaviour
     {
-        [SerializeField] private Vector2 _cameraPosition;
-        [SerializeField] private InteractableObject _villageInteractableObject;
-        [SerializeField] private InteractableObject[] _selectVillageInteractableObjects;
-        [SerializeField] private InteractableObject[] _buildings;
-
-        public Vector2 CameraPosition => _cameraPosition;
-        public InteractableObject VillageInteractableObject => _villageInteractableObject;
-        public InteractableObject[] SelectVillageInteractableObjects => _selectVillageInteractableObjects;
-        public InteractableObject[] Buildings => _buildings;
+        [field:SerializeField] public Vector2 CameraPosition { get; private set; }
+        [field:SerializeField] public InteractableObject VillageInteractableObject { get; private set; }
+        [field:SerializeField] public InteractableObject[] SelectVillageInteractableObjects { get; private set; }
+        [field:SerializeField] public InteractableObject[] Buildings { get; private set; }
+        [field:SerializeField] public int RoadNodeIndex { get; private set; }
 
         private void Awake()
         {
-            _villageInteractableObject.SwitchObjectState(false);
+            VillageInteractableObject.SwitchObjectState(false);
         }
 
         public void SwitchInputState(bool state) =>
-            _villageInteractableObject.SwitchObjectState(state);
+            VillageInteractableObject.SwitchObjectState(state);
 
         public void SwitchVillageInteractableObjectsState(bool state)
         {
-            foreach (InteractableObject building in _buildings)
+            foreach (InteractableObject building in Buildings)
                 building.SwitchObjectState(state);
 
-            foreach (InteractableObject selectVillage in _selectVillageInteractableObjects)
+            foreach (InteractableObject selectVillage in SelectVillageInteractableObjects)
                 selectVillage.SwitchObjectState(state);
         }
     }

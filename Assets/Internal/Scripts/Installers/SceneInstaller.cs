@@ -1,7 +1,10 @@
 using Internal.Scripts.Input;
-using Internal.Scripts.InteractableObjects;
+using Internal.Scripts.Road.Follower;
 using Internal.Scripts.Road.Generator;
 using Internal.Scripts.Road.Graph;
+using Internal.Scripts.Road.Orientation;
+using Internal.Scripts.Road.Pathfinder;
+using Internal.Scripts.Road.Paths;
 using Plugins.Zenject.Source.Install;
 using UnityEngine;
 
@@ -10,6 +13,7 @@ namespace Internal.Scripts.Installers
     public class SceneInstaller : MonoInstaller
     {
         [SerializeField] private UnityEngine.Camera _mainCamera;
+        [SerializeField] private RoadFollowerView _roadFollowerView;
         [Space] 
         [SerializeField] private Village[] _villages;
         [SerializeField] private Village _currentVillage;
@@ -22,6 +26,22 @@ namespace Internal.Scripts.Installers
             Container.Bind<UnityEngine.Camera>().FromInstance(_mainCamera)
                 .AsSingle()
                 .NonLazy();
+            
+            Container.BindInterfacesTo<DijkstraRoadPathfinderStrategy>()
+                .AsSingle();
+
+            Container.BindInterfacesTo<Orientation2DStrategy>()
+                .AsSingle()
+                .WhenInjectedInto<RoadFollowerView>();
+            
+            Container.Bind<int>()
+                .FromInstance(_currentVillage.RoadNodeIndex)
+                .AsSingle()
+                .WhenInjectedInto<RoadFollowerView>();
+
+            Container.Bind<RoadFollowerView>()
+                .FromInstance(_roadFollowerView)
+                .AsSingle();
         
             Container.BindInterfacesAndSelfTo<InputManager>()
                 .AsSingle()
@@ -42,7 +62,8 @@ namespace Internal.Scripts.Installers
             
             RoadGraphGenerator graphGenerator = new RoadGraphGenerator();
             RoadGraph roadGraph = graphGenerator.BuildGraph(_nodes, _edges);
-            Container.BindInstance(roadGraph).AsSingle();
+            Container.BindInstance(roadGraph)
+                .AsSingle();
         }
     }
 }
