@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Internal.Scripts.Road.Paths
+namespace Internal.Scripts.Road.Path
 {
     public interface ICurvePath
     {
