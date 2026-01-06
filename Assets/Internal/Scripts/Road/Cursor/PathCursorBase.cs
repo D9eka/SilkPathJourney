@@ -2,7 +2,7 @@ using System;
 using Internal.Scripts.Road.Graph;
 using UnityEngine;
 
-namespace Internal.Scripts.Road.Paths
+namespace Internal.Scripts.Road.Cursor
 {
     public abstract class PathCursorBase
     {

@@ -1,4 +1,4 @@
-using Internal.Scripts.Road.Paths;
+using Internal.Scripts.Road.Path;
 
 namespace Internal.Scripts.Road.Graph
 {

@@ -1,7 +1,7 @@
 using System;
 using Internal.Scripts.Road.Graph;
 
-namespace Internal.Scripts.Road.Paths
+namespace Internal.Scripts.Road.Cursor
 {
     public sealed class FreePathCursor : PathCursorBase
     {

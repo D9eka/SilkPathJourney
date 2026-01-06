@@ -1,8 +1,7 @@
 using System.Collections.Generic;
 using Internal.Scripts.Road.Graph;
-using Internal.Scripts.Road.Pathfinder;
 
-namespace Internal.Scripts.Road.Paths
+namespace Internal.Scripts.Road.Pathfinder
 {
     public class DijkstraRoadPathfinderStrategy : IRoadPathfinderStrategy
     {

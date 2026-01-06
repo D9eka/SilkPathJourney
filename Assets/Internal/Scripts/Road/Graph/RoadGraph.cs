@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Internal.Scripts.Road.Paths;
+using Internal.Scripts.Road.Path;
 using UnityEngine;
 
 namespace Internal.Scripts.Road.Graph

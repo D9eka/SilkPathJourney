@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Internal.Scripts.Road.Graph;
 
-namespace Internal.Scripts.Road.Paths
+namespace Internal.Scripts.Road.Cursor
 {
     public sealed class RoutePathCursor : PathCursorBase
     {

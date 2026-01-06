@@ -1,4 +1,6 @@
+using System;
 using Internal.Scripts.InteractableObjects;
+using Internal.Scripts.World.Camera;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -6,17 +8,19 @@ using Zenject;
 
 namespace Internal.Scripts.Input
 {
-    public class InputManager : IInitializable, ITickable, System.IDisposable
+    public class InputManager : IInitializable, ITickable, IDisposable
     {
         private readonly UnityEngine.Camera _mainCamera;
+        private readonly ICameraRig _cameraRig;
         private PlayerInputActions _inputActions;
 
         private InteractableObject _currentHover;
 
         [Inject]
-        public InputManager(UnityEngine.Camera mainCamera)
+        public InputManager(UnityEngine.Camera mainCamera, ICameraRig cameraRig)
         {
             _mainCamera = mainCamera;
+            _cameraRig = cameraRig;
         }
 
         public void Initialize()
@@ -39,11 +43,13 @@ namespace Internal.Scripts.Input
         {
             _inputActions.Enable();
             _inputActions.Player.Click.performed += OnClick;
+            _inputActions.Player.ZoomCamera.performed += OnZoomCamera;
         }
 
         private void DisableInput()
         {
             _inputActions.Player.Click.performed -= OnClick;
+            _inputActions.Player.ZoomCamera.performed -= OnZoomCamera;
             _inputActions.Disable();
         }
 
@@ -83,6 +89,15 @@ namespace Internal.Scripts.Input
             {
                 view.TriggerClick();
             }
+        }
+        
+        private void OnZoomCamera(InputAction.CallbackContext obj)
+        {
+            if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+                return;
+            
+            float value = obj.ReadValue<float>();
+            _cameraRig.ChangeSize(value);
         }
     }
 }
