@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using Internal.Scripts.Camera;
 using Internal.Scripts.InteractableObjects;
-using Internal.Scripts.Road.Follower;
 using UnityEngine;
 using Zenject;
 
@@ -11,7 +10,6 @@ namespace Internal.Scripts
     public class VillageNavigator : IInitializable
     {
         private readonly CameraController _cameraController;
-        private readonly RoadFollowerView _roadFollowerView;
         private readonly Village[] _villages;
         private Village _currentVillage;
         private bool _isVillageSelectionInProgress;
@@ -19,12 +17,10 @@ namespace Internal.Scripts
         [Inject]
         public VillageNavigator(
             CameraController cameraController,
-            RoadFollowerView roadFollowerView,
             Village[] villages,
             [Inject(Id = "CurrentVillage")] Village currentVillage)
         {
             _cameraController = cameraController;
-            _roadFollowerView = roadFollowerView;
             _villages = villages;
             _currentVillage = currentVillage;
         }
@@ -109,8 +105,6 @@ namespace Internal.Scripts
             _cameraController.FocusOnObjects(new[] { _currentVillage.transform }, () =>
             {
                 _currentVillage = targetVillage;
-                _roadFollowerView.GoToNode(targetVillage.RoadNodeIndex);
-                _cameraController.FocusOnRoadFollower(_roadFollowerView);
             });
         }
 

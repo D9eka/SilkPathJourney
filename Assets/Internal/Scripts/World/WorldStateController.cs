@@ -41,7 +41,7 @@ namespace Internal.Scripts.World
 
         private WorldViewMode GetViewMode(float cameraSize)
         {
-            foreach (var viewMode in _viewModesData.Values)
+            foreach (WorldStateData viewMode in _viewModesData.Values)
             {
                 if (cameraSize >= viewMode.StartCameraSize && cameraSize < viewMode.EndCameraSize)
                 {

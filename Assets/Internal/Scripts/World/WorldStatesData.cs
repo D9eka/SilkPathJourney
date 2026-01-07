@@ -13,7 +13,7 @@ namespace Internal.Scripts.World
         private Dictionary<WorldViewMode, WorldStateData> GetViewModesData()
         {
             Dictionary<WorldViewMode, WorldStateData> viewModes = new Dictionary<WorldViewMode, WorldStateData>();
-            foreach (var data in _data)
+            foreach (WorldStateData data in _data)
             {
                 viewModes[data.ViewMode] = data;
             }
