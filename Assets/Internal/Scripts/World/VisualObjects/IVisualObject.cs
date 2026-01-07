@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Internal.Scripts.World.State;
 
 namespace Internal.Scripts.World.VisualObjects
 {

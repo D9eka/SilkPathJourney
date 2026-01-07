@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca5c69f5701baa44f8bbd84e73005dc1, type: 3}
+  m_Name: NpcSimulationSettings
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Npc.Lifecycle.NpcSimulationSettings
+  AgentCount: 5
+  SpeedRangeMetersPerSecond: {x: 2, y: 6}
+  Prefabs:
+  - {fileID: 8897641114554421926, guid: 904d5cb54204b5d499b842fc3570ca7d, type: 3}
+  - {fileID: 5922632107340199928, guid: 499a2baab1fd5ae469b56fb021879081, type: 3}
+  - {fileID: 1363400542440904500, guid: 34d878576f3daea45bf5107d74c8e894, type: 3}
+  - {fileID: 2975788172259910899, guid: 4211e40d99144bf40b67f74b7f1b3abe, type: 3}
+  AvailableColors:
+  - {r: 0, g: 0, b: 0, a: 1}
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 0, g: 0, b: 1, a: 1}
+  - {r: 1, g: 0, b: 0, a: 1}
