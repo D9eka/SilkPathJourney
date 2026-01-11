@@ -117,6 +117,11 @@ namespace Internal.Scripts.Road.Path
                 tLocal = -tLocal;
 
             Vector3 rightLocal = sampler.GetRightLocal(distanceAlongPolyline);
+            if (!segment.IsForward)
+            {
+                rightLocal = -rightLocal;
+            }
+            
             float laneOffset = RoadLaneUtility.ComputeLaneOffsetMeters(data.Data, _lane, _lateralOffset);
             pLocal += rightLocal * laneOffset;
 
