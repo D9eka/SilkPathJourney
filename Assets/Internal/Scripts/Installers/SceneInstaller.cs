@@ -52,6 +52,8 @@ namespace Internal.Scripts.Installers
                 .AsSingle()
                 .NonLazy();
 
+            Container.BindInterfacesTo<CameraZoomer>().AsSingle().WithArguments(_cameraZoomerData);
+            Container.BindInterfacesTo<CameraMover>().AsSingle();
         }
 
         public void InstallWorld()
