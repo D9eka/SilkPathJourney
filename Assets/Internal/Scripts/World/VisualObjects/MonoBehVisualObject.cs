@@ -4,7 +4,7 @@ using Internal.Scripts.World.State;
 namespace Internal.Scripts.World.VisualObjects
 {
     [DisallowMultipleComponent]
-    public class MonoBehVisualObject : MonoBehaviour
+    public class MonoBehVisualObject : MonoBehaviour, IVisualObject
     {
         [field: SerializeField] public WorldDetailLevel ViewMode { get; private set; } = WorldDetailLevel.Both;
 

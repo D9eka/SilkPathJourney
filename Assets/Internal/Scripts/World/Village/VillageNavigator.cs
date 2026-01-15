@@ -5,7 +5,7 @@ using Internal.Scripts.InteractableObjects;
 using UnityEngine;
 using Zenject;
 
-namespace Internal.Scripts
+namespace Internal.Scripts.World.Village
 {
     public class VillageNavigator : IInitializable
     {

@@ -1,7 +1,7 @@
 using Internal.Scripts.InteractableObjects;
 using UnityEngine;
 
-namespace Internal.Scripts
+namespace Internal.Scripts.World.Village
 {
     public class Village : MonoBehaviour
     {
