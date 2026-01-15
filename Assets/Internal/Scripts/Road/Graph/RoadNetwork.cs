@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Internal.Scripts.Road.Components;
+using Internal.Scripts.Road.Core;
 using Internal.Scripts.Road.Nodes;
 using Internal.Scripts.Road.Path;
 using Internal.Scripts.World.Roads;

@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Internal.Scripts.Road.Components;
+using Internal.Scripts.Road.Core;
 
 namespace Internal.Scripts.Road.Path
 {

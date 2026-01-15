@@ -4,7 +4,7 @@ using UnityEngine;
 using Zenject;
 using Internal.Scripts.Road;
 using Internal.Scripts.Npc.Core;
-using Internal.Scripts.Road.Components;
+using Internal.Scripts.Road.Core;
 using Internal.Scripts.Road.Nodes;
 
 namespace Internal.Scripts.Npc.Lifecycle

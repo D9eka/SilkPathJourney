@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Internal.Scripts.Input;
+using Internal.Scripts.Road.Path;
 using Internal.Scripts.World.Camera;
 using Internal.Scripts.World.VisualObjects;
 using Plugins.Zenject.Source.Install;
@@ -30,6 +31,8 @@ namespace Internal.Scripts.World.Installers
                 .AsSingle()
                 .WithArguments(_camera)
                 .NonLazy();
+            
+            Container.Bind<RoadPoseSampler>().AsSingle();
         }
     }
 }

@@ -3,7 +3,7 @@ using Internal.Scripts.World.Roads;
 using UnityEditor;
 using UnityEngine;
 
-namespace Internal.Scripts.Road.Components
+namespace Internal.Scripts.Road.Core
 {
     public sealed class RoadRuntime : MonoBehaviour
     {
