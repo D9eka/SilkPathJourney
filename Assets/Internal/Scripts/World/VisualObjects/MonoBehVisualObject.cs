@@ -1,21 +1,16 @@
-using System.Collections.Generic;
 using UnityEngine;
 using Internal.Scripts.World.State;
 
 namespace Internal.Scripts.World.VisualObjects
 {
-    public class MonoBehVisualObject : MonoBehaviour, IVisualObject
+    [DisallowMultipleComponent]
+    public class MonoBehVisualObject : MonoBehaviour
     {
-        [field: SerializeField] public List<WorldDetailLevel> ViewMode { get; private set; }
-        
-        public void Show()
-        {
-            gameObject.SetActive(true);
-        }
+        [field: SerializeField] public WorldDetailLevel ViewMode { get; private set; } = WorldDetailLevel.Both;
 
-        public void Hide()
-        {
-            gameObject.SetActive(false);
-        }
+        public void Show() => gameObject.SetActive(true);
+        public void Hide() => gameObject.SetActive(false);
+        
+        public void EditorSetViewMode(WorldDetailLevel mode) => ViewMode = mode;
     }
 }
