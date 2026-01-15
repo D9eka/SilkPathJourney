@@ -517,7 +517,6 @@ GameObject:
   m_Component:
   - component: {fileID: 935085559}
   - component: {fileID: 935085560}
-  - component: {fileID: 935085558}
   - component: {fileID: 935085561}
   m_Layer: 0
   m_Name: GameObject
@@ -526,21 +525,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &935085558
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 935085557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4aaf6ab200b747c09071465d087568b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.World.WorldInstaller
-  _camera: {fileID: 1362266847}
-  _worldStatesData: {fileID: 11400000, guid: 34261bb662f36cd458d5b81be3923ba5, type: 2}
-  _visualObjects: []
 --- !u!4 &935085559
 Transform:
   m_ObjectHideFlags: 0
@@ -570,7 +554,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Zenject::Plugins.Zenject.Source.Install.Contexts.SceneContext
   _scriptableObjectInstallers: []
   _monoInstallers:
-  - {fileID: 935085558}
   - {fileID: 935085561}
   _installerPrefabs: []
   _autoRun: 1
@@ -598,10 +581,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 935085557}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4a6d162e15d99c4dac440fff4f633d2, type: 3}
+  m_Script: {fileID: 11500000, guid: 87189dff7740eea49a0cac685766f8fc, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Npc.Installers.NpcInstaller
-  _roadRuntimes: []
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Installers.SceneInstaller
+  _mainCamera: {fileID: 1362266847}
+  _cameraZoomerData: {fileID: 11400000, guid: 8e7e949b26ae37947884f3b8193155ac, type: 2}
+  _worldStatesData: {fileID: 11400000, guid: 34261bb662f36cd458d5b81be3923ba5, type: 2}
+  _villages: []
+  _currentVillage: {fileID: 0}
   _spawns: []
   _simulationSettings: {fileID: 11400000, guid: 7cc4547f4ffaef74e9c15f5e09b93473, type: 2}
 --- !u!1 &1200377424 stripped
@@ -690,8 +677,8 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
-  orthographic: 1
+  field of view: 26.991467
+  orthographic: 0
   orthographic size: 18.65
   m_Depth: -1
   m_CullingMask:
@@ -716,13 +703,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1362266845}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.00019316905, y: 0.7631582, z: -0.6462116, w: -0.00022826203}
+  m_LocalRotation: {x: 0, y: 0.8660254, z: -0.5, w: 0}
   m_LocalPosition: {x: -93.67379, y: 255.91072, z: 134.23843}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 60, y: 180, z: 0}
 --- !u!1 &1438965070
 GameObject:
   m_ObjectHideFlags: 0

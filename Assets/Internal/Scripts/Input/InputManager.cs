@@ -1,6 +1,5 @@
 using System;
 using Internal.Scripts.InteractableObjects;
-using Internal.Scripts.World.Camera;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -10,17 +9,21 @@ namespace Internal.Scripts.Input
 {
     public class InputManager : IInitializable, ITickable, IDisposable
     {
+        private static readonly float CAMERA_SIZE_MODIFIER = -1f;
+        private static readonly Vector2 CAMERA_MOVEMENT_MODIFIER = new Vector2(-1f, -1f);
+
+        public Action<float> OnChangeCameraSize;
+        public Action<Vector2> OnChangeCameraPosition;
+        
         private readonly UnityEngine.Camera _mainCamera;
-        private readonly ICameraRig _cameraRig;
         private PlayerInputActions _inputActions;
 
         private InteractableObject _currentHover;
 
         [Inject]
-        public InputManager(UnityEngine.Camera mainCamera, ICameraRig cameraRig)
+        public InputManager(UnityEngine.Camera mainCamera)
         {
             _mainCamera = mainCamera;
-            _cameraRig = cameraRig;
         }
 
         public void Initialize()
@@ -44,6 +47,9 @@ namespace Internal.Scripts.Input
             _inputActions.Enable();
             _inputActions.Player.Click.performed += OnClick;
             _inputActions.Player.ZoomCamera.performed += OnZoomCamera;
+            _inputActions.Player.MoveCamera.started += OnMoveCamera;
+            _inputActions.Player.MoveCamera.performed += OnMoveCamera;
+            _inputActions.Player.MoveCamera.canceled += OnMoveCamera;
         }
 
         private void DisableInput()
@@ -97,7 +103,16 @@ namespace Internal.Scripts.Input
                 return;
             
             float value = obj.ReadValue<float>();
-            _cameraRig.ChangeSize(value);
+            OnChangeCameraSize?.Invoke(value * CAMERA_SIZE_MODIFIER);
+        }
+        
+        private void OnMoveCamera(InputAction.CallbackContext obj)
+        {
+            if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+                return;
+            
+            Vector2 value = obj.ReadValue<Vector2>();
+            OnChangeCameraPosition?.Invoke(new Vector2(value.x, value.y) * CAMERA_MOVEMENT_MODIFIER);
         }
     }
 }
