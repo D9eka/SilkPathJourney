@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Internal.Scripts.World.Camera;
+using Internal.Scripts.Camera.Zoom;
 using Zenject;
 
 namespace Internal.Scripts.World.State
@@ -10,7 +10,7 @@ namespace Internal.Scripts.World.State
         public Action<WorldViewMode> OnStateChange;
         
         private readonly Dictionary<WorldViewMode, WorldStateData> _viewModesData;
-        private readonly ICameraRig _cameraRig;
+        private readonly ICameraZoomer _cameraZoomer;
         
         private WorldViewMode _currentViewMode = WorldViewMode.CityIso;
 
@@ -28,15 +28,15 @@ namespace Internal.Scripts.World.State
             
         }
 
-        public WorldStateController(Dictionary<WorldViewMode, WorldStateData> viewModesData, ICameraRig cameraRig)
+        public WorldStateController(Dictionary<WorldViewMode, WorldStateData> viewModesData, ICameraZoomer cameraZoomer)
         {
             _viewModesData = viewModesData;
-            _cameraRig = cameraRig;
+            _cameraZoomer = cameraZoomer;
         }
 
         public void FixedTick()
         {
-            CurrentViewMode = GetViewMode(_cameraRig.Size);
+            CurrentViewMode = GetViewMode(_cameraZoomer.Size);
         }
 
         private WorldViewMode GetViewMode(float cameraSize)

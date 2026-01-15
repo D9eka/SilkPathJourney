@@ -1,5 +1,4 @@
 using System;
-using Internal.Scripts.Road;
 using Internal.Scripts.Road.Core;
 
 namespace Internal.Scripts.Npc.Core

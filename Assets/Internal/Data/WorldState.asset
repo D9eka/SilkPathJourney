@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.World.WorldStatesData
   _data:
   - <ViewMode>k__BackingField: 2
-    <DetailLevel>k__BackingField: 2
-    <StartCameraSize>k__BackingField: 70
-    <EndCameraSize>k__BackingField: 100
+    <DetailLevel>k__BackingField: 1
+    <StartCameraSize>k__BackingField: 30
+    <EndCameraSize>k__BackingField: 1e+11
   - <ViewMode>k__BackingField: 1
     <DetailLevel>k__BackingField: 1
-    <StartCameraSize>k__BackingField: 35
-    <EndCameraSize>k__BackingField: 70
+    <StartCameraSize>k__BackingField: 20
+    <EndCameraSize>k__BackingField: 30
   - <ViewMode>k__BackingField: 0
     <DetailLevel>k__BackingField: 0
     <StartCameraSize>k__BackingField: 0
-    <EndCameraSize>k__BackingField: 35
+    <EndCameraSize>k__BackingField: 20
