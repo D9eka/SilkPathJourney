@@ -22,6 +22,7 @@ namespace Internal.Scripts.World.Visual
         public void Initialize()
         {
             _worldStateController.OnStateChange += OnStateChange;
+            OnStateChange(_worldStateController.CurrentViewMode);
         }
 
         public void Dispose()
@@ -34,7 +35,7 @@ namespace Internal.Scripts.World.Visual
             WorldDetailLevel worldDetailLevel = GetWorldDetailLevel(viewMode);
             foreach (IVisualObject visualObject in _visualObjects)
             {
-                if (visualObject.ViewMode.Any(detailLevel => detailLevel == worldDetailLevel))
+                if (visualObject.ViewMode == worldDetailLevel || visualObject.ViewMode == WorldDetailLevel.Both)
                 {
                     visualObject.Show();
                 }
@@ -49,9 +50,9 @@ namespace Internal.Scripts.World.Visual
         {
             return viewMode switch
             {
-                WorldViewMode.CityIso => WorldDetailLevel.Full,
+                WorldViewMode.CityIso => WorldDetailLevel.Detailed,
                 WorldViewMode.RouteMap => WorldDetailLevel.Simplified,
-                WorldViewMode.Artistic => WorldDetailLevel.Symbolic,
+                WorldViewMode.Artistic => WorldDetailLevel.Simplified,
                 _ => throw new NotImplementedException()
             };
         }

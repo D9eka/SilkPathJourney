@@ -2,8 +2,8 @@ namespace Internal.Scripts.World.State
 {
     public enum WorldDetailLevel
     {
-        Full,
+        Detailed,
         Simplified,
-        Symbolic
+        Both  
     }
 }
