@@ -1,8 +1,9 @@
+using Internal.Scripts.Road.Core;
 using Internal.Scripts.Road.Path;
-using Internal.Scripts.World.Roads;
 using UnityEngine;
+using Zenject;
 
-namespace Internal.Scripts.Road.Components
+namespace Internal.Scripts.Player.Movement
 {
     public class RoadTraveler : MonoBehaviour
     {
@@ -23,6 +24,8 @@ namespace Internal.Scripts.Road.Components
         [SerializeField] private float _distanceMeters = 0f;
 
         private RoadPolylineSampler _sampler;
+        
+        [Inject] private RoadPoseSampler _poseSampler;
 
         private void OnEnable() => RebuildSampler();
         private void Start()
@@ -72,52 +75,20 @@ namespace Internal.Scripts.Road.Components
 
         private void ApplyPose(float dist)
         {
-            var data = _roadRuntime.Data;
-            Transform root = _roadRuntime.WorldRoot;
+            RoadPose pose = _poseSampler.Sample(
+                _sampler,
+                dist,
+                _roadRuntime.WorldRoot,
+                _roadRuntime.transform,
+                _roadRuntime.Data,
+                _lane,
+                _lateralOffsetMeters,
+                isForward: true
+            );
 
-            Vector3 pLocal = _sampler.GetPositionLocal(dist);
-            Vector3 tLocal = _sampler.GetTangentLocal(dist);
-            Vector3 rightLocal = _sampler.GetRightLocal(dist);
-
-            float laneOffset = ComputeLaneOffsetMeters(data, _lane) + _lateralOffsetMeters;
-            pLocal += rightLocal * laneOffset;
-
-            if (root != null)
-            {
-                transform.position = root.TransformPoint(pLocal);
-
-                if (_alignRotationToRoad)
-                {
-                    Vector3 fwdWorld = root.TransformDirection(tLocal).normalized;
-                    if (fwdWorld.sqrMagnitude > 1e-8f)
-                        transform.rotation = Quaternion.LookRotation(fwdWorld, Vector3.up);
-                }
-            }
-            else
-            {
-                // fallback (нежелательно, но пусть будет)
-                transform.position = pLocal;
-
-                if (_alignRotationToRoad)
-                {
-                    Vector3 fwdWorld = tLocal.normalized;
-                    if (fwdWorld.sqrMagnitude > 1e-8f)
-                        transform.rotation = Quaternion.LookRotation(fwdWorld, Vector3.up);
-                }
-            }
-        }
-
-        private static float ComputeLaneOffsetMeters(RoadData data, RoadLane lane)
-        {
-            if (data == null) return 0f;
-
-            int n = Mathf.Max(1, data.LaneCount);
-            float w = Mathf.Max(0.01f, data.LaneWidth);
-
-            if (lane == RoadLane.Center || n == 1)
-                return 0f;
-
-            return lane == RoadLane.Right ? (w * 0.5f) : -(w * 0.5f);
+            transform.position = pose.Position;
+            if (_alignRotationToRoad)
+                transform.rotation = Quaternion.LookRotation(pose.Forward, Vector3.up);
         }
     }
 }

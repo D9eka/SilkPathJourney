@@ -1,4 +1,4 @@
-namespace Internal.Scripts.Road.Components
+namespace Internal.Scripts.Road.Core
 {
     public enum RoadLane
     {

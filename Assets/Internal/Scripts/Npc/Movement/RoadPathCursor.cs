@@ -1,13 +1,15 @@
-using Internal.Scripts.Road.Components;
+using Internal.Scripts.Road.Core;
 using Internal.Scripts.Road.Graph;
+using Internal.Scripts.Road.Path;
 using UnityEngine;
 
-namespace Internal.Scripts.Road.Path
+namespace Internal.Scripts.Npc.Movement
 {
     public sealed class RoadPathCursor
     {
         private readonly IRoadNetwork _network;
         private readonly RoadSamplerCache _samplerCache;
+        private readonly RoadPoseSampler _poseSampler;
 
         private RoadPath _path = RoadPath.Empty;
         private RoadLane _lane;
@@ -18,10 +20,11 @@ namespace Internal.Scripts.Road.Path
         private RoadPose _currentPose;
         private bool _hasPath;
 
-        public RoadPathCursor(IRoadNetwork network, RoadSamplerCache samplerCache)
+        public RoadPathCursor(IRoadNetwork network, RoadSamplerCache samplerCache, RoadPoseSampler poseSampler)
         {
             _network = network;
             _samplerCache = samplerCache;
+            _poseSampler = poseSampler;
         }
 
         public bool IsEmpty => !_hasPath;
@@ -111,32 +114,16 @@ namespace Internal.Scripts.Road.Path
                 ? clampedDistance
                 : data.LengthMeters - clampedDistance;
 
-            Vector3 pLocal = sampler.GetPositionLocal(distanceAlongPolyline);
-            Vector3 tLocal = sampler.GetTangentLocal(distanceAlongPolyline);
-            if (!segment.IsForward)
-                tLocal = -tLocal;
-
-            Vector3 rightLocal = sampler.GetRightLocal(distanceAlongPolyline);
-            if (!segment.IsForward)
-            {
-                rightLocal = -rightLocal;
-            }
-            
-            float laneOffset = RoadLaneUtility.ComputeLaneOffsetMeters(data.Data, _lane, _lateralOffset);
-            pLocal += rightLocal * laneOffset;
-
-            Transform worldRoot = data.Runtime.WorldRoot;
-
-            Vector3 worldPos = worldRoot != null
-                ? worldRoot.TransformPoint(pLocal)
-                : data.Runtime.transform.TransformPoint(pLocal);
-
-            Vector3 worldFwdLocal = worldRoot != null
-                ? worldRoot.TransformDirection(tLocal)
-                : data.Runtime.transform.TransformDirection(tLocal);
-
-            Vector3 forward = worldFwdLocal.sqrMagnitude > 1e-6f ? worldFwdLocal.normalized : Vector3.forward;
-            return new RoadPose(worldPos, forward);
+            return _poseSampler.Sample(
+                sampler,
+                distanceAlongPolyline,
+                data.Runtime.WorldRoot,
+                data.Runtime.transform,
+                data.Data,
+                _lane,
+                _lateralOffset,
+                isForward: segment.IsForward
+            );
         }
     }
 }

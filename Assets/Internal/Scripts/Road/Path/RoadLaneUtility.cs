@@ -1,4 +1,4 @@
-using Internal.Scripts.Road.Components;
+using Internal.Scripts.Road.Core;
 using Internal.Scripts.World.Roads;
 
 namespace Internal.Scripts.Road.Path

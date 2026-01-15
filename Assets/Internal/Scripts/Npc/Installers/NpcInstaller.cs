@@ -4,7 +4,7 @@ using Plugins.Zenject.Source.Install;
 using UnityEngine;
 using Internal.Scripts.Npc.Core;
 using Internal.Scripts.Npc.Lifecycle;
-using Internal.Scripts.Road.Components;
+using Internal.Scripts.Road.Core;
 using Internal.Scripts.Road.Graph;
 using Internal.Scripts.Road.Nodes;
 using Internal.Scripts.Road.Path;

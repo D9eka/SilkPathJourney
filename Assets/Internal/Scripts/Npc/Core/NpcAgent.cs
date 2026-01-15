@@ -1,4 +1,5 @@
 using System;
+using Internal.Scripts.Npc.Movement;
 using Internal.Scripts.Road.Nodes;
 using Internal.Scripts.Road.Path;
 using UnityEngine;
