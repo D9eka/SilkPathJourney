@@ -36,10 +36,10 @@ namespace Internal.Scripts.Road.Path
                 return RoadPath.Empty;
             }
 
-            var dist = new Dictionary<string, float> { [startNodeId] = 0f };
-            var prev = new Dictionary<string, RoadGraphEdge>();
-            var open = new List<PathNode> { new(startNodeId, 0f) };
-            var closed = new HashSet<string>();
+            Dictionary<string, float> dist = new Dictionary<string, float> { [startNodeId] = 0f };
+            Dictionary<string, RoadGraphEdge> prev = new Dictionary<string, RoadGraphEdge>();
+            List<PathNode> open = new List<PathNode> { new PathNode(startNodeId, 0f) };
+            HashSet<string> closed = new HashSet<string>();
 
             while (open.Count > 0)
             {
@@ -76,7 +76,7 @@ namespace Internal.Scripts.Road.Path
 
         private RoadPath BuildRoadPath(List<RoadGraphEdge> edgePath)
         {
-            var segments = new List<RoadPathSegment>(edgePath.Count);
+            List<RoadPathSegment> segments = new List<RoadPathSegment>(edgePath.Count);
             float totalLength = 0f;
 
             foreach (RoadGraphEdge edge in edgePath)
@@ -93,7 +93,7 @@ namespace Internal.Scripts.Road.Path
 
         private static List<RoadGraphEdge> Reconstruct(Dictionary<string, RoadGraphEdge> prev, string start, string target)
         {
-            var edges = new List<RoadGraphEdge>();
+            List<RoadGraphEdge> edges = new List<RoadGraphEdge>();
             string current = target;
 
             while (current != start && prev.TryGetValue(current, out RoadGraphEdge edge))

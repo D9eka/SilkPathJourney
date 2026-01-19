@@ -3,14 +3,15 @@ using Internal.Scripts.Npc.Movement;
 using Internal.Scripts.Road.Nodes;
 using Internal.Scripts.Road.Path;
 using UnityEngine;
+using Zenject;
 
 namespace Internal.Scripts.Npc.Core
 {
-    public sealed class NpcAgent
+    public sealed class RoadAgent : IInitializable, IDisposable
     {
-        public event Action<NpcAgent> OnArrived;
+        public event Action<RoadAgent> OnArrived;
 
-        private readonly NpcView _view;
+        private readonly RoadAgentView _view;
         private readonly NpcConfig _config;
         private readonly IRoadPathFinder _pathFinder;
         private readonly IRoadNodeLookup _nodeLookup;
@@ -23,7 +24,8 @@ namespace Internal.Scripts.Npc.Core
         public string DestinationNodeId => _destinationNodeId;
         public bool HasPath => !_cursor.IsEmpty && !_cursor.IsComplete;
 
-        public NpcAgent(NpcView view, NpcConfig config, IRoadPathFinder pathFinder, IRoadNodeLookup nodeLookup, RoadPathCursor cursor, string startNodeId)
+        public RoadAgent(RoadAgentView view, NpcConfig config, IRoadPathFinder pathFinder,
+            IRoadNodeLookup nodeLookup, RoadPathCursor cursor, string startNodeId)
         {
             _view = view;
             _config = config ?? new NpcConfig();
@@ -31,8 +33,16 @@ namespace Internal.Scripts.Npc.Core
             _nodeLookup = nodeLookup;
             _cursor = cursor;
             _currentNodeId = startNodeId;
-
-            SnapToNode(_currentNodeId);
+        }
+        
+        public void Initialize()
+        {
+            _cursor.Initialize();
+        }
+        
+        public void Dispose()
+        {
+            _cursor.Dispose();
         }
 
         public void SetDestination(string destinationNodeId)
@@ -69,16 +79,6 @@ namespace Internal.Scripts.Npc.Core
                 _destinationNodeId = null;
                 OnArrived?.Invoke(this);
             }
-        }
-
-        private void SnapToNode(string nodeId)
-        {
-            if (string.IsNullOrWhiteSpace(nodeId))
-                return;
-
-            Vector3? pos = _nodeLookup.GetPosition(nodeId);
-            if (pos.HasValue)
-                _view.SetPose(pos.Value, _view.VisualRoot.forward);
         }
     }
 }

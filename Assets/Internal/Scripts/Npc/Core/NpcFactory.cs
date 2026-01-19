@@ -26,15 +26,15 @@ namespace Internal.Scripts.Npc.Core
             _poseSampler = poseSampler;
         }
 
-        public NpcAgent Create(NpcView view, NpcConfig config, string startNodeId)
+        public RoadAgent Create(NpcView view, NpcConfig config, string startNodeId)
         {
-            var cursor = new RoadPathCursor(_network, _samplerCache, _poseSampler);
-            var agent = new NpcAgent(view, config, _pathFinder, _nodeLookup, cursor, startNodeId);
+            RoadPathCursor cursor = new RoadPathCursor(new SegmentMover(_network, _samplerCache, _poseSampler));
+            RoadAgent agent = new RoadAgent(view, config, _pathFinder, _nodeLookup, cursor, startNodeId);
             _simulation.Register(agent);
             return agent;
         }
 
-        public NpcAgent CreateFromPrefab(NpcView prefab, NpcConfig config, string startNodeId, Color color)
+        public RoadAgent CreateFromPrefab(NpcView prefab, NpcConfig config, string startNodeId, Color color)
         {
             NpcView instance = Object.Instantiate(prefab);
             instance.ApplyColor(color);

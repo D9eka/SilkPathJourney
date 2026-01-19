@@ -16,7 +16,7 @@ namespace Internal.Scripts.Npc.Lifecycle
         private readonly IRoadNodeLookup _nodeLookup;
         private readonly System.Random _random = new();
 
-        private readonly List<NpcAgent> _agents = new();
+        private readonly List<RoadAgent> _agents = new();
         private List<string> _nodeIds;
 
         public NpcLifeSimulator(NpcSimulationSettings settings, NpcFactory factory, IRoadNodeLookup nodeLookup)
@@ -44,7 +44,7 @@ namespace Internal.Scripts.Npc.Lifecycle
 
         public void Dispose()
         {
-            foreach (NpcAgent agent in _agents)
+            foreach (RoadAgent agent in _agents)
             {
                 if (agent != null)
                     agent.OnArrived -= HandleArrival;
@@ -63,7 +63,7 @@ namespace Internal.Scripts.Npc.Lifecycle
             Color color = ChooseColor();
             NpcConfig config = BuildRandomConfig();
 
-            NpcAgent agent = _factory.CreateFromPrefab(prefab, config, start, color);
+            RoadAgent agent = _factory.CreateFromPrefab(prefab, config, start, color);
             agent.OnArrived += HandleArrival;
             agent.SetDestination(target);
             _agents.Add(agent);
@@ -71,7 +71,7 @@ namespace Internal.Scripts.Npc.Lifecycle
             Debug.Log($"[NpcLifeSimulator] Spawned agent '{prefab.name}' color {color} speed {config.SpeedMetersPerSecond:F1} from {start} to {target}");
         }
 
-        private void HandleArrival(NpcAgent agent)
+        private void HandleArrival(RoadAgent agent)
         {
             if (agent == null || _nodeIds.Count < 2)
                 return;
