@@ -50,7 +50,7 @@ namespace Internal.Scripts.Road.Path
                 if (current.NodeId == targetNodeId)
                     break;
 
-                foreach (RoadGraphEdge edge in _network.GetOutgoing(current.NodeId))
+                foreach (RoadGraphEdge edge in _network.GetOutgoingEdges(current.NodeId))
                 {
                     float g = dist[current.NodeId] + edge.Cost;
                     if (dist.TryGetValue(edge.ToNodeId, out float existing) && existing <= g)

@@ -22,7 +22,7 @@ namespace Internal.Scripts.Npc.Core
 
         public string CurrentNodeId => _currentNodeId;
         public string DestinationNodeId => _destinationNodeId;
-        public bool HasPath => !_cursor.IsEmpty && !_cursor.IsComplete;
+        public bool HasPath => !_cursor.IsEmpty;
 
         public RoadAgent(RoadAgentView view, NpcConfig config, IRoadPathFinder pathFinder,
             IRoadNodeLookup nodeLookup, RoadPathCursor cursor, string startNodeId)
@@ -66,19 +66,17 @@ namespace Internal.Scripts.Npc.Core
 
         public void Tick(float deltaTime)
         {
-            if (_cursor.IsEmpty || deltaTime <= 0f)
-                return;
-
-            _cursor.Advance(_config.SpeedMetersPerSecond * deltaTime);
-            RoadPose pose = _cursor.CurrentPose;
-            _view.SetPose(pose.Position, pose.Forward);
-
-            if (_cursor.IsComplete && !string.IsNullOrEmpty(_destinationNodeId))
+            if (_cursor.IsEmpty && !string.IsNullOrEmpty(_destinationNodeId))
             {
                 _currentNodeId = _destinationNodeId;
                 _destinationNodeId = null;
                 OnArrived?.Invoke(this);
+                return;
             }
+            
+            _cursor.Advance(_config.SpeedMetersPerSecond * deltaTime);
+            RoadPose pose = _cursor.CurrentPose;
+            _view.SetPose(pose.Position, pose.Forward);
         }
     }
 }

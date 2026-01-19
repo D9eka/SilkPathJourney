@@ -1,3 +1,4 @@
+using Internal.Scripts.Npc.Core.NextSegmentProvider;
 using Internal.Scripts.Npc.Movement;
 using Internal.Scripts.Road.Graph;
 using Internal.Scripts.Road.Nodes;
@@ -28,7 +29,7 @@ namespace Internal.Scripts.Npc.Core
 
         public RoadAgent Create(NpcView view, NpcConfig config, string startNodeId)
         {
-            RoadPathCursor cursor = new RoadPathCursor(new SegmentMover(_network, _samplerCache, _poseSampler));
+            RoadPathCursor cursor = new RoadPathCursor(new SegmentMover(_network, _samplerCache, _poseSampler), new NpcNextSegmentProvider());
             RoadAgent agent = new RoadAgent(view, config, _pathFinder, _nodeLookup, cursor, startNodeId);
             _simulation.Register(agent);
             return agent;

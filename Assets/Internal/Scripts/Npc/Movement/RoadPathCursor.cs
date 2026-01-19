@@ -1,5 +1,8 @@
 using System;
+using System.Collections.Generic;
+using System.Threading;
 using Internal.Scripts.Npc.Core;
+using Internal.Scripts.Npc.Core.NextSegmentProvider;
 using Internal.Scripts.Road.Core;
 using Internal.Scripts.Road.Path;
 using Zenject;
@@ -9,21 +12,20 @@ namespace Internal.Scripts.Npc.Movement
     public sealed class RoadPathCursor : IInitializable, IDisposable
     {
         private readonly SegmentMover _segmentMover;
+        private readonly INextSegmentProvider _nextSegmentProvider;
 
-        private RoadPath _path = RoadPath.Empty;
         private RoadLane _lane;
         private float _lateralOffset;
 
-        private int _segmentIndex;
         private bool _hasPath;
 
-        public RoadPathCursor(SegmentMover segmentMover)
+        public RoadPathCursor(SegmentMover segmentMover, INextSegmentProvider nextSegmentProvider)
         {
             _segmentMover = segmentMover;
+            _nextSegmentProvider = nextSegmentProvider;
         }
 
         public bool IsEmpty => !_hasPath;
-        public bool IsComplete => !_hasPath || _segmentIndex >= _path.Segments.Count;
         public RoadPose CurrentPose => _segmentMover.CurrentPose;
 
         public void Initialize()
@@ -38,13 +40,15 @@ namespace Internal.Scripts.Npc.Movement
         
         public void SetPath(RoadPath path, RoadLane lane, float lateralOffset)
         {
-            _path = path ?? RoadPath.Empty;
             _lane = lane;
             _lateralOffset = lateralOffset;
-            _segmentIndex = 0;
-            _hasPath = _path.IsValid;
+            _hasPath = path.IsValid;
             
-            _segmentMover.SetSegment(_path.Segments[_segmentIndex], _lane, _lateralOffset);
+            _segmentMover.SetSegment(path.Segments[0], _lane, _lateralOffset);
+            if (_nextSegmentProvider is IPathAware pathAware)
+            {
+                pathAware.SetFullPath(path);
+            }
         }
 
         public void Advance(float deltaMeters)
@@ -52,14 +56,14 @@ namespace Internal.Scripts.Npc.Movement
             _segmentMover.Advance(deltaMeters); 
         }
         
-        private void ChooseNextSegment()
+        private async void ChooseNextSegment(IEnumerable<RoadPathSegment> options)
         {
-            _segmentIndex++;
-            if (_segmentIndex < _path.Segments.Count)
+            try
             {
-                _segmentMover.SetSegment(_path.Segments[_segmentIndex], _lane, _lateralOffset);
+                RoadPathSegment nextSegment = await _nextSegmentProvider.ChooseNextAsync(options);
+                _segmentMover.SetSegment(nextSegment, _lane, _lateralOffset);
             }
-            else
+            catch (OperationCanceledException)
             {
                 _hasPath = false;
             }
