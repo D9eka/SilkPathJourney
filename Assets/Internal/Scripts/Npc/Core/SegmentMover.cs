@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Internal.Scripts.Road.Core;
 using Internal.Scripts.Road.Graph;
 using Internal.Scripts.Road.Path;
@@ -8,7 +9,7 @@ namespace Internal.Scripts.Npc.Core
 {
     public class SegmentMover
     {
-        public event Action OnEndSegment;
+        public event Action<IEnumerable<RoadPathSegment>> OnEndSegment;
         
         private readonly IRoadNetwork _network;
         private readonly RoadSamplerCache _samplerCache;
@@ -58,8 +59,8 @@ namespace Internal.Scripts.Npc.Core
 
                 if (_distanceOnSegment >= _segmentLength - Mathf.Epsilon)
                 {
+                    OnEndSegment?.Invoke(_network.GetOutgoingSegments(_currentSegment.ToNodeId));
                     _currentSegment = null;
-                    OnEndSegment?.Invoke();
                     break;
                 }
             }
