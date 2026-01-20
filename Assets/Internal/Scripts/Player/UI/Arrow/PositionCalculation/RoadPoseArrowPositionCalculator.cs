@@ -6,14 +6,11 @@ using UnityEngine;
 
 namespace Internal.Scripts.Player.UI.Arrow.PositionCalculation
 {
-    /// <summary>
-    /// Вычисляет позицию стрелки на дороге с учетом полосы и бокового смещения
-    /// Использует RoadPose для получения точной позиции на полилинии
-    /// </summary>
     public sealed class RoadPoseArrowPositionCalculator : IArrowPositionCalculator
     {
         private const float ARROW_HEIGHT = 20f;
         private const float ARROW_DISTANCE_OFFSET = 5f;
+        private const float LANE_OFFSET = 2f;
 
         private readonly IRoadNetwork _roadNetwork;
         private readonly RoadSamplerCache _samplerCache;
@@ -24,9 +21,9 @@ namespace Internal.Scripts.Player.UI.Arrow.PositionCalculation
             RoadSamplerCache samplerCache,
             RoadPoseSampler poseSampler)
         {
-            _roadNetwork = roadNetwork ?? throw new ArgumentNullException(nameof(roadNetwork));
-            _samplerCache = samplerCache ?? throw new ArgumentNullException(nameof(samplerCache));
-            _poseSampler = poseSampler ?? throw new ArgumentNullException(nameof(poseSampler));
+            _roadNetwork = roadNetwork;
+            _samplerCache = samplerCache;
+            _poseSampler = poseSampler;
         }
 
         public Vector3 CalculateWorldPosition(RoadPathSegment segment, float distanceAlongSegment, RoadLane lane)
@@ -36,7 +33,6 @@ namespace Internal.Scripts.Player.UI.Arrow.PositionCalculation
                 Debug.LogError($"[ArrowPositionCalculator] Segment not found: {segment.SegmentId}");
                 return Vector3.zero;
             }
-
             if (!_samplerCache.TryGetSampler(segmentData.Runtime, out RoadPolylineSampler sampler))
             {
                 Debug.LogError($"[ArrowPositionCalculator] Sampler not found for road");
@@ -44,6 +40,7 @@ namespace Internal.Scripts.Player.UI.Arrow.PositionCalculation
             }
 
             float distanceAlongPolyline = CalculateDistanceAlongPolyline(segment, segmentData);
+            float lateralOffset = (int)lane * LANE_OFFSET;
             
             RoadPose roadPose = _poseSampler.Sample(
                 sampler,
@@ -52,7 +49,7 @@ namespace Internal.Scripts.Player.UI.Arrow.PositionCalculation
                 segmentData.Runtime.transform,
                 segmentData.Data,
                 lane,
-                0f,
+                lateralOffset,
                 segment.IsForward
             );
 

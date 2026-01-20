@@ -47,6 +47,7 @@ namespace Internal.Scripts.Installers
         [Header("Arrows")]
         [SerializeField] private Transform _arrowsRoot;
         [SerializeField] private ArrowView _arrowPrefab;
+        [SerializeField] private RoadLane _arrowLane = RoadLane.Right;
 
         public override void InstallBindings()
         {
@@ -59,6 +60,7 @@ namespace Internal.Scripts.Installers
             InstallNpc();
             InstallPlayer();
         }
+        
         private void InstallPlayer()
         {
             InstallArrows();
@@ -73,7 +75,6 @@ namespace Internal.Scripts.Installers
             Container.BindInterfacesTo<PlayerInitializer>().AsSingle()
                 .WithArguments("N_Village_01","N_Village_04");
         }
-        
         
         private void InstallArrows()
         {
@@ -91,7 +92,7 @@ namespace Internal.Scripts.Installers
                 .WithArguments(_arrowsRoot, _arrowPrefab);
 
             Container.BindInterfacesTo<RoadPoseArrowsController>()
-                .AsSingle();
+                .AsSingle().WithArguments(_arrowLane);
         }
 
         private void InstallCamera()

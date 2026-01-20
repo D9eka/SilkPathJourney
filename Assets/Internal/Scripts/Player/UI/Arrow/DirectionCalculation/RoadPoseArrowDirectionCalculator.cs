@@ -6,7 +6,7 @@ namespace Internal.Scripts.Player.UI.Arrow.DirectionCalculation
 {
     public sealed class RoadPoseArrowDirectionCalculator : IArrowDirectionCalculator
     {
-        private const float ARROW_DISTANCE_OFFSET = 5f;
+        private const float ARROW_DISTANCE_OFFSET = 10f;
 
         private readonly IRoadNetwork _roadNetwork;
         private readonly RoadSamplerCache _samplerCache;
