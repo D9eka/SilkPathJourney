@@ -1,5 +1,4 @@
 using System;
-using UnityEngine;
 using Zenject;
 using Internal.Scripts.Npc.Core;
 
@@ -26,7 +25,7 @@ namespace Internal.Scripts.Npc.Lifecycle
                 string start = Choose(entry.StartNodeId, entry.View.DefaultStartNodeId);
                 string destination = Choose(entry.DestinationNodeId, entry.View.DefaultDestinationNodeId);
 
-                RoadAgent agent = _factory.Create(entry.View, entry.Config ?? new NpcConfig(), start);
+                RoadAgent agent = _factory.Create(entry.View, entry.Config ?? new RoadAgentConfig(), start);
 
                 if (entry.AutoStart && !string.IsNullOrWhiteSpace(destination))
                     agent.SetDestination(destination);

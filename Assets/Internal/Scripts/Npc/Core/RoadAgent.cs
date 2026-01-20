@@ -1,6 +1,5 @@
 using System;
 using Internal.Scripts.Npc.Movement;
-using Internal.Scripts.Road.Nodes;
 using Internal.Scripts.Road.Path;
 using UnityEngine;
 using Zenject;
@@ -12,9 +11,8 @@ namespace Internal.Scripts.Npc.Core
         public event Action<RoadAgent> OnArrived;
 
         private readonly RoadAgentView _view;
-        private readonly NpcConfig _config;
+        private readonly RoadAgentConfig _config;
         private readonly IRoadPathFinder _pathFinder;
-        private readonly IRoadNodeLookup _nodeLookup;
         private readonly RoadPathCursor _cursor;
 
         private string _currentNodeId;
@@ -24,13 +22,12 @@ namespace Internal.Scripts.Npc.Core
         public string DestinationNodeId => _destinationNodeId;
         public bool HasPath => !_cursor.IsEmpty;
 
-        public RoadAgent(RoadAgentView view, NpcConfig config, IRoadPathFinder pathFinder,
-            IRoadNodeLookup nodeLookup, RoadPathCursor cursor, string startNodeId)
+        public RoadAgent(RoadAgentView view, RoadAgentConfig config, 
+            IRoadPathFinder pathFinder, RoadPathCursor cursor, string startNodeId)
         {
             _view = view;
-            _config = config ?? new NpcConfig();
+            _config = config ?? new RoadAgentConfig();
             _pathFinder = pathFinder;
-            _nodeLookup = nodeLookup;
             _cursor = cursor;
             _currentNodeId = startNodeId;
         }
