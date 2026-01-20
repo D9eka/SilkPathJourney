@@ -1,4 +1,3 @@
-using System;
 using Internal.Scripts.Road.Core;
 using Internal.Scripts.Road.Graph;
 using Internal.Scripts.Road.Path;
@@ -29,7 +28,7 @@ namespace Internal.Scripts.Player.UI.Arrow.PositionCalculation
             _groundSnapper = groundSnapper;
         }
 
-        public Vector3 CalculateWorldPosition(RoadPathSegment segment, float distanceAlongSegment, RoadLane lane)
+        public Vector3 CalculateWorldPosition(RoadPathSegment segment, RoadLane lane)
         {
             if (!_roadNetwork.TryGetSegment(segment.SegmentId, out RoadSegmentData segmentData))
             {
@@ -57,6 +56,11 @@ namespace Internal.Scripts.Player.UI.Arrow.PositionCalculation
             );
             
             return _groundSnapper.SnapToGround(roadPose.Position, GROUND_SNAP_HEIGHT);
+        }
+
+        public Vector3 SnapToGround(Vector3 position)
+        {
+            return _groundSnapper.SnapToGround(position, GROUND_SNAP_HEIGHT);
         }
 
         private float CalculateDistanceAlongPolyline(

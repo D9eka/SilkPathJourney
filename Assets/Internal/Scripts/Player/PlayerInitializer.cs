@@ -1,6 +1,7 @@
 using Internal.Scripts.Npc.Core;
 using Internal.Scripts.Npc.Core.NextSegmentProvider;
 using Internal.Scripts.Npc.Movement;
+using Internal.Scripts.Player.UI.Arrow.JunctionBalancer;
 using Internal.Scripts.Road.Path;
 using UnityEngine;
 using Zenject;
@@ -14,6 +15,7 @@ namespace Internal.Scripts.Player
         private readonly IRoadPathFinder _pathFinder;
         private readonly SegmentMover _segmentMover;
         private readonly INextSegmentProvider _nextSegmentProvider;
+        private readonly IArrowJunctionBalancer _arrowJunctionBalancer;
         private readonly string _startNodeId;
         private readonly string _endNodeId;
         
@@ -21,13 +23,14 @@ namespace Internal.Scripts.Player
 
         public PlayerInitializer(RoadAgentView view, RoadAgentConfig config, IRoadPathFinder pathFinder, 
             SegmentMover segmentMover, INextSegmentProvider nextSegmentProvider, 
-            string startNodeId, string endNodeId)
+            IArrowJunctionBalancer arrowJunctionBalancer, string startNodeId, string endNodeId)
         {
             _view = view;
             _config = config;
             _pathFinder = pathFinder;
             _segmentMover = segmentMover;
             _nextSegmentProvider = nextSegmentProvider;
+            _arrowJunctionBalancer = arrowJunctionBalancer;
             _startNodeId = startNodeId;
             _endNodeId = endNodeId;
         }
@@ -38,6 +41,7 @@ namespace Internal.Scripts.Player
                 new RoadPathCursor(_segmentMover, _nextSegmentProvider), _startNodeId);
             _agent.Initialize();
             _agent.SetDestination(_endNodeId);
+            _arrowJunctionBalancer.Initialize(_agent);
         }
         
         public void Tick()

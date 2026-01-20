@@ -21,6 +21,7 @@ namespace Internal.Scripts.Npc.Core
         public string CurrentNodeId => _currentNodeId;
         public string DestinationNodeId => _destinationNodeId;
         public bool HasPath => !_cursor.IsEmpty;
+        public RoadPose CurrentPose => _cursor.CurrentPose;
 
         public RoadAgent(RoadAgentView view, RoadAgentConfig config, 
             IRoadPathFinder pathFinder, RoadPathCursor cursor, string startNodeId)
