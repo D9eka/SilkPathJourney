@@ -8,22 +8,25 @@ namespace Internal.Scripts.Player.UI.Arrow.PositionCalculation
 {
     public sealed class RoadPoseArrowPositionCalculator : IArrowPositionCalculator
     {
-        private const float ARROW_HEIGHT = 20f;
         private const float ARROW_DISTANCE_OFFSET = 5f;
         private const float LANE_OFFSET = 2f;
+        private const float GROUND_SNAP_HEIGHT = 1.5f;
 
         private readonly IRoadNetwork _roadNetwork;
         private readonly RoadSamplerCache _samplerCache;
         private readonly RoadPoseSampler _poseSampler;
+        private readonly GroundSnapper _groundSnapper;
 
         public RoadPoseArrowPositionCalculator(
             IRoadNetwork roadNetwork,
             RoadSamplerCache samplerCache,
-            RoadPoseSampler poseSampler)
+            RoadPoseSampler poseSampler,
+            GroundSnapper groundSnapper)
         {
             _roadNetwork = roadNetwork;
             _samplerCache = samplerCache;
             _poseSampler = poseSampler;
+            _groundSnapper = groundSnapper;
         }
 
         public Vector3 CalculateWorldPosition(RoadPathSegment segment, float distanceAlongSegment, RoadLane lane)
@@ -52,8 +55,8 @@ namespace Internal.Scripts.Player.UI.Arrow.PositionCalculation
                 lateralOffset,
                 segment.IsForward
             );
-
-            return new Vector3(roadPose.Position.x, ARROW_HEIGHT, roadPose.Position.z);
+            
+            return _groundSnapper.SnapToGround(roadPose.Position, GROUND_SNAP_HEIGHT);
         }
 
         private float CalculateDistanceAlongPolyline(

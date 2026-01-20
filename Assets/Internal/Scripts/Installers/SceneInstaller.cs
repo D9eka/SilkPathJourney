@@ -44,6 +44,7 @@ namespace Internal.Scripts.Installers
         [SerializeField] private Button _startMovementButton;
         [Header("Interactables")]
         [SerializeField] private LayerMask _interactableLayerMask;
+        [SerializeField] private LayerMask _groundLayerMask;
         [Header("Arrows")]
         [SerializeField] private Transform _arrowsRoot;
         [SerializeField] private ArrowView _arrowPrefab;
@@ -78,6 +79,9 @@ namespace Internal.Scripts.Installers
         
         private void InstallArrows()
         {
+            Container.Bind<GroundSnapper>().AsSingle()
+                .WithArguments(_groundLayerMask);
+            
             Container.Bind<IArrowPositionCalculator>()
                 .To<RoadPoseArrowPositionCalculator>()
                 .AsSingle();
