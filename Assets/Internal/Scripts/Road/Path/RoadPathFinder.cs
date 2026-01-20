@@ -15,7 +15,7 @@ namespace Internal.Scripts.Road.Path
             _network = network;
             _nodeLookup = nodeLookup;
         }
-
+        
         public RoadPath FindPath(string startNodeId, string targetNodeId)
         {
             if (string.IsNullOrWhiteSpace(startNodeId) || string.IsNullOrWhiteSpace(targetNodeId))
@@ -24,17 +24,8 @@ namespace Internal.Scripts.Road.Path
             if (startNodeId == targetNodeId)
                 return RoadPath.Empty;
 
-            if (!_network.ContainsNode(startNodeId))
-            {
-                Debug.LogWarning($"[RoadPathFinder] Start node '{startNodeId}' not found.");
+            if (!ValidateNodes(startNodeId, targetNodeId))
                 return RoadPath.Empty;
-            }
-
-            if (!_network.ContainsNode(targetNodeId))
-            {
-                Debug.LogWarning($"[RoadPathFinder] Target node '{targetNodeId}' not found.");
-                return RoadPath.Empty;
-            }
 
             Dictionary<string, float> dist = new Dictionary<string, float> { [startNodeId] = 0f };
             Dictionary<string, RoadGraphEdge> prev = new Dictionary<string, RoadGraphEdge>();
@@ -73,7 +64,7 @@ namespace Internal.Scripts.Road.Path
             List<RoadGraphEdge> edgePath = Reconstruct(prev, startNodeId, targetNodeId);
             return BuildRoadPath(edgePath);
         }
-
+        
         private RoadPath BuildRoadPath(List<RoadGraphEdge> edgePath)
         {
             List<RoadPathSegment> segments = new List<RoadPathSegment>(edgePath.Count);
@@ -85,13 +76,21 @@ namespace Internal.Scripts.Road.Path
                     continue;
 
                 totalLength += segmentData.LengthMeters;
-                segments.Add(new RoadPathSegment(edge.SegmentId, edge.FromNodeId, edge.ToNodeId, segmentData.LengthMeters));
+                segments.Add(new RoadPathSegment(
+                    edge.SegmentId,
+                    edge.FromNodeId,
+                    edge.ToNodeId,
+                    segmentData.LengthMeters
+                ));
             }
 
             return segments.Count == 0 ? RoadPath.Empty : new RoadPath(segments, totalLength);
         }
-
-        private static List<RoadGraphEdge> Reconstruct(Dictionary<string, RoadGraphEdge> prev, string start, string target)
+        
+        private static List<RoadGraphEdge> Reconstruct(
+            Dictionary<string, RoadGraphEdge> prev,
+            string start,
+            string target)
         {
             List<RoadGraphEdge> edges = new List<RoadGraphEdge>();
             string current = target;
@@ -105,7 +104,7 @@ namespace Internal.Scripts.Road.Path
             edges.Reverse();
             return edges;
         }
-
+        
         private float Heuristic(string from, string to)
         {
             Vector3? a = _nodeLookup.GetPosition(from);
@@ -115,11 +114,12 @@ namespace Internal.Scripts.Road.Path
 
             return 0f;
         }
-
+        
         private static PathNode PopMin(List<PathNode> list)
         {
             int minIndex = 0;
             float minCost = list[0].Cost;
+
             for (int i = 1; i < list.Count; i++)
             {
                 if (list[i].Cost < minCost)
@@ -133,7 +133,24 @@ namespace Internal.Scripts.Road.Path
             list.RemoveAt(minIndex);
             return node;
         }
+        
+        private bool ValidateNodes(string startNodeId, string targetNodeId)
+        {
+            if (!_network.ContainsNode(startNodeId))
+            {
+                Debug.LogWarning($"[RoadPathFinder] Start node '{startNodeId}' not found.");
+                return false;
+            }
 
+            if (!_network.ContainsNode(targetNodeId))
+            {
+                Debug.LogWarning($"[RoadPathFinder] Target node '{targetNodeId}' not found.");
+                return false;
+            }
+
+            return true;
+        }
+        
         private readonly struct PathNode
         {
             public string NodeId { get; }
