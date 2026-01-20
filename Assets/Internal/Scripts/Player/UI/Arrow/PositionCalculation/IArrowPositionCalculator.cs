@@ -6,6 +6,7 @@ namespace Internal.Scripts.Player.UI.Arrow.PositionCalculation
 {
     public interface IArrowPositionCalculator
     {
-        Vector3 CalculateWorldPosition(RoadPathSegment segment, float distanceAlongSegment, RoadLane lane);
+        Vector3 CalculateWorldPosition(RoadPathSegment segment, RoadLane lane);
+        Vector3 SnapToGround(Vector3 position);
     }
 }

@@ -11,6 +11,7 @@ using Internal.Scripts.Player.Input;
 using Internal.Scripts.Player.UI.Arrow;
 using Internal.Scripts.Player.UI.Arrow.Controller;
 using Internal.Scripts.Player.UI.Arrow.DirectionCalculation;
+using Internal.Scripts.Player.UI.Arrow.JunctionBalancer;
 using Internal.Scripts.Player.UI.Arrow.Placement;
 using Internal.Scripts.Player.UI.Arrow.PositionCalculation;
 using Internal.Scripts.Road.Core;
@@ -48,7 +49,6 @@ namespace Internal.Scripts.Installers
         [Header("Arrows")]
         [SerializeField] private Transform _arrowsRoot;
         [SerializeField] private ArrowView _arrowPrefab;
-        [SerializeField] private RoadLane _arrowLane = RoadLane.Right;
 
         public override void InstallBindings()
         {
@@ -83,20 +83,19 @@ namespace Internal.Scripts.Installers
                 .WithArguments(_groundLayerMask);
             
             Container.Bind<IArrowPositionCalculator>()
-                .To<RoadPoseArrowPositionCalculator>()
-                .AsSingle();
+                .To<RoadPoseArrowPositionCalculator>().AsSingle();
 
             Container.Bind<IArrowDirectionCalculator>()
-                .To<RoadPoseArrowDirectionCalculator>()
-                .AsSingle();
+                .To<RoadPoseArrowDirectionCalculator>().AsSingle();
+            
+            Container.BindInterfacesTo<ArrowJunctionBalancer>().AsSingle();
 
             Container.Bind<IArrowPlacementService>()
-                .To<ArrowPlacementService>()
-                .AsSingle()
+                .To<ArrowPlacementService>().AsSingle()
                 .WithArguments(_arrowsRoot, _arrowPrefab);
 
             Container.BindInterfacesTo<RoadPoseArrowsController>()
-                .AsSingle().WithArguments(_arrowLane);
+                .AsSingle();
         }
 
         private void InstallCamera()

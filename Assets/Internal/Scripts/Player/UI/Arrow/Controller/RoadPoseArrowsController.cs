@@ -1,8 +1,8 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Internal.Scripts.Player.Path;
 using Internal.Scripts.Player.UI.Arrow.DirectionCalculation;
+using Internal.Scripts.Player.UI.Arrow.JunctionBalancer;
 using Internal.Scripts.Player.UI.Arrow.Placement;
 using Internal.Scripts.Player.UI.Arrow.PositionCalculation;
 using Internal.Scripts.Road.Core;
@@ -11,93 +11,84 @@ using UnityEngine;
 
 namespace Internal.Scripts.Player.UI.Arrow.Controller
 {
-    
     public sealed class RoadPoseArrowsController : IArrowsController
     {
         private readonly IArrowPositionCalculator _positionCalculator;
         private readonly IArrowDirectionCalculator _directionCalculator;
         private readonly IArrowPlacementService _placementService;
-        private readonly RoadLane _arrowLane;
+        private readonly IArrowJunctionBalancer _balancer;
 
         public RoadPoseArrowsController(
             IArrowPositionCalculator positionCalculator,
             IArrowDirectionCalculator directionCalculator,
             IArrowPlacementService placementService,
-            RoadLane arrowLane)
+            IArrowJunctionBalancer balancer)
         {
             _positionCalculator = positionCalculator;
             _directionCalculator = directionCalculator;
             _placementService = placementService;
-            _arrowLane = arrowLane;
+            _balancer = balancer;
         }
 
-        public List<ArrowView> GetAllArrows() => _placementService.GetAllArrows();
-
-        public void CreateArrows(IEnumerable<RoadPathSegment> allOptions, PathHints pathHints)
+        public List<ArrowView> GetAllArrows()
         {
-            List<RoadPathSegment> options = allOptions.ToList();
-            if (options.Count == 0)
+            return _placementService.GetAllArrows();
+        }
+
+        public void CreateArrows(
+            IEnumerable<RoadPathSegment> allOptions,
+            PathHints pathHints)
+        {
+            List<RoadPathSegment> segments = allOptions.ToList();
+
+            if (segments.Count == 0)
                 return;
 
-            List<ArrowData> arrowDataList = options
-                .Select(segment => CreateArrowData(segment, pathHints))
-                .Where(data => data != null)
-                .ToList();
+            List<ArrowData> arrowDataList = new List<ArrowData>();
 
-            _placementService.PlaceArrows(arrowDataList);
-        }
-
-        public void HideArrows() => _placementService.HideArrows();
-
-        private ArrowData CreateArrowData(RoadPathSegment segment, PathHints pathHints)
-        {
-            try
+            foreach (RoadPathSegment segment in segments)
             {
-                Vector3 worldPos = _positionCalculator.CalculateWorldPosition(
-                    segment,
-                    distanceAlongSegment: 0f,
-                    _arrowLane
-                );
-
+                (PathGroup group, float angle) = _balancer.GetPathClassification(segment);
+                Vector3 basePos = _positionCalculator.CalculateWorldPosition(segment, RoadLane.Center);
+                Vector3 worldPos = _balancer.GetBalancedPosition(basePos, group);
+                worldPos = _positionCalculator.SnapToGround(worldPos);
                 Vector3 worldDir = _directionCalculator.CalculateWorldDirection(segment, 0f);
-
-                return new ArrowData
+                ArrowData arrowData = new ArrowData
                 {
                     Segment = segment,
                     WorldPos = worldPos,
                     WorldDir = worldDir,
                     Type = GetArrowType(segment, pathHints)
                 };
-            }
-            catch (Exception e)
-            {
-                Debug.LogError($"[RoadPoseArrowsController] Error creating arrow data for segment {segment.SegmentId}: {e.Message}");
-                return null;
-            }
-        }
-        
-        private ArrowType GetArrowType(RoadPathSegment seg, PathHints hints)
-        {
-            if (hints == null)
-            {
-                Debug.LogWarning($"[RoadPoseArrowsController] PathHints is null for segment {seg.SegmentId}");
-                return ArrowType.Bad;
+                arrowDataList.Add(arrowData);
+                Debug.Log($"Arrow: Segment={segment.SegmentId}, Group={group}, Angle={angle:F1}°");
             }
 
-            if (hints.FastestSegment != null && hints.FastestSegment.SegmentId == seg.SegmentId)
+            _placementService.PlaceArrows(arrowDataList);
+        }
+
+        public void HideArrows()
+        {
+            _placementService.HideArrows();
+        }
+
+        private ArrowType GetArrowType(RoadPathSegment segment, PathHints pathHints)
+        {
+            if (pathHints == null)
+                return ArrowType.Bad;
+
+            if (pathHints.FastestSegment != null &&
+                pathHints.FastestSegment.SegmentId == segment.SegmentId)
             {
-                Debug.Log($"[Arrow] Type: Fastest for segment {seg.SegmentId}");
                 return ArrowType.Fastest;
             }
 
-            if (hints.LeadingToTargetSegments != null &&
-                hints.LeadingToTargetSegments.Any(s => s.SegmentId == seg.SegmentId))
+            if (pathHints.LeadingToTargetSegments != null &&
+                pathHints.LeadingToTargetSegments.Any(s => s.SegmentId == segment.SegmentId))
             {
-                Debug.Log($"[Arrow] Type: Good for segment {seg.SegmentId}");
                 return ArrowType.Good;
             }
 
-            Debug.Log($"[Arrow] Type: Bad for segment {seg.SegmentId}");
             return ArrowType.Bad;
         }
     }
