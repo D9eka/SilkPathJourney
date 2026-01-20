@@ -17,8 +17,8 @@ namespace Internal.Scripts.Player.UI.Arrow.Placement
 
         public ArrowPlacementService(Transform spawnParent, ArrowView arrowPrefab)
         {
-            _spawnParent = spawnParent ?? throw new ArgumentNullException(nameof(spawnParent));
-            _arrowPrefab = arrowPrefab ?? throw new ArgumentNullException(nameof(arrowPrefab));
+            _spawnParent = spawnParent;
+            _arrowPrefab = arrowPrefab;
         }
 
         public void PlaceArrows(List<ArrowData> arrowDataList)

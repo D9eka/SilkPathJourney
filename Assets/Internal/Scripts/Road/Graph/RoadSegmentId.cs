@@ -19,6 +19,9 @@ namespace Internal.Scripts.Road.Graph
 
         public override int GetHashCode() => HashCode.Combine(RoadId, Forward);
 
+        public static bool operator ==(RoadSegmentId x, RoadSegmentId y) => Equals(x, y);
+        public static bool operator !=(RoadSegmentId x, RoadSegmentId y) => !Equals(x, y);
+
         public override string ToString() => $"{RoadId}:{(Forward ? "F" : "B")}";
     }
 }

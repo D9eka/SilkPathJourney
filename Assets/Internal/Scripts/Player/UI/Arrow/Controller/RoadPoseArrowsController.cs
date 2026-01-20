@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Internal.Scripts.Player.Path;
@@ -10,20 +11,24 @@ using UnityEngine;
 
 namespace Internal.Scripts.Player.UI.Arrow.Controller
 {
+    
     public sealed class RoadPoseArrowsController : IArrowsController
     {
         private readonly IArrowPositionCalculator _positionCalculator;
         private readonly IArrowDirectionCalculator _directionCalculator;
         private readonly IArrowPlacementService _placementService;
+        private readonly RoadLane _arrowLane;
 
         public RoadPoseArrowsController(
             IArrowPositionCalculator positionCalculator,
             IArrowDirectionCalculator directionCalculator,
-            IArrowPlacementService placementService)
+            IArrowPlacementService placementService,
+            RoadLane arrowLane)
         {
             _positionCalculator = positionCalculator;
             _directionCalculator = directionCalculator;
             _placementService = placementService;
+            _arrowLane = arrowLane;
         }
 
         public List<ArrowView> GetAllArrows() => _placementService.GetAllArrows();
@@ -46,20 +51,31 @@ namespace Internal.Scripts.Player.UI.Arrow.Controller
 
         private ArrowData CreateArrowData(RoadPathSegment segment, PathHints pathHints)
         {
-            Vector3 worldPos = _positionCalculator.CalculateWorldPosition(segment, 0f,
-                RoadLane.Center);
-
-            Vector3 worldDir = _directionCalculator.CalculateWorldDirection(segment, 0f);
-
-            return new ArrowData
+            try
             {
-                Segment = segment,
-                WorldPos = worldPos,
-                WorldDir = worldDir,
-                Type = GetArrowType(segment, pathHints)
-            };
-        }
+                Vector3 worldPos = _positionCalculator.CalculateWorldPosition(
+                    segment,
+                    distanceAlongSegment: 0f,
+                    _arrowLane
+                );
 
+                Vector3 worldDir = _directionCalculator.CalculateWorldDirection(segment, 0f);
+
+                return new ArrowData
+                {
+                    Segment = segment,
+                    WorldPos = worldPos,
+                    WorldDir = worldDir,
+                    Type = GetArrowType(segment, pathHints)
+                };
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"[RoadPoseArrowsController] Error creating arrow data for segment {segment.SegmentId}: {e.Message}");
+                return null;
+            }
+        }
+        
         private ArrowType GetArrowType(RoadPathSegment seg, PathHints hints)
         {
             if (hints == null)
@@ -68,14 +84,14 @@ namespace Internal.Scripts.Player.UI.Arrow.Controller
                 return ArrowType.Bad;
             }
 
-            if (hints.FastestSegment != null && hints.FastestSegment.SegmentId.RoadId == seg.SegmentId.RoadId)
+            if (hints.FastestSegment != null && hints.FastestSegment.SegmentId == seg.SegmentId)
             {
                 Debug.Log($"[Arrow] Type: Fastest for segment {seg.SegmentId}");
                 return ArrowType.Fastest;
             }
 
-            if (hints.LeadingToTargetSegments != null && 
-                hints.LeadingToTargetSegments.Any(s => s.SegmentId.RoadId == seg.SegmentId.RoadId))
+            if (hints.LeadingToTargetSegments != null &&
+                hints.LeadingToTargetSegments.Any(s => s.SegmentId == seg.SegmentId))
             {
                 Debug.Log($"[Arrow] Type: Good for segment {seg.SegmentId}");
                 return ArrowType.Good;
