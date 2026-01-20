@@ -1,21 +1,28 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using Internal.Scripts.Camera.Move;
 using Internal.Scripts.Camera.Zoom;
 using Internal.Scripts.Input;
 using Internal.Scripts.Npc.Core;
+using Internal.Scripts.Npc.Core.NextSegmentProvider;
 using Internal.Scripts.Npc.Lifecycle;
+using Internal.Scripts.Player;
+using Internal.Scripts.Player.Input;
+using Internal.Scripts.Player.UI.Arrow;
+using Internal.Scripts.Player.UI.Arrow.Controller;
+using Internal.Scripts.Player.UI.Arrow.DirectionCalculation;
+using Internal.Scripts.Player.UI.Arrow.Placement;
+using Internal.Scripts.Player.UI.Arrow.PositionCalculation;
 using Internal.Scripts.Road.Core;
 using Internal.Scripts.Road.Graph;
 using Internal.Scripts.Road.Nodes;
 using Internal.Scripts.Road.Path;
 using Internal.Scripts.World.State;
-using Internal.Scripts.World.Village;
 using Internal.Scripts.World.Visual;
 using Internal.Scripts.World.VisualObjects;
 using Plugins.Zenject.Source.Install;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Internal.Scripts.Installers
 {
@@ -28,22 +35,63 @@ namespace Internal.Scripts.Installers
         [Header("World")]
         [SerializeField] private WorldStatesData _worldStatesData;
         [Space]
-        [Header("Villages")]
-        [SerializeField] private Village[] _villages;
-        [SerializeField] private Village _currentVillage;
         [Header("NPC")]
         [SerializeField] private NpcSpawnEntry[] _spawns;
         [SerializeField] private NpcSimulationSettings _simulationSettings;
+        [Header("Player")]
+        [SerializeField] private RoadAgentView _playerViewPrefab;
+        [SerializeField] private RoadAgentConfig _playerConfig;
+        [SerializeField] private Button _startMovementButton;
+        [Header("Interactables")]
+        [SerializeField] private LayerMask _interactableLayerMask;
+        [Header("Arrows")]
+        [SerializeField] private Transform _arrowsRoot;
+        [SerializeField] private ArrowView _arrowPrefab;
 
         public override void InstallBindings()
         {
             Container.BindInterfacesAndSelfTo<InputManager>()
-                .AsSingle()
+                .AsSingle().WithArguments(_interactableLayerMask)
                 .NonLazy();
 
             InstallCamera();
             InstallWorld();
             InstallNpc();
+            InstallPlayer();
+        }
+        private void InstallPlayer()
+        {
+            InstallArrows();
+            Container.BindInterfacesTo<PlayerChoiceInputView>().AsSingle();
+            Container.Bind<PathHintsCreator>().AsSingle();
+            Container.Bind<RoadAgentView>().FromComponentInNewPrefab(_playerViewPrefab).AsSingle()
+                .WhenInjectedInto<PlayerInitializer>();
+            Container.Bind<RoadAgentConfig>().FromInstance(_playerConfig).AsSingle()
+                .WhenInjectedInto<PlayerInitializer>();
+            Container.BindInterfacesAndSelfTo<SegmentMover>().AsSingle().WhenInjectedInto<PlayerInitializer>();
+            Container.BindInterfacesTo<PlayerNextSegmentsProvider>().AsSingle().WhenInjectedInto<PlayerInitializer>();
+            Container.BindInterfacesTo<PlayerInitializer>().AsSingle()
+                .WithArguments("N_Village_01","N_Village_04");
+        }
+        
+        
+        private void InstallArrows()
+        {
+            Container.Bind<IArrowPositionCalculator>()
+                .To<RoadPoseArrowPositionCalculator>()
+                .AsSingle();
+
+            Container.Bind<IArrowDirectionCalculator>()
+                .To<RoadPoseArrowDirectionCalculator>()
+                .AsSingle();
+
+            Container.Bind<IArrowPlacementService>()
+                .To<ArrowPlacementService>()
+                .AsSingle()
+                .WithArguments(_arrowsRoot, _arrowPrefab);
+
+            Container.BindInterfacesTo<RoadPoseArrowsController>()
+                .AsSingle();
         }
 
         private void InstallCamera()
@@ -63,22 +111,6 @@ namespace Internal.Scripts.Installers
                 .WithArguments(_worldStatesData.ViewModesData).NonLazy();
             Container.BindInterfacesAndSelfTo<WorldVisualObjectsController>().AsSingle()
                 .WithArguments(visualObjects.Select(visualObjects => visualObjects as IVisualObject).ToList())
-                .NonLazy();
-        }
-
-        public void InstallVillage()
-        {
-            Container.Bind<Village[]>()
-                .FromInstance(_villages)
-                .AsSingle();
-
-            Container.Bind<Village>()
-                .WithId("CurrentVillage")
-                .FromInstance(_currentVillage)
-                .AsSingle();
-
-            Container.BindInterfacesAndSelfTo<VillageNavigator>()
-                .AsSingle()
                 .NonLazy();
         }
         
