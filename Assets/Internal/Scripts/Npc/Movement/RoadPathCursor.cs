@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Threading;
 using Internal.Scripts.Npc.Core;
 using Internal.Scripts.Npc.Core.NextSegmentProvider;
 using Internal.Scripts.Road.Core;
@@ -48,6 +47,10 @@ namespace Internal.Scripts.Npc.Movement
             if (_nextSegmentProvider is IPathAware pathAware)
             {
                 pathAware.SetFullPath(path);
+            }
+            if (_nextSegmentProvider is ITargetAware targetAware)
+            {
+                targetAware.SetTargetNodeId(path.Segments[^1].ToNodeId);
             }
         }
 

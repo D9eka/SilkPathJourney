@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
-using Internal.Scripts.Road;
 using Internal.Scripts.Npc.Core;
 using Internal.Scripts.Road.Core;
 using Internal.Scripts.Road.Nodes;
@@ -61,7 +60,7 @@ namespace Internal.Scripts.Npc.Lifecycle
             }
 
             Color color = ChooseColor();
-            NpcConfig config = BuildRandomConfig();
+            RoadAgentConfig config = BuildRandomConfig();
 
             RoadAgent agent = _factory.CreateFromPrefab(prefab, config, start, color);
             agent.OnArrived += HandleArrival;
@@ -140,13 +139,13 @@ namespace Internal.Scripts.Npc.Lifecycle
             return false;
         }
 
-        private NpcConfig BuildRandomConfig()
+        private RoadAgentConfig BuildRandomConfig()
         {
             float min = Mathf.Min(_settings.SpeedRangeMetersPerSecond.x, _settings.SpeedRangeMetersPerSecond.y);
             float max = Mathf.Max(_settings.SpeedRangeMetersPerSecond.x, _settings.SpeedRangeMetersPerSecond.y);
             float speed = Mathf.Lerp(min, max, (float)_random.NextDouble());
 
-            return new NpcConfig
+            return new RoadAgentConfig
             {
                 SpeedMetersPerSecond = speed,
                 Lane = RoadLane.Right,

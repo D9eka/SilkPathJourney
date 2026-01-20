@@ -4,7 +4,7 @@ using Internal.Scripts.Road.Core;
 namespace Internal.Scripts.Npc.Core
 {
     [Serializable]
-    public class NpcConfig
+    public class RoadAgentConfig
     {
         public float SpeedMetersPerSecond = 5f;
         public RoadLane Lane = RoadLane.Right;
