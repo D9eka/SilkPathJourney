@@ -587,17 +587,21 @@ MonoBehaviour:
   _mainCamera: {fileID: 1362266847}
   _cameraZoomerData: {fileID: 11400000, guid: 8e7e949b26ae37947884f3b8193155ac, type: 2}
   _worldStatesData: {fileID: 11400000, guid: 34261bb662f36cd458d5b81be3923ba5, type: 2}
+  _nodeViewPrefab: {fileID: 3893819316855974185, guid: 166c63d6d4d3e2c4b8f38a259f032900, type: 3}
   _spawns: []
   _simulationSettings: {fileID: 11400000, guid: 7cc4547f4ffaef74e9c15f5e09b93473, type: 2}
   _playerViewPrefab: {fileID: 782032695739537741, guid: 5d12c5d784414c84985da5dd4b8ddfed, type: 3}
   _playerConfig:
-    SpeedMetersPerSecond: 100
+    SpeedMetersPerSecond: 20
     Lane: 1
     LateralOffsetMeters: 0
   _startMovementButton: {fileID: 1896733672}
   _interactableLayerMask:
     serializedVersion: 2
     m_Bits: 256
+  _groundLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
   _arrowsRoot: {fileID: 1659619013}
   _arrowPrefab: {fileID: 8460485022377515572, guid: 059a3f317078805408825cc19961bd68, type: 3}
 --- !u!1 &1200377424 stripped
