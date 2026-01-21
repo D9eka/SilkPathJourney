@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using Internal.Scripts.InteractableObjects;
 using Internal.Scripts.Player.UI.Arrow;
 using Internal.Scripts.Player.UI.Arrow.Controller;
 using Internal.Scripts.Road.Path;

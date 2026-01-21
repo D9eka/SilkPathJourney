@@ -7,8 +7,8 @@ namespace Internal.Scripts.Road.Graph
     {
         bool ContainsNode(string nodeId);
         IEnumerable<string> Nodes { get; }
-        IEnumerable<RoadGraphEdge> GetOutgoingEdges(string nodeId);
-        IEnumerable<RoadPathSegment> GetOutgoingSegments(string nodeId);
+        List<RoadGraphEdge> GetOutgoingEdges(string nodeId);
+        List<RoadPathSegment> GetOutgoingSegments(string nodeId);
         bool TryGetSegment(RoadSegmentId id, out RoadSegmentData data);
         IReadOnlyDictionary<RoadSegmentId, RoadSegmentData> Segments { get; }
     }

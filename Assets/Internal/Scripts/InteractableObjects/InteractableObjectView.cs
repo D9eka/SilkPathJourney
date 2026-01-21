@@ -1,38 +1,41 @@
 using System;
 using UnityEngine;
-public abstract class InteractableObjectView : MonoBehaviour, IInteractableObject
+namespace Internal.Scripts.InteractableObjects
 {
-    [Header("Interactable")]
-    [SerializeField] protected float _hoverScale = 1.1f;
-    
-    public event Action<IInteractableObject> OnClick;
-    
-    protected Vector3 OriginalScale;
-    
-    protected virtual void Awake()
+    public abstract class InteractableObjectView : MonoBehaviour, IInteractableObject
     {
-        OriginalScale = transform.localScale;
-    }
+        [Header("Interactable")]
+        [SerializeField] protected float _hoverScale = 1.1f;
     
-    public void TriggerClick()
-    {
-        OnClickEffect();
-        OnClick?.Invoke(this);
-    }
+        public event Action<IInteractableObject> OnClick;
     
-    public void TriggerHoverEnter()
-    {
-        transform.localScale = OriginalScale * _hoverScale;
-        OnHoverEnterEffect();
-    }
+        protected Vector3 OriginalScale;
     
-    public void TriggerHoverExit()
-    {
-        transform.localScale = OriginalScale;
-        OnHoverExitEffect();
-    }
+        protected virtual void Awake()
+        {
+            OriginalScale = transform.localScale;
+        }
     
-    protected virtual void OnClickEffect() { }
-    protected virtual void OnHoverEnterEffect() { }
-    protected virtual void OnHoverExitEffect() { }
+        public void TriggerClick()
+        {
+            OnClickEffect();
+            OnClick?.Invoke(this);
+        }
+    
+        public void TriggerHoverEnter()
+        {
+            transform.localScale = OriginalScale * _hoverScale;
+            OnHoverEnterEffect();
+        }
+    
+        public void TriggerHoverExit()
+        {
+            transform.localScale = OriginalScale;
+            OnHoverExitEffect();
+        }
+    
+        protected virtual void OnClickEffect() { }
+        protected virtual void OnHoverEnterEffect() { }
+        protected virtual void OnHoverExitEffect() { }
+    }
 }

@@ -79,14 +79,14 @@ namespace Internal.Scripts.Road.Graph
 
         public bool ContainsNode(string nodeId) => _nodes.Contains(nodeId);
 
-        public IEnumerable<RoadGraphEdge> GetOutgoingEdges(string nodeId)
+        public List<RoadGraphEdge> GetOutgoingEdges(string nodeId)
         {
             return _edges.TryGetValue(nodeId, out List<RoadGraphEdge> list)
                 ? list
-                : Array.Empty<RoadGraphEdge>();
+                : new List<RoadGraphEdge>();
         }
 
-        public IEnumerable<RoadPathSegment> GetOutgoingSegments(string nodeId)
+        public List<RoadPathSegment> GetOutgoingSegments(string nodeId)
         {
             List<RoadPathSegment> ongoings = new List<RoadPathSegment>();
             IEnumerable<RoadGraphEdge> ongoingsEdges = GetOutgoingEdges(nodeId);

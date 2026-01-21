@@ -3,12 +3,12 @@ using System.Threading;
 using Cysharp.Threading.Tasks;
 using Internal.Scripts.Road.Path;
 
-namespace Internal.Scripts.Npc.Core.NextSegmentProvider
+namespace Internal.Scripts.Npc.NextSegment
 {
     public interface INextSegmentProvider
     {
         UniTask<RoadPathSegment> ChooseNextAsync(
-            IEnumerable<RoadPathSegment> options, 
+            List<RoadPathSegment> options, 
             CancellationToken cancelToken = default
             );
     }

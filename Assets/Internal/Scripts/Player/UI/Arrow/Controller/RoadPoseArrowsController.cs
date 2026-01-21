@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using Internal.Scripts.Player.Path;
 using Internal.Scripts.Player.UI.Arrow.DirectionCalculation;
 using Internal.Scripts.Player.UI.Arrow.JunctionBalancer;
@@ -35,18 +34,14 @@ namespace Internal.Scripts.Player.UI.Arrow.Controller
             return _placementService.GetAllArrows();
         }
 
-        public void CreateArrows(
-            IEnumerable<RoadPathSegment> allOptions,
-            PathHints pathHints)
+        public void CreateArrows(List<RoadPathSegment> allOptions, PathHints pathHints)
         {
-            List<RoadPathSegment> segments = allOptions.ToList();
-
-            if (segments.Count == 0)
+            if (allOptions.Count == 0)
                 return;
 
             List<ArrowData> arrowDataList = new List<ArrowData>();
 
-            foreach (RoadPathSegment segment in segments)
+            foreach (RoadPathSegment segment in allOptions)
             {
                 (PathGroup group, float angle) = _balancer.GetPathClassification(segment);
                 Vector3 basePos = _positionCalculator.CalculateWorldPosition(segment, RoadLane.Center);
@@ -76,19 +71,18 @@ namespace Internal.Scripts.Player.UI.Arrow.Controller
         {
             if (pathHints == null)
                 return ArrowType.Bad;
-
             if (pathHints.FastestSegment != null &&
                 pathHints.FastestSegment.SegmentId == segment.SegmentId)
             {
                 return ArrowType.Fastest;
             }
-
-            if (pathHints.LeadingToTargetSegments != null &&
-                pathHints.LeadingToTargetSegments.Any(s => s.SegmentId == segment.SegmentId))
+            foreach (RoadPathSegment s in pathHints.LeadingToTargetSegments)
             {
-                return ArrowType.Good;
+                if (s.SegmentId == segment.SegmentId)
+                {
+                    return ArrowType.Good;
+                }
             }
-
             return ArrowType.Bad;
         }
     }

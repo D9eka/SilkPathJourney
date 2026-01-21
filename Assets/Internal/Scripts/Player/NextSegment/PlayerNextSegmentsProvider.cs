@@ -1,16 +1,16 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using Internal.Scripts.Npc.NextSegment;
 using Internal.Scripts.Player.Input;
 using Internal.Scripts.Player.Path;
 using Internal.Scripts.Player.UI.Arrow.Controller;
 using Internal.Scripts.Road.Path;
 
-namespace Internal.Scripts.Npc.Core.NextSegmentProvider
+namespace Internal.Scripts.Player.NextSegment
 {
-    public class PlayerNextSegmentsProvider : INextSegmentProvider, ITargetAware
+    public class PlayerNextSegmentsProvider : INextSegmentProvider, IDestinationAware
     {
         private readonly PathHintsCreator _hints;
         private readonly IArrowsController _arrows;
@@ -25,24 +25,23 @@ namespace Internal.Scripts.Npc.Core.NextSegmentProvider
             _input = input;
         }
 
-        public async UniTask<RoadPathSegment> ChooseNextAsync(IEnumerable<RoadPathSegment> options, CancellationToken ct)
+        public async UniTask<RoadPathSegment> ChooseNextAsync(List<RoadPathSegment> options, CancellationToken ct)
         {
-            List<RoadPathSegment> opts = options.ToList();
-            PathHints hints = _hints.GetPathHints(opts.First().FromNodeId, _targetNodeId);
+            PathHints hints = _hints.GetPathHints(options[0].FromNodeId, _targetNodeId);
             if (hints == null)
             {
                 throw new OperationCanceledException(ct);
             }
-            _arrows.CreateArrows(opts, hints);
+            _arrows.CreateArrows(options, hints);
         
             RoadPathSegment chosen = await _input.WaitForChoiceAsync(ct);
             _arrows.HideArrows();
             return chosen;
         }
         
-        public void SetTargetNodeId(string targetNodeId)
+        public void SetDestination(string destinationNodeId)
         {
-            _targetNodeId = targetNodeId;
+            _targetNodeId = destinationNodeId;
         }
     }
 }

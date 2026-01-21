@@ -1,4 +1,5 @@
 using System;
+using Internal.Scripts.InteractableObjects;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;

@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using Internal.Scripts.Npc.Core;
-using Internal.Scripts.Npc.Core.NextSegmentProvider;
+using Internal.Scripts.Npc.NextSegment;
+using Internal.Scripts.Player.NextSegment;
 using Internal.Scripts.Road.Core;
+using Internal.Scripts.Road.Graph;
 using Internal.Scripts.Road.Path;
 using Zenject;
 
@@ -10,6 +12,7 @@ namespace Internal.Scripts.Npc.Movement
 {
     public sealed class RoadPathCursor : IInitializable, IDisposable
     {
+        private readonly IRoadNetwork _roadNetwork;
         private readonly SegmentMover _segmentMover;
         private readonly INextSegmentProvider _nextSegmentProvider;
 
@@ -18,8 +21,10 @@ namespace Internal.Scripts.Npc.Movement
 
         private bool _hasPath;
 
-        public RoadPathCursor(SegmentMover segmentMover, INextSegmentProvider nextSegmentProvider)
+        public RoadPathCursor(IRoadNetwork roadNetwork, SegmentMover segmentMover, 
+            INextSegmentProvider nextSegmentProvider)
         {
+            _roadNetwork = roadNetwork;
             _segmentMover = segmentMover;
             _nextSegmentProvider = nextSegmentProvider;
         }
@@ -37,21 +42,20 @@ namespace Internal.Scripts.Npc.Movement
             _segmentMover.OnEndSegment -= ChooseNextSegment;
         }
         
-        public void SetPath(RoadPath path, RoadLane lane, float lateralOffset)
+        public void SetDestination(string currentNodeId, string destinationNodeId, 
+            RoadLane lane, float lateralOffset)
         {
             _lane = lane;
             _lateralOffset = lateralOffset;
-            _hasPath = path.IsValid;
+            _hasPath = true;
             
-            _segmentMover.SetSegment(path.Segments[0], _lane, _lateralOffset);
-            if (_nextSegmentProvider is IPathAware pathAware)
+            if (_nextSegmentProvider is IDestinationAware targetAware)
             {
-                pathAware.SetFullPath(path);
+                targetAware.SetDestination(destinationNodeId);
             }
-            if (_nextSegmentProvider is ITargetAware targetAware)
-            {
-                targetAware.SetTargetNodeId(path.Segments[^1].ToNodeId);
-            }
+            List<RoadPathSegment> ongoings = _roadNetwork.GetOutgoingSegments(currentNodeId);
+            _segmentMover.SetPose(ongoings[0]);
+            ChooseNextSegment(ongoings);
         }
 
         public void Advance(float deltaMeters)
@@ -59,7 +63,7 @@ namespace Internal.Scripts.Npc.Movement
             _segmentMover.Advance(deltaMeters); 
         }
         
-        private async void ChooseNextSegment(IEnumerable<RoadPathSegment> options)
+        private async void ChooseNextSegment(List<RoadPathSegment> options)
         {
             try
             {

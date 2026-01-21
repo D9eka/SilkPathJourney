@@ -9,7 +9,7 @@ namespace Internal.Scripts.Npc.Core
 {
     public class SegmentMover
     {
-        public event Action<IEnumerable<RoadPathSegment>> OnEndSegment;
+        public event Action<List<RoadPathSegment>> OnEndSegment;
         
         private readonly IRoadNetwork _network;
         private readonly RoadSamplerCache _samplerCache;
@@ -67,6 +67,11 @@ namespace Internal.Scripts.Npc.Core
 
             UpdatePose();
         }
+        
+        public void SetPose(RoadPathSegment segment)
+        {
+            CurrentPose = SamplePose(segment, 0f);
+        }
 
         private void UpdatePose()
         {
@@ -96,7 +101,7 @@ namespace Internal.Scripts.Npc.Core
                 data.Data,
                 _lane,
                 _lateralOffset,
-                isForward: segment.IsForward
+                segment.IsForward
             );
         }
     }
