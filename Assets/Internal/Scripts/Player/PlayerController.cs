@@ -21,6 +21,7 @@ namespace Internal.Scripts.Player
         public void Initialize(RoadAgent roadAgent)
         {
             _roadAgent = roadAgent;
+            _playerStartMovement.SetCurrentPlayerNode(_roadAgent.CurrentNodeId);
             
             _playerStartMovement.OnChooseNode += StartPath;
             _roadAgent.OnArrived += EndPath;
@@ -45,6 +46,7 @@ namespace Internal.Scripts.Player
         private void EndPath(RoadAgent roadAgent)
         {
             _playerStartMovement.FinishPath();
+            _playerStartMovement.SetCurrentPlayerNode(_roadAgent.CurrentNodeId);
         }
 
     }

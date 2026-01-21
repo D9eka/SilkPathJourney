@@ -14,6 +14,8 @@ namespace Internal.Scripts.Player.UI.StartMovement
         private readonly Button _startMovementButton;
         private readonly INodesCollidersViewer _nodesCollidersViewer;
 
+        private string _currentPlayerNode;
+
         public PlayerStartMovement(Button startMovementButton, INodesCollidersViewer nodesCollidersViewer)
         {
             _startMovementButton = startMovementButton;
@@ -30,6 +32,11 @@ namespace Internal.Scripts.Player.UI.StartMovement
             _startMovementButton.onClick.RemoveAllListeners();
         }
 
+        public void SetCurrentPlayerNode(string node)
+        {
+            _currentPlayerNode = node;
+        }
+
         public void FinishPath()
         {
             _startMovementButton.gameObject.SetActive(true);
@@ -39,21 +46,27 @@ namespace Internal.Scripts.Player.UI.StartMovement
         {
             _startMovementButton.gameObject.SetActive(false);
             _nodesCollidersViewer.ShowColliders();
-            foreach (NodeView nodesCollider in _nodesCollidersViewer.GetAllNodes())
+            foreach (NodeView nodeView in _nodesCollidersViewer.GetAllNodes())
             {
-                nodesCollider.OnClick += OnChooseNodeCollider;
+                if (nodeView.NodeId == _currentPlayerNode)
+                {
+                    nodeView.gameObject.SetActive(false);
+                    continue;
+                }
+                nodeView.OnClick += OnChooseNodeCollider;
             }
         }
 
         private void OnChooseNodeCollider(IInteractableObject interactableObject)
         {
-            if (interactableObject is not NodeView nodeCollider) return;
+            if (interactableObject is not NodeView view) return;
             
             _nodesCollidersViewer.HideColliders();
-            OnChooseNode?.Invoke(nodeCollider.NodeId);
-            foreach (NodeView nodesCollider in _nodesCollidersViewer.GetAllNodes())
+            OnChooseNode?.Invoke(view.NodeId);
+            foreach (NodeView nodeView in _nodesCollidersViewer.GetAllNodes())
             {
-                nodesCollider.OnClick -= OnChooseNodeCollider;
+                if (nodeView.NodeId == _currentPlayerNode) continue;
+                nodeView.OnClick -= OnChooseNodeCollider;
             }
         }
     }
