@@ -1,4 +1,5 @@
 using System;
+using DG.Tweening;
 using UnityEngine;
 namespace Internal.Scripts.InteractableObjects
 {
@@ -14,6 +15,22 @@ namespace Internal.Scripts.InteractableObjects
         protected virtual void Awake()
         {
             OriginalScale = transform.localScale;
+        }
+        
+        protected virtual void OnEnable()
+        {
+            transform.DOScale(OriginalScale, 0.3f);
+        }
+
+        public virtual void Enable()
+        {
+            gameObject.SetActive(true);
+        }
+
+        public virtual void Disable()
+        {
+            transform.DOScale(Vector3.zero, 0.3f)
+                .OnComplete(() => gameObject.SetActive(false));
         }
     
         public void TriggerClick()

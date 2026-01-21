@@ -32,7 +32,7 @@ namespace Internal.Scripts.Npc.Core
         
         public void Initialize()
         {
-            _cursor.Initialize();
+            _cursor.Initialize(_currentNodeId);
         }
         
         public void Dispose()

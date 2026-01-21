@@ -30,6 +30,11 @@ namespace Internal.Scripts.Npc.Core
             _samplerCache = samplerCache;
             _poseSampler = poseSampler;
         }
+        
+        public void Initialize(string currentNodeId)
+        {
+            SetPose(_network.GetOutgoingSegments(currentNodeId)[0]);
+        }
 
         public void SetSegment(RoadPathSegment segment, RoadLane lane, float lateralOffset)
         {

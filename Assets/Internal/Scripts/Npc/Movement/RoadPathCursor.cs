@@ -10,7 +10,7 @@ using Zenject;
 
 namespace Internal.Scripts.Npc.Movement
 {
-    public sealed class RoadPathCursor : IInitializable, IDisposable
+    public sealed class RoadPathCursor : IDisposable
     {
         private readonly IRoadNetwork _roadNetwork;
         private readonly SegmentMover _segmentMover;
@@ -32,8 +32,9 @@ namespace Internal.Scripts.Npc.Movement
         public bool IsEmpty => !_hasPath;
         public RoadPose CurrentPose => _segmentMover.CurrentPose;
 
-        public void Initialize()
+        public void Initialize(string currentNodeId)
         {
+            _segmentMover.Initialize(currentNodeId);
             _segmentMover.OnEndSegment += ChooseNextSegment;
         }
 
