@@ -15,20 +15,12 @@ namespace Internal.Scripts.InteractableObjects
         protected virtual void Awake()
         {
             OriginalScale = transform.localScale;
-            if (!gameObject.activeSelf)
-            {
-                transform.localScale = Vector3.zero;
-            }
         }
         
         protected virtual void OnEnable()
         {
-            transform.DOScale(OriginalScale, 0.3f);
-        }
-        
-        protected virtual void OnDisable()
-        {
             transform.localScale = Vector3.zero;
+            transform.DOScale(OriginalScale, 0.3f);
         }
 
         public virtual void Enable()
