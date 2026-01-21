@@ -20,7 +20,7 @@ using Internal.Scripts.Road.Core;
 using Internal.Scripts.Road.Graph;
 using Internal.Scripts.Road.Nodes;
 using Internal.Scripts.Road.Nodes.UI;
-using Internal.Scripts.Road.Nodes.UI.CollidersViewer;
+using Internal.Scripts.Road.Nodes.UI.NodesViewer;
 using Internal.Scripts.Road.Path;
 using Internal.Scripts.World.State;
 using Internal.Scripts.World.Visual;
@@ -47,7 +47,8 @@ namespace Internal.Scripts.Installers
         [Header("Player")]
         [SerializeField] private RoadAgentView _playerViewPrefab;
         [SerializeField] private RoadAgentConfig _playerConfig;
-        [SerializeField] private Button _startMovementButton;
+        [SerializeField] private Button _startTargetSelectionButton;
+        [SerializeField] private Button _cancelTargetSelectionButton;
         [Header("Interactables")]
         [SerializeField] private LayerMask _interactableLayerMask;
         [SerializeField] private LayerMask _groundLayerMask;
@@ -97,7 +98,7 @@ namespace Internal.Scripts.Installers
             Container.Bind<RoadSamplerCache>().AsSingle();
 
             Container.BindInterfacesAndSelfTo<RoadNodeLookup>().AsSingle().NonLazy();
-            Container.BindInterfacesTo<NodesCollidersViewer>().AsSingle().WithArguments(_nodeViewPrefab);
+            Container.BindInterfacesTo<NodesViewer>().AsSingle().WithArguments(_nodeViewPrefab);
             
             Container.BindInterfacesAndSelfTo<RoadNetwork>().AsSingle().NonLazy();
             Container.Bind<IRoadPathFinder>().To<RoadPathFinder>().AsSingle();
@@ -130,7 +131,8 @@ namespace Internal.Scripts.Installers
                 .WhenInjectedInto<PlayerInitializer>();
             Container.BindInterfacesAndSelfTo<SegmentMover>().AsSingle().WhenInjectedInto<PlayerInitializer>();
             Container.BindInterfacesTo<PlayerNextSegmentsProvider>().AsSingle().WhenInjectedInto<PlayerInitializer>();
-            Container.BindInterfacesTo<PlayerStartMovement>().AsSingle().WithArguments(_startMovementButton);
+            Container.BindInterfacesTo<PlayerStartMovement>().AsSingle()
+                .WithArguments(_startTargetSelectionButton, _cancelTargetSelectionButton);
             Container.BindInterfacesAndSelfTo<PlayerController>().AsSingle();
             Container.BindInterfacesTo<PlayerInitializer>().AsSingle()
                 .WithArguments("N_Village_01");

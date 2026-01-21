@@ -62,11 +62,7 @@ namespace Internal.Scripts.Player.UI.Arrow.Placement
             arrow.transform.position = data.WorldPos;
             arrow.SetDirection(data.WorldDir);
 
-            Vector3 originalScale = arrow.transform.localScale;
-            arrow.transform.localScale = Vector3.zero;
-            arrow.transform.DOScale(originalScale, SPAWN_ANIMATION_DURATION)
-                .SetEase(Ease.OutBack)
-                .OnComplete(() => _activeArrows.Add(arrow));
+            _activeArrows.Add(arrow);
         }
     }
 }

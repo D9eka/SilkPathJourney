@@ -1,7 +1,10 @@
 using System;
+using System.Threading;
+using Cysharp.Threading.Tasks;
 using Internal.Scripts.InteractableObjects;
 using Internal.Scripts.Road.Nodes.UI;
-using Internal.Scripts.Road.Nodes.UI.CollidersViewer;
+using Internal.Scripts.Road.Nodes.UI.NodesViewer;
+using Internal.Scripts.Road.Path;
 using UnityEngine.UI;
 using Zenject;
 
@@ -11,25 +14,33 @@ namespace Internal.Scripts.Player.UI.StartMovement
     {
         public event Action<string> OnChooseNode;
 
-        private readonly Button _startMovementButton;
-        private readonly INodesCollidersViewer _nodesCollidersViewer;
+        private readonly INodesViewer _nodesViewer;
+        private readonly Button _startTargetSelectionButton;
+        private readonly Button _cancelTargetSelectionButton;
 
         private string _currentPlayerNode;
+        private UniTaskCompletionSource<string> _tcs;
+        private CancellationTokenSource _cancellationTokenSource;
 
-        public PlayerStartMovement(Button startMovementButton, INodesCollidersViewer nodesCollidersViewer)
+        public PlayerStartMovement(INodesViewer nodesViewer, 
+            Button startTargetSelectionButton, Button cancelTargetSelectionButton)
         {
-            _startMovementButton = startMovementButton;
-            _nodesCollidersViewer = nodesCollidersViewer;
+            _nodesViewer = nodesViewer;
+            _startTargetSelectionButton = startTargetSelectionButton;
+            _cancelTargetSelectionButton = cancelTargetSelectionButton;
         }
-        
+
         public void Initialize()
         {
-            _startMovementButton.onClick.AddListener(ShowColliders);
+            _startTargetSelectionButton.onClick.AddListener(StartSelection);
+            
+            _cancelTargetSelectionButton.gameObject.SetActive(false);
+            _cancelTargetSelectionButton.onClick.AddListener(CancelSelection);
         }
 
         public void Dispose()
         {
-            _startMovementButton.onClick.RemoveAllListeners();
+            _startTargetSelectionButton.onClick.RemoveAllListeners();
         }
 
         public void SetCurrentPlayerNode(string node)
@@ -39,14 +50,48 @@ namespace Internal.Scripts.Player.UI.StartMovement
 
         public void FinishPath()
         {
-            _startMovementButton.gameObject.SetActive(true);
+            _startTargetSelectionButton.gameObject.SetActive(true);
         }
         
-        private void ShowColliders()
+        private async void StartSelection()
         {
-            _startMovementButton.gameObject.SetActive(false);
-            _nodesCollidersViewer.ShowColliders();
-            foreach (NodeView nodeView in _nodesCollidersViewer.GetAllNodes())
+            _cancellationTokenSource = new CancellationTokenSource();
+            _tcs = new UniTaskCompletionSource<string>();
+            _cancellationTokenSource.Token.Register(() => 
+            {
+                _tcs.TrySetCanceled();
+            });
+            
+            _startTargetSelectionButton.gameObject.SetActive(false);
+            _cancelTargetSelectionButton.gameObject.SetActive(true);
+            _nodesViewer.ShowNodes();
+            SubscribeToNodes();
+
+            try
+            {
+                OnChooseNode?.Invoke(await _tcs.Task);
+            }
+            catch (OperationCanceledException)
+            {
+                FinishPath();
+            }
+            finally
+            {
+                _nodesViewer.HideNodes();
+                UnsubscribeToNodes();
+                _cancelTargetSelectionButton.gameObject.SetActive(false);
+                _tcs = null;
+            }
+        }
+        
+        private void CancelSelection()
+        {
+            _tcs?.TrySetCanceled();
+        }
+
+        private void SubscribeToNodes()
+        {
+            foreach (NodeView nodeView in _nodesViewer.GetAllNodes())
             {
                 if (nodeView.NodeId == _currentPlayerNode)
                 {
@@ -56,18 +101,21 @@ namespace Internal.Scripts.Player.UI.StartMovement
                 nodeView.OnClick += OnChooseNodeCollider;
             }
         }
+        
+        private void UnsubscribeToNodes()
+        {
+            foreach (NodeView nodeView in _nodesViewer.GetAllNodes())
+            {
+                if (nodeView.NodeId == _currentPlayerNode) continue;
+                nodeView.OnClick -= OnChooseNodeCollider;
+            }
+        }
 
         private void OnChooseNodeCollider(IInteractableObject interactableObject)
         {
             if (interactableObject is not NodeView view) return;
             
-            _nodesCollidersViewer.HideColliders();
-            OnChooseNode?.Invoke(view.NodeId);
-            foreach (NodeView nodeView in _nodesCollidersViewer.GetAllNodes())
-            {
-                if (nodeView.NodeId == _currentPlayerNode) continue;
-                nodeView.OnClick -= OnChooseNodeCollider;
-            }
+            _tcs.TrySetResult(view.NodeId);
         }
     }
 }

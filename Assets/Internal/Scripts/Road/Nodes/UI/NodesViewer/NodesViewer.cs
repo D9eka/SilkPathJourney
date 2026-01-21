@@ -1,11 +1,10 @@
 using System.Collections.Generic;
-using DG.Tweening;
 using UnityEngine;
 using Zenject;
 
-namespace Internal.Scripts.Road.Nodes.UI.CollidersViewer
+namespace Internal.Scripts.Road.Nodes.UI.NodesViewer
 {
-    public class NodesCollidersViewer : INodesCollidersViewer, IInitializable
+    public class NodesViewer : INodesViewer, IInitializable
     {
         private const string JUNCTION_KEY = "N_Junction";
         
@@ -13,7 +12,7 @@ namespace Internal.Scripts.Road.Nodes.UI.CollidersViewer
         private readonly NodeView _nodeViewPrefab;
         private readonly List<NodeView> _nodeColliders = new List<NodeView>();
 
-        public NodesCollidersViewer(IRoadNodeLookup nodeLookup, NodeView nodeViewPrefab)
+        public NodesViewer(IRoadNodeLookup nodeLookup, NodeView nodeViewPrefab)
         {
             _nodeLookup = nodeLookup;
             _nodeViewPrefab = nodeViewPrefab;
@@ -29,7 +28,7 @@ namespace Internal.Scripts.Road.Nodes.UI.CollidersViewer
             return _nodeColliders;
         }
 
-        public void ShowColliders()
+        public void ShowNodes()
         {
             foreach (NodeView nodeView in _nodeColliders)
             {
@@ -37,7 +36,7 @@ namespace Internal.Scripts.Road.Nodes.UI.CollidersViewer
             }
         }
 
-        public void HideColliders()
+        public void HideNodes()
         {
             foreach (NodeView nodeView in _nodeColliders)
             {
