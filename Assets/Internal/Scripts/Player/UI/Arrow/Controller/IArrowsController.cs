@@ -7,7 +7,7 @@ namespace Internal.Scripts.Player.UI.Arrow.Controller
     public interface IArrowsController
     {
         List<ArrowView> GetAllArrows();
-        void CreateArrows(IEnumerable<RoadPathSegment> allOptions, PathHints pathHints);
+        void CreateArrows(List<RoadPathSegment> allOptions, PathHints pathHints);
         void HideArrows();
     }
 }

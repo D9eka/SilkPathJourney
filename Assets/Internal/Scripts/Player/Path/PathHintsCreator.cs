@@ -1,9 +1,9 @@
 using System.Collections.Generic;
-using Internal.Scripts.Player.Path;
 using Internal.Scripts.Road.Graph;
+using Internal.Scripts.Road.Path;
 using UnityEngine;
 
-namespace Internal.Scripts.Road.Path
+namespace Internal.Scripts.Player.Path
 {
     public sealed class PathHintsCreator
     {

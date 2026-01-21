@@ -1,8 +1,11 @@
 using System;
-public interface IInteractableObject
+namespace Internal.Scripts.InteractableObjects
 {
-    event Action<IInteractableObject> OnClick;
-    void TriggerClick();
-    void TriggerHoverEnter();
-    void TriggerHoverExit();
+    public interface IInteractableObject
+    {
+        event Action<IInteractableObject> OnClick;
+        void TriggerClick();
+        void TriggerHoverEnter();
+        void TriggerHoverExit();
+    }
 }

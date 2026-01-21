@@ -1,7 +1,6 @@
 using System;
 using Internal.Scripts.Npc.Movement;
 using Internal.Scripts.Road.Path;
-using UnityEngine;
 using Zenject;
 
 namespace Internal.Scripts.Npc.Core
@@ -12,7 +11,6 @@ namespace Internal.Scripts.Npc.Core
 
         private readonly RoadAgentView _view;
         private readonly RoadAgentConfig _config;
-        private readonly IRoadPathFinder _pathFinder;
         private readonly RoadPathCursor _cursor;
 
         private string _currentNodeId;
@@ -24,11 +22,10 @@ namespace Internal.Scripts.Npc.Core
         public RoadPose CurrentPose => _cursor.CurrentPose;
 
         public RoadAgent(RoadAgentView view, RoadAgentConfig config, 
-            IRoadPathFinder pathFinder, RoadPathCursor cursor, string startNodeId)
+            RoadPathCursor cursor, string startNodeId)
         {
             _view = view;
             _config = config ?? new RoadAgentConfig();
-            _pathFinder = pathFinder;
             _cursor = cursor;
             _currentNodeId = startNodeId;
         }
@@ -51,15 +48,9 @@ namespace Internal.Scripts.Npc.Core
             if (_currentNodeId == destinationNodeId)
                 return;
 
-            RoadPath path = _pathFinder.FindPath(_currentNodeId, destinationNodeId);
-            if (!path.IsValid)
-            {
-                Debug.LogWarning($"[NpcAgent] Path not found {_currentNodeId} -> {destinationNodeId}.");
-                return;
-            }
-
             _destinationNodeId = destinationNodeId;
-            _cursor.SetPath(path, _config.Lane, _config.LateralOffsetMeters);
+            _cursor.SetDestination(_currentNodeId, _destinationNodeId, 
+                _config.Lane, _config.LateralOffsetMeters);
         }
 
         public void Tick(float deltaTime)
