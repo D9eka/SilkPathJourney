@@ -45,7 +45,7 @@ namespace Internal.Scripts.Player.UI.Arrow.Controller
             {
                 (PathGroup group, float angle) = _balancer.GetPathClassification(segment);
                 Vector3 basePos = _positionCalculator.CalculateWorldPosition(segment, RoadLane.Center);
-                Vector3 worldPos = _balancer.GetBalancedPosition(basePos, group);
+                Vector3 worldPos = _balancer.GetBalancedPosition(basePos, group, segment);
                 worldPos = _positionCalculator.SnapToGround(worldPos);
                 Vector3 worldDir = _directionCalculator.CalculateWorldDirection(segment, 0f);
                 ArrowData arrowData = new ArrowData

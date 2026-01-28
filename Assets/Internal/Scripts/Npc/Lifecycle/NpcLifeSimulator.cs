@@ -37,7 +37,7 @@ namespace Internal.Scripts.Npc.Lifecycle
             int count = Mathf.Max(1, _settings.AgentCount);
             for (int i = 0; i < count; i++)
             {
-                TrySpawnAgent();
+                //TrySpawnAgent();
             }
         }
 

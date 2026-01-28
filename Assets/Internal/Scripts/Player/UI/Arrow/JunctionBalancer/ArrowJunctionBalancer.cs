@@ -1,5 +1,7 @@
 using Internal.Scripts.Npc.Core;
 using Internal.Scripts.Player.UI.Arrow.DirectionCalculation;
+using System.Collections.Generic;
+using Internal.Scripts.Road.Graph;
 using Internal.Scripts.Road.Path;
 using UnityEngine;
 using Zenject;
@@ -9,18 +11,21 @@ namespace Internal.Scripts.Player.UI.Arrow.JunctionBalancer
     public sealed class ArrowJunctionBalancer : IArrowJunctionBalancer, IFixedTickable
     {
         private readonly IArrowDirectionCalculator _directionCalculator;
+        private readonly IRoadNetwork _roadNetwork;
 
-        private const float HEIGHT_UP = 5f;
-        private const float HEIGHT_DOWN = 2.5f;
-        private const float LATERAL_SHIFT = 2.5f;
+        private const float HEIGHT_UP_PCT = 0.35f;
+        private const float HEIGHT_DOWN_PCT = 0.35f;
+        private const float LATERAL_SHIFT_PCT = 0.35f;
         private const float BACKWARD_ANGLE_THRESHOLD = 140f;
+        private readonly HashSet<RoadSegmentId> _badSegments = new HashSet<RoadSegmentId>();
 
         private RoadAgent _playerRoadAgent;
         private Vector3 _lastPlayerDirection = Vector3.forward;
 
-        public ArrowJunctionBalancer(IArrowDirectionCalculator directionCalculator)
+        public ArrowJunctionBalancer(IArrowDirectionCalculator directionCalculator, IRoadNetwork roadNetwork)
         {
             _directionCalculator = directionCalculator;
+            _roadNetwork = roadNetwork;
         }
 
         public void Initialize(RoadAgent playerRoadAgent)
@@ -34,11 +39,20 @@ namespace Internal.Scripts.Player.UI.Arrow.JunctionBalancer
             UpdatePlayerState(_playerRoadAgent.CurrentPose.Forward);
         }
         
-        public Vector3 GetBalancedPosition(Vector3 basePos, PathGroup group)
+        public Vector3 GetBalancedPosition(Vector3 basePos, PathGroup group, RoadPathSegment segment)
         {
             Vector3 currentForward = _lastPlayerDirection;
             Vector3 currentLeft = Vector3.Cross(Vector3.up, currentForward).normalized;
             Vector3 currentRight = -currentLeft;
+
+            if (!TryGetRoadWidth(segment, out float roadWidth))
+            {
+                return basePos;
+            }
+
+            float lateralShift = roadWidth * LATERAL_SHIFT_PCT;
+            float heightUp = roadWidth * HEIGHT_UP_PCT;
+            float heightDown = roadWidth * HEIGHT_DOWN_PCT;
 
             Vector3 horizontalOffset;
             Vector3 verticalOffset;
@@ -46,13 +60,13 @@ namespace Internal.Scripts.Player.UI.Arrow.JunctionBalancer
             switch (group)
             {
                 case PathGroup.Left:
-                    horizontalOffset = currentRight * LATERAL_SHIFT;
-                    verticalOffset = -Vector3.up * HEIGHT_DOWN;
+                    horizontalOffset = currentRight * lateralShift;
+                    verticalOffset = -Vector3.up * heightDown;
                     break;
 
                 case PathGroup.Right:
-                    horizontalOffset = currentLeft * LATERAL_SHIFT;
-                    verticalOffset = Vector3.up * HEIGHT_UP;
+                    horizontalOffset = currentLeft * lateralShift;
+                    verticalOffset = Vector3.up * heightUp;
                     break;
 
                 case PathGroup.Backward:
@@ -119,6 +133,45 @@ namespace Internal.Scripts.Player.UI.Arrow.JunctionBalancer
             float angle = Mathf.Atan2(dotLeft, dotForward) * Mathf.Rad2Deg;
 
             return angle;
+        }
+
+        private bool TryGetRoadWidth(RoadPathSegment segment, out float roadWidth)
+        {
+            roadWidth = 0f;
+            if (_roadNetwork == null || segment == null)
+            {
+                return false;
+            }
+
+            if (!_roadNetwork.TryGetSegment(segment.SegmentId, out RoadSegmentData data) || data.Data == null)
+            {
+                LogBadSegment(segment, "RoadData отсутствует");
+                return false;
+            }
+
+            float width = data.Data.LaneWidth * data.Data.LaneCount;
+            if (width <= 0f)
+            {
+                LogBadSegment(segment, "LaneWidth или LaneCount <= 0");
+                return false;
+            }
+
+            roadWidth = width;
+            return true;
+        }
+
+        private void LogBadSegment(RoadPathSegment segment, string reason)
+        {
+            if (segment == null)
+            {
+                Debug.LogError("ArrowJunctionBalancer: сегмент отсутствует.");
+                return;
+            }
+
+            if (_badSegments.Add(segment.SegmentId))
+            {
+                Debug.LogError($"ArrowJunctionBalancer: не удалось получить ширину дороги для {segment.SegmentId}. Причина: {reason}.");
+            }
         }
     }
 }
