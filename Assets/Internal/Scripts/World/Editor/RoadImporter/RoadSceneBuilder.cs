@@ -6,7 +6,7 @@ using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Internal.Scripts.World.Editor
+namespace Internal.Scripts.World.Editor.RoadImporter
 {
     public static class RoadSceneBuilder
     {

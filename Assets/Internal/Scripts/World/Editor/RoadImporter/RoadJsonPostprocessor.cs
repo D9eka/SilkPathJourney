@@ -1,16 +1,16 @@
 using System;
 using System.IO;
-using Internal.Scripts.World.Editor.DTO;
+using Internal.Scripts.World.Editor.RoadImporter.DTO;
+using Internal.Scripts.World.Roads;
 using UnityEditor;
 using UnityEngine;
-using Internal.Scripts.World.Roads;
 
-namespace Internal.Scripts.World.Editor
+namespace Internal.Scripts.World.Editor.RoadImporter
 {
     public class RoadJsonPostprocessor : AssetPostprocessor
     {
         private const string ALL_ROADS_FILE_NAME = "_all_roads.road.json";
-        private const string ROAD_ASSETS_FOLDER = "Assets/Internal/World/Roads";
+        private const string ROAD_ASSETS_FOLDER = "Assets/Internal/Models/World/Roads";
 
         static void OnPostprocessAllAssets(string[] imported, string[] deleted, string[] moved, string[] movedFrom)
         {

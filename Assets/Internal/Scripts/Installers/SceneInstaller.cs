@@ -135,7 +135,7 @@ namespace Internal.Scripts.Installers
                 .WithArguments(_startTargetSelectionButton, _cancelTargetSelectionButton);
             Container.BindInterfacesAndSelfTo<PlayerController>().AsSingle();
             Container.BindInterfacesTo<PlayerInitializer>().AsSingle()
-                .WithArguments("N_Village_01");
+                .WithArguments("N_Shanghai");
         }
         
         private void InstallArrows()

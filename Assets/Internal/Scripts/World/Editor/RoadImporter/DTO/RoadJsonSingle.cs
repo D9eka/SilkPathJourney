@@ -1,6 +1,6 @@
 using System;
 
-namespace Internal.Scripts.World.Editor.DTO
+namespace Internal.Scripts.World.Editor.RoadImporter.DTO
 {
     [Serializable]
     public class RoadJsonSingle
