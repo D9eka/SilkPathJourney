@@ -1,3 +1,4 @@
+using System;
 using Internal.Scripts.Road.Graph;
 
 namespace Internal.Scripts.Road.Path
@@ -16,6 +17,23 @@ namespace Internal.Scripts.Road.Path
             FromNodeId = fromNodeId;
             ToNodeId = toNodeId;
             LengthMeters = lengthMeters;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is RoadPathSegment other && Equals(other);
+        }
+        
+        public override int GetHashCode()
+        {
+            return HashCode.Combine(SegmentId, FromNodeId, ToNodeId, LengthMeters);
+        }
+
+        private bool Equals(RoadPathSegment other)
+        {
+            return FromNodeId == other.FromNodeId && 
+                ToNodeId == other.ToNodeId && 
+                LengthMeters.Equals(other.LengthMeters);
         }
     }
 }

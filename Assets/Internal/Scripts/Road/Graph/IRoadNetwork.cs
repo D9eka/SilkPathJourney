@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Internal.Scripts.Road.Path;
 
 namespace Internal.Scripts.Road.Graph
 {
@@ -6,7 +7,8 @@ namespace Internal.Scripts.Road.Graph
     {
         bool ContainsNode(string nodeId);
         IEnumerable<string> Nodes { get; }
-        IEnumerable<RoadGraphEdge> GetOutgoing(string nodeId);
+        List<RoadGraphEdge> GetOutgoingEdges(string nodeId);
+        List<RoadPathSegment> GetOutgoingSegments(string nodeId);
         bool TryGetSegment(RoadSegmentId id, out RoadSegmentData data);
         IReadOnlyDictionary<RoadSegmentId, RoadSegmentData> Segments { get; }
     }
