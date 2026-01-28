@@ -3,7 +3,6 @@ using Internal.Scripts.Camera.AutoFit;
 using Internal.Scripts.Camera.Move;
 using Internal.Scripts.Camera.Zoom;
 using UnityEngine;
-using Zenject;
 
 namespace Internal.Scripts.Camera
 {

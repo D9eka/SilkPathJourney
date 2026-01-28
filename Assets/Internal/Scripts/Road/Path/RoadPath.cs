@@ -4,7 +4,7 @@ namespace Internal.Scripts.Road.Path
 {
     public sealed class RoadPath
     {
-        public static readonly RoadPath Empty = new(new List<RoadPathSegment>(), 0f);
+        public static readonly RoadPath Empty = new RoadPath(new List<RoadPathSegment>(), 0f);
 
         public IReadOnlyList<RoadPathSegment> Segments { get; }
         public float TotalLengthMeters { get; }

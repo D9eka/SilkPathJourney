@@ -10,7 +10,7 @@ namespace Internal.Scripts.Npc.Lifecycle
         [field: SerializeField] public NpcView View { get; private set; }
         [field: SerializeField] public string StartNodeId { get; private set; }
         [field: SerializeField] public string DestinationNodeId { get; private set; }
-        [field: SerializeField] public NpcConfig Config { get; private set; } = new NpcConfig();
+        [field: SerializeField] public RoadAgentConfig Config { get; private set; } = new RoadAgentConfig();
         [field: SerializeField] public bool AutoStart { get; private set; } = true;
     }
 }

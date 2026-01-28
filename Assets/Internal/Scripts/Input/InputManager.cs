@@ -9,21 +9,29 @@ namespace Internal.Scripts.Input
 {
     public class InputManager : IInitializable, ITickable, IDisposable
     {
-        private static readonly float CAMERA_SIZE_MODIFIER = -1f;
-        private static readonly Vector2 CAMERA_MOVEMENT_MODIFIER = new Vector2(-1f, -1f);
+        private const float CAMERA_SIZE_MODIFIER = -1f;
+        private const float MAX_RAY_DISTANCE = 1000f;
+        
+        private static readonly Vector2 CameraMovementModifier = new Vector2(-1f, -1f);
 
         public Action<float> OnChangeCameraSize;
         public Action<Vector2> OnChangeCameraPosition;
         
         private readonly UnityEngine.Camera _mainCamera;
+        private readonly LayerMask _interactableLayerMask;
         private PlayerInputActions _inputActions;
 
-        private InteractableObject _currentHover;
+        private IInteractableObject _currentHover;
+
+        private bool _clickRequested;
+        private float _zoomValue;
+        private Vector2 _moveValue;
 
         [Inject]
-        public InputManager(UnityEngine.Camera mainCamera)
+        public InputManager(UnityEngine.Camera mainCamera, LayerMask interactableLayerMask)
         {
             _mainCamera = mainCamera;
+            _interactableLayerMask = interactableLayerMask;
         }
 
         public void Initialize()
@@ -39,15 +47,25 @@ namespace Internal.Scripts.Input
 
         public void Tick()
         {
-            HandleHover();
+            bool isOverUI = EventSystem.current != null && EventSystem.current.IsPointerOverGameObject();
+
+            HandleHover(isOverUI);
+            HandleClick(isOverUI);
+            HandleCamera(isOverUI);
+
+            _clickRequested = false;
+            _zoomValue = 0;
         }
 
         private void EnableInput()
         {
             _inputActions.Enable();
+
             _inputActions.Player.Click.performed += OnClick;
+
             _inputActions.Player.ZoomCamera.performed += OnZoomCamera;
-            _inputActions.Player.MoveCamera.started += OnMoveCamera;
+            _inputActions.Player.ZoomCamera.canceled += OnZoomCamera;
+
             _inputActions.Player.MoveCamera.performed += OnMoveCamera;
             _inputActions.Player.MoveCamera.canceled += OnMoveCamera;
         }
@@ -56,63 +74,98 @@ namespace Internal.Scripts.Input
         {
             _inputActions.Player.Click.performed -= OnClick;
             _inputActions.Player.ZoomCamera.performed -= OnZoomCamera;
+            _inputActions.Player.ZoomCamera.canceled -= OnZoomCamera;
+            _inputActions.Player.MoveCamera.performed -= OnMoveCamera;
+            _inputActions.Player.MoveCamera.canceled -= OnMoveCamera;
+
             _inputActions.Disable();
         }
 
-        private void HandleHover()
+        private void HandleHover(bool isOverUI)
         {
-            if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
-                return;
-
-            Vector2 screenPos = Mouse.current.position.ReadValue();
-            RaycastHit2D hit = Physics2D.GetRayIntersection(_mainCamera.ScreenPointToRay(screenPos));
-
-            if (hit.collider != null && hit.collider.TryGetComponent(out InteractableObject view))
+            if (isOverUI)
             {
-                if (_currentHover != view)
+                if (_currentHover != null)
                 {
-                    _currentHover?.TriggerHoverExit();
-                    _currentHover = view;
-                    _currentHover.TriggerHoverEnter();
+                    _currentHover.TriggerHoverExit();
+                    _currentHover = null;
                 }
+                return;
             }
-            else
+
+            IInteractableObject view = TryGetInteractableUnderMouse();
+
+            if (_currentHover != view)
             {
                 _currentHover?.TriggerHoverExit();
-                _currentHover = null;
+                _currentHover = view;
+                _currentHover?.TriggerHoverEnter();
             }
+        }
+
+        private void HandleClick(bool isOverUI)
+        {
+            if (!_clickRequested || isOverUI)
+                return;
+
+            IInteractableObject view = TryGetInteractableUnderMouse();
+            view?.TriggerClick();
+        }
+
+        private void HandleCamera(bool isOverUI)
+        {
+            if (isOverUI)
+                return;
+            
+            OnChangeCameraSize?.Invoke(_zoomValue * CAMERA_SIZE_MODIFIER);
+            OnChangeCameraPosition?.Invoke(_moveValue * CameraMovementModifier);
+        }
+        
+        private IInteractableObject TryGetInteractableUnderMouse()
+        {
+            if (Mouse.current == null)
+                return null;
+
+            Vector2 screenPos = Mouse.current.position.ReadValue();
+            Ray ray = _mainCamera.ScreenPointToRay(screenPos);
+
+            if (Physics.Raycast(ray, out RaycastHit hit, MAX_RAY_DISTANCE, _interactableLayerMask))
+            {
+                if (hit.collider.TryGetComponent(out IInteractableObject view))
+                    return view;
+            }
+
+            return null;
         }
 
         private void OnClick(InputAction.CallbackContext context)
         {
-            if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
-                return;
-
-            Vector2 screenPos = Mouse.current.position.ReadValue();
-            RaycastHit2D hit = Physics2D.GetRayIntersection(_mainCamera.ScreenPointToRay(screenPos));
-
-            if (hit.collider != null && hit.collider.TryGetComponent(out InteractableObject view))
+            if (context.performed)
             {
-                view.TriggerClick();
+                _clickRequested = true;
             }
         }
-        
-        private void OnZoomCamera(InputAction.CallbackContext obj)
+
+        private void OnZoomCamera(InputAction.CallbackContext context)
         {
-            if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+            if (context.canceled)
+            {
+                _zoomValue = 0;
                 return;
-            
-            float value = obj.ReadValue<float>();
-            OnChangeCameraSize?.Invoke(value * CAMERA_SIZE_MODIFIER);
+            }
+
+            _zoomValue = context.ReadValue<float>();
         }
-        
-        private void OnMoveCamera(InputAction.CallbackContext obj)
+
+        private void OnMoveCamera(InputAction.CallbackContext context)
         {
-            if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+            if (context.canceled)
+            {
+                _moveValue = Vector2.zero;
                 return;
-            
-            Vector2 value = obj.ReadValue<Vector2>();
-            OnChangeCameraPosition?.Invoke(new Vector2(value.x, value.y) * CAMERA_MOVEMENT_MODIFIER);
+            }
+
+            _moveValue = context.ReadValue<Vector2>();
         }
     }
 }
