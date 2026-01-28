@@ -2,7 +2,7 @@ using Internal.Scripts.Road.Core;
 using UnityEditor;
 using UnityEngine;
 
-namespace Internal.Scripts.Road.Runtime.Editor
+namespace Internal.Scripts.Road.Editor
 {
     [CustomEditor(typeof(RoadRuntime))]
     public class RoadRuntimeEditor : UnityEditor.Editor
@@ -17,13 +17,13 @@ namespace Internal.Scripts.Road.Runtime.Editor
 
             if (GUILayout.Button("Frame Road Start (Scene View)"))
             {
-                var p = rr.Data.PointsLocal[0];
+                var p = rr.LocalToWorld(rr.Data.PointsLocal[0]);
                 SceneView.lastActiveSceneView?.Frame(new Bounds(p, Vector3.one * 10f), false);
             }
 
             if (GUILayout.Button("Frame Road End (Scene View)"))
             {
-                var p = rr.Data.PointsLocal[rr.Data.PointsLocal.Count - 1];
+                var p = rr.LocalToWorld(rr.Data.PointsLocal[^1]);
                 SceneView.lastActiveSceneView?.Frame(new Bounds(p, Vector3.one * 10f), false);
             }
         }

@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9088e543f855a5f41a1a1b220a4051e5, type: 3}
+  m_Name: R_N_Chang`an__N_Lanzhou
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.World.Roads.RoadData
+  <Version>k__BackingField: 1
+  <RoadId>k__BackingField: R_N_Chang`an__N_Lanzhou
+  <RelativeTo>k__BackingField: Plane
+  <LaneCount>k__BackingField: 2
+  <LaneWidth>k__BackingField: 0.07
+  <SpeedMul>k__BackingField: 1
+  <Bidirectional>k__BackingField: 1
+  <SampleStepMeters>k__BackingField: 0.1
+  <StartNodeId>k__BackingField: N_Chang`an
+  <EndNodeId>k__BackingField: N_Lanzhou
+  <PointsLocal>k__BackingField:
+  - {x: -17.891924, y: 0.374023, z: 2.83018}
+  - {x: -17.840471, y: 0.339844, z: 2.744432}
+  - {x: -17.789015, y: 0.313477, z: 2.658687}
+  - {x: -17.737558, y: 0.287109, z: 2.572942}
+  - {x: -17.6861, y: 0.283203, z: 2.487197}
+  - {x: -17.634644, y: 0.279297, z: 2.401453}
+  - {x: -17.55856, y: 0.276367, z: 2.341016}
+  - {x: -17.471443, y: 0.273438, z: 2.291914}
+  - {x: -17.384329, y: 0.268555, z: 2.242813}
+  - {x: -17.297213, y: 0.264648, z: 2.193712}
+  - {x: -17.208714, y: 0.260742, z: 2.14895}
+  - {x: -17.109255, y: 0.265625, z: 2.138558}
+  - {x: -17.009796, y: 0.277344, z: 2.128167}
+  - {x: -16.91034, y: 0.290039, z: 2.117776}
+  - {x: -16.810879, y: 0.302734, z: 2.107385}
+  - {x: -16.711756, y: 0.316406, z: 2.094819}
+  - {x: -16.613773, y: 0.318359, z: 2.074835}
+  - {x: -16.515789, y: 0.319336, z: 2.054852}
+  - {x: -16.417807, y: 0.319336, z: 2.034868}
+  - {x: -16.319824, y: 0.319336, z: 2.014885}
+  - {x: -16.221842, y: 0.321289, z: 1.994902}
+  - {x: -16.12386, y: 0.365234, z: 1.974918}
+  - {x: -16.025875, y: 0.435547, z: 1.954935}
+  - {x: -15.927893, y: 0.505859, z: 1.934952}
+  - {x: -15.82991, y: 0.510742, z: 1.914968}
+  - {x: -15.731927, y: 0.504883, z: 1.894985}
+  - {x: -15.633944, y: 0.498047, z: 1.875002}
+  - {x: -15.631664, y: 0.49707, z: 1.874537}
