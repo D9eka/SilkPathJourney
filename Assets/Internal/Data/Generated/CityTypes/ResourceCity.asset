@@ -22,6 +22,7 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  <CityMoneyIncomePerScale>k__BackingField: 600
   <CategoryCoefs>k__BackingField: []
   <CategoryStockProfiles>k__BackingField:
   - <Category>k__BackingField: 1
