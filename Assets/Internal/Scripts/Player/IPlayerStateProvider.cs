@@ -4,5 +4,6 @@ namespace Internal.Scripts.Player
     {
         PlayerState State { get; }
         string CurrentNodeId { get; }
+        string DestinationNodeId { get; }
     }
 }

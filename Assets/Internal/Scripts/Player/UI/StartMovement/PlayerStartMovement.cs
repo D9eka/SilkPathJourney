@@ -36,7 +36,7 @@ namespace Internal.Scripts.Player.UI.StartMovement
         {
             _startTargetSelectionButton.onClick.AddListener(StartSelection);
             
-            _cancelTargetSelectionButton.gameObject.SetActive(false);
+            SetCancelButtonEnabled(false);
             _cancelTargetSelectionButton.onClick.AddListener(CancelSelection);
         }
 
@@ -50,9 +50,19 @@ namespace Internal.Scripts.Player.UI.StartMovement
             _currentPlayerNode = node;
         }
 
+        public void SetStartButtonEnabled(bool enabled)
+        {
+            _startTargetSelectionButton.gameObject.SetActive(enabled);
+        }
+
+        public void SetCancelButtonEnabled(bool enabled)
+        {
+            _cancelTargetSelectionButton.gameObject.SetActive(enabled);
+        }
+
         public void FinishPath()
         {
-            _startTargetSelectionButton.gameObject.SetActive(true);
+            SetStartButtonEnabled(true);
         }
         
         private async void StartSelection()
@@ -65,8 +75,8 @@ namespace Internal.Scripts.Player.UI.StartMovement
                 _tcs.TrySetCanceled();
             });
             
-            _startTargetSelectionButton.gameObject.SetActive(false);
-            _cancelTargetSelectionButton.gameObject.SetActive(true);
+            SetStartButtonEnabled(false);
+            SetCancelButtonEnabled(true);
             _nodesViewer.ShowNodes();
             SubscribeToNodes();
 
@@ -82,13 +92,13 @@ namespace Internal.Scripts.Player.UI.StartMovement
             {
                 _nodesViewer.HideNodes();
                 UnsubscribeToNodes();
-                _cancelTargetSelectionButton.gameObject.SetActive(false);
+                SetCancelButtonEnabled(false);
                 _tcs = null;
                 _isChoosingTarget = false;
             }
         }
         
-        private void CancelSelection()
+        public void CancelSelection()
         {
             _tcs?.TrySetCanceled();
         }

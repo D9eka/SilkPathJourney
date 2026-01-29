@@ -1,5 +1,8 @@
 using System;
 using Internal.Scripts.Economy.Cities;
+using Internal.Scripts.Player.NextSegment;
+using Internal.Scripts.Player.UI.Arrow.Controller;
+using Internal.Scripts.Player.UI.StartMovement;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -10,18 +13,29 @@ namespace Internal.Scripts.Player.UI.City
     {
         private readonly IPlayerStateProvider _playerStateProvider;
         private readonly ICityNodeResolver _cityNodeResolver;
+        private readonly IPlayerStartMovement _playerStartMovement;
+        private readonly IPlayerMovementControl _playerMovementControl;
+        private readonly IPlayerTurnChoiceState _turnChoiceState;
+        private readonly IArrowsController _arrowsController;
         private readonly Button _enterCityButton;
 
-        private bool _lastIsIdle;
-        private bool _lastHasCity;
+        private bool _lastCanEnter;
 
         public PlayerCityButtonsController(
             IPlayerStateProvider playerStateProvider,
             ICityNodeResolver cityNodeResolver,
+            IPlayerStartMovement playerStartMovement,
+            IPlayerMovementControl playerMovementControl,
+            IPlayerTurnChoiceState turnChoiceState,
+            IArrowsController arrowsController,
             Button enterCityButton)
         {
             _playerStateProvider = playerStateProvider;
             _cityNodeResolver = cityNodeResolver;
+            _playerStartMovement = playerStartMovement;
+            _playerMovementControl = playerMovementControl;
+            _turnChoiceState = turnChoiceState;
+            _arrowsController = arrowsController;
             _enterCityButton = enterCityButton;
         }
 
@@ -44,21 +58,30 @@ namespace Internal.Scripts.Player.UI.City
 
         private void UpdateButtons(bool force)
         {
-            bool isIdle = _playerStateProvider.State == PlayerState.Idle;
-            bool hasCity = isIdle && _cityNodeResolver.TryGetCityByNodeId(_playerStateProvider.CurrentNodeId, out _);
+            bool canEnter = CanEnterCity();
 
-            if (!force && isIdle == _lastIsIdle && hasCity == _lastHasCity)
+            if (!force && canEnter == _lastCanEnter)
                 return;
 
-            _lastIsIdle = isIdle;
-            _lastHasCity = hasCity;
+            _lastCanEnter = canEnter;
             
-            _enterCityButton.gameObject.SetActive(isIdle && hasCity);
+            _enterCityButton.gameObject.SetActive(canEnter);
         }
 
         private void OnEnterCity()
         {
             string nodeId = _playerStateProvider.CurrentNodeId;
+            if (_turnChoiceState != null && _turnChoiceState.IsChoosingTurn)
+            {
+                _arrowsController?.HideArrows();
+                string turnNodeId = _turnChoiceState.CurrentTurnNodeId;
+                if (!string.IsNullOrWhiteSpace(turnNodeId))
+                {
+                    _playerMovementControl?.CancelDestinationAtNode(turnNodeId);
+                    nodeId = turnNodeId;
+                }
+            }
+
             if (_cityNodeResolver.TryGetCityByNodeId(nodeId, out CityData city))
             {
                 Debug.Log($"[SPJ] Enter city requested: {city.Id}");
@@ -66,6 +89,26 @@ namespace Internal.Scripts.Player.UI.City
             }
 
             Debug.LogWarning($"[SPJ] Cannot enter city: no city bound to node '{nodeId}'.");
+        }
+
+        private bool CanEnterCity()
+        {
+            PlayerState state = _playerStateProvider.State;
+            if (state == PlayerState.SelectingTarget)
+                return false;
+
+            if (state != PlayerState.Idle &&
+                (_turnChoiceState == null || !_turnChoiceState.IsChoosingTurn))
+                return false;
+
+            string nodeId = _playerStateProvider.CurrentNodeId;
+            if (_turnChoiceState != null && _turnChoiceState.IsChoosingTurn)
+                nodeId = _turnChoiceState.CurrentTurnNodeId;
+
+            if (string.IsNullOrWhiteSpace(nodeId))
+                return false;
+
+            return _cityNodeResolver.TryGetCityByNodeId(nodeId, out _);
         }
     }
 }

@@ -78,6 +78,11 @@ namespace Internal.Scripts.Npc.Core
             CurrentPose = SamplePose(segment, 0f);
         }
 
+        public void Cancel()
+        {
+            _currentSegment = null;
+        }
+
         private void UpdatePose()
         {
             if (_currentSegment == null) return;
