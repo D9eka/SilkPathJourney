@@ -12,7 +12,7 @@ namespace Internal.Scripts.World.Editor.RoadImporter
     {
         private const string RoadsRootName = "SPJ_Roads";
 
-        [MenuItem("SilkPathJourney/Roads/Build Roads In Current Scene")]
+        [MenuItem("SPJ/Roads/Build Roads In Current Scene")]
         public static void BuildRoadsInCurrentScene()
         {
             if (EditorApplication.isPlayingOrWillChangePlaymode) return;
