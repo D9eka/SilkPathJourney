@@ -454,10 +454,7 @@ MonoBehaviour:
   _spawns: []
   _simulationSettings: {fileID: 11400000, guid: 7cc4547f4ffaef74e9c15f5e09b93473, type: 2}
   _playerViewPrefab: {fileID: 782032695739537741, guid: 5d12c5d784414c84985da5dd4b8ddfed, type: 3}
-  _playerConfig:
-    SpeedMetersPerSecond: 1
-    Lane: 1
-    LateralOffsetMeters: 0
+  _playerConfig: {fileID: 11400000, guid: 031379dad52073149ab163bf31de2bda, type: 2}
   _startTargetSelectionButton: {fileID: 1896733672}
   _cancelTargetSelectionButton: {fileID: 1514544880}
   _enterCityButton: {fileID: 5144597268441171052}

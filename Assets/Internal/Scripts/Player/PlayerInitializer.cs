@@ -16,12 +16,12 @@ namespace Internal.Scripts.Player
         private readonly INextSegmentProvider _nextSegmentProvider;
         private readonly IArrowJunctionBalancer _arrowJunctionBalancer;
         private readonly PlayerController _playerController;
-        private readonly string _startNodeId;
+        private readonly PlayerConfig _playerConfig;
 
         public PlayerInitializer(RoadAgentView view, RoadAgentConfig config, 
             IRoadNetwork roadNetwork, SegmentMover segmentMover, 
             INextSegmentProvider nextSegmentProvider, IArrowJunctionBalancer arrowJunctionBalancer, 
-            PlayerController playerController, string startNodeId)
+            PlayerController playerController, PlayerConfig playerConfig)
         {
             _view = view;
             _config = config;
@@ -30,13 +30,17 @@ namespace Internal.Scripts.Player
             _nextSegmentProvider = nextSegmentProvider;
             _arrowJunctionBalancer = arrowJunctionBalancer;
             _playerController = playerController;
-            _startNodeId = startNodeId;
+            _playerConfig = playerConfig;
         }
 
         public void Initialize()
         {
+            string startNodeId = _playerConfig != null && !string.IsNullOrWhiteSpace(_playerConfig.StartNodeId)
+                ? _playerConfig.StartNodeId
+                : "N_Quanzhou";
+
             RoadAgent agent = new RoadAgent(_view,  _config, 
-                new RoadPathCursor(_roadNetwork, _segmentMover, _nextSegmentProvider), _startNodeId);
+                new RoadPathCursor(_roadNetwork, _segmentMover, _nextSegmentProvider), startNodeId);
             agent.Initialize();
             _arrowJunctionBalancer.Initialize(agent);
             _playerController.Initialize(agent);

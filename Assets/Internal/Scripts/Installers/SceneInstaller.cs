@@ -48,7 +48,7 @@ namespace Internal.Scripts.Installers
         [SerializeField] private NpcSimulationSettings _simulationSettings;
         [Header("Player")]
         [SerializeField] private RoadAgentView _playerViewPrefab;
-        [SerializeField] private RoadAgentConfig _playerConfig;
+        [SerializeField] private PlayerConfig _playerConfig;
         [SerializeField] private Button _startTargetSelectionButton;
         [SerializeField] private Button _cancelTargetSelectionButton;
         [Header("City")]
@@ -131,15 +131,15 @@ namespace Internal.Scripts.Installers
             Container.Bind<PathHintsCreator>().AsSingle();
             Container.Bind<RoadAgentView>().FromComponentInNewPrefab(_playerViewPrefab).AsSingle()
                 .WhenInjectedInto<PlayerInitializer>();
-            Container.Bind<RoadAgentConfig>().FromInstance(_playerConfig).AsSingle()
+            Container.Bind<RoadAgentConfig>().FromInstance(_playerConfig.RoadAgentConfig).AsSingle()
                 .WhenInjectedInto<PlayerInitializer>();
+            Container.BindInstance(_playerConfig).AsSingle();
             Container.BindInterfacesAndSelfTo<SegmentMover>().AsSingle().WhenInjectedInto<PlayerInitializer>();
             Container.BindInterfacesTo<PlayerNextSegmentsProvider>().AsSingle().WhenInjectedInto<PlayerInitializer>();
             Container.BindInterfacesTo<PlayerStartMovement>().AsSingle()
                 .WithArguments(_startTargetSelectionButton, _cancelTargetSelectionButton);
             Container.BindInterfacesAndSelfTo<PlayerController>().AsSingle();
-            Container.BindInterfacesTo<PlayerInitializer>().AsSingle()
-                .WithArguments("N_Shanghai");
+            Container.BindInterfacesTo<PlayerInitializer>().AsSingle();
             Container.BindInterfacesTo<CityNodeResolver>().AsSingle();
             Container.BindInterfacesAndSelfTo<PlayerCityButtonsController>().AsSingle()
                 .WithArguments(_enterCityButton);
