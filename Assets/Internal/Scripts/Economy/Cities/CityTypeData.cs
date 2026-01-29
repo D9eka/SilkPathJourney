@@ -28,6 +28,7 @@ namespace Internal.Scripts.Economy.Cities
 
         [field: SerializeField] public CityType Type { get; private set; }
         [field: SerializeField] public LocalizedString Name { get; private set; } = new();
+        [field: SerializeField] public int CityMoneyIncomePerScale { get; private set; }
         [field: SerializeField] public List<CategoryCoef> CategoryCoefs { get; private set; } = new();
         [field: SerializeField] public List<CategoryStockProfile> CategoryStockProfiles { get; private set; } = new();
 
@@ -35,11 +36,13 @@ namespace Internal.Scripts.Economy.Cities
         public void ApplyImport(
             CityType type,
             LocalizedString name,
+            int cityMoneyIncomePerScale,
             List<CategoryCoef> categoryCoefs,
             List<CategoryStockProfile> categoryStockProfiles)
         {
             Type = type;
             Name = name;
+            CityMoneyIncomePerScale = cityMoneyIncomePerScale;
             CategoryCoefs = categoryCoefs ?? new List<CategoryCoef>();
             CategoryStockProfiles = categoryStockProfiles ?? new List<CategoryStockProfile>();
         }

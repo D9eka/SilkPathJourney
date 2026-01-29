@@ -576,9 +576,10 @@ namespace Internal.Scripts.Economy.Editor
             string[] header = rows[0];
             int idIndex = FindColumnIndex(header, "city_type_id");
             int nameIndex = FindColumnIndex(header, "name_key");
-            if (idIndex < 0 || nameIndex < 0)
+            int moneyIndex = FindColumnIndex(header, "CityMoneyIncomePerScale");
+            if (idIndex < 0 || nameIndex < 0 || moneyIndex < 0)
             {
-                Debug.LogError("[SPJ] Missing required columns in city_types.csv");
+                Debug.LogError("[SPJ] Missing required columns in city_types.csv (expected CityMoneyIncomePerScale)");
                 return cityTypes;
             }
 
@@ -599,6 +600,8 @@ namespace Internal.Scripts.Economy.Editor
                 }
 
                 CityTypeData asset = LoadOrCreateAsset<CityTypeData>(CITY_TYPES_FOLDER, id);
+
+                TryParseInt(GetField(rows[i], moneyIndex), out int moneyPerScale);
 
                 List<CityTypeData.CategoryCoef> coefs = cityTypeCoefs.TryGetValue(id, out List<CityTypeData.CategoryCoef> coefList)
                     ? new List<CityTypeData.CategoryCoef>(coefList)
@@ -637,6 +640,7 @@ namespace Internal.Scripts.Economy.Editor
                 asset.ApplyImport(
                     type,
                     MakeLocalizedString(GetField(rows[i], nameIndex).Trim()),
+                    moneyPerScale,
                     coefs,
                     profiles);
 
