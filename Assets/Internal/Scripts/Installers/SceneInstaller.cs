@@ -16,6 +16,7 @@ using Internal.Scripts.Player.UI.Arrow.JunctionBalancer;
 using Internal.Scripts.Player.UI.Arrow.Placement;
 using Internal.Scripts.Player.UI.Arrow.PositionCalculation;
 using Internal.Scripts.Player.UI.StartMovement;
+using Internal.Scripts.Player.UI.City;
 using Internal.Scripts.Road.Core;
 using Internal.Scripts.Road.Graph;
 using Internal.Scripts.Road.Nodes;
@@ -28,6 +29,7 @@ using Internal.Scripts.World.VisualObjects;
 using Plugins.Zenject.Source.Install;
 using UnityEngine;
 using UnityEngine.UI;
+using Internal.Scripts.Economy.Cities;
 
 namespace Internal.Scripts.Installers
 {
@@ -49,6 +51,8 @@ namespace Internal.Scripts.Installers
         [SerializeField] private RoadAgentConfig _playerConfig;
         [SerializeField] private Button _startTargetSelectionButton;
         [SerializeField] private Button _cancelTargetSelectionButton;
+        [Header("City")]
+        [SerializeField] private Button _enterCityButton;
         [Header("Interactables")]
         [SerializeField] private LayerMask _interactableLayerMask;
         [SerializeField] private LayerMask _groundLayerMask;
@@ -136,6 +140,9 @@ namespace Internal.Scripts.Installers
             Container.BindInterfacesAndSelfTo<PlayerController>().AsSingle();
             Container.BindInterfacesTo<PlayerInitializer>().AsSingle()
                 .WithArguments("N_Shanghai");
+            Container.BindInterfacesTo<CityNodeResolver>().AsSingle();
+            Container.BindInterfacesAndSelfTo<PlayerCityButtonsController>().AsSingle()
+                .WithArguments(_enterCityButton);
         }
         
         private void InstallArrows()

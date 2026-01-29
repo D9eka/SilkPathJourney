@@ -4,7 +4,6 @@ using Cysharp.Threading.Tasks;
 using Internal.Scripts.InteractableObjects;
 using Internal.Scripts.Road.Nodes.UI;
 using Internal.Scripts.Road.Nodes.UI.NodesViewer;
-using Internal.Scripts.Road.Path;
 using UnityEngine.UI;
 using Zenject;
 
@@ -21,6 +20,9 @@ namespace Internal.Scripts.Player.UI.StartMovement
         private string _currentPlayerNode;
         private UniTaskCompletionSource<string> _tcs;
         private CancellationTokenSource _cancellationTokenSource;
+        private bool _isChoosingTarget;
+
+        public bool IsChoosingTarget => _isChoosingTarget;
 
         public PlayerStartMovement(INodesViewer nodesViewer, 
             Button startTargetSelectionButton, Button cancelTargetSelectionButton)
@@ -55,6 +57,7 @@ namespace Internal.Scripts.Player.UI.StartMovement
         
         private async void StartSelection()
         {
+            _isChoosingTarget = true;
             _cancellationTokenSource = new CancellationTokenSource();
             _tcs = new UniTaskCompletionSource<string>();
             _cancellationTokenSource.Token.Register(() => 
@@ -81,6 +84,7 @@ namespace Internal.Scripts.Player.UI.StartMovement
                 UnsubscribeToNodes();
                 _cancelTargetSelectionButton.gameObject.SetActive(false);
                 _tcs = null;
+                _isChoosingTarget = false;
             }
         }
         
