@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b022bbd4978aad43874f8460a343344, type: 3}
+  m_Name: EconomyDatabase
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Economy.EconomyDatabase
+  <Items>k__BackingField:
+  - {fileID: 11400000, guid: edb64d67c789d9d4ba65981d4984bb1a, type: 2}
+  - {fileID: 11400000, guid: 977355d6459f6bc489e0119d229a8e9f, type: 2}
+  - {fileID: 11400000, guid: f277e290018b7c7429971f44fcb94fa1, type: 2}
+  - {fileID: 11400000, guid: 99bb31e8428743944ab1c1d7913072eb, type: 2}
+  - {fileID: 11400000, guid: 2432647ea623eee4e99c22e97297b8b4, type: 2}
+  - {fileID: 11400000, guid: e0e4e17244144574eb72b9e97ec81cc5, type: 2}
+  - {fileID: 11400000, guid: f0092f5ed70620f438321b4d4f42894c, type: 2}
+  - {fileID: 11400000, guid: a88c826bcd4696b4687ab872870eb1e2, type: 2}
+  - {fileID: 11400000, guid: c8709e4965bd667428e8b4e1bb270771, type: 2}
+  - {fileID: 11400000, guid: 71f5e91f8d5a96441a98ba4b3058676f, type: 2}
+  - {fileID: 11400000, guid: d0f048c27bf2274489bf4e3fd342c09f, type: 2}
+  - {fileID: 11400000, guid: b4979eafd65b00e49a681b790415dab1, type: 2}
+  - {fileID: 11400000, guid: 278d1acecdcd4954a97c2f5521187cb1, type: 2}
+  <CityTypes>k__BackingField:
+  - {fileID: 11400000, guid: 1a54870e6901d824798a7125ead4f7ac, type: 2}
+  - {fileID: 11400000, guid: 674858aea18bfc043b26bac4d9847cb4, type: 2}
+  - {fileID: 11400000, guid: 6306c54e36eb89745b4100fedb10e870, type: 2}
+  - {fileID: 11400000, guid: cbd6a9a6cf90f054b855feb022245949, type: 2}
+  - {fileID: 11400000, guid: 07d598f00b12b3b4aaed6682a7941d42, type: 2}
+  - {fileID: 11400000, guid: 102757ed1a213194f884937769cae61a, type: 2}
+  - {fileID: 11400000, guid: 93cb922105cdfd5498f0dd481a8a7681, type: 2}
+  <Cities>k__BackingField:
+  - {fileID: 11400000, guid: 5835b071a4dcd9544b95fc971dfbad97, type: 2}
+  - {fileID: 11400000, guid: 508b7692898c764478c0aee2340fedbf, type: 2}
+  - {fileID: 11400000, guid: 51614a381e51afe46a7716198ccd7dec, type: 2}
+  - {fileID: 11400000, guid: c6c215763fbb4af44b9464bdf1d7d742, type: 2}
+  - {fileID: 11400000, guid: 307ff99db161af945bdb4805368c7896, type: 2}
+  - {fileID: 11400000, guid: a4ece23fb02869c4bb00b85161950bb7, type: 2}
+  - {fileID: 11400000, guid: 31e48cef88b779344a7b79156d564ef1, type: 2}
+  <CultureCategoryDemandMultipliers>k__BackingField: []
+  <CultureItemDemandMultipliers>k__BackingField: []

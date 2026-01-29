@@ -1,0 +1,188 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Economy Shared Data
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
+  m_TableCollectionName: Economy
+  m_TableCollectionNameGuidString: bd0fd534586ea9547b344b35cd78732d
+  m_Entries:
+  - m_Id: 523370496
+    m_Key: item_category.food.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 573702144
+    m_Key: item_category.craft.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 573702145
+    m_Key: item_category.luxury.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 573702146
+    m_Key: item_category.exotic.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 577896448
+    m_Key: item_category.raw.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 577896449
+    m_Key: city_type.capital.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 577896450
+    m_Key: city_type.trade_hub.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 577896451
+    m_Key: city_type.border_city.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 577896452
+    m_Key: city_type.craft_city.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 577896453
+    m_Key: city_type.resource_city.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 577896454
+    m_Key: city_type.market_town.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 577896455
+    m_Key: city_type.oasis_stop.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 577896456
+    m_Key: item.grain.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 577896457
+    m_Key: item.rice.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 577896458
+    m_Key: item.salt.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 577896459
+    m_Key: item.tea.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 577896460
+    m_Key: item.wool.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 577896461
+    m_Key: item.leather.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 577896462
+    m_Key: item.iron.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 577896463
+    m_Key: item.tools.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 577896464
+    m_Key: item.ceramics.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 577896465
+    m_Key: item.silk.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 577896466
+    m_Key: item.spices.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 577896467
+    m_Key: item.incense.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 577896468
+    m_Key: item.jade.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 577896469
+    m_Key: city.beijing.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 577896470
+    m_Key: city.changan.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 577896471
+    m_Key: city.lanzhou.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 577896472
+    m_Key: city.shanghai.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 577896473
+    m_Key: city.hangzhou.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 577896474
+    m_Key: city.quanzhou.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 577896475
+    m_Key: city.guangzhou.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 577896476
+    m_Key: culture.china.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 577896477
+    m_Key: culture.steppe.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 577896478
+    m_Key: culture.central_asia.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 577896479
+    m_Key: culture.persia.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 577896480
+    m_Key: culture.mesopotamia.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 577896481
+    m_Key: culture.levant.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 577896482
+    m_Key: culture.anatolia.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 577896483
+    m_Key: culture.byzantine.name
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 6803825895852474610
+  references:
+    version: 2
+    RefIds:
+    - rid: 6803825895852474610
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1769685079246
