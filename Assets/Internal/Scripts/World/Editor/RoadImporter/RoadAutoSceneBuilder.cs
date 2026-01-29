@@ -30,7 +30,7 @@ namespace Internal.Scripts.World.Editor.RoadImporter
         [MenuItem("SPJ/Roads/Auto Build Roads In Scene/Toggle", true)]
         public static bool ToggleValidate()
         {
-            Menu.SetChecked("SilkPathJourney/Roads/Auto Build Roads In Scene/Toggle",
+            Menu.SetChecked("SPJ/Roads/Auto Build Roads In Scene/Toggle",
                 EditorPrefs.GetBool(PREF_KEY, true));
             return true;
         }

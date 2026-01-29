@@ -42,5 +42,152 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 307ff99db161af945bdb4805368c7896, type: 2}
   - {fileID: 11400000, guid: a4ece23fb02869c4bb00b85161950bb7, type: 2}
   - {fileID: 11400000, guid: 31e48cef88b779344a7b79156d564ef1, type: 2}
-  <CultureCategoryDemandMultipliers>k__BackingField: []
-  <CultureItemDemandMultipliers>k__BackingField: []
+  <CultureCategoryDemandMultipliers>k__BackingField:
+  - <Culture>k__BackingField: 1
+    <Category>k__BackingField: 1
+    <Multiplier>k__BackingField: 1
+  - <Culture>k__BackingField: 1
+    <Category>k__BackingField: 5
+    <Multiplier>k__BackingField: 1.05
+  - <Culture>k__BackingField: 1
+    <Category>k__BackingField: 2
+    <Multiplier>k__BackingField: 1.05
+  - <Culture>k__BackingField: 1
+    <Category>k__BackingField: 3
+    <Multiplier>k__BackingField: 0.85
+  - <Culture>k__BackingField: 1
+    <Category>k__BackingField: 4
+    <Multiplier>k__BackingField: 0.8
+  - <Culture>k__BackingField: 2
+    <Category>k__BackingField: 1
+    <Multiplier>k__BackingField: 1.15
+  - <Culture>k__BackingField: 2
+    <Category>k__BackingField: 5
+    <Multiplier>k__BackingField: 1.1
+  - <Culture>k__BackingField: 2
+    <Category>k__BackingField: 2
+    <Multiplier>k__BackingField: 0.9
+  - <Culture>k__BackingField: 2
+    <Category>k__BackingField: 3
+    <Multiplier>k__BackingField: 1.1
+  - <Culture>k__BackingField: 2
+    <Category>k__BackingField: 4
+    <Multiplier>k__BackingField: 1.05
+  - <Culture>k__BackingField: 3
+    <Category>k__BackingField: 1
+    <Multiplier>k__BackingField: 1.05
+  - <Culture>k__BackingField: 3
+    <Category>k__BackingField: 5
+    <Multiplier>k__BackingField: 1.1
+  - <Culture>k__BackingField: 3
+    <Category>k__BackingField: 2
+    <Multiplier>k__BackingField: 0.95
+  - <Culture>k__BackingField: 3
+    <Category>k__BackingField: 3
+    <Multiplier>k__BackingField: 1.1
+  - <Culture>k__BackingField: 3
+    <Category>k__BackingField: 4
+    <Multiplier>k__BackingField: 1.15
+  - <Culture>k__BackingField: 4
+    <Category>k__BackingField: 1
+    <Multiplier>k__BackingField: 1
+  - <Culture>k__BackingField: 4
+    <Category>k__BackingField: 5
+    <Multiplier>k__BackingField: 1.05
+  - <Culture>k__BackingField: 4
+    <Category>k__BackingField: 2
+    <Multiplier>k__BackingField: 1.05
+  - <Culture>k__BackingField: 4
+    <Category>k__BackingField: 3
+    <Multiplier>k__BackingField: 1.15
+  - <Culture>k__BackingField: 4
+    <Category>k__BackingField: 4
+    <Multiplier>k__BackingField: 1.2
+  - <Culture>k__BackingField: 5
+    <Category>k__BackingField: 1
+    <Multiplier>k__BackingField: 1.05
+  - <Culture>k__BackingField: 5
+    <Category>k__BackingField: 5
+    <Multiplier>k__BackingField: 1.05
+  - <Culture>k__BackingField: 5
+    <Category>k__BackingField: 2
+    <Multiplier>k__BackingField: 1
+  - <Culture>k__BackingField: 5
+    <Category>k__BackingField: 3
+    <Multiplier>k__BackingField: 1.1
+  - <Culture>k__BackingField: 5
+    <Category>k__BackingField: 4
+    <Multiplier>k__BackingField: 1.15
+  - <Culture>k__BackingField: 6
+    <Category>k__BackingField: 1
+    <Multiplier>k__BackingField: 1
+  - <Culture>k__BackingField: 6
+    <Category>k__BackingField: 5
+    <Multiplier>k__BackingField: 1
+  - <Culture>k__BackingField: 6
+    <Category>k__BackingField: 2
+    <Multiplier>k__BackingField: 1.05
+  - <Culture>k__BackingField: 6
+    <Category>k__BackingField: 3
+    <Multiplier>k__BackingField: 1.15
+  - <Culture>k__BackingField: 6
+    <Category>k__BackingField: 4
+    <Multiplier>k__BackingField: 1.2
+  - <Culture>k__BackingField: 8
+    <Category>k__BackingField: 1
+    <Multiplier>k__BackingField: 1
+  - <Culture>k__BackingField: 8
+    <Category>k__BackingField: 5
+    <Multiplier>k__BackingField: 0.95
+  - <Culture>k__BackingField: 8
+    <Category>k__BackingField: 2
+    <Multiplier>k__BackingField: 1.1
+  - <Culture>k__BackingField: 8
+    <Category>k__BackingField: 3
+    <Multiplier>k__BackingField: 1.2
+  - <Culture>k__BackingField: 8
+    <Category>k__BackingField: 4
+    <Multiplier>k__BackingField: 1.25
+  - <Culture>k__BackingField: 7
+    <Category>k__BackingField: 1
+    <Multiplier>k__BackingField: 1
+  - <Culture>k__BackingField: 7
+    <Category>k__BackingField: 5
+    <Multiplier>k__BackingField: 1
+  - <Culture>k__BackingField: 7
+    <Category>k__BackingField: 2
+    <Multiplier>k__BackingField: 1.05
+  - <Culture>k__BackingField: 7
+    <Category>k__BackingField: 3
+    <Multiplier>k__BackingField: 1.1
+  - <Culture>k__BackingField: 7
+    <Category>k__BackingField: 4
+    <Multiplier>k__BackingField: 1.15
+  <CultureItemDemandMultipliers>k__BackingField:
+  - <Culture>k__BackingField: 1
+    <ItemId>k__BackingField: silk
+    <Multiplier>k__BackingField: 0.8
+  - <Culture>k__BackingField: 8
+    <ItemId>k__BackingField: silk
+    <Multiplier>k__BackingField: 1.3
+  - <Culture>k__BackingField: 4
+    <ItemId>k__BackingField: spices
+    <Multiplier>k__BackingField: 1.2
+  - <Culture>k__BackingField: 6
+    <ItemId>k__BackingField: spices
+    <Multiplier>k__BackingField: 1.2
+  - <Culture>k__BackingField: 4
+    <ItemId>k__BackingField: incense
+    <Multiplier>k__BackingField: 1.2
+  - <Culture>k__BackingField: 1
+    <ItemId>k__BackingField: jade
+    <Multiplier>k__BackingField: 0.85
+  - <Culture>k__BackingField: 8
+    <ItemId>k__BackingField: jade
+    <Multiplier>k__BackingField: 1.15
+  - <Culture>k__BackingField: 2
+    <ItemId>k__BackingField: leather
+    <Multiplier>k__BackingField: 0.85
+  - <Culture>k__BackingField: 2
+    <ItemId>k__BackingField: wool
+    <Multiplier>k__BackingField: 0.8

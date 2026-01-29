@@ -292,7 +292,7 @@ namespace Internal.Scripts.Economy.Editor
             string[] header = rows[0];
             int cultureIndex = FindColumnIndex(header, "culture_id");
             int categoryIndex = FindColumnIndex(header, "category_id");
-            int multIndex = FindColumnIndex(header, "mult");
+            int multIndex = FindColumnIndex(header, "demand_mult");
             if (cultureIndex < 0 || categoryIndex < 0 || multIndex < 0)
             {
                 Debug.LogError("[SPJ] Missing required columns in culture_category_demand_mult.csv");
@@ -365,7 +365,7 @@ namespace Internal.Scripts.Economy.Editor
             string[] header = rows[0];
             int cultureIndex = FindColumnIndex(header, "culture_id");
             int itemIndex = FindColumnIndex(header, "item_id");
-            int multIndex = FindColumnIndex(header, "mult");
+            int multIndex = FindColumnIndex(header, "demand_mult");
             if (cultureIndex < 0 || itemIndex < 0 || multIndex < 0)
             {
                 Debug.LogError("[SPJ] Missing required columns in culture_item_demand_mult.csv");
