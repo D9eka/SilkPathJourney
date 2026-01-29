@@ -19,7 +19,7 @@ namespace Internal.Scripts.World.Editor.RoadImporter
             EditorSceneManager.sceneOpened += (_, __) => TryBuild();
         }
 
-        [MenuItem("SilkPathJourney/Roads/Auto Build Roads In Scene/Toggle")]
+        [MenuItem("SPJ/Roads/Auto Build Roads In Scene/Toggle")]
         public static void Toggle()
         {
             bool v = EditorPrefs.GetBool(PREF_KEY, true);
@@ -27,7 +27,7 @@ namespace Internal.Scripts.World.Editor.RoadImporter
             Debug.Log($"[SPJ] Auto Build Roads In Scene: {!v}");
         }
 
-        [MenuItem("SilkPathJourney/Roads/Auto Build Roads In Scene/Toggle", true)]
+        [MenuItem("SPJ/Roads/Auto Build Roads In Scene/Toggle", true)]
         public static bool ToggleValidate()
         {
             Menu.SetChecked("SilkPathJourney/Roads/Auto Build Roads In Scene/Toggle",
