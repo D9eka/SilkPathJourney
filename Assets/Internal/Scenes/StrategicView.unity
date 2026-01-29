@@ -262,6 +262,44 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &238851124 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9050103549976627735, guid: e2f30367c0f30b44b9d9a3c5aed26f4d, type: 3}
+  m_PrefabInstance: {fileID: 1949583555}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &238851126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238851124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fac8e95a607402f49add51923e7021fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Economy.Cities.CityNodeLink
+  <CityId>k__BackingField: hangzhou
+  <City>k__BackingField: {fileID: 11400000, guid: 307ff99db161af945bdb4805368c7896, type: 2}
+--- !u!1 &291015181 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -3402559363145509023, guid: e2f30367c0f30b44b9d9a3c5aed26f4d, type: 3}
+  m_PrefabInstance: {fileID: 1949583555}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &291015183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291015181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fac8e95a607402f49add51923e7021fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Economy.Cities.CityNodeLink
+  <CityId>k__BackingField: changan
+  <City>k__BackingField: {fileID: 11400000, guid: 508b7692898c764478c0aee2340fedbf, type: 2}
 --- !u!1 &558127740
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,6 +351,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -4292154010595695564, guid: e2f30367c0f30b44b9d9a3c5aed26f4d, type: 3}
   m_PrefabInstance: {fileID: 1949583555}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &890872395 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -8680483747673817305, guid: e2f30367c0f30b44b9d9a3c5aed26f4d, type: 3}
+  m_PrefabInstance: {fileID: 1949583555}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &890872397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 890872395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fac8e95a607402f49add51923e7021fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Economy.Cities.CityNodeLink
+  <CityId>k__BackingField: quanzhou
+  <City>k__BackingField: {fileID: 11400000, guid: a4ece23fb02869c4bb00b85161950bb7, type: 2}
 --- !u!1 &935085557
 GameObject:
   m_ObjectHideFlags: 0
@@ -403,6 +460,7 @@ MonoBehaviour:
     LateralOffsetMeters: 0
   _startTargetSelectionButton: {fileID: 1896733672}
   _cancelTargetSelectionButton: {fileID: 1514544880}
+  _enterCityButton: {fileID: 5144597268441171052}
   _interactableLayerMask:
     serializedVersion: 2
     m_Bits: 256
@@ -411,6 +469,63 @@ MonoBehaviour:
     m_Bits: 4294967295
   _arrowsRoot: {fileID: 1659619013}
   _arrowPrefab: {fileID: 8460485022377515572, guid: 059a3f317078805408825cc19961bd68, type: 3}
+--- !u!1 &964454146 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -7685235043245661311, guid: e2f30367c0f30b44b9d9a3c5aed26f4d, type: 3}
+  m_PrefabInstance: {fileID: 1949583555}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &964454148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964454146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fac8e95a607402f49add51923e7021fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Economy.Cities.CityNodeLink
+  <CityId>k__BackingField: beijing
+  <City>k__BackingField: {fileID: 11400000, guid: 5835b071a4dcd9544b95fc971dfbad97, type: 2}
+--- !u!1 &978471895 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2100685983307062313, guid: e2f30367c0f30b44b9d9a3c5aed26f4d, type: 3}
+  m_PrefabInstance: {fileID: 1949583555}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &978471897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 978471895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fac8e95a607402f49add51923e7021fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Economy.Cities.CityNodeLink
+  <CityId>k__BackingField: lanzhou
+  <City>k__BackingField: {fileID: 11400000, guid: 51614a381e51afe46a7716198ccd7dec, type: 2}
+--- !u!1 &1026251625 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -3867081547898293774, guid: e2f30367c0f30b44b9d9a3c5aed26f4d, type: 3}
+  m_PrefabInstance: {fileID: 1949583555}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1026251627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1026251625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fac8e95a607402f49add51923e7021fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Economy.Cities.CityNodeLink
+  <CityId>k__BackingField: shanghai
+  <City>k__BackingField: {fileID: 11400000, guid: c6c215763fbb4af44b9464bdf1d7d742, type: 2}
 --- !u!1 &1075781386
 GameObject:
   m_ObjectHideFlags: 0
@@ -721,6 +836,25 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4052941778279069858, guid: ad574e99a7e35ad4cb395a4512601a04, type: 3}
   m_PrefabInstance: {fileID: 5144597268441171051}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1772844681 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 881059382195714587, guid: e2f30367c0f30b44b9d9a3c5aed26f4d, type: 3}
+  m_PrefabInstance: {fileID: 1949583555}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1772844683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1772844681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fac8e95a607402f49add51923e7021fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Economy.Cities.CityNodeLink
+  <CityId>k__BackingField: guangzhou
+  <City>k__BackingField: {fileID: 11400000, guid: 31e48cef88b779344a7b79156d564ef1, type: 2}
 --- !u!1 &1859162290
 GameObject:
   m_ObjectHideFlags: 0
@@ -1459,7 +1593,28 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -4292154010595695564, guid: e2f30367c0f30b44b9d9a3c5aed26f4d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1859162291}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: -7685235043245661311, guid: e2f30367c0f30b44b9d9a3c5aed26f4d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 964454148}
+    - targetCorrespondingSourceObject: {fileID: -3402559363145509023, guid: e2f30367c0f30b44b9d9a3c5aed26f4d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 291015183}
+    - targetCorrespondingSourceObject: {fileID: 881059382195714587, guid: e2f30367c0f30b44b9d9a3c5aed26f4d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1772844683}
+    - targetCorrespondingSourceObject: {fileID: 9050103549976627735, guid: e2f30367c0f30b44b9d9a3c5aed26f4d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 238851126}
+    - targetCorrespondingSourceObject: {fileID: 2100685983307062313, guid: e2f30367c0f30b44b9d9a3c5aed26f4d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 978471897}
+    - targetCorrespondingSourceObject: {fileID: -8680483747673817305, guid: e2f30367c0f30b44b9d9a3c5aed26f4d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 890872397}
+    - targetCorrespondingSourceObject: {fileID: -3867081547898293774, guid: e2f30367c0f30b44b9d9a3c5aed26f4d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1026251627}
   m_SourcePrefab: {fileID: 100100000, guid: e2f30367c0f30b44b9d9a3c5aed26f4d, type: 3}
 --- !u!1 &1953563517
 GameObject:
@@ -1747,11 +1902,63 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8558290747929180496, guid: ad574e99a7e35ad4cb395a4512601a04, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8558290747929180496, guid: ad574e99a7e35ad4cb395a4512601a04, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8558290747929180496, guid: ad574e99a7e35ad4cb395a4512601a04, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8558290747929180496, guid: ad574e99a7e35ad4cb395a4512601a04, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8886771452756016301, guid: ad574e99a7e35ad4cb395a4512601a04, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8886771452756016301, guid: ad574e99a7e35ad4cb395a4512601a04, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8886771452756016301, guid: ad574e99a7e35ad4cb395a4512601a04, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8886771452756016301, guid: ad574e99a7e35ad4cb395a4512601a04, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8886771452756016301, guid: ad574e99a7e35ad4cb395a4512601a04, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8886771452756016301, guid: ad574e99a7e35ad4cb395a4512601a04, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6965995083786733358, guid: ad574e99a7e35ad4cb395a4512601a04, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad574e99a7e35ad4cb395a4512601a04, type: 3}
+--- !u!114 &5144597268441171052 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5810309792074777746, guid: ad574e99a7e35ad4cb395a4512601a04, type: 3}
+  m_PrefabInstance: {fileID: 5144597268441171051}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

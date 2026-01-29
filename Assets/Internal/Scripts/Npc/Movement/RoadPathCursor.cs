@@ -6,7 +6,6 @@ using Internal.Scripts.Player.NextSegment;
 using Internal.Scripts.Road.Core;
 using Internal.Scripts.Road.Graph;
 using Internal.Scripts.Road.Path;
-using Zenject;
 
 namespace Internal.Scripts.Npc.Movement
 {

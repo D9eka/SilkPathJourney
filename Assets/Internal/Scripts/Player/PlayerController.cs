@@ -1,17 +1,33 @@
 using System;
 using Internal.Scripts.Npc.Core;
-using Internal.Scripts.Player.UI;
 using Internal.Scripts.Player.UI.StartMovement;
 using UnityEngine;
 using Zenject;
 
 namespace Internal.Scripts.Player
 {
-    public class PlayerController : ITickable, IDisposable
+    public class PlayerController : ITickable, IDisposable, IPlayerStateProvider
     {
         private readonly IPlayerStartMovement _playerStartMovement;
         
         private RoadAgent _roadAgent;
+
+        public string CurrentNodeId => _roadAgent?.CurrentNodeId ?? string.Empty;
+
+        public PlayerState State
+        {
+            get
+            {
+                if (_playerStartMovement.IsChoosingTarget)
+                    return PlayerState.SelectingTarget;
+
+                if (_roadAgent != null && (_roadAgent.HasPath || 
+                    !string.IsNullOrEmpty(_roadAgent.DestinationNodeId)))
+                    return PlayerState.Moving;
+
+                return PlayerState.Idle;
+            }
+        }
 
         public PlayerController(IPlayerStartMovement playerStartMovement)
         {
