@@ -1,0 +1,41 @@
+key,source_sheet,source_row,ru,en
+city_type.border_city.name,city_types,4,Пограничный город,Border City
+city_type.capital.name,city_types,2,Столица,Capital
+city_type.craft_city.name,city_types,5,Ремесленный центр,Craft City
+city_type.market_town.name,city_types,7,Обычный город,Market Town
+city_type.oasis_stop.name,city_types,8,Караванная остановка,Caravan Stop
+city_type.resource_city.name,city_types,6,Сырьевой город,Resource City
+city_type.trade_hub.name,city_types,3,Торговый узел,Trade Hub
+city.beijing.name,cities,2,Пекин,Beijing
+city.changan.name,cities,3,Чанъань,Chang’an
+city.guangzhou.name,cities,8,Гуанчжоу,Guangzhou
+city.hangzhou.name,cities,6,Ханчжоу,Hangzhou
+city.lanzhou.name,cities,4,Ланьчжоу,Lanzhou
+city.quanzhou.name,cities,7,Цюаньчжоу,Quanzhou
+city.shanghai.name,cities,5,Шанхай,Shanghai
+culture.anatolia.name,cultures,8,Анатолия,Anatolia
+culture.byzantine.name,cultures,9,Византия,Byzantine
+culture.central_asia.name,cultures,4,Средняя Азия,Central Asia
+culture.china.name,cultures,2,Китай,China
+culture.levant.name,cultures,7,Левант,Levant
+culture.mesopotamia.name,cultures,6,Месопотамия,Mesopotamia
+culture.persia.name,cultures,5,Персия,Persia
+culture.steppe.name,cultures,3,Степь,Steppe
+item_category.craft.name,item_categories,3,Ремесло,Handicrafts
+item_category.exotic.name,item_categories,5,Экзотика,Exotic goods
+item_category.food.name,item_categories,2,Еда,Food
+item_category.luxury.name,item_categories,4,Роскошь,Luxury items
+item_category.raw.name,item_categories,6,Сырьё,Raw goods
+item.ceramics.name,items,10,Керамика,Ceramics
+item.grain.name,items,2,Зерно,Grain
+item.incense.name,items,13,Благовония,Incense
+item.iron.name,items,8,Железо,Iron
+item.jade.name,items,14,Нефрит,Jade
+item.leather.name,items,7,Кожа,Leather
+item.rice.name,items,3,Рис,Rice
+item.salt.name,items,4,Соль,Salt
+item.silk.name,items,11,Шёлк,Silk
+item.spices.name,items,12,Специи,Spices
+item.tea.name,items,5,Чай,Tea
+item.tools.name,items,9,Инструменты,Tools
+item.wool.name,items,6,Шерсть,Wool

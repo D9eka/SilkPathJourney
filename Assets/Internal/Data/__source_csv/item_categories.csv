@@ -1,0 +1,6 @@
+category_id,enum_name,name_key,sort_order,loc_link,loc_ru,loc_en
+food,Food,item_category.food.name,10,перевод,Еда,Food
+craft,Craft,item_category.craft.name,30,перевод,Ремесло,Handicrafts
+luxury,Luxury,item_category.luxury.name,40,перевод,Роскошь,Luxury items
+exotic,Exotic,item_category.exotic.name,50,перевод,Экзотика,Exotic goods
+raw,Raw,item_category.raw.name,20,перевод,Сырьё,Raw goods
