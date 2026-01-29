@@ -30,6 +30,11 @@ using Plugins.Zenject.Source.Install;
 using UnityEngine;
 using UnityEngine.UI;
 using Internal.Scripts.Economy.Cities;
+using Internal.Scripts.Economy;
+using Internal.Scripts.Economy.Inventory;
+using Internal.Scripts.Economy.Save;
+using Internal.Scripts.Save;
+using Internal.Scripts.Economy.Simulation;
 
 namespace Internal.Scripts.Installers
 {
@@ -43,12 +48,17 @@ namespace Internal.Scripts.Installers
         [SerializeField] private WorldStatesData _worldStatesData;
         [SerializeField] private NodeView _nodeViewPrefab;
         [Space]
+        [Header("Economy")]
+        [SerializeField] private EconomyDatabase _economyDatabase;
+        [SerializeField] private EconomySimulationSettings _economySimulationSettings;
+        [Space]
         [Header("NPC")]
         [SerializeField] private NpcSpawnEntry[] _spawns;
         [SerializeField] private NpcSimulationSettings _simulationSettings;
         [Header("Player")]
         [SerializeField] private RoadAgentView _playerViewPrefab;
-        [SerializeField] private PlayerConfig _playerConfig;
+        [SerializeField] private RoadAgentConfig _playerAgentConfig;
+        [SerializeField] private PlayerConfig _playerProfile;
         [SerializeField] private Button _startTargetSelectionButton;
         [SerializeField] private Button _cancelTargetSelectionButton;
         [Header("City")]
@@ -70,6 +80,8 @@ namespace Internal.Scripts.Installers
             InstallWorld();
             InstallRoad();
             InstallNpc();
+            BindPlayerConfig();
+            InstallEconomy();
             InstallPlayer();
         }
 
@@ -131,18 +143,35 @@ namespace Internal.Scripts.Installers
             Container.Bind<PathHintsCreator>().AsSingle();
             Container.Bind<RoadAgentView>().FromComponentInNewPrefab(_playerViewPrefab).AsSingle()
                 .WhenInjectedInto<PlayerInitializer>();
-            Container.Bind<RoadAgentConfig>().FromInstance(_playerConfig.RoadAgentConfig).AsSingle()
+            Container.Bind<RoadAgentConfig>().FromInstance(_playerAgentConfig).AsSingle()
                 .WhenInjectedInto<PlayerInitializer>();
-            Container.BindInstance(_playerConfig).AsSingle();
             Container.BindInterfacesAndSelfTo<SegmentMover>().AsSingle().WhenInjectedInto<PlayerInitializer>();
-            Container.BindInterfacesTo<PlayerNextSegmentsProvider>().AsSingle().WhenInjectedInto<PlayerInitializer>();
+            Container.BindInterfacesAndSelfTo<PlayerNextSegmentsProvider>().AsSingle();
             Container.BindInterfacesTo<PlayerStartMovement>().AsSingle()
                 .WithArguments(_startTargetSelectionButton, _cancelTargetSelectionButton);
             Container.BindInterfacesAndSelfTo<PlayerController>().AsSingle();
+            Container.BindInterfacesAndSelfTo<PlayerSaveController>().AsSingle();
             Container.BindInterfacesTo<PlayerInitializer>().AsSingle();
             Container.BindInterfacesTo<CityNodeResolver>().AsSingle();
             Container.BindInterfacesAndSelfTo<PlayerCityButtonsController>().AsSingle()
                 .WithArguments(_enterCityButton);
+        }
+
+        private void InstallEconomy()
+        {
+            Container.BindInstance(_economyDatabase).AsSingle(); 
+            Container.BindInstance(_economySimulationSettings).AsSingle();
+
+            Container.Bind<ISaveService>().To<JsonSaveService>().AsSingle();
+            Container.Bind<SaveRepository>().AsSingle();
+            Container.Bind<EconomySaveBuilder>().AsSingle();
+            Container.BindInterfacesAndSelfTo<SaveBootstrapper>().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<InventoryRepository>().AsSingle().NonLazy();
+        }
+
+        private void BindPlayerConfig()
+        {
+            Container.BindInstance(_playerProfile).AsSingle();
         }
         
         private void InstallArrows()

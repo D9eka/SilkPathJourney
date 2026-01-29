@@ -7,6 +7,8 @@ namespace Internal.Scripts.Player.UI.StartMovement
         event Action<string> OnChooseNode;
         bool IsChoosingTarget { get; }
         void SetCurrentPlayerNode(string node);
+        void SetStartButtonEnabled(bool enabled);
+        void CancelSelection();
         void FinishPath();
     }
 }
