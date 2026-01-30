@@ -1,6 +1,6 @@
 using System;
 
-namespace Internal.Scripts.Player.UI.StartMovement
+namespace Internal.Scripts.UI.StartMovement
 {
     public interface IPlayerStartMovement
     {

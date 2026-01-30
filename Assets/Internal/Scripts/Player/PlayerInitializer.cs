@@ -2,10 +2,10 @@ using System;
 using Internal.Scripts.Npc.Core;
 using Internal.Scripts.Npc.Movement;
 using Internal.Scripts.Npc.NextSegment;
-using Internal.Scripts.Player.UI.Arrow.JunctionBalancer;
-using Internal.Scripts.Player.UI.StartMovement;
 using Internal.Scripts.Road.Graph;
 using Internal.Scripts.Save;
+using Internal.Scripts.UI.Arrow.JunctionBalancer;
+using Internal.Scripts.UI.StartMovement;
 using Zenject;
 
 namespace Internal.Scripts.Player

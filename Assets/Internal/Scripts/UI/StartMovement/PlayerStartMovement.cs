@@ -7,7 +7,7 @@ using Internal.Scripts.Road.Nodes.UI.NodesViewer;
 using UnityEngine.UI;
 using Zenject;
 
-namespace Internal.Scripts.Player.UI.StartMovement
+namespace Internal.Scripts.UI.StartMovement
 {
     public class PlayerStartMovement : IPlayerStartMovement, IInitializable, IDisposable
     {

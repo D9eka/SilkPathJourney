@@ -2,7 +2,7 @@ using Internal.Scripts.Road.Graph;
 using Internal.Scripts.Road.Path;
 using UnityEngine;
 
-namespace Internal.Scripts.Player.UI.Arrow.DirectionCalculation
+namespace Internal.Scripts.UI.Arrow.DirectionCalculation
 {
     public sealed class RoadPoseArrowDirectionCalculator : IArrowDirectionCalculator
     {

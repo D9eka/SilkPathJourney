@@ -4,7 +4,7 @@ using Internal.Scripts.Road.Graph;
 using Internal.Scripts.Road.Path;
 using UnityEngine;
 
-namespace Internal.Scripts.Player.UI.Arrow.PositionCalculation
+namespace Internal.Scripts.UI.Arrow.PositionCalculation
 {
     public sealed class RoadPoseArrowPositionCalculator : IArrowPositionCalculator
     {
