@@ -196,7 +196,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1254759359981083873, guid: 7d71a483905c3714d945b166b326a2da, type: 3}
       propertyPath: m_Name
-      value: InGameScreen
+      value: PopupScreen
       objectReference: {fileID: 0}
     - target: {fileID: 4629689922670183437, guid: 7d71a483905c3714d945b166b326a2da, type: 3}
       propertyPath: m_Pivot.x
@@ -403,9 +403,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6292536139249847023, guid: a44e27feb2ea86243806b25e7888aa46, type: 3}
+      propertyPath: m_Name
+      value: AdditionalHeaderText
+      objectReference: {fileID: 0}
     - target: {fileID: 7344628017733324252, guid: a44e27feb2ea86243806b25e7888aa46, type: 3}
       propertyPath: m_Name
-      value: WindowsHeaderHugContent
+      value: AdditionalHeader
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -523,7 +527,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5186635439390408759, guid: d5c1ed13c87e48d4f92d5fc21fd3a2b6, type: 3}
       propertyPath: m_Name
-      value: WindowHeader
+      value: MainHeader
       objectReference: {fileID: 0}
     - target: {fileID: 6417276813286867815, guid: d5c1ed13c87e48d4f92d5fc21fd3a2b6, type: 3}
       propertyPath: m_Enabled
@@ -532,6 +536,10 @@ PrefabInstance:
     - target: {fileID: 6417276813286867815, guid: d5c1ed13c87e48d4f92d5fc21fd3a2b6, type: 3}
       propertyPath: m_FlexibleWidth
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8449994732766660356, guid: d5c1ed13c87e48d4f92d5fc21fd3a2b6, type: 3}
+      propertyPath: m_Name
+      value: MainHeaderText
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 267026534284143022, guid: d5c1ed13c87e48d4f92d5fc21fd3a2b6, type: 3}
@@ -631,6 +639,10 @@ PrefabInstance:
     - target: {fileID: 3198922728128828688, guid: c25c2db0988d4bb4a9020cce61afca32, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5306894436652931336, guid: c25c2db0988d4bb4a9020cce61afca32, type: 3}
+      propertyPath: m_Name
+      value: CloseButtonText
       objectReference: {fileID: 0}
     - target: {fileID: 8870728267663547963, guid: c25c2db0988d4bb4a9020cce61afca32, type: 3}
       propertyPath: m_Name
