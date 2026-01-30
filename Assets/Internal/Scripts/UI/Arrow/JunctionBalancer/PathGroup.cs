@@ -1,4 +1,4 @@
-namespace Internal.Scripts.Player.UI.Arrow.JunctionBalancer
+namespace Internal.Scripts.UI.Arrow.JunctionBalancer
 {
     public enum PathGroup
     {

@@ -1,6 +1,6 @@
 using System;
 using Internal.Scripts.Npc.Core;
-using Internal.Scripts.Player.UI.StartMovement;
+using Internal.Scripts.UI.StartMovement;
 using UnityEngine;
 using Zenject;
 

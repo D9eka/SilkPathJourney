@@ -1,4 +1,4 @@
-namespace Internal.Scripts.Player.UI.Arrow
+namespace Internal.Scripts.UI.Arrow
 {
     public enum ArrowType
     {

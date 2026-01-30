@@ -2,7 +2,7 @@ using Internal.Scripts.Road.Core;
 using Internal.Scripts.Road.Path;
 using UnityEngine;
 
-namespace Internal.Scripts.Player.UI.Arrow.PositionCalculation
+namespace Internal.Scripts.UI.Arrow.PositionCalculation
 {
     public interface IArrowPositionCalculator
     {

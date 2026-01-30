@@ -1,14 +1,14 @@
 using System.Collections.Generic;
 using Internal.Scripts.Player.Path;
-using Internal.Scripts.Player.UI.Arrow.DirectionCalculation;
-using Internal.Scripts.Player.UI.Arrow.JunctionBalancer;
-using Internal.Scripts.Player.UI.Arrow.Placement;
-using Internal.Scripts.Player.UI.Arrow.PositionCalculation;
 using Internal.Scripts.Road.Core;
 using Internal.Scripts.Road.Path;
+using Internal.Scripts.UI.Arrow.DirectionCalculation;
+using Internal.Scripts.UI.Arrow.JunctionBalancer;
+using Internal.Scripts.UI.Arrow.Placement;
+using Internal.Scripts.UI.Arrow.PositionCalculation;
 using UnityEngine;
 
-namespace Internal.Scripts.Player.UI.Arrow.Controller
+namespace Internal.Scripts.UI.Arrow.Controller
 {
     public sealed class RoadPoseArrowsController : IArrowsController
     {

@@ -2,7 +2,8 @@ using System;
 using Internal.Scripts.InteractableObjects;
 using Internal.Scripts.Road.Path;
 using UnityEngine;
-namespace Internal.Scripts.Player.UI.Arrow
+
+namespace Internal.Scripts.UI.Arrow
 {
     public class ArrowView : InteractableObjectView
     {

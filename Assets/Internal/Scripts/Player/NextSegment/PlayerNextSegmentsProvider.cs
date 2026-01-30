@@ -5,8 +5,8 @@ using Cysharp.Threading.Tasks;
 using Internal.Scripts.Npc.NextSegment;
 using Internal.Scripts.Player.Input;
 using Internal.Scripts.Player.Path;
-using Internal.Scripts.Player.UI.Arrow.Controller;
 using Internal.Scripts.Road.Path;
+using Internal.Scripts.UI.Arrow.Controller;
 
 namespace Internal.Scripts.Player.NextSegment
 {

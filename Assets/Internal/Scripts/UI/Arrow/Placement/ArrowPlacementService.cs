@@ -3,7 +3,7 @@ using DG.Tweening;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace Internal.Scripts.Player.UI.Arrow.Placement
+namespace Internal.Scripts.UI.Arrow.Placement
 {
     public sealed class ArrowPlacementService : IArrowPlacementService
     {

@@ -1,12 +1,12 @@
-using Internal.Scripts.Npc.Core;
-using Internal.Scripts.Player.UI.Arrow.DirectionCalculation;
 using System.Collections.Generic;
+using Internal.Scripts.Npc.Core;
 using Internal.Scripts.Road.Graph;
 using Internal.Scripts.Road.Path;
+using Internal.Scripts.UI.Arrow.DirectionCalculation;
 using UnityEngine;
 using Zenject;
 
-namespace Internal.Scripts.Player.UI.Arrow.JunctionBalancer
+namespace Internal.Scripts.UI.Arrow.JunctionBalancer
 {
     public sealed class ArrowJunctionBalancer : IArrowJunctionBalancer, IFixedTickable
     {

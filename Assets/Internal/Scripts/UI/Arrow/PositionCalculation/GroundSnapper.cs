@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Internal.Scripts.Player.UI.Arrow.PositionCalculation
+namespace Internal.Scripts.UI.Arrow.PositionCalculation
 {
     public class GroundSnapper
     {

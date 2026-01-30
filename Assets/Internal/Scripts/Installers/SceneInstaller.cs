@@ -9,14 +9,6 @@ using Internal.Scripts.Player;
 using Internal.Scripts.Player.Input;
 using Internal.Scripts.Player.NextSegment;
 using Internal.Scripts.Player.Path;
-using Internal.Scripts.Player.UI.Arrow;
-using Internal.Scripts.Player.UI.Arrow.Controller;
-using Internal.Scripts.Player.UI.Arrow.DirectionCalculation;
-using Internal.Scripts.Player.UI.Arrow.JunctionBalancer;
-using Internal.Scripts.Player.UI.Arrow.Placement;
-using Internal.Scripts.Player.UI.Arrow.PositionCalculation;
-using Internal.Scripts.Player.UI.StartMovement;
-using Internal.Scripts.Player.UI.City;
 using Internal.Scripts.Road.Core;
 using Internal.Scripts.Road.Graph;
 using Internal.Scripts.Road.Nodes;
@@ -35,6 +27,14 @@ using Internal.Scripts.Economy.Inventory;
 using Internal.Scripts.Economy.Save;
 using Internal.Scripts.Save;
 using Internal.Scripts.Economy.Simulation;
+using Internal.Scripts.UI.Arrow;
+using Internal.Scripts.UI.Arrow.Controller;
+using Internal.Scripts.UI.Arrow.DirectionCalculation;
+using Internal.Scripts.UI.Arrow.JunctionBalancer;
+using Internal.Scripts.UI.Arrow.Placement;
+using Internal.Scripts.UI.Arrow.PositionCalculation;
+using Internal.Scripts.UI.City;
+using Internal.Scripts.UI.StartMovement;
 
 namespace Internal.Scripts.Installers
 {

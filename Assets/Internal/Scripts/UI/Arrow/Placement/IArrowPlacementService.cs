@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Internal.Scripts.Player.UI.Arrow.Placement
+namespace Internal.Scripts.UI.Arrow.Placement
 {
     public interface IArrowPlacementService
     {

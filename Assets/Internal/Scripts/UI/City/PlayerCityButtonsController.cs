@@ -1,13 +1,14 @@
 using System;
 using Internal.Scripts.Economy.Cities;
+using Internal.Scripts.Player;
 using Internal.Scripts.Player.NextSegment;
-using Internal.Scripts.Player.UI.Arrow.Controller;
-using Internal.Scripts.Player.UI.StartMovement;
+using Internal.Scripts.UI.Arrow.Controller;
+using Internal.Scripts.UI.StartMovement;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace Internal.Scripts.Player.UI.City
+namespace Internal.Scripts.UI.City
 {
     public sealed class PlayerCityButtonsController : IInitializable, ITickable, IDisposable
     {
