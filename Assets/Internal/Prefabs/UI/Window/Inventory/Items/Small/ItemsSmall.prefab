@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4248574048742298584}
   m_Layer: 5
-  m_Name: Viewport
+  m_Name: ItemsViewport
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 3324819623432505653}
   - component: {fileID: 6587460073655864130}
   m_Layer: 5
-  m_Name: Content
+  m_Name: ItemsContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -122,6 +122,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 795263610489459503}
+  - component: {fileID: 8064520053690104829}
   m_Layer: 5
   m_Name: ItemsSmall
   m_TagString: Untagged
@@ -152,6 +153,67 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &8064520053690104829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6352722140912833548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4bd475963664b69a0b206e8c9240059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Screens.Inventory.ItemsView
+  _itemsNameHeader: {fileID: 1421531728237096297}
+  _itemsWeightHeader: {fileID: 3018740930406581709}
+  _itemsPriceHeader: {fileID: 8421965503176031145}
+  _itemsNameHeaderText: {fileID: 1414384059943730352}
+  _itemsWeightHeaderText: {fileID: 3025879903678387220}
+  _itemsPriceHeaderText: {fileID: 8429181991811410544}
+  _actionButtonText: {fileID: 5105021026564269273}
+  _actionButton: {fileID: 1428660141394316224}
+  _itemsContainer: {fileID: 361790030681891318}
+  _itemPrefab: {fileID: 4119841600331877496, guid: 81acefd69fdbdfd449c90a558b89d857, type: 3}
+  _itemsNameHeaderLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  _itemsWeightHeaderLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  _itemsPriceHeaderLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  _actionButtonLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &6703508684134081593
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,7 +293,7 @@ GameObject:
   - component: {fileID: 9199702019375097162}
   - component: {fileID: 1337431354893995815}
   m_Layer: 5
-  m_Name: ScrollRect
+  m_Name: ItemsScrollRect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -352,7 +414,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1555519836438882480, guid: 9b10fdf9906eee84c8a17ef0988b2393, type: 3}
       propertyPath: m_Name
-      value: WindowContainerSmallStartHeader Variant
+      value: ItemsNameHeader
       objectReference: {fileID: 0}
     - target: {fileID: 1852493554679863040, guid: 9b10fdf9906eee84c8a17ef0988b2393, type: 3}
       propertyPath: m_Pivot.x
@@ -434,11 +496,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8079999073164307640, guid: 9b10fdf9906eee84c8a17ef0988b2393, type: 3}
+      propertyPath: m_Name
+      value: ItemsNameHeaderText
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b10fdf9906eee84c8a17ef0988b2393, type: 3}
+--- !u!114 &1414384059943730352 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1552893396130740585, guid: 9b10fdf9906eee84c8a17ef0988b2393, type: 3}
+  m_PrefabInstance: {fileID: 444759737675253209}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!1 &1421531728237096297 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1555519836438882480, guid: 9b10fdf9906eee84c8a17ef0988b2393, type: 3}
+  m_PrefabInstance: {fileID: 444759737675253209}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &2276986933439845081 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1852493554679863040, guid: 9b10fdf9906eee84c8a17ef0988b2393, type: 3}
@@ -546,6 +628,28 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3769534537457078180, guid: a804f206b7c1d084393dfa2fc8d4816e, type: 3}
   m_PrefabInstance: {fileID: 3630154357308926146}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1428660141394316224 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2428417612840788738, guid: a804f206b7c1d084393dfa2fc8d4816e, type: 3}
+  m_PrefabInstance: {fileID: 3630154357308926146}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
+--- !u!114 &5105021026564269273 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8410555544481254427, guid: a804f206b7c1d084393dfa2fc8d4816e, type: 3}
+  m_PrefabInstance: {fileID: 3630154357308926146}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1001 &4922494532856958441
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -656,7 +760,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8621131274110760822, guid: b288e621e7b70bc42acf399797918a28, type: 3}
       propertyPath: m_Name
-      value: ScrollbarVerticalSmall
+      value: ItemsScrollRectScrollbarVertical
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -769,7 +873,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1101993946380666095, guid: e058a6ee2b357fa468f205207db6a3b1, type: 3}
       propertyPath: m_Name
-      value: WindowContainerSmallEndHeader Variant
+      value: ItemsPriceHeader
       objectReference: {fileID: 0}
     - target: {fileID: 1103871172468659510, guid: e058a6ee2b357fa468f205207db6a3b1, type: 3}
       propertyPath: m_text
@@ -779,11 +883,31 @@ PrefabInstance:
       propertyPath: m_FlexibleWidth
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7709226824107311335, guid: e058a6ee2b357fa468f205207db6a3b1, type: 3}
+      propertyPath: m_Name
+      value: ItemsPriceHeaderText
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e058a6ee2b357fa468f205207db6a3b1, type: 3}
+--- !u!1 &8421965503176031145 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1101993946380666095, guid: e058a6ee2b357fa468f205207db6a3b1, type: 3}
+  m_PrefabInstance: {fileID: 8911432510190141254}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8429181991811410544 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1103871172468659510, guid: e058a6ee2b357fa468f205207db6a3b1, type: 3}
+  m_PrefabInstance: {fileID: 8911432510190141254}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!224 &8702050825779872793 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 245483261797677919, guid: e058a6ee2b357fa468f205207db6a3b1, type: 3}
@@ -797,9 +921,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7711904645956967310}
     m_Modifications:
+    - target: {fileID: 3594750027091025065, guid: 401ef86a415d0fa4394e055809dbcf7f, type: 3}
+      propertyPath: m_Name
+      value: ItemsWeightHeaderText
+      objectReference: {fileID: 0}
     - target: {fileID: 6076661355927361697, guid: 401ef86a415d0fa4394e055809dbcf7f, type: 3}
       propertyPath: m_Name
-      value: WindowContainerSmallHeader
+      value: ItemsWeightHeader
       objectReference: {fileID: 0}
     - target: {fileID: 6374725772778891025, guid: 401ef86a415d0fa4394e055809dbcf7f, type: 3}
       propertyPath: m_Pivot.x
@@ -895,3 +1023,19 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6374725772778891025, guid: 401ef86a415d0fa4394e055809dbcf7f, type: 3}
   m_PrefabInstance: {fileID: 9056769289573752172}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3018740930406581709 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6076661355927361697, guid: 401ef86a415d0fa4394e055809dbcf7f, type: 3}
+  m_PrefabInstance: {fileID: 9056769289573752172}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3025879903678387220 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6074808420157589880, guid: 401ef86a415d0fa4394e055809dbcf7f, type: 3}
+  m_PrefabInstance: {fileID: 9056769289573752172}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
