@@ -185,27 +185,27 @@ MonoBehaviour:
   _itemPrefab: {fileID: 5752052199935323327, guid: d8daef943d2a2e643b26508cdd7ba958, type: 3}
   _itemsNameHeaderLocalizedString:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: GUID:43598c3e97d7d9a439a074f7627fe021
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 514981888
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
   _itemsWeightHeaderLocalizedString:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: GUID:43598c3e97d7d9a439a074f7627fe021
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 514981890
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
   _itemsPriceHeaderLocalizedString:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: GUID:43598c3e97d7d9a439a074f7627fe021
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 514981889
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0

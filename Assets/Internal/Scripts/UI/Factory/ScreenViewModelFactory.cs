@@ -30,26 +30,26 @@ namespace Internal.Scripts.UI.Factory
 
         private ScreenViewModelBase CreateHud(IScreenView view)
         {
-            if (view is not HudScreen hudView)
+            if (view is not HudScreen)
                 return null;
 
-            return _container.Instantiate<HudScreenViewModel>(new object[] { hudView });
+            return _container.Instantiate<HudScreenViewModel>();
         }
 
         private ScreenViewModelBase CreateInventory(IScreenView view)
         {
-            if (view is not InventoryScreen inventoryView)
+            if (view is not InventoryScreen)
                 return null;
 
-            return _container.Instantiate<InventoryScreenViewModel>(new object[] { inventoryView });
+            return _container.Instantiate<InventoryScreenViewModel>();
         }
 
         private ScreenViewModelBase CreateTrade(IScreenView view)
         {
-            if (view is not TradeScreen tradeView)
+            if (view is not TradeScreen)
                 return null;
 
-            return _container.Instantiate<TradeScreenViewModel>(new object[] { tradeView });
+            return _container.Instantiate<TradeScreenViewModel>();
         }
     }
 }

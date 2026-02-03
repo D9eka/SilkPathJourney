@@ -176,8 +176,9 @@ namespace Internal.Scripts.Installers
             if (_screenCatalog != null)
                 Container.BindInstance(_screenCatalog).AsSingle();
 
+            Container.Bind<InventoryModel>().AsSingle();
             Container.Bind<IScreenViewModelFactory>().To<ScreenViewModelFactory>().AsSingle();
-            Container.Bind<ScreenStackService>().AsSingle().WithArguments(ScreenId.Hud);
+            Container.BindInterfacesAndSelfTo<ScreenStackService>().AsSingle().WithArguments(ScreenId.Hud);
             Container.BindInterfacesTo<ScreenBackHandler>().AsSingle();
         }
 

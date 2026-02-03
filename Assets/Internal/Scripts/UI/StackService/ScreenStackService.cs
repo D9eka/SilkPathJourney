@@ -101,11 +101,14 @@ namespace Internal.Scripts.UI.StackService
                 }
 
                 instance = new ScreenInstance(config.Id, config, instanceGo, view, viewModel);
+                if (view is IScreenViewModelBinder binder)
+                    binder.BindViewModel(viewModel);
                 view.CloseRequested += () => Close(id);
                 _instances.Add(id, instance);
             }
 
             _stack.Add(instance);
+            instance.View.Show();
             instance.ViewModel.Open(args);
             instance.ViewModel.OnFocusGained();
 
@@ -143,6 +146,7 @@ namespace Internal.Scripts.UI.StackService
             bool wasTop = index == _stack.Count - 1;
 
             instance.ViewModel?.Close();
+            instance.View?.Hide();
 
             _stack.RemoveAt(index);
 
