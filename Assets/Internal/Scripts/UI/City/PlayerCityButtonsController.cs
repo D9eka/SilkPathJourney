@@ -2,8 +2,10 @@ using System;
 using Internal.Scripts.Economy.Cities;
 using Internal.Scripts.Player;
 using Internal.Scripts.Player.NextSegment;
+using Internal.Scripts.Player.StartMovement;
 using Internal.Scripts.UI.Arrow.Controller;
-using Internal.Scripts.UI.StartMovement;
+using Internal.Scripts.UI.Screen.Config;
+using Internal.Scripts.UI.StackService;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -18,6 +20,7 @@ namespace Internal.Scripts.UI.City
         private readonly IPlayerMovementControl _playerMovementControl;
         private readonly IPlayerTurnChoiceState _turnChoiceState;
         private readonly IArrowsController _arrowsController;
+        private readonly ScreenStackService _screenStackService;
         private readonly Button _enterCityButton;
 
         private bool _lastCanEnter;
@@ -29,6 +32,7 @@ namespace Internal.Scripts.UI.City
             IPlayerMovementControl playerMovementControl,
             IPlayerTurnChoiceState turnChoiceState,
             IArrowsController arrowsController,
+            ScreenStackService screenStackService,
             Button enterCityButton)
         {
             _playerStateProvider = playerStateProvider;
@@ -37,6 +41,7 @@ namespace Internal.Scripts.UI.City
             _playerMovementControl = playerMovementControl;
             _turnChoiceState = turnChoiceState;
             _arrowsController = arrowsController;
+            _screenStackService = screenStackService;
             _enterCityButton = enterCityButton;
         }
 
@@ -85,7 +90,11 @@ namespace Internal.Scripts.UI.City
 
             if (_cityNodeResolver.TryGetCityByNodeId(nodeId, out CityData city))
             {
-                Debug.Log($"[SPJ] Enter city requested: {city.Id}");
+                if (!_screenStackService.TryOpen(ScreenId.Trade, city.Id, out ScreenOpenResult result))
+                {
+                    Debug.LogWarning($"[SPJ] Cannot open trade screen: {result}");
+                    return;
+                }
                 return;
             }
 

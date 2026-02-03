@@ -1,6 +1,6 @@
 using System;
 using Internal.Scripts.Npc.Core;
-using Internal.Scripts.UI.StartMovement;
+using Internal.Scripts.Player.StartMovement;
 using UnityEngine;
 using Zenject;
 
@@ -68,7 +68,6 @@ namespace Internal.Scripts.Player
 
         private void EndPath(RoadAgent roadAgent)
         {
-            _playerStartMovement.FinishPath();
             _playerStartMovement.SetCurrentPlayerNode(_roadAgent.CurrentNodeId);
             OnCurrentNodeChanged?.Invoke(_roadAgent.CurrentNodeId);
             NotifyDestinationChanged();
@@ -83,7 +82,6 @@ namespace Internal.Scripts.Player
                 nodeId = _roadAgent.CurrentNodeId;
 
             _roadAgent.CancelDestination(nodeId);
-            _playerStartMovement.FinishPath();
             _playerStartMovement.SetCurrentPlayerNode(nodeId);
             OnCurrentNodeChanged?.Invoke(nodeId);
             NotifyDestinationChanged();
