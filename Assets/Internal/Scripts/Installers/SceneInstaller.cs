@@ -3,6 +3,8 @@ using System.Linq;
 using Internal.Scripts.Camera.Move;
 using Internal.Scripts.Camera.Zoom;
 using Internal.Scripts.Input;
+using Internal.Scripts.Inventory;
+using Internal.Scripts.Hud;
 using Internal.Scripts.Npc.Core;
 using Internal.Scripts.Npc.Lifecycle;
 using Internal.Scripts.Player;
@@ -22,7 +24,6 @@ using Plugins.Zenject.Source.Install;
 using UnityEngine;
 using Internal.Scripts.Economy.Cities;
 using Internal.Scripts.Economy;
-using Internal.Scripts.Economy.Inventory;
 using Internal.Scripts.Economy.Save;
 using Internal.Scripts.Save;
 using Internal.Scripts.Economy.Simulation;
@@ -38,6 +39,7 @@ using Internal.Scripts.UI.Factory;
 using Internal.Scripts.UI.Screen.Config;
 using Internal.Scripts.UI.Screens.Config;
 using Internal.Scripts.UI.StackService;
+using Internal.Scripts.Trading;
 
 namespace Internal.Scripts.Installers
 {
@@ -177,6 +179,9 @@ namespace Internal.Scripts.Installers
                 Container.BindInstance(_screenCatalog).AsSingle();
 
             Container.Bind<InventoryModel>().AsSingle();
+            Container.Bind<TradeModel>().AsSingle();
+            Container.Bind<HudModel>().AsSingle();
+
             Container.Bind<IScreenViewModelFactory>().To<ScreenViewModelFactory>().AsSingle();
             Container.BindInterfacesAndSelfTo<ScreenStackService>().AsSingle().WithArguments(ScreenId.Hud);
             Container.BindInterfacesTo<ScreenBackHandler>().AsSingle();
