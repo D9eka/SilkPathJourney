@@ -19,4 +19,8 @@ MonoBehaviour:
   <StartNodeId>k__BackingField: N_Quanzhou
   <StartMoney>k__BackingField: 200
   <MaxWeightKg>k__BackingField: 100
-  <StartItems>k__BackingField: []
+  <StartItems>k__BackingField:
+  - <ItemId>k__BackingField: silk
+    <Count>k__BackingField: 3
+  - <ItemId>k__BackingField: tea
+    <Count>k__BackingField: 5

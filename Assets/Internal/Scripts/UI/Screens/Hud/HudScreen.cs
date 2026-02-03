@@ -1,6 +1,9 @@
 using System;
+using Internal.Scripts.Hud;
 using Internal.Scripts.UI.Localization;
 using Internal.Scripts.UI.Screen.View;
+using Internal.Scripts.UI.Screen.ViewModel;
+using R3;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
@@ -25,6 +28,8 @@ namespace Internal.Scripts.UI.Screens.Hud
         [SerializeField] private LocalizedString _enterCityLocalizedString;
         [SerializeField] private LocalizedString _startMoveLocalizedString;
 
+        private HudScreenViewModel _viewModel;
+        private IDisposable _stateSubscription;
         private UnityAction _openInventoryHandler;
         private UnityAction _enterCityHandler;
         private UnityAction _startMoveHandler;
@@ -37,10 +42,12 @@ namespace Internal.Scripts.UI.Screens.Hud
         private void OnEnable()
         {
             BindLocalization();
+            SubscribeViewModel();
         }
 
         private void OnDisable()
         {
+            UnsubscribeViewModel();
             _openInventoryHandle?.Dispose();
             _openInventoryHandle = null;
             _enterCityHandle?.Dispose();
@@ -49,6 +56,12 @@ namespace Internal.Scripts.UI.Screens.Hud
             _startMoveHandle = null;
             _cancelMoveHandle?.Dispose();
             _cancelMoveHandle = null;
+        }
+
+        public override void BindViewModel(IScreenViewModel viewModel)
+        {
+            _viewModel = viewModel as HudScreenViewModel;
+            SubscribeViewModel();
         }
 
         public void BindOpenInventory(Action action)
@@ -120,6 +133,39 @@ namespace Internal.Scripts.UI.Screens.Hud
             _enterCityButton.interactable = state;
             _startMoveButton.interactable = state;
             _cancelMoveButton.interactable = state;
+        }
+
+        private void SubscribeViewModel()
+        {
+            if (_viewModel == null || _stateSubscription != null)
+                return;
+
+            _stateSubscription = _viewModel.State.Subscribe(ApplyState);
+            _viewModel.InteractableChanged += SetInteractable;
+
+            BindOpenInventory(_viewModel.OpenInventory);
+            BindEnterCity(_viewModel.EnterCity);
+            BindStartMove(_viewModel.StartMove);
+            BindCancelMove(_viewModel.CancelMove);
+        }
+
+        private void UnsubscribeViewModel()
+        {
+            if (_viewModel == null)
+                return;
+
+            _stateSubscription?.Dispose();
+            _stateSubscription = null;
+
+            _viewModel.InteractableChanged -= SetInteractable;
+            UnbindAll();
+        }
+
+        private void ApplyState(HudViewState state)
+        {
+            SetStartMoveVisible(state.ShowStartMove);
+            SetCancelMoveVisible(state.ShowCancelMove);
+            SetEnterCityVisible(state.ShowEnterCity);
         }
 
         private void UnbindOpenInventory()
