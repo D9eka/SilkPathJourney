@@ -22,6 +22,7 @@ namespace Internal.Scripts.Player.NextSegment
 
         public bool IsChoosingTurn => _isChoosingTurn;
         public string CurrentTurnNodeId => _currentTurnNodeId ?? string.Empty;
+        public event Action<bool> OnTurnChoiceStateChanged;
 
         public PlayerNextSegmentsProvider(PathHintsCreator hints, IArrowsController arrows, IPlayerChoiceInput input)
         {
@@ -32,13 +33,13 @@ namespace Internal.Scripts.Player.NextSegment
 
         public async UniTask<RoadPathSegment> ChooseNextAsync(List<RoadPathSegment> options, CancellationToken ct)
         {
-            _isChoosingTurn = true;
+            SetChoosingTurn(true);
             _currentTurnNodeId = options.Count > 0 ? options[0].FromNodeId : string.Empty;
             PathHints hints = _hints.GetPathHints(options[0].FromNodeId, _targetNodeId);
             if (hints == null)
             {
-                _isChoosingTurn = false;
                 _currentTurnNodeId = string.Empty;
+                SetChoosingTurn(false);
                 throw new OperationCanceledException(ct);
             }
             _arrows.CreateArrows(options, hints);
@@ -51,14 +52,23 @@ namespace Internal.Scripts.Player.NextSegment
             finally
             {
                 _arrows.HideArrows();
-                _isChoosingTurn = false;
                 _currentTurnNodeId = string.Empty;
+                SetChoosingTurn(false);
             }
         }
         
         public void SetDestination(string destinationNodeId)
         {
             _targetNodeId = destinationNodeId;
+        }
+
+        private void SetChoosingTurn(bool state)
+        {
+            if (_isChoosingTurn == state)
+                return;
+
+            _isChoosingTurn = state;
+            OnTurnChoiceStateChanged?.Invoke(state);
         }
     }
 }

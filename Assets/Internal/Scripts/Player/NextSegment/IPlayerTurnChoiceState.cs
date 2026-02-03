@@ -4,5 +4,6 @@ namespace Internal.Scripts.Player.NextSegment
     {
         bool IsChoosingTurn { get; }
         string CurrentTurnNodeId { get; }
+        event System.Action<bool> OnTurnChoiceStateChanged;
     }
 }

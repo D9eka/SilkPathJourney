@@ -20,21 +20,24 @@ using Internal.Scripts.World.Visual;
 using Internal.Scripts.World.VisualObjects;
 using Plugins.Zenject.Source.Install;
 using UnityEngine;
-using UnityEngine.UI;
 using Internal.Scripts.Economy.Cities;
 using Internal.Scripts.Economy;
 using Internal.Scripts.Economy.Inventory;
 using Internal.Scripts.Economy.Save;
 using Internal.Scripts.Save;
 using Internal.Scripts.Economy.Simulation;
+using Internal.Scripts.Player.StartMovement;
+using Internal.Scripts.UI;
 using Internal.Scripts.UI.Arrow;
 using Internal.Scripts.UI.Arrow.Controller;
 using Internal.Scripts.UI.Arrow.DirectionCalculation;
 using Internal.Scripts.UI.Arrow.JunctionBalancer;
 using Internal.Scripts.UI.Arrow.Placement;
 using Internal.Scripts.UI.Arrow.PositionCalculation;
-using Internal.Scripts.UI.City;
-using Internal.Scripts.UI.StartMovement;
+using Internal.Scripts.UI.Factory;
+using Internal.Scripts.UI.Screen.Config;
+using Internal.Scripts.UI.Screens.Config;
+using Internal.Scripts.UI.StackService;
 
 namespace Internal.Scripts.Installers
 {
@@ -59,10 +62,9 @@ namespace Internal.Scripts.Installers
         [SerializeField] private RoadAgentView _playerViewPrefab;
         [SerializeField] private RoadAgentConfig _playerAgentConfig;
         [SerializeField] private PlayerConfig _playerProfile;
-        [SerializeField] private Button _startTargetSelectionButton;
-        [SerializeField] private Button _cancelTargetSelectionButton;
-        [Header("City")]
-        [SerializeField] private Button _enterCityButton;
+        [Header("UI Screens")]
+        [SerializeField] private UIScreenRoots _uiScreenRoots;
+        [SerializeField] private ScreenCatalog _screenCatalog;
         [Header("Interactables")]
         [SerializeField] private LayerMask _interactableLayerMask;
         [SerializeField] private LayerMask _groundLayerMask;
@@ -83,6 +85,7 @@ namespace Internal.Scripts.Installers
             BindPlayerConfig();
             InstallEconomy();
             InstallPlayer();
+            InstallScreens();
         }
 
         private void InstallCamera()
@@ -147,14 +150,11 @@ namespace Internal.Scripts.Installers
                 .WhenInjectedInto<PlayerInitializer>();
             Container.BindInterfacesAndSelfTo<SegmentMover>().AsSingle().WhenInjectedInto<PlayerInitializer>();
             Container.BindInterfacesAndSelfTo<PlayerNextSegmentsProvider>().AsSingle();
-            Container.BindInterfacesTo<PlayerStartMovement>().AsSingle()
-                .WithArguments(_startTargetSelectionButton, _cancelTargetSelectionButton);
+            Container.BindInterfacesTo<PlayerStartMovement>().AsSingle();
             Container.BindInterfacesAndSelfTo<PlayerController>().AsSingle();
             Container.BindInterfacesAndSelfTo<PlayerSaveController>().AsSingle();
             Container.BindInterfacesTo<PlayerInitializer>().AsSingle();
             Container.BindInterfacesTo<CityNodeResolver>().AsSingle();
-            Container.BindInterfacesAndSelfTo<PlayerCityButtonsController>().AsSingle()
-                .WithArguments(_enterCityButton);
         }
 
         private void InstallEconomy()
@@ -167,6 +167,18 @@ namespace Internal.Scripts.Installers
             Container.Bind<EconomySaveBuilder>().AsSingle();
             Container.BindInterfacesAndSelfTo<SaveBootstrapper>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<InventoryRepository>().AsSingle().NonLazy();
+        }
+
+        private void InstallScreens()
+        {
+            if (_uiScreenRoots != null)
+                Container.BindInstance(_uiScreenRoots).AsSingle();
+            if (_screenCatalog != null)
+                Container.BindInstance(_screenCatalog).AsSingle();
+
+            Container.Bind<IScreenViewModelFactory>().To<ScreenViewModelFactory>().AsSingle();
+            Container.Bind<ScreenStackService>().AsSingle().WithArguments(ScreenId.Hud);
+            Container.BindInterfacesTo<ScreenBackHandler>().AsSingle();
         }
 
         private void BindPlayerConfig()
