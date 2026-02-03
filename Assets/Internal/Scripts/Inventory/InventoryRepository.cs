@@ -6,7 +6,7 @@ using Internal.Scripts.Save;
 using R3;
 using Zenject;
 
-namespace Internal.Scripts.Economy.Inventory
+namespace Internal.Scripts.Inventory
 {
     public sealed class InventoryRepository : IInitializable
     {
@@ -16,9 +16,6 @@ namespace Internal.Scripts.Economy.Inventory
         private bool _isLoaded;
         private readonly ReactiveProperty<InventoryState> _playerInventoryStream = new(new InventoryState());
         private readonly Dictionary<string, ReactiveProperty<InventoryState>> _cityInventoryStreams = new();
-
-        public event Action PlayerInventoryChanged;
-        public event Action<string> CityInventoryChanged;
 
         public InventoryRepository(
             SaveRepository saveRepository)
@@ -70,7 +67,6 @@ namespace Internal.Scripts.Economy.Inventory
             mutator(_saveData.PlayerInventory);
             _saveRepository.Save();
             UpdatePlayerStream();
-            PlayerInventoryChanged?.Invoke();
             return true;
         }
 
@@ -87,28 +83,7 @@ namespace Internal.Scripts.Economy.Inventory
             mutator(cityState.Inventory);
             _saveRepository.Save();
             UpdateCityStream(cityId, cityState.Inventory);
-            CityInventoryChanged?.Invoke(cityId);
             return true;
-        }
-
-        public void NotifyPlayerInventoryChanged()
-        {
-            EnsureLoaded();
-            _saveRepository.Save();
-            UpdatePlayerStream();
-            PlayerInventoryChanged?.Invoke();
-        }
-
-        public void NotifyCityInventoryChanged(string cityId)
-        {
-            if (string.IsNullOrWhiteSpace(cityId))
-                return;
-
-            EnsureLoaded();
-            _saveRepository.Save();
-            CityInventoryState cityState = _saveData.CityInventories.Find(c => c.CityId == cityId);
-            UpdateCityStream(cityId, cityState != null ? cityState.Inventory : new InventoryState());
-            CityInventoryChanged?.Invoke(cityId);
         }
 
         public void Save()
