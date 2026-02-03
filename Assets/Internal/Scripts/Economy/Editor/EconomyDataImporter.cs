@@ -29,6 +29,7 @@ namespace Internal.Scripts.Economy.Editor
         private const string LOCALIZATION_LOCALES_FOLDER = LOCALIZATION_FOLDER + "/Locales";
         private const string LOCALIZATION_TABLES_FOLDER = LOCALIZATION_FOLDER + "/StringTables";
         private const string LOCALIZATION_TABLE_NAME = "Economy";
+        private const string UI_LOCALIZATION_TABLE_NAME = "UI";
 
         public static void ImportAll()
         {
@@ -51,7 +52,11 @@ namespace Internal.Scripts.Economy.Editor
                 HashSet<string> itemIds = BuildItemIdSet();
 
                 Dictionary<string, LocalizationEntry> localizationEntries = CollectLocalizationEntries();
-                ImportLocalization(localizationEntries);
+                ImportLocalization(localizationEntries, LOCALIZATION_TABLE_NAME);
+
+                Dictionary<string, LocalizationEntry> uiLocalizationEntries =
+                    CollectUiLocalizationEntries("localization.csv", "UI.");
+                ImportLocalization(uiLocalizationEntries, UI_LOCALIZATION_TABLE_NAME);
 
                 Dictionary<string, List<CityTypeData.CategoryCoef>> cityTypeCoefs = BuildCityTypeCoefs(itemTypeById);
                 Dictionary<string, List<CityTypeData.CategoryStockProfile>> cityTypeStockProfiles =
@@ -745,8 +750,11 @@ namespace Internal.Scripts.Economy.Editor
             EditorUtility.SetDirty(db);
         }
 
-        private static void ImportLocalization(Dictionary<string, LocalizationEntry> entries)
+        private static void ImportLocalization(Dictionary<string, LocalizationEntry> entries, string tableName)
         {
+            if (entries == null || entries.Count == 0)
+                return;
+
             HashSet<string> localeCodes = CollectLocaleCodes(entries);
             if (localeCodes.Count == 0)
             {
@@ -760,11 +768,11 @@ namespace Internal.Scripts.Economy.Editor
             foreach (string code in localeCodes)
                 locales.Add(EnsureLocale(code));
 
-            StringTableCollection collection = LocalizationEditorSettings.GetStringTableCollection(LOCALIZATION_TABLE_NAME);
+            StringTableCollection collection = LocalizationEditorSettings.GetStringTableCollection(tableName);
             if (collection == null)
             {
                 collection = LocalizationEditorSettings.CreateStringTableCollection(
-                    LOCALIZATION_TABLE_NAME,
+                    tableName,
                     LOCALIZATION_TABLES_FOLDER,
                     locales
                 );
@@ -831,6 +839,57 @@ namespace Internal.Scripts.Economy.Editor
 
             if (sharedDirty)
                 EditorUtility.SetDirty(collection.SharedData);
+        }
+
+        private static Dictionary<string, LocalizationEntry> CollectUiLocalizationEntries(string csvFile, string keyPrefix)
+        {
+            Dictionary<string, LocalizationEntry> entries = new Dictionary<string, LocalizationEntry>(StringComparer.Ordinal);
+            string csvPath = Path.Combine(Directory.GetCurrentDirectory(), CSV_FOLDER, csvFile);
+            if (!File.Exists(csvPath))
+                return entries;
+
+            List<string[]> rows = CsvReader.ReadFile(csvPath);
+            if (rows.Count == 0)
+                return entries;
+
+            string[] header = rows[0];
+            int keyIndex = FindColumnIndex(header, "key");
+            if (keyIndex < 0)
+                keyIndex = FindColumnIndex(header, "name_key");
+
+            Dictionary<string, int> localeColumns = FindLocaleColumns(header);
+            if (localeColumns.Count == 0)
+                localeColumns = FindLocaleColumnsPlain(header);
+
+            if (keyIndex < 0 || localeColumns.Count == 0)
+                return entries;
+
+            for (int i = 1; i < rows.Count; i++)
+            {
+                string key = GetField(rows[i], keyIndex).Trim();
+                if (string.IsNullOrWhiteSpace(key))
+                    continue;
+
+                if (!string.IsNullOrWhiteSpace(keyPrefix) &&
+                    !key.StartsWith(keyPrefix, StringComparison.OrdinalIgnoreCase))
+                    continue;
+
+                if (!entries.TryGetValue(key, out LocalizationEntry entry))
+                {
+                    entry = new LocalizationEntry(key);
+                    entries[key] = entry;
+                }
+
+                foreach (KeyValuePair<string, int> lc in localeColumns)
+                {
+                    string code = lc.Key;
+                    int index = lc.Value;
+                    string value = GetField(rows[i], index);
+                    entry.SetIfNonEmpty(code, value, csvFile);
+                }
+            }
+
+            return entries;
         }
 
         private static Dictionary<string, LocalizationEntry> CollectLocalizationEntries()
@@ -1074,6 +1133,41 @@ namespace Internal.Scripts.Economy.Editor
                 if (!result.ContainsKey(code))
                     result[code] = i;
             }
+            return result;
+        }
+
+        private static Dictionary<string, int> FindLocaleColumnsPlain(string[] header)
+        {
+            Dictionary<string, int> result = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
+            if (header == null)
+                return result;
+
+            HashSet<string> excluded = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
+            {
+                "key",
+                "name_key",
+                "screen_id",
+                "section_id",
+                "element_id",
+                "name_id",
+                "notes",
+                "source_sheet",
+                "source_row"
+            };
+
+            for (int i = 0; i < header.Length; i++)
+            {
+                string raw = (header[i] ?? string.Empty).Trim();
+                if (string.IsNullOrWhiteSpace(raw))
+                    continue;
+
+                if (excluded.Contains(raw))
+                    continue;
+
+                if (!result.ContainsKey(raw))
+                    result[raw] = i;
+            }
+
             return result;
         }
 

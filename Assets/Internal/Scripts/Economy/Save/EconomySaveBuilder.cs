@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Internal.Scripts.Economy.Cities;
 using Internal.Scripts.Economy.Generated;
 using Internal.Scripts.Economy.Items;
+using Internal.Scripts.Economy.Save.Models;
 using Internal.Scripts.Economy.Simulation;
 using Internal.Scripts.Player;
 using UnityEngine;

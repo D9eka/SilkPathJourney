@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Internal.Scripts.Economy.Save.Models;
 
 namespace Internal.Scripts.Economy.Save
 {
