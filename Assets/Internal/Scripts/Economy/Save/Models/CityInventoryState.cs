@@ -1,6 +1,6 @@
 using System;
 
-namespace Internal.Scripts.Economy.Save
+namespace Internal.Scripts.Economy.Save.Models
 {
     [Serializable]
     public class CityInventoryState

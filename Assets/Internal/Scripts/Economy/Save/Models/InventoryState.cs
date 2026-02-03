@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Internal.Scripts.Economy.Save
+namespace Internal.Scripts.Economy.Save.Models
 {
     [Serializable]
     public class InventoryState

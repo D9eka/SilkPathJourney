@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: UI_en
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 43598c3e97d7d9a439a074f7627fe021, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 468844544
+    m_Localized: 'For {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 514981888
+    m_Localized: Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 514981889
+    m_Localized: Price
+    m_Metadata:
+      m_Items: []
+  - m_Id: 514981890
+    m_Localized: Weight
+    m_Metadata:
+      m_Items: []
+  - m_Id: 514981891
+    m_Localized: 'Money: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 514981892
+    m_Localized: 'Weight: {0}/{1}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 514981893
+    m_Localized: Enter City
+    m_Metadata:
+      m_Items: []
+  - m_Id: 514981894
+    m_Localized: Inventory
+    m_Metadata:
+      m_Items: []
+  - m_Id: 514981895
+    m_Localized: Start Moving
+    m_Metadata:
+      m_Items: []
+  - m_Id: 514981896
+    m_Localized: Drop
+    m_Metadata:
+      m_Items: []
+  - m_Id: 514981897
+    m_Localized: 'Cargo '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 514981898
+    m_Localized: You are buying
+    m_Metadata:
+      m_Items: []
+  - m_Id: 514981899
+    m_Localized: Take
+    m_Metadata:
+      m_Items: []
+  - m_Id: 514981900
+    m_Localized: Return
+    m_Metadata:
+      m_Items: []
+  - m_Id: 523370496
+    m_Localized: Add to purchase
+    m_Metadata:
+      m_Items: []
+  - m_Id: 523370497
+    m_Localized: Add to sell
+    m_Metadata:
+      m_Items: []
+  - m_Id: 523370498
+    m_Localized: Trade
+    m_Metadata:
+      m_Items: []
+  - m_Id: 523370499
+    m_Localized: Trading
+    m_Metadata:
+      m_Items: []
+  - m_Id: 523370500
+    m_Localized: 'Cargo {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 523370501
+    m_Localized: Your cargo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 523370502
+    m_Localized: You are selling
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

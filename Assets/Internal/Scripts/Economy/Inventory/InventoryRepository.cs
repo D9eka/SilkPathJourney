@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using Internal.Scripts.Economy.Save;
+using Internal.Scripts.Economy.Save.Models;
 using Internal.Scripts.Save;
+using R3;
 using Zenject;
 
 namespace Internal.Scripts.Economy.Inventory
@@ -12,6 +14,8 @@ namespace Internal.Scripts.Economy.Inventory
 
         private EconomySaveData _saveData;
         private bool _isLoaded;
+        private readonly ReactiveProperty<InventoryState> _playerInventoryStream = new(new InventoryState());
+        private readonly Dictionary<string, ReactiveProperty<InventoryState>> _cityInventoryStreams = new();
 
         public event Action PlayerInventoryChanged;
         public event Action<string> CityInventoryChanged;
@@ -25,6 +29,24 @@ namespace Internal.Scripts.Economy.Inventory
         public void Initialize()
         {
             EnsureLoaded();
+        }
+
+        public Observable<InventoryState> PlayerInventoryStream => _playerInventoryStream;
+
+        public Observable<InventoryState> ObserveCityInventory(string cityId)
+        {
+            EnsureLoaded();
+            if (string.IsNullOrWhiteSpace(cityId))
+                return new ReactiveProperty<InventoryState>(new InventoryState());
+
+            if (!_cityInventoryStreams.TryGetValue(cityId, out ReactiveProperty<InventoryState> stream))
+            {
+                InventoryState inventory = GetCityInventory(cityId)?.Inventory ?? new InventoryState();
+                stream = new ReactiveProperty<InventoryState>(CloneInventory(inventory));
+                _cityInventoryStreams[cityId] = stream;
+            }
+
+            return stream;
         }
 
         public InventoryState GetPlayerInventory()
@@ -47,6 +69,7 @@ namespace Internal.Scripts.Economy.Inventory
             EnsureLoaded();
             mutator(_saveData.PlayerInventory);
             _saveRepository.Save();
+            UpdatePlayerStream();
             PlayerInventoryChanged?.Invoke();
             return true;
         }
@@ -63,6 +86,7 @@ namespace Internal.Scripts.Economy.Inventory
 
             mutator(cityState.Inventory);
             _saveRepository.Save();
+            UpdateCityStream(cityId, cityState.Inventory);
             CityInventoryChanged?.Invoke(cityId);
             return true;
         }
@@ -71,6 +95,7 @@ namespace Internal.Scripts.Economy.Inventory
         {
             EnsureLoaded();
             _saveRepository.Save();
+            UpdatePlayerStream();
             PlayerInventoryChanged?.Invoke();
         }
 
@@ -81,6 +106,8 @@ namespace Internal.Scripts.Economy.Inventory
 
             EnsureLoaded();
             _saveRepository.Save();
+            CityInventoryState cityState = _saveData.CityInventories.Find(c => c.CityId == cityId);
+            UpdateCityStream(cityId, cityState != null ? cityState.Inventory : new InventoryState());
             CityInventoryChanged?.Invoke(cityId);
         }
 
@@ -109,7 +136,53 @@ namespace Internal.Scripts.Economy.Inventory
             if (_saveData.CityInventories == null)
                 _saveData.CityInventories = new List<CityInventoryState>();
 
+            UpdatePlayerStream();
+
             _isLoaded = true;
+        }
+
+        private void UpdatePlayerStream()
+        {
+            _playerInventoryStream.Value = CloneInventory(_saveData.PlayerInventory);
+        }
+
+        private void UpdateCityStream(string cityId, InventoryState inventory)
+        {
+            if (string.IsNullOrWhiteSpace(cityId))
+                return;
+
+            if (_cityInventoryStreams.TryGetValue(cityId, out ReactiveProperty<InventoryState> stream))
+                stream.Value = CloneInventory(inventory);
+        }
+
+        private static InventoryState CloneInventory(InventoryState source)
+        {
+            if (source == null)
+                return new InventoryState();
+
+            InventoryState clone = new InventoryState
+            {
+                Money = source.Money,
+                MaxWeightKg = source.MaxWeightKg,
+                Items = new List<ItemStackState>()
+            };
+
+            if (source.Items == null)
+                return clone;
+
+            foreach (ItemStackState stack in source.Items)
+            {
+                if (stack == null)
+                    continue;
+
+                clone.Items.Add(new ItemStackState
+                {
+                    ItemId = stack.ItemId,
+                    Count = stack.Count
+                });
+            }
+
+            return clone;
         }
     }
 }
