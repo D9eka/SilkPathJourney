@@ -170,13 +170,14 @@ MonoBehaviour:
     m_LocalVariables: []
   _additionalHeaderLocalizedString:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: GUID:43598c3e97d7d9a439a074f7627fe021
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 468844544
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  _additionalHeaderWarningColor: {r: 1, g: 0.3, b: 0.3, a: 1}
   references:
     version: 2
     RefIds: []
