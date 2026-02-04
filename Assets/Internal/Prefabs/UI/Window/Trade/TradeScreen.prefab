@@ -1292,7 +1292,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4883601918144261729, guid: 5797feaa37f004347bd3bae657f70f56, type: 3}
       propertyPath: _actionButtonLocalizedString.m_TableEntryReference.m_KeyId
-      value: 514981900
+      value: 514981899
       objectReference: {fileID: 0}
     - target: {fileID: 4883601918144261729, guid: 5797feaa37f004347bd3bae657f70f56, type: 3}
       propertyPath: _actionButtonLocalizedString.m_TableReference.m_TableCollectionName
@@ -1621,7 +1621,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4883601918144261729, guid: 5797feaa37f004347bd3bae657f70f56, type: 3}
       propertyPath: _actionButtonLocalizedString.m_TableEntryReference.m_KeyId
-      value: 514981899
+      value: 514981900
       objectReference: {fileID: 0}
     - target: {fileID: 4883601918144261729, guid: 5797feaa37f004347bd3bae657f70f56, type: 3}
       propertyPath: _actionButtonLocalizedString.m_TableReference.m_TableCollectionName
