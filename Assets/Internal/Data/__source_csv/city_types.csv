@@ -1,0 +1,8 @@
+city_type_id,enum_name,name_key,CityMoneyIncomePerScale,notes,loc_link,loc_ru,loc_en
+capital,Capital,city_type.capital.name,1200,"большой рынок, высокий спрос, чаще дороже",перевод,Столица,Capital
+trade_hub,TradeHub,city_type.trade_hub.name,900,"перепродажа, баланс цен, “перевалка”",перевод,Торговый узел,Trade Hub
+border_city,BorderCity,city_type.border_city.name,550,"сильные перекосы, потенциал выгодных сделок/риска",перевод,Пограничный город,Border City
+craft_city,CraftCity,city_type.craft_city.name,650,"дешёвые ремесленные, спрос на сырьё",перевод,Ремесленный центр,Craft City
+resource_city,ResourceCity,city_type.resource_city.name,600,"дешёвое сырьё, дорогие готовые товары",перевод,Сырьевой город,Resource City
+market_town,MarketTown,city_type.market_town.name,450,"baseline, нужен для контраста",перевод,Обычный город,Market Town
+oasis_stop,OasisStop,city_type.oasis_stop.name,250,"маленький рынок, но важная точка маршрута (вода/еда)",перевод,Караванная остановка,Caravan Stop

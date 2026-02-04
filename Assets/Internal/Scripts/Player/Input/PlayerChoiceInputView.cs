@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using Internal.Scripts.InteractableObjects;
-using Internal.Scripts.Player.UI.Arrow;
-using Internal.Scripts.Player.UI.Arrow.Controller;
 using Internal.Scripts.Road.Path;
+using Internal.Scripts.UI.Arrow;
+using Internal.Scripts.UI.Arrow.Controller;
 
 namespace Internal.Scripts.Player.Input
 {
@@ -14,6 +14,7 @@ namespace Internal.Scripts.Player.Input
 
         private UniTaskCompletionSource<RoadPathSegment> _tcs;
         private List<ArrowView> _arrowsToSubscribe;
+        private CancellationTokenRegistration _cancelRegistration;
 
         public PlayerChoiceInputView(IArrowsController arrows)
         {
@@ -34,9 +35,24 @@ namespace Internal.Scripts.Player.Input
                 arrow.OnClick += OnArrowClick;
             }
             
-            using (ct.Register(() => _arrowsToSubscribe.Clear()))
+            _cancelRegistration = ct.Register(() =>
+            {
+                foreach (ArrowView arrow in _arrowsToSubscribe)
+                {
+                    arrow.OnClick -= OnArrowClick;
+                }
+                _arrowsToSubscribe.Clear();
+                _tcs.TrySetCanceled(ct);
+            });
+
+            try
             {
                 return await _tcs.Task;
+            }
+            finally
+            {
+                _cancelRegistration.Dispose();
+                _cancelRegistration = default;
             }
         }
 

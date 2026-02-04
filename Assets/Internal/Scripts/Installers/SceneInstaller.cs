@@ -3,19 +3,14 @@ using System.Linq;
 using Internal.Scripts.Camera.Move;
 using Internal.Scripts.Camera.Zoom;
 using Internal.Scripts.Input;
+using Internal.Scripts.Inventory;
+using Internal.Scripts.Hud;
 using Internal.Scripts.Npc.Core;
 using Internal.Scripts.Npc.Lifecycle;
 using Internal.Scripts.Player;
 using Internal.Scripts.Player.Input;
 using Internal.Scripts.Player.NextSegment;
 using Internal.Scripts.Player.Path;
-using Internal.Scripts.Player.UI.Arrow;
-using Internal.Scripts.Player.UI.Arrow.Controller;
-using Internal.Scripts.Player.UI.Arrow.DirectionCalculation;
-using Internal.Scripts.Player.UI.Arrow.JunctionBalancer;
-using Internal.Scripts.Player.UI.Arrow.Placement;
-using Internal.Scripts.Player.UI.Arrow.PositionCalculation;
-using Internal.Scripts.Player.UI.StartMovement;
 using Internal.Scripts.Road.Core;
 using Internal.Scripts.Road.Graph;
 using Internal.Scripts.Road.Nodes;
@@ -27,7 +22,24 @@ using Internal.Scripts.World.Visual;
 using Internal.Scripts.World.VisualObjects;
 using Plugins.Zenject.Source.Install;
 using UnityEngine;
-using UnityEngine.UI;
+using Internal.Scripts.Economy.Cities;
+using Internal.Scripts.Economy;
+using Internal.Scripts.Economy.Save;
+using Internal.Scripts.Save;
+using Internal.Scripts.Economy.Simulation;
+using Internal.Scripts.Player.StartMovement;
+using Internal.Scripts.UI;
+using Internal.Scripts.UI.Arrow;
+using Internal.Scripts.UI.Arrow.Controller;
+using Internal.Scripts.UI.Arrow.DirectionCalculation;
+using Internal.Scripts.UI.Arrow.JunctionBalancer;
+using Internal.Scripts.UI.Arrow.Placement;
+using Internal.Scripts.UI.Arrow.PositionCalculation;
+using Internal.Scripts.UI.Factory;
+using Internal.Scripts.UI.Screen.Config;
+using Internal.Scripts.UI.Screens.Config;
+using Internal.Scripts.UI.StackService;
+using Internal.Scripts.Trading;
 
 namespace Internal.Scripts.Installers
 {
@@ -41,14 +53,20 @@ namespace Internal.Scripts.Installers
         [SerializeField] private WorldStatesData _worldStatesData;
         [SerializeField] private NodeView _nodeViewPrefab;
         [Space]
+        [Header("Economy")]
+        [SerializeField] private EconomyDatabase _economyDatabase;
+        [SerializeField] private EconomySimulationSettings _economySimulationSettings;
+        [Space]
         [Header("NPC")]
         [SerializeField] private NpcSpawnEntry[] _spawns;
         [SerializeField] private NpcSimulationSettings _simulationSettings;
         [Header("Player")]
         [SerializeField] private RoadAgentView _playerViewPrefab;
-        [SerializeField] private RoadAgentConfig _playerConfig;
-        [SerializeField] private Button _startTargetSelectionButton;
-        [SerializeField] private Button _cancelTargetSelectionButton;
+        [SerializeField] private RoadAgentConfig _playerAgentConfig;
+        [SerializeField] private PlayerConfig _playerProfile;
+        [Header("UI Screens")]
+        [SerializeField] private UIScreenRoots _uiScreenRoots;
+        [SerializeField] private ScreenCatalog _screenCatalog;
         [Header("Interactables")]
         [SerializeField] private LayerMask _interactableLayerMask;
         [SerializeField] private LayerMask _groundLayerMask;
@@ -66,7 +84,10 @@ namespace Internal.Scripts.Installers
             InstallWorld();
             InstallRoad();
             InstallNpc();
+            BindPlayerConfig();
+            InstallEconomy();
             InstallPlayer();
+            InstallScreens();
         }
 
         private void InstallCamera()
@@ -127,15 +148,48 @@ namespace Internal.Scripts.Installers
             Container.Bind<PathHintsCreator>().AsSingle();
             Container.Bind<RoadAgentView>().FromComponentInNewPrefab(_playerViewPrefab).AsSingle()
                 .WhenInjectedInto<PlayerInitializer>();
-            Container.Bind<RoadAgentConfig>().FromInstance(_playerConfig).AsSingle()
+            Container.Bind<RoadAgentConfig>().FromInstance(_playerAgentConfig).AsSingle()
                 .WhenInjectedInto<PlayerInitializer>();
             Container.BindInterfacesAndSelfTo<SegmentMover>().AsSingle().WhenInjectedInto<PlayerInitializer>();
-            Container.BindInterfacesTo<PlayerNextSegmentsProvider>().AsSingle().WhenInjectedInto<PlayerInitializer>();
-            Container.BindInterfacesTo<PlayerStartMovement>().AsSingle()
-                .WithArguments(_startTargetSelectionButton, _cancelTargetSelectionButton);
+            Container.BindInterfacesAndSelfTo<PlayerNextSegmentsProvider>().AsSingle();
+            Container.BindInterfacesTo<PlayerStartMovement>().AsSingle();
             Container.BindInterfacesAndSelfTo<PlayerController>().AsSingle();
-            Container.BindInterfacesTo<PlayerInitializer>().AsSingle()
-                .WithArguments("N_Shanghai");
+            Container.BindInterfacesAndSelfTo<PlayerSaveController>().AsSingle();
+            Container.BindInterfacesTo<PlayerInitializer>().AsSingle();
+            Container.BindInterfacesTo<CityNodeResolver>().AsSingle();
+        }
+
+        private void InstallEconomy()
+        {
+            Container.BindInstance(_economyDatabase).AsSingle(); 
+            Container.BindInstance(_economySimulationSettings).AsSingle();
+
+            Container.Bind<ISaveService>().To<JsonSaveService>().AsSingle();
+            Container.Bind<SaveRepository>().AsSingle();
+            Container.Bind<EconomySaveBuilder>().AsSingle();
+            Container.BindInterfacesAndSelfTo<SaveBootstrapper>().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<InventoryRepository>().AsSingle().NonLazy();
+        }
+
+        private void InstallScreens()
+        {
+            if (_uiScreenRoots != null)
+                Container.BindInstance(_uiScreenRoots).AsSingle();
+            if (_screenCatalog != null)
+                Container.BindInstance(_screenCatalog).AsSingle();
+
+            Container.Bind<InventoryModel>().AsSingle();
+            Container.Bind<TradeModel>().AsSingle();
+            Container.Bind<HudModel>().AsSingle();
+
+            Container.Bind<IScreenViewModelFactory>().To<ScreenViewModelFactory>().AsSingle();
+            Container.BindInterfacesAndSelfTo<ScreenStackService>().AsSingle().WithArguments(ScreenId.Hud);
+            Container.BindInterfacesTo<ScreenBackHandler>().AsSingle();
+        }
+
+        private void BindPlayerConfig()
+        {
+            Container.BindInstance(_playerProfile).AsSingle();
         }
         
         private void InstallArrows()

@@ -5,18 +5,24 @@ using Cysharp.Threading.Tasks;
 using Internal.Scripts.Npc.NextSegment;
 using Internal.Scripts.Player.Input;
 using Internal.Scripts.Player.Path;
-using Internal.Scripts.Player.UI.Arrow.Controller;
 using Internal.Scripts.Road.Path;
+using Internal.Scripts.UI.Arrow.Controller;
 
 namespace Internal.Scripts.Player.NextSegment
 {
-    public class PlayerNextSegmentsProvider : INextSegmentProvider, IDestinationAware
+    public class PlayerNextSegmentsProvider : INextSegmentProvider, IDestinationAware, IPlayerTurnChoiceState
     {
         private readonly PathHintsCreator _hints;
         private readonly IArrowsController _arrows;
         private readonly IPlayerChoiceInput _input;
         
         private string _targetNodeId;
+        private bool _isChoosingTurn;
+        private string _currentTurnNodeId;
+
+        public bool IsChoosingTurn => _isChoosingTurn;
+        public string CurrentTurnNodeId => _currentTurnNodeId ?? string.Empty;
+        public event Action<bool> OnTurnChoiceStateChanged;
 
         public PlayerNextSegmentsProvider(PathHintsCreator hints, IArrowsController arrows, IPlayerChoiceInput input)
         {
@@ -27,21 +33,42 @@ namespace Internal.Scripts.Player.NextSegment
 
         public async UniTask<RoadPathSegment> ChooseNextAsync(List<RoadPathSegment> options, CancellationToken ct)
         {
+            SetChoosingTurn(true);
+            _currentTurnNodeId = options.Count > 0 ? options[0].FromNodeId : string.Empty;
             PathHints hints = _hints.GetPathHints(options[0].FromNodeId, _targetNodeId);
             if (hints == null)
             {
+                _currentTurnNodeId = string.Empty;
+                SetChoosingTurn(false);
                 throw new OperationCanceledException(ct);
             }
             _arrows.CreateArrows(options, hints);
-        
-            RoadPathSegment chosen = await _input.WaitForChoiceAsync(ct);
-            _arrows.HideArrows();
-            return chosen;
+
+            try
+            {
+                RoadPathSegment chosen = await _input.WaitForChoiceAsync(ct);
+                return chosen;
+            }
+            finally
+            {
+                _arrows.HideArrows();
+                _currentTurnNodeId = string.Empty;
+                SetChoosingTurn(false);
+            }
         }
         
         public void SetDestination(string destinationNodeId)
         {
             _targetNodeId = destinationNodeId;
+        }
+
+        private void SetChoosingTurn(bool state)
+        {
+            if (_isChoosingTurn == state)
+                return;
+
+            _isChoosingTurn = state;
+            OnTurnChoiceStateChanged?.Invoke(state);
         }
     }
 }

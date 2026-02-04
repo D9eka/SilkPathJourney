@@ -1,0 +1,112 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: UI Shared Data
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
+  m_TableCollectionName: UI
+  m_TableCollectionNameGuidString: 43598c3e97d7d9a439a074f7627fe021
+  m_Entries:
+  - m_Id: 468844544
+    m_Key: UI.Global.Buy.Prefix.SummaryPricePrefix
+    m_Metadata:
+      m_Items: []
+  - m_Id: 514981888
+    m_Key: UI.Global.ItemsView.Header.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 514981889
+    m_Key: UI.Global.ItemsView.Header.Price
+    m_Metadata:
+      m_Items: []
+  - m_Id: 514981890
+    m_Key: UI.Global.ItemsView.Header.Weight
+    m_Metadata:
+      m_Items: []
+  - m_Id: 514981891
+    m_Key: UI.Global.Main.Prefix.MoneyPrefix
+    m_Metadata:
+      m_Items: []
+  - m_Id: 514981892
+    m_Key: UI.Global.Main.Prefix.WeightPrefix
+    m_Metadata:
+      m_Items: []
+  - m_Id: 514981893
+    m_Key: UI.Hud.Main.Button.EnterCity
+    m_Metadata:
+      m_Items: []
+  - m_Id: 514981894
+    m_Key: UI.Hud.Main.Button.OpenInventory
+    m_Metadata:
+      m_Items: []
+  - m_Id: 514981895
+    m_Key: UI.Hud.Main.Button.StartMove
+    m_Metadata:
+      m_Items: []
+  - m_Id: 514981896
+    m_Key: UI.Inventory.Main.Button.DropButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 514981897
+    m_Key: UI.Inventory.Main.Header.Main
+    m_Metadata:
+      m_Items: []
+  - m_Id: 514981898
+    m_Key: UI.Trade.Buy.Header.Main
+    m_Metadata:
+      m_Items: []
+  - m_Id: 514981899
+    m_Key: UI.Trade.ItemsView.Button.BackToPlayerAction
+    m_Metadata:
+      m_Items: []
+  - m_Id: 514981900
+    m_Key: UI.Trade.ItemsView.Button.BackToTraderAction
+    m_Metadata:
+      m_Items: []
+  - m_Id: 523370496
+    m_Key: UI.Trade.ItemsView.Button.MoveToBuyAction
+    m_Metadata:
+      m_Items: []
+  - m_Id: 523370497
+    m_Key: UI.Trade.ItemsView.Button.MoveToSellAction
+    m_Metadata:
+      m_Items: []
+  - m_Id: 523370498
+    m_Key: UI.Trade.Main.Button.TradeButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 523370499
+    m_Key: UI.Trade.Main.Header.Main
+    m_Metadata:
+      m_Items: []
+  - m_Id: 523370500
+    m_Key: UI.Trade.Npc.Prefix.NpcNamePrefix
+    m_Metadata:
+      m_Items: []
+  - m_Id: 523370501
+    m_Key: UI.Trade.Player.Text.PlayerName
+    m_Metadata:
+      m_Items: []
+  - m_Id: 523370502
+    m_Key: UI.Trade.Sell.Header.Main
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 8814461541437669587
+  references:
+    version: 2
+    RefIds:
+    - rid: 8814461541437669587
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1770128798349

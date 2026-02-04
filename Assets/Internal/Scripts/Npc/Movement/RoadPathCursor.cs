@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using Internal.Scripts.Npc.Core;
 using Internal.Scripts.Npc.NextSegment;
 using Internal.Scripts.Player.NextSegment;
 using Internal.Scripts.Road.Core;
 using Internal.Scripts.Road.Graph;
 using Internal.Scripts.Road.Path;
-using Zenject;
 
 namespace Internal.Scripts.Npc.Movement
 {
@@ -20,6 +20,7 @@ namespace Internal.Scripts.Npc.Movement
         private float _lateralOffset;
 
         private bool _hasPath;
+        private CancellationTokenSource _chooseCts;
 
         public RoadPathCursor(IRoadNetwork roadNetwork, SegmentMover segmentMover, 
             INextSegmentProvider nextSegmentProvider)
@@ -41,11 +42,17 @@ namespace Internal.Scripts.Npc.Movement
         public void Dispose()
         {
             _segmentMover.OnEndSegment -= ChooseNextSegment;
+            _chooseCts?.Cancel();
+            _chooseCts?.Dispose();
+            _chooseCts = null;
         }
         
         public void SetDestination(string currentNodeId, string destinationNodeId, 
             RoadLane lane, float lateralOffset)
         {
+            _chooseCts?.Cancel();
+            _chooseCts?.Dispose();
+            _chooseCts = null;
             _lane = lane;
             _lateralOffset = lateralOffset;
             _hasPath = true;
@@ -59,6 +66,15 @@ namespace Internal.Scripts.Npc.Movement
             ChooseNextSegment(ongoings);
         }
 
+        public void CancelPath()
+        {
+            _hasPath = false;
+            _chooseCts?.Cancel();
+            _chooseCts?.Dispose();
+            _chooseCts = null;
+            _segmentMover.Cancel();
+        }
+
         public void Advance(float deltaMeters)
         {
             _segmentMover.Advance(deltaMeters); 
@@ -68,7 +84,11 @@ namespace Internal.Scripts.Npc.Movement
         {
             try
             {
-                RoadPathSegment nextSegment = await _nextSegmentProvider.ChooseNextAsync(options);
+                _chooseCts?.Cancel();
+                _chooseCts?.Dispose();
+                _chooseCts = new CancellationTokenSource();
+
+                RoadPathSegment nextSegment = await _nextSegmentProvider.ChooseNextAsync(options, _chooseCts.Token);
                 _segmentMover.SetSegment(nextSegment, _lane, _lateralOffset);
             }
             catch (OperationCanceledException)
