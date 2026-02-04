@@ -1,0 +1,14 @@
+item_id,name_key,category_id,weight_kg,base_price,demand_weight,loc_link,loc_ru,loc_en
+grain,item.grain.name,food,10,10,3,перевод,Зерно,Grain
+rice,item.rice.name,food,10,11,2.5,перевод,Рис,Rice
+salt,item.salt.name,food,6,14,1.8,перевод,Соль,Salt
+tea,item.tea.name,raw,3,18,1.2,перевод,Чай,Tea
+wool,item.wool.name,raw,6,16,1.6,перевод,Шерсть,Wool
+leather,item.leather.name,raw,5,20,1.4,перевод,Кожа,Leather
+iron,item.iron.name,craft,8,22,1.8,перевод,Железо,Iron
+tools,item.tools.name,craft,4,30,1.2,перевод,Инструменты,Tools
+ceramics,item.ceramics.name,craft,7,19,1,перевод,Керамика,Ceramics
+silk,item.silk.name,luxury,2,45,1.6,перевод,Шёлк,Silk
+jade,item.jade.name,luxury,2,60,0.9,перевод,Нефрит,Jade
+spices,item.spices.name,exotic,1,55,1.1,перевод,Специи,Spices
+incense,item.incense.name,exotic,1,50,0.8,перевод,Благовония,Incense

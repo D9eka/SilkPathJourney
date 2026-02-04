@@ -1,0 +1,62 @@
+key,source_sheet,source_row,ru,en
+city_type.border_city.name,city_types,4,Пограничный город,Border City
+city_type.capital.name,city_types,2,Столица,Capital
+city_type.craft_city.name,city_types,5,Ремесленный центр,Craft City
+city_type.market_town.name,city_types,7,Обычный город,Market Town
+city_type.oasis_stop.name,city_types,8,Караванная остановка,Caravan Stop
+city_type.resource_city.name,city_types,6,Сырьевой город,Resource City
+city_type.trade_hub.name,city_types,3,Торговый узел,Trade Hub
+city.beijing.name,cities,2,Пекин,Beijing
+city.changan.name,cities,3,Чанъань,Chang’an
+city.guangzhou.name,cities,8,Гуанчжоу,Guangzhou
+city.hangzhou.name,cities,6,Ханчжоу,Hangzhou
+city.lanzhou.name,cities,4,Ланьчжоу,Lanzhou
+city.quanzhou.name,cities,7,Цюаньчжоу,Quanzhou
+city.shanghai.name,cities,5,Шанхай,Shanghai
+culture.anatolia.name,cultures,8,Анатолия,Anatolia
+culture.byzantine.name,cultures,9,Византия,Byzantine
+culture.central_asia.name,cultures,4,Средняя Азия,Central Asia
+culture.china.name,cultures,2,Китай,China
+culture.levant.name,cultures,7,Левант,Levant
+culture.mesopotamia.name,cultures,6,Месопотамия,Mesopotamia
+culture.persia.name,cultures,5,Персия,Persia
+culture.steppe.name,cultures,3,Степь,Steppe
+item_category.craft.name,item_categories,3,Ремесло,Handicrafts
+item_category.exotic.name,item_categories,5,Экзотика,Exotic goods
+item_category.food.name,item_categories,2,Еда,Food
+item_category.luxury.name,item_categories,4,Роскошь,Luxury items
+item_category.raw.name,item_categories,6,Сырьё,Raw goods
+item.ceramics.name,items,10,Керамика,Ceramics
+item.grain.name,items,2,Зерно,Grain
+item.incense.name,items,14,Благовония,Incense
+item.iron.name,items,8,Железо,Iron
+item.jade.name,items,12,Нефрит,Jade
+item.leather.name,items,7,Кожа,Leather
+item.rice.name,items,3,Рис,Rice
+item.salt.name,items,4,Соль,Salt
+item.silk.name,items,11,Шёлк,Silk
+item.spices.name,items,13,Специи,Spices
+item.tea.name,items,5,Чай,Tea
+item.tools.name,items,9,Инструменты,Tools
+item.wool.name,items,6,Шерсть,Wool
+UI.Global.Buy.Prefix.SummaryPricePrefix,interface_names,17,За {0},For {0}
+UI.Global.ItemsView.Header.Name,interface_names,10,Название,Name
+UI.Global.ItemsView.Header.Price,interface_names,12,Цена,Price
+UI.Global.ItemsView.Header.Weight,interface_names,11,Вес,Weight
+UI.Global.Main.Prefix.MoneyPrefix,interface_names,8,Деньги: {0},Money: {0}
+UI.Global.Main.Prefix.WeightPrefix,interface_names,9,Вес: {0}/{1},Weight: {0}/{1}
+UI.Hud.Main.Button.EnterCity,interface_names,3,Войти в город,Enter City
+UI.Hud.Main.Button.OpenInventory,interface_names,2,Инвентарь,Inventory
+UI.Hud.Main.Button.StartMove,interface_names,4,Начать движение,Start Moving
+UI.Inventory.Main.Button.DropButton,interface_names,7,Выбросить,Drop
+UI.Inventory.Main.Header.Main,interface_names,6,Груз,Cargo
+UI.Trade.Buy.Header.Main,interface_names,18,Вы покупаете,You are buying
+UI.Trade.ItemsView.Button.BackToPlayerAction,interface_names,22,Забрать,Take
+UI.Trade.ItemsView.Button.BackToTraderAction,interface_names,23,Вернуть,Return
+UI.Trade.ItemsView.Button.MoveToBuyAction,interface_names,21,Добавить в покупки,Add to purchase
+UI.Trade.ItemsView.Button.MoveToSellAction,interface_names,20,Добавить в продажу,Add to sell
+UI.Trade.Main.Button.TradeButton,interface_names,14,Торговать,Trade
+UI.Trade.Main.Header.Main,interface_names,13,Торговля,Trading
+UI.Trade.Npc.Prefix.NpcNamePrefix,interface_names,16,Груз {0},Cargo {0}
+UI.Trade.Player.Text.PlayerName,interface_names,15,Ваш груз,Your cargo
+UI.Trade.Sell.Header.Main,interface_names,19,Вы продаете,You are selling

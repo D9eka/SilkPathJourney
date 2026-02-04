@@ -53,6 +53,15 @@ namespace Internal.Scripts.Npc.Core
                 _config.Lane, _config.LateralOffsetMeters);
         }
 
+        public void CancelDestination(string currentNodeId)
+        {
+            if (!string.IsNullOrWhiteSpace(currentNodeId))
+                _currentNodeId = currentNodeId;
+
+            _destinationNodeId = null;
+            _cursor.CancelPath();
+        }
+
         public void Tick(float deltaTime)
         {
             if (_cursor.IsEmpty && !string.IsNullOrEmpty(_destinationNodeId))

@@ -1,0 +1,9 @@
+culture_id,enum_name,name_key,notes,loc_link,loc_ru,loc_en
+china,China,culture.china.name,"ядро Китая (Сиань, Север/Восток)",перевод,Китай,China
+steppe,Steppe,culture.steppe.name,кочевые зоны/приграничные степные районы,перевод,Степь,Steppe
+central_asia,CentralAsia,culture.central_asia.name,Самарканд/Бухара/Фергана и т.п.,перевод,Средняя Азия,Central Asia
+persia,Persia,culture.persia.name,Иранский культурный пояс,перевод,Персия,Persia
+mesopotamia,Mesopotamia,culture.mesopotamia.name,Ирак/Багдадский регион,перевод,Месопотамия,Mesopotamia
+levant,Levant,culture.levant.name,"Сирия/Палестина, вост. Средиземноморье",перевод,Левант,Levant
+anatolia,Anatolia,culture.anatolia.name,Малая Азия,перевод,Анатолия,Anatolia
+byzantine,Byzantine,culture.byzantine.name,Константинополь/греческий пояс,перевод,Византия,Byzantine

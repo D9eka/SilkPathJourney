@@ -7,8 +7,6 @@ namespace Internal.Scripts.Road.Nodes
 {
     public sealed class RoadNodeLookup : IInitializable, IRoadNodeLookup
     {
-        private const string NODE_PREFIX = "N_";
-
         private readonly Dictionary<string, Transform> _nodes = new();
 
         public IReadOnlyDictionary<string, Transform> Nodes => _nodes;
@@ -19,7 +17,7 @@ namespace Internal.Scripts.Road.Nodes
 
             Transform[] transforms = Object.FindObjectsByType<Transform>(FindObjectsSortMode.None);
 
-            foreach (Transform t in transforms.Where(t => t != null && t.name.StartsWith(NODE_PREFIX)))
+            foreach (Transform t in transforms.Where(t => t != null && t.name.StartsWith(NodeIdRules.NodePrefix)))
             {
                 string id = t.name;
                 if (_nodes.ContainsKey(id))
@@ -32,7 +30,7 @@ namespace Internal.Scripts.Road.Nodes
             }
 
             if (_nodes.Count == 0)
-                Debug.LogWarning("[RoadNodeLookup] No road nodes found with prefix 'N_'. Pathfinding will fail.");
+                Debug.LogWarning($"[RoadNodeLookup] No road nodes found with prefix '{NodeIdRules.NodePrefix}'. Pathfinding will fail.");
         }
 
         public bool TryGetTransform(string nodeId, out Transform transform) => _nodes.TryGetValue(nodeId, out transform);

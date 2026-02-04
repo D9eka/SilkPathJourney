@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74103b7de5d44f34eb8d2c2dd231f87a, type: 3}
+  m_Name: Capital
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Economy.Cities.CityTypeData
+  <Type>k__BackingField: 1
+  <Name>k__BackingField:
+    m_TableReference:
+      m_TableCollectionName: Economy
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: city_type.capital.name
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  <CityMoneyIncomePerScale>k__BackingField: 1200
+  <CategoryCoefs>k__BackingField:
+  - <Category>k__BackingField: 1
+    <BuyCoef>k__BackingField: 1.15
+    <SellCoef>k__BackingField: 0.95
+  - <Category>k__BackingField: 5
+    <BuyCoef>k__BackingField: 1.1
+    <SellCoef>k__BackingField: 0.9
+  - <Category>k__BackingField: 2
+    <BuyCoef>k__BackingField: 1.1
+    <SellCoef>k__BackingField: 0.9
+  - <Category>k__BackingField: 3
+    <BuyCoef>k__BackingField: 1.2
+    <SellCoef>k__BackingField: 1.05
+  - <Category>k__BackingField: 4
+    <BuyCoef>k__BackingField: 1.25
+    <SellCoef>k__BackingField: 1.08
+  <CategoryStockProfiles>k__BackingField:
+  - <Category>k__BackingField: 1
+    <DesiredPerScale>k__BackingField: 900
+    <DailyNet>k__BackingField: -40
+    <EquilibriumPull>k__BackingField: 0.1
+  - <Category>k__BackingField: 5
+    <DesiredPerScale>k__BackingField: 420
+    <DailyNet>k__BackingField: -8
+    <EquilibriumPull>k__BackingField: 0.1
+  - <Category>k__BackingField: 2
+    <DesiredPerScale>k__BackingField: 520
+    <DailyNet>k__BackingField: -6
+    <EquilibriumPull>k__BackingField: 0.1
+  - <Category>k__BackingField: 3
+    <DesiredPerScale>k__BackingField: 260
+    <DailyNet>k__BackingField: -3
+    <EquilibriumPull>k__BackingField: 0.1
+  - <Category>k__BackingField: 4
+    <DesiredPerScale>k__BackingField: 180
+    <DailyNet>k__BackingField: -2
+    <EquilibriumPull>k__BackingField: 0.1
+  references:
+    version: 2
+    RefIds: []
