@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using Zenject;
-using UnityEngine;
 
 namespace Internal.Scripts.Npc.Core
 {
@@ -20,11 +19,10 @@ namespace Internal.Scripts.Npc.Core
 
         public void Tick()
         {
-            float dt = Time.deltaTime;
             for (int i = 0; i < _agents.Count; i++)
-                _agents[i].Tick(dt);
+                _agents[i].Tick();
         }
-        
+
         public void Dispose()
         {
             foreach (RoadAgent agent in _agents)
