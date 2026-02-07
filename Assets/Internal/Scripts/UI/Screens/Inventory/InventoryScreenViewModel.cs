@@ -1,6 +1,7 @@
 using System;
 using Internal.Scripts.Input;
 using Internal.Scripts.Inventory;
+using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Screen.Config;
 using Internal.Scripts.UI.Screen.ViewModel;
 using R3;
@@ -12,6 +13,7 @@ namespace Internal.Scripts.UI.Screens.Inventory
     {
         private readonly InventoryModel _model;
         private readonly InputManager _inputManager;
+        private readonly ResourceIconCatalog _resourceIcons;
         private int _lastDropFrame = -1;
 
         public event Action<Vector2> Navigate;
@@ -19,15 +21,17 @@ namespace Internal.Scripts.UI.Screens.Inventory
         public event Action SubmitAll;
         public event Action Action;
 
-        public InventoryScreenViewModel(InventoryModel model, InputManager inputManager)
+        public InventoryScreenViewModel(InventoryModel model, InputManager inputManager, ResourceIconCatalog resourceIcons)
         {
             _model = model;
             _inputManager = inputManager;
+            _resourceIcons = resourceIcons;
         }
 
         public override ScreenId Id => ScreenId.Inventory;
 
         public Observable<InventoryViewState> State => _model.State;
+        public ResourceIconCatalog ResourceIcons => _resourceIcons;
 
         protected override void OnOpen(object args)
         {
@@ -56,24 +60,9 @@ namespace Internal.Scripts.UI.Screens.Inventory
             _model.DropItem(itemId, count);
         }
 
-        private void HandleNavigate(Vector2 value)
-        {
-            Navigate?.Invoke(value);
-        }
-
-        private void HandleSubmit()
-        {
-            Submit?.Invoke();
-        }
-
-        private void HandleSubmitAll()
-        {
-            SubmitAll?.Invoke();
-        }
-
-        private void HandleAction()
-        {
-            Action?.Invoke();
-        }
+        private void HandleNavigate(Vector2 value) => Navigate?.Invoke(value);
+        private void HandleSubmit() => Submit?.Invoke();
+        private void HandleSubmitAll() => SubmitAll?.Invoke();
+        private void HandleAction() => Action?.Invoke();
     }
 }
