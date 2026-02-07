@@ -42,6 +42,7 @@ using Internal.Scripts.UI.StackService;
 using Internal.Scripts.Trading;
 using Internal.Scripts.Events;
 using Internal.Scripts.Events.Data;
+using Internal.Scripts.Items;
 using Internal.Scripts.UI.Components;
 using Internal.Scripts.Config;
 
@@ -79,6 +80,8 @@ namespace Internal.Scripts.Installers
         [SerializeField] private ArrowView _arrowPrefab;
         [Header("Events")]
         [SerializeField] private EventDatabase _eventDatabase;
+        [Header("UI Resources")]
+        [SerializeField] private ResourceIconCatalog _resourceIconCatalog;
         [Header("Balance")]
         [SerializeField] private GameBalanceConfig _gameBalanceConfig;
 
@@ -99,6 +102,7 @@ namespace Internal.Scripts.Installers
             InstallEconomy();
             InstallPlayer();
             InstallScreens();
+            InstallEvents();
         }
 
         private void InstallCamera()

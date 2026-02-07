@@ -1,6 +1,8 @@
 using System;
 using Internal.Scripts.Npc.Core;
 using Internal.Scripts.Player.StartMovement;
+using Internal.Scripts.Road.Path;
+using Internal.Scripts.World.State;
 using UnityEngine;
 using Zenject;
 
@@ -16,6 +18,7 @@ namespace Internal.Scripts.Player
 
         public string CurrentNodeId => _roadAgent?.CurrentNodeId ?? string.Empty;
         public string DestinationNodeId => _roadAgent?.DestinationNodeId ?? string.Empty;
+        public Vector3 CurrentPosition => _roadAgent?.CurrentPose.Position ?? Vector3.zero;
 
         public event Action<string> OnCurrentNodeChanged;
         public event Action<string> OnDestinationChanged;
@@ -27,7 +30,7 @@ namespace Internal.Scripts.Player
                 if (_playerStartMovement.IsChoosingTarget)
                     return PlayerState.SelectingTarget;
 
-                if (_roadAgent != null && (_roadAgent.HasPath || 
+                if (_roadAgent != null && (_roadAgent.HasPath ||
                     !string.IsNullOrEmpty(_roadAgent.DestinationNodeId)))
                     return PlayerState.Moving;
 
@@ -55,6 +58,13 @@ namespace Internal.Scripts.Player
         {
             _roadAgent.Tick();
         }
+
+        public void SetPaused(bool paused)
+        {
+            if (paused)
+                _gameClock.Pause();
+            else
+                _gameClock.Resume();
         }
 
         public void Dispose()
