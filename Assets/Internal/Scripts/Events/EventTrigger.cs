@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Internal.Scripts.Config;
 using Internal.Scripts.Economy;
+using Internal.Scripts.Economy.Cities;
 using Internal.Scripts.Events.Conditions;
 using Internal.Scripts.Events.Data;
 using Internal.Scripts.Events.Outcomes;
@@ -29,6 +30,7 @@ namespace Internal.Scripts.Events
         private readonly GameBalanceConfig _balanceConfig;
         private readonly IRoadNodeLookup _nodeLookup;
         private readonly PlayerController _playerController;
+        private readonly ICityNodeResolver _cityNodeResolver;
 
         public EventTrigger(
             DayTracker dayTracker,
@@ -41,7 +43,8 @@ namespace Internal.Scripts.Events
             OutcomeApplier outcomeApplier,
             GameBalanceConfig balanceConfig,
             IRoadNodeLookup nodeLookup,
-            PlayerController playerController)
+            PlayerController playerController,
+            ICityNodeResolver cityNodeResolver)
         {
             _dayTracker = dayTracker;
             _eventDatabase = eventDatabase;
@@ -54,6 +57,7 @@ namespace Internal.Scripts.Events
             _balanceConfig = balanceConfig;
             _nodeLookup = nodeLookup;
             _playerController = playerController;
+            _cityNodeResolver = cityNodeResolver;
         }
 
         public void Initialize()
@@ -127,7 +131,9 @@ namespace Internal.Scripts.Events
         private void TriggerEvent(EventData eventData, int currentDay)
         {
             string nearestNodeId = _nodeLookup.FindNearestNodeId(_playerController.CurrentPosition);
-            var args = new EventTriggerArgs(eventData, nearestNodeId);
+            bool isAtCity = _playerController.CurrentNodeId == nearestNodeId;
+            _cityNodeResolver.TryGetCityByNodeId(nearestNodeId, out var city);
+            var args = new EventTriggerArgs(eventData, city, isAtCity);
 
             if (!_screenStackService.TryOpen(ScreenId.Event, args, out ScreenOpenResult result))
             {

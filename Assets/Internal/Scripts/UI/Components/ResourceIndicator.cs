@@ -19,7 +19,7 @@ namespace Internal.Scripts.UI.Components
         private Color _normalValueColor;
         private bool _cachedColor;
 
-        private void Awake()
+        protected virtual void Awake()
         {
             if (_valueText != null && !_cachedColor)
             {

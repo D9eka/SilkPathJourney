@@ -1,6 +1,7 @@
 using Internal.Scripts.UI.Screen.Config;
 using Internal.Scripts.UI.Screen.View;
 using Internal.Scripts.UI.Screen.ViewModel;
+using Internal.Scripts.UI.Screens.Event;
 using Internal.Scripts.UI.Screens.Hud;
 using Internal.Scripts.UI.Screens.Inventory;
 using Internal.Scripts.UI.Screens.Trade;
@@ -24,6 +25,7 @@ namespace Internal.Scripts.UI.Factory
                 ScreenId.Hud => CreateHud(view),
                 ScreenId.Inventory => CreateInventory(view),
                 ScreenId.Trade => CreateTrade(view),
+                ScreenId.Event => CreateEvent(view),
                 _ => null
             };
         }
@@ -50,6 +52,14 @@ namespace Internal.Scripts.UI.Factory
                 return null;
 
             return _container.Instantiate<TradeScreenViewModel>();
+        }
+
+        private ScreenViewModelBase CreateEvent(IScreenView view)
+        {
+            if (view is not EventScreen)
+                return null;
+
+            return _container.Instantiate<EventScreenViewModel>();
         }
     }
 }
