@@ -9,5 +9,6 @@ namespace Internal.Scripts.Road.Nodes
         bool TryGetTransform(string nodeId, out Transform transform);
         Vector3? GetPosition(string nodeId);
         bool Contains(string nodeId);
+        string FindNearestNodeId(Vector3 position);
     }
 }

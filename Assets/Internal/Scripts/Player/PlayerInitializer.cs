@@ -1,4 +1,5 @@
 using System;
+using Internal.Scripts.Events;
 using Internal.Scripts.Npc.Core;
 using Internal.Scripts.Npc.Movement;
 using Internal.Scripts.Npc.NextSegment;
@@ -6,6 +7,8 @@ using Internal.Scripts.Player.StartMovement;
 using Internal.Scripts.Road.Graph;
 using Internal.Scripts.Save;
 using Internal.Scripts.UI.Arrow.JunctionBalancer;
+using Internal.Scripts.World.State;
+using Plugins.Zenject.Source.Runtime;
 using Zenject;
 
 namespace Internal.Scripts.Player
@@ -21,13 +24,14 @@ namespace Internal.Scripts.Player
         private readonly PlayerController _playerController;
         private readonly PlayerConfig _playerConfig;
         private readonly SaveRepository _saveRepository;
-        private readonly IPlayerStartMovement _playerStartMovement;
+        private readonly DayTracker _dayTracker;
+        private readonly GameClock _gameClock;
 
-        public PlayerInitializer(RoadAgentView view, RoadAgentConfig config, 
-            IRoadNetwork roadNetwork, SegmentMover segmentMover, 
-            INextSegmentProvider nextSegmentProvider, IArrowJunctionBalancer arrowJunctionBalancer, 
+        public PlayerInitializer(RoadAgentView view, RoadAgentConfig config,
+            IRoadNetwork roadNetwork, SegmentMover segmentMover,
+            INextSegmentProvider nextSegmentProvider, IArrowJunctionBalancer arrowJunctionBalancer,
             PlayerController playerController, PlayerConfig playerConfig, SaveRepository saveRepository,
-            IPlayerStartMovement playerStartMovement)
+            DayTracker dayTracker, GameClock gameClock)
         {
             _view = view;
             _config = config;
@@ -38,18 +42,20 @@ namespace Internal.Scripts.Player
             _playerController = playerController;
             _playerConfig = playerConfig;
             _saveRepository = saveRepository;
-            _playerStartMovement = playerStartMovement;
+            _dayTracker = dayTracker;
+            _gameClock = gameClock;
         }
 
         public void Initialize()
         {
             string startNodeId = ResolveStartNodeId();
 
-            RoadAgent agent = new RoadAgent(_view,  _config, 
-                new RoadPathCursor(_roadNetwork, _segmentMover, _nextSegmentProvider), startNodeId);
+            RoadAgent agent = new RoadAgent(_view, _config,
+                new RoadPathCursor(_roadNetwork, _segmentMover, _nextSegmentProvider), _gameClock, startNodeId);
             agent.Initialize();
             _arrowJunctionBalancer.Initialize(agent);
             _playerController.Initialize(agent);
+            _dayTracker.Initialize(agent);
 
             string destinationNodeId = ResolveDestinationNodeId();
             if (!string.IsNullOrWhiteSpace(destinationNodeId) && destinationNodeId != startNodeId)

@@ -40,6 +40,9 @@ using Internal.Scripts.UI.Screen.Config;
 using Internal.Scripts.UI.Screens.Config;
 using Internal.Scripts.UI.StackService;
 using Internal.Scripts.Trading;
+using Internal.Scripts.Events;
+using Internal.Scripts.Events.Data;
+using Internal.Scripts.UI.Components;
 using Internal.Scripts.Config;
 
 namespace Internal.Scripts.Installers
@@ -74,6 +77,8 @@ namespace Internal.Scripts.Installers
         [Header("Arrows")]
         [SerializeField] private Transform _arrowsRoot;
         [SerializeField] private ArrowView _arrowPrefab;
+        [Header("Events")]
+        [SerializeField] private EventDatabase _eventDatabase;
         [Header("Balance")]
         [SerializeField] private GameBalanceConfig _gameBalanceConfig;
 
@@ -154,8 +159,7 @@ namespace Internal.Scripts.Installers
             Container.Bind<PathHintsCreator>().AsSingle();
             Container.Bind<RoadAgentView>().FromComponentInNewPrefab(_playerViewPrefab).AsSingle()
                 .WhenInjectedInto<PlayerInitializer>();
-            Container.Bind<RoadAgentConfig>().FromInstance(_playerAgentConfig).AsSingle()
-                .WhenInjectedInto<PlayerInitializer>();
+            Container.Bind<RoadAgentConfig>().FromInstance(_playerAgentConfig).AsSingle();
             Container.BindInterfacesAndSelfTo<SegmentMover>().AsSingle().WhenInjectedInto<PlayerInitializer>();
             Container.BindInterfacesAndSelfTo<PlayerNextSegmentsProvider>().AsSingle();
             Container.BindInterfacesTo<PlayerStartMovement>().AsSingle();
@@ -167,14 +171,16 @@ namespace Internal.Scripts.Installers
 
         private void InstallEconomy()
         {
-            Container.BindInstance(_economyDatabase).AsSingle(); 
+            Container.BindInstance(_economyDatabase).AsSingle();
             Container.BindInstance(_economySimulationSettings).AsSingle();
 
+            Container.Bind<ItemCatalog>().AsSingle();
             Container.Bind<ISaveService>().To<JsonSaveService>().AsSingle();
             Container.Bind<SaveRepository>().AsSingle();
             Container.Bind<EconomySaveBuilder>().AsSingle();
             Container.BindInterfacesAndSelfTo<SaveBootstrapper>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<InventoryRepository>().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<PlayerResourceRepository>().AsSingle().NonLazy();
         }
 
         private void InstallScreens()
@@ -183,6 +189,8 @@ namespace Internal.Scripts.Installers
                 Container.BindInstance(_uiScreenRoots).AsSingle();
             if (_screenCatalog != null)
                 Container.BindInstance(_screenCatalog).AsSingle();
+            if (_resourceIconCatalog != null)
+                Container.BindInstance(_resourceIconCatalog).AsSingle();
 
             Container.Bind<InventoryModel>().AsSingle();
             Container.Bind<TradeModel>().AsSingle();
@@ -217,6 +225,25 @@ namespace Internal.Scripts.Installers
 
             Container.BindInterfacesTo<RoadPoseArrowsController>()
                 .AsSingle();
+        }
+
+        private void InstallEvents()
+        {
+            Container.BindInstance(_eventDatabase).AsSingle();
+            Container.BindInterfacesAndSelfTo<DayTracker>().AsSingle().NonLazy();
+
+            Container.Bind<Events.Conditions.ResourceConditionHandler>().AsSingle();
+            Container.Bind<Events.Conditions.InventoryConditionHandler>().AsSingle();
+            Container.Bind<Events.Conditions.CartConditionHandler>().AsSingle();
+            Container.Bind<Events.Conditions.LocationConditionHandler>().AsSingle();
+            Container.Bind<Events.Conditions.ConditionEvaluator>().AsSingle();
+
+            Container.Bind<Events.Outcomes.ResourceOutcomeHandler>().AsSingle();
+            Container.Bind<Events.Outcomes.ItemOutcomeHandler>().AsSingle();
+            Container.Bind<Events.Outcomes.CartDurabilityOutcomeHandler>().AsSingle();
+            Container.Bind<Events.Outcomes.OutcomeApplier>().AsSingle();
+
+            Container.BindInterfacesAndSelfTo<EventTrigger>().AsSingle().NonLazy();
         }
     }
 }
