@@ -47,11 +47,12 @@ namespace Internal.Scripts.Npc.Core
             UpdatePose();
         }
         
-        public void Advance(float deltaMeters)
+        public float Advance(float deltaMeters)
         {
             if (_currentSegment == null || deltaMeters <= 0f)
-                return;
+                return 0f;
 
+            float moved = 0f;
             float remaining = deltaMeters;
 
             while (remaining > 0f)
@@ -60,6 +61,7 @@ namespace Internal.Scripts.Npc.Core
                 float step = Mathf.Min(leftOnSegment, remaining);
 
                 _distanceOnSegment += step;
+                moved += step;
                 remaining -= step;
 
                 if (_distanceOnSegment >= _segmentLength - Mathf.Epsilon)
@@ -71,6 +73,7 @@ namespace Internal.Scripts.Npc.Core
             }
 
             UpdatePose();
+            return moved;
         }
         
         public void SetPose(RoadPathSegment segment)
