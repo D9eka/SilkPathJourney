@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Internal.Scripts.Inventory;
 using Internal.Scripts.Items;
+using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Localization;
 using Internal.Scripts.UI.Screen.ViewModel;
 using R3;
@@ -17,14 +18,15 @@ namespace Internal.Scripts.UI.Screens.Inventory
     {
         [Header("Texts")]
         [SerializeField] private TextMeshProUGUI _actionButtonText;
-        [SerializeField] private TextMeshProUGUI _moneyHeaderText;
+        [Header("Resources")]
+        [SerializeField] private ResourceIndicator _moneyIndicator;
+        [SerializeField] private ResourceIndicator _weightIndicator;
         [Header("Buttons")]
         [SerializeField] private Button _actionButton;
         [Header("Content")]
         [SerializeField] private ItemsView _itemsView;
         [Header("LocalizedStrings")]
         [SerializeField] private LocalizedString _actionButtonLocalizedString;
-        [SerializeField] private LocalizedString _moneyHeaderLocalizedString;
 
         public ItemsView ItemsView => _itemsView;
 
@@ -34,7 +36,6 @@ namespace Internal.Scripts.UI.Screens.Inventory
         private bool _hasItemsHash;
         private UnityAction _actionHandler;
         private LocalizationHelper.LocalizedTextHandle _actionHandle;
-        private LocalizationHelper.LocalizedTextHandle _moneyHandle;
 
         protected override void OnEnable()
         {
@@ -49,8 +50,6 @@ namespace Internal.Scripts.UI.Screens.Inventory
             base.OnDisable();
             _actionHandle?.Dispose();
             _actionHandle = null;
-            _moneyHandle?.Dispose();
-            _moneyHandle = null;
         }
 
         public override void BindViewModel(IScreenViewModel viewModel)
@@ -61,19 +60,20 @@ namespace Internal.Scripts.UI.Screens.Inventory
 
         public void SetMoney(int value)
         {
-            string fallback = value.ToString();
-            if (_moneyHandle != null)
-                _moneyHandle.SetArguments(fallback, value);
-            else
-                _moneyHeaderText.text = fallback;
+            var icons = _viewModel?.ResourceIcons;
+            _moneyIndicator?.SetResource(icons != null ? icons.Money : null, value);
         }
 
         public void SetWeight(float current, float max)
         {
-            string fallback = max > 0f
+            if (_weightIndicator == null) return;
+
+            var icons = _viewModel?.ResourceIcons;
+            _weightIndicator.SetIcon(icons != null ? icons.Weight : null);
+            string formatted = max > 0f
                 ? $"{current:0.##} / {max:0.##}"
                 : $"{current:0.##}";
-            SetAdditionalHeaderText(fallback, current, max);
+            _weightIndicator.SetValue(formatted);
         }
 
         public void SetItems(IReadOnlyList<ItemRowData> items, bool showWeight, bool showPrice)
@@ -146,25 +146,10 @@ namespace Internal.Scripts.UI.Screens.Inventory
             _itemsView.EnsureSelection();
         }
 
-        private void HandleNavigate(Vector2 value)
-        {
-            _itemsView.HandleNavigate(value);
-        }
-
-        private void HandleSubmit()
-        {
-            _itemsView.TryActivateSelected(addAll: false);
-        }
-
-        private void HandleSubmitAll()
-        {
-            _itemsView.TryActivateSelected(addAll: true);
-        }
-
-        private void HandleAction()
-        {
-            DropSelectedItem();
-        }
+        private void HandleNavigate(Vector2 value) => _itemsView.HandleNavigate(value);
+        private void HandleSubmit() => _itemsView.TryActivateSelected(addAll: false);
+        private void HandleSubmitAll() => _itemsView.TryActivateSelected(addAll: true);
+        private void HandleAction() => DropSelectedItem();
 
         private void DropSelectedItem()
         {
@@ -181,9 +166,7 @@ namespace Internal.Scripts.UI.Screens.Inventory
         private void BindLocalization()
         {
             _actionHandle?.Dispose();
-            _moneyHandle?.Dispose();
             _actionHandle = LocalizationHelper.BindText(_actionButtonText, _actionButtonLocalizedString, $"{name}.ActionButton");
-            _moneyHandle = LocalizationHelper.BindText(_moneyHeaderText, _moneyHeaderLocalizedString, $"{name}.MoneyFormat");
         }
     }
 }

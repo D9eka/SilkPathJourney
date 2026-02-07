@@ -18,6 +18,7 @@ namespace Internal.Scripts.Trading
         public readonly int NpcMoney;
         public readonly int BuyTotal;
         public readonly int SellTotal;
+        public readonly float BaseWeight;
         public readonly float ProjectedWeight;
         public readonly float MaxWeight;
         public readonly bool WeightWarning;
@@ -29,8 +30,9 @@ namespace Internal.Scripts.Trading
             IReadOnlyList<ItemRowData> playerItems, IReadOnlyList<ItemRowData> npcItems,
             IReadOnlyList<ItemRowData> buyItems, IReadOnlyList<ItemRowData> sellItems,
             int playerItemsHash, int npcItemsHash, int buyItemsHash, int sellItemsHash,
-            int playerMoney, int npcMoney, int buyTotal, int sellTotal, float projectedWeight,
-            float maxWeight, bool weightWarning, bool playerEnoughFunds, bool npcEnoughFunds, string npcName)
+            int playerMoney, int npcMoney, int buyTotal, int sellTotal,
+            float baseWeight, float projectedWeight, float maxWeight, bool weightWarning,
+            bool playerEnoughFunds, bool npcEnoughFunds, string npcName)
         {
             PlayerItems = playerItems;
             NpcItems = npcItems;
@@ -44,6 +46,7 @@ namespace Internal.Scripts.Trading
             NpcMoney = npcMoney;
             BuyTotal = buyTotal;
             SellTotal = sellTotal;
+            BaseWeight = baseWeight;
             ProjectedWeight = projectedWeight;
             MaxWeight = maxWeight;
             WeightWarning = weightWarning;
@@ -51,20 +54,11 @@ namespace Internal.Scripts.Trading
             NpcEnoughFunds = npcEnoughFunds;
             NpcName = npcName;
         }
-        
-        public TradeViewState(
-            int playerItemsHash, int npcItemsHash, int buyItemsHash, int sellItemsHash,
-            int playerMoney, int npcMoney, int buyTotal, int sellTotal, float projectedWeight,
-            float maxWeight, bool weightWarning, bool playerEnoughFunds, bool npcEnoughFunds, string npcName)
-        : this(Array.Empty<ItemRowData>(),Array.Empty<ItemRowData>(),Array.Empty<ItemRowData>(),
-            Array.Empty<ItemRowData>(), playerItemsHash, npcItemsHash, buyItemsHash, sellItemsHash, playerMoney, 
-            npcMoney, buyTotal, sellTotal, projectedWeight, maxWeight, weightWarning, playerEnoughFunds, npcEnoughFunds, npcName)
-        {
-        }
 
         public TradeViewState(bool weightWarning, bool playerEnoughFunds, bool npcEnoughFunds, string npcName)
-        : this(0, 0, 0, 0, 0, 0, 0, 0,
-            0f, 0f, weightWarning, playerEnoughFunds, npcEnoughFunds, npcName)
+        : this(Array.Empty<ItemRowData>(), Array.Empty<ItemRowData>(), Array.Empty<ItemRowData>(),
+            Array.Empty<ItemRowData>(), 0, 0, 0, 0, 0, 0, 0, 0,
+            0f, 0f, 0f, weightWarning, playerEnoughFunds, npcEnoughFunds, npcName)
         {
         }
     }

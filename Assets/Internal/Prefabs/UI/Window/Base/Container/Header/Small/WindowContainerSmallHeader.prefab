@@ -222,6 +222,7 @@ GameObject:
   - component: {fileID: 6374725772778891025}
   - component: {fileID: 4196479557038999002}
   - component: {fileID: 8450578334556423457}
+  - component: {fileID: 1544319367493701329}
   m_Layer: 5
   m_Name: WindowContainerSmallHeader
   m_TagString: Untagged
@@ -278,3 +279,29 @@ MonoBehaviour:
   m_FlexibleWidth: 2
   m_FlexibleHeight: 1
   m_LayoutPriority: 1
+--- !u!114 &1544319367493701329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6076661355927361697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d919d659504ae6c44b2d0089f557e493, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Components.HeaderElement
+  _text: {fileID: 6074808420157589880}
+  _localizedString:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  _highlightColor: {r: 1, g: 0.85, b: 0.2, a: 1}
+  references:
+    version: 2
+    RefIds: []
