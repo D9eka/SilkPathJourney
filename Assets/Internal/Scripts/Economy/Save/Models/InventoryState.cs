@@ -7,7 +7,6 @@ namespace Internal.Scripts.Economy.Save.Models
     public class InventoryState
     {
         public int Money;
-        public float MaxWeightKg;
         public List<ItemStackState> Items = new();
     }
 }

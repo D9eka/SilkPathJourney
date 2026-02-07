@@ -35,6 +35,7 @@ namespace Internal.Scripts.Economy.Save
         {
             EconomySaveData data = new EconomySaveData();
             data.PlayerInventory = CreatePlayerInventory();
+            data.PlayerResources = CreatePlayerResources();
 
             if (_economyDatabase.Cities != null)
             {
@@ -59,8 +60,6 @@ namespace Internal.Scripts.Economy.Save
         {
             InventoryState inv = new InventoryState
             {
-                Money = _playerConfig.StartMoney,
-                MaxWeightKg = _playerConfig.MaxWeightKg,
                 Items = new List<ItemStackState>()
             };
 
@@ -82,6 +81,40 @@ namespace Internal.Scripts.Economy.Save
             return inv;
         }
 
+        private PlayerResourceState CreatePlayerResources()
+        {
+            PlayerResourceState resources = new PlayerResourceState
+            {
+                Money = _playerConfig.StartMoney,
+                Food = _playerConfig.StartFood,
+                AccumulatedDanger = 0f,
+                Carts = new List<CartState>()
+            };
+
+            if (_playerConfig.StartCarts != null)
+            {
+                foreach (PlayerConfig.StartCartEntry entry in _playerConfig.StartCarts)
+                {
+                    resources.Carts.Add(new CartState
+                    {
+                        Capacity = entry.Capacity,
+                        Durability = entry.Durability
+                    });
+                }
+            }
+
+            if (resources.Carts.Count == 0)
+            {
+                resources.Carts.Add(new CartState
+                {
+                    Capacity = 100f,
+                    Durability = 100f
+                });
+            }
+
+            return resources;
+        }
+
         private InventoryState CreateCityInventory(CityData city)
         {
             BuildLookupsIfNeeded();
@@ -89,7 +122,6 @@ namespace Internal.Scripts.Economy.Save
             InventoryState inv = new InventoryState
             {
                 Money = CalculateCityMoney(city),
-                MaxWeightKg = -1f,
                 Items = new List<ItemStackState>()
             };
 

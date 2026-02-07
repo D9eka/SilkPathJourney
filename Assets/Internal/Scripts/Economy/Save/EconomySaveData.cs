@@ -9,6 +9,7 @@ namespace Internal.Scripts.Economy.Save
     {
         public bool IsInitialized;
         public InventoryState PlayerInventory = new();
+        public PlayerResourceState PlayerResources = new();
         public List<CityInventoryState> CityInventories = new();
     }
 }
