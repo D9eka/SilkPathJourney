@@ -84,9 +84,9 @@ namespace Internal.Scripts.Npc.Core
 
             float deltaTime = Time.deltaTime * _gameClock.TimeScale;
             float distanceToTravel = _config.SpeedMetersPerSecond * deltaTime;
-            _cursor.Advance(distanceToTravel);
+            float actualDistance = _cursor.Advance(distanceToTravel);
 
-            _totalDistanceTraveled += distanceToTravel;
+            _totalDistanceTraveled += actualDistance;
             OnDistanceTraveled?.Invoke(_totalDistanceTraveled);
 
             RoadPose pose = _cursor.CurrentPose;
