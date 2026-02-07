@@ -40,6 +40,7 @@ using Internal.Scripts.UI.Screen.Config;
 using Internal.Scripts.UI.Screens.Config;
 using Internal.Scripts.UI.StackService;
 using Internal.Scripts.Trading;
+using Internal.Scripts.Config;
 
 namespace Internal.Scripts.Installers
 {
@@ -73,9 +74,12 @@ namespace Internal.Scripts.Installers
         [Header("Arrows")]
         [SerializeField] private Transform _arrowsRoot;
         [SerializeField] private ArrowView _arrowPrefab;
+        [Header("Balance")]
+        [SerializeField] private GameBalanceConfig _gameBalanceConfig;
 
         public override void InstallBindings()
         {
+            Container.BindInstance(_gameBalanceConfig).AsSingle();
             Container.Bind<GameClock>().AsSingle();
 
             Container.BindInterfacesAndSelfTo<InputManager>()
