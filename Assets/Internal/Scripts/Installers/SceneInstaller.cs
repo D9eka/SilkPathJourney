@@ -76,6 +76,8 @@ namespace Internal.Scripts.Installers
 
         public override void InstallBindings()
         {
+            Container.Bind<GameClock>().AsSingle();
+
             Container.BindInterfacesAndSelfTo<InputManager>()
                 .AsSingle().WithArguments(_interactableLayerMask)
                 .NonLazy();

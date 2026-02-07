@@ -9,7 +9,8 @@ namespace Internal.Scripts.Player
     public class PlayerController : ITickable, IDisposable, IPlayerStateProvider, IPlayerStateEvents, IPlayerMovementControl
     {
         private readonly IPlayerStartMovement _playerStartMovement;
-        
+        private readonly GameClock _gameClock;
+
         private RoadAgent _roadAgent;
         private string _lastDestinationId;
 
@@ -34,9 +35,10 @@ namespace Internal.Scripts.Player
             }
         }
 
-        public PlayerController(IPlayerStartMovement playerStartMovement)
+        public PlayerController(IPlayerStartMovement playerStartMovement, GameClock gameClock)
         {
             _playerStartMovement = playerStartMovement;
+            _gameClock = gameClock;
         }
 
         public void Initialize(RoadAgent roadAgent)
@@ -44,14 +46,15 @@ namespace Internal.Scripts.Player
             _roadAgent = roadAgent;
             _lastDestinationId = DestinationNodeId ?? string.Empty;
             _playerStartMovement.SetCurrentPlayerNode(_roadAgent.CurrentNodeId);
-            
+
             _playerStartMovement.OnChooseNode += StartPath;
             _roadAgent.OnArrived += EndPath;
         }
-        
+
         public void Tick()
         {
-            _roadAgent.Tick(Time.deltaTime);
+            _roadAgent.Tick();
+        }
         }
 
         public void Dispose()
