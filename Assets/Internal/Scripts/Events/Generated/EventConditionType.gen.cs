@@ -14,6 +14,6 @@
         MaxCartDurability = 9,
         HasCompanion = 10,
         MinSkill = 11,
-        NearNode
+        NearNode = 12,
     }
 }

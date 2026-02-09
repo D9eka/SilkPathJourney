@@ -240,11 +240,15 @@ namespace Internal.Scripts.Installers
             Container.Bind<Events.Conditions.InventoryConditionHandler>().AsSingle();
             Container.Bind<Events.Conditions.CartConditionHandler>().AsSingle();
             Container.Bind<Events.Conditions.LocationConditionHandler>().AsSingle();
+            Container.Bind<Events.Conditions.CompanionConditionHandler>().AsSingle();
+            Container.Bind<Events.Conditions.SkillConditionHandler>().AsSingle();
             Container.Bind<Events.Conditions.ConditionEvaluator>().AsSingle();
 
             Container.Bind<Events.Outcomes.ResourceOutcomeHandler>().AsSingle();
             Container.Bind<Events.Outcomes.ItemOutcomeHandler>().AsSingle();
             Container.Bind<Events.Outcomes.CartDurabilityOutcomeHandler>().AsSingle();
+            Container.Bind<Events.Outcomes.CompanionOutcomeHandler>().AsSingle();
+            Container.Bind<Events.Outcomes.SkillOutcomeHandler>().AsSingle();
             Container.Bind<Events.Outcomes.OutcomeApplier>().AsSingle();
 
             Container.Bind<EventToastController>().AsSingle();
