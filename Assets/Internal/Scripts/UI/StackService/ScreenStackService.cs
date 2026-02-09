@@ -70,7 +70,6 @@ namespace Internal.Scripts.UI.StackService
             }
 
             ScreenInstance previousTop = _stack.Count > 0 ? _stack[^1] : null;
-            previousTop?.ViewModel?.OnFocusLost();
 
             if (!_instances.TryGetValue(id, out ScreenInstance instance))
             {
@@ -108,6 +107,7 @@ namespace Internal.Scripts.UI.StackService
             }
 
             _stack.Add(instance);
+            previousTop?.ViewModel?.OnFocusLost();
             instance.View.Show();
             instance.ViewModel.Open(args);
             instance.ViewModel.OnFocusGained();
