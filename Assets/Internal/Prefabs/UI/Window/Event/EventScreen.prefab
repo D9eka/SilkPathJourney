@@ -709,6 +709,7 @@ GameObject:
   - component: {fileID: 2721547008731907715}
   - component: {fileID: 7998735628617536885}
   - component: {fileID: 652571062582862959}
+  - component: {fileID: 7886221176406080624}
   m_Layer: 5
   m_Name: EventScreen
   m_TagString: Untagged
@@ -797,14 +798,51 @@ MonoBehaviour:
   _mainHeader: {fileID: 1033174394196858954}
   _eventNameText: {fileID: 133417812319120970}
   _eventTypeText: {fileID: 6008938062995005204}
-  _eventLocationText: {fileID: 1101028690284135607}
   _eventDescriptionText: {fileID: 2273073003801484242}
+  _eventLocationText: {fileID: 1101028690284135607}
   _eventImage: {fileID: 5764184883304493988}
   _resourceIndicatorsRoot: {fileID: 2481171469397820918}
   _resourceIndicatorPrefab: {fileID: 783079172605956593, guid: d42cfadb0380fec4794cf1f9b812ff93, type: 3}
-  _moneyIcon: {fileID: 0}
   _choiceButtonsRoot: {fileID: 8842260931444097399}
   _choiceButtonPrefab: {fileID: 150921870437155092, guid: 2e5593097069d9042a684757e2b69dd9, type: 3}
+  _continueLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  _nearCityFormat:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
+--- !u!114 &7886221176406080624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7014452200877691797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.GraphicRaycaster
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1001 &157507642732477590
 PrefabInstance:
   m_ObjectHideFlags: 0

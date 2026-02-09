@@ -202,6 +202,8 @@ namespace Internal.Scripts.UI.Screens.Event
                     },
                     () => ShowOutcomePreview(choiceIndex),
                     HideOutcomePreview);
+                bool canAfford = _viewModel.CanAffordChoice(choiceIndex, choices);
+                button.SetInteractable(canAfford);
                 _activeButtons.Add(button);
             }
         }
@@ -221,6 +223,9 @@ namespace Internal.Scripts.UI.Screens.Event
                     ResourceEntry entry = _viewModel.GetResourceEntry(kvp.Key);
                     if (entry != null)
                         indicator.SetChange(Mathf.RoundToInt(kvp.Value), entry.IncreaseIsPositive);
+
+                    float current = _viewModel.GetCurrentResourceValue(indicator.ResourceType);
+                    indicator.SetHighlight(kvp.Value < 0 && current + kvp.Value < 0);
                 }
             }
 
@@ -234,7 +239,10 @@ namespace Internal.Scripts.UI.Screens.Event
         private void HideOutcomePreview()
         {
             foreach (ResourceIndicator indicator in _spawnedIndicators)
+            {
                 indicator.HideChange();
+                indicator.SetHighlight(false);
+            }
         }
 
         private void OnSelectedChoiceChanged(EventChoice? choice)

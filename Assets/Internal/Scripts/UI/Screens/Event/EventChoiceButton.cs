@@ -47,6 +47,12 @@ namespace Internal.Scripts.UI.Screens.Event
             _onClickCallback?.Invoke();
         }
 
+        public void SetInteractable(bool interactable)
+        {
+            if (_button != null)
+                _button.interactable = interactable;
+        }
+
         public void OnPointerEnter(PointerEventData eventData)
         {
             _onHoverEnter?.Invoke();

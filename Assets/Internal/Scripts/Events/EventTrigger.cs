@@ -183,6 +183,9 @@ namespace Internal.Scripts.Events
         public ResourceType? GetAffectedResource(EventOutcomeType type) =>
             _outcomeApplier.GetAffectedResource(type);
 
+        public bool CanAffordOutcomes(List<EventOutcomeEntry> outcomes) =>
+            _outcomeApplier.CanAffordAll(outcomes);
+
         public void OnEventCompleted()
         {
             _gameClock.Resume();

@@ -199,10 +199,20 @@ namespace Internal.Scripts.UI.Screens.Event
             return _resourceRepository.Current?.GetValue(type) ?? 0f;
         }
 
+        public bool CanAffordChoice(int choiceIndex, List<EventChoice> choices)
+        {
+            if (choices == null || choiceIndex < 0 || choiceIndex >= choices.Count)
+                return true;
+            return _eventTrigger.CanAffordOutcomes(choices[choiceIndex].Outcomes);
+        }
+
         public void SelectChoice(int choiceIndex)
         {
             List<EventChoice> available = GetAvailableChoices();
             if (choiceIndex < 0 || choiceIndex >= available.Count)
+                return;
+
+            if (!CanAffordChoice(choiceIndex, available))
                 return;
 
             EventChoice choice = available[choiceIndex];
