@@ -41,7 +41,8 @@ namespace Internal.Scripts.Economy
             UpdateResources(s => s.Carts.Add(new CartState
             {
                 Capacity = capacity,
-                Durability = durability
+                Durability = durability,
+                MaxDurability = durability
             }));
         }
 
