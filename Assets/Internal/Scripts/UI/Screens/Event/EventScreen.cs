@@ -1,9 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Internal.Scripts.Economy.Cities;
-using Internal.Scripts.Economy.Save;
-using Internal.Scripts.Events;
 using Internal.Scripts.Events.Data;
 using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Localization;
@@ -45,6 +42,8 @@ namespace Internal.Scripts.UI.Screens.Event
         private readonly List<ResourceIndicator> _spawnedIndicators = new();
         private readonly Dictionary<EventOutcomeType, ResourceIndicator> _resourceIndicators = new();
         private readonly Dictionary<string, ResourceIndicator> _itemIndicators = new();
+        private List<EventChoice> _currentChoices;
+        private int _selectedChoiceIndex = -1;
 
         private LocalizationHelper.LocalizedTextHandle _nameHandle;
         private LocalizationHelper.LocalizedTextHandle _typeHandle;
@@ -105,88 +104,45 @@ namespace Internal.Scripts.UI.Screens.Event
             BindLocalizedText(ref _nameHandle, _eventNameText, eventData.Name, "EventName");
             BindLocalizedText(ref _typeHandle, _eventTypeText, eventData.EventType, "EventType");
             BindLocalizedText(ref _descriptionHandle, _eventDescriptionText, eventData.Description, "EventDescription");
-            
+
             if (eventData.Image != null)
                 _eventImage.sprite = eventData.Image;
 
-            List<EventChoice> availableChoices = GetAvailableChoices(eventData.Choices);
-            SpawnResourceIndicators(availableChoices);
-            CreateChoiceButtons(availableChoices);
+            _currentChoices = _viewModel.GetAvailableChoices();
+            _selectedChoiceIndex = -1;
+            SpawnResourceIndicators();
+            CreateChoiceButtons(_currentChoices);
         }
 
-        private List<EventChoice> GetAvailableChoices(List<EventChoice> choices)
-        {
-            if (choices == null)
-                return new List<EventChoice>();
-
-            EventTrigger eventTrigger = _viewModel.EventTrigger;
-            if (eventTrigger == null)
-                return new List<EventChoice>(choices);
-
-            return choices.Where(c =>
-                c.Conditions == null || c.Conditions.Count == 0 ||
-                eventTrigger.CheckConditions(c.Conditions)).ToList();
-        }
-
-        private void SpawnResourceIndicators(List<EventChoice> choices)
+        private void SpawnResourceIndicators()
         {
             ClearResourceIndicators();
+            if (_currentChoices == null) return;
 
-            if (choices == null) return;
+            List<EventResourceInfo> resources = _viewModel.GetAffectedResources(_currentChoices);
+            foreach (EventResourceInfo info in resources)
+                SpawnResourceIndicator(info);
 
-            HashSet<EventOutcomeType> outcomeTypes = new();
-            HashSet<string> itemIds = new();
-
-            foreach (EventChoice choice in choices)
-            {
-                if (choice.Outcomes == null) continue;
-                foreach (EventOutcomeEntry outcome in choice.Outcomes)
-                {
-                    if (outcome.Type == EventOutcomeType.AddItem)
-                    {
-                        if (!string.IsNullOrEmpty(outcome.Param))
-                            itemIds.Add(outcome.Param);
-                    }
-                    else if (outcome.Type != EventOutcomeType.None)
-                    {
-                        outcomeTypes.Add(outcome.Type);
-                    }
-                }
-            }
-
-            ResourceIconCatalog catalog = _viewModel.ResourceIcons;
-            EventTrigger trigger = _viewModel.EventTrigger;
-
-            foreach (EventOutcomeType type in outcomeTypes)
-            {
-                ResourceType? resType = trigger?.GetAffectedResource(type);
-                ResourceEntry entry = resType.HasValue ? catalog?.Get(resType.Value) : null;
-                if (entry != null)
-                {
-                    SpawnResourceIndicator(type, entry);
-                }
-            }
-
+            HashSet<string> itemIds = _viewModel.GetAffectedItems(_currentChoices);
             foreach (string itemId in itemIds)
-                SpawnItemIndicator(itemId, null);
+                SpawnItemIndicator(itemId);
 
             SetCurrentResourceValues();
         }
 
-        private void SpawnResourceIndicator(EventOutcomeType type, ResourceEntry entry)
+        private void SpawnResourceIndicator(EventResourceInfo info)
         {
             ResourceIndicator indicator = Instantiate(_resourceIndicatorPrefab, _resourceIndicatorsRoot);
-            indicator.SetIcon(entry?.Icon);
-            if (entry != null) indicator.SetResourceType(entry.Type);
+            indicator.SetIcon(info.Icon);
+            indicator.SetResourceType(info.ResourceType);
             indicator.HideChangeImmediate();
             _spawnedIndicators.Add(indicator);
-            _resourceIndicators[type] = indicator;
+            _resourceIndicators[info.OutcomeType] = indicator;
         }
 
-        private void SpawnItemIndicator(string itemId, Sprite icon)
+        private void SpawnItemIndicator(string itemId)
         {
             ResourceIndicator indicator = Instantiate(_resourceIndicatorPrefab, _resourceIndicatorsRoot);
-            indicator.SetIcon(icon);
             indicator.HideChangeImmediate();
             _spawnedIndicators.Add(indicator);
             _itemIndicators[itemId] = indicator;
@@ -194,12 +150,9 @@ namespace Internal.Scripts.UI.Screens.Event
 
         private void SetCurrentResourceValues()
         {
-            PlayerResourceState resources = _viewModel.PlayerResources;
-            if (resources == null) return;
-
             foreach (KeyValuePair<EventOutcomeType, ResourceIndicator> kvp in _resourceIndicators)
             {
-                float value = resources.GetValue(kvp.Value.ResourceType);
+                float value = _viewModel.GetCurrentResourceValue(kvp.Value.ResourceType);
                 kvp.Value.SetValue($"{value:0}");
             }
         }
@@ -242,54 +195,32 @@ namespace Internal.Scripts.UI.Screens.Event
                 EventChoiceButton button = Instantiate(_choiceButtonPrefab, _choiceButtonsRoot);
                 button.Initialize(
                     choice.Text,
-                    () => _viewModel?.SelectChoice(choiceIndex),
-                    () => ShowOutcomePreview(choice.Outcomes),
+                    () =>
+                    {
+                        _selectedChoiceIndex = choiceIndex;
+                        _viewModel?.SelectChoice(choiceIndex);
+                    },
+                    () => ShowOutcomePreview(choiceIndex),
                     HideOutcomePreview);
                 _activeButtons.Add(button);
             }
         }
 
-        private void ShowOutcomePreview(List<EventOutcomeEntry> outcomes)
+        private void ShowOutcomePreview(int choiceIndex)
         {
-            foreach (ResourceIndicator indicator in _spawnedIndicators)
-                indicator.HideChange();
+            HideOutcomePreview();
 
-            if (outcomes == null) return;
-
-            Dictionary<EventOutcomeType, float> resourceChanges = new();
-            Dictionary<string, float> itemChanges = new();
-
-            foreach (EventOutcomeEntry entry in outcomes)
-            {
-                if (entry.Type == EventOutcomeType.AddItem)
-                {
-                    if (!string.IsNullOrEmpty(entry.Param))
-                    {
-                        if (itemChanges.ContainsKey(entry.Param))
-                            itemChanges[entry.Param] += entry.Value;
-                        else
-                            itemChanges[entry.Param] = entry.Value;
-                    }
-                }
-                else if (entry.Type != EventOutcomeType.None)
-                {
-                    if (resourceChanges.ContainsKey(entry.Type))
-                        resourceChanges[entry.Type] += entry.Value;
-                    else
-                        resourceChanges[entry.Type] = entry.Value;
-                }
-            }
+            _viewModel.GetChoicePreview(choiceIndex, _currentChoices,
+                out Dictionary<EventOutcomeType, float> resourceChanges,
+                out Dictionary<string, float> itemChanges);
 
             foreach (KeyValuePair<EventOutcomeType, float> kvp in resourceChanges)
             {
                 if (_resourceIndicators.TryGetValue(kvp.Key, out ResourceIndicator indicator))
                 {
-                    ResourceType? resType = _viewModel?.EventTrigger?.GetAffectedResource(kvp.Key);
-                    ResourceEntry entry = resType.HasValue ? _viewModel?.ResourceIcons?.Get(resType.Value) : null;
+                    ResourceEntry entry = _viewModel.GetResourceEntry(kvp.Key);
                     if (entry != null)
-                    {
                         indicator.SetChange(Mathf.RoundToInt(kvp.Value), entry.IncreaseIsPositive);
-                    }
                 }
             }
 
@@ -325,7 +256,8 @@ namespace Internal.Scripts.UI.Screens.Event
             _activeButtons.Add(continueBtn);
 
             SetCurrentResourceValues();
-            ShowOutcomePreview(choice.Value.Outcomes);
+            if (_selectedChoiceIndex >= 0)
+                ShowOutcomePreview(_selectedChoiceIndex);
         }
 
         private void UpdateLocation(CityData city, bool isAtCity)

@@ -60,8 +60,8 @@ namespace Internal.Scripts.UI.Screens.Inventory
 
         public void SetMoney(int value)
         {
-            var icons = _viewModel?.ResourceIcons;
-            _moneyIndicator?.SetResource(icons != null ? icons.Money : null, value);
+            ResourceIconCatalog icons = _viewModel?.ResourceIcons;
+            _moneyIndicator?.SetResource(icons?.Get(ResourceType.Money)?.Icon, value);
         }
 
         public void SetWeight(float current, float max)
@@ -69,7 +69,7 @@ namespace Internal.Scripts.UI.Screens.Inventory
             if (_weightIndicator == null) return;
 
             var icons = _viewModel?.ResourceIcons;
-            _weightIndicator.SetIcon(icons != null ? icons.Weight : null);
+            _weightIndicator.SetIcon(icons?.Get(ResourceType.Weight)?.Icon);
             string formatted = max > 0f
                 ? $"{current:0.##} / {max:0.##}"
                 : $"{current:0.##}";

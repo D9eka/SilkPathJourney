@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using Internal.Scripts.Economy;
 using Internal.Scripts.Economy.Cities;
 using Internal.Scripts.Economy.Save;
@@ -13,6 +15,22 @@ using UnityEngine;
 
 namespace Internal.Scripts.UI.Screens.Event
 {
+    public readonly struct EventResourceInfo
+    {
+        public readonly EventOutcomeType OutcomeType;
+        public readonly ResourceType ResourceType;
+        public readonly Sprite Icon;
+        public readonly bool IncreaseIsPositive;
+
+        public EventResourceInfo(EventOutcomeType outcomeType, ResourceType resourceType, Sprite icon, bool increaseIsPositive)
+        {
+            OutcomeType = outcomeType;
+            ResourceType = resourceType;
+            Icon = icon;
+            IncreaseIsPositive = increaseIsPositive;
+        }
+    }
+
     public sealed class EventScreenViewModel : ScreenViewModelBase
     {
         private readonly EventTrigger _eventTrigger;
@@ -46,7 +64,6 @@ namespace Internal.Scripts.UI.Screens.Event
         public Observable<bool> IsAtCity => _isAtCity;
         public Observable<EventChoice?> SelectedChoice => _selectedChoice;
         public ItemCatalog ItemCatalog => _itemCatalog;
-        public EventTrigger EventTrigger => _eventTrigger;
         public ResourceIconCatalog ResourceIcons => _resourceIcons;
         public PlayerResourceState PlayerResources => _resourceRepository.Current;
 
@@ -81,13 +98,114 @@ namespace Internal.Scripts.UI.Screens.Event
             _eventTrigger.OnEventCompleted();
         }
 
-        public void SelectChoice(int choiceIndex)
+        public List<EventChoice> GetAvailableChoices()
         {
-            if (_state.Value == null || choiceIndex < 0 ||
-                choiceIndex >= _state.Value.Choices.Count)
+            EventData eventData = _state.Value;
+            if (eventData?.Choices == null)
+                return new List<EventChoice>();
+
+            return eventData.Choices.Where(c =>
+                c.Conditions == null || c.Conditions.Count == 0 ||
+                _eventTrigger.CheckConditions(c.Conditions)).ToList();
+        }
+
+        public List<EventResourceInfo> GetAffectedResources(List<EventChoice> choices)
+        {
+            HashSet<EventOutcomeType> outcomeTypes = new();
+            if (choices != null)
+            {
+                foreach (EventChoice choice in choices)
+                {
+                    if (choice.Outcomes == null) continue;
+                    foreach (EventOutcomeEntry outcome in choice.Outcomes)
+                    {
+                        if (outcome.Type != EventOutcomeType.None && outcome.Type != EventOutcomeType.AddItem)
+                            outcomeTypes.Add(outcome.Type);
+                    }
+                }
+            }
+
+            List<EventResourceInfo> result = new();
+            foreach (EventOutcomeType type in outcomeTypes)
+            {
+                ResourceEntry entry = GetResourceEntry(type);
+                if (entry != null)
+                    result.Add(new EventResourceInfo(type, entry.Type, entry.Icon, entry.IncreaseIsPositive));
+            }
+            return result;
+        }
+
+        public HashSet<string> GetAffectedItems(List<EventChoice> choices)
+        {
+            HashSet<string> itemIds = new();
+            if (choices != null)
+            {
+                foreach (EventChoice choice in choices)
+                {
+                    if (choice.Outcomes == null) continue;
+                    foreach (EventOutcomeEntry outcome in choice.Outcomes)
+                    {
+                        if (outcome.Type == EventOutcomeType.AddItem && !string.IsNullOrEmpty(outcome.Param))
+                            itemIds.Add(outcome.Param);
+                    }
+                }
+            }
+            return itemIds;
+        }
+
+        public void GetChoicePreview(int choiceIndex, List<EventChoice> choices,
+            out Dictionary<EventOutcomeType, float> resourceChanges,
+            out Dictionary<string, float> itemChanges)
+        {
+            resourceChanges = new Dictionary<EventOutcomeType, float>();
+            itemChanges = new Dictionary<string, float>();
+
+            if (choices == null || choiceIndex < 0 || choiceIndex >= choices.Count)
                 return;
 
-            EventChoice choice = _state.Value.Choices[choiceIndex];
+            List<EventOutcomeEntry> outcomes = choices[choiceIndex].Outcomes;
+            if (outcomes == null) return;
+
+            foreach (EventOutcomeEntry entry in outcomes)
+            {
+                if (entry.Type == EventOutcomeType.AddItem)
+                {
+                    if (!string.IsNullOrEmpty(entry.Param))
+                    {
+                        if (itemChanges.ContainsKey(entry.Param))
+                            itemChanges[entry.Param] += entry.Value;
+                        else
+                            itemChanges[entry.Param] = entry.Value;
+                    }
+                }
+                else if (entry.Type != EventOutcomeType.None)
+                {
+                    if (resourceChanges.ContainsKey(entry.Type))
+                        resourceChanges[entry.Type] += entry.Value;
+                    else
+                        resourceChanges[entry.Type] = entry.Value;
+                }
+            }
+        }
+
+        public ResourceEntry GetResourceEntry(EventOutcomeType type)
+        {
+            ResourceType? resType = _eventTrigger?.GetAffectedResource(type);
+            return resType.HasValue ? _resourceIcons?.Get(resType.Value) : null;
+        }
+
+        public float GetCurrentResourceValue(ResourceType type)
+        {
+            return _resourceRepository.Current?.GetValue(type) ?? 0f;
+        }
+
+        public void SelectChoice(int choiceIndex)
+        {
+            List<EventChoice> available = GetAvailableChoices();
+            if (choiceIndex < 0 || choiceIndex >= available.Count)
+                return;
+
+            EventChoice choice = available[choiceIndex];
             _eventTrigger.ApplyOutcome(choice.Outcomes);
             _selectedChoice.Value = choice;
         }
