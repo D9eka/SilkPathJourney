@@ -175,6 +175,358 @@ MonoBehaviour:
     m_Key: culture.byzantine.name
     m_Metadata:
       m_Items: []
+  - m_Id: 3360399972884480
+    m_Key: item_category.animals.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400052576256
+    m_Key: item.dried_meat.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400052576257
+    m_Key: item.dates.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400052576258
+    m_Key: item.honey.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400052576259
+    m_Key: item.wine.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400052576260
+    m_Key: item.olive_oil.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400052576261
+    m_Key: item.nuts.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400052576262
+    m_Key: item.dried_fruit.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400052576263
+    m_Key: item.dried_fish.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400052576264
+    m_Key: item.sugar.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400052576265
+    m_Key: item.sesame_oil.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400052576266
+    m_Key: item.flour.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400052576267
+    m_Key: item.kumis.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400052576268
+    m_Key: item.cheese.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400052576269
+    m_Key: item.ghee.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400052576270
+    m_Key: item.cotton.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400052576271
+    m_Key: item.timber.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400052576272
+    m_Key: item.copper.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400052576273
+    m_Key: item.tin.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400052576274
+    m_Key: item.flax.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400052576275
+    m_Key: item.indigo.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400052576276
+    m_Key: item.alum.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400052576277
+    m_Key: item.sulfur.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400052576278
+    m_Key: item.saltpeter.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400052576279
+    m_Key: item.clay.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770560
+    m_Key: item.coal.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770561
+    m_Key: item.hemp.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770562
+    m_Key: item.mercury.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770563
+    m_Key: item.wax.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770564
+    m_Key: item.blades.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770565
+    m_Key: item.carpets.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770566
+    m_Key: item.glass.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770567
+    m_Key: item.paper.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770568
+    m_Key: item.lacquerware.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770569
+    m_Key: item.jewelry.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770570
+    m_Key: item.chainmail.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770571
+    m_Key: item.saddles.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770572
+    m_Key: item.mirrors.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770573
+    m_Key: item.instruments.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770574
+    m_Key: item.bows.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770575
+    m_Key: item.mosaic.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770576
+    m_Key: item.embroidery.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770577
+    m_Key: item.pottery.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770578
+    m_Key: item.saffron.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770579
+    m_Key: item.brocade.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770580
+    m_Key: item.cashmere.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770581
+    m_Key: item.frankincense.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770582
+    m_Key: item.myrrh.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770583
+    m_Key: item.gemstones.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770584
+    m_Key: item.gold_ornaments.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770585
+    m_Key: item.jadeite.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770586
+    m_Key: item.satin.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770587
+    m_Key: item.jade_figurines.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770588
+    m_Key: item.rubies.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770589
+    m_Key: item.opal.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770590
+    m_Key: item.porcelain.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770591
+    m_Key: item.amber.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770592
+    m_Key: item.perfume.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770593
+    m_Key: item.musk.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770594
+    m_Key: item.ivory.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770595
+    m_Key: item.pearl.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770596
+    m_Key: item.lapis_lazuli.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770597
+    m_Key: item.rhino_horn.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770598
+    m_Key: item.coral.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770599
+    m_Key: item.sandalwood.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770600
+    m_Key: item.ginseng.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770601
+    m_Key: item.ambergris.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770602
+    m_Key: item.camphor.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770603
+    m_Key: item.turquoise.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770604
+    m_Key: item.leopard_skin.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770605
+    m_Key: item.agate.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770606
+    m_Key: item.bezoar.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770607
+    m_Key: item.narwhal_horn.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770608
+    m_Key: item.racing_horse.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770609
+    m_Key: item.war_horse.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770610
+    m_Key: item.purebred_camel.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770611
+    m_Key: item.elephant.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770612
+    m_Key: item.falcon.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770613
+    m_Key: item.peacock.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770614
+    m_Key: item.cheetah.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770615
+    m_Key: item.monkey.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770616
+    m_Key: item.parrot.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770617
+    m_Key: item.fighting_bull.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770618
+    m_Key: item.hunting_dog.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770619
+    m_Key: item.ostrich.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770620
+    m_Key: item.white_horse.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770621
+    m_Key: item.purebred_yak.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770622
+    m_Key: item.songbird.name
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -2,13 +2,100 @@ item_id,name_key,category_id,weight_kg,base_price,demand_weight,loc_link,loc_ru,
 grain,item.grain.name,food,10,10,3,перевод,Зерно,Grain
 rice,item.rice.name,food,10,11,2.5,перевод,Рис,Rice
 salt,item.salt.name,food,6,14,1.8,перевод,Соль,Salt
+dried_meat,item.dried_meat.name,food,4,13,2,перевод,Вяленое мясо,Dried Meat
+dates,item.dates.name,food,5,12,1.8,перевод,Финики,Dates
+honey,item.honey.name,food,4,16,1.5,перевод,Мёд,Honey
+wine,item.wine.name,food,8,15,1.3,перевод,Вино,Wine
+olive_oil,item.olive_oil.name,food,6,14,1.4,перевод,Оливковое масло,Olive Oil
+nuts,item.nuts.name,food,4,11,1.8,перевод,Орехи,Nuts
+dried_fruit,item.dried_fruit.name,food,3,10,2,перевод,Сухофрукты,Dried Fruit
+dried_fish,item.dried_fish.name,food,6,12,1.9,перевод,Вяленая рыба,Dried Fish
+sugar,item.sugar.name,food,4,16,1.5,перевод,Сахар,Sugar
+sesame_oil,item.sesame_oil.name,food,4,13,1.2,перевод,Кунжутное масло,Sesame Oil
+flour,item.flour.name,food,10,9,2.5,перевод,Мука,Flour
+kumis,item.kumis.name,food,6,10,1.5,перевод,Кумыс,Kumis
+cheese,item.cheese.name,food,3,13,1.6,перевод,Сыр,Cheese
+ghee,item.ghee.name,food,3,15,1.4,перевод,Топлёное масло,Ghee
 tea,item.tea.name,raw,3,18,1.2,перевод,Чай,Tea
 wool,item.wool.name,raw,6,16,1.6,перевод,Шерсть,Wool
 leather,item.leather.name,raw,5,20,1.4,перевод,Кожа,Leather
+cotton,item.cotton.name,raw,8,15,1.5,перевод,Хлопок,Cotton
+timber,item.timber.name,raw,12,12,1.3,перевод,Древесина,Timber
+copper,item.copper.name,raw,10,18,1.5,перевод,Медь,Copper
+tin,item.tin.name,raw,8,20,1.2,перевод,Олово,Tin
+flax,item.flax.name,raw,5,14,1.4,перевод,Лён,Flax
+indigo,item.indigo.name,raw,2,22,1,перевод,Индиго,Indigo
+alum,item.alum.name,raw,5,16,1.1,перевод,Квасцы,Alum
+sulfur,item.sulfur.name,raw,6,17,1,перевод,Сера,Sulfur
+saltpeter,item.saltpeter.name,raw,7,19,1,перевод,Селитра,Saltpeter
+clay,item.clay.name,raw,10,10,1.6,перевод,Глина,Clay
+coal,item.coal.name,raw,12,13,1.2,перевод,Каменный уголь,Coal
+hemp,item.hemp.name,raw,6,13,1.5,перевод,Пенька,Hemp
+mercury,item.mercury.name,raw,2,24,0.8,перевод,Ртуть,Mercury
+wax,item.wax.name,raw,3,17,1,перевод,Воск,Wax
 iron,item.iron.name,craft,8,22,1.8,перевод,Железо,Iron
 tools,item.tools.name,craft,4,30,1.2,перевод,Инструменты,Tools
 ceramics,item.ceramics.name,craft,7,19,1,перевод,Керамика,Ceramics
+blades,item.blades.name,craft,5,32,1.1,перевод,Клинки,Blades
+carpets,item.carpets.name,craft,8,28,1,перевод,Ковры,Carpets
+glass,item.glass.name,craft,4,26,0.9,перевод,Стекло,Glass
+paper,item.paper.name,craft,2,18,1.2,перевод,Бумага,Paper
+lacquerware,item.lacquerware.name,craft,4,24,1,перевод,Лаковые изделия,Lacquerware
+jewelry,item.jewelry.name,craft,1,35,0.9,перевод,Ювелирные изделия,Jewelry
+chainmail,item.chainmail.name,craft,8,28,0.8,перевод,Кольчуги,Chainmail
+saddles,item.saddles.name,craft,6,22,1.1,перевод,Сёдла,Saddles
+mirrors,item.mirrors.name,craft,2,25,0.9,перевод,Зеркала,Mirrors
+instruments,item.instruments.name,craft,4,23,0.7,перевод,Муз. инструменты,Musical Instruments
+bows,item.bows.name,craft,3,20,1.2,перевод,Луки,Bows
+mosaic,item.mosaic.name,craft,8,20,0.8,перевод,Мозаичная плитка,Mosaic Tiles
+embroidery,item.embroidery.name,craft,2,22,0.9,перевод,Вышивка,Embroidery
+pottery,item.pottery.name,craft,6,16,1.3,перевод,Глиняная посуда,Pottery
 silk,item.silk.name,luxury,2,45,1.6,перевод,Шёлк,Silk
 jade,item.jade.name,luxury,2,60,0.9,перевод,Нефрит,Jade
+saffron,item.saffron.name,luxury,1,52,0.9,перевод,Шафран,Saffron
+brocade,item.brocade.name,luxury,3,48,1,перевод,Парча,Brocade
+cashmere,item.cashmere.name,luxury,2,44,1.1,перевод,Кашемир,Cashmere
+frankincense,item.frankincense.name,luxury,2,40,1,перевод,Ладан,Frankincense
+myrrh,item.myrrh.name,luxury,2,38,0.9,перевод,Мирра,Myrrh
+gemstones,item.gemstones.name,luxury,1,65,0.7,перевод,Драгоценные камни,Gemstones
+gold_ornaments,item.gold_ornaments.name,luxury,1,62,0.8,перевод,Золотые украшения,Gold Ornaments
+jadeite,item.jadeite.name,luxury,2,50,0.9,перевод,Жадеит,Jadeite
+satin,item.satin.name,luxury,2,42,1,перевод,Атлас,Satin
+jade_figurines,item.jade_figurines.name,luxury,3,55,0.8,перевод,Нефритовые фигурки,Jade Figurines
+rubies,item.rubies.name,luxury,1,58,0.7,перевод,Рубины,Rubies
+opal,item.opal.name,luxury,1,54,0.7,перевод,Опал,Opal
+porcelain,item.porcelain.name,luxury,3,56,0.9,перевод,Фарфор,Porcelain
+amber,item.amber.name,luxury,1,48,0.8,перевод,Янтарь,Amber
+perfume,item.perfume.name,luxury,1,46,0.9,перевод,Духи,Perfume
 spices,item.spices.name,exotic,1,55,1.1,перевод,Специи,Spices
 incense,item.incense.name,exotic,1,50,0.8,перевод,Благовония,Incense
+musk,item.musk.name,exotic,1,65,0.7,перевод,Мускус,Musk
+ivory,item.ivory.name,exotic,5,72,0.6,перевод,Слоновая кость,Ivory
+pearl,item.pearl.name,exotic,1,68,0.7,перевод,Жемчуг,Pearl
+lapis_lazuli,item.lapis_lazuli.name,exotic,3,55,0.8,перевод,Лазурит,Lapis Lazuli
+rhino_horn,item.rhino_horn.name,exotic,2,85,0.5,перевод,Рог носорога,Rhino Horn
+coral,item.coral.name,exotic,2,58,0.7,перевод,Коралл,Coral
+sandalwood,item.sandalwood.name,exotic,4,52,0.8,перевод,Сандаловое дерево,Sandalwood
+ginseng,item.ginseng.name,exotic,1,70,0.6,перевод,Женьшень,Ginseng
+ambergris,item.ambergris.name,exotic,1,78,0.5,перевод,Амбра,Ambergris
+camphor,item.camphor.name,exotic,1,50,0.8,перевод,Камфора,Camphor
+turquoise,item.turquoise.name,exotic,2,56,0.7,перевод,Бирюза,Turquoise
+leopard_skin,item.leopard_skin.name,exotic,3,72,0.5,перевод,Шкура леопарда,Leopard Skin
+agate,item.agate.name,exotic,2,52,0.8,перевод,Агат,Agate
+bezoar,item.bezoar.name,exotic,1,80,0.5,перевод,Безоар,Bezoar
+narwhal_horn,item.narwhal_horn.name,exotic,2,82,0.4,перевод,Рог нарвала,Narwhal Horn
+racing_horse,item.racing_horse.name,animals,15,70,0.8,перевод,Скаковая лошадь,Racing Horse
+war_horse,item.war_horse.name,animals,18,95,0.6,перевод,Боевой конь,War Horse
+purebred_camel,item.purebred_camel.name,animals,15,55,0.8,перевод,Породистый верблюд,Purebred Camel
+elephant,item.elephant.name,animals,25,120,0.4,перевод,Слон,Elephant
+falcon,item.falcon.name,animals,2,75,0.7,перевод,Сокол,Falcon
+peacock,item.peacock.name,animals,4,45,0.8,перевод,Павлин,Peacock
+cheetah,item.cheetah.name,animals,8,100,0.5,перевод,Гепард,Cheetah
+monkey,item.monkey.name,animals,4,40,0.7,перевод,Обезьяна,Monkey
+parrot,item.parrot.name,animals,2,35,0.8,перевод,Попугай,Parrot
+fighting_bull,item.fighting_bull.name,animals,18,60,0.6,перевод,Боевой бык,Fighting Bull
+hunting_dog,item.hunting_dog.name,animals,6,30,0.9,перевод,Охотничья собака,Hunting Dog
+ostrich,item.ostrich.name,animals,12,80,0.5,перевод,Страус,Ostrich
+white_horse,item.white_horse.name,animals,15,85,0.6,перевод,Белый конь,White Horse
+purebred_yak,item.purebred_yak.name,animals,15,50,0.7,перевод,Породистый як,Purebred Yak
+songbird,item.songbird.name,animals,1,25,0.9,перевод,Певчая птица,Songbird

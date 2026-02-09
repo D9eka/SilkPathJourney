@@ -1,0 +1,2784 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Events_en
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: b2e541a37c4586c4f92b1d797521ddc1, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 443539456
+    m_Localized: Attack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 514842624
+    m_Localized: Sandstorm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 514842625
+    m_Localized: Bandit Ambush
+    m_Metadata:
+      m_Items: []
+  - m_Id: 514842626
+    m_Localized: Armed men surround you on the path.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 514842627
+    m_Localized: Fight back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 514842628
+    m_Localized: Run away
+    m_Metadata:
+      m_Items: []
+  - m_Id: 514842629
+    m_Localized: Pay them off
+    m_Metadata:
+      m_Items: []
+  - m_Id: 514842630
+    m_Localized: Sandstorm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 514842631
+    m_Localized: A wall of sand rises on the horizon and rushes closer. The wind
+      intensifies, and visibility drops with every passing second.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 514842632
+    m_Localized: Take shelter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 514842633
+    m_Localized: Push through
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3444889870336
+    m_Localized: Test
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3444902453248
+    m_Localized: Test Event
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3444902453249
+    m_Localized: This is a test event to verify the system.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3444902453250
+    m_Localized: Spend money
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3444902453251
+    m_Localized: Take a risk
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148041117696
+    m_Localized: Desert Ambush
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148078866432
+    m_Localized: Masked riders burst from behind the dunes, blocking the caravan's
+      path. The glint of drawn blades in the sun leaves no doubt of their intentions.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148078866433
+    m_Localized: Fight back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148078866434
+    m_Localized: Flee
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148078866435
+    m_Localized: Pay ransom
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148078866436
+    m_Localized: Unbearable Heat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060736
+    m_Localized: The sun scorches the desert with merciless heat. The air shimmers
+      above the blistering dunes, and both people and animals can barely stand.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060737
+    m_Localized: Wait it out
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060738
+    m_Localized: Press on
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060739
+    m_Localized: Scorpions in Camp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060740
+    m_Localized: Large scorpions are found among the camp supplies at night. Their
+      tails are raised menacingly, and every movement risks a sting.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060741
+    m_Localized: Scare with fire
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060742
+    m_Localized: Pack up camp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060743
+    m_Localized: Desert Oasis
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060744
+    m_Localized: Palm trees and glistening water appear amid the endless sands. A
+      real oasis, but the tracks around it suggest this place is not entirely safe.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060745
+    m_Localized: Explore
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060746
+    m_Localized: Gather water
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060747
+    m_Localized: Mirage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060748
+    m_Localized: 'A city silhouette with minarets shimmers on the horizon. The caravan
+      argues: some insist it is real, others warn it is a mirage.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060749
+    m_Localized: Ignore it
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060750
+    m_Localized: Go toward it
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060751
+    m_Localized: Drought
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060752
+    m_Localized: The wells along the route have dried up and water reserves are dwindling.
+      Cracked earth stretches to the horizon, and a decision must be made on how
+      to ration the last drops.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060753
+    m_Localized: Ration supplies
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060754
+    m_Localized: Search for water
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060755
+    m_Localized: Trust the guide
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060756
+    m_Localized: Sand Trap
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060757
+    m_Localized: The cart wheels sink into quicksand. The harder the camels pull,
+      the deeper the cargo sinks. The sand swallows the cart before your eyes.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060758
+    m_Localized: Carefully extract
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060759
+    m_Localized: Pull by force
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060760
+    m_Localized: Unload and bypass
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060761
+    m_Localized: Stuck Wheel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060762
+    m_Localized: A cart wheel is hopelessly stuck in the sand. The axle creaks, the
+      camels bellow, and the sun beats down ruthlessly. Something must be done quickly.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060763
+    m_Localized: Repair properly
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060764
+    m_Localized: Quick fix
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060765
+    m_Localized: Offload cargo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060766
+    m_Localized: Nomad Encounter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060767
+    m_Localized: Nomad tents with campfire smoke appear ahead. The chief in flowing
+      robes gestures the caravan to approach. This could be trade or a trap.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060768
+    m_Localized: Trade
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060769
+    m_Localized: Pass by
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060770
+    m_Localized: Gift silk
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060771
+    m_Localized: Ancient Ruins
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060772
+    m_Localized: Stone columns and broken arches jut from the dunes, half-buried
+      in sand. Mysterious inscriptions on the walls beckon you to look inside.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060773
+    m_Localized: Explore deeper
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060774
+    m_Localized: Gather outside
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060775
+    m_Localized: Move on
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060776
+    m_Localized: Lost Path
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060777
+    m_Localized: The wind has erased all tracks in the sand, leaving the caravan
+      stranded in a featureless desert. The map is useless and the sun is setting.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060778
+    m_Localized: Search for landmarks
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060779
+    m_Localized: Go blindly
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060780
+    m_Localized: Rely on the guide
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060781
+    m_Localized: Mountain Ambush
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060782
+    m_Localized: Bandits have blocked the narrow mountain pass, taking positions
+      on the rocks above the trail. Arrows are aimed down, and there is no retreat.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060783
+    m_Localized: Fight back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060784
+    m_Localized: Flee
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060785
+    m_Localized: Pay ransom
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060786
+    m_Localized: Rockslide
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060787
+    m_Localized: The earth trembles and massive boulders hurtle down the slope toward
+      the caravan. A dust cloud blots out the sky, and seconds count.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060788
+    m_Localized: Take cover
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060789
+    m_Localized: Rush past
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060790
+    m_Localized: Wolf Pack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060791
+    m_Localized: A pack of grey wolves emerges from the mountain forest, their eyes
+      glowing in the twilight. The beasts slowly encircle the caravan, sizing up
+      their prey.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060792
+    m_Localized: Scare with fire
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060793
+    m_Localized: Wait them out
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060794
+    m_Localized: Send the guard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060795
+    m_Localized: Mountain Fog
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060796
+    m_Localized: Dense white fog has swallowed the mountain trail. The cliff edge
+      is barely visible, and every step could be the last.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060797
+    m_Localized: Wait it out
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060798
+    m_Localized: Go blindly
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060799
+    m_Localized: Trust the guide
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060800
+    m_Localized: Blocked Pass
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060801
+    m_Localized: A massive wall of rocks and debris has blocked the mountain pass.
+      Steep cliffs on both sides leave no easy way around.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060802
+    m_Localized: Clear the path
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060803
+    m_Localized: Force through
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060804
+    m_Localized: Hire help
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060805
+    m_Localized: Broken Axle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060806
+    m_Localized: The cart axle snaps with a crack on a steep descent. The cargo tilts
+      dangerously, and goods are about to slide down the slope.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060807
+    m_Localized: Full repair
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060808
+    m_Localized: Temporary fix
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060809
+    m_Localized: Dump some cargo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060810
+    m_Localized: Mountain Hermit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060811
+    m_Localized: An old hermit in simple robes sits outside a mountain cave, goats
+      grazing nearby. He warmly offers tea and shares his wisdom.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060812
+    m_Localized: Listen to advice
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060813
+    m_Localized: Pass by
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060814
+    m_Localized: Gift tea
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060815
+    m_Localized: Mountain Cave
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060816
+    m_Localized: A dark cave entrance with ancient markings gapes beside the road.
+      Something glints within by the flickering torchlight.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060817
+    m_Localized: Explore deeper
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060818
+    m_Localized: Search the entrance
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060819
+    m_Localized: Move on
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060820
+    m_Localized: Cliff Path
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060821
+    m_Localized: A narrow path winds above a chasm. Stones crumble underfoot, wind
+      tears at clothing, and below lies the abyss.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060822
+    m_Localized: Go carefully
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060823
+    m_Localized: Move quickly
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060824
+    m_Localized: Cold Night
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060825
+    m_Localized: Frost grips the mountain camp. The fire dies down, breath turns
+      to steam, and people huddle together seeking warmth.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060826
+    m_Localized: Burn supplies
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060827
+    m_Localized: Endure the cold
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060828
+    m_Localized: Mountain Monastery
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060829
+    m_Localized: An ancient monastery perched on a cliff is visible from afar. Monks
+      in orange robes stand at the gates, prayer flags fluttering in the wind.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060830
+    m_Localized: Make a donation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060831
+    m_Localized: Pass by
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060832
+    m_Localized: Gift incense
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060833
+    m_Localized: Mountain Eagle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060834
+    m_Localized: A massive golden eagle circles above the caravan, swooping low then
+      soaring high. The predator is clearly eyeing the pack animals.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060835
+    m_Localized: Scare it off
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060836
+    m_Localized: Wait it out
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060837
+    m_Localized: Forest Ambush
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060838
+    m_Localized: "Armed figures leap from behind a fallen tree blocking the forest
+      path. Bandits surround the caravan \u2014 their blades glinting through gaps
+      in the canopy."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060839
+    m_Localized: Fight back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060840
+    m_Localized: Flee
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060841
+    m_Localized: Pay ransom
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060842
+    m_Localized: Forest Fire
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060843
+    m_Localized: "Acrid smoke drifts between the trunks and the crackle of flames
+      grows louder. A wall of fire creeps through the thicket \u2014 you must act
+      fast."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060844
+    m_Localized: Take shelter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060845
+    m_Localized: Push through
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060846
+    m_Localized: Circle around
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060847
+    m_Localized: Wild Boar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060848
+    m_Localized: "Branches snap \u2014 and a massive tusked boar bursts from the
+      undergrowth. The beast paws the earth and fixes its eyes on the wagon."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060849
+    m_Localized: Hunt it
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060850
+    m_Localized: Wait it out
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060851
+    m_Localized: Impassable Mud
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060852
+    m_Localized: "Rain has turned the forest road into a bog. The wagon wheels have
+      sunk to the axle \u2014 the cart will not budge without serious effort."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060853
+    m_Localized: Hire help
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060854
+    m_Localized: Quick fix
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060855
+    m_Localized: Unload cargo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060856
+    m_Localized: Torrential Rain
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060857
+    m_Localized: " \u0430 \u0442\u043E\u0432\u0430\u0440\u044B \u043F\u0440\u043E\u043C\u043E\u043A\u0430\u044E\u0442
+      \u043D\u0430\u0441\u043A\u0432\u043E\u0437\u044C."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060858
+    m_Localized: Wait it out
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255040
+    m_Localized: Press on
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255041
+    m_Localized: Healing Herbs
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255042
+    m_Localized: "Rare medicinal herbs bloom in a sunlit clearing. Their scent attracts
+      more than just travelers \u2014 something rustles in the thicket."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255043
+    m_Localized: Gather herbs
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255044
+    m_Localized: Take a few
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255045
+    m_Localized: Forest Ruins
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255046
+    m_Localized: " \u043D\u043E \u0432\u0438\u0434\u043D\u044B \u043E\u0442\u0431\u043B\u0435\u0441\u043A\u0438
+      \u0447\u0435\u0433\u043E-\u0442\u043E \u0446\u0435\u043D\u043D\u043E\u0433\u043E."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255047
+    m_Localized: Explore inside
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255048
+    m_Localized: Check the entrance
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255049
+    m_Localized: Enter carefully
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255050
+    m_Localized: Woodcutter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255051
+    m_Localized: A burly fellow with an axe waves to the caravan from the roadside.
+      Beside him stands a sturdy hut and a pile of fresh logs. He offers help.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255052
+    m_Localized: Talk to him
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255053
+    m_Localized: Pass by
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255054
+    m_Localized: Buy supplies
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255055
+    m_Localized: Night Sounds
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255056
+    m_Localized: " \u0442\u043E \u043B\u0438 \u043A\u0440\u0438\u043A. \u0412 \u0442\u0435\u043C\u043D\u043E\u0442\u0435
+      \u043C\u0435\u043B\u044C\u043A\u0430\u044E\u0442 \u0441\u0432\u0435\u0442\u044F\u0449\u0438\u0435\u0441\u044F
+      \u0433\u043B\u0430\u0437\u0430."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255057
+    m_Localized: Stay quiet
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255058
+    m_Localized: Investigate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255059
+    m_Localized: Snakes on the Path
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255060
+    m_Localized: "A tangle of venomous snakes basks on rocks right in the middle
+      of the forest trail. Their patterned bodies glisten in the sun \u2014 a detour
+      will cost time."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255061
+    m_Localized: Scare them off
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255062
+    m_Localized: Go around
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255063
+    m_Localized: Steppe Raiders
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255064
+    m_Localized: A dust cloud on the horizon closes in fast. Mounted raiders with
+      drawn sabres charge toward the caravan through the steppe grass.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255065
+    m_Localized: Stand and fight
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255066
+    m_Localized: Flee
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255067
+    m_Localized: Pay them off
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255068
+    m_Localized: Dust Storm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255069
+    m_Localized: " \u0432\u0438\u0434\u0438\u043C\u043E\u0441\u0442\u044C \u043F\u0430\u0434\u0430\u0435\u0442
+      \u0434\u043E \u043D\u0443\u043B\u044F \u2014 \u0441\u0442\u0435\u043F\u044C
+      \u043F\u0440\u0435\u0432\u0440\u0430\u0449\u0430\u0435\u0442\u0441\u044F \u0432
+      \u0440\u0435\u0432\u0443\u0449\u0438\u0439 \u0445\u0430\u043E\u0441."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255070
+    m_Localized: Take cover
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255071
+    m_Localized: Push through
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255072
+    m_Localized: Wild Horses
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255073
+    m_Localized: " \u0433\u0440\u0438\u0432\u044B \u0440\u0430\u0437\u0432\u0435\u0432\u0430\u044E\u0442\u0441\u044F
+      \u043D\u0430 \u0432\u0435\u0442\u0440\u0443. \u0421\u0440\u0435\u0434\u0438
+      \u043D\u0438\u0445 \u2014 \u043A\u0440\u0430\u0441\u0438\u0432\u044B\u0439
+      \u0436\u0435\u0440\u0435\u0431\u0435\u0446"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255074
+    m_Localized: Catch a horse
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255075
+    m_Localized: Watch them pass
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255076
+    m_Localized: Tame one
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255077
+    m_Localized: Broken Harness
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255078
+    m_Localized: "The leather harness straps have snapped mid-journey. The wagon
+      sits idle on the steppe \u2014 no moving on without a repair."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255079
+    m_Localized: Proper repair
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255080
+    m_Localized: Quick patch
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255081
+    m_Localized: Steppe Lightning
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255082
+    m_Localized: " \u0438 \u043C\u043E\u043B\u043D\u0438\u0438 \u0431\u044C\u044E\u0442
+      \u0432 \u043E\u0442\u043A\u0440\u044B\u0442\u0443\u044E \u0441\u0442\u0435\u043F\u044C
+      \u0441\u043E\u0432\u0441\u0435\u043C \u0440\u044F\u0434\u043E\u043C. \u041A\u0430\u0440\u0430\u0432\u0430\u043D
+      \u2014 \u0441\u0430\u043C\u0430\u044F \u0432\u044B\u0441\u043E\u043A\u0430\u044F
+      \u0442\u043E\u0447\u043A\u0430 \u043D\u0430 \u0440\u0430\u0432\u043D\u0438\u043D\u0435."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255083
+    m_Localized: Hunker down
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255084
+    m_Localized: Run for it
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255085
+    m_Localized: Steppe Crossroads
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255086
+    m_Localized: " \u0434\u0440\u0443\u0433\u0430\u044F \u0431\u0435\u0437\u043E\u043F\u0430\u0441\u043D\u0435\u0435."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255087
+    m_Localized: Safe route
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255088
+    m_Localized: Shortcut
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255089
+    m_Localized: Read the signs
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255090
+    m_Localized: Merchant Camp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255091
+    m_Localized: " \u0448\u0430\u0442\u0440\u044B \u0438 \u0440\u0430\u0437\u043B\u043E\u0436\u0435\u043D\u043D\u044B\u0435
+      \u0442\u043E\u0432\u0430\u0440\u044B. \u041A\u0443\u043F\u0446\u044B \u043F\u0440\u0438\u0432\u0435\u0442\u043B\u0438\u0432\u043E
+      \u043C\u0430\u0448\u0443\u0442 \u0440\u0443\u043A\u043E\u0439."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255092
+    m_Localized: Chat with them
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255093
+    m_Localized: Pass by
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255094
+    m_Localized: Trade goods
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255095
+    m_Localized: Abandoned Cart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255096
+    m_Localized: "An abandoned cart with scattered cargo sits on the steppe roadside.
+      No owners in sight \u2014 only vultures circling overhead."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255097
+    m_Localized: Search thoroughly
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255098
+    m_Localized: Take what is visible
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255099
+    m_Localized: Loose Cargo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255100
+    m_Localized: "The bumpy steppe road has shaken the bindings loose. Bales of goods
+      are sliding and about to fall \u2014 you must stop."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255101
+    m_Localized: Re-tie cargo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255102
+    m_Localized: Keep going
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255103
+    m_Localized: Waystone
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255104
+    m_Localized: "An ancient carved stone with faded inscriptions stands beside the
+      lonely steppe road. At its base \u2014 an offering bowl and wilted flowers."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255105
+    m_Localized: Leave an offering
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255106
+    m_Localized: Walk past
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255107
+    m_Localized: Coastal Pirates
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255108
+    m_Localized: " \u0432\u043F\u0435\u0440\u0435\u0434\u0438 \u043E\u0431\u0440\u044B\u0432."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255109
+    m_Localized: Fight back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255110
+    m_Localized: Flee inland
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255111
+    m_Localized: Pay ransom
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255112
+    m_Localized: Coastal Storm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255113
+    m_Localized: " \u0432\u0435\u0442\u0435\u0440 \u0440\u0432\u0451\u0442 \u0442\u043A\u0430\u043D\u044C
+      \u0441 \u043F\u043E\u0432\u043E\u0437\u043E\u043A. \u0421\u043E\u043B\u0451\u043D\u044B\u0435
+      \u0431\u0440\u044B\u0437\u0433\u0438 \u0445\u043B\u0435\u0449\u0443\u0442 \u0432
+      \u043B\u0438\u0446\u043E \u2014 \u0448\u0442\u043E\u0440\u043C \u0443\u0441\u0438\u043B\u0438\u0432\u0430\u0435\u0442\u0441\u044F."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255114
+    m_Localized: Find shelter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255115
+    m_Localized: Push through
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255116
+    m_Localized: Coastal Flood
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255117
+    m_Localized: " \u043F\u043E\u0434\u0431\u0438\u0440\u0430\u044F\u0441\u044C \u043A
+      \u0433\u0440\u0443\u0437\u0443 \u2014 \u043D\u0443\u0436\u043D\u043E \u0434\u0435\u0439\u0441\u0442\u0432\u043E\u0432\u0430\u0442\u044C
+      \u043D\u0435\u043C\u0435\u0434\u043B\u0435\u043D\u043D\u043E."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255118
+    m_Localized: Wait for waters to recede
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255119
+    m_Localized: Ford across
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255120
+    m_Localized: Build a crossing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255121
+    m_Localized: Shipwreck
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255122
+    m_Localized: "A wrecked ship lies on the rocks near shore. Barrels and crates
+      are visible among the debris \u2014 some cargo is still intact."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255123
+    m_Localized: Search the wreck
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255124
+    m_Localized: Take from shore
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255125
+    m_Localized: Dive for cargo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255126
+    m_Localized: Fishermen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255127
+    m_Localized: " \u0440\u044F\u0434\u043E\u043C \u2014 \u0441\u0432\u0435\u0436\u0438\u0439
+      \u0443\u043B\u043E\u0432 \u0438 \u0432\u044B\u0442\u0430\u0449\u0435\u043D\u043D\u044B\u0435
+      \u043D\u0430 \u0431\u0435\u0440\u0435\u0433 \u043B\u043E\u0434\u043A\u0438.
+      \u041E\u043D\u0438 \u043F\u0440\u0438\u0432\u0435\u0442\u043B\u0438\u0432\u043E
+      \u043A\u0438\u0432\u0430\u044E\u0442 \u043F\u0440\u043E\u0435\u0437\u0436\u0430\u044E\u0449\u0435\u043C\u0443
+      \u043A\u0430\u0440\u0430\u0432\u0430\u043D\u0443."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255128
+    m_Localized: Chat with them
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255129
+    m_Localized: Pass by
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255130
+    m_Localized: Buy fish
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255131
+    m_Localized: Salt Damage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255132
+    m_Localized: " \u043A\u043E\u043B\u0451\u0441\u043D\u044B\u0435 \u043E\u0441\u0438
+      \u0441\u043A\u0440\u0438\u043F\u044F\u0442 \u2014 \u043F\u043E\u0431\u0435\u0440\u0435\u0436\u044C\u0435
+      \u0431\u0435\u0440\u0451\u0442 \u0441\u0432\u043E\u044E \u0434\u0430\u043D\u044C."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255133
+    m_Localized: Full repair
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255134
+    m_Localized: Grease and go
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255135
+    m_Localized: Smugglers
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255136
+    m_Localized: Lantern light flickers in a coastal cave. Secretive figures whisper
+      an offer of exotic goods at a tempting price.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255137
+    m_Localized: Deal with them
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255138
+    m_Localized: Walk away
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255139
+    m_Localized: Big deal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255140
+    m_Localized: Crab Swarm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255141
+    m_Localized: " \u043B\u0438\u0431\u043E \u0436\u0434\u0430\u0442\u044C."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255142
+    m_Localized: Clear the path
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255143
+    m_Localized: Wait it out
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255144
+    m_Localized: Highland Blizzard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255145
+    m_Localized: A wall of blinding snow engulfs the caravan on the high plateau.
+      The howling wind threatens to scatter everything not tied down.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255146
+    m_Localized: Take shelter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255147
+    m_Localized: Push through
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255148
+    m_Localized: Altitude Sickness
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255149
+    m_Localized: The air grows thin as the caravan climbs higher. Merchants gasp
+      for breath and pack animals stumble on the rocky trail.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255150
+    m_Localized: Slow ascent
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255151
+    m_Localized: Rush through
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255152
+    m_Localized: Alternate route
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255153
+    m_Localized: Frozen Wheels
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255154
+    m_Localized: Overnight frost has welded the cart wheels to the frozen ground.
+      Ice encases the axles and the caravan cannot move until the problem is solved.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255155
+    m_Localized: Proper repair
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255156
+    m_Localized: Quick fix
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255157
+    m_Localized: Abandon cart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255158
+    m_Localized: Yak Herders
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255159
+    m_Localized: Yak herders in heavy fur coats wave from their camp on the windswept
+      plateau. Warm tea and the smell of dried meat drift toward the caravan.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255160
+    m_Localized: Trade
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255161
+    m_Localized: Pass by
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255162
+    m_Localized: Offer tea
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255163
+    m_Localized: Ice Path
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255164
+    m_Localized: A treacherous sheet of ice coats the narrow mountain trail. One
+      wrong step and the cart will slide into the abyss below.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255165
+    m_Localized: Careful crossing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449344
+    m_Localized: Rush across
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449345
+    m_Localized: Avalanche
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449346
+    m_Localized: A deafening roar echoes from above as a wall of snow barrels down
+      the mountainside. There are only seconds to react.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449347
+    m_Localized: Seek shelter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449348
+    m_Localized: Run forward
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449349
+    m_Localized: Thin Air
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449350
+    m_Localized: The caravan has climbed too high. People collapse from dizziness
+      and the animals refuse to take another step.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449351
+    m_Localized: Rest
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449352
+    m_Localized: Press on
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449353
+    m_Localized: Highland Monastery
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449354
+    m_Localized: A monastery with a golden roof gleams among the snow peaks. Monks
+      in orange robes stand at the gates offering shelter to weary travelers.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449355
+    m_Localized: Accept shelter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449356
+    m_Localized: Continue on
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449357
+    m_Localized: Make offering
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449358
+    m_Localized: Valley Flood
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449359
+    m_Localized: The river has burst its banks and flooded the valley road. Brown
+      rushing water carries debris and blocks the caravan's path.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449360
+    m_Localized: Wait it out
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449361
+    m_Localized: Ford across
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449362
+    m_Localized: Hire a boat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449363
+    m_Localized: River Ferry
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449364
+    m_Localized: An old wooden ferry bobs at the dock. The ferryman demands payment
+      to cross the deep
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449365
+    m_Localized: Pay fare
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449366
+    m_Localized: Cross alone
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449367
+    m_Localized: Guide leads
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449368
+    m_Localized: Dangerous Ford
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449369
+    m_Localized: The river at the ford has swollen unexpectedly. The raging current
+      carries rocks and branches, making the crossing dangerous for carts and people.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449370
+    m_Localized: Find another way
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449371
+    m_Localized: Cross anyway
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449372
+    m_Localized: Valley Fishermen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449373
+    m_Localized: Fishermen mend their nets along the riverbank. A village of reed
+      huts stands nearby
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449374
+    m_Localized: Buy fish
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449375
+    m_Localized: Pass by
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449376
+    m_Localized: Trade salt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449377
+    m_Localized: Stuck in Mud
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449378
+    m_Localized: The cart has sunk into swampy ground near the river. Wheels buried
+      to the hubs in black muck
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449379
+    m_Localized: Hire help
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449380
+    m_Localized: Fix ourselves
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449381
+    m_Localized: Unload cargo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449382
+    m_Localized: Fertile Bank
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449383
+    m_Localized: A lush riverbank is laden with wild fruit trees and berry bushes.
+      Birds sing in the branches and clear water babbles over stones.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449384
+    m_Localized: Forage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449385
+    m_Localized: Grab what's near
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449386
+    m_Localized: Wandering Merchant
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449387
+    m_Localized: A lone merchant with a laden donkey waves from the roadside. Colorful
+      fabrics and pouches of spices dangle from his saddlebags.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449388
+    m_Localized: Buy goods
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449389
+    m_Localized: Pass by
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449390
+    m_Localized: Sell silk
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449391
+    m_Localized: Lost Traveler
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449392
+    m_Localized: An exhausted traveler sits by the road with an empty waterskin.
+      His clothes are torn and his eyes plead for help.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449393
+    m_Localized: Help him
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449394
+    m_Localized: Pass by
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449395
+    m_Localized: Heal him
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449396
+    m_Localized: Refugee Caravan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449397
+    m_Localized: A group of weary refugees with children and bundles trudges toward
+      you. Fear fills their eyes as they warn of danger ahead.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449398
+    m_Localized: Share food
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449399
+    m_Localized: Ignore
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449400
+    m_Localized: Take them in
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449401
+    m_Localized: Traveling Scholar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449402
+    m_Localized: A scholar in fine robes with a mule laden with scrolls offers knowledge
+      in exchange for the safety of traveling together.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449403
+    m_Localized: Hire him
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449404
+    m_Localized: Decline
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449405
+    m_Localized: Converse
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449406
+    m_Localized: Wounded Soldier
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449407
+    m_Localized: An injured soldier in torn armor leans against a roadside tree.
+      His bandages are soaked with blood and a broken sword lies beside him.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449408
+    m_Localized: Feed him
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449409
+    m_Localized: Pass by
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449410
+    m_Localized: Heal him
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449411
+    m_Localized: Rival Caravan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449412
+    m_Localized: A large rival merchant caravan with armed guards heads the same
+      way. Its leader eyes your goods with a competitive glare.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449413
+    m_Localized: Trade
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449414
+    m_Localized: Race ahead
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449415
+    m_Localized: Negotiate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449416
+    m_Localized: Pilgrim Group
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449417
+    m_Localized: A group of peaceful pilgrims in simple robes walks together. The
+      scent of incense and quiet prayer accompany their steps.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449418
+    m_Localized: Join them
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449419
+    m_Localized: Pass by
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449420
+    m_Localized: Mysterious Stranger
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449421
+    m_Localized: A cloaked figure stands at a twilight crossroads. The face is hidden
+      in shadow but a hand beckons the caravan closer.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449422
+    m_Localized: Buy wares
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449423
+    m_Localized: Pass by
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449424
+    m_Localized: Parley
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449425
+    m_Localized: Wedding Procession
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449426
+    m_Localized: A colorful wedding procession with music and flowers crosses the
+      road. Dancers in bright clothes invite travelers to join the celebration.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449427
+    m_Localized: Join feast
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449428
+    m_Localized: Pass by
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449429
+    m_Localized: Guard for Hire
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449430
+    m_Localized: A strong warrior in leather armor sharpens his sword by the roadside.
+      He offers his services as a caravan guard.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449431
+    m_Localized: Hire guard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449432
+    m_Localized: Decline
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449433
+    m_Localized: Translator Offer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449434
+    m_Localized: An educated man in mixed cultural clothing speaks several languages
+      with traders at a crossroads. He offers to join the caravan.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449435
+    m_Localized: Hire translator
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449436
+    m_Localized: Decline
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449437
+    m_Localized: Guide Encounter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449438
+    m_Localized: A weathered local guide with hand-drawn maps stands at a fork in
+      the road. He knows hidden trails and safe mountain passes.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449439
+    m_Localized: Hire guide
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449440
+    m_Localized: Decline
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449441
+    m_Localized: Healer on the Road
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449442
+    m_Localized: A traveling healer with herb pouches and remedies tends a wounded
+      animal by the road. He offers to join the caravan for safety.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449443
+    m_Localized: Hire healer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449444
+    m_Localized: Decline
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449445
+    m_Localized: Merchant Companion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449446
+    m_Localized: A small merchant with an overloaded donkey asks to travel together
+      for safety. His goods look fine and the road ahead is dangerous.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449447
+    m_Localized: Hire merchant
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449448
+    m_Localized: Decline
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449449
+    m_Localized: Starvation Crisis
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449450
+    m_Localized: Food supplies are nearly gone. Gaunt merchants with hollow eyes
+      argue over the last scraps of bread. Something must be done immediately.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449451
+    m_Localized: Buy food
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449452
+    m_Localized: Slaughter animal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449453
+    m_Localized: Ration strictly
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449454
+    m_Localized: Cart Collapse
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449455
+    m_Localized: The main cart's frame cracks and is about to collapse. Cargo tilts
+      dangerously as the wood splinters under the weight of goods.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449456
+    m_Localized: Emergency repair
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449457
+    m_Localized: Redistribute load
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449458
+    m_Localized: Abandon goods
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449459
+    m_Localized: Supply Theft
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449460
+    m_Localized: Slashed bags and missing food are discovered at dawn. Thieves' tracks
+      lead into the darkness. Some supplies are already gone.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449461
+    m_Localized: Track thieves
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449462
+    m_Localized: Accept losses
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449463
+    m_Localized: Cargo Fire
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449464
+    m_Localized: Flames erupt from the cargo cart in the night camp. Silk and spices
+      burn as acrid smoke rises into the sky.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449465
+    m_Localized: Fight the fire
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449466
+    m_Localized: Save valuables
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449467
+    m_Localized: Let it burn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449468
+    m_Localized: Animal Collapse
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449469
+    m_Localized: A pack animal has collapsed on the road and refuses to stand. The
+      heavy cargo must be dealt with and the journey is still long.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449470
+    m_Localized: Rest and heal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449471
+    m_Localized: Buy replacement
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449472
+    m_Localized: Redistribute
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643648
+    m_Localized: Ambush Siege
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643649
+    m_Localized: The caravan is surrounded by armed bandits in a narrow valley. No
+      escape route
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643650
+    m_Localized: Fight through
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643651
+    m_Localized: Surrender goods
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643652
+    m_Localized: Negotiate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643653
+    m_Localized: Water Crisis
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643654
+    m_Localized: The waterskins are empty and lips are cracked. The merciless sun
+      beats down and there is no water source in sight.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643655
+    m_Localized: Search for water
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643656
+    m_Localized: Buy from travelers
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643657
+    m_Localized: Ration water
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643658
+    m_Localized: Disease Outbreak
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643659
+    m_Localized: Fever spreads through the caravan. The sick lie in carts while others
+      cover their faces with cloth and keep their distance.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643660
+    m_Localized: Quarantine
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643661
+    m_Localized: Hire healer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643662
+    m_Localized: Push through
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643663
+    m_Localized: Desperate Choice
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643664
+    m_Localized: The caravan is on the brink. Supplies dwindle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643665
+    m_Localized: Abandon cargo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643666
+    m_Localized: Make a stand
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643667
+    m_Localized: Split caravan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643668
+    m_Localized: Last Stand
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643669
+    m_Localized: Everything is falling apart. Enemies close in
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643670
+    m_Localized: Fight
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643671
+    m_Localized: Surrender
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643672
+    m_Localized: Escape
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643673
+    m_Localized: The caravan fought off the bandits, but the skirmish cost wounds
+      and lost supplies. The desert survival hardened everyone.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643674
+    m_Localized: The caravan fled in haste, scattering supplies along the way. The
+      bandits gave up chase, but the fear lingered.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643675
+    m_Localized: The caravan master tossed a bag of coins onto the sand, and the
+      bandits withdrew. A bitter price, but everyone is alive.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643676
+    m_Localized: The caravan sheltered behind the carts, waiting out the storm. Sand
+      buried some supplies and damaged the wheels, but everyone survived.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643677
+    m_Localized: The caravan pushed through the wall of sand. Carts took heavy damage
+      from the wind, supplies scattered, and greater danger loomed ahead.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643678
+    m_Localized: "The oasis proved bountiful \u2014 the caravan restocked water and
+      food. Though traces of foreign camps hinted at danger."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643679
+    m_Localized: "The caravan gathered water and moved on. A small resupply \u2014
+      but safely done."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643680
+    m_Localized: The strict rationing saved some water, but the people grew weak
+      from thirst. The journey through the scorching desert became even harder.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643681
+    m_Localized: The search for water led to a distant well, but the detour cost
+      strength and time. Money was spent buying water from locals.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643682
+    m_Localized: "The guide knew a hidden spring \u2014 the caravan reached it, spending
+      only modest supplies. The survival experience was invaluable."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643683
+    m_Localized: Careful effort freed the cart from the quicksand. Some supplies
+      were soaked and the wheels slightly damaged.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643684
+    m_Localized: The camels pulled with all their might, wrenching the cart from
+      the sand. The axle groaned ominously, and the journey grew more perilous.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643685
+    m_Localized: The caravan unloaded the cart and bypassed the trap over solid ground.
+      Some time and food were lost, but experience was gained.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643686
+    m_Localized: "The wheel was repaired thoroughly \u2014 the axle reinforced, and
+      the cart is sturdy again. But the repair was costly."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643687
+    m_Localized: A quick fix allowed the journey to continue, but the wheel creaks
+      and threatens to break again. Some money was spent on materials.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643688
+    m_Localized: Some cargo was dumped to lighten the cart. The wheel came free,
+      but both food and goods were lost.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643689
+    m_Localized: The nomads proved hospitable traders. The caravan exchanged coins
+      for fresh food and learned about oasis prices.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643690
+    m_Localized: The caravan passed by without stopping.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643691
+    m_Localized: The gift of silk moved the chief, and he generously bestowed spices
+      upon the caravan. A friendship sealed by desert custom.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643692
+    m_Localized: "Deep within the ruins, ancient jade figurines were found. But the
+      exploration cost supplies and time \u2014 the dark corridors proved treacherous."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643693
+    m_Localized: A few surviving ceramic pieces and valuable items were gathered
+      from outside. Quick and with minimal losses.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643694
+    m_Localized: The caravan chose not to risk it and moved on, spending only a little
+      food on a rest stop near the ruins.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643695
+    m_Localized: A desperate fight in the mountain gorge cost wounds and supplies,
+      but the bandits were defeated. The survivors grew hardened in battle.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643696
+    m_Localized: The caravan fled down the narrow trail, losing supplies and damaging
+      the cart on the rocks. The bandits did not pursue.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643697
+    m_Localized: A heavy bag of silver rolled to the bandit leader's feet. The bandits
+      took their payment and vanished into the crags.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643698
+    m_Localized: The caravan took cover under a rocky overhang. Falling stones damaged
+      the cart and buried some food, but no one perished.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643699
+    m_Localized: The caravan rushed through the rockslide. The cart took serious
+      hits, supplies were damaged, and the path grew even more perilous.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643700
+    m_Localized: Torches and shouts drove the pack back, but the wolves circled nearby
+      until dawn. Supplies were spent, and the sleepless night sapped strength.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643701
+    m_Localized: The caravan froze, waiting for the pack to leave. Hours crawled
+      by painfully, food dwindled, but everyone learned patience.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643702
+    m_Localized: The guard stepped toward the pack with torch and blade. The wolves
+      retreated, though some supplies were spent in the standoff.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643703
+    m_Localized: A full day was spent clearing the debris. Hands were rubbed raw,
+      food was consumed, but the path is open.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643704
+    m_Localized: "The cart was forced through the rubble \u2014 the axle cracked,
+      cargo nearly scattered. A dangerous passage, but made."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643705
+    m_Localized: Local highlanders cleared the pass for a steep fee. Money and food
+      for the delay were spent, but the cart is intact.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643706
+    m_Localized: "The axle was fully replaced \u2014 the repair was expensive, but
+      the cart is now sturdier than before."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643707
+    m_Localized: A temporary patch on the axle allowed the journey to continue, but
+      the cart creaks dangerously at every turn.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643708
+    m_Localized: Some cargo was dumped into the ravine to relieve the broken axle.
+      Both food and money were lost, and the cart still limps.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643709
+    m_Localized: The hermit shared wisdom about mountain trails and healing herbs.
+      The caravan spent supplies on the stop, but gained invaluable knowledge.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643710
+    m_Localized: The caravan passed by without stopping.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643711
+    m_Localized: The gift of tea delighted the elder, and he generously fed the caravan
+      and told of safe trails. Diplomacy rewarded and bellies filled.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643712
+    m_Localized: Deep inside the cave, jade deposits were found among the bones of
+      ancient travelers. The exploration cost supplies and nerves.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643713
+    m_Localized: Chunks of iron ore were found near the cave entrance. A cautious
+      search cost a little food but yielded a find.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643714
+    m_Localized: The caravan chose not to risk the dark cave and continued on, spending
+      only a little food on a rest stop.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643715
+    m_Localized: The monks gratefully accepted the donation and fed the entire caravan.
+      Their blessing strengthened the travelers' spirits.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643716
+    m_Localized: The caravan passed by without stopping.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643717
+    m_Localized: The incense delighted the monks. They repaired the cart, fed the
+      caravan, and taught valuable skills of diplomacy.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643718
+    m_Localized: "The caravan fought back against the forest bandits. The battle
+      was fierce \u2014 supplies were lost, and wounds served as reminders of freedom's
+      price."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643719
+    m_Localized: The caravan bolted through the thicket, losing bales of supplies.
+      Branches lashed at faces, but the pursuers fell behind.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643720
+    m_Localized: The gold ransom satisfied the bandits, and they melted into the
+      forest. The purse is lighter, but the road is safe.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643721
+    m_Localized: The caravan sheltered by a stream while the fire raged around them.
+      The heat damaged the cart and burned some supplies.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643722
+    m_Localized: The caravan charged through smoke and flame. The cart was badly
+      scorched, and breathing was nearly impossible.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643723
+    m_Localized: The long detour through the forest cost time and food, but the caravan
+      avoided the fire and even gained pathfinding skills.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643724
+    m_Localized: Hired peasants pulled the cart from the mud. Money was spent, but
+      the cart was patched up.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643725
+    m_Localized: An on-site fix managed to budge the cart, but the wheels suffered
+      greatly from the mud.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643726
+    m_Localized: The caravan unloaded the cart and dragged it through the bog. Food
+      got soaked and the wheels were slightly damaged.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643727
+    m_Localized: "A full basket of healing herbs restocked the caravan's supplies.
+      Though the thicket held more than just herbs \u2014 something lurked nearby."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643728
+    m_Localized: The caravan gathered a few herbs and moved on. A small resupply
+      without unnecessary risk.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643729
+    m_Localized: "Exploring the ruins yielded coins and a piece of jade, but the
+      dark halls held traps. Adrenaline and danger \u2014 companions of fortune."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643730
+    m_Localized: "Scattered coins were found near the ruins' entrance \u2014 someone
+      dropped them in haste. A modest but safe haul."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643731
+    m_Localized: A careful exploration of the temple yielded incense and ancient
+      coins. The experience of navigating ruins will serve well on the long road.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643732
+    m_Localized: The woodcutter proved talkative and generous. He shared food and
+      told of forest trails, though he warned of wild beasts.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643733
+    m_Localized: The caravan passed by without stopping.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643734
+    m_Localized: For a fair price the woodcutter sold sturdy timber for cart repairs
+      and a set of tools. An excellent bargain.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643735
+    m_Localized: A fierce clash on the steppe cost wounds and supplies. But the raiders
+      were routed, and the caravan was forged harder in battle.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643736
+    m_Localized: The caravan raced away, but the cart bounced over bumps, shedding
+      cargo. The raiders picked up what fell.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643737
+    m_Localized: "A bag of silver halted the attack. The raiders seized their prize
+      and galloped away \u2014 an expensive but certain price for survival."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643738
+    m_Localized: The attempt to catch the wild stallion turned into a chase across
+      the steppe. The horse broke free, leaving only scratches and experience.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643739
+    m_Localized: The caravan stopped and watched the herd. A little time and food
+      were spent on the halt.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643740
+    m_Localized: "Patient taming of the wild horse paid off \u2014 the caravan gained
+      leather and valuable animal-handling experience."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643741
+    m_Localized: The caravan weathered the storm in a hollow. Lightning struck nearby,
+      damaging the cart and spoiling some food.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643742
+    m_Localized: "Fleeing across the open steppe during a thunderstorm was madness.
+      Lightning struck perilously close \u2014 the cart took severe damage."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643743
+    m_Localized: "The safe route proved longer \u2014 supplies were spent, but the
+      caravan avoided ambushes and gained experience."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643744
+    m_Localized: The shortcut led through dangerous territory, but the caravan found
+      abandoned coins by the roadside. A risky stroke of luck.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643745
+    m_Localized: "Deciphering the stone inscriptions revealed a third path \u2014
+      safe and profitable. Coins and knowledge \u2014 the best reward."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643746
+    m_Localized: A friendly chat with the merchants brought fresh news and some food,
+      though the camp was not entirely safe.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643747
+    m_Localized: The caravan passed by without stopping.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643748
+    m_Localized: Successful trading with the merchants yielded spices and a bolt
+      of silk. Money was spent, but the goods are worth it.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643749
+    m_Localized: A thorough search of the abandoned cart yielded bales of wool and
+      coins, but the vultures and grim scene set nerves on edge.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643750
+    m_Localized: "The caravan took what was in plain sight \u2014 a few coins and
+      a piece of iron. Quickly and without unnecessary risk."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643751
+    m_Localized: "The battle with pirates on the coastal rocks was desperate. Blood
+      and sweat \u2014 but the enemy retreated, and the caravan held."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643752
+    m_Localized: The caravan fled inland, but the pirates gave chase, damaging the
+      cart. Some supplies were left behind on the shore.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643753
+    m_Localized: The hefty ransom satisfied the pirates. They retreated to their
+      ships, leaving the caravan with a much lighter purse.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643754
+    m_Localized: The caravan found shelter among coastal rocks. Waves damaged the
+      cart and soaked supplies, but everyone weathered the storm.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643755
+    m_Localized: "Trying to push through the storm proved disastrous \u2014 waves
+      battered the cart, and the salt wind carried away some food."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643756
+    m_Localized: The caravan waited out the flood on high ground. Water soaked the
+      cart and washed away some food, but everyone was unharmed.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643757
+    m_Localized: Fording through the murky water nearly ended in disaster. The cart
+      was badly damaged and the current swept away supplies.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643758
+    m_Localized: A hastily built crossing allowed passage over the flooded area.
+      Food was spent fueling the work, but the cart was even reinforced.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643759
+    m_Localized: Searching the wreckage yielded bags of salt and coins, but sharp
+      edges lurked among the broken planks.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643760
+    m_Localized: A little salt and some coins washed ashore were gathered. A modest
+      but safe haul.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643761
+    m_Localized: "Divers retrieved silk and spices from the depths \u2014 a real
+      treasure. Coins and maritime survival experience were worth the risk."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643762
+    m_Localized: The fishermen were friendly and shared their fresh catch. They told
+      of local waters, though they warned about pirates.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643763
+    m_Localized: The caravan passed by without stopping.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643764
+    m_Localized: For silver the fishermen sold a cartload of fresh fish and shared
+      knowledge of trade routes. A profitable deal.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643765
+    m_Localized: The smugglers offered exotic goods at good prices. The risky deal
+      brought profit and trading experience.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643766
+    m_Localized: The caravan passed by without stopping.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837952
+    m_Localized: A big deal with the smugglers produced crates of spices and a pouch
+      of incense. The caravan learned much about shadow trade.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837953
+    m_Localized: The caravan waited out the blizzard in a hastily dug shelter. The
+      storm damaged the cart and devoured supplies, but everyone survived.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837954
+    m_Localized: "Pushing through the blizzard nearly proved fatal. The cart was
+      buried in snow, supplies were drained \u2014 but the caravan made it through."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837955
+    m_Localized: The slow ascent preserved the caravan's strength, though supplies
+      dwindled. The people adapted to the thin air.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837956
+    m_Localized: The rushed passage over the pass proved too taxing. The cart suffered
+      on the rocks, and people fell ill from the altitude.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837957
+    m_Localized: The alternate route ran lower and safer. A little food was lost,
+      but the strain on hearts and lungs eased greatly.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837958
+    m_Localized: Fire and hot water thawed the ice on the axles. An expensive repair,
+      but the wheels now turn freely.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837959
+    m_Localized: A quick attempt to chip ice from the wheels only partly worked.
+      The axles cracked, but the caravan managed to move.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837960
+    m_Localized: The cart was abandoned, and the most valuable cargo was loaded onto
+      pack animals. Food was lost, and the journey grew harder without the cart.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837961
+    m_Localized: The herders traded dried meat and butter for coins. The trade went
+      peacefully, and the caravan restocked.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837962
+    m_Localized: The caravan passed the encampment. The herders watched with wary
+      eyes.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837963
+    m_Localized: "The gift of tea delighted the herders, and they generously shared
+      food and told of mountain passes. Friendship \u2014 the best guide."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837964
+    m_Localized: The caravan found shelter under a rock overhang. The avalanche roared
+      past, but snow damaged the cart and buried some food.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837965
+    m_Localized: Fleeing the avalanche resulted in heavy cart damage and food losses.
+      The mass of snow caught the caravan's tail.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837966
+    m_Localized: The monks welcomed the caravan warmly. For a modest fee they offered
+      shelter, food, and counsel about the road ahead.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837967
+    m_Localized: The caravan passed by without stopping.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837968
+    m_Localized: "The offering moved the monks \u2014 they gifted incense and taught
+      the art of diplomatic trade."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837969
+    m_Localized: The caravan waited out the flood on a hill. Water soaked the cart
+      and carried off some supplies, but all are safe.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837970
+    m_Localized: "Fording the raging current cost dearly \u2014 the cart nearly overturned,
+      food was lost, and the journey grew more perilous."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837971
+    m_Localized: A hired boat ferried the cargo across the flood. Money was spent,
+      but the caravan is safe.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837972
+    m_Localized: The ferryman carried the caravan to the far bank. The fare was steep,
+      but everyone stayed dry and trading skills proved useful.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837973
+    m_Localized: Attempting to cross without the ferry nearly ended in disaster.
+      The current damaged the cart, and everyone was soaked to the bone.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837974
+    m_Localized: The guide found a shallow crossing downriver. The passage cost little,
+      and the pathfinding experience is priceless.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837975
+    m_Localized: The fishermen sold fresh fish at a fair price. The caravan restocked
+      and learned about the river currents.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837976
+    m_Localized: The caravan passed the fishermen's village. Voices and splashing
+      water drifted from behind the bushes.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837977
+    m_Localized: "Trading salt for fish proved profitable \u2014 the caravan received
+      a generous catch and learned to haggle with river folk."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837978
+    m_Localized: Hired locals pulled the cart from the swamp. Money was spent, but
+      the wheels were even reinforced.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837979
+    m_Localized: "Trying to free the cart alone only worsened things \u2014 the axles
+      cracked, and money was spent on makeshift materials."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837980
+    m_Localized: Unloading the cart allowed it to be freed from the mud, but some
+      food got soaked and the wheels suffered badly.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837981
+    m_Localized: A deal with the wandering merchant yielded pouches of fragrant spices.
+      Money was spent, but the goods are worth twice the price.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837982
+    m_Localized: The caravan passed by without stopping.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837983
+    m_Localized: Selling silk to the wandering merchant brought clinking coin and
+      trading experience. A fine deal on the roadside.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837984
+    m_Localized: "The traveler proved grateful and knowledgeable \u2014 he told of
+      safe trails. Food was spent, but the danger ahead lessened."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837985
+    m_Localized: The caravan passed by without stopping.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837986
+    m_Localized: Healing the traveler cost a few supplies, but he proved a seasoned
+      wanderer and pointed out a safe passage. The danger dropped noticeably.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837987
+    m_Localized: The refugees gratefully accepted food and warned of an ambush ahead.
+      Their intelligence saved the caravan from peril.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837988
+    m_Localized: The caravan passed the refugees. Their bitter gazes followed the
+      travelers, and unknown danger lay ahead.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837989
+    m_Localized: The refugees joined the caravan, sharing valuable intelligence about
+      the road. Supplies were spent, but the path became much safer.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837990
+    m_Localized: For a modest fee the scholar shared knowledge of trade routes and
+      prices. His scrolls are a treasury of mercantile wisdom.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837991
+    m_Localized: The caravan passed by without stopping.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837992
+    m_Localized: A long conversation with the scholar over tea revealed the subtleties
+      of diplomacy in distant lands. Supplies were spent, but the knowledge is priceless.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837993
+    m_Localized: The fed soldier revealed the locations of bandit camps. His intelligence
+      reduced the danger on the road.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837994
+    m_Localized: The caravan passed by without stopping.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837995
+    m_Localized: The healed soldier proved a skilled tracker. He pointed out safe
+      trails, and the danger ahead was greatly reduced.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837996
+    m_Localized: Trading goods with the rivals yielded sacks of tea. Money was spent,
+      but the exchange honed trading skills.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837997
+    m_Localized: "The attempt to outpace the rivals led to a tense race across the
+      steppe. Dust and danger \u2014 but the pace is set."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837998
+    m_Localized: "Long negotiations yielded a profitable agreement \u2014 coins and
+      invaluable trading experience. A rival became a partner."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837999
+    m_Localized: Traveling with the pilgrims brought peace and calm. Their prayers
+      warded off danger, and the shared meal cost only a little food.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838000
+    m_Localized: The caravan passed by without stopping.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838001
+    m_Localized: "The stranger sold a piece of jade at a strangely low price. The
+      deal seemed too good \u2014 but the jade is real, even if unsettling."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838002
+    m_Localized: The caravan passed the stranger. The dark figure watched them go
+      for a long time, leaving an uneasy feeling.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838003
+    m_Localized: "Conversation with the stranger revealed a secret \u2014 he was
+      a disgraced jade merchant who generously shared his stock."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838004
+    m_Localized: The caravan joined the celebration. Food and money were spent on
+      gifts, but the locals became friends and the danger ahead lessened.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838005
+    m_Localized: The caravan passed by without stopping.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838006
+    m_Localized: "The deal is struck \u2014 an experienced warrior has joined the
+      caravan. His blade and vigilance are worth every coin spent."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838007
+    m_Localized: The caravan continued without the guard. A polite refusal, and the
+      warrior waved farewell.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838008
+    m_Localized: The translator has joined the caravan. His knowledge of languages
+      will open doors in the trading cities of the Silk Road.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838009
+    m_Localized: The caravan moved on without the translator. Then again, gestures
+      are a language too.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838010
+    m_Localized: The guide has joined the caravan. His hand-drawn maps and knowledge
+      of trails are priceless in unfamiliar lands.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838011
+    m_Localized: The caravan declined the guide's services and continued along the
+      main road. A polite nod in farewell.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838012
+    m_Localized: The healer has joined the caravan. His herbs and remedies are protection
+      against illness and injury on the long road.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838013
+    m_Localized: The caravan continued without the healer. One could only hope that
+      health would hold.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838014
+    m_Localized: The merchant has joined the caravan, bringing his goods and connections.
+      His experience will prove useful in the markets.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838015
+    m_Localized: The caravan refused the merchant and moved on. He trudged sadly
+      in the opposite direction.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838016
+    m_Localized: Food was purchased from passing travelers for a steep price. Hunger
+      retreated, but the purse grew noticeably thinner.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838017
+    m_Localized: "A pack animal was slaughtered \u2014 the meat fed the caravan,
+      but the cart lost pulling power."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838018
+    m_Localized: "Strict rationing barely kept people on their feet. Hungry eyes
+      and weak hands \u2014 but the caravan pressed forward."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838019
+    m_Localized: Emergency repairs cost a great deal, but the craftsman reinforced
+      the frame solidly. The cart is sturdy once more.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838020
+    m_Localized: Cargo was redistributed among carts and pack animals. The frame
+      held a little better, but some food had to be sacrificed.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838021
+    m_Localized: Some goods were abandoned by the roadside to save the cart. Money
+      was lost, but the frame is reinforced and the caravan moves.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838022
+    m_Localized: The chase after thieves through the night camp bore no fruit. Some
+      food was gone, and the commotion attracted predators.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838023
+    m_Localized: The caravan accepted the loss and strengthened the guard. Supplies
+      dropped noticeably, but thieves will think twice next time.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838024
+    m_Localized: The fire was extinguished, but the cart was scorched and some food
+      turned to ash. Acrid smoke lingered in the air for hours.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838025
+    m_Localized: The most valuable goods were saved from the flames, but the cart
+      suffered and money went toward firefighting and recovery.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838026
+    m_Localized: The caravan retreated from the burning cart. The fire consumed the
+      frame to cinders, but no one was hurt.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838027
+    m_Localized: The animal was given rest and treatment, but the long halt consumed
+      supplies. The delay made the journey slightly more dangerous.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838028
+    m_Localized: A new pack animal was bought from a passing trader for a steep price.
+      The caravan is back at full strength.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838029
+    m_Localized: The load was redistributed among the remaining animals. The cart
+      is overloaded and groaning, and some food had to be abandoned.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838030
+    m_Localized: Breaking through the ambush cost blood and coin. The bandits retreated,
+      but wounds and losses were heavy.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838031
+    m_Localized: Surrendering goods saved lives. The bandits took most of the valuables,
+      but the caravan departed unscathed.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838032
+    m_Localized: "Negotiations met with partial success \u2014 the bandits took a
+      moderate ransom and released the caravan."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838033
+    m_Localized: The search for water led to a muddy stream. The water was not the
+      cleanest, but thirst was quenched. Strength was spent searching.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838034
+    m_Localized: Passing travelers sold water at a steep price. The caravan drank
+      its fill and restocked.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838035
+    m_Localized: Strict water rationing held out until the next source, but the people
+      grew weak from thirst and the journey became more perilous.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838036
+    m_Localized: Quarantine slowed the caravan. The sick were isolated, food went
+      toward treatment, but the epidemic did not spread further.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838037
+    m_Localized: A hired healer halted the disease, but his services were costly.
+      Some supplies went toward medicine.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838038
+    m_Localized: The caravan pushed on, ignoring the illness. Fever struck down people,
+      and the cart suffered from the weakened crew's neglect.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838039
+    m_Localized: Cargo was abandoned to speed the escape. Money and food were lost,
+      but the danger dropped sharply.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838040
+    m_Localized: "The desperate battle exhausted the caravan. Food was lost, and
+      the danger only grew \u2014 the enemies will return."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838041
+    m_Localized: "The caravan split \u2014 some went with goods, others traveled
+      light. Money and food were lost, and the road ahead grew uncertain."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838042
+    m_Localized: "The last battle was fierce and bloody. Lives, food, and money were
+      lost \u2014 but the caravan held and broke through."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838043
+    m_Localized: Surrendering to the enemy's mercy cost all valuables. But lives
+      were spared, and the danger receded.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838044
+    m_Localized: A desperate flight through the night cost food and the cart. But
+      the caravan escaped destruction, though not without losses.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838045
+    m_Localized: Wildlife
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838046
+    m_Localized: Natural Disaster
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838047
+    m_Localized: Hazard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838048
+    m_Localized: Encounter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838049
+    m_Localized: Caravan Trouble
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838050
+    m_Localized: Discovery
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838051
+    m_Localized: Companion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838052
+    m_Localized: Crisis
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

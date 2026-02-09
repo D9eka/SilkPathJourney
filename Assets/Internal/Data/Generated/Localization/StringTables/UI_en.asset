@@ -19,7 +19,7 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 468844544
-    m_Localized: 'For {0}'
+    m_Localized: For {0}
     m_Metadata:
       m_Items: []
   - m_Id: 514981888
@@ -59,7 +59,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 514981897
-    m_Localized: 'Cargo '
+    m_Localized: Cargo
     m_Metadata:
       m_Items: []
   - m_Id: 514981898
@@ -91,7 +91,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 523370500
-    m_Localized: 'Cargo {0}'
+    m_Localized: Cargo {0}
     m_Metadata:
       m_Items: []
   - m_Id: 523370501
@@ -100,6 +100,34 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 523370502
     m_Localized: You are selling
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1499307264958464
+    m_Localized: Near {0}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1772544783802368
+    m_Localized: Camp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1772544850911232
+    m_Localized: Rush
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1772544850911233
+    m_Localized: Move
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1772544850911234
+    m_Localized: Day
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1772544855105536
+    m_Localized: Continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2184196805091328
+    m_Localized: Event
     m_Metadata:
       m_Items: []
   references:

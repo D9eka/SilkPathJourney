@@ -1,0 +1,8 @@
+type_id,enum_name
+money,Money
+food,Food
+danger,Danger
+add_item,AddItem
+cart_durability,CartDurability
+add_companion,AddCompanion
+add_skill_xp,AddSkillXp
