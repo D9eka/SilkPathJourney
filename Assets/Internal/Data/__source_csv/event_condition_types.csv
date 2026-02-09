@@ -1,0 +1,13 @@
+type_id,enum_name
+min_money,MinMoney
+max_money,MaxMoney
+min_danger,MinDanger
+max_danger,MaxDanger
+min_food,MinFood
+max_food,MaxFood
+has_item,HasItem
+min_cart_durability,MinCartDurability
+max_cart_durability,MaxCartDurability
+has_companion,HasCompanion
+min_skill,MinSkill
+near_node,NearNode

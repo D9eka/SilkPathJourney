@@ -1,0 +1,2508 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Events Shared Data
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
+  m_TableCollectionName: Events
+  m_TableCollectionNameGuidString: b2e541a37c4586c4f92b1d797521ddc1
+  m_Entries:
+  - m_Id: 443539456
+    m_Key: event_type.bandit_attack.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 514842624
+    m_Key: event_type.sandstorm.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 514842625
+    m_Key: event.bandit_ambush.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 514842626
+    m_Key: event.bandit_ambush.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 514842627
+    m_Key: event.bandit_ambush.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 514842628
+    m_Key: event.bandit_ambush.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 514842629
+    m_Key: event.bandit_ambush.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 514842630
+    m_Key: event.desert_storm.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 514842631
+    m_Key: event.desert_storm.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 514842632
+    m_Key: event.desert_storm.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 514842633
+    m_Key: event.desert_storm.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3444889870336
+    m_Key: event_type.test.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3444902453248
+    m_Key: event.test_event.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3444902453249
+    m_Key: event.test_event.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3444902453250
+    m_Key: event.test_event.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3444902453251
+    m_Key: event.test_event.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148041117696
+    m_Key: event.desert_bandits.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148078866432
+    m_Key: event.desert_bandits.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148078866433
+    m_Key: event.desert_bandits.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148078866434
+    m_Key: event.desert_bandits.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148078866435
+    m_Key: event.desert_bandits.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148078866436
+    m_Key: event.desert_heat.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060736
+    m_Key: event.desert_heat.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060737
+    m_Key: event.desert_heat.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060738
+    m_Key: event.desert_heat.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060739
+    m_Key: event.desert_scorpions.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060740
+    m_Key: event.desert_scorpions.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060741
+    m_Key: event.desert_scorpions.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060742
+    m_Key: event.desert_scorpions.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060743
+    m_Key: event.desert_oasis.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060744
+    m_Key: event.desert_oasis.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060745
+    m_Key: event.desert_oasis.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060746
+    m_Key: event.desert_oasis.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060747
+    m_Key: event.desert_mirage.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060748
+    m_Key: event.desert_mirage.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060749
+    m_Key: event.desert_mirage.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060750
+    m_Key: event.desert_mirage.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060751
+    m_Key: event.desert_drought.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060752
+    m_Key: event.desert_drought.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060753
+    m_Key: event.desert_drought.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060754
+    m_Key: event.desert_drought.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060755
+    m_Key: event.desert_drought.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060756
+    m_Key: event.desert_sand_trap.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060757
+    m_Key: event.desert_sand_trap.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060758
+    m_Key: event.desert_sand_trap.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060759
+    m_Key: event.desert_sand_trap.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060760
+    m_Key: event.desert_sand_trap.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060761
+    m_Key: event.desert_wheel_stuck.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060762
+    m_Key: event.desert_wheel_stuck.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060763
+    m_Key: event.desert_wheel_stuck.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060764
+    m_Key: event.desert_wheel_stuck.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060765
+    m_Key: event.desert_wheel_stuck.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060766
+    m_Key: event.desert_nomads.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060767
+    m_Key: event.desert_nomads.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060768
+    m_Key: event.desert_nomads.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060769
+    m_Key: event.desert_nomads.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060770
+    m_Key: event.desert_nomads.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060771
+    m_Key: event.desert_ruins.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060772
+    m_Key: event.desert_ruins.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060773
+    m_Key: event.desert_ruins.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060774
+    m_Key: event.desert_ruins.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060775
+    m_Key: event.desert_ruins.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060776
+    m_Key: event.desert_lost_path.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060777
+    m_Key: event.desert_lost_path.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060778
+    m_Key: event.desert_lost_path.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060779
+    m_Key: event.desert_lost_path.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060780
+    m_Key: event.desert_lost_path.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060781
+    m_Key: event.mountain_bandits.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060782
+    m_Key: event.mountain_bandits.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060783
+    m_Key: event.mountain_bandits.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060784
+    m_Key: event.mountain_bandits.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060785
+    m_Key: event.mountain_bandits.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060786
+    m_Key: event.mountain_rockslide.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060787
+    m_Key: event.mountain_rockslide.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060788
+    m_Key: event.mountain_rockslide.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060789
+    m_Key: event.mountain_rockslide.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060790
+    m_Key: event.mountain_wolves.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060791
+    m_Key: event.mountain_wolves.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060792
+    m_Key: event.mountain_wolves.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060793
+    m_Key: event.mountain_wolves.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060794
+    m_Key: event.mountain_wolves.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060795
+    m_Key: event.mountain_fog.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060796
+    m_Key: event.mountain_fog.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060797
+    m_Key: event.mountain_fog.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060798
+    m_Key: event.mountain_fog.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060799
+    m_Key: event.mountain_fog.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060800
+    m_Key: event.mountain_pass_blocked.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060801
+    m_Key: event.mountain_pass_blocked.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060802
+    m_Key: event.mountain_pass_blocked.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060803
+    m_Key: event.mountain_pass_blocked.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060804
+    m_Key: event.mountain_pass_blocked.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060805
+    m_Key: event.mountain_broken_axle.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060806
+    m_Key: event.mountain_broken_axle.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060807
+    m_Key: event.mountain_broken_axle.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060808
+    m_Key: event.mountain_broken_axle.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060809
+    m_Key: event.mountain_broken_axle.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060810
+    m_Key: event.mountain_hermit.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060811
+    m_Key: event.mountain_hermit.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060812
+    m_Key: event.mountain_hermit.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060813
+    m_Key: event.mountain_hermit.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060814
+    m_Key: event.mountain_hermit.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060815
+    m_Key: event.mountain_cave.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060816
+    m_Key: event.mountain_cave.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060817
+    m_Key: event.mountain_cave.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060818
+    m_Key: event.mountain_cave.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060819
+    m_Key: event.mountain_cave.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060820
+    m_Key: event.mountain_cliff_path.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060821
+    m_Key: event.mountain_cliff_path.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060822
+    m_Key: event.mountain_cliff_path.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060823
+    m_Key: event.mountain_cliff_path.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060824
+    m_Key: event.mountain_cold_night.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060825
+    m_Key: event.mountain_cold_night.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060826
+    m_Key: event.mountain_cold_night.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060827
+    m_Key: event.mountain_cold_night.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060828
+    m_Key: event.mountain_monastery.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060829
+    m_Key: event.mountain_monastery.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060830
+    m_Key: event.mountain_monastery.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060831
+    m_Key: event.mountain_monastery.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060832
+    m_Key: event.mountain_monastery.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060833
+    m_Key: event.mountain_eagle.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060834
+    m_Key: event.mountain_eagle.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060835
+    m_Key: event.mountain_eagle.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060836
+    m_Key: event.mountain_eagle.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060837
+    m_Key: event.forest_ambush.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060838
+    m_Key: event.forest_ambush.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060839
+    m_Key: event.forest_ambush.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060840
+    m_Key: event.forest_ambush.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060841
+    m_Key: event.forest_ambush.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060842
+    m_Key: event.forest_fire.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060843
+    m_Key: event.forest_fire.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060844
+    m_Key: event.forest_fire.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060845
+    m_Key: event.forest_fire.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060846
+    m_Key: event.forest_fire.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060847
+    m_Key: event.forest_boar.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060848
+    m_Key: event.forest_boar.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060849
+    m_Key: event.forest_boar.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060850
+    m_Key: event.forest_boar.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060851
+    m_Key: event.forest_mud.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060852
+    m_Key: event.forest_mud.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060853
+    m_Key: event.forest_mud.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060854
+    m_Key: event.forest_mud.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060855
+    m_Key: event.forest_mud.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060856
+    m_Key: event.forest_rain.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060857
+    m_Key: event.forest_rain.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148083060858
+    m_Key: event.forest_rain.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255040
+    m_Key: event.forest_rain.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255041
+    m_Key: event.forest_herbs.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255042
+    m_Key: event.forest_herbs.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255043
+    m_Key: event.forest_herbs.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255044
+    m_Key: event.forest_herbs.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255045
+    m_Key: event.forest_ruins.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255046
+    m_Key: event.forest_ruins.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255047
+    m_Key: event.forest_ruins.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255048
+    m_Key: event.forest_ruins.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255049
+    m_Key: event.forest_ruins.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255050
+    m_Key: event.forest_woodcutter.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255051
+    m_Key: event.forest_woodcutter.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255052
+    m_Key: event.forest_woodcutter.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255053
+    m_Key: event.forest_woodcutter.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255054
+    m_Key: event.forest_woodcutter.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255055
+    m_Key: event.forest_night_sounds.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255056
+    m_Key: event.forest_night_sounds.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255057
+    m_Key: event.forest_night_sounds.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255058
+    m_Key: event.forest_night_sounds.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255059
+    m_Key: event.forest_snakes.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255060
+    m_Key: event.forest_snakes.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255061
+    m_Key: event.forest_snakes.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255062
+    m_Key: event.forest_snakes.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255063
+    m_Key: event.plains_raiders.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255064
+    m_Key: event.plains_raiders.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255065
+    m_Key: event.plains_raiders.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255066
+    m_Key: event.plains_raiders.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255067
+    m_Key: event.plains_raiders.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255068
+    m_Key: event.plains_dust_storm.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255069
+    m_Key: event.plains_dust_storm.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255070
+    m_Key: event.plains_dust_storm.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255071
+    m_Key: event.plains_dust_storm.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255072
+    m_Key: event.plains_wild_horses.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255073
+    m_Key: event.plains_wild_horses.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255074
+    m_Key: event.plains_wild_horses.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255075
+    m_Key: event.plains_wild_horses.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255076
+    m_Key: event.plains_wild_horses.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255077
+    m_Key: event.plains_broken_harness.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255078
+    m_Key: event.plains_broken_harness.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255079
+    m_Key: event.plains_broken_harness.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255080
+    m_Key: event.plains_broken_harness.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255081
+    m_Key: event.plains_lightning.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255082
+    m_Key: event.plains_lightning.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255083
+    m_Key: event.plains_lightning.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255084
+    m_Key: event.plains_lightning.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255085
+    m_Key: event.plains_crossroads.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255086
+    m_Key: event.plains_crossroads.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255087
+    m_Key: event.plains_crossroads.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255088
+    m_Key: event.plains_crossroads.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255089
+    m_Key: event.plains_crossroads.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255090
+    m_Key: event.plains_merchant_camp.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255091
+    m_Key: event.plains_merchant_camp.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255092
+    m_Key: event.plains_merchant_camp.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255093
+    m_Key: event.plains_merchant_camp.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255094
+    m_Key: event.plains_merchant_camp.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255095
+    m_Key: event.plains_abandoned_cart.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255096
+    m_Key: event.plains_abandoned_cart.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255097
+    m_Key: event.plains_abandoned_cart.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255098
+    m_Key: event.plains_abandoned_cart.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255099
+    m_Key: event.plains_loose_cargo.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255100
+    m_Key: event.plains_loose_cargo.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255101
+    m_Key: event.plains_loose_cargo.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255102
+    m_Key: event.plains_loose_cargo.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255103
+    m_Key: event.plains_waystone.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255104
+    m_Key: event.plains_waystone.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255105
+    m_Key: event.plains_waystone.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255106
+    m_Key: event.plains_waystone.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255107
+    m_Key: event.coast_pirates.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255108
+    m_Key: event.coast_pirates.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255109
+    m_Key: event.coast_pirates.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255110
+    m_Key: event.coast_pirates.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255111
+    m_Key: event.coast_pirates.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255112
+    m_Key: event.coast_storm.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255113
+    m_Key: event.coast_storm.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255114
+    m_Key: event.coast_storm.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255115
+    m_Key: event.coast_storm.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255116
+    m_Key: event.coast_flood.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255117
+    m_Key: event.coast_flood.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255118
+    m_Key: event.coast_flood.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255119
+    m_Key: event.coast_flood.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255120
+    m_Key: event.coast_flood.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255121
+    m_Key: event.coast_shipwreck.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255122
+    m_Key: event.coast_shipwreck.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255123
+    m_Key: event.coast_shipwreck.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255124
+    m_Key: event.coast_shipwreck.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255125
+    m_Key: event.coast_shipwreck.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255126
+    m_Key: event.coast_fishermen.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255127
+    m_Key: event.coast_fishermen.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255128
+    m_Key: event.coast_fishermen.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255129
+    m_Key: event.coast_fishermen.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255130
+    m_Key: event.coast_fishermen.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255131
+    m_Key: event.coast_salt_damage.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255132
+    m_Key: event.coast_salt_damage.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255133
+    m_Key: event.coast_salt_damage.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255134
+    m_Key: event.coast_salt_damage.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255135
+    m_Key: event.coast_smugglers.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255136
+    m_Key: event.coast_smugglers.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255137
+    m_Key: event.coast_smugglers.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255138
+    m_Key: event.coast_smugglers.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255139
+    m_Key: event.coast_smugglers.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255140
+    m_Key: event.coast_crabs.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255141
+    m_Key: event.coast_crabs.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255142
+    m_Key: event.coast_crabs.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255143
+    m_Key: event.coast_crabs.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255144
+    m_Key: event.highland_blizzard.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255145
+    m_Key: event.highland_blizzard.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255146
+    m_Key: event.highland_blizzard.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255147
+    m_Key: event.highland_blizzard.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255148
+    m_Key: event.highland_altitude.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255149
+    m_Key: event.highland_altitude.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255150
+    m_Key: event.highland_altitude.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255151
+    m_Key: event.highland_altitude.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255152
+    m_Key: event.highland_altitude.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255153
+    m_Key: event.highland_frozen_wheels.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255154
+    m_Key: event.highland_frozen_wheels.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255155
+    m_Key: event.highland_frozen_wheels.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255156
+    m_Key: event.highland_frozen_wheels.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255157
+    m_Key: event.highland_frozen_wheels.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255158
+    m_Key: event.highland_yak_herders.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255159
+    m_Key: event.highland_yak_herders.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255160
+    m_Key: event.highland_yak_herders.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255161
+    m_Key: event.highland_yak_herders.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255162
+    m_Key: event.highland_yak_herders.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255163
+    m_Key: event.highland_ice_path.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255164
+    m_Key: event.highland_ice_path.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148087255165
+    m_Key: event.highland_ice_path.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449344
+    m_Key: event.highland_ice_path.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449345
+    m_Key: event.highland_avalanche.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449346
+    m_Key: event.highland_avalanche.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449347
+    m_Key: event.highland_avalanche.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449348
+    m_Key: event.highland_avalanche.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449349
+    m_Key: event.highland_thin_air.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449350
+    m_Key: event.highland_thin_air.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449351
+    m_Key: event.highland_thin_air.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449352
+    m_Key: event.highland_thin_air.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449353
+    m_Key: event.highland_monastery.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449354
+    m_Key: event.highland_monastery.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449355
+    m_Key: event.highland_monastery.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449356
+    m_Key: event.highland_monastery.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449357
+    m_Key: event.highland_monastery.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449358
+    m_Key: event.valley_flood.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449359
+    m_Key: event.valley_flood.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449360
+    m_Key: event.valley_flood.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449361
+    m_Key: event.valley_flood.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449362
+    m_Key: event.valley_flood.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449363
+    m_Key: event.valley_ferry.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449364
+    m_Key: event.valley_ferry.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449365
+    m_Key: event.valley_ferry.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449366
+    m_Key: event.valley_ferry.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449367
+    m_Key: event.valley_ferry.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449368
+    m_Key: event.valley_crocodiles.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449369
+    m_Key: event.valley_crocodiles.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449370
+    m_Key: event.valley_crocodiles.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449371
+    m_Key: event.valley_crocodiles.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449372
+    m_Key: event.valley_fishermen.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449373
+    m_Key: event.valley_fishermen.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449374
+    m_Key: event.valley_fishermen.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449375
+    m_Key: event.valley_fishermen.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449376
+    m_Key: event.valley_fishermen.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449377
+    m_Key: event.valley_stuck_mud.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449378
+    m_Key: event.valley_stuck_mud.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449379
+    m_Key: event.valley_stuck_mud.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449380
+    m_Key: event.valley_stuck_mud.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449381
+    m_Key: event.valley_stuck_mud.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449382
+    m_Key: event.valley_fertile_bank.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449383
+    m_Key: event.valley_fertile_bank.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449384
+    m_Key: event.valley_fertile_bank.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449385
+    m_Key: event.valley_fertile_bank.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449386
+    m_Key: event.wandering_merchant.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449387
+    m_Key: event.wandering_merchant.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449388
+    m_Key: event.wandering_merchant.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449389
+    m_Key: event.wandering_merchant.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449390
+    m_Key: event.wandering_merchant.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449391
+    m_Key: event.lost_traveler.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449392
+    m_Key: event.lost_traveler.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449393
+    m_Key: event.lost_traveler.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449394
+    m_Key: event.lost_traveler.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449395
+    m_Key: event.lost_traveler.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449396
+    m_Key: event.refugee_caravan.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449397
+    m_Key: event.refugee_caravan.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449398
+    m_Key: event.refugee_caravan.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449399
+    m_Key: event.refugee_caravan.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449400
+    m_Key: event.refugee_caravan.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449401
+    m_Key: event.traveling_scholar.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449402
+    m_Key: event.traveling_scholar.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449403
+    m_Key: event.traveling_scholar.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449404
+    m_Key: event.traveling_scholar.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449405
+    m_Key: event.traveling_scholar.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449406
+    m_Key: event.wounded_soldier.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449407
+    m_Key: event.wounded_soldier.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449408
+    m_Key: event.wounded_soldier.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449409
+    m_Key: event.wounded_soldier.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449410
+    m_Key: event.wounded_soldier.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449411
+    m_Key: event.rival_caravan.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449412
+    m_Key: event.rival_caravan.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449413
+    m_Key: event.rival_caravan.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449414
+    m_Key: event.rival_caravan.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449415
+    m_Key: event.rival_caravan.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449416
+    m_Key: event.pilgrim_group.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449417
+    m_Key: event.pilgrim_group.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449418
+    m_Key: event.pilgrim_group.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449419
+    m_Key: event.pilgrim_group.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449420
+    m_Key: event.mysterious_stranger.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449421
+    m_Key: event.mysterious_stranger.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449422
+    m_Key: event.mysterious_stranger.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449423
+    m_Key: event.mysterious_stranger.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449424
+    m_Key: event.mysterious_stranger.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449425
+    m_Key: event.wedding_procession.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449426
+    m_Key: event.wedding_procession.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449427
+    m_Key: event.wedding_procession.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449428
+    m_Key: event.wedding_procession.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449429
+    m_Key: event.guard_for_hire.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449430
+    m_Key: event.guard_for_hire.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449431
+    m_Key: event.guard_for_hire.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449432
+    m_Key: event.guard_for_hire.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449433
+    m_Key: event.translator_offer.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449434
+    m_Key: event.translator_offer.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449435
+    m_Key: event.translator_offer.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449436
+    m_Key: event.translator_offer.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449437
+    m_Key: event.guide_encounter.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449438
+    m_Key: event.guide_encounter.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449439
+    m_Key: event.guide_encounter.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449440
+    m_Key: event.guide_encounter.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449441
+    m_Key: event.healer_on_road.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449442
+    m_Key: event.healer_on_road.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449443
+    m_Key: event.healer_on_road.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449444
+    m_Key: event.healer_on_road.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449445
+    m_Key: event.merchant_companion.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449446
+    m_Key: event.merchant_companion.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449447
+    m_Key: event.merchant_companion.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449448
+    m_Key: event.merchant_companion.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449449
+    m_Key: event.starvation_crisis.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449450
+    m_Key: event.starvation_crisis.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449451
+    m_Key: event.starvation_crisis.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449452
+    m_Key: event.starvation_crisis.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449453
+    m_Key: event.starvation_crisis.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449454
+    m_Key: event.cart_collapse.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449455
+    m_Key: event.cart_collapse.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449456
+    m_Key: event.cart_collapse.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449457
+    m_Key: event.cart_collapse.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449458
+    m_Key: event.cart_collapse.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449459
+    m_Key: event.supply_theft.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449460
+    m_Key: event.supply_theft.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449461
+    m_Key: event.supply_theft.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449462
+    m_Key: event.supply_theft.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449463
+    m_Key: event.cargo_fire.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449464
+    m_Key: event.cargo_fire.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449465
+    m_Key: event.cargo_fire.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449466
+    m_Key: event.cargo_fire.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449467
+    m_Key: event.cargo_fire.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449468
+    m_Key: event.animal_collapse.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449469
+    m_Key: event.animal_collapse.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449470
+    m_Key: event.animal_collapse.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449471
+    m_Key: event.animal_collapse.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148091449472
+    m_Key: event.animal_collapse.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643648
+    m_Key: event.ambush_siege.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643649
+    m_Key: event.ambush_siege.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643650
+    m_Key: event.ambush_siege.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643651
+    m_Key: event.ambush_siege.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643652
+    m_Key: event.ambush_siege.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643653
+    m_Key: event.water_crisis.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643654
+    m_Key: event.water_crisis.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643655
+    m_Key: event.water_crisis.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643656
+    m_Key: event.water_crisis.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643657
+    m_Key: event.water_crisis.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643658
+    m_Key: event.disease_outbreak.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643659
+    m_Key: event.disease_outbreak.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643660
+    m_Key: event.disease_outbreak.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643661
+    m_Key: event.disease_outbreak.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643662
+    m_Key: event.disease_outbreak.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643663
+    m_Key: event.desperate_choice.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643664
+    m_Key: event.desperate_choice.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643665
+    m_Key: event.desperate_choice.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643666
+    m_Key: event.desperate_choice.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643667
+    m_Key: event.desperate_choice.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643668
+    m_Key: event.last_stand.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643669
+    m_Key: event.last_stand.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643670
+    m_Key: event.last_stand.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643671
+    m_Key: event.last_stand.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643672
+    m_Key: event.last_stand.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643673
+    m_Key: event.desert_bandits.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643674
+    m_Key: event.desert_bandits.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643675
+    m_Key: event.desert_bandits.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643676
+    m_Key: event.desert_storm.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643677
+    m_Key: event.desert_storm.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643678
+    m_Key: event.desert_oasis.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643679
+    m_Key: event.desert_oasis.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643680
+    m_Key: event.desert_drought.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643681
+    m_Key: event.desert_drought.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643682
+    m_Key: event.desert_drought.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643683
+    m_Key: event.desert_sand_trap.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643684
+    m_Key: event.desert_sand_trap.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643685
+    m_Key: event.desert_sand_trap.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643686
+    m_Key: event.desert_wheel_stuck.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643687
+    m_Key: event.desert_wheel_stuck.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643688
+    m_Key: event.desert_wheel_stuck.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643689
+    m_Key: event.desert_nomads.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643690
+    m_Key: event.desert_nomads.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643691
+    m_Key: event.desert_nomads.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643692
+    m_Key: event.desert_ruins.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643693
+    m_Key: event.desert_ruins.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643694
+    m_Key: event.desert_ruins.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643695
+    m_Key: event.mountain_bandits.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643696
+    m_Key: event.mountain_bandits.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643697
+    m_Key: event.mountain_bandits.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643698
+    m_Key: event.mountain_rockslide.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643699
+    m_Key: event.mountain_rockslide.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643700
+    m_Key: event.mountain_wolves.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643701
+    m_Key: event.mountain_wolves.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643702
+    m_Key: event.mountain_wolves.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643703
+    m_Key: event.mountain_pass_blocked.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643704
+    m_Key: event.mountain_pass_blocked.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643705
+    m_Key: event.mountain_pass_blocked.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643706
+    m_Key: event.mountain_broken_axle.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643707
+    m_Key: event.mountain_broken_axle.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643708
+    m_Key: event.mountain_broken_axle.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643709
+    m_Key: event.mountain_hermit.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643710
+    m_Key: event.mountain_hermit.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643711
+    m_Key: event.mountain_hermit.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643712
+    m_Key: event.mountain_cave.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643713
+    m_Key: event.mountain_cave.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643714
+    m_Key: event.mountain_cave.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643715
+    m_Key: event.mountain_monastery.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643716
+    m_Key: event.mountain_monastery.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643717
+    m_Key: event.mountain_monastery.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643718
+    m_Key: event.forest_ambush.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643719
+    m_Key: event.forest_ambush.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643720
+    m_Key: event.forest_ambush.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643721
+    m_Key: event.forest_fire.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643722
+    m_Key: event.forest_fire.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643723
+    m_Key: event.forest_fire.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643724
+    m_Key: event.forest_mud.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643725
+    m_Key: event.forest_mud.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643726
+    m_Key: event.forest_mud.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643727
+    m_Key: event.forest_herbs.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643728
+    m_Key: event.forest_herbs.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643729
+    m_Key: event.forest_ruins.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643730
+    m_Key: event.forest_ruins.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643731
+    m_Key: event.forest_ruins.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643732
+    m_Key: event.forest_woodcutter.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643733
+    m_Key: event.forest_woodcutter.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643734
+    m_Key: event.forest_woodcutter.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643735
+    m_Key: event.plains_raiders.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643736
+    m_Key: event.plains_raiders.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643737
+    m_Key: event.plains_raiders.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643738
+    m_Key: event.plains_wild_horses.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643739
+    m_Key: event.plains_wild_horses.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643740
+    m_Key: event.plains_wild_horses.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643741
+    m_Key: event.plains_lightning.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643742
+    m_Key: event.plains_lightning.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643743
+    m_Key: event.plains_crossroads.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643744
+    m_Key: event.plains_crossroads.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643745
+    m_Key: event.plains_crossroads.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643746
+    m_Key: event.plains_merchant_camp.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643747
+    m_Key: event.plains_merchant_camp.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643748
+    m_Key: event.plains_merchant_camp.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643749
+    m_Key: event.plains_abandoned_cart.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643750
+    m_Key: event.plains_abandoned_cart.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643751
+    m_Key: event.coast_pirates.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643752
+    m_Key: event.coast_pirates.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643753
+    m_Key: event.coast_pirates.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643754
+    m_Key: event.coast_storm.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643755
+    m_Key: event.coast_storm.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643756
+    m_Key: event.coast_flood.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643757
+    m_Key: event.coast_flood.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643758
+    m_Key: event.coast_flood.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643759
+    m_Key: event.coast_shipwreck.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643760
+    m_Key: event.coast_shipwreck.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643761
+    m_Key: event.coast_shipwreck.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643762
+    m_Key: event.coast_fishermen.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643763
+    m_Key: event.coast_fishermen.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643764
+    m_Key: event.coast_fishermen.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643765
+    m_Key: event.coast_smugglers.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148095643766
+    m_Key: event.coast_smugglers.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837952
+    m_Key: event.coast_smugglers.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837953
+    m_Key: event.highland_blizzard.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837954
+    m_Key: event.highland_blizzard.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837955
+    m_Key: event.highland_altitude.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837956
+    m_Key: event.highland_altitude.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837957
+    m_Key: event.highland_altitude.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837958
+    m_Key: event.highland_frozen_wheels.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837959
+    m_Key: event.highland_frozen_wheels.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837960
+    m_Key: event.highland_frozen_wheels.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837961
+    m_Key: event.highland_yak_herders.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837962
+    m_Key: event.highland_yak_herders.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837963
+    m_Key: event.highland_yak_herders.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837964
+    m_Key: event.highland_avalanche.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837965
+    m_Key: event.highland_avalanche.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837966
+    m_Key: event.highland_monastery.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837967
+    m_Key: event.highland_monastery.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837968
+    m_Key: event.highland_monastery.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837969
+    m_Key: event.valley_flood.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837970
+    m_Key: event.valley_flood.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837971
+    m_Key: event.valley_flood.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837972
+    m_Key: event.valley_ferry.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837973
+    m_Key: event.valley_ferry.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837974
+    m_Key: event.valley_ferry.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837975
+    m_Key: event.valley_fishermen.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837976
+    m_Key: event.valley_fishermen.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837977
+    m_Key: event.valley_fishermen.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837978
+    m_Key: event.valley_stuck_mud.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837979
+    m_Key: event.valley_stuck_mud.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837980
+    m_Key: event.valley_stuck_mud.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837981
+    m_Key: event.wandering_merchant.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837982
+    m_Key: event.wandering_merchant.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837983
+    m_Key: event.wandering_merchant.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837984
+    m_Key: event.lost_traveler.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837985
+    m_Key: event.lost_traveler.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837986
+    m_Key: event.lost_traveler.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837987
+    m_Key: event.refugee_caravan.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837988
+    m_Key: event.refugee_caravan.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837989
+    m_Key: event.refugee_caravan.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837990
+    m_Key: event.traveling_scholar.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837991
+    m_Key: event.traveling_scholar.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837992
+    m_Key: event.traveling_scholar.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837993
+    m_Key: event.wounded_soldier.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837994
+    m_Key: event.wounded_soldier.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837995
+    m_Key: event.wounded_soldier.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837996
+    m_Key: event.rival_caravan.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837997
+    m_Key: event.rival_caravan.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837998
+    m_Key: event.rival_caravan.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099837999
+    m_Key: event.pilgrim_group.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838000
+    m_Key: event.pilgrim_group.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838001
+    m_Key: event.mysterious_stranger.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838002
+    m_Key: event.mysterious_stranger.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838003
+    m_Key: event.mysterious_stranger.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838004
+    m_Key: event.wedding_procession.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838005
+    m_Key: event.wedding_procession.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838006
+    m_Key: event.guard_for_hire.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838007
+    m_Key: event.guard_for_hire.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838008
+    m_Key: event.translator_offer.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838009
+    m_Key: event.translator_offer.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838010
+    m_Key: event.guide_encounter.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838011
+    m_Key: event.guide_encounter.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838012
+    m_Key: event.healer_on_road.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838013
+    m_Key: event.healer_on_road.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838014
+    m_Key: event.merchant_companion.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838015
+    m_Key: event.merchant_companion.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838016
+    m_Key: event.starvation_crisis.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838017
+    m_Key: event.starvation_crisis.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838018
+    m_Key: event.starvation_crisis.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838019
+    m_Key: event.cart_collapse.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838020
+    m_Key: event.cart_collapse.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838021
+    m_Key: event.cart_collapse.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838022
+    m_Key: event.supply_theft.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838023
+    m_Key: event.supply_theft.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838024
+    m_Key: event.cargo_fire.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838025
+    m_Key: event.cargo_fire.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838026
+    m_Key: event.cargo_fire.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838027
+    m_Key: event.animal_collapse.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838028
+    m_Key: event.animal_collapse.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838029
+    m_Key: event.animal_collapse.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838030
+    m_Key: event.ambush_siege.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838031
+    m_Key: event.ambush_siege.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838032
+    m_Key: event.ambush_siege.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838033
+    m_Key: event.water_crisis.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838034
+    m_Key: event.water_crisis.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838035
+    m_Key: event.water_crisis.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838036
+    m_Key: event.disease_outbreak.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838037
+    m_Key: event.disease_outbreak.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838038
+    m_Key: event.disease_outbreak.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838039
+    m_Key: event.desperate_choice.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838040
+    m_Key: event.desperate_choice.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838041
+    m_Key: event.desperate_choice.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838042
+    m_Key: event.last_stand.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838043
+    m_Key: event.last_stand.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838044
+    m_Key: event.last_stand.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838045
+    m_Key: event_type.wildlife.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838046
+    m_Key: event_type.natural_disaster.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838047
+    m_Key: event_type.hazard.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838048
+    m_Key: event_type.encounter.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838049
+    m_Key: event_type.caravan_trouble.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838050
+    m_Key: event_type.discovery.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838051
+    m_Key: event_type.companion.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 651148099838052
+    m_Key: event_type.crisis.name
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 8814461613930709060
+  references:
+    version: 2
+    RefIds:
+    - rid: 8814461613930709060
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1770396174069
