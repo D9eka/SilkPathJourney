@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Internal.Scripts.Economy.Cities;
+using Internal.Scripts.Economy.Save;
 using Internal.Scripts.Events;
 using Internal.Scripts.Events.Data;
 using Internal.Scripts.UI.Components;
@@ -20,25 +21,26 @@ namespace Internal.Scripts.UI.Screens.Event
     {
         [Header("Header")]
         [SerializeField] private HeaderElement _mainHeader;
-
         [Header("Event Info")]
         [SerializeField] private TextMeshProUGUI _eventNameText;
         [SerializeField] private TextMeshProUGUI _eventTypeText;
         [SerializeField] private TextMeshProUGUI _eventDescriptionText;
         [SerializeField] private TextMeshProUGUI _eventLocationText;
         [SerializeField] private Image _eventImage;
-
         [Header("Resource Preview")]
         [SerializeField] private Transform _resourceIndicatorsRoot;
         [SerializeField] private ResourceIndicator _resourceIndicatorPrefab;
-
         [Header("Choices")]
         [SerializeField] private Transform _choiceButtonsRoot;
         [SerializeField] private EventChoiceButton _choiceButtonPrefab;
+        [Header("Result")]
+        [SerializeField] private LocalizedString _continueLocalizedString;
+        [SerializeField] private LocalizedString _nearCityFormat;
 
         private EventScreenViewModel _viewModel;
         private IDisposable _stateSubscription;
         private IDisposable _locationSubscription;
+        private IDisposable _resultSubscription;
         private readonly List<EventChoiceButton> _activeButtons = new();
         private readonly List<ResourceIndicator> _spawnedIndicators = new();
         private readonly Dictionary<EventOutcomeType, ResourceIndicator> _resourceIndicators = new();
@@ -48,26 +50,31 @@ namespace Internal.Scripts.UI.Screens.Event
         private LocalizationHelper.LocalizedTextHandle _typeHandle;
         private LocalizationHelper.LocalizedTextHandle _descriptionHandle;
 
-        public override void BindViewModel(IScreenViewModel viewModel)
-        {
-            _viewModel = viewModel as EventScreenViewModel;
-            EnsureGraphicRaycaster();
-            SubscribeViewModel();
-        }
-
         private void OnEnable()
         {
             SubscribeViewModel();
         }
 
-        private void EnsureGraphicRaycaster()
+        private void OnDisable()
         {
-            Canvas canvas = GetComponentInParent<Canvas>();
-            if (canvas != null && canvas.GetComponent<GraphicRaycaster>() == null)
-                canvas.gameObject.AddComponent<GraphicRaycaster>();
+            UnsubscribeViewModel();
+
+            _nameHandle?.Dispose();
+            _typeHandle?.Dispose();
+            _descriptionHandle?.Dispose();
+
+            _nameHandle = null;
+            _typeHandle = null;
+            _descriptionHandle = null;
+
+            ClearResourceIndicators();
         }
 
-        private static readonly LocalizedString NearCityFormat = new("UI", "ui.event.near_city");
+        public override void BindViewModel(IScreenViewModel viewModel)
+        {
+            _viewModel = viewModel as EventScreenViewModel;
+            SubscribeViewModel();
+        }
 
         private void SubscribeViewModel()
         {
@@ -78,6 +85,7 @@ namespace Internal.Scripts.UI.Screens.Event
             _locationSubscription = Observable.CombineLatest(
                     _viewModel.City, _viewModel.IsAtCity, (city, isAt) => (city, isAt))
                 .Subscribe(tuple => UpdateLocation(tuple.city, tuple.isAt));
+            _resultSubscription = _viewModel.SelectedChoice.Subscribe(OnSelectedChoiceChanged);
         }
 
         private void UnsubscribeViewModel()
@@ -86,26 +94,22 @@ namespace Internal.Scripts.UI.Screens.Event
             _stateSubscription = null;
             _locationSubscription?.Dispose();
             _locationSubscription = null;
+            _resultSubscription?.Dispose();
+            _resultSubscription = null;
         }
 
         private void UpdateContent(EventData eventData)
         {
-            if (eventData == null)
-                return;
+            if (eventData == null) return;
 
             BindLocalizedText(ref _nameHandle, _eventNameText, eventData.Name, "EventName");
             BindLocalizedText(ref _typeHandle, _eventTypeText, eventData.EventType, "EventType");
             BindLocalizedText(ref _descriptionHandle, _eventDescriptionText, eventData.Description, "EventDescription");
+            
+            if (eventData.Image != null)
+                _eventImage.sprite = eventData.Image;
 
-            if (_eventImage != null)
-            {
-                bool hasImage = eventData.Image != null;
-                _eventImage.gameObject.SetActive(hasImage);
-                if (hasImage)
-                    _eventImage.sprite = eventData.Image;
-            }
-
-            var availableChoices = GetAvailableChoices(eventData.Choices);
+            List<EventChoice> availableChoices = GetAvailableChoices(eventData.Choices);
             SpawnResourceIndicators(availableChoices);
             CreateChoiceButtons(availableChoices);
         }
@@ -115,7 +119,7 @@ namespace Internal.Scripts.UI.Screens.Event
             if (choices == null)
                 return new List<EventChoice>();
 
-            var eventTrigger = _viewModel?.EventTrigger;
+            EventTrigger eventTrigger = _viewModel.EventTrigger;
             if (eventTrigger == null)
                 return new List<EventChoice>(choices);
 
@@ -128,50 +132,52 @@ namespace Internal.Scripts.UI.Screens.Event
         {
             ClearResourceIndicators();
 
-            if (choices == null || _resourceIndicatorPrefab == null || _resourceIndicatorsRoot == null)
-                return;
+            if (choices == null) return;
 
+            HashSet<EventOutcomeType> outcomeTypes = new();
             HashSet<string> itemIds = new();
-            bool hasMoney = false;
-            bool hasFood = false;
-            bool hasDanger = false;
-            bool hasCart = false;
 
-            foreach (var choice in choices)
+            foreach (EventChoice choice in choices)
             {
                 if (choice.Outcomes == null) continue;
-                foreach (var outcome in choice.Outcomes)
+                foreach (EventOutcomeEntry outcome in choice.Outcomes)
                 {
-                    switch (outcome.Type)
+                    if (outcome.Type == EventOutcomeType.AddItem)
                     {
-                        case EventOutcomeType.Money: hasMoney = true; break;
-                        case EventOutcomeType.Food: hasFood = true; break;
-                        case EventOutcomeType.Danger: hasDanger = true; break;
-                        case EventOutcomeType.CartDurability: hasCart = true; break;
-                        case EventOutcomeType.AddItem:
-                            if (!string.IsNullOrEmpty(outcome.Param))
-                                itemIds.Add(outcome.Param);
-                            break;
+                        if (!string.IsNullOrEmpty(outcome.Param))
+                            itemIds.Add(outcome.Param);
+                    }
+                    else if (outcome.Type != EventOutcomeType.None)
+                    {
+                        outcomeTypes.Add(outcome.Type);
                     }
                 }
             }
 
-            var icons = _viewModel?.ResourceIcons;
-            if (hasMoney) SpawnResourceIndicator(EventOutcomeType.Money, icons?.Money);
-            if (hasFood) SpawnResourceIndicator(EventOutcomeType.Food, icons?.Food);
-            if (hasDanger) SpawnResourceIndicator(EventOutcomeType.Danger, icons?.Danger);
-            if (hasCart) SpawnResourceIndicator(EventOutcomeType.CartDurability, icons?.PlayerCartDurability);
+            ResourceIconCatalog catalog = _viewModel.ResourceIcons;
+            EventTrigger trigger = _viewModel.EventTrigger;
 
-            foreach (var itemId in itemIds)
+            foreach (EventOutcomeType type in outcomeTypes)
+            {
+                ResourceType? resType = trigger?.GetAffectedResource(type);
+                ResourceEntry entry = resType.HasValue ? catalog?.Get(resType.Value) : null;
+                if (entry != null)
+                {
+                    SpawnResourceIndicator(type, entry);
+                }
+            }
+
+            foreach (string itemId in itemIds)
                 SpawnItemIndicator(itemId, null);
 
             SetCurrentResourceValues();
         }
 
-        private void SpawnResourceIndicator(EventOutcomeType type, Sprite icon)
+        private void SpawnResourceIndicator(EventOutcomeType type, ResourceEntry entry)
         {
-            var indicator = Instantiate(_resourceIndicatorPrefab, _resourceIndicatorsRoot);
-            indicator.SetIcon(icon);
+            ResourceIndicator indicator = Instantiate(_resourceIndicatorPrefab, _resourceIndicatorsRoot);
+            indicator.SetIcon(entry?.Icon);
+            if (entry != null) indicator.SetResourceType(entry.Type);
             indicator.HideChangeImmediate();
             _spawnedIndicators.Add(indicator);
             _resourceIndicators[type] = indicator;
@@ -179,7 +185,7 @@ namespace Internal.Scripts.UI.Screens.Event
 
         private void SpawnItemIndicator(string itemId, Sprite icon)
         {
-            var indicator = Instantiate(_resourceIndicatorPrefab, _resourceIndicatorsRoot);
+            ResourceIndicator indicator = Instantiate(_resourceIndicatorPrefab, _resourceIndicatorsRoot);
             indicator.SetIcon(icon);
             indicator.HideChangeImmediate();
             _spawnedIndicators.Add(indicator);
@@ -188,26 +194,19 @@ namespace Internal.Scripts.UI.Screens.Event
 
         private void SetCurrentResourceValues()
         {
-            var resources = _viewModel?.PlayerResources;
+            PlayerResourceState resources = _viewModel.PlayerResources;
             if (resources == null) return;
 
-            if (_resourceIndicators.TryGetValue(EventOutcomeType.Money, out var money))
-                money.SetValue(resources.Money);
-            if (_resourceIndicators.TryGetValue(EventOutcomeType.Food, out var food))
-                food.SetValue($"{resources.Food:0}");
-            if (_resourceIndicators.TryGetValue(EventOutcomeType.Danger, out var danger))
-                danger.SetValue($"{resources.AccumulatedDanger:0}");
-            if (_resourceIndicators.TryGetValue(EventOutcomeType.CartDurability, out var cart))
+            foreach (KeyValuePair<EventOutcomeType, ResourceIndicator> kvp in _resourceIndicators)
             {
-                float avg = resources.Carts != null && resources.Carts.Count > 0
-                    ? resources.Carts.Average(c => c.Durability) : 0f;
-                cart.SetValue($"{avg:0}");
+                float value = resources.GetValue(kvp.Value.ResourceType);
+                kvp.Value.SetValue($"{value:0}");
             }
         }
 
         private void ClearResourceIndicators()
         {
-            foreach (var indicator in _spawnedIndicators)
+            foreach (ResourceIndicator indicator in _spawnedIndicators)
             {
                 if (indicator != null)
                     Destroy(indicator.gameObject);
@@ -230,7 +229,7 @@ namespace Internal.Scripts.UI.Screens.Event
 
         private void CreateChoiceButtons(List<EventChoice> choices)
         {
-            foreach (var button in _activeButtons)
+            foreach (EventChoiceButton button in _activeButtons)
                 Destroy(button.gameObject);
             _activeButtons.Clear();
 
@@ -252,7 +251,7 @@ namespace Internal.Scripts.UI.Screens.Event
 
         private void ShowOutcomePreview(List<EventOutcomeEntry> outcomes)
         {
-            foreach (var indicator in _spawnedIndicators)
+            foreach (ResourceIndicator indicator in _spawnedIndicators)
                 indicator.HideChange();
 
             if (outcomes == null) return;
@@ -260,7 +259,7 @@ namespace Internal.Scripts.UI.Screens.Event
             Dictionary<EventOutcomeType, float> resourceChanges = new();
             Dictionary<string, float> itemChanges = new();
 
-            foreach (var entry in outcomes)
+            foreach (EventOutcomeEntry entry in outcomes)
             {
                 if (entry.Type == EventOutcomeType.AddItem)
                 {
@@ -281,23 +280,52 @@ namespace Internal.Scripts.UI.Screens.Event
                 }
             }
 
-            foreach (var kvp in resourceChanges)
+            foreach (KeyValuePair<EventOutcomeType, float> kvp in resourceChanges)
             {
-                if (_resourceIndicators.TryGetValue(kvp.Key, out var indicator))
-                    indicator.SetChange(Mathf.RoundToInt(kvp.Value));
+                if (_resourceIndicators.TryGetValue(kvp.Key, out ResourceIndicator indicator))
+                {
+                    ResourceType? resType = _viewModel?.EventTrigger?.GetAffectedResource(kvp.Key);
+                    ResourceEntry entry = resType.HasValue ? _viewModel?.ResourceIcons?.Get(resType.Value) : null;
+                    if (entry != null)
+                    {
+                        indicator.SetChange(Mathf.RoundToInt(kvp.Value), entry.IncreaseIsPositive);
+                    }
+                }
             }
 
-            foreach (var kvp in itemChanges)
+            foreach (KeyValuePair<string, float> kvp in itemChanges)
             {
-                if (_itemIndicators.TryGetValue(kvp.Key, out var indicator))
-                    indicator.SetChange(Mathf.RoundToInt(kvp.Value));
+                if (_itemIndicators.TryGetValue(kvp.Key, out ResourceIndicator indicator))
+                    indicator.SetChange(Mathf.RoundToInt(kvp.Value), true);
             }
         }
 
         private void HideOutcomePreview()
         {
-            foreach (var indicator in _spawnedIndicators)
+            foreach (ResourceIndicator indicator in _spawnedIndicators)
                 indicator.HideChange();
+        }
+
+        private void OnSelectedChoiceChanged(EventChoice? choice)
+        {
+            if (choice == null)
+                return;
+
+            if (choice.Value.ResultText != null && !choice.Value.ResultText.IsEmpty)
+                BindLocalizedText(ref _descriptionHandle, _eventDescriptionText, choice.Value.ResultText, "Result");
+
+            foreach (EventChoiceButton button in _activeButtons)
+                Destroy(button.gameObject);
+            _activeButtons.Clear();
+
+            EventChoiceButton continueBtn = Instantiate(_choiceButtonPrefab, _choiceButtonsRoot);
+            continueBtn.Initialize(
+                _continueLocalizedString,
+                () => _viewModel?.ConfirmResult());
+            _activeButtons.Add(continueBtn);
+
+            SetCurrentResourceValues();
+            ShowOutcomePreview(choice.Value.Outcomes);
         }
 
         private void UpdateLocation(CityData city, bool isAtCity)
@@ -314,22 +342,7 @@ namespace Internal.Scripts.UI.Screens.Event
 
             _eventLocationText.text = isAtCity
                 ? cityName
-                : LocalizationHelper.ResolveString(NearCityFormat, $"Near {cityName}", "NearCity", cityName);
-        }
-
-        private void OnDisable()
-        {
-            UnsubscribeViewModel();
-
-            _nameHandle?.Dispose();
-            _typeHandle?.Dispose();
-            _descriptionHandle?.Dispose();
-
-            _nameHandle = null;
-            _typeHandle = null;
-            _descriptionHandle = null;
-
-            ClearResourceIndicators();
+                : LocalizationHelper.ResolveString(_nearCityFormat, $"Near {cityName}", "NearCity", cityName);
         }
     }
 }

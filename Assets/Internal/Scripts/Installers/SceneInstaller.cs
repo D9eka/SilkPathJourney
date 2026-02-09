@@ -247,6 +247,7 @@ namespace Internal.Scripts.Installers
             Container.Bind<Events.Outcomes.CartDurabilityOutcomeHandler>().AsSingle();
             Container.Bind<Events.Outcomes.OutcomeApplier>().AsSingle();
 
+            Container.Bind<EventToastController>().AsSingle();
             Container.BindInterfacesAndSelfTo<EventTrigger>().AsSingle().NonLazy();
         }
     }

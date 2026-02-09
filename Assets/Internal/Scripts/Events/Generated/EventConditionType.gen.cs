@@ -1,4 +1,4 @@
-namespace Internal.Scripts.Events.Data
+﻿namespace Internal.Scripts.Events.Data
 {
     public enum EventConditionType
     {
@@ -14,6 +14,6 @@ namespace Internal.Scripts.Events.Data
         MaxCartDurability = 9,
         HasCompanion = 10,
         MinSkill = 11,
-        NearNode = 12,
+        NearNode
     }
 }

@@ -17,12 +17,14 @@ namespace Internal.Scripts.Events.Conditions
 
         public bool Evaluate(EventCondition condition, PlayerResourceState resources)
         {
-            if (resources.Carts == null)
-                return false;
+            if (condition.Type == EventConditionType.MinCartDurability)
+            {
+                return resources.PlayerCart.Durability >= condition.Value
+                    && (resources.Carts == null || resources.Carts.All(c => c.Durability >= condition.Value));
+            }
 
-            return condition.Type == EventConditionType.MinCartDurability
-                ? resources.Carts.All(c => c.Durability >= condition.Value)
-                : resources.Carts.Any(c => c.Durability <= condition.Value);
+            return resources.PlayerCart.Durability <= condition.Value
+                || (resources.Carts != null && resources.Carts.Any(c => c.Durability <= condition.Value));
         }
     }
 }

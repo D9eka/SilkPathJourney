@@ -18,6 +18,10 @@ namespace Internal.Scripts.Events.Data
         [Header("Choices")]
         [field: SerializeField] public List<EventChoice> Choices { get; private set; }
 
+        [Header("Minor Event")]
+        [field: SerializeField] public bool IsMinor { get; private set; }
+        [field: SerializeField] public List<EventOutcomeEntry> AutoOutcomes { get; private set; }
+
         [Header("Conditions")]
         [field: SerializeField] public List<EventCondition> Conditions { get; private set; }
         [field: SerializeField] public float Weight { get; private set; } = 1f;
@@ -29,7 +33,9 @@ namespace Internal.Scripts.Events.Data
             LocalizedString eventType,
             LocalizedString description,
             Sprite image,
+            bool isMinor,
             List<EventChoice> choices,
+            List<EventOutcomeEntry> autoOutcomes,
             List<EventCondition> conditions,
             float weight)
         {
@@ -38,7 +44,9 @@ namespace Internal.Scripts.Events.Data
             EventType = eventType;
             Description = description;
             Image = image;
+            IsMinor = isMinor;
             Choices = choices ?? new List<EventChoice>();
+            AutoOutcomes = autoOutcomes ?? new List<EventOutcomeEntry>();
             Conditions = conditions ?? new List<EventCondition>();
             Weight = weight;
         }
@@ -49,13 +57,15 @@ namespace Internal.Scripts.Events.Data
     public struct EventChoice
     {
         [field: SerializeField] public LocalizedString Text { get; private set; }
+        [field: SerializeField] public LocalizedString ResultText { get; private set; }
         [field: SerializeField] public List<EventCondition> Conditions { get; private set; }
         [field: SerializeField] public List<EventOutcomeEntry> Outcomes { get; private set; }
 
 #if UNITY_EDITOR
-        public EventChoice(LocalizedString text, List<EventCondition> conditions, List<EventOutcomeEntry> outcomes)
+        public EventChoice(LocalizedString text, LocalizedString resultText, List<EventCondition> conditions, List<EventOutcomeEntry> outcomes)
         {
             Text = text;
+            ResultText = resultText;
             Conditions = conditions ?? new List<EventCondition>();
             Outcomes = outcomes ?? new List<EventOutcomeEntry>();
         }

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Internal.Scripts.Events.Data;
+using Internal.Scripts.UI.Components;
 using UnityEngine;
 
 namespace Internal.Scripts.Events.Outcomes
@@ -16,6 +17,13 @@ namespace Internal.Scripts.Events.Outcomes
             Register(resource);
             Register(item);
             Register(cartDurability);
+        }
+
+        public ResourceType? GetAffectedResource(EventOutcomeType type)
+        {
+            if (_handlers.TryGetValue(type, out var handler))
+                return handler.GetAffectedResource(type);
+            return null;
         }
 
         public void Apply(EventOutcomeEntry entry)

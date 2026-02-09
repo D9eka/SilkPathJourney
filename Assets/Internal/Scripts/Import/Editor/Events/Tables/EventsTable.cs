@@ -34,6 +34,7 @@ namespace Internal.Scripts.Import.Editor.Events.Tables
             int descKeyIndex = FindColumnIndex(header, "description_key");
             int imageIndex = FindColumnIndex(header, "image_name");
             int weightIndex = FindColumnIndex(header, "weight");
+            int isMinorIndex = FindColumnIndex(header, "is_minor");
 
             if (idIndex < 0 || typeIdIndex < 0 || nameKeyIndex < 0)
             {
@@ -53,6 +54,13 @@ namespace Internal.Scripts.Import.Editor.Events.Tables
                 TryParseFloat(weightIndex >= 0 ? GetField(rows[i], weightIndex) : "1", out float weight);
                 if (weight <= 0f) weight = 1f;
 
+                bool isMinor = false;
+                if (isMinorIndex >= 0)
+                {
+                    TryParseInt(GetField(rows[i], isMinorIndex), out int isMinorInt);
+                    isMinor = isMinorInt != 0;
+                }
+
                 LocalizedString nameLS = MakeLocalizedString(nameKey, locTableName);
                 LocalizedString descLS = MakeLocalizedString(descKey, locTableName);
 
@@ -67,10 +75,12 @@ namespace Internal.Scripts.Import.Editor.Events.Tables
                 List<EventChoice> builtChoices = BuildChoicesForEvent(
                     id, choices, choiceConditions, outcomes, locTableName);
 
+                List<EventOutcomeEntry> autoOutcomes = ExtractAutoOutcomes(id, outcomes);
+
                 eventConditions.TryGetValue(id, out List<EventCondition> conditions);
 
                 EventData asset = LoadOrCreateAsset<EventData>(EVENTS_FOLDER, id);
-                asset.ApplyImport(id, nameLS, eventTypeLS, descLS, image, builtChoices, conditions, weight);
+                asset.ApplyImport(id, nameLS, eventTypeLS, descLS, image, isMinor, builtChoices, autoOutcomes, conditions, weight);
                 EditorUtility.SetDirty(asset);
                 events.Add(asset);
             }
@@ -96,6 +106,9 @@ namespace Internal.Scripts.Import.Editor.Events.Tables
             foreach (var raw in rawChoices)
             {
                 LocalizedString textLS = MakeLocalizedString(raw.NameKey, locTableName);
+                LocalizedString resultLS = string.IsNullOrEmpty(raw.ResultKey)
+                    ? new LocalizedString()
+                    : MakeLocalizedString(raw.ResultKey, locTableName);
 
                 List<EventCondition> conds = null;
                 condByIdx?.TryGetValue(raw.Index, out conds);
@@ -103,10 +116,20 @@ namespace Internal.Scripts.Import.Editor.Events.Tables
                 List<EventOutcomeEntry> outs = null;
                 outByIdx?.TryGetValue(raw.Index, out outs);
 
-                result.Add(new EventChoice(textLS, conds, outs));
+                result.Add(new EventChoice(textLS, resultLS, conds, outs));
             }
 
             return result;
+        }
+
+        private static List<EventOutcomeEntry> ExtractAutoOutcomes(
+            string eventId,
+            Dictionary<string, Dictionary<int, List<EventOutcomeEntry>>> outcomes)
+        {
+            if (outcomes == null) return null;
+            if (!outcomes.TryGetValue(eventId, out var byChoice)) return null;
+            byChoice.TryGetValue(0, out List<EventOutcomeEntry> autoOutcomes);
+            return autoOutcomes;
         }
 
         private static Sprite LoadEventSprite(string imageName)

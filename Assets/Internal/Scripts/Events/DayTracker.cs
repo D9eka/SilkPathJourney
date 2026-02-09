@@ -12,23 +12,24 @@ namespace Internal.Scripts.Events
         public event Action<int> OnDayChanged;
 
         private readonly SaveRepository _saveRepository;
-        private readonly float _metersPerDay;
+        private readonly GameBalanceConfig _balanceConfig;
+        private float _metersPerDay;
 
         private RoadAgent _playerRoadAgent;
         private float _lastDistanceCheckpoint = 0f;
 
         public int CurrentDay => _saveRepository.Data.Player.CurrentDay;
 
-        public DayTracker(SaveRepository saveRepository, GameBalanceConfig balanceConfig,
-            RoadAgentConfig agentConfig)
+        public DayTracker(SaveRepository saveRepository, GameBalanceConfig balanceConfig)
         {
             _saveRepository = saveRepository;
-            _metersPerDay = balanceConfig.SecondsPerDay * agentConfig.SpeedMetersPerSecond;
+            _balanceConfig = balanceConfig;
         }
 
         public void Initialize(RoadAgent playerRoadAgent)
         {
             _playerRoadAgent = playerRoadAgent;
+            _metersPerDay = _balanceConfig.SecondsPerDay * _playerRoadAgent.Speed;
             _playerRoadAgent.OnDistanceTraveled += HandleDistanceTraveled;
         }
 

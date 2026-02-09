@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using Internal.Scripts.Config;
 using Internal.Scripts.Economy;
 using Internal.Scripts.Events.Data;
+using Internal.Scripts.UI.Components;
 using UnityEngine;
 
 namespace Internal.Scripts.Events.Outcomes
@@ -14,16 +14,16 @@ namespace Internal.Scripts.Events.Outcomes
         };
 
         private readonly PlayerResourceRepository _resourceRepository;
-        private readonly GameBalanceConfig _balanceConfig;
 
-        public CartDurabilityOutcomeHandler(PlayerResourceRepository resourceRepository,
-            GameBalanceConfig balanceConfig)
+        public CartDurabilityOutcomeHandler(PlayerResourceRepository resourceRepository)
         {
             _resourceRepository = resourceRepository;
-            _balanceConfig = balanceConfig;
         }
 
         public IEnumerable<EventOutcomeType> SupportedTypes => Types;
+
+        public ResourceType? GetAffectedResource(EventOutcomeType type) =>
+            type == EventOutcomeType.CartDurability ? ResourceType.PlayerCartDurability : null;
 
         public void Apply(EventOutcomeEntry entry)
         {
@@ -34,13 +34,15 @@ namespace Internal.Scripts.Events.Outcomes
             {
                 if (cartIndex == -1)
                 {
+                    s.PlayerCart.Durability = Mathf.Clamp(
+                        s.PlayerCart.Durability + durabilityChange, 0f, s.PlayerCart.MaxDurability);
                     foreach (var cart in s.Carts)
-                        cart.Durability = Mathf.Clamp(cart.Durability + durabilityChange, 0f, _balanceConfig.MaxCartDurability);
+                        cart.Durability = Mathf.Clamp(cart.Durability + durabilityChange, 0f, cart.MaxDurability);
                 }
                 else if (cartIndex >= 0 && cartIndex < s.Carts.Count)
                 {
-                    s.Carts[cartIndex].Durability = Mathf.Clamp(
-                        s.Carts[cartIndex].Durability + durabilityChange, 0f, _balanceConfig.MaxCartDurability);
+                    var cart = s.Carts[cartIndex];
+                    cart.Durability = Mathf.Clamp(cart.Durability + durabilityChange, 0f, cart.MaxDurability);
                 }
             });
         }
