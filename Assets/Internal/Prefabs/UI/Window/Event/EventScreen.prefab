@@ -796,6 +796,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Screens.Event.EventScreen
   _mainHeader: {fileID: 1033174394196858954}
+  _mainHeaderLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   _eventNameText: {fileID: 133417812319120970}
   _eventTypeText: {fileID: 6008938062995005204}
   _eventDescriptionText: {fileID: 2273073003801484242}
@@ -807,18 +816,18 @@ MonoBehaviour:
   _choiceButtonPrefab: {fileID: 150921870437155092, guid: 2e5593097069d9042a684757e2b69dd9, type: 3}
   _continueLocalizedString:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: GUID:43598c3e97d7d9a439a074f7627fe021
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 1772544855105536
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
   _nearCityFormat:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: GUID:43598c3e97d7d9a439a074f7627fe021
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 1499307264958464
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
