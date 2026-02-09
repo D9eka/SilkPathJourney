@@ -157,13 +157,13 @@ namespace Internal.Scripts.UI.Screens.Trade
             var icons = _viewModel?.ResourceIcons;
             if (icons == null) return;
 
-            _playerTradeContainer.SetTotalIcon(icons.Money);
-            _npcTradeContainer.SetTotalIcon(icons.Money);
-            _itemsToBuyTradeContainer.SetTotalIcon(icons.Money);
-            _itemsToSellTradeContainer.SetTotalIcon(icons.Money);
+            _playerTradeContainer.SetTotalIcon(icons.Get(ResourceType.Money)?.Icon);
+            _npcTradeContainer.SetTotalIcon(icons.Get(ResourceType.Money)?.Icon);
+            _itemsToBuyTradeContainer.SetTotalIcon(icons.Get(ResourceType.Money)?.Icon);
+            _itemsToSellTradeContainer.SetTotalIcon(icons.Get(ResourceType.Money)?.Icon);
 
             if (_weightIndicator != null)
-                _weightIndicator.SetIcon(icons.Weight);
+                _weightIndicator.SetIcon(icons.Get(ResourceType.Weight)?.Icon);
         }
 
         private void SubscribeViewModel()
@@ -261,7 +261,8 @@ namespace Internal.Scripts.UI.Screens.Trade
                 _weightIndicator.SetValue(weightText);
 
                 float weightChange = state.ProjectedWeight - state.BaseWeight;
-                _weightIndicator.SetChange(weightChange);
+                var icons = _viewModel?.ResourceIcons;
+                _weightIndicator.SetChange(weightChange, icons?.Get(ResourceType.Weight)?.IncreaseIsPositive ?? true);
                 _weightIndicator.SetHighlight(state.WeightWarning);
             }
 

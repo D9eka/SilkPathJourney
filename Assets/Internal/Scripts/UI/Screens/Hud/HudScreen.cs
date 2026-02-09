@@ -1,7 +1,5 @@
 using System;
-using Internal.Scripts.Config;
 using Internal.Scripts.Economy.Cities;
-using Internal.Scripts.Economy.Save;
 using Internal.Scripts.Events;
 using Internal.Scripts.Hud;
 using Internal.Scripts.UI.Components;
@@ -55,10 +53,6 @@ namespace Internal.Scripts.UI.Screens.Hud
         private HudScreenViewModel _viewModel;
         private IDisposable _stateSubscription;
         private IDisposable _resourceSubscription;
-
-        private float _prevFood = -1f;
-        private float _prevDanger = -1f;
-        private float _prevPlayerCartDur = -1f;
 
         private void OnEnable()
         {
@@ -204,60 +198,32 @@ namespace Internal.Scripts.UI.Screens.Hud
                     localizedString.TableEntryReference.Key, context);
         }
 
-        private void ApplyResources(PlayerResourceState res)
+        private void ApplyResources(HudResourceViewState res)
         {
-            GameBalanceConfig config = _viewModel.BalanceConfig;
+            _foodIndicator.SetValue($"{res.Food.Value:0}");
+            if (res.Food.Animate)
+                _foodIndicator.ShowTemporaryChange(res.Food.Change, res.Food.IncreaseIsPositive);
 
-            float food = res.Food;
-            _foodIndicator.SetValue($"{food:0}");
-            if (_prevFood >= 0f && !Mathf.Approximately(food, _prevFood))
-                _foodIndicator.ShowTemporaryChange(Mathf.RoundToInt(food - _prevFood), 
-                    GetIncreaseIsPositive(ResourceType.Food));
-            _prevFood = food;
+            ApplySlider(_playerCaretDurabilitySlider, res.PlayerCart);
 
-            float dur = res.PlayerCart.Durability;
-            float maxDur = res.PlayerCart.MaxDurability;
-            if (_prevPlayerCartDur >= 0f && !Mathf.Approximately(dur, _prevPlayerCartDur))
+            _otherCaretsDurabilitySlider.gameObject.SetActive(res.OtherCarts.Visible);
+            if (res.OtherCarts.Visible)
+                _otherCaretsDurabilitySlider.SetValue(res.OtherCarts.Value, res.OtherCarts.MaxValue);
+
+            ApplySlider(_dangerSlider, res.Danger);
+        }
+
+        private void ApplySlider(SliderResourceIndicator slider, ResourceIndicatorState s)
+        {
+            if (s.Animate)
             {
-                _playerCaretDurabilitySlider.AnimateValue(dur, maxDur);
-                _playerCaretDurabilitySlider.ShowTemporaryChange(
-                    Mathf.RoundToInt(dur - _prevPlayerCartDur), 
-                    GetIncreaseIsPositive(ResourceType.PlayerCartDurability));
+                slider.AnimateValue(s.Value, s.MaxValue);
+                slider.ShowTemporaryChange(s.Change, s.IncreaseIsPositive);
             }
             else
             {
-                _playerCaretDurabilitySlider.SetValue(dur, maxDur);
+                slider.SetValue(s.Value, s.MaxValue);
             }
-            _prevPlayerCartDur = dur;
-
-            if (res.Carts.Count == 0)
-            {
-                _otherCaretsDurabilitySlider.gameObject.SetActive(false);
-            }
-            else
-            {
-                float totalDur = 0f;
-                float totalMax = 0f;
-                foreach (CartState c in res.Carts)
-                {
-                    totalDur += c.Durability;
-                    totalMax += c.MaxDurability;
-                }
-                _otherCaretsDurabilitySlider.gameObject.SetActive(true);
-                _otherCaretsDurabilitySlider.SetValue(totalDur / res.Carts.Count, totalMax / res.Carts.Count);
-            }
-
-            float danger = res.AccumulatedDanger;
-            if (_prevDanger >= 0f && !Mathf.Approximately(danger, _prevDanger))
-            {
-                _dangerSlider.AnimateValue(danger, config.MaxDanger);
-                _dangerSlider.ShowTemporaryChange(Mathf.RoundToInt(danger - _prevDanger), GetIncreaseIsPositive(ResourceType.Danger));
-            }
-            else
-            {
-                _dangerSlider.SetValue(danger, config.MaxDanger);
-            }
-            _prevDanger = danger;
         }
 
         private void ApplyDay(int day)
@@ -277,9 +243,6 @@ namespace Internal.Scripts.UI.Screens.Hud
             _otherCaretsDurabilitySlider.SetIcon(icons.Get(ResourceType.OtherCartsDurability)?.Icon);
             _dangerSlider.SetIcon(icons.Get(ResourceType.Danger)?.Icon);
         }
-
-        private bool GetIncreaseIsPositive(ResourceType type) =>
-            _viewModel?.ResourceIcons?.Get(type)?.IncreaseIsPositive ?? true;
 
         private void SetInteractable(bool state)
         {

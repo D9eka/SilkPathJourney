@@ -70,8 +70,7 @@ namespace Internal.Scripts.UI.Screens.Hud
         public override ScreenId Id => ScreenId.Hud;
 
         public Observable<HudViewState> State => _model.State;
-        public Observable<PlayerResourceState> Resources => _resourceRepository.StateStream;
-        public GameBalanceConfig BalanceConfig => _balanceConfig;
+        public Observable<HudResourceViewState> Resources => _model.ResourceState;
         public int CurrentDay => _dayTracker.CurrentDay;
         public ResourceIconCatalog ResourceIcons => _iconCatalog;
 

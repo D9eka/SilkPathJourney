@@ -13,6 +13,7 @@ namespace Internal.Scripts.UI.Screens.Trade
         [Header("Components")]
         [SerializeField] private HeaderElement _mainHeader;
         [SerializeField] private ResourceIndicator _totalIndicator;
+        [SerializeField] private bool _increaseIsPositive;
 
         [Header("Content")]
         [SerializeField] private ItemsView _itemsView;
@@ -48,7 +49,7 @@ namespace Internal.Scripts.UI.Screens.Trade
             _totalIndicator?.SetValue(value);
 
         public void SetTotalChange(int change) =>
-            _totalIndicator?.SetChange(change);
+            _totalIndicator?.SetChange(change, _increaseIsPositive);
 
         public void SetTotalHighlight(bool warning) =>
             _totalIndicator?.SetHighlight(warning);
