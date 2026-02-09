@@ -18,6 +18,7 @@ namespace Internal.Scripts.UI.Screens.Event
     {
         [Header("Header")]
         [SerializeField] private HeaderElement _mainHeader;
+        [SerializeField] private LocalizedString _mainHeaderLocalizedString;
         [Header("Event Info")]
         [SerializeField] private TextMeshProUGUI _eventNameText;
         [SerializeField] private TextMeshProUGUI _eventTypeText;
@@ -45,12 +46,14 @@ namespace Internal.Scripts.UI.Screens.Event
         private List<EventChoice> _currentChoices;
         private int _selectedChoiceIndex = -1;
 
+        private LocalizationHelper.LocalizedTextHandle _mainHeaderHandle;
         private LocalizationHelper.LocalizedTextHandle _nameHandle;
         private LocalizationHelper.LocalizedTextHandle _typeHandle;
         private LocalizationHelper.LocalizedTextHandle _descriptionHandle;
 
         private void OnEnable()
         {
+            BindHeaderLocalization();
             SubscribeViewModel();
         }
 
@@ -58,15 +61,25 @@ namespace Internal.Scripts.UI.Screens.Event
         {
             UnsubscribeViewModel();
 
+            _mainHeaderHandle?.Dispose();
             _nameHandle?.Dispose();
             _typeHandle?.Dispose();
             _descriptionHandle?.Dispose();
 
+            _mainHeaderHandle = null;
             _nameHandle = null;
             _typeHandle = null;
             _descriptionHandle = null;
 
             ClearResourceIndicators();
+        }
+
+        private void BindHeaderLocalization()
+        {
+            _mainHeaderHandle?.Dispose();
+            if (_mainHeader != null && _mainHeader.Text != null && _mainHeaderLocalizedString != null)
+                _mainHeaderHandle = LocalizationHelper.BindText(
+                    _mainHeader.Text, _mainHeaderLocalizedString, "Event.MainHeader");
         }
 
         public override void BindViewModel(IScreenViewModel viewModel)
