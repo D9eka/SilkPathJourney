@@ -1,4 +1,5 @@
 using System;
+using Internal.Scripts.Economy;
 using Internal.Scripts.Events;
 using Internal.Scripts.Npc.Core;
 using Internal.Scripts.Npc.Movement;
@@ -26,12 +27,13 @@ namespace Internal.Scripts.Player
         private readonly SaveRepository _saveRepository;
         private readonly DayTracker _dayTracker;
         private readonly GameClock _gameClock;
+        private readonly PlayerResourceRepository _resourceRepository;
 
         public PlayerInitializer(RoadAgentView view, RoadAgentConfig config,
             IRoadNetwork roadNetwork, SegmentMover segmentMover,
             INextSegmentProvider nextSegmentProvider, IArrowJunctionBalancer arrowJunctionBalancer,
             PlayerController playerController, PlayerConfig playerConfig, SaveRepository saveRepository,
-            DayTracker dayTracker, GameClock gameClock)
+            DayTracker dayTracker, GameClock gameClock, PlayerResourceRepository resourceRepository)
         {
             _view = view;
             _config = config;
@@ -44,6 +46,7 @@ namespace Internal.Scripts.Player
             _saveRepository = saveRepository;
             _dayTracker = dayTracker;
             _gameClock = gameClock;
+            _resourceRepository = resourceRepository;
         }
 
         public void Initialize()
@@ -52,6 +55,11 @@ namespace Internal.Scripts.Player
 
             RoadAgent agent = new RoadAgent(_view, _config,
                 new RoadPathCursor(_roadNetwork, _segmentMover, _nextSegmentProvider), _gameClock, startNodeId);
+
+            var resources = _resourceRepository.Current;
+            agent.Speed = resources.PlayerCart.Speed;
+            agent.Weight = resources.TotalCapacity;
+
             agent.Initialize();
             _arrowJunctionBalancer.Initialize(agent);
             _playerController.Initialize(agent);

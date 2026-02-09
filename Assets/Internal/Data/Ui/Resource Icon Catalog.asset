@@ -12,9 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 291e614a9dae19a4b8eb78c790ea3811, type: 3}
   m_Name: Resource Icon Catalog
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Components.ResourceIconCatalog
-  <Weight>k__BackingField: {fileID: 21300000, guid: bfc41bb3861290e4db7f84a3d9cf0eb0, type: 3}
-  <Money>k__BackingField: {fileID: 21300000, guid: ab99f2408157e0344b33923e99675f2f, type: 3}
-  <Food>k__BackingField: {fileID: 21300000, guid: 5c7cff361729e5b44bdf9758c7281a21, type: 3}
-  <Danger>k__BackingField: {fileID: 21300000, guid: d1e29f5d1d80e1e4ba16d819fa0b8b45, type: 3}
-  <PlayerCartDurability>k__BackingField: {fileID: 21300000, guid: 10509665a6ab8ae4a85a5a7a5f3acc22, type: 3}
-  <OtherCartsDurability>k__BackingField: {fileID: 21300000, guid: e01e88648f634ab46af71dff3f273cc7, type: 3}
+  _resources:
+  - Type: 0
+    Icon: {fileID: 21300000, guid: bb00b5c131ada4847b485922ba7460b4, type: 3}
+    IncreaseIsPositive: 1
+  - Type: 1
+    Icon: {fileID: 21300000, guid: 363ebd89022ee4942afe398312842b9d, type: 3}
+    IncreaseIsPositive: 1
+  - Type: 2
+    Icon: {fileID: 21300000, guid: 7efb6fd4a28f4004fbed305fd05df5a8, type: 3}
+    IncreaseIsPositive: 0
+  - Type: 3
+    Icon: {fileID: 21300000, guid: 4fa80a6f676605e44a5ff3589f87f832, type: 3}
+    IncreaseIsPositive: 1
+  - Type: 4
+    Icon: {fileID: 21300000, guid: 00db168372123bc49b391f4a860edaf1, type: 3}
+    IncreaseIsPositive: 1
+  - Type: 5
+    Icon: {fileID: 21300000, guid: 193c6c737e362dd43a23ca103db86812, type: 3}
+    IncreaseIsPositive: 0

@@ -26,6 +26,8 @@ namespace Internal.Scripts.Npc.Core
         public bool HasPath => !_cursor.IsEmpty;
         public RoadPose CurrentPose => _cursor.CurrentPose;
         public float TotalDistanceTraveled => _totalDistanceTraveled;
+        public float Speed { get; set; }
+        public float Weight { get; set; }
 
         public RoadAgent(RoadAgentView view, RoadAgentConfig config,
             RoadPathCursor cursor, GameClock gameClock, string startNodeId)
@@ -35,6 +37,7 @@ namespace Internal.Scripts.Npc.Core
             _cursor = cursor;
             _gameClock = gameClock;
             _currentNodeId = startNodeId;
+            Speed = _config.SpeedMetersPerSecond;
         }
         
         public void Initialize()
@@ -83,7 +86,7 @@ namespace Internal.Scripts.Npc.Core
             }
 
             float deltaTime = Time.deltaTime * _gameClock.TimeScale;
-            float distanceToTravel = _config.SpeedMetersPerSecond * deltaTime;
+            float distanceToTravel = Speed * deltaTime;
             float actualDistance = _cursor.Advance(distanceToTravel);
 
             _totalDistanceTraveled += actualDistance;
