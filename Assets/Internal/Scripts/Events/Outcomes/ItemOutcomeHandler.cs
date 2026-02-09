@@ -38,5 +38,7 @@ namespace Internal.Scripts.Events.Outcomes
                     InventoryStateMutator.RemoveItems(state, entry.Param, -count));
             }
         }
+
+        public bool CanAfford(EventOutcomeType type, float netValue) => true;
     }
 }

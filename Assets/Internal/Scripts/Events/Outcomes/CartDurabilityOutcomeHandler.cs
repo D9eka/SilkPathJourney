@@ -46,5 +46,7 @@ namespace Internal.Scripts.Events.Outcomes
                 }
             });
         }
+
+        public bool CanAfford(EventOutcomeType type, float netValue) => true;
     }
 }

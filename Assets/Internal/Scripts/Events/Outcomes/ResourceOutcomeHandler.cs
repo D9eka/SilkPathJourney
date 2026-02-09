@@ -53,5 +53,18 @@ namespace Internal.Scripts.Events.Outcomes
                     break;
             }
         }
+
+        public bool CanAfford(EventOutcomeType type, float netValue)
+        {
+            if (netValue >= 0) return true;
+            var res = _resourceRepository.Current;
+            if (res == null) return true;
+            return type switch
+            {
+                EventOutcomeType.Money => res.Money + netValue >= 0,
+                EventOutcomeType.Food => res.Food + netValue >= 0,
+                _ => true
+            };
+        }
     }
 }

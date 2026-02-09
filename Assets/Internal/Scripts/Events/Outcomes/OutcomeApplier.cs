@@ -37,6 +37,27 @@ namespace Internal.Scripts.Events.Outcomes
             Debug.LogWarning($"[SPJ Events] No outcome handler for {entry.Type}");
         }
 
+        public bool CanAffordAll(List<EventOutcomeEntry> outcomes)
+        {
+            if (outcomes == null || outcomes.Count == 0) return true;
+
+            Dictionary<EventOutcomeType, float> net = new();
+            foreach (var e in outcomes)
+            {
+                if (e.Type == EventOutcomeType.None) continue;
+                net.TryGetValue(e.Type, out float cur);
+                net[e.Type] = cur + e.Value;
+            }
+
+            foreach (var kvp in net)
+            {
+                if (kvp.Value >= 0) continue;
+                if (_handlers.TryGetValue(kvp.Key, out var handler) && !handler.CanAfford(kvp.Key, kvp.Value))
+                    return false;
+            }
+            return true;
+        }
+
         private void Register(IOutcomeHandler handler)
         {
             foreach (var type in handler.SupportedTypes)
