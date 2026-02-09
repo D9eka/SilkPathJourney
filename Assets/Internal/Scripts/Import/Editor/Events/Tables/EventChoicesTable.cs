@@ -13,6 +13,7 @@ namespace Internal.Scripts.Import.Editor.Events.Tables
         {
             public int Index;
             public string NameKey;
+            public string ResultKey;
         }
 
         public static Dictionary<string, List<ChoiceRaw>> Read()
@@ -32,6 +33,7 @@ namespace Internal.Scripts.Import.Editor.Events.Tables
             int eventIdIndex = FindColumnIndex(header, "event_id");
             int choiceIndexIndex = FindColumnIndex(header, "choice_index");
             int nameKeyIndex = FindColumnIndex(header, "name_key");
+            int resultKeyIndex = FindColumnIndex(header, "result_key");
             if (eventIdIndex < 0 || choiceIndexIndex < 0 || nameKeyIndex < 0)
             {
                 Debug.LogError("[SPJ] Missing columns in event_choices.csv");
@@ -45,6 +47,7 @@ namespace Internal.Scripts.Import.Editor.Events.Tables
 
                 TryParseInt(GetField(rows[i], choiceIndexIndex), out int choiceIndex);
                 string nameKey = GetField(rows[i], nameKeyIndex).Trim();
+                string resultKey = resultKeyIndex >= 0 ? GetField(rows[i], resultKeyIndex).Trim() : "";
 
                 if (!map.TryGetValue(eventId, out List<ChoiceRaw> list))
                 {
@@ -52,7 +55,7 @@ namespace Internal.Scripts.Import.Editor.Events.Tables
                     map[eventId] = list;
                 }
 
-                list.Add(new ChoiceRaw { Index = choiceIndex, NameKey = nameKey });
+                list.Add(new ChoiceRaw { Index = choiceIndex, NameKey = nameKey, ResultKey = resultKey });
             }
 
             foreach (var list in map.Values)

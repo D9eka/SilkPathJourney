@@ -4,6 +4,7 @@ using Internal.Scripts.UI.Screen.ViewModel;
 using Internal.Scripts.UI.Screens.Event;
 using Internal.Scripts.UI.Screens.Hud;
 using Internal.Scripts.UI.Screens.Inventory;
+using Internal.Scripts.UI.Screens.TargetSelection;
 using Internal.Scripts.UI.Screens.Trade;
 using Plugins.Zenject.Source.Main;
 
@@ -26,6 +27,7 @@ namespace Internal.Scripts.UI.Factory
                 ScreenId.Inventory => CreateInventory(view),
                 ScreenId.Trade => CreateTrade(view),
                 ScreenId.Event => CreateEvent(view),
+                ScreenId.TargetSelection => CreateTargetSelection(view),
                 _ => null
             };
         }
@@ -60,6 +62,14 @@ namespace Internal.Scripts.UI.Factory
                 return null;
 
             return _container.Instantiate<EventScreenViewModel>();
+        }
+
+        private ScreenViewModelBase CreateTargetSelection(IScreenView view)
+        {
+            if (view is not TargetSelectionScreen)
+                return null;
+
+            return _container.Instantiate<TargetSelectionScreenViewModel>();
         }
     }
 }

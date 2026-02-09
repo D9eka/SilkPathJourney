@@ -13,5 +13,6 @@ namespace Internal.Scripts.Save
         // Система дней
         public int CurrentDay = 1;
         public int LastEventDay = -2;
+        public int LastMinorEventDay = -1;
     }
 }

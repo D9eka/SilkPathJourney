@@ -8,5 +8,6 @@
         Luxury = 3,
         Exotic = 4,
         Raw = 5,
+        Animals = 6,
     }
 }

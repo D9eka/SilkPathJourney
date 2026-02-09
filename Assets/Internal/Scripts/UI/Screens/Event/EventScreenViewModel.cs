@@ -23,6 +23,7 @@ namespace Internal.Scripts.UI.Screens.Event
         private readonly ReactiveProperty<EventData> _state = new(null);
         private readonly ReactiveProperty<CityData> _city = new(null);
         private readonly ReactiveProperty<bool> _isAtCity = new(false);
+        private readonly ReactiveProperty<EventChoice?> _selectedChoice = new(null);
 
         public EventScreenViewModel(
             EventTrigger eventTrigger,
@@ -43,6 +44,7 @@ namespace Internal.Scripts.UI.Screens.Event
         public Observable<EventData> State => _state;
         public Observable<CityData> City => _city;
         public Observable<bool> IsAtCity => _isAtCity;
+        public Observable<EventChoice?> SelectedChoice => _selectedChoice;
         public ItemCatalog ItemCatalog => _itemCatalog;
         public EventTrigger EventTrigger => _eventTrigger;
         public ResourceIconCatalog ResourceIcons => _resourceIcons;
@@ -75,6 +77,7 @@ namespace Internal.Scripts.UI.Screens.Event
             _state.Value = null;
             _city.Value = null;
             _isAtCity.Value = false;
+            _selectedChoice.Value = null;
             _eventTrigger.OnEventCompleted();
         }
 
@@ -86,6 +89,12 @@ namespace Internal.Scripts.UI.Screens.Event
 
             EventChoice choice = _state.Value.Choices[choiceIndex];
             _eventTrigger.ApplyOutcome(choice.Outcomes);
+            _selectedChoice.Value = choice;
+        }
+
+        public void ConfirmResult()
+        {
+            _selectedChoice.Value = null;
             _screenStackService.Close(ScreenId.Event);
         }
     }

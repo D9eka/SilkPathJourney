@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Internal.Scripts.Config;
 using Internal.Scripts.Economy;
 using Internal.Scripts.Events.Data;
+using Internal.Scripts.UI.Components;
 using UnityEngine;
 
 namespace Internal.Scripts.Events.Outcomes
@@ -26,6 +27,14 @@ namespace Internal.Scripts.Events.Outcomes
         }
 
         public IEnumerable<EventOutcomeType> SupportedTypes => Types;
+
+        public ResourceType? GetAffectedResource(EventOutcomeType type) => type switch
+        {
+            EventOutcomeType.Money => ResourceType.Money,
+            EventOutcomeType.Food => ResourceType.Food,
+            EventOutcomeType.Danger => ResourceType.Danger,
+            _ => null
+        };
 
         public void Apply(EventOutcomeEntry entry)
         {

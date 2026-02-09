@@ -6,6 +6,7 @@ namespace Internal.Scripts.UI.Screen.Config
         Inventory = 1,
         Trade = 2,
         Hud = 3,
-        Event = 4
+        Event = 4,
+        TargetSelection = 5
     }
 }

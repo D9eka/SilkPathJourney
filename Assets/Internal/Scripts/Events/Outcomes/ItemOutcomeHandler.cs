@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Internal.Scripts.Events.Data;
 using Internal.Scripts.Inventory;
+using Internal.Scripts.UI.Components;
 using UnityEngine;
 
 namespace Internal.Scripts.Events.Outcomes
@@ -20,6 +21,8 @@ namespace Internal.Scripts.Events.Outcomes
         }
 
         public IEnumerable<EventOutcomeType> SupportedTypes => Types;
+
+        public ResourceType? GetAffectedResource(EventOutcomeType type) => null;
 
         public void Apply(EventOutcomeEntry entry)
         {
