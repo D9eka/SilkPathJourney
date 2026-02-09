@@ -13,12 +13,16 @@ namespace Internal.Scripts.Events.Conditions
             ResourceConditionHandler resource,
             InventoryConditionHandler inventory,
             CartConditionHandler cart,
-            LocationConditionHandler location)
+            LocationConditionHandler location,
+            CompanionConditionHandler companion,
+            SkillConditionHandler skill)
         {
             Register(resource);
             Register(inventory);
             Register(cart);
             Register(location);
+            Register(companion);
+            Register(skill);
         }
 
         public bool Evaluate(EventCondition condition, PlayerResourceState resources)

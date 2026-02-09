@@ -12,11 +12,15 @@ namespace Internal.Scripts.Events.Outcomes
         public OutcomeApplier(
             ResourceOutcomeHandler resource,
             ItemOutcomeHandler item,
-            CartDurabilityOutcomeHandler cartDurability)
+            CartDurabilityOutcomeHandler cartDurability,
+            CompanionOutcomeHandler companion,
+            SkillOutcomeHandler skill)
         {
             Register(resource);
             Register(item);
             Register(cartDurability);
+            Register(companion);
+            Register(skill);
         }
 
         public ResourceType? GetAffectedResource(EventOutcomeType type)
