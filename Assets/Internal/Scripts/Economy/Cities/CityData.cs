@@ -1,3 +1,4 @@
+using Internal.Scripts.Camera;
 using Internal.Scripts.Economy.Generated;
 using UnityEngine;
 using UnityEngine.Localization;
@@ -15,6 +16,10 @@ namespace Internal.Scripts.Economy.Cities
         [field: SerializeField] public float MarketScale { get; private set; }
         [field: SerializeField] public bool HasPort { get; private set; }
         [field: SerializeField] public LocalizedString Name { get; private set; } = new();
+
+        [Header("Detail Scene")]
+        [Tooltip("Detail scene for this city (optional)")]
+        [field: SerializeField] public SceneReference DetailScene { get; private set; }
 
 #if UNITY_EDITOR
         public void ApplyImport(

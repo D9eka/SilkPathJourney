@@ -19,8 +19,12 @@ namespace Internal.Scripts.Camera
             _autoFitter = autoFitter;
         }
 
+        public float CurrentZoomSize => _zoomer.Size;
+
         public void MoveCamera(Vector2 position, Action onComplete = null) => _mover.MoveTo(position, onComplete);
+        public void MoveCamera(Vector2 position, float duration, Action onComplete = null) => _mover.MoveTo(position, duration, onComplete);
         public void ZoomCamera(float size, Action onComplete = null) => _zoomer.ZoomTo(size, onComplete);
+        public void ZoomCamera(float size, float duration, Action onComplete = null) => _zoomer.ZoomTo(size, duration, onComplete);
 
         public void FocusOnObjects(Transform[] targets, Action onComplete = null)
         {

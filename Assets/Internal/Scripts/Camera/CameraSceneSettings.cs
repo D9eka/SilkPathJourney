@@ -14,9 +14,13 @@ namespace Internal.Scripts.Camera
         [Tooltip("Main strategic scene (always the same)")]
         [field: SerializeField] public SceneReference MainScene { get; private set; }
 
-        [Tooltip("Detail scene to load when zoomed in")]
-        [field: SerializeField] public SceneReference DetailScene { get; private set; }
-
         [field: SerializeField] public bool EnableDetailSceneLoading { get; private set; } = true;
+
+        [Header("City Detail Scene Settings")]
+        [Tooltip("Default camera size for city detail scenes if not specified in SceneReference")]
+        [field: SerializeField] public float DefaultCityDetailZoomSize { get; private set; } = 15f;
+
+        [Tooltip("Load detail scene before animation starts (smoother) or during animation")]
+        [field: SerializeField] public bool PreloadCityScene { get; private set; } = true;
     }
 }
