@@ -1,5 +1,7 @@
 using System;
+using DG.Tweening;
 using Internal.Scripts.Camera;
+using Internal.Scripts.Camera.Zoom;
 using Internal.Scripts.Player;
 using Internal.Scripts.Road.Nodes;
 using UnityEngine;
@@ -23,13 +25,16 @@ namespace Internal.Scripts.Economy.Cities
         private readonly CameraSceneLoader _cameraSceneLoader;
         private readonly DetailSceneLoader _detailSceneLoader;
         private readonly CameraSceneSettings _settings;
+        private readonly CameraZoomerData _zoomerData;
         private readonly IPlayerStateProvider _playerStateProvider;
         private readonly IRoadNodeLookup _nodeLookup;
 
         private CityData _currentCity;
         private bool _isTransitioning;
-        private Vector3 _previousCameraPosition;
+        private Vector2 _previousWorldTarget;
         private float _previousCameraSize;
+        private float _cameraYRotation;
+        private Tween _transitionTween;
 
         public bool IsInCityView => _currentCity != null;
         public CityData CurrentCity => _currentCity;
@@ -42,6 +47,7 @@ namespace Internal.Scripts.Economy.Cities
             CameraSceneLoader cameraSceneLoader,
             DetailSceneLoader detailSceneLoader,
             CameraSceneSettings settings,
+            CameraZoomerData zoomerData,
             IPlayerStateProvider playerStateProvider,
             IRoadNodeLookup nodeLookup)
         {
@@ -49,6 +55,7 @@ namespace Internal.Scripts.Economy.Cities
             _cameraSceneLoader = cameraSceneLoader;
             _detailSceneLoader = detailSceneLoader;
             _settings = settings;
+            _zoomerData = zoomerData;
             _playerStateProvider = playerStateProvider;
             _nodeLookup = nodeLookup;
 
@@ -62,7 +69,6 @@ namespace Internal.Scripts.Economy.Cities
             if (IsInCityView) return false;
             if (_playerStateProvider.State != PlayerState.Idle) return false;
 
-            // City must have detail scene configured
             return city.DetailScene != null &&
                    !string.IsNullOrEmpty(city.DetailScene.SceneName);
         }
@@ -80,12 +86,11 @@ namespace Internal.Scripts.Economy.Cities
             _currentCity = city;
             _cameraSceneLoader.SuspendAutoLoading = true;
 
-            // Save current camera state for exit
             UnityEngine.Camera cam = UnityEngine.Camera.main;
-            _previousCameraPosition = cam.transform.position;
+            _cameraYRotation = cam.transform.eulerAngles.y;
             _previousCameraSize = _cameraController.CurrentZoomSize;
+            _previousWorldTarget = GetWorldTarget(cam);
 
-            // Get target position from node world coordinates
             Vector3? nodePos = _nodeLookup.GetPosition(city.NodeId);
             if (!nodePos.HasValue)
             {
@@ -111,18 +116,22 @@ namespace Internal.Scripts.Economy.Cities
                 onComplete?.Invoke();
             }
 
-            // Load scene if preload enabled
             if (_settings.PreloadCityScene)
             {
                 LoadDetailScene(city, () =>
-                    AnimateCameraTransition(targetPosition, targetSize, 0.3f, OnEnterComplete));
+                    AnimateCityTransition(
+                        _previousWorldTarget, targetPosition,
+                        _previousCameraSize, targetSize,
+                        _settings.StrategicTiltAngle, _settings.DetailTiltAngle,
+                        0.6f, OnEnterComplete));
             }
             else
             {
-                AnimateCameraTransition(targetPosition, targetSize, 0.3f, () =>
-                {
-                    LoadDetailScene(city, OnEnterComplete);
-                });
+                AnimateCityTransition(
+                    _previousWorldTarget, targetPosition,
+                    _previousCameraSize, targetSize,
+                    _settings.StrategicTiltAngle, _settings.DetailTiltAngle,
+                    0.6f, () => LoadDetailScene(city, OnEnterComplete));
             }
         }
 
@@ -139,7 +148,6 @@ namespace Internal.Scripts.Economy.Cities
             _cameraSceneLoader.SuspendAutoLoading = true;
             CityData exitingCity = _currentCity;
 
-            // Get node position to center camera on
             Vector3? nodePosition = _nodeLookup.GetPosition(exitingCity.NodeId);
             if (!nodePosition.HasValue)
             {
@@ -150,12 +158,15 @@ namespace Internal.Scripts.Economy.Cities
                 return;
             }
 
-            Vector2 nodeXZ = new Vector2(nodePosition.Value.x, nodePosition.Value.z);
+            UnityEngine.Camera cam = UnityEngine.Camera.main;
+            Vector2 currentWorldTarget = GetWorldTarget(cam);
+            float currentSize = _cameraController.CurrentZoomSize;
 
-            // Reverse order: zoom out first, then move
-            _cameraController.ZoomCamera(_previousCameraSize, 0.3f, () =>
-            {
-                _cameraController.MoveCamera(nodeXZ, 0.3f, () =>
+            AnimateCityTransition(
+                currentWorldTarget, _previousWorldTarget,
+                currentSize, _previousCameraSize,
+                _settings.DetailTiltAngle, _settings.StrategicTiltAngle,
+                0.6f, () =>
                 {
                     UnloadDetailScene(exitingCity);
                     _currentCity = null;
@@ -165,15 +176,58 @@ namespace Internal.Scripts.Economy.Cities
                     OnCityExited?.Invoke();
                     onComplete?.Invoke();
                 });
-            });
         }
 
-        private void AnimateCameraTransition(Vector2 position, float size, float duration, Action onComplete)
+        private void AnimateCityTransition(
+            Vector2 startWorldTarget, Vector2 endWorldTarget,
+            float startSize, float endSize,
+            float startAngle, float endAngle,
+            float duration, Action onComplete)
         {
-            _cameraController.MoveCamera(position, duration, () =>
+            _transitionTween?.Kill();
+
+            UnityEngine.Camera cam = UnityEngine.Camera.main;
+            float startY = cam.transform.position.y;
+            float endY = SizeToY(endSize);
+            float yRot = _cameraYRotation;
+
+            _transitionTween = DOVirtual.Float(0f, 1f, duration, t =>
             {
-                _cameraController.ZoomCamera(size, duration, () => onComplete?.Invoke());
-            });
+                float angle = Mathf.Lerp(startAngle, endAngle, t);
+                float y = Mathf.Lerp(startY, endY, t);
+                float x = Mathf.Lerp(startWorldTarget.x, endWorldTarget.x, t);
+                float wz = Mathf.Lerp(startWorldTarget.y, endWorldTarget.y, t);
+                float zOffset = CalculateZOffset(y, angle, yRot);
+
+                cam.transform.position = new Vector3(x, y, wz + zOffset);
+                cam.transform.eulerAngles = new Vector3(angle, yRot, 0f);
+            }).SetEase(Ease.InOutSine).OnComplete(() => onComplete?.Invoke());
+        }
+
+        private Vector2 GetWorldTarget(UnityEngine.Camera cam)
+        {
+            Vector3 forward = cam.transform.forward;
+            Vector3 pos = cam.transform.position;
+            if (Mathf.Abs(forward.y) < 0.001f)
+                return new Vector2(pos.x, pos.z);
+            float zOffset = pos.y * forward.z / forward.y;
+            return new Vector2(pos.x, pos.z - zOffset);
+        }
+
+        private float CalculateZOffset(float cameraY, float xAngleDeg, float yAngleDeg)
+        {
+            float xRad = xAngleDeg * Mathf.Deg2Rad;
+            float yRad = yAngleDeg * Mathf.Deg2Rad;
+            float forwardY = -Mathf.Sin(xRad);
+            if (Mathf.Abs(forwardY) < 0.001f) return 0f;
+            float forwardZ = Mathf.Cos(xRad) * Mathf.Cos(yRad);
+            return cameraY * forwardZ / forwardY;
+        }
+
+        private float SizeToY(float size)
+        {
+            return _zoomerData.BaseYPosition +
+                   (size - _zoomerData.BaseSizeValue) / _zoomerData.ScaleFactor;
         }
 
         private void LoadDetailScene(CityData city, Action onComplete)

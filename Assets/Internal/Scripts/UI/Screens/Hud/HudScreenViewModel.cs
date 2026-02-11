@@ -156,7 +156,14 @@ namespace Internal.Scripts.UI.Screens.Hud
             if (!_model.TryGetEnterCity(out CityData city))
                 return;
 
-            _cityEntryService.EnterCity(city);
+            if (_cityEntryService.CanEnterCity(city))
+            {
+                _cityEntryService.EnterCity(city);
+            }
+            else
+            {
+                _screenStackService.TryOpen(ScreenId.Trade, city.Id, out _);
+            }
         }
 
         private void HandleDayChanged(int day) => DayChanged?.Invoke(day);
