@@ -2,6 +2,8 @@ using System;
 using DG.Tweening;
 using Internal.Scripts.Input;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using Zenject;
 
 namespace Internal.Scripts.Camera.Zoom
@@ -12,7 +14,9 @@ namespace Internal.Scripts.Camera.Zoom
         private readonly InputManager _inputManager;
         private readonly CameraZoomerData _cameraZoomerData;
 
-        public float Size => _camera.fieldOfView;
+        public float Size => _cameraZoomerData.BaseSizeValue +
+            (_camera.transform.position.y - _cameraZoomerData.BaseYPosition) *
+            _cameraZoomerData.ScaleFactor;
 
         public CameraZoomer(UnityEngine.Camera camera, InputManager inputManager, CameraZoomerData cameraZoomerData)
         {
@@ -32,13 +36,54 @@ namespace Internal.Scripts.Camera.Zoom
 
         public void ZoomTo(float size, Action onComplete = null)
         {
-            float duration = Mathf.Abs(Size - size) / 10f;
-            ZoomTo(size, duration, onComplete);
+            ZoomTo(size, null, onComplete);
+        }
+
+        public void ZoomTo(float size, Vector3? targetWorldPos, Action onComplete = null)
+        {
+            float zoomDelta = Mathf.Abs(Size - size);
+            float currentY = Mathf.Abs(_camera.transform.position.y);
+
+            // Dynamic zoom speed: faster when camera is far, slower when close
+            float speedMultiplier = currentY / Mathf.Abs(_cameraZoomerData.BaseYPosition);
+            speedMultiplier = Mathf.Max(speedMultiplier, 0.5f); // minimum 0.5x speed
+
+            float duration = zoomDelta / (_cameraZoomerData.ZoomSpeed * speedMultiplier);
+
+            ZoomTo(size, targetWorldPos, duration, onComplete);
         }
 
         public void ZoomTo(float size, float duration, Action onComplete = null)
         {
-            _camera.DOFieldOfView(size, duration)
+            ZoomTo(size, null, duration, onComplete);
+        }
+
+        public void ZoomTo(float size, Vector3? targetWorldPos, float duration, Action onComplete = null)
+        {
+            float currentY = _camera.transform.position.y;
+            float targetY = _cameraZoomerData.BaseYPosition +
+                (size - _cameraZoomerData.BaseSizeValue) / _cameraZoomerData.ScaleFactor;
+
+            Vector3 currentPos = _camera.transform.position;
+
+            // INSTANTLY move XZ toward cursor (no animation)
+            if (targetWorldPos.HasValue && _cameraZoomerData.EnableZoomToCursor)
+            {
+                // Calculate how much to move toward the target point
+                // As we zoom in (Y decreases), we move toward the mouse
+                float zoomRatio = targetY / currentY;
+                float offsetScale = 1f - zoomRatio;
+
+                Vector2 currentXZ = new Vector2(currentPos.x, currentPos.z);
+                Vector2 targetXZ = new Vector2(targetWorldPos.Value.x, targetWorldPos.Value.z);
+                Vector2 newXZ = currentXZ + (targetXZ - currentXZ) * offsetScale;
+
+                // Instantly set new XZ position (keeps current Y)
+                _camera.transform.position = new Vector3(newXZ.x, currentPos.y, newXZ.y);
+            }
+
+            // Animate ONLY Y (doesn't conflict with LateTick moving XZ)
+            _camera.transform.DOMoveY(targetY, duration)
                 .OnComplete(() => onComplete?.Invoke());
         }
 
@@ -46,7 +91,38 @@ namespace Internal.Scripts.Camera.Zoom
         {
             float newSize = Size + sizeDelta * _cameraZoomerData.Sensitivity;
             newSize = Mathf.Clamp(newSize, _cameraZoomerData.MinValue, _cameraZoomerData.MaxValue);
-            ZoomTo(newSize);
+
+            // Capture mouse world position if zoom to cursor is enabled
+            Vector3? mouseWorldPos = null;
+            if (_cameraZoomerData.EnableZoomToCursor)
+            {
+                mouseWorldPos = TryGetMouseWorldPosition();
+            }
+
+            ZoomTo(newSize, mouseWorldPos);
+        }
+
+        private Vector3? TryGetMouseWorldPosition()
+        {
+            // Don't zoom to cursor if mouse is over UI
+            if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+                return null;
+
+            if (Mouse.current == null)
+                return null;
+
+            Vector2 screenPos = Mouse.current.position.ReadValue();
+
+            // Create a plane at current camera Y height
+            Plane xzPlane = new Plane(Vector3.up, new Vector3(0, _camera.transform.position.y, 0));
+            Ray ray = _camera.ScreenPointToRay(screenPos);
+
+            if (xzPlane.Raycast(ray, out float enter))
+            {
+                return ray.GetPoint(enter);
+            }
+
+            return null;
         }
     }
 }

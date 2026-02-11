@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using Internal.Scripts.Camera;
 using Internal.Scripts.Camera.Move;
 using Internal.Scripts.Camera.Zoom;
 using Internal.Scripts.Input;
@@ -53,6 +54,7 @@ namespace Internal.Scripts.Installers
         [Header("Camera")]
         [SerializeField] private UnityEngine.Camera _mainCamera;
         [SerializeField] private CameraZoomerData _cameraZoomerData;
+        [SerializeField] private CameraSceneSettings _cameraSceneSettings;
         [Space]
         [Header("World")]
         [SerializeField] private WorldStatesData _worldStatesData;
@@ -113,6 +115,7 @@ namespace Internal.Scripts.Installers
 
             Container.BindInterfacesTo<CameraZoomer>().AsSingle().WithArguments(_cameraZoomerData);
             Container.BindInterfacesTo<CameraMover>().AsSingle();
+            Container.BindInterfacesTo<CameraSceneLoader>().AsSingle().WithArguments(_cameraSceneSettings);
         }
 
         public void InstallWorld()
