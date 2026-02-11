@@ -449,6 +449,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Installers.SceneInstaller
   _mainCamera: {fileID: 1362266847}
   _cameraZoomerData: {fileID: 11400000, guid: 8e7e949b26ae37947884f3b8193155ac, type: 2}
+  _cameraSceneSettings: {fileID: 11400000, guid: 45b20864a335ce54ab15b9a632a61834, type: 2}
   _worldStatesData: {fileID: 11400000, guid: 34261bb662f36cd458d5b81be3923ba5, type: 2}
   _nodeViewPrefab: {fileID: 3893819316855974185, guid: 166c63d6d4d3e2c4b8f38a259f032900, type: 3}
   _economyDatabase: {fileID: 11400000, guid: 470634ec055f63546815d93a3084b67b, type: 2}
@@ -742,7 +743,7 @@ Transform:
   m_GameObject: {fileID: 1362266845}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.8660254, z: -0.5, w: 0}
-  m_LocalPosition: {x: -389.73, y: 255.91072, z: 88.8}
+  m_LocalPosition: {x: -389.73, y: 273.94, z: 88.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

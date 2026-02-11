@@ -48,7 +48,7 @@ namespace Internal.Scripts.Camera.Move
 
         private Vector3 GetVector3Position(Vector2 position)
         {
-            return new Vector3(position.x, position.y, _camera.transform.position.z);
+            return new Vector3(position.x, _camera.transform.position.y, position.y);
         }
         
         private void ChangePosition(Vector2 delta)
