@@ -472,7 +472,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   _arrowsRoot: {fileID: 1659619013}
   _arrowPrefab: {fileID: 8460485022377515572, guid: 059a3f317078805408825cc19961bd68, type: 3}
-  _eventDatabase: {fileID: 11400000, guid: a37a083d3f3bc71498ca44336ccd1c77, type: 2}
+  _eventDatabase: {fileID: 11400000, guid: 8573b1faa3d1a1b4797c85b1c9579688, type: 2}
   _resourceIconCatalog: {fileID: 11400000, guid: a42aa19a74ddc194c8d99e338c0cd34a, type: 2}
   _gameBalanceConfig: {fileID: 11400000, guid: 27f872d135e6d774c89903c048a2126e, type: 2}
 --- !u!1 &964454146 stripped

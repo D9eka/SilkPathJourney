@@ -49,6 +49,7 @@ namespace Internal.Scripts.UI.Screens.Hud
         [SerializeField] private LocalizedString _campLocalizedString;
         [SerializeField] private LocalizedString _moveLocalizedString;
         [SerializeField] private LocalizedString _fastMoveLocalizedString;
+        [SerializeField] private LocalizedString _leaveCityLocalizedString;
 
         private HudScreenViewModel _viewModel;
         private IDisposable _stateSubscription;
@@ -167,7 +168,7 @@ namespace Internal.Scripts.UI.Screens.Hud
             _endActionButton.gameObject.SetActive(false);
             _cityTextContainer.SetActive(true);
 
-            SetButtonText(_startActionButtonText, _moveLocalizedString, "Move");
+            SetButtonText(_startActionButtonText, _leaveCityLocalizedString, "LeaveCity");
 
             if (city != null)
                 _cityText.text = LocalizationHelper.ResolveString(city.Name, city.Id, "CityName");

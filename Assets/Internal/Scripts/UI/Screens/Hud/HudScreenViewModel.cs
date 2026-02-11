@@ -21,6 +21,7 @@ namespace Internal.Scripts.UI.Screens.Hud
     {
         private readonly HudModel _model;
         private readonly ScreenStackService _screenStackService;
+        private readonly ICityEntryService _cityEntryService;
         private readonly IPlayerStateProvider _playerStateProvider;
         private readonly IPlayerMovementControl _playerMovementControl;
         private readonly IPlayerTurnChoiceState _turnChoiceState;
@@ -38,6 +39,7 @@ namespace Internal.Scripts.UI.Screens.Hud
         public HudScreenViewModel(
             HudModel model,
             ScreenStackService screenStackService,
+            ICityEntryService cityEntryService,
             IPlayerStateProvider playerStateProvider,
             IPlayerMovementControl playerMovementControl,
             IPlayerTurnChoiceState turnChoiceState,
@@ -50,6 +52,7 @@ namespace Internal.Scripts.UI.Screens.Hud
         {
             _model = model;
             _screenStackService = screenStackService;
+            _cityEntryService = cityEntryService;
             _playerStateProvider = playerStateProvider;
             _playerMovementControl = playerMovementControl;
             _turnChoiceState = turnChoiceState;
@@ -142,34 +145,34 @@ namespace Internal.Scripts.UI.Screens.Hud
 
         private void EnterCity()
         {
-            string nodeId = _playerStateProvider.CurrentNodeId;
             if (_turnChoiceState.IsChoosingTurn)
             {
                 _arrowsController.HideArrows();
                 string turnNodeId = _turnChoiceState.CurrentTurnNodeId;
                 if (!string.IsNullOrWhiteSpace(turnNodeId))
-                {
                     _playerMovementControl.CancelDestinationAtNode(turnNodeId);
-                    nodeId = turnNodeId;
-                }
             }
 
-            if (_model.TryGetEnterCity(out CityData city))
-            {
-                if (!_screenStackService.TryOpen(ScreenId.Trade, city.Id, out ScreenOpenResult result))
-                    Debug.LogWarning($"[SPJ] Cannot open trade screen: {result}");
+            if (!_model.TryGetEnterCity(out CityData city))
                 return;
-            }
 
-            Debug.LogWarning($"[SPJ] Cannot enter city: no city bound to node '{nodeId}'.");
+            _cityEntryService.EnterCity(city);
         }
 
         private void HandleDayChanged(int day) => DayChanged?.Invoke(day);
 
         private void StartMove()
         {
-            if (!_screenStackService.TryOpen(ScreenId.TargetSelection, out ScreenOpenResult result))
-                Debug.LogWarning($"[SPJ] Cannot open target selection screen: {result}");
+            if (_cityEntryService.IsInCityView)
+            {
+                _cityEntryService.ExitCity(() =>
+                {
+                    _screenStackService.TryOpen(ScreenId.TargetSelection, out _);
+                });
+                return;
+            }
+
+            _screenStackService.TryOpen(ScreenId.TargetSelection, out _);
         }
     }
 }

@@ -1,7 +1,6 @@
 using System;
 using Internal.Scripts.Camera;
 using Internal.Scripts.Player;
-using Internal.Scripts.Player.StartMovement;
 using Internal.Scripts.Road.Nodes;
 using UnityEngine;
 
@@ -26,7 +25,6 @@ namespace Internal.Scripts.Economy.Cities
         private readonly CameraSceneSettings _settings;
         private readonly IPlayerStateProvider _playerStateProvider;
         private readonly IRoadNodeLookup _nodeLookup;
-        private readonly IPlayerStartMovement _playerStartMovement;
 
         private CityData _currentCity;
         private bool _isTransitioning;
@@ -45,8 +43,7 @@ namespace Internal.Scripts.Economy.Cities
             DetailSceneLoader detailSceneLoader,
             CameraSceneSettings settings,
             IPlayerStateProvider playerStateProvider,
-            IRoadNodeLookup nodeLookup,
-            IPlayerStartMovement playerStartMovement)
+            IRoadNodeLookup nodeLookup)
         {
             _cameraController = cameraController;
             _cameraSceneLoader = cameraSceneLoader;
@@ -54,7 +51,6 @@ namespace Internal.Scripts.Economy.Cities
             _settings = settings;
             _playerStateProvider = playerStateProvider;
             _nodeLookup = nodeLookup;
-            _playerStartMovement = playerStartMovement;
 
             _cameraSceneLoader.OnDetailSceneAutoUnloaded += HandleDetailSceneAutoUnloaded;
         }
@@ -82,6 +78,7 @@ namespace Internal.Scripts.Economy.Cities
 
             _isTransitioning = true;
             _currentCity = city;
+            _cameraSceneLoader.SuspendAutoLoading = true;
 
             // Save current camera state for exit
             UnityEngine.Camera cam = UnityEngine.Camera.main;
@@ -95,6 +92,7 @@ namespace Internal.Scripts.Economy.Cities
                 Debug.LogWarning($"[CityEntryService] Cannot find node position for {city.NodeId}");
                 _isTransitioning = false;
                 _currentCity = null;
+                _cameraSceneLoader.SuspendAutoLoading = false;
                 onComplete?.Invoke();
                 return;
             }
@@ -105,27 +103,25 @@ namespace Internal.Scripts.Economy.Cities
                 ? detailScene.CameraSize
                 : _settings.DefaultCityDetailZoomSize;
 
+            void OnEnterComplete()
+            {
+                _isTransitioning = false;
+                _cameraSceneLoader.SuspendAutoLoading = false;
+                OnCityEntered?.Invoke(city);
+                onComplete?.Invoke();
+            }
+
             // Load scene if preload enabled
             if (_settings.PreloadCityScene)
             {
                 LoadDetailScene(city, () =>
-                    AnimateCameraTransition(targetPosition, targetSize, 0.3f, () =>
-                    {
-                        _isTransitioning = false;
-                        OnCityEntered?.Invoke(city);
-                        onComplete?.Invoke();
-                    }));
+                    AnimateCameraTransition(targetPosition, targetSize, 0.3f, OnEnterComplete));
             }
             else
             {
                 AnimateCameraTransition(targetPosition, targetSize, 0.3f, () =>
                 {
-                    LoadDetailScene(city, () =>
-                    {
-                        _isTransitioning = false;
-                        OnCityEntered?.Invoke(city);
-                        onComplete?.Invoke();
-                    });
+                    LoadDetailScene(city, OnEnterComplete);
                 });
             }
         }
@@ -140,6 +136,7 @@ namespace Internal.Scripts.Economy.Cities
             }
 
             _isTransitioning = true;
+            _cameraSceneLoader.SuspendAutoLoading = true;
             CityData exitingCity = _currentCity;
 
             // Get node position to center camera on
@@ -148,26 +145,26 @@ namespace Internal.Scripts.Economy.Cities
             {
                 Debug.LogWarning($"[CityEntryService] Cannot find node position for {exitingCity.NodeId}");
                 _isTransitioning = false;
+                _cameraSceneLoader.SuspendAutoLoading = false;
                 onComplete?.Invoke();
                 return;
             }
 
             Vector2 nodeXZ = new Vector2(nodePosition.Value.x, nodePosition.Value.z);
 
-            // Animate to strategic zoom + center on node
-            AnimateCameraTransition(nodeXZ, _previousCameraSize, 0.3f, () =>
+            // Reverse order: zoom out first, then move
+            _cameraController.ZoomCamera(_previousCameraSize, 0.3f, () =>
             {
-                UnloadDetailScene(exitingCity);
-                _currentCity = null;
-                _isTransitioning = false;
+                _cameraController.MoveCamera(nodeXZ, 0.3f, () =>
+                {
+                    UnloadDetailScene(exitingCity);
+                    _currentCity = null;
+                    _isTransitioning = false;
+                    _cameraSceneLoader.SuspendAutoLoading = false;
 
-                // Invoke exit event (PlayerController will update State → Idle)
-                OnCityExited?.Invoke();
-
-                // Start movement selection screen
-                _playerStartMovement.BeginSelection();
-
-                onComplete?.Invoke();
+                    OnCityExited?.Invoke();
+                    onComplete?.Invoke();
+                });
             });
         }
 
