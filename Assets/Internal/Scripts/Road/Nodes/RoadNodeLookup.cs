@@ -44,5 +44,24 @@ namespace Internal.Scripts.Road.Nodes
         }
 
         public bool Contains(string nodeId) => _nodes.ContainsKey(nodeId);
+
+        public string FindNearestNodeId(Vector3 position)
+        {
+            string nearest = null;
+            float minDist = float.MaxValue;
+
+            foreach (var kvp in _nodes)
+            {
+                if (kvp.Value == null) continue;
+                float dist = Vector3.Distance(position, kvp.Value.position);
+                if (dist < minDist)
+                {
+                    minDist = dist;
+                    nearest = kvp.Key;
+                }
+            }
+
+            return nearest;
+        }
     }
 }

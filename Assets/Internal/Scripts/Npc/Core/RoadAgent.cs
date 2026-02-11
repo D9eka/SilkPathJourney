@@ -1,6 +1,8 @@
 using System;
 using Internal.Scripts.Npc.Movement;
 using Internal.Scripts.Road.Path;
+using Internal.Scripts.World.State;
+using UnityEngine;
 using Zenject;
 
 namespace Internal.Scripts.Npc.Core
@@ -8,26 +10,34 @@ namespace Internal.Scripts.Npc.Core
     public sealed class RoadAgent : IInitializable, IDisposable
     {
         public event Action<RoadAgent> OnArrived;
+        public event Action<float> OnDistanceTraveled;
 
         private readonly RoadAgentView _view;
         private readonly RoadAgentConfig _config;
         private readonly RoadPathCursor _cursor;
+        private readonly GameClock _gameClock;
 
         private string _currentNodeId;
         private string _destinationNodeId;
+        private float _totalDistanceTraveled = 0f;
 
         public string CurrentNodeId => _currentNodeId;
         public string DestinationNodeId => _destinationNodeId;
         public bool HasPath => !_cursor.IsEmpty;
         public RoadPose CurrentPose => _cursor.CurrentPose;
+        public float TotalDistanceTraveled => _totalDistanceTraveled;
+        public float Speed { get; set; }
+        public float Weight { get; set; }
 
-        public RoadAgent(RoadAgentView view, RoadAgentConfig config, 
-            RoadPathCursor cursor, string startNodeId)
+        public RoadAgent(RoadAgentView view, RoadAgentConfig config,
+            RoadPathCursor cursor, GameClock gameClock, string startNodeId)
         {
             _view = view;
             _config = config ?? new RoadAgentConfig();
             _cursor = cursor;
+            _gameClock = gameClock;
             _currentNodeId = startNodeId;
+            Speed = _config.SpeedMetersPerSecond;
         }
         
         public void Initialize()
@@ -62,17 +72,26 @@ namespace Internal.Scripts.Npc.Core
             _cursor.CancelPath();
         }
 
-        public void Tick(float deltaTime)
+        public void Tick()
         {
-            if (_cursor.IsEmpty && !string.IsNullOrEmpty(_destinationNodeId))
+            if (_cursor.IsEmpty)
             {
-                _currentNodeId = _destinationNodeId;
-                _destinationNodeId = null;
-                OnArrived?.Invoke(this);
+                if (!string.IsNullOrEmpty(_destinationNodeId))
+                {
+                    _currentNodeId = _destinationNodeId;
+                    _destinationNodeId = null;
+                    OnArrived?.Invoke(this);
+                }
                 return;
             }
-            
-            _cursor.Advance(_config.SpeedMetersPerSecond * deltaTime);
+
+            float deltaTime = Time.deltaTime * _gameClock.TimeScale;
+            float distanceToTravel = Speed * deltaTime;
+            float actualDistance = _cursor.Advance(distanceToTravel);
+
+            _totalDistanceTraveled += actualDistance;
+            OnDistanceTraveled?.Invoke(_totalDistanceTraveled);
+
             RoadPose pose = _cursor.CurrentPose;
             _view.SetPose(pose.Position, pose.Forward);
         }

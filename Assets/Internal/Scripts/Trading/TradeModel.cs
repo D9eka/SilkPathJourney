@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Internal.Scripts.Economy;
+using Internal.Scripts.Economy.Save;
 using Internal.Scripts.Economy.Save.Models;
 using Internal.Scripts.Inventory;
 using Internal.Scripts.Items;
@@ -12,6 +13,7 @@ namespace Internal.Scripts.Trading
     public sealed class TradeModel
     {
         private readonly InventoryRepository _inventoryRepository;
+        private readonly PlayerResourceRepository _resourceRepository;
         private readonly TradeSession _session = new();
         private readonly TradeCityCatalog _cityCatalog;
         private readonly ItemRowsBuilder _rowsBuilder;
@@ -21,9 +23,11 @@ namespace Internal.Scripts.Trading
 
         private IDisposable _playerSubscription;
         private IDisposable _citySubscription;
+        private IDisposable _resourceSubscription;
         private string _cityId;
         private InventoryState _playerInventory;
         private InventoryState _npcInventory;
+        private PlayerResourceState _playerResources;
         private int _playerItemsHash;
         private int _npcItemsHash;
         private int _buyItemsHash;
@@ -33,9 +37,13 @@ namespace Internal.Scripts.Trading
         private IReadOnlyList<ItemRowData> _buyItems = Array.Empty<ItemRowData>();
         private IReadOnlyList<ItemRowData> _sellItems = Array.Empty<ItemRowData>();
 
-        public TradeModel(InventoryRepository inventoryRepository, EconomyDatabase economyDatabase)
+        public TradeModel(
+            InventoryRepository inventoryRepository,
+            PlayerResourceRepository resourceRepository,
+            EconomyDatabase economyDatabase)
         {
             _inventoryRepository = inventoryRepository;
+            _resourceRepository = resourceRepository;
             ItemCatalog itemCatalog = new ItemCatalog(economyDatabase);
             _cityCatalog = new TradeCityCatalog(economyDatabase);
             _rowsBuilder = new ItemRowsBuilder(itemCatalog);
@@ -56,10 +64,12 @@ namespace Internal.Scripts.Trading
             ResetCaches();
 
             _playerSubscription = _inventoryRepository.PlayerInventoryStream.Subscribe(HandlePlayerInventory);
+            _resourceSubscription = _resourceRepository.StateStream.Subscribe(HandlePlayerResources);
             if (!string.IsNullOrWhiteSpace(_cityId))
                 _citySubscription = _inventoryRepository.ObserveCityInventory(_cityId).Subscribe(HandleCityInventory);
 
             HandlePlayerInventory(_inventoryRepository.GetPlayerInventory());
+            _playerResources = _resourceRepository.Current;
             if (!string.IsNullOrWhiteSpace(_cityId))
             {
                 CityInventoryState cityInventory = _inventoryRepository.GetCityInventory(_cityId);
@@ -77,9 +87,12 @@ namespace Internal.Scripts.Trading
             _playerSubscription = null;
             _citySubscription?.Dispose();
             _citySubscription = null;
+            _resourceSubscription?.Dispose();
+            _resourceSubscription = null;
             _cityId = null;
             _playerInventory = null;
             _npcInventory = null;
+            _playerResources = null;
             _session.Clear();
             ResetCaches();
         }
@@ -110,7 +123,7 @@ namespace Internal.Scripts.Trading
 
         public void ExecuteTrade()
         {
-            if (_playerInventory == null || string.IsNullOrWhiteSpace(_cityId))
+            if (_playerInventory == null || _playerResources == null || string.IsNullOrWhiteSpace(_cityId))
                 return;
 
             CityInventoryState citySnapshot = _inventoryRepository.GetCityInventory(_cityId);
@@ -120,13 +133,13 @@ namespace Internal.Scripts.Trading
             int buyTotal = _totalsCalculator.CalculateTotal(_session.ToBuy);
             int sellTotal = _totalsCalculator.CalculateTotal(_session.ToSell);
 
-            if (!_totalsCalculator.HasPlayerFunds(buyTotal, sellTotal, _playerInventory.Money))
+            if (!_totalsCalculator.HasPlayerFunds(buyTotal, sellTotal, _playerResources.Money))
                 return;
 
             int npcFundsAvailable = Mathf.Max(0, npcSnapshot.Money + buyTotal);
             int paymentToPlayer = Mathf.Min(npcFundsAvailable, sellTotal);
 
-            int playerMoney = _playerInventory.Money - buyTotal + paymentToPlayer;
+            int playerMoney = _playerResources.Money - buyTotal + paymentToPlayer;
             int npcMoney = npcSnapshot.Money + buyTotal - paymentToPlayer;
 
             Dictionary<string, int> toBuy = new(_session.ToBuy);
@@ -136,6 +149,10 @@ namespace Internal.Scripts.Trading
             _inventoryRepository.UpdatePlayerInventory(state =>
             {
                 ApplyTradeToPlayer(state, toBuy, toSell);
+            });
+
+            _resourceRepository.UpdateResources(state =>
+            {
                 state.Money = Mathf.Max(0, playerMoney);
             });
 
@@ -157,6 +174,14 @@ namespace Internal.Scripts.Trading
             RebuildState();
         }
 
+        private void HandlePlayerResources(PlayerResourceState resources)
+        {
+            if (resources == null) return;
+
+            _playerResources = resources;
+            RebuildState();
+        }
+
         private void HandleCityInventory(InventoryState inventory)
         {
             if (inventory == null) return;
@@ -174,24 +199,24 @@ namespace Internal.Scripts.Trading
             int buyTotal = _totalsCalculator.CalculateTotal(_session.ToBuy);
             int sellTotal = _totalsCalculator.CalculateTotal(_session.ToSell);
 
-            int playerMoney = _playerInventory != null ? _playerInventory.Money : 0;
+            int playerMoney = _playerResources != null ? _playerResources.Money : 0;
             int npcMoney = _npcInventory != null ? _npcInventory.Money : 0;
 
-            bool playerEnough = _playerInventory != null && _totalsCalculator.HasPlayerFunds(buyTotal, sellTotal, playerMoney);
+            bool playerEnough = _playerResources != null && _totalsCalculator.HasPlayerFunds(buyTotal, sellTotal, playerMoney);
             bool npcEnough = _npcInventory == null || _totalsCalculator.HasNpcFunds(buyTotal, sellTotal, npcMoney);
 
             float baseWeight = _playerInventory != null ? _weightCalculator.CalculateInventoryWeight(_playerInventory) : 0f;
             float buyWeight = _weightCalculator.CalculateWeightDelta(_session.ToBuy);
             float sellWeight = _weightCalculator.CalculateWeightDelta(_session.ToSell);
             float projected = Mathf.Max(0f, baseWeight + buyWeight - sellWeight);
-            float maxWeight = _playerInventory != null ? _playerInventory.MaxWeightKg : 0f;
+            float maxWeight = _playerResources != null ? _playerResources.TotalCapacity : 0f;
             bool warning = maxWeight > 0f && projected > maxWeight;
 
             string npcName = _cityCatalog.ResolveCityName(_cityId);
 
             _state.Value = new TradeViewState(_playerItems, _npcItems, _buyItems, _sellItems, _playerItemsHash,
-                _npcItemsHash, _buyItemsHash, _sellItemsHash, playerMoney, npcMoney, buyTotal, sellTotal, projected,
-                maxWeight, warning, playerEnough, npcEnough, npcName);
+                _npcItemsHash, _buyItemsHash, _sellItemsHash, playerMoney, npcMoney, buyTotal, sellTotal,
+                baseWeight, projected, maxWeight, warning, playerEnough, npcEnough, npcName);
         }
 
         private void UpdateItemsIfChanged()

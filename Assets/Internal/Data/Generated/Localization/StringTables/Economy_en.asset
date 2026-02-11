@@ -178,6 +178,358 @@ MonoBehaviour:
     m_Localized: Byzantine
     m_Metadata:
       m_Items: []
+  - m_Id: 3360399972884480
+    m_Localized: Animals
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400052576256
+    m_Localized: Dried Meat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400052576257
+    m_Localized: Dates
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400052576258
+    m_Localized: Honey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400052576259
+    m_Localized: Wine
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400052576260
+    m_Localized: Olive Oil
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400052576261
+    m_Localized: Nuts
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400052576262
+    m_Localized: Dried Fruit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400052576263
+    m_Localized: Dried Fish
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400052576264
+    m_Localized: Sugar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400052576265
+    m_Localized: Sesame Oil
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400052576266
+    m_Localized: Flour
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400052576267
+    m_Localized: Kumis
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400052576268
+    m_Localized: Cheese
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400052576269
+    m_Localized: Ghee
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400052576270
+    m_Localized: Cotton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400052576271
+    m_Localized: Timber
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400052576272
+    m_Localized: Copper
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400052576273
+    m_Localized: Tin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400052576274
+    m_Localized: Flax
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400052576275
+    m_Localized: Indigo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400052576276
+    m_Localized: Alum
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400052576277
+    m_Localized: Sulfur
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400052576278
+    m_Localized: Saltpeter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400052576279
+    m_Localized: Clay
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770560
+    m_Localized: Coal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770561
+    m_Localized: Hemp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770562
+    m_Localized: Mercury
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770563
+    m_Localized: Wax
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770564
+    m_Localized: Blades
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770565
+    m_Localized: Carpets
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770566
+    m_Localized: Glass
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770567
+    m_Localized: Paper
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770568
+    m_Localized: Lacquerware
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770569
+    m_Localized: Jewelry
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770570
+    m_Localized: Chainmail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770571
+    m_Localized: Saddles
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770572
+    m_Localized: Mirrors
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770573
+    m_Localized: Musical Instruments
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770574
+    m_Localized: Bows
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770575
+    m_Localized: Mosaic Tiles
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770576
+    m_Localized: Embroidery
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770577
+    m_Localized: Pottery
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770578
+    m_Localized: Saffron
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770579
+    m_Localized: Brocade
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770580
+    m_Localized: Cashmere
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770581
+    m_Localized: Frankincense
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770582
+    m_Localized: Myrrh
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770583
+    m_Localized: Gemstones
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770584
+    m_Localized: Gold Ornaments
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770585
+    m_Localized: Jadeite
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770586
+    m_Localized: Satin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770587
+    m_Localized: Jade Figurines
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770588
+    m_Localized: Rubies
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770589
+    m_Localized: Opal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770590
+    m_Localized: Porcelain
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770591
+    m_Localized: Amber
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770592
+    m_Localized: Perfume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770593
+    m_Localized: Musk
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770594
+    m_Localized: Ivory
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770595
+    m_Localized: Pearl
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770596
+    m_Localized: Lapis Lazuli
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770597
+    m_Localized: Rhino Horn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770598
+    m_Localized: Coral
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770599
+    m_Localized: Sandalwood
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770600
+    m_Localized: Ginseng
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770601
+    m_Localized: Ambergris
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770602
+    m_Localized: Camphor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770603
+    m_Localized: Turquoise
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770604
+    m_Localized: Leopard Skin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770605
+    m_Localized: Agate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770606
+    m_Localized: Bezoar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770607
+    m_Localized: Narwhal Horn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770608
+    m_Localized: Racing Horse
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770609
+    m_Localized: War Horse
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770610
+    m_Localized: Purebred Camel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770611
+    m_Localized: Elephant
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770612
+    m_Localized: Falcon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770613
+    m_Localized: Peacock
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770614
+    m_Localized: Cheetah
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770615
+    m_Localized: Monkey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770616
+    m_Localized: Parrot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770617
+    m_Localized: Fighting Bull
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770618
+    m_Localized: Hunting Dog
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770619
+    m_Localized: Ostrich
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770620
+    m_Localized: White Horse
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770621
+    m_Localized: Purebred Yak
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3360400056770622
+    m_Localized: Songbird
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -16,16 +16,103 @@ MonoBehaviour:
   - {fileID: 11400000, guid: edb64d67c789d9d4ba65981d4984bb1a, type: 2}
   - {fileID: 11400000, guid: 977355d6459f6bc489e0119d229a8e9f, type: 2}
   - {fileID: 11400000, guid: f277e290018b7c7429971f44fcb94fa1, type: 2}
+  - {fileID: 11400000, guid: 77a369b683036974192a88270cd983d1, type: 2}
+  - {fileID: 11400000, guid: 0c43119d2037ec04994fd7fa6a98d9dc, type: 2}
+  - {fileID: 11400000, guid: c21a07c2f65aa4b4c965be9979397930, type: 2}
+  - {fileID: 11400000, guid: e6018b2631a542248963593d0d5a326a, type: 2}
+  - {fileID: 11400000, guid: 9a753e49b5c75cd4ebe79e2628a22afc, type: 2}
+  - {fileID: 11400000, guid: 972e09bf00a99714496fe1c29b2632b6, type: 2}
+  - {fileID: 11400000, guid: 923f54c6d13ecd34f895de2b28d25194, type: 2}
+  - {fileID: 11400000, guid: 5833f58ceb85d5e4dba35920db9fa973, type: 2}
+  - {fileID: 11400000, guid: 26d5fad55b936234b8f898f8a2bf841d, type: 2}
+  - {fileID: 11400000, guid: 2b9333f7ff4507c44bd8c6b5eefa2796, type: 2}
+  - {fileID: 11400000, guid: 07cc4c0e05301a24ab5fa6d2b3b89c56, type: 2}
+  - {fileID: 11400000, guid: 8b48174493f07b040a7d640ab10a9141, type: 2}
+  - {fileID: 11400000, guid: 6a07e705bc5dfe1438c8f5bd62486ddf, type: 2}
+  - {fileID: 11400000, guid: d04c818aad757854f9061b0f145b2e41, type: 2}
   - {fileID: 11400000, guid: 99bb31e8428743944ab1c1d7913072eb, type: 2}
   - {fileID: 11400000, guid: 2432647ea623eee4e99c22e97297b8b4, type: 2}
   - {fileID: 11400000, guid: e0e4e17244144574eb72b9e97ec81cc5, type: 2}
+  - {fileID: 11400000, guid: 173b802396c25bd44b86bba019894f47, type: 2}
+  - {fileID: 11400000, guid: ae68855205b8b194a847a40f8694249d, type: 2}
+  - {fileID: 11400000, guid: 3d749b6f98d3e9e4cb670dcc97e88001, type: 2}
+  - {fileID: 11400000, guid: f716a62cbb094134d845e5a17ab3dd1a, type: 2}
+  - {fileID: 11400000, guid: f9865918f52f27c4f9ba3fdc90868fec, type: 2}
+  - {fileID: 11400000, guid: 22c19d3df3b491b4ba1f602d92e5d5ea, type: 2}
+  - {fileID: 11400000, guid: 9afdd54740e40ec4d85be01a61e000a2, type: 2}
+  - {fileID: 11400000, guid: 80c18e9cc40f96047bfdce5df7c71542, type: 2}
+  - {fileID: 11400000, guid: 1fbb17cba9bb568479d8ea81e8e1c8be, type: 2}
+  - {fileID: 11400000, guid: d4a897de52d79d146b4cbb7a64ea4289, type: 2}
+  - {fileID: 11400000, guid: f2add9be0031db74180209ac0f9fe9b5, type: 2}
+  - {fileID: 11400000, guid: be2906dd2e506c6478713089b1069ebe, type: 2}
+  - {fileID: 11400000, guid: ed6cb17045affa141b864cca430e3828, type: 2}
+  - {fileID: 11400000, guid: 8f365ae41bf07e945aa2a3aa554b475b, type: 2}
   - {fileID: 11400000, guid: f0092f5ed70620f438321b4d4f42894c, type: 2}
   - {fileID: 11400000, guid: a88c826bcd4696b4687ab872870eb1e2, type: 2}
   - {fileID: 11400000, guid: c8709e4965bd667428e8b4e1bb270771, type: 2}
+  - {fileID: 11400000, guid: 94a41953ce46a0f4488e0ce7ce20ebfa, type: 2}
+  - {fileID: 11400000, guid: 38e481e8ca3dbd444a49447699c1674a, type: 2}
+  - {fileID: 11400000, guid: c452a33a2cc5bbd4dbba51d0052f0e13, type: 2}
+  - {fileID: 11400000, guid: 11e3d73926b90d54da5247605e2c175b, type: 2}
+  - {fileID: 11400000, guid: 482cb77f4ce83d54f8f16bfec5be2e07, type: 2}
+  - {fileID: 11400000, guid: 88a0e9b1a5a89914faa0f80ddea21dbd, type: 2}
+  - {fileID: 11400000, guid: b4edbce990ec9314fb51ec1a8d3a7f44, type: 2}
+  - {fileID: 11400000, guid: 25f3ea6a698494143bcaae444d24ff41, type: 2}
+  - {fileID: 11400000, guid: 4cb97f74965f85c49ad9abe54371a98c, type: 2}
+  - {fileID: 11400000, guid: a3df355cf4674ab4c83e576e225dffff, type: 2}
+  - {fileID: 11400000, guid: c8d88271a50ac7942bdc447318dc489c, type: 2}
+  - {fileID: 11400000, guid: 75701ef9fd100814489ff932acd20ed2, type: 2}
+  - {fileID: 11400000, guid: 92ed8824040a6f64ebe223af18777d39, type: 2}
+  - {fileID: 11400000, guid: 413d3c3463194614a8c053358978e414, type: 2}
   - {fileID: 11400000, guid: 71f5e91f8d5a96441a98ba4b3058676f, type: 2}
   - {fileID: 11400000, guid: d0f048c27bf2274489bf4e3fd342c09f, type: 2}
+  - {fileID: 11400000, guid: e89f10be11f2c2b41affae74cead1708, type: 2}
+  - {fileID: 11400000, guid: 9f42511b42856ed488ce86a12123fce8, type: 2}
+  - {fileID: 11400000, guid: ed8f8dc87c6f4944ea179c59c7bc3949, type: 2}
+  - {fileID: 11400000, guid: c2c789209d3235c45b8a9e1916bda129, type: 2}
+  - {fileID: 11400000, guid: f1a2ce42894cdfc48b5565efd616e925, type: 2}
+  - {fileID: 11400000, guid: cc4c4a84f6a946d4294898103616e187, type: 2}
+  - {fileID: 11400000, guid: 94d02db8a41d1d64bb2aa1b3106370f9, type: 2}
+  - {fileID: 11400000, guid: 9bb743b6fb5135d4ba3ba281e2a7adfd, type: 2}
+  - {fileID: 11400000, guid: 000f462b3ae3a1644ba27699b496331f, type: 2}
+  - {fileID: 11400000, guid: 75aa64ef083554e46931575101760bc8, type: 2}
+  - {fileID: 11400000, guid: 76aec8db03bea1542894f73252d9ee9f, type: 2}
+  - {fileID: 11400000, guid: 8f2d2b4470923c846aa7f970dc4670b8, type: 2}
+  - {fileID: 11400000, guid: 292338e053d700041b40fd65b8576d10, type: 2}
+  - {fileID: 11400000, guid: 04f46707d8bb07c4a9a0ab2700bcbebc, type: 2}
+  - {fileID: 11400000, guid: ce6536026f2a9294b83dce9b36de7837, type: 2}
   - {fileID: 11400000, guid: b4979eafd65b00e49a681b790415dab1, type: 2}
   - {fileID: 11400000, guid: 278d1acecdcd4954a97c2f5521187cb1, type: 2}
+  - {fileID: 11400000, guid: 34e8856e9a20e1742b0c3589b8122f0a, type: 2}
+  - {fileID: 11400000, guid: f3f4b9010001a4f4ebb4635e1b1fcb9a, type: 2}
+  - {fileID: 11400000, guid: 010225a2117ec76408b07b877b4ed8fa, type: 2}
+  - {fileID: 11400000, guid: cba67ed08b0d72449ad8c995eb3851fd, type: 2}
+  - {fileID: 11400000, guid: 26f11932b0ffdd84aaf8a71078e47a72, type: 2}
+  - {fileID: 11400000, guid: b87cf30023021e040a00428e53b1158d, type: 2}
+  - {fileID: 11400000, guid: 83dd7c3de87d7414ba619d1648023353, type: 2}
+  - {fileID: 11400000, guid: dda145a49908d9a4d9dee041e89cfe92, type: 2}
+  - {fileID: 11400000, guid: bd8fb2e8e41013d47bc5cee1d7a0cd9d, type: 2}
+  - {fileID: 11400000, guid: 59c6e67b2701ce342bc17033a6fb1c30, type: 2}
+  - {fileID: 11400000, guid: 46784f32bed7c0044accf0fc6c457db6, type: 2}
+  - {fileID: 11400000, guid: 74eb13cef805ba44b834dad76be8d568, type: 2}
+  - {fileID: 11400000, guid: ebb45368ecc796342bad50f6eadc7e2f, type: 2}
+  - {fileID: 11400000, guid: eb808432b74d886468fcb289cb0e90a1, type: 2}
+  - {fileID: 11400000, guid: baf92a3129a23b94d9a3a201012afdf6, type: 2}
+  - {fileID: 11400000, guid: 09e3181892cdb184ca105f6c95f5fba0, type: 2}
+  - {fileID: 11400000, guid: 76e6856da07dde44d9bcdda944f15da0, type: 2}
+  - {fileID: 11400000, guid: 5343acd798d316c468fa57f921e80f82, type: 2}
+  - {fileID: 11400000, guid: b9cac85c0c29ccb40b7b4b75af44530b, type: 2}
+  - {fileID: 11400000, guid: b74a6841aff8b0c4ca9a1f12efe9ccb3, type: 2}
+  - {fileID: 11400000, guid: 39a22d52efe352949ae7f00c0d747b9c, type: 2}
+  - {fileID: 11400000, guid: 09efdfcee32a61047a09b5590f78f277, type: 2}
+  - {fileID: 11400000, guid: 8e49779c5d6747f458f8fa7ed957bd78, type: 2}
+  - {fileID: 11400000, guid: cd38b702bcb74494e84511d7f21dee6b, type: 2}
+  - {fileID: 11400000, guid: 950202ef895abac45a38fe1487f89db7, type: 2}
+  - {fileID: 11400000, guid: 15f236aa62e236e459fdba70813f193a, type: 2}
+  - {fileID: 11400000, guid: de8bc5494f7e2fb4bb407b4afe897ab7, type: 2}
+  - {fileID: 11400000, guid: 52455d4d3d520b44e84259e974921a32, type: 2}
+  - {fileID: 11400000, guid: 9dcd67758b785c5488780847c95a9088, type: 2}
+  - {fileID: 11400000, guid: 3813b9736d73f9f479d01fcf52501e7b, type: 2}
   <CityTypes>k__BackingField:
   - {fileID: 11400000, guid: 1a54870e6901d824798a7125ead4f7ac, type: 2}
   - {fileID: 11400000, guid: 674858aea18bfc043b26bac4d9847cb4, type: 2}
@@ -191,3 +278,93 @@ MonoBehaviour:
   - <Culture>k__BackingField: 2
     <ItemId>k__BackingField: wool
     <Multiplier>k__BackingField: 0.8
+  - <Culture>k__BackingField: 1
+    <ItemId>k__BackingField: tea
+    <Multiplier>k__BackingField: 0.8
+  - <Culture>k__BackingField: 1
+    <ItemId>k__BackingField: porcelain
+    <Multiplier>k__BackingField: 0.8
+  - <Culture>k__BackingField: 1
+    <ItemId>k__BackingField: ginseng
+    <Multiplier>k__BackingField: 0.75
+  - <Culture>k__BackingField: 1
+    <ItemId>k__BackingField: lacquerware
+    <Multiplier>k__BackingField: 0.85
+  - <Culture>k__BackingField: 1
+    <ItemId>k__BackingField: embroidery
+    <Multiplier>k__BackingField: 0.85
+  - <Culture>k__BackingField: 4
+    <ItemId>k__BackingField: saffron
+    <Multiplier>k__BackingField: 0.8
+  - <Culture>k__BackingField: 4
+    <ItemId>k__BackingField: turquoise
+    <Multiplier>k__BackingField: 0.8
+  - <Culture>k__BackingField: 4
+    <ItemId>k__BackingField: carpets
+    <Multiplier>k__BackingField: 0.85
+  - <Culture>k__BackingField: 4
+    <ItemId>k__BackingField: chainmail
+    <Multiplier>k__BackingField: 0.85
+  - <Culture>k__BackingField: 4
+    <ItemId>k__BackingField: bezoar
+    <Multiplier>k__BackingField: 0.85
+  - <Culture>k__BackingField: 8
+    <ItemId>k__BackingField: brocade
+    <Multiplier>k__BackingField: 0.85
+  - <Culture>k__BackingField: 8
+    <ItemId>k__BackingField: amber
+    <Multiplier>k__BackingField: 0.85
+  - <Culture>k__BackingField: 8
+    <ItemId>k__BackingField: wine
+    <Multiplier>k__BackingField: 0.85
+  - <Culture>k__BackingField: 8
+    <ItemId>k__BackingField: mirrors
+    <Multiplier>k__BackingField: 0.85
+  - <Culture>k__BackingField: 3
+    <ItemId>k__BackingField: cashmere
+    <Multiplier>k__BackingField: 0.8
+  - <Culture>k__BackingField: 3
+    <ItemId>k__BackingField: saddles
+    <Multiplier>k__BackingField: 0.85
+  - <Culture>k__BackingField: 3
+    <ItemId>k__BackingField: kumis
+    <Multiplier>k__BackingField: 0.7
+  - <Culture>k__BackingField: 3
+    <ItemId>k__BackingField: racing_horse
+    <Multiplier>k__BackingField: 0.8
+  - <Culture>k__BackingField: 3
+    <ItemId>k__BackingField: lapis_lazuli
+    <Multiplier>k__BackingField: 0.85
+  - <Culture>k__BackingField: 6
+    <ItemId>k__BackingField: glass
+    <Multiplier>k__BackingField: 0.8
+  - <Culture>k__BackingField: 6
+    <ItemId>k__BackingField: olive_oil
+    <Multiplier>k__BackingField: 0.8
+  - <Culture>k__BackingField: 6
+    <ItemId>k__BackingField: satin
+    <Multiplier>k__BackingField: 0.85
+  - <Culture>k__BackingField: 6
+    <ItemId>k__BackingField: mosaic
+    <Multiplier>k__BackingField: 0.85
+  - <Culture>k__BackingField: 5
+    <ItemId>k__BackingField: gold_ornaments
+    <Multiplier>k__BackingField: 0.85
+  - <Culture>k__BackingField: 5
+    <ItemId>k__BackingField: blades
+    <Multiplier>k__BackingField: 0.85
+  - <Culture>k__BackingField: 5
+    <ItemId>k__BackingField: dates
+    <Multiplier>k__BackingField: 0.8
+  - <Culture>k__BackingField: 5
+    <ItemId>k__BackingField: pottery
+    <Multiplier>k__BackingField: 0.85
+  - <Culture>k__BackingField: 2
+    <ItemId>k__BackingField: bows
+    <Multiplier>k__BackingField: 0.8
+  - <Culture>k__BackingField: 2
+    <ItemId>k__BackingField: hunting_dog
+    <Multiplier>k__BackingField: 0.8
+  - <Culture>k__BackingField: 2
+    <ItemId>k__BackingField: purebred_camel
+    <Multiplier>k__BackingField: 0.85

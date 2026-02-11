@@ -9,5 +9,10 @@ namespace Internal.Scripts.Save
         public string CurrentNodeId;
         public string DestinationNodeId;
         public PlayerState State;
+
+        // Система дней
+        public int CurrentDay = 1;
+        public int LastEventDay = -2;
+        public int LastMinorEventDay = -1;
     }
 }

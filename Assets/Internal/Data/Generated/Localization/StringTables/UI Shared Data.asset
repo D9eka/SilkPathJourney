@@ -99,6 +99,34 @@ MonoBehaviour:
     m_Key: UI.Trade.Sell.Header.Main
     m_Metadata:
       m_Items: []
+  - m_Id: 1499307264958464
+    m_Key: ui.event.near_city
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1772544783802368
+    m_Key: UI.Hud.Main.Button.Camp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1772544850911232
+    m_Key: UI.Hud.Main.Button.FastMove
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1772544850911233
+    m_Key: UI.Hud.Main.Button.Move
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1772544850911234
+    m_Key: UI.Hud.Main.Text.Day
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1772544855105536
+    m_Key: ui.event.continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2184196805091328
+    m_Key: UI.Event.Main.Header.Main
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Internal.Scripts.Economy;
+using Internal.Scripts.Economy.Save;
 using Internal.Scripts.Economy.Save.Models;
 using Internal.Scripts.Items;
 using R3;
@@ -10,16 +11,24 @@ namespace Internal.Scripts.Inventory
     public sealed class InventoryModel
     {
         private readonly InventoryRepository _inventoryRepository;
+        private readonly PlayerResourceRepository _resourceRepository;
         private readonly ItemRowsBuilder _rowsBuilder;
         private readonly ItemWeightCalculator _weightCalculator;
         private readonly ReactiveProperty<InventoryViewState> _state;
-        private IDisposable _subscription;
+        private IDisposable _inventorySubscription;
+        private IDisposable _resourceSubscription;
         private int _lastItemsHash;
         private IReadOnlyList<ItemRowData> _lastItems = Array.Empty<ItemRowData>();
+        private InventoryState _currentInventory;
+        private PlayerResourceState _currentResources;
 
-        public InventoryModel(InventoryRepository inventoryRepository, EconomyDatabase economyDatabase)
+        public InventoryModel(
+            InventoryRepository inventoryRepository,
+            PlayerResourceRepository resourceRepository,
+            EconomyDatabase economyDatabase)
         {
             _inventoryRepository = inventoryRepository;
+            _resourceRepository = resourceRepository;
             ItemCatalog itemCatalog = new ItemCatalog(economyDatabase);
             _rowsBuilder = new ItemRowsBuilder(itemCatalog);
             _weightCalculator = new ItemWeightCalculator(itemCatalog);
@@ -31,17 +40,23 @@ namespace Internal.Scripts.Inventory
 
         public void Activate()
         {
-            if (_subscription != null)
+            if (_inventorySubscription != null)
                 return;
 
-            _subscription = _inventoryRepository.PlayerInventoryStream.Subscribe(HandleInventory);
-            HandleInventory(_inventoryRepository.GetPlayerInventory());
+            _inventorySubscription = _inventoryRepository.PlayerInventoryStream.Subscribe(HandleInventory);
+            _resourceSubscription = _resourceRepository.StateStream.Subscribe(HandleResources);
+
+            _currentInventory = _inventoryRepository.GetPlayerInventory();
+            _currentResources = _resourceRepository.Current;
+            RebuildState();
         }
 
         public void Deactivate()
         {
-            _subscription?.Dispose();
-            _subscription = null;
+            _inventorySubscription?.Dispose();
+            _inventorySubscription = null;
+            _resourceSubscription?.Dispose();
+            _resourceSubscription = null;
         }
 
         public void DropItem(string itemId, int count)
@@ -57,17 +72,38 @@ namespace Internal.Scripts.Inventory
             if (inventory == null)
                 return;
 
-            int itemsHash = _rowsBuilder.ComputeItemsHash(inventory);
+            _currentInventory = inventory;
+            RebuildState();
+        }
+
+        private void HandleResources(PlayerResourceState resources)
+        {
+            if (resources == null)
+                return;
+
+            _currentResources = resources;
+            RebuildState();
+        }
+
+        private void RebuildState()
+        {
+            if (_currentInventory == null || _currentResources == null)
+                return;
+
+            int itemsHash = _rowsBuilder.ComputeItemsHash(_currentInventory);
             IReadOnlyList<ItemRowData> items = _lastItems;
             if (itemsHash != _lastItemsHash)
             {
-                items = _rowsBuilder.BuildRows(inventory, includePrice: true);
+                items = _rowsBuilder.BuildRows(_currentInventory, includePrice: true);
                 _lastItems = items;
                 _lastItemsHash = itemsHash;
             }
 
-            float weight = _weightCalculator.CalculateInventoryWeight(inventory);
-            _state.Value = new InventoryViewState(items, _lastItemsHash, inventory.Money, weight, inventory.MaxWeightKg);
+            float weight = _weightCalculator.CalculateInventoryWeight(_currentInventory);
+            int money = _currentResources.Money;
+            float maxWeight = _currentResources.TotalCapacity;
+
+            _state.Value = new InventoryViewState(items, _lastItemsHash, money, weight, maxWeight);
         }
     }
 }
