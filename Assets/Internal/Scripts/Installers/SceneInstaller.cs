@@ -108,6 +108,8 @@ namespace Internal.Scripts.Installers
             InstallPlayer();
             InstallScreens();
             InstallEvents();
+
+            Container.BindInterfacesTo<CameraSaveController>().AsSingle();
         }
 
         private void InstallCamera()

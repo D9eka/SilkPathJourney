@@ -9,11 +9,12 @@ using Zenject;
 
 namespace Internal.Scripts.Camera
 {
-    public class CameraSceneLoader : ITickable, IInitializable
+    public class CameraSceneLoader : ITickable, IInitializable, IDisposable
     {
         private readonly UnityEngine.Camera _camera;
         private readonly CameraSceneSettings _settings;
         private readonly IPlayerStateProvider _playerStateProvider;
+        private readonly IPlayerStateEvents _playerStateEvents;
         private readonly ICityNodeResolver _cityNodeResolver;
         private readonly IRoadNodeLookup _nodeLookup;
         private readonly DetailSceneLoader _detailSceneLoader;
@@ -22,6 +23,7 @@ namespace Internal.Scripts.Camera
 
         private string _activeDetailScene;
 
+        public string ActiveDetailScene => _activeDetailScene;
         public bool SuspendAutoLoading { get; set; }
         public event Action OnDetailSceneAutoUnloaded;
 
@@ -29,6 +31,7 @@ namespace Internal.Scripts.Camera
             UnityEngine.Camera camera,
             CameraSceneSettings settings,
             IPlayerStateProvider playerStateProvider,
+            IPlayerStateEvents playerStateEvents,
             ICityNodeResolver cityNodeResolver,
             IRoadNodeLookup nodeLookup,
             DetailSceneLoader detailSceneLoader,
@@ -38,6 +41,7 @@ namespace Internal.Scripts.Camera
             _camera = camera;
             _settings = settings;
             _playerStateProvider = playerStateProvider;
+            _playerStateEvents = playerStateEvents;
             _cityNodeResolver = cityNodeResolver;
             _nodeLookup = nodeLookup;
             _detailSceneLoader = detailSceneLoader;
@@ -62,6 +66,13 @@ namespace Internal.Scripts.Camera
                     }
                 }
             }
+
+            _playerStateEvents.OnDestinationChanged += HandleDestinationChanged;
+        }
+
+        public void Dispose()
+        {
+            _playerStateEvents.OnDestinationChanged -= HandleDestinationChanged;
         }
 
         public void Tick()
@@ -106,6 +117,37 @@ namespace Internal.Scripts.Camera
                 _tilter.TiltTo(_settings.StrategicTiltAngle, 0.4f);
                 OnDetailSceneAutoUnloaded?.Invoke();
             }
+        }
+
+        public void RestoreDetailScene(Action onComplete = null)
+        {
+            var sceneInfo = GetSceneToLoad();
+            if (!sceneInfo.HasValue) { onComplete?.Invoke(); return; }
+
+            string sceneName = sceneInfo.Value.sceneName;
+            Vector2 origin = sceneInfo.Value.origin;
+
+            _detailSceneLoader.LoadAndActivateScene(sceneName, origin, () =>
+            {
+                _activeDetailScene = sceneName;
+                DetailSceneBounds sceneBounds = FindDetailSceneBounds(sceneName);
+                if (sceneBounds != null)
+                    _cameraBounds.SetOverrideBounds(sceneBounds.Center, sceneBounds.Size);
+                _tilter.TiltTo(_settings.DetailTiltAngle, 0.5f);
+                onComplete?.Invoke();
+            }, hideMainScene: false);
+        }
+
+        private void HandleDestinationChanged(string destinationId)
+        {
+            if (string.IsNullOrEmpty(destinationId)) return;
+            if (string.IsNullOrEmpty(_activeDetailScene)) return;
+
+            _detailSceneLoader.DeactivateScene(_activeDetailScene);
+            _activeDetailScene = null;
+            _cameraBounds.ClearOverrideBounds();
+            _tilter.TiltTo(_settings.StrategicTiltAngle, 0.4f);
+            OnDetailSceneAutoUnloaded?.Invoke();
         }
 
         private (string sceneName, Vector2 origin)? GetSceneToLoad()
