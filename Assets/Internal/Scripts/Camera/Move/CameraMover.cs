@@ -12,45 +12,56 @@ namespace Internal.Scripts.Camera.Move
         private readonly InputManager _inputManager;
 
         private Vector2 _moveDelta;
+        private Tween _tweenX;
+        private Tween _tweenZ;
 
         public CameraMover(UnityEngine.Camera camera, InputManager inputManager)
         {
             _camera = camera;
             _inputManager = inputManager;
         }
-        
+
         public void Initialize()
         {
             _inputManager.OnChangeCameraPosition += ChangePosition;
         }
-        
+
         public void LateTick()
         {
+            if (_tweenX != null && _tweenX.IsActive() && _tweenX.IsPlaying())
+                return;
+
             _camera.transform.position += new Vector3(_moveDelta.x, 0, _moveDelta.y);
         }
-        
+
         public void Dispose()
         {
+            _tweenX?.Kill();
+            _tweenZ?.Kill();
             _inputManager.OnChangeCameraPosition -= ChangePosition;
         }
 
         public void MoveTo(Vector2 position, Action onComplete = null)
         {
-            float duration = Vector3.Distance(_camera.transform.position, GetVector3Position(position)) / 10f;
+            Vector3 current = _camera.transform.position;
+            float dx = position.x - current.x;
+            float dz = position.y - current.z;
+            float distance = Mathf.Sqrt(dx * dx + dz * dz);
+            float duration = distance / 10f;
             MoveTo(position, duration, onComplete);
         }
 
         public void MoveTo(Vector2 position, float duration, Action onComplete = null)
         {
-            _camera.transform.DOMove(GetVector3Position(position), duration)
-                .OnComplete(() => onComplete?.Invoke());
+            _tweenX?.Kill();
+            _tweenZ?.Kill();
+
+            int completed = 0;
+            void Check() { if (++completed >= 2) onComplete?.Invoke(); }
+            _tweenX = _camera.transform.DOMoveX(position.x, duration).OnComplete(Check);
+            _tweenZ = _camera.transform.DOMoveZ(position.y, duration).OnComplete(Check);
         }
 
-        private Vector3 GetVector3Position(Vector2 position)
-        {
-            return new Vector3(position.x, _camera.transform.position.y, position.y);
-        }
-        
         private void ChangePosition(Vector2 delta)
         {
             _moveDelta = delta;

@@ -4,6 +4,7 @@ namespace Internal.Scripts.Player
     {
         Idle = 0,
         SelectingTarget = 1,
-        Moving = 2
+        Moving = 2,
+        InCityView = 3
     }
 }

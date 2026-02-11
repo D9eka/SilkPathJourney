@@ -1,4 +1,7 @@
-using System.Collections.Generic;
+using System;
+using Internal.Scripts.Economy.Cities;
+using Internal.Scripts.Player;
+using Internal.Scripts.Road.Nodes;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Zenject;
@@ -9,143 +12,108 @@ namespace Internal.Scripts.Camera
     {
         private readonly UnityEngine.Camera _camera;
         private readonly CameraSceneSettings _settings;
+        private readonly IPlayerStateProvider _playerStateProvider;
+        private readonly ICityNodeResolver _cityNodeResolver;
+        private readonly IRoadNodeLookup _nodeLookup;
+        private readonly DetailSceneLoader _detailSceneLoader;
 
-        private bool _detailSceneLoaded;
-        private AsyncOperation _currentLoadOperation;
-        private Dictionary<Renderer, bool> _mainSceneRenderersState = new Dictionary<Renderer, bool>();
+        private string _activeDetailScene;
 
-        public CameraSceneLoader(UnityEngine.Camera camera, CameraSceneSettings settings)
+        public event Action OnDetailSceneAutoUnloaded;
+
+        public CameraSceneLoader(
+            UnityEngine.Camera camera,
+            CameraSceneSettings settings,
+            IPlayerStateProvider playerStateProvider,
+            ICityNodeResolver cityNodeResolver,
+            IRoadNodeLookup nodeLookup,
+            DetailSceneLoader detailSceneLoader)
         {
             _camera = camera;
             _settings = settings;
+            _playerStateProvider = playerStateProvider;
+            _cityNodeResolver = cityNodeResolver;
+            _nodeLookup = nodeLookup;
+            _detailSceneLoader = detailSceneLoader;
         }
 
         public void Initialize()
         {
-            _detailSceneLoaded = false;
+            _activeDetailScene = null;
 
-            // Проверить, загружена ли детальная сцена (случай загрузки из сейва)
-            Scene detailScene = SceneManager.GetSceneByName(_settings.DetailScene.SceneName);
-            _detailSceneLoaded = detailScene.isLoaded;
-
-            // Если детальная сцена уже загружена, скрыть визуал главной
-            if (_detailSceneLoaded)
+            int loadedSceneCount = SceneManager.sceneCount;
+            if (loadedSceneCount > 1)
             {
-                HideMainSceneVisuals();
+                for (int i = 0; i < loadedSceneCount; i++)
+                {
+                    Scene scene = SceneManager.GetSceneAt(i);
+                    if (scene.isLoaded && scene.name != _settings.MainScene.SceneName)
+                    {
+                        _activeDetailScene = scene.name;
+                        break;
+                    }
+                }
             }
         }
 
         public void Tick()
         {
-            if (!_settings.EnableDetailSceneLoading || _currentLoadOperation != null)
+            if (!_settings.EnableDetailSceneLoading || _detailSceneLoader.IsPendingLoad)
+                return;
+
+            PlayerState playerState = _playerStateProvider.State;
+            if (playerState == PlayerState.Moving || playerState == PlayerState.SelectingTarget)
                 return;
 
             float cameraY = _camera.transform.position.y;
+            var sceneInfo = GetSceneToLoad();
 
-            if (!_detailSceneLoaded && cameraY < _settings.DetailSceneLoadThreshold)
+            if (cameraY < _settings.DetailSceneLoadThreshold)
             {
-                LoadDetailScene();
-            }
-            else if (_detailSceneLoaded && cameraY > _settings.DetailSceneUnloadThreshold)
-            {
-                DeactivateDetailScene();
-            }
-        }
-
-        private void LoadDetailScene()
-        {
-            if (string.IsNullOrEmpty(_settings.DetailScene.SceneName))
-                return;
-
-            Scene scene = SceneManager.GetSceneByName(_settings.DetailScene.SceneName);
-
-            // If scene is already loaded but deactivated - reactivate it
-            if (scene.isLoaded)
-            {
-                foreach (GameObject root in scene.GetRootGameObjects())
+                if (sceneInfo.HasValue && _activeDetailScene != sceneInfo.Value.sceneName)
                 {
-                    root.SetActive(true);
-                }
-                _detailSceneLoaded = true;
-                Debug.Log($"[CameraSceneLoader] Reactivated detail scene: {_settings.DetailScene.SceneName}");
-                HideMainSceneVisuals();
-                return;
-            }
+                    if (!string.IsNullOrEmpty(_activeDetailScene))
+                        _detailSceneLoader.DeactivateScene(_activeDetailScene);
 
-            // Otherwise load as usual
-            _currentLoadOperation = SceneManager.LoadSceneAsync(_settings.DetailScene.SceneName, LoadSceneMode.Additive);
-            if (_currentLoadOperation != null)
-            {
-                _currentLoadOperation.completed += OnDetailSceneLoaded;
-            }
-        }
-
-        private void DeactivateDetailScene()
-        {
-            if (string.IsNullOrEmpty(_settings.DetailScene.SceneName))
-                return;
-
-            Scene scene = SceneManager.GetSceneByName(_settings.DetailScene.SceneName);
-            if (!scene.isLoaded)
-            {
-                _detailSceneLoaded = false;
-                return;
-            }
-
-            // Deactivate all root GameObjects in the scene
-            foreach (GameObject root in scene.GetRootGameObjects())
-            {
-                root.SetActive(false);
-            }
-
-            _detailSceneLoaded = false;
-            Debug.Log($"[CameraSceneLoader] Deactivated detail scene: {_settings.DetailScene.SceneName}");
-            ShowMainSceneVisuals();
-        }
-
-        private void OnDetailSceneLoaded(AsyncOperation operation)
-        {
-            _detailSceneLoaded = true;
-            _currentLoadOperation = null;
-            Debug.Log($"[CameraSceneLoader] Loaded detail scene: {_settings.DetailScene.SceneName}");
-            HideMainSceneVisuals();
-        }
-
-        private void HideMainSceneVisuals()
-        {
-            Scene mainScene = SceneManager.GetSceneByName(_settings.MainScene.SceneName);
-            if (!mainScene.isLoaded)
-                return;
-
-            _mainSceneRenderersState.Clear();
-
-            foreach (GameObject root in mainScene.GetRootGameObjects())
-            {
-                // Skip the camera object
-                if (root.GetComponent<UnityEngine.Camera>() != null)
-                    continue;
-
-                // Cache and disable all renderers
-                foreach (var renderer in root.GetComponentsInChildren<Renderer>(true))
-                {
-                    _mainSceneRenderersState[renderer] = renderer.enabled;
-                    renderer.enabled = false;
+                    string sceneName = sceneInfo.Value.sceneName;
+                    Vector2 origin = sceneInfo.Value.origin;
+                    _detailSceneLoader.LoadAndActivateScene(sceneName, origin, () =>
+                    {
+                        _activeDetailScene = sceneName;
+                    });
                 }
             }
-
-            Debug.Log($"[CameraSceneLoader] Hidden main scene visuals: {_settings.MainScene.SceneName}");
+            else if (cameraY > _settings.DetailSceneUnloadThreshold && !string.IsNullOrEmpty(_activeDetailScene))
+            {
+                _detailSceneLoader.DeactivateScene(_activeDetailScene);
+                _activeDetailScene = null;
+                OnDetailSceneAutoUnloaded?.Invoke();
+            }
         }
 
-        private void ShowMainSceneVisuals()
+        private (string sceneName, Vector2 origin)? GetSceneToLoad()
         {
-            // Restore renderer states
-            foreach (var kvp in _mainSceneRenderersState)
-            {
-                if (kvp.Key != null) // Check if renderer still exists
-                    kvp.Key.enabled = kvp.Value; // Restore original state
-            }
+            string currentNodeId = _playerStateProvider.CurrentNodeId;
+            if (string.IsNullOrEmpty(currentNodeId))
+                return null;
 
-            Debug.Log($"[CameraSceneLoader] Shown main scene visuals: {_settings.MainScene.SceneName}");
+            if (!_cityNodeResolver.TryGetCityByNodeId(currentNodeId, out CityData city))
+                return null;
+
+            if (city.DetailScene == null || string.IsNullOrEmpty(city.DetailScene.SceneName))
+                return null;
+
+            Vector3? nodePos = _nodeLookup.GetPosition(city.NodeId);
+            if (!nodePos.HasValue)
+                return null;
+
+            Vector2 origin = new Vector2(nodePos.Value.x, nodePos.Value.z);
+            return (city.DetailScene.SceneName, origin);
+        }
+
+        public void SetActiveDetailScene(string sceneName)
+        {
+            _activeDetailScene = sceneName;
         }
     }
 }

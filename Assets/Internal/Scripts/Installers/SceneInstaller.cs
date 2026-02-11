@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using Internal.Scripts.Camera;
+using Internal.Scripts.Camera.AutoFit;
 using Internal.Scripts.Camera.Move;
 using Internal.Scripts.Camera.Zoom;
 using Internal.Scripts.Input;
@@ -112,10 +113,17 @@ namespace Internal.Scripts.Installers
             Container.Bind<UnityEngine.Camera>().FromInstance(_mainCamera)
                 .AsSingle()
                 .NonLazy();
+            Container.BindInstance(_cameraSceneSettings).AsSingle();
 
             Container.BindInterfacesTo<CameraZoomer>().AsSingle().WithArguments(_cameraZoomerData);
             Container.BindInterfacesTo<CameraMover>().AsSingle();
-            Container.BindInterfacesTo<CameraSceneLoader>().AsSingle().WithArguments(_cameraSceneSettings);
+            Container.BindInterfacesTo<CameraAutoFitter>().AsSingle();
+            Container.Bind<MainSceneVisibilityController>().AsSingle();
+            Container.Bind<DetailSceneLoader>().AsSingle();
+            Container.BindInterfacesAndSelfTo<CameraSceneLoader>().AsSingle();
+
+            Container.Bind<CameraController>().AsSingle();
+            Container.BindInterfacesAndSelfTo<CityEntryService>().AsSingle().NonLazy();
         }
 
         public void InstallWorld()
