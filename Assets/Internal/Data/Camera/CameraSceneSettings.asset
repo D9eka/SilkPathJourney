@@ -22,3 +22,5 @@ MonoBehaviour:
   <EnableDetailSceneLoading>k__BackingField: 1
   <DefaultCityDetailZoomSize>k__BackingField: 75
   <PreloadCityScene>k__BackingField: 1
+  <StrategicTiltAngle>k__BackingField: 90
+  <DetailTiltAngle>k__BackingField: 45

@@ -3,6 +3,7 @@ using System.Linq;
 using Internal.Scripts.Camera;
 using Internal.Scripts.Camera.AutoFit;
 using Internal.Scripts.Camera.Move;
+using Internal.Scripts.Camera.Tilt;
 using Internal.Scripts.Camera.Zoom;
 using Internal.Scripts.Input;
 using Internal.Scripts.Inventory;
@@ -114,8 +115,10 @@ namespace Internal.Scripts.Installers
                 .AsSingle()
                 .NonLazy();
             Container.BindInstance(_cameraSceneSettings).AsSingle();
+            Container.BindInstance(_cameraZoomerData).AsSingle();
 
-            Container.BindInterfacesTo<CameraZoomer>().AsSingle().WithArguments(_cameraZoomerData);
+            Container.BindInterfacesTo<CameraZoomer>().AsSingle();
+            Container.BindInterfacesTo<CameraTilter>().AsSingle();
             Container.BindInterfacesTo<CameraMover>().AsSingle();
             Container.BindInterfacesTo<CameraAutoFitter>().AsSingle();
             Container.Bind<MainSceneVisibilityController>().AsSingle();
