@@ -19,6 +19,7 @@ namespace Internal.Scripts.Camera
 
         private string _activeDetailScene;
 
+        public bool SuspendAutoLoading { get; set; }
         public event Action OnDetailSceneAutoUnloaded;
 
         public CameraSceneLoader(
@@ -58,6 +59,9 @@ namespace Internal.Scripts.Camera
 
         public void Tick()
         {
+            if (SuspendAutoLoading)
+                return;
+
             if (!_settings.EnableDetailSceneLoading || _detailSceneLoader.IsPendingLoad)
                 return;
 
