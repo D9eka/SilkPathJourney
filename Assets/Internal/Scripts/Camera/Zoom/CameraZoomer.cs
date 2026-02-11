@@ -1,6 +1,9 @@
 using System;
 using DG.Tweening;
+using Internal.Scripts.Economy.Cities;
 using Internal.Scripts.Input;
+using Internal.Scripts.Player;
+using Internal.Scripts.Road.Nodes;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -13,6 +16,11 @@ namespace Internal.Scripts.Camera.Zoom
         private readonly UnityEngine.Camera _camera;
         private readonly InputManager _inputManager;
         private readonly CameraZoomerData _cameraZoomerData;
+        private readonly CameraBounds _bounds;
+        private readonly CameraSceneSettings _settings;
+        private readonly ICityNodeResolver _cityNodeResolver;
+        private readonly IPlayerStateProvider _playerStateProvider;
+        private readonly IRoadNodeLookup _nodeLookup;
 
         private Tween _tweenY;
 
@@ -20,11 +28,24 @@ namespace Internal.Scripts.Camera.Zoom
             (_camera.transform.position.y - _cameraZoomerData.BaseYPosition) *
             _cameraZoomerData.ScaleFactor;
 
-        public CameraZoomer(UnityEngine.Camera camera, InputManager inputManager, CameraZoomerData cameraZoomerData)
+        public CameraZoomer(
+            UnityEngine.Camera camera,
+            InputManager inputManager,
+            CameraZoomerData cameraZoomerData,
+            CameraBounds bounds,
+            CameraSceneSettings settings,
+            ICityNodeResolver cityNodeResolver,
+            IPlayerStateProvider playerStateProvider,
+            IRoadNodeLookup nodeLookup)
         {
             _camera = camera;
             _inputManager = inputManager;
             _cameraZoomerData = cameraZoomerData;
+            _bounds = bounds;
+            _settings = settings;
+            _cityNodeResolver = cityNodeResolver;
+            _playerStateProvider = playerStateProvider;
+            _nodeLookup = nodeLookup;
         }
         
         public void Initialize()
@@ -80,6 +101,8 @@ namespace Internal.Scripts.Camera.Zoom
                 _camera.transform.position = new Vector3(newXZ.x, currentPos.y, newXZ.y);
             }
 
+            ClampPositionToBounds();
+
             _tweenY?.Kill();
 
             _tweenY = _camera.transform.DOMoveY(targetY, duration)
@@ -93,6 +116,13 @@ namespace Internal.Scripts.Camera.Zoom
             float newSize = Size + sizeDelta * _cameraZoomerData.Sensitivity;
             newSize = Mathf.Clamp(newSize, _cameraZoomerData.MinValue, _cameraZoomerData.MaxValue);
 
+            if (_settings.EnableDetailSceneLoading)
+            {
+                float thresholdSize = YToSize(_settings.DetailSceneLoadThreshold);
+                if (newSize < thresholdSize && !HasDetailSceneAtCurrentPosition())
+                    newSize = thresholdSize;
+            }
+
             Vector3? mouseWorldPos = null;
             if (_cameraZoomerData.EnableZoomToCursor)
             {
@@ -100,6 +130,52 @@ namespace Internal.Scripts.Camera.Zoom
             }
 
             ZoomTo(newSize, mouseWorldPos);
+        }
+
+        private float YToSize(float y)
+        {
+            return _cameraZoomerData.BaseSizeValue +
+                (y - _cameraZoomerData.BaseYPosition) * _cameraZoomerData.ScaleFactor;
+        }
+
+        private bool HasDetailSceneAtCurrentPosition()
+        {
+            string nodeId = _playerStateProvider.CurrentNodeId;
+            if (string.IsNullOrEmpty(nodeId)) return false;
+            if (!_cityNodeResolver.TryGetCityByNodeId(nodeId, out CityData city)) return false;
+            if (city.DetailScene == null || string.IsNullOrEmpty(city.DetailScene.SceneName)) return false;
+
+            Vector3? nodePos = _nodeLookup.GetPosition(city.NodeId);
+            if (!nodePos.HasValue) return false;
+
+            Vector2 cityXZ = new Vector2(nodePos.Value.x, nodePos.Value.z);
+            Vector2 cameraXZ = GetCameraWorldTarget();
+            float maxDistance = city.DetailScene.CameraSize > 0
+                ? city.DetailScene.CameraSize
+                : _settings.DefaultCityDetailZoomSize;
+
+            return Vector2.Distance(cameraXZ, cityXZ) <= maxDistance;
+        }
+
+        private Vector2 GetCameraWorldTarget()
+        {
+            Vector3 pos = _camera.transform.position;
+            Vector3 forward = _camera.transform.forward;
+            float zOffset = Mathf.Abs(forward.y) < 0.001f ? 0f : pos.y * forward.z / forward.y;
+            return new Vector2(pos.x, pos.z - zOffset);
+        }
+
+        private void ClampPositionToBounds()
+        {
+            Vector2 worldTarget = GetCameraWorldTarget();
+            Vector2 clamped = _bounds.Clamp(worldTarget);
+            if (worldTarget != clamped)
+            {
+                Vector3 pos = _camera.transform.position;
+                Vector3 forward = _camera.transform.forward;
+                float zOffset = Mathf.Abs(forward.y) < 0.001f ? 0f : pos.y * forward.z / forward.y;
+                _camera.transform.position = new Vector3(clamped.x, pos.y, clamped.y + zOffset);
+            }
         }
 
         private Vector3? TryGetMouseWorldPosition()

@@ -12,30 +12,54 @@ namespace Internal.Scripts.Camera.Move
         private readonly UnityEngine.Camera _camera;
         private readonly InputManager _inputManager;
         private readonly ICameraTilter _tilter;
+        private readonly CameraBounds _bounds;
+        private readonly CameraSceneSettings _settings;
 
         private Vector2 _moveDelta;
         private Tween _tweenX;
         private Tween _tweenZ;
 
-        public CameraMover(UnityEngine.Camera camera, InputManager inputManager, ICameraTilter tilter)
+        public bool SuspendLateTick { get; set; }
+
+        public CameraMover(UnityEngine.Camera camera, InputManager inputManager, ICameraTilter tilter,
+            CameraBounds bounds, CameraSceneSettings settings)
         {
             _camera = camera;
             _inputManager = inputManager;
             _tilter = tilter;
+            _bounds = bounds;
+            _settings = settings;
         }
 
         public void Initialize()
         {
             _inputManager.OnChangeCameraPosition += ChangePosition;
+
+            float zOffset = CalculateZOffset();
+            Vector3 pos = _camera.transform.position;
+            _camera.transform.position = new Vector3(
+                _bounds.Center.x, pos.y, _bounds.Center.y + zOffset);
         }
 
         public void LateTick()
         {
+            if (SuspendLateTick) return;
+
             if ((_tweenX != null && _tweenX.IsActive() && _tweenX.IsPlaying()) ||
                 _tilter.IsAnimating)
                 return;
 
-            _camera.transform.position += new Vector3(_moveDelta.x, 0, _moveDelta.y);
+            float speed = _settings.MoveSensitivity * _camera.transform.position.y * Time.deltaTime;
+            _camera.transform.position += new Vector3(_moveDelta.x, 0, _moveDelta.y) * speed;
+
+            Vector2 worldTarget = GetCurrentWorldTarget();
+            Vector2 clamped = _bounds.Clamp(worldTarget);
+            if (worldTarget != clamped)
+            {
+                float zOffset = CalculateZOffset();
+                Vector3 pos = _camera.transform.position;
+                _camera.transform.position = new Vector3(clamped.x, pos.y, clamped.y + zOffset);
+            }
         }
 
         public void Dispose()
@@ -57,6 +81,7 @@ namespace Internal.Scripts.Camera.Move
 
         public void MoveTo(Vector2 worldPosition, float duration, Action onComplete = null)
         {
+            worldPosition = _bounds.Clamp(worldPosition);
             float zOffset = CalculateZOffset();
 
             _tweenX?.Kill();

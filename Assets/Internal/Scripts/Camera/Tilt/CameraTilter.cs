@@ -29,14 +29,45 @@ namespace Internal.Scripts.Camera.Tilt
         public void TiltTo(float angle, float duration, Action onComplete = null)
         {
             _tween?.Kill();
-            Vector3 euler = _camera.transform.eulerAngles;
-            _tween = _camera.transform.DORotate(new Vector3(angle, euler.y, euler.z), duration)
-                .OnComplete(() => onComplete?.Invoke());
+            float startAngle = _camera.transform.eulerAngles.x;
+            float yRot = _camera.transform.eulerAngles.y;
+            Vector2 worldTarget = GetWorldTarget();
+
+            _tween = DOVirtual.Float(0f, 1f, duration, t =>
+            {
+                float currentAngle = Mathf.Lerp(startAngle, angle, t);
+                _camera.transform.eulerAngles = new Vector3(currentAngle, yRot, 0f);
+
+                float y = _camera.transform.position.y;
+                float zOffset = CalculateZOffset(y, currentAngle, yRot);
+                _camera.transform.position = new Vector3(
+                    _camera.transform.position.x, y, worldTarget.y + zOffset);
+            }).SetEase(Ease.InOutSine).OnComplete(() => onComplete?.Invoke());
         }
 
         public void Dispose()
         {
             _tween?.Kill();
+        }
+
+        private Vector2 GetWorldTarget()
+        {
+            Vector3 pos = _camera.transform.position;
+            Vector3 forward = _camera.transform.forward;
+            if (Mathf.Abs(forward.y) < 0.001f)
+                return new Vector2(pos.x, pos.z);
+            float zOffset = pos.y * forward.z / forward.y;
+            return new Vector2(pos.x, pos.z - zOffset);
+        }
+
+        private float CalculateZOffset(float cameraY, float xAngleDeg, float yAngleDeg)
+        {
+            float xRad = xAngleDeg * Mathf.Deg2Rad;
+            float yRad = yAngleDeg * Mathf.Deg2Rad;
+            float forwardY = -Mathf.Sin(xRad);
+            if (Mathf.Abs(forwardY) < 0.001f) return 0f;
+            float forwardZ = Mathf.Cos(xRad) * Mathf.Cos(yRad);
+            return cameraY * forwardZ / forwardY;
         }
     }
 }
