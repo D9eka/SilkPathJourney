@@ -8,3 +8,33 @@ china,jade,0.85,Нефрит распространён культурно
 byzantine,jade,1.15,Восточная экзотика
 steppe,leather,0.85,"Локальное производство, импорт не нужен"
 steppe,wool,0.8,Массовый локальный ресурс
+china,tea,0.8,Чай обычен в Китае
+china,porcelain,0.8,Фарфор производят в Китае
+china,ginseng,0.75,Женьшень — китайский товар
+china,lacquerware,0.85,Лаковые изделия местные
+china,embroidery,0.85,Вышивка — китайское ремесло
+persia,saffron,0.8,Шафран производят в Персии
+persia,turquoise,0.8,Бирюза добывается в Персии
+persia,carpets,0.85,Персидские ковры
+persia,chainmail,0.85,Персидские кольчуги
+persia,bezoar,0.85,Безоар из Персии
+byzantine,brocade,0.85,Парча — византийский товар
+byzantine,amber,0.85,Янтарь из балтийских земель
+byzantine,wine,0.85,Вино распространено
+byzantine,mirrors,0.85,Византийские зеркала
+central_asia,cashmere,0.8,Кашемир из Средней Азии
+central_asia,saddles,0.85,Сёдла — кочевой товар
+central_asia,kumis,0.7,Кумыс — местный напиток
+central_asia,racing_horse,0.8,Лошади из степи
+central_asia,lapis_lazuli,0.85,Лазурит из Средней Азии
+levant,glass,0.8,Левантийское стекло
+levant,olive_oil,0.8,Оливковое масло местное
+levant,satin,0.85,Атласные ткани
+levant,mosaic,0.85,Мозаика — левантийское ремесло
+mesopotamia,gold_ornaments,0.85,Месопотамское золото
+mesopotamia,blades,0.85,Дамасские клинки
+mesopotamia,dates,0.8,Финики из Месопотамии
+mesopotamia,pottery,0.85,Глиняная посуда — местное ремесло
+steppe,bows,0.8,Степные луки
+steppe,hunting_dog,0.8,Охотничьи собаки степи
+steppe,purebred_camel,0.85,Верблюды из степи

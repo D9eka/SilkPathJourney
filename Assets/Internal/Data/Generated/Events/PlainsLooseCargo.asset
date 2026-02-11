@@ -1,0 +1,94 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6987321839e5c54cac58e088f94c8c8, type: 3}
+  m_Name: PlainsLooseCargo
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
+  <Id>k__BackingField: plains_loose_cargo
+  <Name>k__BackingField:
+    m_TableReference:
+      m_TableCollectionName: Events
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: event.plains_loose_cargo.name
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  <EventType>k__BackingField:
+    m_TableReference:
+      m_TableCollectionName: Events
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: event_type.caravan_trouble.name
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  <Description>k__BackingField:
+    m_TableReference:
+      m_TableCollectionName: Events
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: event.plains_loose_cargo.description
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  <Image>k__BackingField: {fileID: 0}
+  <Choices>k__BackingField:
+  - <Text>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Events
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: event.plains_loose_cargo.choice1
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <ResultText>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <Conditions>k__BackingField: []
+    <Outcomes>k__BackingField: []
+  - <Text>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Events
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: event.plains_loose_cargo.choice2
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <ResultText>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <Conditions>k__BackingField: []
+    <Outcomes>k__BackingField: []
+  <IsMinor>k__BackingField: 1
+  <AutoOutcomes>k__BackingField:
+  - <Type>k__BackingField: 5
+    <Param>k__BackingField: 
+    <Value>k__BackingField: -3
+  <Conditions>k__BackingField: []
+  <Weight>k__BackingField: 0.5
+  references:
+    version: 2
+    RefIds: []

@@ -86,6 +86,16 @@ namespace Internal.Scripts.Inventory
             return true;
         }
 
+        public bool HasPlayerItem(string itemId, int minCount = 1)
+        {
+            EnsureLoaded();
+            if (string.IsNullOrEmpty(itemId) || _saveData.PlayerInventory?.Items == null)
+                return false;
+
+            var stack = _saveData.PlayerInventory.Items.Find(s => s.ItemId == itemId);
+            return stack != null && stack.Count >= minCount;
+        }
+
         public void Save()
         {
             EnsureLoaded();
@@ -138,7 +148,6 @@ namespace Internal.Scripts.Inventory
             InventoryState clone = new InventoryState
             {
                 Money = source.Money,
-                MaxWeightKg = source.MaxWeightKg,
                 Items = new List<ItemStackState>()
             };
 

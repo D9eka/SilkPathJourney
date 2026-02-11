@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Internal.Scripts.Items;
 using Internal.Scripts.Trading;
+using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Localization;
 using Internal.Scripts.UI.Screen.ViewModel;
 using Internal.Scripts.UI.Screens.Inventory;
@@ -26,6 +27,8 @@ namespace Internal.Scripts.UI.Screens.Trade
 
         [Header("Texts")]
         [SerializeField] private TextMeshProUGUI _tradeButtonText;
+        [Header("Resources")]
+        [SerializeField] private ResourceIndicator _weightIndicator;
         [Header("Buttons")]
         [SerializeField] private Button _tradeButton;
         [Header("Content")]
@@ -69,11 +72,11 @@ namespace Internal.Scripts.UI.Screens.Trade
 
         private UnityAction _tradeHandler;
         private LocalizationHelper.LocalizedTextHandle _tradeButtonHandle;
+        private bool _iconsInitialized;
 
         protected override void OnEnable()
         {
             base.OnEnable();
-            CacheViews();
             BindLocalization();
             SubscribeViewModel();
         }
@@ -114,19 +117,12 @@ namespace Internal.Scripts.UI.Screens.Trade
 
         public void SetPlayerMoney(int value)
         {
-            _playerTradeContainer.SetAdditionalHeaderText(value.ToString(), value);
-        }
-
-        public void SetTradeWeightInfo(string text, bool warning, params object[] args)
-        {
-            SetAdditionalHeaderState(true);
-            SetAdditionalHeaderText(text, args);
-            SetAdditionalHeaderHighlight(warning);
+            _playerTradeContainer.SetTotal(value);
         }
 
         public void SetNpcMoney(int value)
         {
-            _npcTradeContainer.SetAdditionalHeaderText(value.ToString(), value);
+            _npcTradeContainer.SetTotal(value);
         }
 
         public void BindTradeAction(Action action)
@@ -153,6 +149,23 @@ namespace Internal.Scripts.UI.Screens.Trade
             _tradeButton.interactable = state;
         }
 
+        private void InitIcons()
+        {
+            if (_iconsInitialized) return;
+            _iconsInitialized = true;
+
+            var icons = _viewModel?.ResourceIcons;
+            if (icons == null) return;
+
+            _playerTradeContainer.SetTotalIcon(icons.Get(ResourceType.Money)?.Icon);
+            _npcTradeContainer.SetTotalIcon(icons.Get(ResourceType.Money)?.Icon);
+            _itemsToBuyTradeContainer.SetTotalIcon(icons.Get(ResourceType.Money)?.Icon);
+            _itemsToSellTradeContainer.SetTotalIcon(icons.Get(ResourceType.Money)?.Icon);
+
+            if (_weightIndicator != null)
+                _weightIndicator.SetIcon(icons.Get(ResourceType.Weight)?.Icon);
+        }
+
         private void SubscribeViewModel()
         {
             if (_viewModel == null || _stateSubscription != null)
@@ -162,6 +175,7 @@ namespace Internal.Scripts.UI.Screens.Trade
             _hasNpcItemsHash = false;
             _hasBuyItemsHash = false;
             _hasSellItemsHash = false;
+            _iconsInitialized = false;
             CacheViews();
             _stateSubscription = _viewModel.State.Subscribe(ApplyState);
             _viewModel.Navigate += HandleNavigate;
@@ -195,6 +209,8 @@ namespace Internal.Scripts.UI.Screens.Trade
 
         private void ApplyState(TradeViewState state)
         {
+            InitIcons();
+
             if (!_hasPlayerItemsHash || _lastPlayerItemsHash != state.PlayerItemsHash)
             {
                 _lastPlayerItemsHash = state.PlayerItemsHash;
@@ -223,20 +239,35 @@ namespace Internal.Scripts.UI.Screens.Trade
             SetPlayerMoney(state.PlayerMoney);
             SetNpcMoney(state.NpcMoney);
 
-            _itemsToBuyTradeContainer.SetAdditionalHeaderText(state.BuyTotal.ToString(), state.BuyTotal);
-            _itemsToSellTradeContainer.SetAdditionalHeaderText(state.SellTotal.ToString(), state.SellTotal);
+            int playerMoneyChange = state.SellTotal - state.BuyTotal;
+            int npcMoneyChange = state.BuyTotal - state.SellTotal;
+            _playerTradeContainer.SetTotalChange(playerMoneyChange);
+            _npcTradeContainer.SetTotalChange(npcMoneyChange);
+
+            _itemsToBuyTradeContainer.SetTotal(state.BuyTotal);
+            _itemsToSellTradeContainer.SetTotal(state.SellTotal);
 
             SetTradeInteractable(state.PlayerEnoughFunds);
-            _itemsToBuyTradeContainer.SetAdditionalHeaderHighlight(!state.PlayerEnoughFunds);
-            _itemsToSellTradeContainer.SetAdditionalHeaderHighlight(!state.NpcEnoughFunds);
+            _playerTradeContainer.SetTotalHighlight(!state.PlayerEnoughFunds);
+            _npcTradeContainer.SetTotalHighlight(!state.NpcEnoughFunds);
+            _itemsToBuyTradeContainer.SetTotalHighlight(!state.PlayerEnoughFunds);
+            _itemsToSellTradeContainer.SetTotalHighlight(!state.NpcEnoughFunds);
 
-            string weightFallback = state.MaxWeight > 0f
-                ? $"{state.ProjectedWeight:0.##} / {state.MaxWeight:0.##}"
-                : $"{state.ProjectedWeight:0.##}";
-            SetTradeWeightInfo(weightFallback, state.WeightWarning, state.ProjectedWeight, state.MaxWeight);
+            if (_weightIndicator != null)
+            {
+                string weightText = state.MaxWeight > 0f
+                    ? $"{state.BaseWeight:0.##} / {state.MaxWeight:0.##}"
+                    : $"{state.BaseWeight:0.##}";
+                _weightIndicator.SetValue(weightText);
+
+                float weightChange = state.ProjectedWeight - state.BaseWeight;
+                var icons = _viewModel?.ResourceIcons;
+                _weightIndicator.SetChange(weightChange, icons?.Get(ResourceType.Weight)?.IncreaseIsPositive ?? true);
+                _weightIndicator.SetHighlight(state.WeightWarning);
+            }
 
             if (!string.IsNullOrWhiteSpace(state.NpcName))
-                _npcTradeContainer.SetMainHeaderText(state.NpcName, state.NpcName);
+                _npcTradeContainer.SetMainHeaderText(state.NpcName);
 
             GetActiveView()?.EnsureSelection();
         }
@@ -337,20 +368,9 @@ namespace Internal.Scripts.UI.Screens.Trade
             };
         }
 
-        private void HandleNavigate(Vector2 value)
-        {
-            GetActiveView()?.HandleNavigate(value);
-        }
-
-        private void HandleSubmit()
-        {
-            GetActiveView()?.TryActivateSelected(addAll: false);
-        }
-
-        private void HandleSubmitAll()
-        {
-            GetActiveView()?.TryActivateSelected(addAll: true);
-        }
+        private void HandleNavigate(Vector2 value) => GetActiveView()?.HandleNavigate(value);
+        private void HandleSubmit() => GetActiveView()?.TryActivateSelected(addAll: false);
+        private void HandleSubmitAll() => GetActiveView()?.TryActivateSelected(addAll: true);
 
         private void HandleNextArea()
         {
@@ -376,34 +396,26 @@ namespace Internal.Scripts.UI.Screens.Trade
 
         private void HandlePlayerActivated(ItemRowData row, bool addAll)
         {
-            if (string.IsNullOrWhiteSpace(row.ItemId))
-                return;
-
-            _viewModel.MoveToSell(row.ItemId, addAll);
+            if (!string.IsNullOrWhiteSpace(row.ItemId))
+                _viewModel.MoveToSell(row.ItemId, addAll);
         }
 
         private void HandleNpcActivated(ItemRowData row, bool addAll)
         {
-            if (string.IsNullOrWhiteSpace(row.ItemId))
-                return;
-
-            _viewModel.MoveToBuy(row.ItemId, addAll);
+            if (!string.IsNullOrWhiteSpace(row.ItemId))
+                _viewModel.MoveToBuy(row.ItemId, addAll);
         }
 
         private void HandleBuyActivated(ItemRowData row, bool addAll)
         {
-            if (string.IsNullOrWhiteSpace(row.ItemId))
-                return;
-
-            _viewModel.ReturnFromBuy(row.ItemId, addAll);
+            if (!string.IsNullOrWhiteSpace(row.ItemId))
+                _viewModel.ReturnFromBuy(row.ItemId, addAll);
         }
 
         private void HandleSellActivated(ItemRowData row, bool addAll)
         {
-            if (string.IsNullOrWhiteSpace(row.ItemId))
-                return;
-
-            _viewModel.ReturnFromSell(row.ItemId, addAll);
+            if (!string.IsNullOrWhiteSpace(row.ItemId))
+                _viewModel.ReturnFromSell(row.ItemId, addAll);
         }
 
         private void BindLocalization()

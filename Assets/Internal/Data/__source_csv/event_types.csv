@@ -1,0 +1,10 @@
+event_type_id,name_key
+bandit_attack,event_type.bandit_attack.name
+wildlife,event_type.wildlife.name
+natural_disaster,event_type.natural_disaster.name
+hazard,event_type.hazard.name
+encounter,event_type.encounter.name
+caravan_trouble,event_type.caravan_trouble.name
+discovery,event_type.discovery.name
+companion,event_type.companion.name
+crisis,event_type.crisis.name

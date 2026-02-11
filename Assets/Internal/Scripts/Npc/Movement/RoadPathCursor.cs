@@ -75,9 +75,9 @@ namespace Internal.Scripts.Npc.Movement
             _segmentMover.Cancel();
         }
 
-        public void Advance(float deltaMeters)
+        public float Advance(float deltaMeters)
         {
-            _segmentMover.Advance(deltaMeters); 
+            return _segmentMover.Advance(deltaMeters);
         }
         
         private async void ChooseNextSegment(List<RoadPathSegment> options)
