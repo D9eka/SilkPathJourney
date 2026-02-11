@@ -17,7 +17,8 @@ namespace Internal.Scripts.Camera
             _mainSceneVisibility = mainSceneVisibility;
         }
 
-        public void LoadAndActivateScene(string sceneName, Vector2? sceneOrigin = null, Action onComplete = null)
+        public void LoadAndActivateScene(string sceneName, Vector2? sceneOrigin = null,
+            Action onComplete = null, bool hideMainScene = true)
         {
             if (string.IsNullOrEmpty(sceneName))
             {
@@ -34,7 +35,7 @@ namespace Internal.Scripts.Camera
                     root.SetActive(true);
                 }
                 Debug.Log($"[DetailSceneLoader] Reactivated scene: {sceneName}");
-                _mainSceneVisibility.Hide();
+                if (hideMainScene) _mainSceneVisibility.Hide();
                 onComplete?.Invoke();
                 return;
             }
@@ -55,13 +56,13 @@ namespace Internal.Scripts.Camera
                     if (sceneOrigin.HasValue)
                         PositionScene(sceneName, sceneOrigin.Value);
                     Debug.Log($"[DetailSceneLoader] Loaded scene: {sceneName}");
-                    _mainSceneVisibility.Hide();
+                    if (hideMainScene) _mainSceneVisibility.Hide();
                     onComplete?.Invoke();
                 };
             }
         }
 
-        public void DeactivateScene(string sceneName)
+        public void DeactivateScene(string sceneName, bool showMainScene = true)
         {
             if (string.IsNullOrEmpty(sceneName))
                 return;
@@ -76,7 +77,7 @@ namespace Internal.Scripts.Camera
             }
 
             Debug.Log($"[DetailSceneLoader] Deactivated scene: {sceneName}");
-            _mainSceneVisibility.Show();
+            if (showMainScene) _mainSceneVisibility.Show();
         }
 
         private void PositionScene(string sceneName, Vector2 worldXZ)

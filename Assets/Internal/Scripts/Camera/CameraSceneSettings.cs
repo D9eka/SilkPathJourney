@@ -23,6 +23,10 @@ namespace Internal.Scripts.Camera
         [Tooltip("Load detail scene before animation starts (smoother) or during animation")]
         [field: SerializeField] public bool PreloadCityScene { get; private set; } = true;
 
+        [Header("Camera Movement")]
+        [Tooltip("Base movement speed multiplier")]
+        [field: SerializeField] public float MoveSensitivity { get; private set; } = 1f;
+
         [Header("Camera Tilt")]
         [Tooltip("Camera X rotation for strategic (top-down) view")]
         [field: SerializeField] public float StrategicTiltAngle { get; private set; } = 90f;

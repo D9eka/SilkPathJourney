@@ -1,4 +1,5 @@
 using System;
+using Internal.Scripts.Camera.Tilt;
 using Internal.Scripts.Economy.Cities;
 using Internal.Scripts.Player;
 using Internal.Scripts.Road.Nodes;
@@ -16,6 +17,8 @@ namespace Internal.Scripts.Camera
         private readonly ICityNodeResolver _cityNodeResolver;
         private readonly IRoadNodeLookup _nodeLookup;
         private readonly DetailSceneLoader _detailSceneLoader;
+        private readonly CameraBounds _cameraBounds;
+        private readonly ICameraTilter _tilter;
 
         private string _activeDetailScene;
 
@@ -28,7 +31,9 @@ namespace Internal.Scripts.Camera
             IPlayerStateProvider playerStateProvider,
             ICityNodeResolver cityNodeResolver,
             IRoadNodeLookup nodeLookup,
-            DetailSceneLoader detailSceneLoader)
+            DetailSceneLoader detailSceneLoader,
+            CameraBounds cameraBounds,
+            ICameraTilter tilter)
         {
             _camera = camera;
             _settings = settings;
@@ -36,6 +41,8 @@ namespace Internal.Scripts.Camera
             _cityNodeResolver = cityNodeResolver;
             _nodeLookup = nodeLookup;
             _detailSceneLoader = detailSceneLoader;
+            _cameraBounds = cameraBounds;
+            _tilter = tilter;
         }
 
         public void Initialize()
@@ -84,6 +91,10 @@ namespace Internal.Scripts.Camera
                     _detailSceneLoader.LoadAndActivateScene(sceneName, origin, () =>
                     {
                         _activeDetailScene = sceneName;
+                        DetailSceneBounds sceneBounds = FindDetailSceneBounds(sceneName);
+                        if (sceneBounds != null)
+                            _cameraBounds.SetOverrideBounds(sceneBounds.Center, sceneBounds.Size);
+                        _tilter.TiltTo(_settings.DetailTiltAngle, 0.4f);
                     });
                 }
             }
@@ -91,6 +102,8 @@ namespace Internal.Scripts.Camera
             {
                 _detailSceneLoader.DeactivateScene(_activeDetailScene);
                 _activeDetailScene = null;
+                _cameraBounds.ClearOverrideBounds();
+                _tilter.TiltTo(_settings.StrategicTiltAngle, 0.4f);
                 OnDetailSceneAutoUnloaded?.Invoke();
             }
         }
@@ -118,6 +131,18 @@ namespace Internal.Scripts.Camera
         public void SetActiveDetailScene(string sceneName)
         {
             _activeDetailScene = sceneName;
+        }
+
+        private DetailSceneBounds FindDetailSceneBounds(string sceneName)
+        {
+            Scene scene = SceneManager.GetSceneByName(sceneName);
+            if (!scene.isLoaded) return null;
+            foreach (GameObject root in scene.GetRootGameObjects())
+            {
+                var bounds = root.GetComponentInChildren<DetailSceneBounds>();
+                if (bounds != null) return bounds;
+            }
+            return null;
         }
     }
 }

@@ -57,6 +57,7 @@ namespace Internal.Scripts.Installers
         [SerializeField] private UnityEngine.Camera _mainCamera;
         [SerializeField] private CameraZoomerData _cameraZoomerData;
         [SerializeField] private CameraSceneSettings _cameraSceneSettings;
+        [SerializeField] private DetailSceneBounds _strategicBounds;
         [Space]
         [Header("World")]
         [SerializeField] private WorldStatesData _worldStatesData;
@@ -117,6 +118,9 @@ namespace Internal.Scripts.Installers
             Container.BindInstance(_cameraSceneSettings).AsSingle();
             Container.BindInstance(_cameraZoomerData).AsSingle();
 
+            Container.Bind<CameraBounds>().AsSingle()
+                .WithArguments(_strategicBounds.BoundsCollider, _strategicBounds.CenterTransform);
+
             Container.BindInterfacesTo<CameraZoomer>().AsSingle();
             Container.BindInterfacesTo<CameraTilter>().AsSingle();
             Container.BindInterfacesTo<CameraMover>().AsSingle();
@@ -126,6 +130,8 @@ namespace Internal.Scripts.Installers
             Container.BindInterfacesAndSelfTo<CameraSceneLoader>().AsSingle();
 
             Container.Bind<CameraController>().AsSingle();
+            Container.Bind<CityViewAnimator>().AsSingle();
+            Container.Bind<CitySceneController>().AsSingle();
             Container.BindInterfacesAndSelfTo<CityEntryService>().AsSingle().NonLazy();
         }
 

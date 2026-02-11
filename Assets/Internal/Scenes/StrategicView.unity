@@ -380,6 +380,7 @@ GameObject:
   m_Component:
   - component: {fileID: 935085559}
   - component: {fileID: 935085560}
+  - component: {fileID: 935085562}
   - component: {fileID: 935085561}
   m_Layer: 0
   m_Name: GameObject
@@ -397,7 +398,7 @@ Transform:
   m_GameObject: {fileID: 935085557}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -93.69939, y: 0, z: 91.47417}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -450,6 +451,7 @@ MonoBehaviour:
   _mainCamera: {fileID: 1362266847}
   _cameraZoomerData: {fileID: 11400000, guid: 8e7e949b26ae37947884f3b8193155ac, type: 2}
   _cameraSceneSettings: {fileID: 11400000, guid: 45b20864a335ce54ab15b9a632a61834, type: 2}
+  _strategicBounds: {fileID: 935085562}
   _worldStatesData: {fileID: 11400000, guid: 34261bb662f36cd458d5b81be3923ba5, type: 2}
   _nodeViewPrefab: {fileID: 3893819316855974185, guid: 166c63d6d4d3e2c4b8f38a259f032900, type: 3}
   _economyDatabase: {fileID: 11400000, guid: 470634ec055f63546815d93a3084b67b, type: 2}
@@ -475,6 +477,20 @@ MonoBehaviour:
   _eventDatabase: {fileID: 11400000, guid: 8573b1faa3d1a1b4797c85b1c9579688, type: 2}
   _resourceIconCatalog: {fileID: 11400000, guid: a42aa19a74ddc194c8d99e338c0cd34a, type: 2}
   _gameBalanceConfig: {fileID: 11400000, guid: 27f872d135e6d774c89903c048a2126e, type: 2}
+--- !u!114 &935085562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 935085557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8ee62940f057c41b3b6a32f0b72e9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Camera.DetailSceneBounds
+  _center: {fileID: 1915954898}
+  _boundsCollider: {fileID: 1148061545}
 --- !u!1 &964454146 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7685235043245661311, guid: e2f30367c0f30b44b9d9a3c5aed26f4d, type: 3}
@@ -578,6 +594,59 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Road.Core.RoadRuntime
   _data: {fileID: 11400000, guid: 0804780ee11c8b5418b364313a19faf1, type: 2}
   _worldRoot: {fileID: 812249640}
+--- !u!1 &1148061544
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1148061546}
+  - component: {fileID: 1148061545}
+  m_Layer: 0
+  m_Name: WorldBounds
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1148061545
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148061544}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 850, y: 100, z: 256}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &1148061546
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148061544}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -52, y: 53.2, z: -105}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1316047035
 GameObject:
   m_ObjectHideFlags: 0
@@ -928,6 +997,37 @@ Transform:
   - {fileID: 147145527}
   - {fileID: 558127741}
   m_Father: {fileID: 812249640}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1915954897
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1915954898}
+  m_Layer: 0
+  m_Name: WorldCenter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1915954898
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915954897}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -376.9, y: 0, z: -123.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1949583555
 PrefabInstance:
@@ -1745,3 +1845,5 @@ SceneRoots:
   - {fileID: 1659619013}
   - {fileID: 1949583555}
   - {fileID: 1469674748}
+  - {fileID: 1915954898}
+  - {fileID: 1148061546}

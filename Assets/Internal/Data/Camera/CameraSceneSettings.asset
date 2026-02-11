@@ -17,10 +17,10 @@ MonoBehaviour:
   <MainScene>k__BackingField:
     _sceneAsset: {fileID: 102900000, guid: 4469673e4990f2a41b1bebe1d3d4d6e8, type: 3}
     _sceneName: StrategicView
-    _cameraCenter: {x: 0, y: 0}
     _cameraSize: 15
   <EnableDetailSceneLoading>k__BackingField: 1
   <DefaultCityDetailZoomSize>k__BackingField: 75
   <PreloadCityScene>k__BackingField: 1
+  <MoveSensitivity>k__BackingField: 1
   <StrategicTiltAngle>k__BackingField: 90
   <DetailTiltAngle>k__BackingField: 45
