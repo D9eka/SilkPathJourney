@@ -4,7 +4,7 @@ using Internal.Scripts.Items;
 using Internal.Scripts.Trading;
 using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Localization;
-using Internal.Scripts.UI.Screen.ViewModel;
+using Internal.Scripts.UI.Screens.Core.ViewModel;
 using Internal.Scripts.UI.Screens.Inventory;
 using R3;
 using TMPro;

@@ -2,8 +2,8 @@ using System;
 using Internal.Scripts.Input;
 using Internal.Scripts.Inventory;
 using Internal.Scripts.UI.Components;
-using Internal.Scripts.UI.Screen.Config;
-using Internal.Scripts.UI.Screen.ViewModel;
+using Internal.Scripts.UI.Screens.Core.Config;
+using Internal.Scripts.UI.Screens.Core.ViewModel;
 using R3;
 using UnityEngine;
 

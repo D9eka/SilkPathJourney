@@ -1,8 +1,8 @@
 using System;
-using Internal.Scripts.UI.Screen.ViewModel;
+using Internal.Scripts.UI.Screens.Core.ViewModel;
 using UnityEngine;
 
-namespace Internal.Scripts.UI.Screen.View
+namespace Internal.Scripts.UI.Screens.Core.View
 {
     public abstract class ScreenViewBase : MonoBehaviour, IScreenView, IScreenCloseRequestSource, IScreenViewModelBinder
     {

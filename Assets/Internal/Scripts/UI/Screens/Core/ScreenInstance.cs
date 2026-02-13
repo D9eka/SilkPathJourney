@@ -1,9 +1,9 @@
-using Internal.Scripts.UI.Screen.Config;
-using Internal.Scripts.UI.Screen.View;
-using Internal.Scripts.UI.Screen.ViewModel;
+using Internal.Scripts.UI.Screens.Core.Config;
+using Internal.Scripts.UI.Screens.Core.View;
+using Internal.Scripts.UI.Screens.Core.ViewModel;
 using UnityEngine;
 
-namespace Internal.Scripts.UI.Screen
+namespace Internal.Scripts.UI.Screens.Core
 {
     public sealed class ScreenInstance
     {

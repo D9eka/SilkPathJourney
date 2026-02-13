@@ -1,6 +1,6 @@
-using Internal.Scripts.UI.Screen.Config;
+using Internal.Scripts.UI.Screens.Core.Config;
 
-namespace Internal.Scripts.UI.Screen.ViewModel
+namespace Internal.Scripts.UI.Screens.Core.ViewModel
 {
     public interface IScreenViewModel
     {

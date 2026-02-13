@@ -1,4 +1,4 @@
-namespace Internal.Scripts.UI.Screen.View
+namespace Internal.Scripts.UI.Screens.Core.View
 {
     public interface IScreenView
     {

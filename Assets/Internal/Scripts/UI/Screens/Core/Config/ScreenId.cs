@@ -1,4 +1,4 @@
-namespace Internal.Scripts.UI.Screen.Config
+namespace Internal.Scripts.UI.Screens.Core.Config
 {
     public enum ScreenId
     {
