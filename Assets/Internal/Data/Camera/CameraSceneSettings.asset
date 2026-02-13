@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 334342bae81801146aae588ed8f8bf19, type: 3}
   m_Name: CameraSceneSettings
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Camera.CameraSceneSettings
-  <DetailSceneLoadThreshold>k__BackingField: 50
-  <DetailSceneUnloadThreshold>k__BackingField: 60
+  <DetailSceneLoadThreshold>k__BackingField: 100
+  <DetailSceneUnloadThreshold>k__BackingField: 110
   <MainScene>k__BackingField:
     _sceneAsset: {fileID: 102900000, guid: 4469673e4990f2a41b1bebe1d3d4d6e8, type: 3}
     _sceneName: StrategicView
