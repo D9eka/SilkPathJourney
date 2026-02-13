@@ -1,6 +1,7 @@
 using System;
 using Internal.Scripts.Camera;
 using Internal.Scripts.Road.Nodes;
+using Internal.Scripts.UI.WorldLabel;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,15 +12,18 @@ namespace Internal.Scripts.Economy.Cities
         private readonly CameraSceneLoader _cameraSceneLoader;
         private readonly DetailSceneLoader _detailSceneLoader;
         private readonly IRoadNodeLookup _nodeLookup;
+        private readonly WorldCanvas _worldCanvas;
 
         public CitySceneController(
             CameraSceneLoader cameraSceneLoader,
             DetailSceneLoader detailSceneLoader,
-            IRoadNodeLookup nodeLookup)
+            IRoadNodeLookup nodeLookup,
+            WorldCanvas worldCanvas)
         {
             _cameraSceneLoader = cameraSceneLoader;
             _detailSceneLoader = detailSceneLoader;
             _nodeLookup = nodeLookup;
+            _worldCanvas = worldCanvas;
         }
 
         public Vector2? GetCityPosition(CityData city)
@@ -36,15 +40,21 @@ namespace Internal.Scripts.Economy.Cities
             Vector2? origin = nodePos.HasValue
                 ? new Vector2(nodePos.Value.x, nodePos.Value.z)
                 : null;
+            _worldCanvas.gameObject.SetActive(false);
             _cameraSceneLoader.SetActiveDetailScene(sceneName);
-            _detailSceneLoader.LoadAndActivateScene(sceneName, origin, onComplete, hideMainScene);
+            _detailSceneLoader.LoadAndActivateScene(sceneName, origin, onComplete, hideMainScene,
+                hideRenderers: true);
         }
+
+        public void ShowDetailRenderers(string sceneName)
+            => _detailSceneLoader.SetRenderersEnabled(sceneName, true);
 
         public void UnloadScene(CityData city, bool showMainScene)
         {
             string sceneName = city.DetailScene.SceneName;
             _detailSceneLoader.DeactivateScene(sceneName, showMainScene);
             _cameraSceneLoader.SetActiveDetailScene(null);
+            _worldCanvas.gameObject.SetActive(true);
         }
 
         public DetailSceneBounds FindBounds(string sceneName)

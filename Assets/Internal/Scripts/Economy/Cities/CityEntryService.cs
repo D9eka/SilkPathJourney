@@ -119,6 +119,7 @@ namespace Internal.Scripts.Economy.Cities
             void OnEnterComplete()
             {
                 _mainSceneVisibility.Hide();
+                _sceneController.ShowDetailRenderers(detailScene.SceneName);
 
                 DetailSceneBounds sceneBounds = _sceneController.FindBounds(detailScene.SceneName);
                 if (sceneBounds != null)

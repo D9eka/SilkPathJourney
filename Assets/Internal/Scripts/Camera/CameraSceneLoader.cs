@@ -3,6 +3,7 @@ using Internal.Scripts.Camera.Tilt;
 using Internal.Scripts.Economy.Cities;
 using Internal.Scripts.Player;
 using Internal.Scripts.Road.Nodes;
+using Internal.Scripts.UI.WorldLabel;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Zenject;
@@ -20,6 +21,7 @@ namespace Internal.Scripts.Camera
         private readonly DetailSceneLoader _detailSceneLoader;
         private readonly CameraBounds _cameraBounds;
         private readonly ICameraTilter _tilter;
+        private readonly WorldCanvas _worldCanvas;
 
         private string _activeDetailScene;
 
@@ -36,7 +38,8 @@ namespace Internal.Scripts.Camera
             IRoadNodeLookup nodeLookup,
             DetailSceneLoader detailSceneLoader,
             CameraBounds cameraBounds,
-            ICameraTilter tilter)
+            ICameraTilter tilter,
+            WorldCanvas worldCanvas)
         {
             _camera = camera;
             _settings = settings;
@@ -47,6 +50,7 @@ namespace Internal.Scripts.Camera
             _detailSceneLoader = detailSceneLoader;
             _cameraBounds = cameraBounds;
             _tilter = tilter;
+            _worldCanvas = worldCanvas;
         }
 
         public void Initialize()
@@ -106,7 +110,9 @@ namespace Internal.Scripts.Camera
                         if (sceneBounds != null)
                             _cameraBounds.SetOverrideBounds(sceneBounds.Center, sceneBounds.Size);
                         _tilter.TiltTo(_settings.DetailTiltAngle, 0.4f);
-                    });
+                        _worldCanvas.gameObject.SetActive(false);
+                        _detailSceneLoader.SetRenderersEnabled(sceneName, true);
+                    }, hideRenderers: true);
                 }
             }
             else if (cameraY > _settings.DetailSceneUnloadThreshold && !string.IsNullOrEmpty(_activeDetailScene))
@@ -115,6 +121,7 @@ namespace Internal.Scripts.Camera
                 _activeDetailScene = null;
                 _cameraBounds.ClearOverrideBounds();
                 _tilter.TiltTo(_settings.StrategicTiltAngle, 0.4f);
+                _worldCanvas.gameObject.SetActive(true);
                 OnDetailSceneAutoUnloaded?.Invoke();
             }
         }
@@ -134,8 +141,9 @@ namespace Internal.Scripts.Camera
                 if (sceneBounds != null)
                     _cameraBounds.SetOverrideBounds(sceneBounds.Center, sceneBounds.Size);
                 _tilter.TiltTo(_settings.DetailTiltAngle, 0.5f);
+                _detailSceneLoader.SetRenderersEnabled(sceneName, true);
                 onComplete?.Invoke();
-            }, hideMainScene: false);
+            }, hideMainScene: false, hideRenderers: true);
         }
 
         private void HandleDestinationChanged(string destinationId)
@@ -147,6 +155,7 @@ namespace Internal.Scripts.Camera
             _activeDetailScene = null;
             _cameraBounds.ClearOverrideBounds();
             _tilter.TiltTo(_settings.StrategicTiltAngle, 0.4f);
+            _worldCanvas.gameObject.SetActive(true);
             OnDetailSceneAutoUnloaded?.Invoke();
         }
 
