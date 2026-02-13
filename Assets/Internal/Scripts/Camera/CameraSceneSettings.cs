@@ -27,6 +27,9 @@ namespace Internal.Scripts.Camera
         [Tooltip("Base movement speed multiplier")]
         [field: SerializeField] public float MoveSensitivity { get; private set; } = 1f;
 
+        [Tooltip("Max camera Y used for movement speed calculation")]
+        [field: SerializeField] public float MaxMoveSpeedHeight { get; private set; } = 100f;
+
         [Header("Camera Tilt")]
         [Tooltip("Camera X rotation for strategic (top-down) view")]
         [field: SerializeField] public float StrategicTiltAngle { get; private set; } = 90f;

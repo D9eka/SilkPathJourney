@@ -33,9 +33,16 @@ namespace Internal.Scripts.Camera
         {
             Bounds active = _overrideBounds ?? _strategicBounds;
             Vector2 half = CalculateViewportHalfExtent();
-            return new Vector2(
-                Mathf.Clamp(worldTarget.x, active.min.x + half.x, active.max.x - half.x),
-                Mathf.Clamp(worldTarget.y, active.min.z + half.y, active.max.z - half.y));
+
+            float minX = active.min.x + half.x;
+            float maxX = active.max.x - half.x;
+            float minZ = active.min.z + half.y;
+            float maxZ = active.max.z - half.y;
+
+            float cx = minX > maxX ? (active.min.x + active.max.x) * 0.5f : Mathf.Clamp(worldTarget.x, minX, maxX);
+            float cz = minZ > maxZ ? (active.min.z + active.max.z) * 0.5f : Mathf.Clamp(worldTarget.y, minZ, maxZ);
+
+            return new Vector2(cx, cz);
         }
 
         private Vector2 CalculateViewportHalfExtent()
@@ -60,9 +67,9 @@ namespace Internal.Scripts.Camera
         private Vector3 ViewportToGround(Plane plane, Vector3 viewportPoint)
         {
             Ray ray = _camera.ViewportPointToRay(viewportPoint);
-            if (plane.Raycast(ray, out float dist))
+            if (plane.Raycast(ray, out float dist) && dist < 500f)
                 return ray.GetPoint(dist);
-            return ray.GetPoint(1000f);
+            return ray.GetPoint(500f);
         }
     }
 }
