@@ -10,14 +10,12 @@ namespace Internal.Scripts.UI.Arrow.Placement
         private const float SPAWN_ANIMATION_DURATION = 0.3f;
         private const float HIDE_ANIMATION_DURATION = 0.2f;
 
-        private readonly Transform _spawnParent;
-        private readonly ArrowView _arrowPrefab;
+        private readonly ArrowFactory _arrowFactory;
         private readonly List<ArrowView> _activeArrows = new();
 
-        public ArrowPlacementService(Transform spawnParent, ArrowView arrowPrefab)
+        public ArrowPlacementService(ArrowFactory arrowFactory)
         {
-            _spawnParent = spawnParent;
-            _arrowPrefab = arrowPrefab;
+            _arrowFactory = arrowFactory;
         }
 
         public void PlaceArrows(List<ArrowData> arrowDataList)
@@ -57,9 +55,8 @@ namespace Internal.Scripts.UI.Arrow.Placement
 
         private void PlaceArrow(ArrowData data)
         {
-            ArrowView arrow = Object.Instantiate(_arrowPrefab, _spawnParent);
+            ArrowView arrow = _arrowFactory.CreateArrow(data.WorldPos, $"Arrow_{data.Segment.SegmentId}");
             arrow.Initialize(data.Segment, data.Type);
-            arrow.transform.position = data.WorldPos;
             arrow.SetDirection(data.WorldDir);
 
             _activeArrows.Add(arrow);
