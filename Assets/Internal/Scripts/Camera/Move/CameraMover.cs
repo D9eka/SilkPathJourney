@@ -49,7 +49,8 @@ namespace Internal.Scripts.Camera.Move
                 _tilter.IsAnimating)
                 return;
 
-            float speed = _settings.MoveSensitivity * _camera.transform.position.y * Time.deltaTime;
+            float yFactor = Mathf.Min(_camera.transform.position.y, _settings.MaxMoveSpeedHeight);
+            float speed = _settings.MoveSensitivity * yFactor * Time.deltaTime;
             _camera.transform.position += new Vector3(_moveDelta.x, 0, _moveDelta.y) * speed;
 
             Vector2 worldTarget = GetCurrentWorldTarget();
