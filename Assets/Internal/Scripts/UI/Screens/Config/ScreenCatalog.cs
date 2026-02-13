@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Internal.Scripts.UI.Screen.Config;
+using Internal.Scripts.UI.Screens.Core.Config;
 using UnityEngine;
 
 namespace Internal.Scripts.UI.Screens.Config

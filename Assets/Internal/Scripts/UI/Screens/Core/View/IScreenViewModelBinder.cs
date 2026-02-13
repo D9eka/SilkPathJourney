@@ -1,6 +1,6 @@
-using Internal.Scripts.UI.Screen.ViewModel;
+using Internal.Scripts.UI.Screens.Core.ViewModel;
 
-namespace Internal.Scripts.UI.Screen.View
+namespace Internal.Scripts.UI.Screens.Core.View
 {
     public interface IScreenViewModelBinder
     {

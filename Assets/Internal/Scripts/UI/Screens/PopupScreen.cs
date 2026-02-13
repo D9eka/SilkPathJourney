@@ -1,6 +1,6 @@
 using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Localization;
-using Internal.Scripts.UI.Screen.View;
+using Internal.Scripts.UI.Screens.Core.View;
 using UnityEngine;
 using UnityEngine.Localization;
 

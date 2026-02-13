@@ -4,7 +4,7 @@ using Internal.Scripts.Player;
 using Internal.Scripts.Player.NextSegment;
 using Internal.Scripts.Player.StartMovement;
 using Internal.Scripts.UI.Arrow.Controller;
-using Internal.Scripts.UI.Screen.Config;
+using Internal.Scripts.UI.Screens.Core.Config;
 using Internal.Scripts.UI.StackService;
 using UnityEngine;
 using UnityEngine.UI;

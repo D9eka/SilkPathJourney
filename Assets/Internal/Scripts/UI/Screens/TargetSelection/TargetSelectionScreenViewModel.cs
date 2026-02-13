@@ -1,6 +1,6 @@
 using Internal.Scripts.Player.StartMovement;
-using Internal.Scripts.UI.Screen.Config;
-using Internal.Scripts.UI.Screen.ViewModel;
+using Internal.Scripts.UI.Screens.Core.Config;
+using Internal.Scripts.UI.Screens.Core.ViewModel;
 using Internal.Scripts.UI.StackService;
 
 namespace Internal.Scripts.UI.Screens.TargetSelection

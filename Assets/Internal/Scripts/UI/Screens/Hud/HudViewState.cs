@@ -1,6 +1,6 @@
 using Internal.Scripts.Economy.Cities;
 
-namespace Internal.Scripts.Hud
+namespace Internal.Scripts.UI.Screens.Hud
 {
     public readonly struct HudViewState
     {

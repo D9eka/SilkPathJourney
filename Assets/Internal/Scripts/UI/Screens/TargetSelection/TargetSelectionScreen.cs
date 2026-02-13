@@ -1,6 +1,6 @@
 using Internal.Scripts.UI.Components;
-using Internal.Scripts.UI.Screen.View;
-using Internal.Scripts.UI.Screen.ViewModel;
+using Internal.Scripts.UI.Screens.Core.View;
+using Internal.Scripts.UI.Screens.Core.ViewModel;
 using UnityEngine;
 
 namespace Internal.Scripts.UI.Screens.TargetSelection

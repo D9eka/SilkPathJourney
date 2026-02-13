@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Internal.Scripts.UI.Screen.Config
+namespace Internal.Scripts.UI.Screens.Core.Config
 {
     [CreateAssetMenu(menuName = "SPJ/UI/Screen Config", fileName = "ScreenConfig")]
     public sealed class ScreenConfig : ScriptableObject

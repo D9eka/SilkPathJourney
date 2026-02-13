@@ -11,7 +11,7 @@ using Internal.Scripts.World.State;
 using R3;
 using UnityEngine;
 
-namespace Internal.Scripts.Hud
+namespace Internal.Scripts.UI.Screens.Hud
 {
     public sealed class HudModel
     {

@@ -1,11 +1,10 @@
 using System;
 using Internal.Scripts.Economy.Cities;
 using Internal.Scripts.Events;
-using Internal.Scripts.Hud;
 using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Localization;
-using Internal.Scripts.UI.Screen.View;
-using Internal.Scripts.UI.Screen.ViewModel;
+using Internal.Scripts.UI.Screens.Core.View;
+using Internal.Scripts.UI.Screens.Core.ViewModel;
 using R3;
 using TMPro;
 using UnityEngine;
