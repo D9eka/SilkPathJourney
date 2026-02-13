@@ -1,4 +1,4 @@
-﻿namespace Internal.Scripts.Events.Data
+﻿namespace Internal.Scripts.Events.Generated
 {
     public enum EventConditionType
     {
