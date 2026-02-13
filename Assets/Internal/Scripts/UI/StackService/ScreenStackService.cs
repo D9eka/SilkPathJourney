@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using Internal.Scripts.UI.Factory;
-using Internal.Scripts.UI.Screen;
-using Internal.Scripts.UI.Screen.Config;
-using Internal.Scripts.UI.Screen.View;
-using Internal.Scripts.UI.Screen.ViewModel;
 using Internal.Scripts.UI.Screens.Config;
+using Internal.Scripts.UI.Screens.Core;
+using Internal.Scripts.UI.Screens.Core.Config;
+using Internal.Scripts.UI.Screens.Core.View;
+using Internal.Scripts.UI.Screens.Core.ViewModel;
 using UnityEngine;
 using Zenject;
 

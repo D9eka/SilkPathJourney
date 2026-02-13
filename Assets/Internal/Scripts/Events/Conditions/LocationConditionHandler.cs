@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Internal.Scripts.Economy.Save;
 using Internal.Scripts.Events.Data;
+using Internal.Scripts.Events.Generated;
 using Internal.Scripts.Player;
 using Internal.Scripts.Road.Nodes;
 

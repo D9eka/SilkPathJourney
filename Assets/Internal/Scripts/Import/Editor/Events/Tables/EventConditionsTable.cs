@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using Internal.Scripts.Events.Data;
+using Internal.Scripts.Events.Generated;
 using Internal.Scripts.Import.Editor.Core;
 using UnityEngine;
 using static Internal.Scripts.Import.Editor.Core.ImportHelpers;
