@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Internal.Scripts.Events.Generated;
 using UnityEngine;
 using UnityEngine.Localization;
 
