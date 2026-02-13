@@ -18,7 +18,7 @@ namespace Internal.Scripts.Camera
         }
 
         public void LoadAndActivateScene(string sceneName, Vector2? sceneOrigin = null,
-            Action onComplete = null, bool hideMainScene = true)
+            Action onComplete = null, bool hideMainScene = true, bool hideRenderers = false)
         {
             if (string.IsNullOrEmpty(sceneName))
             {
@@ -35,6 +35,7 @@ namespace Internal.Scripts.Camera
                     root.SetActive(true);
                 }
                 Debug.Log($"[DetailSceneLoader] Reactivated scene: {sceneName}");
+                if (hideRenderers) SetRenderersEnabled(sceneName, false);
                 if (hideMainScene) _mainSceneVisibility.Hide();
                 onComplete?.Invoke();
                 return;
@@ -56,6 +57,7 @@ namespace Internal.Scripts.Camera
                     if (sceneOrigin.HasValue)
                         PositionScene(sceneName, sceneOrigin.Value);
                     Debug.Log($"[DetailSceneLoader] Loaded scene: {sceneName}");
+                    if (hideRenderers) SetRenderersEnabled(sceneName, false);
                     if (hideMainScene) _mainSceneVisibility.Hide();
                     onComplete?.Invoke();
                 };
@@ -80,12 +82,24 @@ namespace Internal.Scripts.Camera
             if (showMainScene) _mainSceneVisibility.Show();
         }
 
+        public void SetRenderersEnabled(string sceneName, bool enabled)
+        {
+            Scene scene = SceneManager.GetSceneByName(sceneName);
+            if (!scene.isLoaded) return;
+
+            foreach (GameObject root in scene.GetRootGameObjects())
+            {
+                foreach (Renderer r in root.GetComponentsInChildren<Renderer>(true))
+                    r.enabled = enabled;
+            }
+        }
+
         private void PositionScene(string sceneName, Vector2 worldXZ)
         {
             Scene scene = SceneManager.GetSceneByName(sceneName);
             if (!scene.isLoaded) return;
 
-            Vector3 offset = new Vector3(worldXZ.x, 0, worldXZ.y);
+            Vector3 offset = new Vector3(worldXZ.x, 0f, worldXZ.y);
             foreach (GameObject root in scene.GetRootGameObjects())
             {
                 root.transform.position += offset;
