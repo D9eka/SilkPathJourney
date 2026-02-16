@@ -78,3 +78,4 @@ MonoBehaviour:
   _groundLayerMask:
     serializedVersion: 2
     m_Bits: 512
+  _tooltipPrefab: {fileID: 2964813221283995106, guid: 146ac993c94b1494a8a6e2b9f0884040, type: 3}
