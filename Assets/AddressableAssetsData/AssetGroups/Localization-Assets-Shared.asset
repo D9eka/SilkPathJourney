@@ -33,6 +33,12 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e1b1b2e1f40ee554db984b62b1f9f5f4
+    m_Address: Assets/Internal/Data/Generated/Localization/StringTables/Theme Shared
+      Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 805f57ea3b1caa3478493654bc6b9832, type: 2}
   m_SchemaSet:
