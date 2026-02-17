@@ -15,13 +15,15 @@ namespace Internal.Scripts.Events.Outcomes
             ItemOutcomeHandler item,
             CartDurabilityOutcomeHandler cartDurability,
             CompanionOutcomeHandler companion,
-            SkillOutcomeHandler skill)
+            SkillOutcomeHandler skill,
+            RoadUnlockOutcomeHandler roadUnlock)
         {
             Register(resource);
             Register(item);
             Register(cartDurability);
             Register(companion);
             Register(skill);
+            Register(roadUnlock);
         }
 
         public ResourceType? GetAffectedResource(EventOutcomeType type)

@@ -10,5 +10,6 @@ namespace Internal.Scripts.Save
         public EconomySaveData Economy;
         public PlayerSaveData Player;
         public CameraSaveData Camera;
+        public RoadSaveData Roads;
     }
 }

@@ -1,5 +1,6 @@
 using Internal.Scripts.Economy.Save;
 using Internal.Scripts.Player;
+using Internal.Scripts.Road.State;
 using Zenject;
 
 namespace Internal.Scripts.Save
@@ -9,15 +10,18 @@ namespace Internal.Scripts.Save
         private readonly SaveRepository _saveRepository;
         private readonly EconomySaveBuilder _economySaveBuilder;
         private readonly PlayerConfig _playerConfig;
+        private readonly RoadUnlockService _roadUnlockService;
 
         public SaveBootstrapper(
             SaveRepository saveRepository,
             EconomySaveBuilder economySaveBuilder,
-            PlayerConfig playerConfig)
+            PlayerConfig playerConfig,
+            RoadUnlockService roadUnlockService)
         {
             _saveRepository = saveRepository;
             _economySaveBuilder = economySaveBuilder;
             _playerConfig = playerConfig;
+            _roadUnlockService = roadUnlockService;
         }
 
         public void Initialize()
@@ -41,6 +45,9 @@ namespace Internal.Scripts.Save
                 data.Player.State = PlayerState.Idle;
                 changed = true;
             }
+
+            if (data.Roads != null)
+                _roadUnlockService.LoadState(data.Roads.UnlockedRoadIds);
 
             if (changed)
                 _saveRepository.Save();
