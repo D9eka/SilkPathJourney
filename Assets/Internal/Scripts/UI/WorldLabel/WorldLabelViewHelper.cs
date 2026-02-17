@@ -5,10 +5,6 @@ using UnityEngine.Localization;
 
 namespace Internal.Scripts.UI.WorldLabel
 {
-    /// <summary>
-    /// Helper for creating and managing WorldLabelView lifecycle attached to MonoBehaviour views.
-    /// Handles creation, configuration, and cleanup.
-    /// </summary>
     public class WorldLabelViewHelper : IDisposable
     {
         private readonly WorldCanvas _worldCanvas;
@@ -21,9 +17,6 @@ namespace Internal.Scripts.UI.WorldLabel
             _worldCanvas = worldCanvas;
         }
 
-        /// <summary>
-        /// Creates label with localized text and optional tooltip.
-        /// </summary>
         public WorldLabelView CreateLabel(
             Vector3 worldPosition,
             string name,
@@ -51,9 +44,6 @@ namespace Internal.Scripts.UI.WorldLabel
             return _label;
         }
 
-        /// <summary>
-        /// Creates label with plain text and optional tooltip.
-        /// </summary>
         public WorldLabelView CreateLabel(
             Vector3 worldPosition,
             string name,
