@@ -10,5 +10,6 @@ namespace Internal.Scripts.Import.Editor.Roads.DTO
         public float SpeedMul;
         public bool Bidirectional;
         public float SampleStepMeters;
+        public bool Hidden;
     }
 }

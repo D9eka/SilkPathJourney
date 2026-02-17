@@ -11,7 +11,7 @@ namespace Internal.Scripts.Import.Editor.Events.Generators
         private const string ID_COLUMN = "type_id";
         private const string ENUM_COLUMN = "enum_name";
         private const string OUTPUT_PATH = "Assets/Internal/Scripts/Events/Generated/EventOutcomeType.gen.cs";
-        private const string NAMESPACE = "Internal.Scripts.Events.Data";
+        private const string NAMESPACE = "Internal.Scripts.Events.Generated";
         private const string ZERO_VALUE = "None";
 
         public static bool Generate()

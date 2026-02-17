@@ -13,15 +13,16 @@ namespace Internal.Scripts.Import.Editor.Events.Tables
     {
         public static void Read(
             out Dictionary<string, List<EventCondition>> eventConditions,
-            out Dictionary<string, Dictionary<int, List<EventCondition>>> choiceConditions)
+            out Dictionary<string, Dictionary<int, List<EventCondition>>> choiceConditions,
+            string csvFile = "event_conditions.csv")
         {
             eventConditions = new Dictionary<string, List<EventCondition>>(StringComparer.Ordinal);
             choiceConditions = new Dictionary<string, Dictionary<int, List<EventCondition>>>(StringComparer.Ordinal);
 
-            string csvPath = CsvPath("event_conditions.csv");
+            string csvPath = CsvPath(csvFile);
             if (!File.Exists(csvPath))
             {
-                Debug.LogWarning("[SPJ] event_conditions.csv not found.");
+                Debug.LogWarning($"[SPJ] {csvFile} not found.");
                 return;
             }
 

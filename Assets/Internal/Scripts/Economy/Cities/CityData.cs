@@ -17,6 +17,7 @@ namespace Internal.Scripts.Economy.Cities
         [field: SerializeField] public CultureId SecondaryCulture { get; private set; }
         [field: SerializeField] public float MarketScale { get; private set; }
         [field: SerializeField] public bool HasPort { get; private set; }
+        [field: SerializeField] public Biome Biome { get; private set; }
         [field: SerializeField] public LocalizedString Name { get; private set; } = new();
         [field: SerializeField] public LocalizedString Description { get; private set; } = new();
 
@@ -47,6 +48,7 @@ namespace Internal.Scripts.Economy.Cities
             CultureId secondaryCulture,
             float marketScale,
             bool hasPort,
+            Biome biome,
             LocalizedString name,
             LocalizedString description = null)
         {
@@ -57,6 +59,7 @@ namespace Internal.Scripts.Economy.Cities
             SecondaryCulture = secondaryCulture;
             MarketScale = marketScale;
             HasPort = hasPort;
+            Biome = biome;
             Name = name;
             Description = description ?? new LocalizedString();
         }

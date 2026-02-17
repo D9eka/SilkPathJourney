@@ -129,6 +129,19 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 307ff99db161af945bdb4805368c7896, type: 2}
   - {fileID: 11400000, guid: a4ece23fb02869c4bb00b85161950bb7, type: 2}
   - {fileID: 11400000, guid: 31e48cef88b779344a7b79156d564ef1, type: 2}
+  <Buildings>k__BackingField:
+  - {fileID: 11400000, guid: a6f8ae62c54441a41aca56cd45f0fd70, type: 2}
+  - {fileID: 11400000, guid: 3e7dd0032982b22458dbf5bf8ebb08b0, type: 2}
+  - {fileID: 11400000, guid: 64411ac9d08757f419b9929b636aa4f7, type: 2}
+  - {fileID: 11400000, guid: 84bc7d178d89cab468c0941d79f9ec6f, type: 2}
+  - {fileID: 11400000, guid: a23f3f16c3485e6449f8672e6343eb54, type: 2}
+  - {fileID: 11400000, guid: 95e3ae4b5262d654b8c1a8f3bbec7fd0, type: 2}
+  <RoadModifiers>k__BackingField:
+  - {fileID: 11400000, guid: fc00ef3abe94fc641ba1a518a3a14ca6, type: 2}
+  - {fileID: 11400000, guid: 33d55eee591b7d74e837de5800b204f4, type: 2}
+  <CityModifiers>k__BackingField:
+  - {fileID: 11400000, guid: 4a40a614b1a167a49853b5fa35544ce2, type: 2}
+  - {fileID: 11400000, guid: 2135897f2888644429544876c264629c, type: 2}
   <CultureCategoryDemandMultipliers>k__BackingField:
   - <Culture>k__BackingField: 1
     <Category>k__BackingField: 1
