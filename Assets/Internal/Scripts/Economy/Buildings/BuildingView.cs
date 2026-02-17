@@ -1,5 +1,6 @@
 using System;
 using Internal.Scripts.Economy.Cities;
+using Internal.Scripts.Economy.Generated;
 using Internal.Scripts.InteractableObjects;
 using Internal.Scripts.Player;
 using Internal.Scripts.Road.Nodes;
@@ -13,47 +14,47 @@ namespace Internal.Scripts.Economy.Buildings
 {
     public class BuildingView : MonoBehaviour, IInteractableObject
     {
-        [SerializeField] private BuildingData _data;
+        [SerializeField] private BuildingId _buildingId;
         [SerializeField] private Renderer[] _renderers;
 
         [Header("Outline")]
         [SerializeField] private Color _outlineColor = Color.yellow;
-        [SerializeField] private float _outlineWidth = 0.03f;
 
-        private static readonly int OutlineColorId = Shader.PropertyToID("_OutlineColor");
-        private static readonly int OutlineWidthId = Shader.PropertyToID("_OutlineWidth");
-        
-        private WorldCanvas _worldCanvas;
         private ScreenStackService _screenStackService;
         private ICityNodeResolver _cityNodeResolver;
         private IPlayerStateProvider _playerStateProvider;
+        private EconomyDatabase _economyDatabase;
         private WorldLabelViewHelper _labelHelper;
 
-        private MaterialPropertyBlock _propertyBlock;
+        private InteractableOutline _outline;
+        private BuildingData _data;
 
         public event Action<IInteractableObject> OnClick;
         public BuildingData Data => _data;
+        public BuildingId BuildingId => _buildingId;
 
         [Inject]
         public void Construct(WorldCanvas worldCanvas, ScreenStackService screenStackService,
-            ICityNodeResolver cityNodeResolver, IPlayerStateProvider playerStateProvider)
+            ICityNodeResolver cityNodeResolver, IPlayerStateProvider playerStateProvider,
+            EconomyDatabase economyDatabase)
         {
-            _worldCanvas = worldCanvas;
+            _labelHelper = new WorldLabelViewHelper(worldCanvas);
             _screenStackService = screenStackService;
             _cityNodeResolver = cityNodeResolver;
             _playerStateProvider = playerStateProvider;
-            _labelHelper = new WorldLabelViewHelper(worldCanvas);
+            _economyDatabase = economyDatabase;
         }
 
         private void Awake()
         {
-            _propertyBlock = new MaterialPropertyBlock();
             if (_renderers == null || _renderers.Length == 0)
                 _renderers = GetComponentsInChildren<Renderer>();
+            _outline = new InteractableOutline(_renderers, _outlineColor);
         }
 
         private void Start()
         {
+            _data = _economyDatabase.GetBuilding(_buildingId);
             if (_data == null) return;
 
             _labelHelper.CreateLabel(
@@ -66,12 +67,12 @@ namespace Internal.Scripts.Economy.Buildings
 
         public void TriggerHoverEnter()
         {
-            SetOutline(true);
+            _outline.Show();
         }
 
         public void TriggerHoverExit()
         {
-            SetOutline(false);
+            _outline.Hide();
         }
 
         public void TriggerClick()
@@ -94,23 +95,9 @@ namespace Internal.Scripts.Economy.Buildings
             return null;
         }
 
-        private void SetOutline(bool enabled)
-        {
-            float width = enabled ? _outlineWidth : 0f;
-            Color color = enabled ? _outlineColor : Color.clear;
-
-            _propertyBlock.SetColor(OutlineColorId, color);
-            _propertyBlock.SetFloat(OutlineWidthId, width);
-
-            foreach (Renderer r in _renderers)
-            {
-                if (r != null)
-                    r.SetPropertyBlock(_propertyBlock);
-            }
-        }
-
         private void OnDestroy()
         {
+            _outline?.Dispose();
             _labelHelper?.Dispose();
         }
     }
