@@ -86,5 +86,11 @@ namespace Internal.Scripts.Economy.Cities
             return _zoomerData.BaseYPosition +
                    (size - _zoomerData.BaseSizeValue) / _zoomerData.ScaleFactor;
         }
+
+        public float YToSize(float y)
+        {
+            return _zoomerData.BaseSizeValue +
+                   (y - _zoomerData.BaseYPosition) * _zoomerData.ScaleFactor;
+        }
     }
 }

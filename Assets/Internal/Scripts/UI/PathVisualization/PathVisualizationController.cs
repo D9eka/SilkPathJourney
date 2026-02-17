@@ -2,7 +2,6 @@ using System;
 using Internal.Scripts.Player;
 using Internal.Scripts.Road.Graph;
 using Internal.Scripts.Road.Path;
-using Internal.Scripts.World.State;
 using Zenject;
 
 namespace Internal.Scripts.UI.PathVisualization
@@ -10,20 +9,17 @@ namespace Internal.Scripts.UI.PathVisualization
     public class PathVisualizationController : IInitializable, IDisposable
     {
         private readonly PlayerController _playerController;
-        private readonly WorldStateController _worldStateController;
         private readonly IRoadPathFinder _pathFinder;
         private readonly RoadNetwork _roadNetwork;
         private readonly IPathVisualizationService _visualizationService;
 
         public PathVisualizationController(
             PlayerController playerController,
-            WorldStateController worldStateController,
             IRoadPathFinder pathFinder,
             RoadNetwork roadNetwork,
             IPathVisualizationService visualizationService)
         {
             _playerController = playerController;
-            _worldStateController = worldStateController;
             _pathFinder = pathFinder;
             _roadNetwork = roadNetwork;
             _visualizationService = visualizationService;
@@ -32,23 +28,15 @@ namespace Internal.Scripts.UI.PathVisualization
         public void Initialize()
         {
             _playerController.OnDestinationChanged += OnDestinationChanged;
-            _worldStateController.OnStateChange += OnViewModeChanged;
-
             UpdatePathVisualization();
         }
 
         public void Dispose()
         {
             _playerController.OnDestinationChanged -= OnDestinationChanged;
-            _worldStateController.OnStateChange -= OnViewModeChanged;
         }
 
         private void OnDestinationChanged(string destinationNodeId)
-        {
-            UpdatePathVisualization();
-        }
-
-        private void OnViewModeChanged(WorldViewMode viewMode)
         {
             UpdatePathVisualization();
         }
