@@ -130,6 +130,26 @@ MonoBehaviour:
     m_Localized: Event
     m_Metadata:
       m_Items: []
+  - m_Id: 4972929270931456
+    m_Localized: Continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4972929317068800
+    m_Localized: Near {0}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4972929317068801
+    m_Localized: Leave City
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4972929317068802
+    m_Localized: Rush
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4972929317068803
+    m_Localized: Day {0}
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

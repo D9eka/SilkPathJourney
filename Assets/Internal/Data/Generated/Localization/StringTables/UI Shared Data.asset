@@ -127,6 +127,26 @@ MonoBehaviour:
     m_Key: UI.Event.Main.Header.Main
     m_Metadata:
       m_Items: []
+  - m_Id: 4972929270931456
+    m_Key: UI.Event.Main.Button.Continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4972929317068800
+    m_Key: UI.Event.Main.Prefix.NearCity
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4972929317068801
+    m_Key: UI.Hud.Main.Button.LeaveCity
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4972929317068802
+    m_Key: UI.Hud.Main.Button.Rush
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4972929317068803
+    m_Key: UI.Hud.Main.Text.DayText
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -1,0 +1,29 @@
+screen_id,section_id,element_id,name_id,name_key,notes,,loc_ru,loc_en,loc_link
+Hud,Main,Button,OpenInventory,UI.Hud.Main.Button.OpenInventory,,,Инвентарь,Inventory,перевод
+Hud,Main,Button,EnterCity,UI.Hud.Main.Button.EnterCity,,,Войти в город,Enter City,перевод
+Hud,Main,Button,LeaveCity,UI.Hud.Main.Button.LeaveCity,,,Покинуть город,Leave City,перевод
+Hud,Main,Button,Camp,UI.Hud.Main.Button.Camp,,,Лагерь,Camp,перевод
+Hud,Main,Button,Move,UI.Hud.Main.Button.Move,,,Двигаться,Move,перевод
+Hud,Main,Button,Rush,UI.Hud.Main.Button.Rush,,,Ускориться,Rush,перевод
+Hud,Main,Text,DayText,UI.Hud.Main.Text.DayText,Формат: День {0},,День {0},Day {0},перевод
+Inventory,Main,Header,Main,UI.Inventory.Main.Header.Main,,,Груз,Cargo,перевод
+Inventory,Main,Button,DropButton,UI.Inventory.Main.Button.DropButton,,,Выбросить,Drop,перевод
+Global,Main,Prefix,MoneyPrefix,UI.Global.Main.Prefix.MoneyPrefix,,,Деньги: {0},Money: {0},перевод
+Global,Main,Prefix,WeightPrefix,UI.Global.Main.Prefix.WeightPrefix,,,Вес: {0}/{1},Weight: {0}/{1},перевод
+Global,ItemsView,Header,Name,UI.Global.ItemsView.Header.Name,,,Название,Name,перевод
+Global,ItemsView,Header,Weight,UI.Global.ItemsView.Header.Weight,,,Вес,Weight,перевод
+Global,ItemsView,Header,Price,UI.Global.ItemsView.Header.Price,,,Цена,Price,перевод
+Global,Buy,Prefix,SummaryPricePrefix,UI.Global.Buy.Prefix.SummaryPricePrefix,,,За {0},For {0},перевод
+Trade,Main,Header,Main,UI.Trade.Main.Header.Main,,,Торговля,Trading,перевод
+Trade,Main,Button,TradeButton,UI.Trade.Main.Button.TradeButton,,,Торговать,Trade,перевод
+Trade,Player,Text,PlayerName,UI.Trade.Player.Text.PlayerName,Имя игрока на экране торговли,,Ваш груз,Your cargo,перевод
+Trade,Npc,Prefix,NpcNamePrefix,UI.Trade.Npc.Prefix.NpcNamePrefix,Перед именем торговца,,Груз {0},Cargo {0},перевод
+Trade,Buy,Header,Main,UI.Trade.Buy.Header.Main,,,Вы покупаете,You are buying,перевод
+Trade,Sell,Header,Main,UI.Trade.Sell.Header.Main,,,Вы продаете,You are selling,перевод
+Trade,ItemsView,Button,MoveToSellAction,UI.Trade.ItemsView.Button.MoveToSellAction,,,Добавить в продажу,Add to sell,перевод
+Trade,ItemsView,Button,MoveToBuyAction,UI.Trade.ItemsView.Button.MoveToBuyAction,,,Добавить в покупки,Add to purchase,перевод
+Trade,ItemsView,Button,BackToPlayerAction,UI.Trade.ItemsView.Button.BackToPlayerAction,,,Забрать,Take,перевод
+Trade,ItemsView,Button,BackToTraderAction,UI.Trade.ItemsView.Button.BackToTraderAction,,,Вернуть,Return,перевод
+Event,Main,Header,Main,UI.Event.Main.Header.Main,,,Событие,Event,перевод
+Event,Main,Button,Continue,UI.Event.Main.Button.Continue,,,Продолжить,Continue,перевод
+Event,Main,Prefix,NearCity,UI.Event.Main.Prefix.NearCity,Формат: Рядом с {0},,Рядом с {0},Near {0},перевод

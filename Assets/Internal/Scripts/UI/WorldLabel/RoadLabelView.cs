@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Internal.Scripts.Camera.Zoom;
 using Internal.Scripts.Road.Core;
 using Internal.Scripts.UI.Tooltip;
 using UnityEngine;
@@ -21,25 +20,13 @@ namespace Internal.Scripts.UI.WorldLabel
         [SerializeField] private Color _highlightColor = Color.yellow;
 
         private TooltipService _tooltipService;
-        private UnityEngine.Camera _camera;
-        private WorldCanvasSettings _settings;
-        private float _minCameraY;
-        private float _maxCameraY;
 
         private RoadRuntime _road;
         private LineRenderer _highlightLine;
 
-        public void Initialize(TooltipService tooltipService, UnityEngine.Camera camera,
-            WorldCanvasSettings settings, CameraZoomerData zoomerData)
+        public void Initialize(TooltipService tooltipService)
         {
             _tooltipService = tooltipService;
-            _camera = camera;
-            _settings = settings;
-
-            _minCameraY = zoomerData.BaseYPosition +
-                (zoomerData.MinValue - zoomerData.BaseSizeValue) / zoomerData.ScaleFactor;
-            _maxCameraY = zoomerData.BaseYPosition +
-                (zoomerData.MaxValue - zoomerData.BaseSizeValue) / zoomerData.ScaleFactor;
 
             if (_background != null)
                 _background.raycastTarget = true;
@@ -112,17 +99,6 @@ namespace Internal.Scripts.UI.WorldLabel
         {
             if (_highlightLine == null) return;
             _highlightLine.gameObject.SetActive(enabled);
-        }
-
-        private void LateUpdate()
-        {
-            if (_camera == null || _settings == null) return;
-
-            transform.rotation = _camera.transform.rotation;
-
-            float t = Mathf.InverseLerp(_maxCameraY, _minCameraY, _camera.transform.position.y);
-            float scale = Mathf.Lerp(_settings.MinLabelScale, _settings.MaxLabelScale, t);
-            transform.localScale = Vector3.one * scale;
         }
 
         private void OnDestroy()
