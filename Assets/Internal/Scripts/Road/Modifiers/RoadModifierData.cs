@@ -24,12 +24,12 @@ namespace Internal.Scripts.Road.Modifiers
             string id,
             LocalizedString name,
             LocalizedString description,
-            string iconPath)
+            Sprite icon)
         {
             Id = id;
             Name = name;
             Description = description;
-            // TODO: Icon = load from Resources or addressables using iconPath
+            Icon = icon;
         }
 #endif
     }
