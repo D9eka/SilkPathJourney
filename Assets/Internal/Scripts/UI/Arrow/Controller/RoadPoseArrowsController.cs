@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Internal.Scripts.Player.Path;
 using Internal.Scripts.Road.Core;
@@ -11,7 +12,7 @@ using UnityEngine;
 
 namespace Internal.Scripts.UI.Arrow.Controller
 {
-    public sealed class RoadPoseArrowsController : IArrowsController
+    public sealed class RoadPoseArrowsController : IArrowsController, IDisposable
     {
         private readonly IArrowPositionCalculator _positionCalculator;
         private readonly IArrowDirectionCalculator _directionCalculator;
@@ -91,9 +92,14 @@ namespace Internal.Scripts.UI.Arrow.Controller
             return ArrowType.Bad;
         }
 
+        public void Dispose()
+        {
+            _worldStateController.OnStateChange -= OnViewModeChanged;
+        }
+
         private void OnViewModeChanged(WorldViewMode viewMode)
         {
-            if (viewMode == WorldViewMode.CityIso)
+            if (viewMode == WorldViewMode.Detailed)
             {
                 _placementService.HideArrows();
             }

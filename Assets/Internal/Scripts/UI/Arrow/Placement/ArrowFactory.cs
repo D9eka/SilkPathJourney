@@ -6,12 +6,12 @@ namespace Internal.Scripts.UI.Arrow.Placement
     public class ArrowFactory
     {
         private readonly WorldCanvas _worldCanvas;
-        private readonly Sprite _arrowSprite;
+        private readonly ArrowView _arrowPrefab;
 
-        public ArrowFactory(WorldCanvas worldCanvas, Sprite arrowSprite)
+        public ArrowFactory(WorldCanvas worldCanvas, ArrowView arrowPrefab)
         {
             _worldCanvas = worldCanvas;
-            _arrowSprite = arrowSprite;
+            _arrowPrefab = arrowPrefab;
         }
 
         public ArrowView CreateArrow(Vector3 worldPosition, string name)
@@ -19,12 +19,13 @@ namespace Internal.Scripts.UI.Arrow.Placement
             WorldLabelView labelView = _worldCanvas.CreateLabel(worldPosition, name);
             if (labelView == null) return null;
 
-            ArrowView arrowView = labelView.gameObject.AddComponent<ArrowView>();
-            arrowView.InjectDependencies(labelView.IconImage, labelView.NameText, _arrowSprite);
-            labelView.IconImage.gameObject.SetActive(true);
             labelView.NameText.gameObject.SetActive(false);
 
-            return arrowView;
+            ArrowView arrow = Object.Instantiate(_arrowPrefab, labelView.transform);
+            arrow.transform.localPosition = Vector3.zero;
+            arrow.RootObject = labelView.gameObject;
+
+            return arrow;
         }
     }
 }

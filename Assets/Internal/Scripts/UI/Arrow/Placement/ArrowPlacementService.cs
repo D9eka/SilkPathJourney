@@ -34,8 +34,9 @@ namespace Internal.Scripts.UI.Arrow.Placement
             {
                 if (arrow != null)
                 {
+                    GameObject root = arrow.RootObject != null ? arrow.RootObject : arrow.gameObject;
                     arrow.transform.DOScale(Vector3.zero, HIDE_ANIMATION_DURATION)
-                        .OnComplete(() => Object.Destroy(arrow.gameObject));
+                        .OnComplete(() => Object.Destroy(root));
                 }
             }
             _activeArrows.Clear();
@@ -48,7 +49,10 @@ namespace Internal.Scripts.UI.Arrow.Placement
             foreach (ArrowView arrow in _activeArrows)
             {
                 if (arrow != null)
-                    Object.Destroy(arrow.gameObject);
+                {
+                    GameObject root = arrow.RootObject != null ? arrow.RootObject : arrow.gameObject;
+                    Object.Destroy(root);
+                }
             }
             _activeArrows.Clear();
         }
