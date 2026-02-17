@@ -16,6 +16,7 @@ namespace Internal.Scripts.World.Roads
         [field:SerializeField] public float SpeedMul { get; set; } = 1f;
         [field:SerializeField] public bool Bidirectional { get; set; } = true;
         [field:SerializeField] public float SampleStepMeters { get; set; } = 2f;
+        [field:SerializeField] public bool IsHidden { get; set; }
 
         [Header("Endpoints")]
         [field:SerializeField] public string StartNodeId { get; set; }
