@@ -1,5 +1,6 @@
 using System;
 using DG.Tweening;
+using Internal.Scripts.Camera.Tilt;
 using Internal.Scripts.Input;
 using UnityEngine;
 using Zenject;
@@ -10,47 +11,103 @@ namespace Internal.Scripts.Camera.Move
     {
         private readonly UnityEngine.Camera _camera;
         private readonly InputManager _inputManager;
+        private readonly ICameraTilter _tilter;
+        private readonly CameraBounds _bounds;
+        private readonly CameraSceneSettings _settings;
 
         private Vector2 _moveDelta;
+        private Tween _tweenX;
+        private Tween _tweenZ;
 
-        public CameraMover(UnityEngine.Camera camera, InputManager inputManager)
+        public bool SuspendLateTick { get; set; }
+
+        public CameraMover(UnityEngine.Camera camera, InputManager inputManager, ICameraTilter tilter,
+            CameraBounds bounds, CameraSceneSettings settings)
         {
             _camera = camera;
             _inputManager = inputManager;
+            _tilter = tilter;
+            _bounds = bounds;
+            _settings = settings;
         }
-        
+
         public void Initialize()
         {
             _inputManager.OnChangeCameraPosition += ChangePosition;
+
+            float zOffset = CalculateZOffset();
+            Vector3 pos = _camera.transform.position;
+            _camera.transform.position = new Vector3(
+                _bounds.Center.x, pos.y, _bounds.Center.y + zOffset);
         }
-        
+
         public void LateTick()
         {
-            _camera.transform.position += new Vector3(_moveDelta.x, 0, _moveDelta.y);
+            if (SuspendLateTick) return;
+
+            if ((_tweenX != null && _tweenX.IsActive() && _tweenX.IsPlaying()) ||
+                _tilter.IsAnimating)
+                return;
+
+            float yFactor = Mathf.Min(_camera.transform.position.y, _settings.MaxMoveSpeedHeight);
+            float speed = _settings.MoveSensitivity * yFactor * Time.deltaTime;
+            _camera.transform.position += new Vector3(_moveDelta.x, 0, _moveDelta.y) * speed;
+
+            Vector2 worldTarget = GetCurrentWorldTarget();
+            Vector2 clamped = _bounds.Clamp(worldTarget);
+            if (worldTarget != clamped)
+            {
+                float zOffset = CalculateZOffset();
+                Vector3 pos = _camera.transform.position;
+                _camera.transform.position = new Vector3(clamped.x, pos.y, clamped.y + zOffset);
+            }
         }
-        
+
         public void Dispose()
         {
+            _tweenX?.Kill();
+            _tweenZ?.Kill();
             _inputManager.OnChangeCameraPosition -= ChangePosition;
         }
 
-        public void MoveTo(Vector2 position, Action onComplete = null)
+        public void MoveTo(Vector2 worldPosition, Action onComplete = null)
         {
-            float duration = Vector3.Distance(_camera.transform.position, GetVector3Position(position)) / 10f;
-            MoveTo(position, duration, onComplete);
+            Vector2 currentWorld = GetCurrentWorldTarget();
+            float dx = worldPosition.x - currentWorld.x;
+            float dz = worldPosition.y - currentWorld.y;
+            float distance = Mathf.Sqrt(dx * dx + dz * dz);
+            float duration = distance / 10f;
+            MoveTo(worldPosition, duration, onComplete);
         }
 
-        public void MoveTo(Vector2 position, float duration, Action onComplete = null)
+        public void MoveTo(Vector2 worldPosition, float duration, Action onComplete = null)
         {
-            _camera.transform.DOMove(GetVector3Position(position), duration)
-                .OnComplete(() => onComplete?.Invoke());
+            worldPosition = _bounds.Clamp(worldPosition);
+            float zOffset = CalculateZOffset();
+
+            _tweenX?.Kill();
+            _tweenZ?.Kill();
+
+            int completed = 0;
+            void Check() { if (++completed >= 2) onComplete?.Invoke(); }
+            _tweenX = _camera.transform.DOMoveX(worldPosition.x, duration).OnComplete(Check);
+            _tweenZ = _camera.transform.DOMoveZ(worldPosition.y + zOffset, duration).OnComplete(Check);
         }
 
-        private Vector3 GetVector3Position(Vector2 position)
+        private Vector2 GetCurrentWorldTarget()
         {
-            return new Vector3(position.x, position.y, _camera.transform.position.z);
+            Vector3 pos = _camera.transform.position;
+            float zOffset = CalculateZOffset();
+            return new Vector2(pos.x, pos.z - zOffset);
         }
-        
+
+        private float CalculateZOffset()
+        {
+            Vector3 forward = _camera.transform.forward;
+            if (Mathf.Abs(forward.y) < 0.001f) return 0f;
+            return _camera.transform.position.y * forward.z / forward.y;
+        }
+
         private void ChangePosition(Vector2 delta)
         {
             _moveDelta = delta;

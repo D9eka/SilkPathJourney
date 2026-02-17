@@ -1,7 +1,7 @@
 using System;
 using Internal.Scripts.Input;
-using Internal.Scripts.UI.Screen.Config;
 using Internal.Scripts.UI.Screens.Config;
+using Internal.Scripts.UI.Screens.Core.Config;
 using Zenject;
 
 namespace Internal.Scripts.UI.StackService

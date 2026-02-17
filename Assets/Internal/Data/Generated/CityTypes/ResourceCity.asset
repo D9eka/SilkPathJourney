@@ -23,7 +23,22 @@ MonoBehaviour:
     m_WaitForCompletion: 0
     m_LocalVariables: []
   <CityMoneyIncomePerScale>k__BackingField: 600
-  <CategoryCoefs>k__BackingField: []
+  <CategoryCoefs>k__BackingField:
+  - <Category>k__BackingField: 1
+    <BuyCoef>k__BackingField: 0.9
+    <SellCoef>k__BackingField: 0.88
+  - <Category>k__BackingField: 5
+    <BuyCoef>k__BackingField: 0.75
+    <SellCoef>k__BackingField: 1
+  - <Category>k__BackingField: 2
+    <BuyCoef>k__BackingField: 1.15
+    <SellCoef>k__BackingField: 0.78
+  - <Category>k__BackingField: 3
+    <BuyCoef>k__BackingField: 1.22
+    <SellCoef>k__BackingField: 0.75
+  - <Category>k__BackingField: 4
+    <BuyCoef>k__BackingField: 1.15
+    <SellCoef>k__BackingField: 0.82
   <CategoryStockProfiles>k__BackingField:
   - <Category>k__BackingField: 1
     <DesiredPerScale>k__BackingField: 560

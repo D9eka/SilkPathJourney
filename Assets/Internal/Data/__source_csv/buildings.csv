@@ -1,0 +1,7 @@
+building_id,enum_name,name_key,interaction_screen,loc_ru,loc_en
+shop,Shop,building.shop.name,Trade,Лавка,Shop
+guild,Guild,building.guild.name,None,Гильдия,Guild
+tavern,Tavern,building.tavern.name,None,Таверна,Tavern
+temple,Temple,building.temple.name,None,Храм,Temple
+workshop,Workshop,building.workshop.name,None,Мастерская,Workshop
+warehouse,Warehouse,building.warehouse.name,None,Склад,Warehouse

@@ -36,7 +36,7 @@ namespace Internal.Scripts.UI.Arrow.DirectionCalculation
             float distanceAlongPolyline = CalculateDistanceAlongPolyline(segment, segmentData);
             Vector3 tangentLocal = sampler.GetTangentLocal(distanceAlongPolyline);
             Vector3 tangentWorld = segmentData.Runtime.LocalDirToWorld(tangentLocal);
-            if (segment.IsForward)
+            if (!segment.IsForward)
             {
                 tangentWorld = -tangentWorld;
             }

@@ -6,7 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Internal.Scripts.Hud
+namespace Internal.Scripts.UI.Screens.Hud
 {
     public class MinorEventView : MonoBehaviour, IEventToastView
     {

@@ -4,13 +4,12 @@ using Internal.Scripts.Economy;
 using Internal.Scripts.Economy.Cities;
 using Internal.Scripts.Economy.Save;
 using Internal.Scripts.Events;
-using Internal.Scripts.Hud;
 using Internal.Scripts.Player;
 using Internal.Scripts.Player.NextSegment;
 using Internal.Scripts.UI.Arrow.Controller;
 using Internal.Scripts.UI.Components;
-using Internal.Scripts.UI.Screen.Config;
-using Internal.Scripts.UI.Screen.ViewModel;
+using Internal.Scripts.UI.Screens.Core.Config;
+using Internal.Scripts.UI.Screens.Core.ViewModel;
 using Internal.Scripts.UI.StackService;
 using R3;
 using UnityEngine;
@@ -21,6 +20,7 @@ namespace Internal.Scripts.UI.Screens.Hud
     {
         private readonly HudModel _model;
         private readonly ScreenStackService _screenStackService;
+        private readonly ICityEntryService _cityEntryService;
         private readonly IPlayerStateProvider _playerStateProvider;
         private readonly IPlayerMovementControl _playerMovementControl;
         private readonly IPlayerTurnChoiceState _turnChoiceState;
@@ -38,6 +38,7 @@ namespace Internal.Scripts.UI.Screens.Hud
         public HudScreenViewModel(
             HudModel model,
             ScreenStackService screenStackService,
+            ICityEntryService cityEntryService,
             IPlayerStateProvider playerStateProvider,
             IPlayerMovementControl playerMovementControl,
             IPlayerTurnChoiceState turnChoiceState,
@@ -50,6 +51,7 @@ namespace Internal.Scripts.UI.Screens.Hud
         {
             _model = model;
             _screenStackService = screenStackService;
+            _cityEntryService = cityEntryService;
             _playerStateProvider = playerStateProvider;
             _playerMovementControl = playerMovementControl;
             _turnChoiceState = turnChoiceState;
@@ -106,11 +108,11 @@ namespace Internal.Scripts.UI.Screens.Hud
                 case HudMode.Travel:
                     _model.SetSpeed(0);
                     break;
-                case HudMode.CityStrategic:
-                    EnterCity();
-                    break;
-                case HudMode.CityDetailed:
-                    StartMove();
+                case HudMode.City:
+                    if (_cityEntryService.IsInCityView)
+                        StartMove();
+                    else
+                        EnterCity();
                     break;
             }
         }
@@ -128,7 +130,7 @@ namespace Internal.Scripts.UI.Screens.Hud
                 case HudMode.Travel:
                     _model.SetSpeed(2);
                     break;
-                case HudMode.CityStrategic:
+                case HudMode.City:
                     StartMove();
                     break;
             }
@@ -142,34 +144,41 @@ namespace Internal.Scripts.UI.Screens.Hud
 
         private void EnterCity()
         {
-            string nodeId = _playerStateProvider.CurrentNodeId;
             if (_turnChoiceState.IsChoosingTurn)
             {
                 _arrowsController.HideArrows();
                 string turnNodeId = _turnChoiceState.CurrentTurnNodeId;
                 if (!string.IsNullOrWhiteSpace(turnNodeId))
-                {
                     _playerMovementControl.CancelDestinationAtNode(turnNodeId);
-                    nodeId = turnNodeId;
-                }
             }
 
-            if (_model.TryGetEnterCity(out CityData city))
-            {
-                if (!_screenStackService.TryOpen(ScreenId.Trade, city.Id, out ScreenOpenResult result))
-                    Debug.LogWarning($"[SPJ] Cannot open trade screen: {result}");
+            if (!_model.TryGetEnterCity(out CityData city))
                 return;
-            }
 
-            Debug.LogWarning($"[SPJ] Cannot enter city: no city bound to node '{nodeId}'.");
+            if (_cityEntryService.CanEnterCity(city))
+            {
+                _cityEntryService.EnterCity(city);
+            }
+            else
+            {
+                _screenStackService.TryOpen(ScreenId.Trade, city.Id, out _);
+            }
         }
 
         private void HandleDayChanged(int day) => DayChanged?.Invoke(day);
 
         private void StartMove()
         {
-            if (!_screenStackService.TryOpen(ScreenId.TargetSelection, out ScreenOpenResult result))
-                Debug.LogWarning($"[SPJ] Cannot open target selection screen: {result}");
+            if (_cityEntryService.IsInCityView)
+            {
+                _cityEntryService.ExitCity(() =>
+                {
+                    _screenStackService.TryOpen(ScreenId.TargetSelection, out _);
+                });
+                return;
+            }
+
+            _screenStackService.TryOpen(ScreenId.TargetSelection, out _);
         }
     }
 }

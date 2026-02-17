@@ -30,6 +30,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties:
     - world_type
+    - object_type
     clipAnimations: []
     isReadable: 0
   meshes:

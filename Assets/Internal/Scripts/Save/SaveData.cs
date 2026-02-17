@@ -9,5 +9,7 @@ namespace Internal.Scripts.Save
         public int Version = 1;
         public EconomySaveData Economy;
         public PlayerSaveData Player;
+        public CameraSaveData Camera;
+        public RoadSaveData Roads;
     }
 }

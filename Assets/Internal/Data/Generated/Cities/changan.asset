@@ -19,6 +19,7 @@ MonoBehaviour:
   <SecondaryCulture>k__BackingField: 2
   <MarketScale>k__BackingField: 1.15
   <HasPort>k__BackingField: 0
+  <Biome>k__BackingField: 1
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Economy
@@ -28,6 +29,19 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  <Description>k__BackingField:
+    m_TableReference:
+      m_TableCollectionName: Economy
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: city.changan.description
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  <DetailScene>k__BackingField:
+    _sceneAsset: {fileID: 102900000, guid: f33f21a974403b84e9f833831579bd99, type: 3}
+    _sceneName: New Scene
+    _cameraSize: 15
   references:
     version: 2
     RefIds: []

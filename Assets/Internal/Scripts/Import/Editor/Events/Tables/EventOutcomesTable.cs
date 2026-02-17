@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using Internal.Scripts.Events.Data;
+using Internal.Scripts.Events.Generated;
 using Internal.Scripts.Import.Editor.Core;
 using UnityEngine;
 using static Internal.Scripts.Import.Editor.Core.ImportHelpers;
@@ -10,15 +11,16 @@ namespace Internal.Scripts.Import.Editor.Events.Tables
 {
     public static class EventOutcomesTable
     {
-        public static Dictionary<string, Dictionary<int, List<EventOutcomeEntry>>> Read()
+        public static Dictionary<string, Dictionary<int, List<EventOutcomeEntry>>> Read(
+            string csvFile = "event_choice_outcomes.csv")
         {
             Dictionary<string, Dictionary<int, List<EventOutcomeEntry>>> map =
                 new(StringComparer.Ordinal);
 
-            string csvPath = CsvPath("event_choice_outcomes.csv");
+            string csvPath = CsvPath(csvFile);
             if (!File.Exists(csvPath))
             {
-                Debug.LogWarning("[SPJ] event_choice_outcomes.csv not found.");
+                Debug.LogWarning($"[SPJ] {csvFile} not found.");
                 return map;
             }
 

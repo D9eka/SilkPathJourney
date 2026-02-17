@@ -1,0 +1,57 @@
+using Internal.Scripts.Camera;
+using Internal.Scripts.Camera.Zoom;
+using Internal.Scripts.Config;
+using Internal.Scripts.Economy;
+using Internal.Scripts.Economy.Simulation;
+using Internal.Scripts.Events.Data;
+using Internal.Scripts.Npc.Lifecycle;
+using Internal.Scripts.Player;
+using Internal.Scripts.UI.Components;
+using Internal.Scripts.UI.Screens.Config;
+using Plugins.Zenject.Source.Install;
+using UnityEngine;
+
+namespace Internal.Scripts.Installers
+{
+    [CreateAssetMenu(menuName = "SPJ/Installers/Project Installer")]
+    public class ProjectInstaller : ScriptableObjectInstaller<ProjectInstaller>
+    {
+        [Header("Camera")]
+        [SerializeField] private CameraZoomerData _cameraZoomerData;
+        [SerializeField] private CameraSceneSettings _cameraSceneSettings;
+
+        [Header("Economy")]
+        [SerializeField] private EconomyDatabase _economyDatabase;
+        [SerializeField] private EconomySimulationSettings _economySimulationSettings;
+
+        [Header("Events")]
+        [SerializeField] private EventDatabase _eventDatabase;
+
+        [Header("Player")]
+        [SerializeField] private PlayerConfig _playerProfile;
+
+        [Header("NPC")]
+        [SerializeField] private NpcSimulationSettings _npcSimulationSettings;
+
+        [Header("UI")]
+        [SerializeField] private ScreenCatalog _screenCatalog;
+        [SerializeField] private ResourceIconCatalog _resourceIconCatalog;
+
+        [Header("Balance")]
+        [SerializeField] private GameBalanceConfig _gameBalanceConfig;
+
+        public override void InstallBindings()
+        {
+            Container.BindInstance(_cameraZoomerData).AsSingle();
+            Container.BindInstance(_cameraSceneSettings).AsSingle();
+            Container.BindInstance(_economyDatabase).AsSingle();
+            Container.BindInstance(_economySimulationSettings).AsSingle();
+            Container.BindInstance(_eventDatabase).AsSingle();
+            Container.BindInstance(_playerProfile).AsSingle();
+            Container.BindInstance(_npcSimulationSettings).AsSingle();
+            Container.BindInstance(_screenCatalog).AsSingle();
+            Container.BindInstance(_resourceIconCatalog).AsSingle();
+            Container.BindInstance(_gameBalanceConfig).AsSingle();
+        }
+    }
+}

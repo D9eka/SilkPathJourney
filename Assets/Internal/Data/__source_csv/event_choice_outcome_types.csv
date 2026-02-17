@@ -6,3 +6,4 @@ add_item,AddItem
 cart_durability,CartDurability
 add_companion,AddCompanion
 add_skill_xp,AddSkillXp
+unlock_road,UnlockRoad
