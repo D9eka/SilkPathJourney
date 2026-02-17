@@ -63,6 +63,7 @@ namespace Internal.Scripts.Economy.Cities
             _mainSceneVisibility = mainSceneVisibility;
 
             _cameraSceneLoader.OnDetailSceneAutoUnloaded += HandleDetailSceneAutoUnloaded;
+            _cameraSceneLoader.OnDetailSceneAutoLoaded += HandleDetailSceneAutoLoaded;
         }
 
         public bool CanEnterCity(CityData city)
@@ -109,9 +110,7 @@ namespace Internal.Scripts.Economy.Cities
 
             Vector2 targetPosition = cityPos.Value;
             SceneReference detailScene = city.DetailScene;
-            float targetSize = detailScene.CameraSize > 0
-                ? detailScene.CameraSize
-                : _settings.DefaultCityDetailZoomSize;
+            float targetSize = _animator.YToSize(_settings.DetailSceneLoadThreshold);
 
             float currentY = cam.transform.position.y;
             float yRot = _cameraYRotation;
@@ -204,6 +203,20 @@ namespace Internal.Scripts.Economy.Cities
                             OnCityExited?.Invoke();
                             onComplete?.Invoke();
                         }));
+        }
+
+        private void HandleDetailSceneAutoLoaded(CityData city)
+        {
+            if (IsInCityView || _isTransitioning) return;
+
+            UnityEngine.Camera cam = UnityEngine.Camera.main;
+            _cameraYRotation = cam.transform.eulerAngles.y;
+            _previousCameraSize = _cameraController.CurrentZoomSize;
+            _previousWorldTarget = _animator.GetWorldTarget(cam);
+
+            _currentCity = city;
+            _mainSceneVisibility.Hide();
+            OnCityEntered?.Invoke(city);
         }
 
         private void HandleDetailSceneAutoUnloaded()
