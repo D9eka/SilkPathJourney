@@ -108,11 +108,11 @@ namespace Internal.Scripts.UI.Screens.Hud
                 case HudMode.Travel:
                     _model.SetSpeed(0);
                     break;
-                case HudMode.CityStrategic:
-                    EnterCity();
-                    break;
-                case HudMode.CityDetailed:
-                    StartMove();
+                case HudMode.City:
+                    if (_cityEntryService.IsInCityView)
+                        StartMove();
+                    else
+                        EnterCity();
                     break;
             }
         }
@@ -130,7 +130,7 @@ namespace Internal.Scripts.UI.Screens.Hud
                 case HudMode.Travel:
                     _model.SetSpeed(2);
                     break;
-                case HudMode.CityStrategic:
+                case HudMode.City:
                     StartMove();
                     break;
             }
