@@ -1,55 +1,44 @@
 using System;
-using System.Collections.Generic;
-using Internal.Scripts.Camera.Zoom;
+using Internal.Scripts.Economy.Cities;
 using Zenject;
 
 namespace Internal.Scripts.World.State
 {
-    public class WorldStateController : IFixedTickable
+    public class WorldStateController : IInitializable, IDisposable
     {
         public Action<WorldViewMode> OnStateChange;
-        
-        private readonly Dictionary<WorldViewMode, WorldStateData> _viewModesData;
-        private readonly ICameraZoomer _cameraZoomer;
-        
-        private WorldViewMode _currentViewMode = WorldViewMode.CityIso;
 
-        public WorldViewMode CurrentViewMode
+        private readonly ICityEntryService _cityEntryService;
+
+        private WorldViewMode _currentViewMode = WorldViewMode.Strategic;
+
+        public WorldViewMode CurrentViewMode => _currentViewMode;
+
+        public WorldStateController(ICityEntryService cityEntryService)
         {
-            get => _currentViewMode;
-            private set
-            {
-                if (value != _currentViewMode)
-                {
-                    _currentViewMode = value;
-                    OnStateChange?.Invoke(_currentViewMode);
-                }
-            }
-            
+            _cityEntryService = cityEntryService;
         }
 
-        public WorldStateController(Dictionary<WorldViewMode, WorldStateData> viewModesData, ICameraZoomer cameraZoomer)
+        public void Initialize()
         {
-            _viewModesData = viewModesData;
-            _cameraZoomer = cameraZoomer;
+            _cityEntryService.OnCityEntered += HandleCityEntered;
+            _cityEntryService.OnCityExited += HandleCityExited;
         }
 
-        public void FixedTick()
+        public void Dispose()
         {
-            CurrentViewMode = GetViewMode(_cameraZoomer.Size);
+            _cityEntryService.OnCityEntered -= HandleCityEntered;
+            _cityEntryService.OnCityExited -= HandleCityExited;
         }
 
-        private WorldViewMode GetViewMode(float cameraSize)
-        {
-            foreach (WorldStateData viewMode in _viewModesData.Values)
-            {
-                if (cameraSize >= viewMode.StartCameraSize && cameraSize < viewMode.EndCameraSize)
-                {
-                    return viewMode.ViewMode;
-                }
-            }
+        private void HandleCityEntered(CityData _) => SetViewMode(WorldViewMode.Detailed);
+        private void HandleCityExited() => SetViewMode(WorldViewMode.Strategic);
 
-            return WorldViewMode.Artistic;
+        private void SetViewMode(WorldViewMode mode)
+        {
+            if (mode == _currentViewMode) return;
+            _currentViewMode = mode;
+            OnStateChange?.Invoke(_currentViewMode);
         }
     }
 }

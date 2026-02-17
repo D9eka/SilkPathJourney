@@ -28,6 +28,7 @@ namespace Internal.Scripts.Camera
         public string ActiveDetailScene => _activeDetailScene;
         public bool SuspendAutoLoading { get; set; }
         public event Action OnDetailSceneAutoUnloaded;
+        public event Action<CityData> OnDetailSceneAutoLoaded;
 
         public CameraSceneLoader(
             UnityEngine.Camera camera,
@@ -103,6 +104,7 @@ namespace Internal.Scripts.Camera
 
                     string sceneName = sceneInfo.Value.sceneName;
                     Vector2 origin = sceneInfo.Value.origin;
+                    CityData city = sceneInfo.Value.city;
                     _detailSceneLoader.LoadAndActivateScene(sceneName, origin, () =>
                     {
                         _activeDetailScene = sceneName;
@@ -112,6 +114,7 @@ namespace Internal.Scripts.Camera
                         _tilter.TiltTo(_settings.DetailTiltAngle, 0.4f);
                         _worldCanvas.gameObject.SetActive(false);
                         _detailSceneLoader.SetRenderersEnabled(sceneName, true);
+                        OnDetailSceneAutoLoaded?.Invoke(city);
                     }, hideRenderers: true);
                 }
             }
@@ -133,6 +136,7 @@ namespace Internal.Scripts.Camera
 
             string sceneName = sceneInfo.Value.sceneName;
             Vector2 origin = sceneInfo.Value.origin;
+            CityData city = sceneInfo.Value.city;
 
             _detailSceneLoader.LoadAndActivateScene(sceneName, origin, () =>
             {
@@ -141,7 +145,9 @@ namespace Internal.Scripts.Camera
                 if (sceneBounds != null)
                     _cameraBounds.SetOverrideBounds(sceneBounds.Center, sceneBounds.Size);
                 _tilter.TiltTo(_settings.DetailTiltAngle, 0.5f);
+                _worldCanvas.gameObject.SetActive(false);
                 _detailSceneLoader.SetRenderersEnabled(sceneName, true);
+                OnDetailSceneAutoLoaded?.Invoke(city);
                 onComplete?.Invoke();
             }, hideMainScene: false, hideRenderers: true);
         }
@@ -159,7 +165,7 @@ namespace Internal.Scripts.Camera
             OnDetailSceneAutoUnloaded?.Invoke();
         }
 
-        private (string sceneName, Vector2 origin)? GetSceneToLoad()
+        private (string sceneName, Vector2 origin, CityData city)? GetSceneToLoad()
         {
             string currentNodeId = _playerStateProvider.CurrentNodeId;
             if (string.IsNullOrEmpty(currentNodeId))
@@ -176,7 +182,7 @@ namespace Internal.Scripts.Camera
                 return null;
 
             Vector2 origin = new Vector2(nodePos.Value.x, nodePos.Value.z);
-            return (city.DetailScene.SceneName, origin);
+            return (city.DetailScene.SceneName, origin, city);
         }
 
         public void SetActiveDetailScene(string sceneName)
