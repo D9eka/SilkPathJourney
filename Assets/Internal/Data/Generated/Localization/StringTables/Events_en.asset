@@ -623,7 +623,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 651148083060857
-    m_Localized: " \u0430 \u0442\u043E\u0432\u0430\u0440\u044B \u043F\u0440\u043E\u043C\u043E\u043A\u0430\u044E\u0442
+    m_Localized: "\u0430 \u0442\u043E\u0432\u0430\u0440\u044B \u043F\u0440\u043E\u043C\u043E\u043A\u0430\u044E\u0442
       \u043D\u0430\u0441\u043A\u0432\u043E\u0437\u044C."
     m_Metadata:
       m_Items: []
@@ -657,7 +657,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 651148087255046
-    m_Localized: " \u043D\u043E \u0432\u0438\u0434\u043D\u044B \u043E\u0442\u0431\u043B\u0435\u0441\u043A\u0438
+    m_Localized: "\u043D\u043E \u0432\u0438\u0434\u043D\u044B \u043E\u0442\u0431\u043B\u0435\u0441\u043A\u0438
       \u0447\u0435\u0433\u043E-\u0442\u043E \u0446\u0435\u043D\u043D\u043E\u0433\u043E."
     m_Metadata:
       m_Items: []
@@ -699,7 +699,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 651148087255056
-    m_Localized: " \u0442\u043E \u043B\u0438 \u043A\u0440\u0438\u043A. \u0412 \u0442\u0435\u043C\u043D\u043E\u0442\u0435
+    m_Localized: "\u0442\u043E \u043B\u0438 \u043A\u0440\u0438\u043A. \u0412 \u0442\u0435\u043C\u043D\u043E\u0442\u0435
       \u043C\u0435\u043B\u044C\u043A\u0430\u044E\u0442 \u0441\u0432\u0435\u0442\u044F\u0449\u0438\u0435\u0441\u044F
       \u0433\u043B\u0430\u0437\u0430."
     m_Metadata:
@@ -756,7 +756,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 651148087255069
-    m_Localized: " \u0432\u0438\u0434\u0438\u043C\u043E\u0441\u0442\u044C \u043F\u0430\u0434\u0430\u0435\u0442
+    m_Localized: "\u0432\u0438\u0434\u0438\u043C\u043E\u0441\u0442\u044C \u043F\u0430\u0434\u0430\u0435\u0442
       \u0434\u043E \u043D\u0443\u043B\u044F \u2014 \u0441\u0442\u0435\u043F\u044C
       \u043F\u0440\u0435\u0432\u0440\u0430\u0449\u0430\u0435\u0442\u0441\u044F \u0432
       \u0440\u0435\u0432\u0443\u0449\u0438\u0439 \u0445\u0430\u043E\u0441."
@@ -775,7 +775,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 651148087255073
-    m_Localized: " \u0433\u0440\u0438\u0432\u044B \u0440\u0430\u0437\u0432\u0435\u0432\u0430\u044E\u0442\u0441\u044F
+    m_Localized: "\u0433\u0440\u0438\u0432\u044B \u0440\u0430\u0437\u0432\u0435\u0432\u0430\u044E\u0442\u0441\u044F
       \u043D\u0430 \u0432\u0435\u0442\u0440\u0443. \u0421\u0440\u0435\u0434\u0438
       \u043D\u0438\u0445 \u2014 \u043A\u0440\u0430\u0441\u0438\u0432\u044B\u0439
       \u0436\u0435\u0440\u0435\u0431\u0435\u0446"
@@ -815,7 +815,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 651148087255082
-    m_Localized: " \u0438 \u043C\u043E\u043B\u043D\u0438\u0438 \u0431\u044C\u044E\u0442
+    m_Localized: "\u0438 \u043C\u043E\u043B\u043D\u0438\u0438 \u0431\u044C\u044E\u0442
       \u0432 \u043E\u0442\u043A\u0440\u044B\u0442\u0443\u044E \u0441\u0442\u0435\u043F\u044C
       \u0441\u043E\u0432\u0441\u0435\u043C \u0440\u044F\u0434\u043E\u043C. \u041A\u0430\u0440\u0430\u0432\u0430\u043D
       \u2014 \u0441\u0430\u043C\u0430\u044F \u0432\u044B\u0441\u043E\u043A\u0430\u044F
@@ -835,7 +835,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 651148087255086
-    m_Localized: " \u0434\u0440\u0443\u0433\u0430\u044F \u0431\u0435\u0437\u043E\u043F\u0430\u0441\u043D\u0435\u0435."
+    m_Localized: "\u0434\u0440\u0443\u0433\u0430\u044F \u0431\u0435\u0437\u043E\u043F\u0430\u0441\u043D\u0435\u0435."
     m_Metadata:
       m_Items: []
   - m_Id: 651148087255087
@@ -855,7 +855,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 651148087255091
-    m_Localized: " \u0448\u0430\u0442\u0440\u044B \u0438 \u0440\u0430\u0437\u043B\u043E\u0436\u0435\u043D\u043D\u044B\u0435
+    m_Localized: "\u0448\u0430\u0442\u0440\u044B \u0438 \u0440\u0430\u0437\u043B\u043E\u0436\u0435\u043D\u043D\u044B\u0435
       \u0442\u043E\u0432\u0430\u0440\u044B. \u041A\u0443\u043F\u0446\u044B \u043F\u0440\u0438\u0432\u0435\u0442\u043B\u0438\u0432\u043E
       \u043C\u0430\u0448\u0443\u0442 \u0440\u0443\u043A\u043E\u0439."
     m_Metadata:
@@ -928,7 +928,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 651148087255108
-    m_Localized: " \u0432\u043F\u0435\u0440\u0435\u0434\u0438 \u043E\u0431\u0440\u044B\u0432."
+    m_Localized: "\u0432\u043F\u0435\u0440\u0435\u0434\u0438 \u043E\u0431\u0440\u044B\u0432."
     m_Metadata:
       m_Items: []
   - m_Id: 651148087255109
@@ -948,7 +948,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 651148087255113
-    m_Localized: " \u0432\u0435\u0442\u0435\u0440 \u0440\u0432\u0451\u0442 \u0442\u043A\u0430\u043D\u044C
+    m_Localized: "\u0432\u0435\u0442\u0435\u0440 \u0440\u0432\u0451\u0442 \u0442\u043A\u0430\u043D\u044C
       \u0441 \u043F\u043E\u0432\u043E\u0437\u043E\u043A. \u0421\u043E\u043B\u0451\u043D\u044B\u0435
       \u0431\u0440\u044B\u0437\u0433\u0438 \u0445\u043B\u0435\u0449\u0443\u0442 \u0432
       \u043B\u0438\u0446\u043E \u2014 \u0448\u0442\u043E\u0440\u043C \u0443\u0441\u0438\u043B\u0438\u0432\u0430\u0435\u0442\u0441\u044F."
@@ -967,7 +967,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 651148087255117
-    m_Localized: " \u043F\u043E\u0434\u0431\u0438\u0440\u0430\u044F\u0441\u044C \u043A
+    m_Localized: "\u043F\u043E\u0434\u0431\u0438\u0440\u0430\u044F\u0441\u044C \u043A
       \u0433\u0440\u0443\u0437\u0443 \u2014 \u043D\u0443\u0436\u043D\u043E \u0434\u0435\u0439\u0441\u0442\u0432\u043E\u0432\u0430\u0442\u044C
       \u043D\u0435\u043C\u0435\u0434\u043B\u0435\u043D\u043D\u043E."
     m_Metadata:
@@ -1010,7 +1010,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 651148087255127
-    m_Localized: " \u0440\u044F\u0434\u043E\u043C \u2014 \u0441\u0432\u0435\u0436\u0438\u0439
+    m_Localized: "\u0440\u044F\u0434\u043E\u043C \u2014 \u0441\u0432\u0435\u0436\u0438\u0439
       \u0443\u043B\u043E\u0432 \u0438 \u0432\u044B\u0442\u0430\u0449\u0435\u043D\u043D\u044B\u0435
       \u043D\u0430 \u0431\u0435\u0440\u0435\u0433 \u043B\u043E\u0434\u043A\u0438.
       \u041E\u043D\u0438 \u043F\u0440\u0438\u0432\u0435\u0442\u043B\u0438\u0432\u043E
@@ -1035,7 +1035,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 651148087255132
-    m_Localized: " \u043A\u043E\u043B\u0451\u0441\u043D\u044B\u0435 \u043E\u0441\u0438
+    m_Localized: "\u043A\u043E\u043B\u0451\u0441\u043D\u044B\u0435 \u043E\u0441\u0438
       \u0441\u043A\u0440\u0438\u043F\u044F\u0442 \u2014 \u043F\u043E\u0431\u0435\u0440\u0435\u0436\u044C\u0435
       \u0431\u0435\u0440\u0451\u0442 \u0441\u0432\u043E\u044E \u0434\u0430\u043D\u044C."
     m_Metadata:
@@ -1074,7 +1074,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 651148087255141
-    m_Localized: " \u043B\u0438\u0431\u043E \u0436\u0434\u0430\u0442\u044C."
+    m_Localized: "\u043B\u0438\u0431\u043E \u0436\u0434\u0430\u0442\u044C."
     m_Metadata:
       m_Items: []
   - m_Id: 651148087255142
@@ -1826,925 +1826,908 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643673
-    m_Localized: The caravan fought off the bandits, but the skirmish cost wounds
-      and lost supplies. The desert survival hardened everyone.
+    m_Localized: " \u043D\u043E \u043D\u0435\u0441\u043A\u043E\u043B\u044C\u043A\u043E
+      \u0442\u044E\u043A\u043E\u0432 \u043F\u043E\u0440\u0443\u0431\u043B\u0435\u043D\u043E
+      \u043A\u043B\u0438\u043D\u043A\u0430\u043C\u0438."
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643674
-    m_Localized: The caravan fled in haste, scattering supplies along the way. The
-      bandits gave up chase, but the fear lingered.
+    m_Localized: " \u0431\u0440\u043E\u0441\u0438\u0432 \u0447\u0430\u0441\u0442\u044C
+      \u0433\u0440\u0443\u0437\u0430. \u041F\u0440\u0435\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u0442\u0435\u043B\u0438
+      \u043E\u0442\u0441\u0442\u0430\u043B\u0438 \u0437\u0430 \u0431\u0430\u0440\u0445\u0430\u043D\u0430\u043C\u0438."
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643675
-    m_Localized: The caravan master tossed a bag of coins onto the sand, and the
-      bandits withdrew. A bitter price, but everyone is alive.
+    m_Localized: "The ransom was accepted \u2014 the bandits took the silver and
+      vanished behind the dunes."
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643676
-    m_Localized: The caravan sheltered behind the carts, waiting out the storm. Sand
-      buried some supplies and damaged the wheels, but everyone survived.
+    m_Localized: " \u043D\u043E \u043B\u044E\u0434\u0438 \u0446\u0435\u043B\u044B."
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643677
-    m_Localized: The caravan pushed through the wall of sand. Carts took heavy damage
-      from the wind, supplies scattered, and greater danger loomed ahead.
+    m_Localized: " \u043B\u044E\u0434\u0438 \u0438\u0437\u043C\u043E\u0442\u0430\u043D\u044B."
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643678
-    m_Localized: "The oasis proved bountiful \u2014 the caravan restocked water and
-      food. Though traces of foreign camps hinted at danger."
+    m_Localized: "The oasis proved a true treasure \u2014 fresh water and palm shade.
+      Among the rocks"
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643679
-    m_Localized: "The caravan gathered water and moved on. A small resupply \u2014
-      but safely done."
+    m_Localized: "Every waterskin was filled to the brim. The camels drank their
+      fill \u2014 the journey can continue."
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643680
-    m_Localized: The strict rationing saved some water, but the people grew weak
-      from thirst. The journey through the scorching desert became even harder.
+    m_Localized: " \u043D\u043E \u0437\u0430\u043F\u0430\u0441\u043E\u0432 \u0445\u0432\u0430\u0442\u0438\u043B\u043E
+      \u0434\u043E \u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0435\u0433\u043E \u043A\u043E\u043B\u043E\u0434\u0446\u0430."
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643681
-    m_Localized: The search for water led to a distant well, but the detour cost
-      strength and time. Money was spent buying water from locals.
+    m_Localized: Scouts found a hidden spring among the rocks. The caravan is saved
+      from dehydration.
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643682
-    m_Localized: "The guide knew a hidden spring \u2014 the caravan reached it, spending
-      only modest supplies. The survival experience was invaluable."
+    m_Localized: The guide led the caravan to an oasis by a shortcut. His knowledge
+      of the desert is invaluable.
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643683
-    m_Localized: Careful effort freed the cart from the quicksand. Some supplies
-      were soaked and the wheels slightly damaged.
+    m_Localized: " \u0434\u043E\u0441\u043A\u0430\u043C\u0438 \u0438 \u0432\u0435\u0440\u0451\u0432\u043A\u0430\u043C\u0438"
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643684
-    m_Localized: The camels pulled with all their might, wrenching the cart from
-      the sand. The axle groaned ominously, and the journey grew more perilous.
+    m_Localized: " \u043D\u043E \u043E\u0441\u044C \u0442\u0440\u0435\u0441\u043D\u0443\u043B\u0430."
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643685
-    m_Localized: The caravan unloaded the cart and bypassed the trap over solid ground.
-      Some time and food were lost, but experience was gained.
+    m_Localized: The cargo was carried by hand around the trap. Pulling the empty
+      cart out proved much easier.
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643686
-    m_Localized: "The wheel was repaired thoroughly \u2014 the axle reinforced, and
-      the cart is sturdy again. But the repair was costly."
+    m_Localized: " \u043D\u043E \u043F\u043E\u0442\u0435\u0440\u044F\u043D\u043E
+      \u043F\u043E\u043B\u0434\u043D\u044F."
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643687
-    m_Localized: A quick fix allowed the journey to continue, but the wheel creaks
-      and threatens to break again. Some money was spent on materials.
+    m_Localized: " \u043D\u043E \u043D\u0430\u0434\u043E\u043B\u0433\u043E \u043B\u0438
+      \u2014 \u0432\u043E\u043F\u0440\u043E\u0441."
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643688
-    m_Localized: Some cargo was dumped to lighten the cart. The wheel came free,
-      but both food and goods were lost.
+    m_Localized: " \u043F\u043E\u0432\u043E\u0437\u043A\u0430 \u043F\u043E\u043B\u0435\u0433\u0447\u0430\u043B\u0430
+      \u0438 \u0432\u044B\u0435\u0445\u0430\u043B\u0430 \u0438\u0437 \u043F\u0435\u0441\u043A\u0430."
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643689
-    m_Localized: The nomads proved hospitable traders. The caravan exchanged coins
-      for fresh food and learned about oasis prices.
+    m_Localized: The nomads turned out to be honest traders. Goods were exchanged
+      at a fair price.
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643690
-    m_Localized: The caravan passed by without stopping.
+    m_Localized: The caravan politely passed the camp. The nomads watched them go
+      in silence.
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643691
-    m_Localized: The gift of silk moved the chief, and he generously bestowed spices
-      upon the caravan. A friendship sealed by desert custom.
+    m_Localized: The silk gift touched the chief. In return the nomads shared water
+      and advice about the road ahead.
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643692
-    m_Localized: "Deep within the ruins, ancient jade figurines were found. But the
-      exploration cost supplies and time \u2014 the dark corridors proved treacherous."
+    m_Localized: " \u043D\u043E \u043D\u0430 \u043E\u0431\u0440\u0430\u0442\u043D\u043E\u043C
+      \u043F\u0443\u0442\u0438 \u043E\u0431\u0432\u0430\u043B\u0438\u043B\u0441\u044F
+      \u0441\u0432\u043E\u0434."
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643693
-    m_Localized: A few surviving ceramic pieces and valuable items were gathered
-      from outside. Quick and with minimal losses.
+    m_Localized: Several interesting items were gathered outside. Safe and without
+      risk.
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643694
-    m_Localized: The caravan chose not to risk it and moved on, spending only a little
-      food on a rest stop near the ruins.
+    m_Localized: " \u043D\u0435 \u0437\u0430\u0434\u0435\u0440\u0436\u0438\u0432\u0430\u044F\u0441\u044C.
+      \u0418\u043D\u043E\u0433\u0434\u0430 \u043C\u0443\u0434\u0440\u043E\u0441\u0442\u044C
+      \u2014 \u043D\u0435 \u0438\u0441\u043A\u0443\u0448\u0430\u0442\u044C \u0441\u0443\u0434\u044C\u0431\u0443."
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643695
-    m_Localized: A desperate fight in the mountain gorge cost wounds and supplies,
-      but the bandits were defeated. The survivors grew hardened in battle.
+    m_Localized: " \u043D\u043E \u043A\u0430\u0440\u0430\u0432\u0430\u043D \u043F\u043E\u043D\u0451\u0441
+      \u043F\u043E\u0442\u0435\u0440\u0438."
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643696
-    m_Localized: The caravan fled down the narrow trail, losing supplies and damaging
-      the cart on the rocks. The bandits did not pursue.
+    m_Localized: The caravan turned and fled back down the trail. Some cargo tumbled
+      into the ravine.
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643697
-    m_Localized: A heavy bag of silver rolled to the bandit leader's feet. The bandits
-      took their payment and vanished into the crags.
+    m_Localized: Silver and silk were given for passage. The bandits let the caravan
+      through the pass.
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643698
-    m_Localized: The caravan took cover under a rocky overhang. Falling stones damaged
-      the cart and buried some food, but no one perished.
+    m_Localized: " \u043D\u043E \u0432\u0441\u0435 \u0436\u0438\u0432\u044B."
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643699
-    m_Localized: The caravan rushed through the rockslide. The cart took serious
-      hits, supplies were damaged, and the path grew even more perilous.
+    m_Localized: " \u043D\u043E \u043E\u0431\u043E\u0448\u043B\u043E\u0441\u044C."
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643700
-    m_Localized: Torches and shouts drove the pack back, but the wolves circled nearby
-      until dawn. Supplies were spent, and the sleepless night sapped strength.
+    m_Localized: " \u0441\u043A\u0430\u043B\u044F \u0437\u0443\u0431\u044B."
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643701
-    m_Localized: The caravan froze, waiting for the pack to leave. Hours crawled
-      by painfully, food dwindled, but everyone learned patience.
+    m_Localized: The caravan stood all night within a ring of fires. By morning the
+      wolves had gone.
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643702
-    m_Localized: The guard stepped toward the pack with torch and blade. The wolves
-      retreated, though some supplies were spent in the standoff.
+    m_Localized: " \u0438 \u0441\u0442\u0430\u044F \u0443\u0448\u043B\u0430 \u0437\u0430
+      \u043D\u0438\u043C."
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643703
-    m_Localized: A full day was spent clearing the debris. Hands were rubbed raw,
-      food was consumed, but the path is open.
+    m_Localized: " \u043D\u043E \u043F\u0440\u043E\u0445\u043E\u0434 \u043E\u0442\u043A\u0440\u044B\u0442."
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643704
-    m_Localized: "The cart was forced through the rubble \u2014 the axle cracked,
-      cargo nearly scattered. A dangerous passage, but made."
+    m_Localized: " \u043D\u043E \u043A\u0430\u0440\u0430\u0432\u0430\u043D \u043F\u0440\u043E\u0448\u0451\u043B."
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643705
-    m_Localized: Local highlanders cleared the pass for a steep fee. Money and food
-      for the delay were spent, but the cart is intact.
+    m_Localized: Local highlanders helped clear the pass for a fee. Quick and reliable.
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643706
-    m_Localized: "The axle was fully replaced \u2014 the repair was expensive, but
-      the cart is now sturdier than before."
+    m_Localized: " \u043D\u043E \u043F\u043E\u0432\u043E\u0437\u043A\u0430 \u043A\u0440\u0435\u043F\u043A\u0430."
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643707
-    m_Localized: A temporary patch on the axle allowed the journey to continue, but
-      the cart creaks dangerously at every turn.
+    m_Localized: " \u043D\u043E \u0434\u043E \u0433\u043E\u0440\u043E\u0434\u0430
+      \u0434\u043E\u0435\u0434\u0435\u0442."
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643708
-    m_Localized: Some cargo was dumped into the ravine to relieve the broken axle.
-      Both food and money were lost, and the cart still limps.
+    m_Localized: Excess cargo was dumped down the slope. The lightened cart carefully
+      descended.
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643709
-    m_Localized: The hermit shared wisdom about mountain trails and healing herbs.
-      The caravan spent supplies on the stop, but gained invaluable knowledge.
+    m_Localized: The elder spoke of safe trails and dangerous passes. Invaluable
+      knowledge.
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643710
-    m_Localized: The caravan passed by without stopping.
+    m_Localized: " \u043D\u0435 \u0437\u0430\u0434\u0435\u0440\u0436\u0438\u0432\u0430\u044F\u0441\u044C.
+      \u041E\u0442\u0448\u0435\u043B\u044C\u043D\u0438\u043A \u043C\u043E\u043B\u0447\u0430
+      \u043F\u0440\u043E\u0432\u043E\u0434\u0438\u043B \u0435\u0433\u043E \u0432\u0437\u0433\u043B\u044F\u0434\u043E\u043C."
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643711
-    m_Localized: The gift of tea delighted the elder, and he generously fed the caravan
-      and told of safe trails. Diplomacy rewarded and bellies filled.
+    m_Localized: The grateful elder treated the caravan to a healing brew and blessed
+      them for the journey.
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643712
-    m_Localized: Deep inside the cave, jade deposits were found among the bones of
-      ancient travelers. The exploration cost supplies and nerves.
+    m_Localized: Deep in the cave a stash of forgotten goods was found. Someone hid
+      them long ago.
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643713
-    m_Localized: Chunks of iron ore were found near the cave entrance. A cautious
-      search cost a little food but yielded a find.
+    m_Localized: " \u043D\u043E \u043F\u0440\u0438\u044F\u0442\u043D\u0430\u044F
+      \u043D\u0430\u0445\u043E\u0434\u043A\u0430."
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643714
-    m_Localized: The caravan chose not to risk the dark cave and continued on, spending
-      only a little food on a rest stop.
+    m_Localized: " \u043D\u0435 \u0440\u0438\u0441\u043A\u0443\u044F. \u0414\u043E\u0440\u043E\u0433\u0430
+      \u0438 \u0442\u0430\u043A \u043F\u043E\u043B\u043D\u0430 \u043E\u043F\u0430\u0441\u043D\u043E\u0441\u0442\u0435\u0439."
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643715
-    m_Localized: The monks gratefully accepted the donation and fed the entire caravan.
-      Their blessing strengthened the travelers' spirits.
+    m_Localized: The monks accepted the donation with gratitude. The caravan rested
+      and received a blessing.
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643716
-    m_Localized: The caravan passed by without stopping.
+    m_Localized: The caravan passed the monastery without stopping. A long road lies
+      ahead.
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643717
-    m_Localized: The incense delighted the monks. They repaired the cart, fed the
-      caravan, and taught valuable skills of diplomacy.
+    m_Localized: The incense was received with joy. The monks led the caravan through
+      a secret mountain trail.
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643718
-    m_Localized: "The caravan fought back against the forest bandits. The battle
-      was fierce \u2014 supplies were lost, and wounds served as reminders of freedom's
-      price."
+    m_Localized: " \u043E\u0441\u0442\u0430\u0432\u0438\u0432 \u0440\u0430\u043D\u0435\u043D\u044B\u0445."
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643719
-    m_Localized: The caravan bolted through the thicket, losing bales of supplies.
-      Branches lashed at faces, but the pursuers fell behind.
+    m_Localized: " \u043E\u0441\u0442\u0430\u0432\u0438\u0432 \u0431\u0430\u043D\u0434\u0438\u0442\u0430\u043C
+      \u0447\u0430\u0441\u0442\u044C \u0433\u0440\u0443\u0437\u0430. \u041B\u0435\u0441
+      \u043F\u043E\u0433\u043B\u043E\u0442\u0438\u043B \u043A\u0440\u0438\u043A\u0438
+      \u043F\u0440\u0435\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u0442\u0435\u043B\u0435\u0439."
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643720
-    m_Localized: The gold ransom satisfied the bandits, and they melted into the
-      forest. The purse is lighter, but the road is safe.
+    m_Localized: "The ransom was paid \u2014 the bandits cleared the fallen tree
+      and melted into the forest."
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643721
-    m_Localized: The caravan sheltered by a stream while the fire raged around them.
-      The heat damaged the cart and burned some supplies.
+    m_Localized: " \u043D\u043E \u043E\u0433\u043E\u043D\u044C \u043E\u0431\u043E\u0448\u0451\u043B
+      \u0441\u0442\u043E\u0440\u043E\u043D\u043E\u0439."
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643722
-    m_Localized: The caravan charged through smoke and flame. The cart was badly
-      scorched, and breathing was nearly impossible.
+    m_Localized: " \u043D\u043E \u0433\u0440\u0443\u0437 \u0446\u0435\u043B."
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643723
-    m_Localized: The long detour through the forest cost time and food, but the caravan
-      avoided the fire and even gained pathfinding skills.
+    m_Localized: " \u043D\u043E \u043A\u0430\u0440\u0430\u0432\u0430\u043D \u0438\u0437\u0431\u0435\u0436\u0430\u043B
+      \u043E\u0433\u043D\u044F."
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643724
-    m_Localized: Hired peasants pulled the cart from the mud. Money was spent, but
-      the cart was patched up.
+    m_Localized: Local peasants brought oxen and pulled the cart from the mire for
+      a fee.
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643725
-    m_Localized: An on-site fix managed to budge the cart, but the wheels suffered
-      greatly from the mud.
+    m_Localized: Branches and planks were placed under the wheels. The cart slowly
+      crawled out of the mud.
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643726
-    m_Localized: The caravan unloaded the cart and dragged it through the bog. Food
-      got soaked and the wheels were slightly damaged.
+    m_Localized: " \u043F\u0443\u0441\u0442\u0443\u044E \u043F\u043E\u0432\u043E\u0437\u043A\u0443
+      \u0432\u044B\u0442\u0430\u0449\u0438\u043B\u0438 \u0438 \u0437\u0430\u0433\u0440\u0443\u0437\u0438\u043B\u0438
+      \u0441\u043D\u043E\u0432\u0430."
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643727
-    m_Localized: "A full basket of healing herbs restocked the caravan's supplies.
-      Though the thicket held more than just herbs \u2014 something lurked nearby."
+    m_Localized: Bags full of healing herbs were gathered in the clearing. They will
+      be useful on the road and at market.
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643728
-    m_Localized: The caravan gathered a few herbs and moved on. A small resupply
-      without unnecessary risk.
+    m_Localized: " \u043D\u043E \u043B\u0443\u0447\u0448\u0435"
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643729
-    m_Localized: "Exploring the ruins yielded coins and a piece of jade, but the
-      dark halls held traps. Adrenaline and danger \u2014 companions of fortune."
+    m_Localized: Ancient relics were found deep inside the temple. The place breathes
+      with an age-old mystery.
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643730
-    m_Localized: "Scattered coins were found near the ruins' entrance \u2014 someone
-      dropped them in haste. A modest but safe haul."
+    m_Localized: " \u043D\u043E \u043B\u044E\u0431\u043E\u043F\u044B\u0442\u043D\u0430\u044F
+      \u043D\u0430\u0445\u043E\u0434\u043A\u0430."
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643731
-    m_Localized: A careful exploration of the temple yielded incense and ancient
-      coins. The experience of navigating ruins will serve well on the long road.
+    m_Localized: A careful search of the temple revealed a hidden cache of valuables.
+      Fortune favors the patient.
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643732
-    m_Localized: The woodcutter proved talkative and generous. He shared food and
-      told of forest trails, though he warned of wild beasts.
+    m_Localized: The woodcutter told of a safe trail through the forest and warned
+      of bandits ahead.
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643733
-    m_Localized: The caravan passed by without stopping.
+    m_Localized: The caravan nodded to the woodcutter and moved on. A stop was not
+      in the plans.
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643734
-    m_Localized: For a fair price the woodcutter sold sturdy timber for cart repairs
-      and a set of tools. An excellent bargain.
+    m_Localized: The woodcutter sold fresh firewood and dried meat. Supplies are
+      replenished.
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643735
-    m_Localized: A fierce clash on the steppe cost wounds and supplies. But the raiders
-      were routed, and the caravan was forged harder in battle.
+    m_Localized: The caravan formed a defense with the wagons. After a fierce clash
+      the raiders pulled back.
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643736
-    m_Localized: The caravan raced away, but the cart bounced over bumps, shedding
-      cargo. The raiders picked up what fell.
+    m_Localized: " \u043F\u043E\u0434\u043D\u0438\u043C\u0430\u044F \u043F\u044B\u043B\u044C.
+      \u041D\u0430\u043B\u0451\u0442\u0447\u0438\u043A\u0438 \u043E\u0442\u0441\u0442\u0430\u043B\u0438."
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643737
-    m_Localized: "A bag of silver halted the attack. The raiders seized their prize
-      and galloped away \u2014 an expensive but certain price for survival."
+    m_Localized: "A handful of silver and a bale of silk \u2014 and the raiders galloped
+      away across the steppe."
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643738
-    m_Localized: The attempt to catch the wild stallion turned into a chase across
-      the steppe. The horse broke free, leaving only scratches and experience.
+    m_Localized: The stallion was caught with a lasso. A strong animal that will
+      strengthen the caravan.
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643739
-    m_Localized: The caravan stopped and watched the herd. A little time and food
-      were spent on the halt.
+    m_Localized: "The herd thundered past \u2014 a beautiful sight. The caravan moved
+      on."
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643740
-    m_Localized: "Patient taming of the wild horse paid off \u2014 the caravan gained
-      leather and valuable animal-handling experience."
+    m_Localized: Patience and skill helped tame a young stallion. A new member of
+      the caravan.
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643741
-    m_Localized: The caravan weathered the storm in a hollow. Lightning struck nearby,
-      damaging the cart and spoiling some food.
+    m_Localized: " \u043D\u043E \u043D\u0438\u043A\u043E\u0433\u043E \u043D\u0435
+      \u0437\u0430\u0434\u0435\u043B\u043E."
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643742
-    m_Localized: "Fleeing across the open steppe during a thunderstorm was madness.
-      Lightning struck perilously close \u2014 the cart took severe damage."
+    m_Localized: " \u043D\u043E \u043F\u043E\u0432\u043E\u0437\u043A\u0438 \u0440\u0430\u0441\u0448\u0430\u0442\u0430\u043B\u0438\u0441\u044C."
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643743
-    m_Localized: "The safe route proved longer \u2014 supplies were spent, but the
-      caravan avoided ambushes and gained experience."
+    m_Localized: " \u043D\u043E \u043A\u0430\u0440\u0430\u0432\u0430\u043D \u043F\u0440\u043E\u0448\u0451\u043B
+      \u0435\u0433\u043E \u0431\u0435\u0437 \u043F\u0440\u043E\u0438\u0441\u0448\u0435\u0441\u0442\u0432\u0438\u0439."
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643744
-    m_Localized: The shortcut led through dangerous territory, but the caravan found
-      abandoned coins by the roadside. A risky stroke of luck.
+    m_Localized: " \u043D\u043E \u0434\u043E\u0440\u043E\u0433\u0430 \u043E\u043A\u0430\u0437\u0430\u043B\u0430\u0441\u044C
+      \u0442\u044F\u0436\u0451\u043B\u043E\u0439."
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643745
-    m_Localized: "Deciphering the stone inscriptions revealed a third path \u2014
-      safe and profitable. Coins and knowledge \u2014 the best reward."
+    m_Localized: The deciphered signs pointed to the best route. The caravan avoided
+      a dangerous stretch.
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643746
-    m_Localized: A friendly chat with the merchants brought fresh news and some food,
-      though the camp was not entirely safe.
+    m_Localized: Over tea by the fire they learned about prices in nearby cities.
+      Valuable trading intelligence.
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643747
-    m_Localized: The caravan passed by without stopping.
+    m_Localized: The caravan passed the camp without stopping. Competitors are not
+      friends.
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643748
-    m_Localized: Successful trading with the merchants yielded spices and a bolt
-      of silk. Money was spent, but the goods are worth it.
+    m_Localized: A successful goods exchange with the fellow caravan. Both sides
+      are satisfied.
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643749
-    m_Localized: A thorough search of the abandoned cart yielded bales of wool and
-      coins, but the vultures and grim scene set nerves on edge.
+    m_Localized: A thorough search uncovered hidden valuables beneath the wreckage.
+      Lucky find.
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643750
-    m_Localized: "The caravan took what was in plain sight \u2014 a few coins and
-      a piece of iron. Quickly and without unnecessary risk."
+    m_Localized: " \u043D\u043E \u043F\u0440\u0438\u0433\u043E\u0434\u0438\u0442\u0441\u044F."
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643751
-    m_Localized: "The battle with pirates on the coastal rocks was desperate. Blood
-      and sweat \u2014 but the enemy retreated, and the caravan held."
+    m_Localized: " \u043F\u043E\u0442\u0435\u0440\u044F\u0432 \u043D\u0435\u0441\u043A\u043E\u043B\u044C\u043A\u0438\u0445."
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643752
-    m_Localized: The caravan fled inland, but the pirates gave chase, damaging the
-      cart. Some supplies were left behind on the shore.
+    m_Localized: " \u043F\u043E\u0434\u0430\u043B\u044C\u0448\u0435 \u043E\u0442
+      \u0431\u0435\u0440\u0435\u0433\u0430. \u0427\u0430\u0441\u0442\u044C \u0433\u0440\u0443\u0437\u0430
+      \u043E\u0441\u0442\u0430\u043B\u0430\u0441\u044C \u043D\u0430 \u0434\u043E\u0440\u043E\u0433\u0435."
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643753
-    m_Localized: The hefty ransom satisfied the pirates. They retreated to their
-      ships, leaving the caravan with a much lighter purse.
+    m_Localized: The ransom was paid. The pirates loaded their spoils into a boat
+      and rowed away.
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643754
-    m_Localized: The caravan found shelter among coastal rocks. Waves damaged the
-      cart and soaked supplies, but everyone weathered the storm.
+    m_Localized: " \u043D\u043E \u043B\u044E\u0434\u0438 \u0438 \u0442\u043E\u0432\u0430\u0440\u044B
+      \u0432 \u0431\u0435\u0437\u043E\u043F\u0430\u0441\u043D\u043E\u0441\u0442\u0438."
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643755
-    m_Localized: "Trying to push through the storm proved disastrous \u2014 waves
-      battered the cart, and the salt wind carried away some food."
+    m_Localized: The caravan fought through the storm. Salt water ruined some of
+      the supplies.
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643756
-    m_Localized: The caravan waited out the flood on high ground. Water soaked the
-      cart and washed away some food, but everyone was unharmed.
+    m_Localized: " \u043D\u043E \u043D\u0435 \u0433\u0440\u0443\u0437."
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643757
-    m_Localized: Fording through the murky water nearly ended in disaster. The cart
-      was badly damaged and the current swept away supplies.
+    m_Localized: " \u043D\u043E \u043A\u0430\u0440\u0430\u0432\u0430\u043D \u043D\u0430
+      \u0434\u0440\u0443\u0433\u043E\u043C \u0431\u0435\u0440\u0435\u0433\u0443."
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643758
-    m_Localized: A hastily built crossing allowed passage over the flooded area.
-      Food was spent fueling the work, but the cart was even reinforced.
+    m_Localized: An improvised log crossing held firm. The caravan crossed without
+      losses.
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643759
-    m_Localized: Searching the wreckage yielded bags of salt and coins, but sharp
-      edges lurked among the broken planks.
+    m_Localized: Barrels of wine and crates of cloth were found among the wreckage.
+      The sea is generous today.
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643760
-    m_Localized: A little salt and some coins washed ashore were gathered. A modest
-      but safe haul.
+    m_Localized: " \u043D\u043E \u0446\u0435\u043D\u043D\u043E."
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643761
-    m_Localized: "Divers retrieved silk and spices from the depths \u2014 a real
-      treasure. Coins and maritime survival experience were worth the risk."
+    m_Localized: "Divers retrieved heavy crates from the seabed. Inside \u2014 rare
+      goods in good condition."
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643762
-    m_Localized: The fishermen were friendly and shared their fresh catch. They told
-      of local waters, though they warned about pirates.
+    m_Localized: The fishermen shared news about the road and weather. Useful information
+      for travelers.
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643763
-    m_Localized: The caravan passed by without stopping.
+    m_Localized: The caravan passed with a brief greeting. The road does not wait.
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643764
-    m_Localized: For silver the fishermen sold a cartload of fresh fish and shared
-      knowledge of trade routes. A profitable deal.
+    m_Localized: " \u043D\u0430\u0441\u0442\u0440\u043E\u0435\u043D\u0438\u0435 \u043F\u043E\u0434\u043D\u044F\u043B\u043E\u0441\u044C."
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643765
-    m_Localized: The smugglers offered exotic goods at good prices. The risky deal
-      brought profit and trading experience.
+    m_Localized: Smuggled goods were bought at a bargain price. Best not to ask about
+      their origin.
     m_Metadata:
       m_Items: []
   - m_Id: 651148095643766
-    m_Localized: The caravan passed by without stopping.
+    m_Localized: The caravan wisely declined the dubious deal and continued on its
+      way.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099837952
-    m_Localized: A big deal with the smugglers produced crates of spices and a pouch
-      of incense. The caravan learned much about shadow trade.
+    m_Localized: " \u043D\u043E \u0432\u044B\u0433\u043E\u0434\u043D\u043E."
     m_Metadata:
       m_Items: []
   - m_Id: 651148099837953
-    m_Localized: The caravan waited out the blizzard in a hastily dug shelter. The
-      storm damaged the cart and devoured supplies, but everyone survived.
+    m_Localized: " \u0445\u043E\u0442\u044C \u0438 \u0437\u0430\u043C\u0451\u0440\u0437
+      \u0434\u043E \u043A\u043E\u0441\u0442\u0435\u0439."
     m_Metadata:
       m_Items: []
   - m_Id: 651148099837954
-    m_Localized: "Pushing through the blizzard nearly proved fatal. The cart was
-      buried in snow, supplies were drained \u2014 but the caravan made it through."
+    m_Localized: The caravan stumbled through the blizzard blindly. Several packs
+      were torn away by the wind.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099837955
-    m_Localized: The slow ascent preserved the caravan's strength, though supplies
-      dwindled. The people adapted to the thin air.
+    m_Localized: A slow ascent with stops helped everyone acclimatize. The whole
+      caravan reached the pass.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099837956
-    m_Localized: The rushed passage over the pass proved too taxing. The cart suffered
-      on the rocks, and people fell ill from the altitude.
+    m_Localized: " \u043D\u043E \u0441\u043F\u0443\u0441\u043A \u0443\u0436\u0435
+      \u0431\u043B\u0438\u0437\u043A\u043E."
     m_Metadata:
       m_Items: []
   - m_Id: 651148099837957
-    m_Localized: The alternate route ran lower and safer. A little food was lost,
-      but the strain on hearts and lungs eased greatly.
+    m_Localized: " \u043D\u043E \u043B\u0435\u0433\u0447\u0435 \u0434\u043B\u044F
+      \u043B\u044E\u0434\u0435\u0439 \u0438 \u0436\u0438\u0432\u043E\u0442\u043D\u044B\u0445."
     m_Metadata:
       m_Items: []
   - m_Id: 651148099837958
-    m_Localized: Fire and hot water thawed the ice on the axles. An expensive repair,
-      but the wheels now turn freely.
+    m_Localized: "The ice was chipped away and the wheels greased. Thorough work
+      \u2014 the cart runs like new."
     m_Metadata:
       m_Items: []
   - m_Id: 651148099837959
-    m_Localized: A quick attempt to chip ice from the wheels only partly worked.
-      The axles cracked, but the caravan managed to move.
+    m_Localized: " \u043D\u043E \u043A\u0440\u0435\u043F\u043B\u0435\u043D\u0438\u044F
+      \u043F\u043E\u0441\u0442\u0440\u0430\u0434\u0430\u043B\u0438 \u043E\u0442 \u043F\u0435\u0440\u0435\u043F\u0430\u0434\u0430
+      \u0442\u0435\u043C\u043F\u0435\u0440\u0430\u0442\u0443\u0440."
     m_Metadata:
       m_Items: []
   - m_Id: 651148099837960
-    m_Localized: The cart was abandoned, and the most valuable cargo was loaded onto
-      pack animals. Food was lost, and the journey grew harder without the cart.
+    m_Localized: The cart was abandoned at the pass. Its cargo was distributed among
+      the pack animals.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099837961
-    m_Localized: The herders traded dried meat and butter for coins. The trade went
-      peacefully, and the caravan restocked.
+    m_Localized: The herders traded dried meat and yak butter for cloth. Both sides
+      are pleased.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099837962
-    m_Localized: The caravan passed the encampment. The herders watched with wary
-      eyes.
+    m_Localized: The caravan politely passed the herders' camp. The road calls.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099837963
-    m_Localized: "The gift of tea delighted the herders, and they generously shared
-      food and told of mountain passes. Friendship \u2014 the best guide."
+    m_Localized: Tea with yak milk warmed the caravan. The herders told of a safe
+      mountain pass.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099837964
-    m_Localized: The caravan found shelter under a rock overhang. The avalanche roared
-      past, but snow damaged the cart and buried some food.
+    m_Localized: " \u043D\u043E \u0432\u0441\u0435 \u0436\u0438\u0432\u044B."
     m_Metadata:
       m_Items: []
   - m_Id: 651148099837965
-    m_Localized: Fleeing the avalanche resulted in heavy cart damage and food losses.
-      The mass of snow caught the caravan's tail.
+    m_Localized: "A desperate dash forward along the trail \u2014 the avalanche swept
+      past just meters behind. A miraculous escape."
     m_Metadata:
       m_Items: []
   - m_Id: 651148099837966
-    m_Localized: The monks welcomed the caravan warmly. For a modest fee they offered
-      shelter, food, and counsel about the road ahead.
+    m_Localized: Warm shelter and hot food restored the caravan's strength. The monks
+      are generous hosts.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099837967
-    m_Localized: The caravan passed by without stopping.
+    m_Localized: The caravan declined the shelter and pressed on along the snowy
+      trail.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099837968
-    m_Localized: "The offering moved the monks \u2014 they gifted incense and taught
-      the art of diplomatic trade."
+    m_Localized: The offering was accepted with a bow. In return the monks healed
+      the sick and blessed the journey.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099837969
-    m_Localized: The caravan waited out the flood on a hill. Water soaked the cart
-      and carried off some supplies, but all are safe.
+    m_Localized: " \u043D\u043E \u043F\u0440\u043E\u0445\u043E\u0434\u0438\u043C\u0430."
     m_Metadata:
       m_Items: []
   - m_Id: 651148099837970
-    m_Localized: "Fording the raging current cost dearly \u2014 the cart nearly overturned,
-      food was lost, and the journey grew more perilous."
+    m_Localized: "Wading through the murky current \u2014 water reached waist height.
+      Some goods got soaked."
     m_Metadata:
       m_Items: []
   - m_Id: 651148099837971
-    m_Localized: A hired boat ferried the cargo across the flood. Money was spent,
-      but the caravan is safe.
+    m_Localized: " \u043D\u043E \u0431\u0435\u0437 \u043F\u043E\u0442\u0435\u0440\u044C."
     m_Metadata:
       m_Items: []
   - m_Id: 651148099837972
-    m_Localized: The ferryman carried the caravan to the far bank. The fare was steep,
-      but everyone stayed dry and trading skills proved useful.
+    m_Localized: "The ferryman is satisfied with the fare. The crossing went smoothly
+      \u2014 cargo is on the other bank."
     m_Metadata:
       m_Items: []
   - m_Id: 651148099837973
-    m_Localized: Attempting to cross without the ferry nearly ended in disaster.
-      The current damaged the cart, and everyone was soaked to the bone.
+    m_Localized: " \u043D\u043E \u0443\u0434\u0430\u043B\u043E\u0441\u044C. \u0427\u0430\u0441\u0442\u044C
+      \u0433\u0440\u0443\u0437\u0430 \u043F\u043E\u0434\u043C\u043E\u0447\u0435\u043D\u0430."
     m_Metadata:
       m_Items: []
   - m_Id: 651148099837974
-    m_Localized: The guide found a shallow crossing downriver. The passage cost little,
-      and the pathfinding experience is priceless.
+    m_Localized: The guide revealed a shallow ford upstream. The crossing went safely.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099837975
-    m_Localized: The fishermen sold fresh fish at a fair price. The caravan restocked
-      and learned about the river currents.
+    m_Localized: Fresh fish was bought straight from the boat. A delicious supper
+      for the whole caravan.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099837976
-    m_Localized: The caravan passed the fishermen's village. Voices and splashing
-      water drifted from behind the bushes.
+    m_Localized: The caravan passed the village. The fishermen waved goodbye.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099837977
-    m_Localized: "Trading salt for fish proved profitable \u2014 the caravan received
-      a generous catch and learned to haggle with river folk."
+    m_Localized: "Salt was traded for baskets of fish. The fishermen are happy \u2014
+      salt is rare here."
     m_Metadata:
       m_Items: []
   - m_Id: 651148099837978
-    m_Localized: Hired locals pulled the cart from the swamp. Money was spent, but
-      the wheels were even reinforced.
+    m_Localized: Hired fishermen helped pull the cart from the swamp. Quick and without
+      losses.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099837979
-    m_Localized: "Trying to free the cart alone only worsened things \u2014 the axles
-      cracked, and money was spent on makeshift materials."
+    m_Localized: " \u043D\u043E \u0441\u043F\u0440\u0430\u0432\u0438\u043B\u0438\u0441\u044C."
     m_Metadata:
       m_Items: []
   - m_Id: 651148099837980
-    m_Localized: Unloading the cart allowed it to be freed from the mud, but some
-      food got soaked and the wheels suffered badly.
+    m_Localized: The cargo was hauled to dry ground. The empty cart came free from
+      the mud easily.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099837981
-    m_Localized: A deal with the wandering merchant yielded pouches of fragrant spices.
-      Money was spent, but the goods are worth twice the price.
+    m_Localized: The merchant had rare goods at a good price. A fortunate encounter.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099837982
-    m_Localized: The caravan passed by without stopping.
+    m_Localized: The caravan passed the wandering merchant. Maybe another time.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099837983
-    m_Localized: Selling silk to the wandering merchant brought clinking coin and
-      trading experience. A fine deal on the roadside.
+    m_Localized: Silk was sold at a fine markup. The merchant knows his buyers.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099837984
-    m_Localized: "The traveler proved grateful and knowledgeable \u2014 he told of
-      safe trails. Food was spent, but the danger ahead lessened."
+    m_Localized: The traveler joined the caravan. In gratitude he shared his knowledge
+      of the road.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099837985
-    m_Localized: The caravan passed by without stopping.
+    m_Localized: The caravan passed by. The traveler remained alone by the roadside.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099837986
-    m_Localized: Healing the traveler cost a few supplies, but he proved a seasoned
-      wanderer and pointed out a safe passage. The danger dropped noticeably.
+    m_Localized: The traveler was treated and fed. He turned out to be a merchant
+      and repaid the kindness generously.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099837987
-    m_Localized: The refugees gratefully accepted food and warned of an ambush ahead.
-      Their intelligence saved the caravan from peril.
+    m_Localized: The refugees are grateful for the food. They shared warnings about
+      dangers on the road ahead.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099837988
-    m_Localized: The caravan passed the refugees. Their bitter gazes followed the
-      travelers, and unknown danger lay ahead.
+    m_Localized: The caravan passed the refugees. Their warnings went unheard.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099837989
-    m_Localized: The refugees joined the caravan, sharing valuable intelligence about
-      the road. Supplies were spent, but the path became much safer.
+    m_Localized: Several refugees joined the caravan. Extra hands on the road are
+      always welcome.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099837990
-    m_Localized: For a modest fee the scholar shared knowledge of trade routes and
-      prices. His scrolls are a treasury of mercantile wisdom.
+    m_Localized: The scholar joined the caravan. His knowledge of languages and trade
+      routes is invaluable.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099837991
-    m_Localized: The caravan passed by without stopping.
+    m_Localized: The caravan declined the scholar and moved on. Another mouth means
+      more expenses.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099837992
-    m_Localized: A long conversation with the scholar over tea revealed the subtleties
-      of diplomacy in distant lands. Supplies were spent, but the knowledge is priceless.
+    m_Localized: A conversation with the scholar revealed new trade routes. Knowledge
+      is worth more than gold.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099837993
-    m_Localized: The fed soldier revealed the locations of bandit camps. His intelligence
-      reduced the danger on the road.
+    m_Localized: The soldier ate and regained strength. In gratitude he warned of
+      military activity ahead.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099837994
-    m_Localized: The caravan passed by without stopping.
+    m_Localized: The caravan passed the wounded man. War is not their concern.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099837995
-    m_Localized: The healed soldier proved a skilled tracker. He pointed out safe
-      trails, and the danger ahead was greatly reduced.
+    m_Localized: " \u043B\u0438\u0445\u043E\u0440\u0430\u0434\u043A\u0430 \u043E\u0442\u0441\u0442\u0443\u043F\u0438\u043B\u0430.
+      \u0421\u043E\u043B\u0434\u0430\u0442 \u043F\u0440\u0435\u0434\u043B\u043E\u0436\u0438\u043B
+      \u0441\u0432\u043E\u0439 \u043C\u0435\u0447 \u043A\u0430\u0440\u0430\u0432\u0430\u043D\u0443."
     m_Metadata:
       m_Items: []
   - m_Id: 651148099837996
-    m_Localized: Trading goods with the rivals yielded sacks of tea. Money was spent,
-      but the exchange honed trading skills.
+    m_Localized: Trading with competitors proved profitable. Sometimes rivals make
+      the best partners.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099837997
-    m_Localized: "The attempt to outpace the rivals led to a tense race across the
-      steppe. Dust and danger \u2014 but the pace is set."
+    m_Localized: The caravan picked up speed and overtook the rivals. First to market
+      gets the best prices.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099837998
-    m_Localized: "Long negotiations yielded a profitable agreement \u2014 coins and
-      invaluable trading experience. A rival became a partner."
+    m_Localized: "An agreement was reached to split routes. Each goes their own way
+      \u2014 no competition."
     m_Metadata:
       m_Items: []
   - m_Id: 651148099837999
-    m_Localized: Traveling with the pilgrims brought peace and calm. Their prayers
-      warded off danger, and the shared meal cost only a little food.
+    m_Localized: Traveling with the pilgrims brought peace and good fortune on the
+      road. A blessing on the journey.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099838000
-    m_Localized: The caravan passed by without stopping.
+    m_Localized: The caravan passed with a respectful nod. The pilgrims' prayers
+      echoed behind them.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099838001
-    m_Localized: "The stranger sold a piece of jade at a strangely low price. The
-      deal seemed too good \u2014 but the jade is real, even if unsettling."
+    m_Localized: " \u043D\u043E \u0432\u044B\u0433\u043E\u0434\u043D\u0430\u044F."
     m_Metadata:
       m_Items: []
   - m_Id: 651148099838002
-    m_Localized: The caravan passed the stranger. The dark figure watched them go
-      for a long time, leaving an uneasy feeling.
+    m_Localized: The caravan gave the stranger a wide berth. Not every encounter
+      bodes well.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099838003
-    m_Localized: "Conversation with the stranger revealed a secret \u2014 he was
-      a disgraced jade merchant who generously shared his stock."
+    m_Localized: The stranger turned out to be a former merchant. He shared secret
+      knowledge of trade routes.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099838004
-    m_Localized: The caravan joined the celebration. Food and money were spent on
-      gifts, but the locals became friends and the danger ahead lessened.
+    m_Localized: " \u0442\u0430\u043D\u0446\u044B \u0438 \u0449\u0435\u0434\u0440\u043E\u0435
+      \u0443\u0433\u043E\u0449\u0435\u043D\u0438\u0435 \u043F\u043E\u0434\u043D\u044F\u043B\u0438
+      \u0434\u0443\u0445."
     m_Metadata:
       m_Items: []
   - m_Id: 651148099838005
-    m_Localized: The caravan passed by without stopping.
+    m_Localized: The caravan politely bypassed the procession and continued on to
+      the sound of music.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099838006
-    m_Localized: "The deal is struck \u2014 an experienced warrior has joined the
-      caravan. His blade and vigilance are worth every coin spent."
+    m_Localized: The guard was hired. His sword and experience inspire confidence.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099838007
-    m_Localized: The caravan continued without the guard. A polite refusal, and the
-      warrior waved farewell.
+    m_Localized: The warrior shrugged and stayed by the road. The caravan goes on
+      unguarded.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099838008
-    m_Localized: The translator has joined the caravan. His knowledge of languages
-      will open doors in the trading cities of the Silk Road.
+    m_Localized: The translator joined the caravan. His language skills will help
+      with trade.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099838009
-    m_Localized: The caravan moved on without the translator. Then again, gestures
-      are a language too.
+    m_Localized: The caravan declined the translator. The language barrier will have
+      to be overcome with gestures.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099838010
-    m_Localized: The guide has joined the caravan. His hand-drawn maps and knowledge
-      of trails are priceless in unfamiliar lands.
+    m_Localized: The guide joined the caravan. His knowledge of trails and passes
+      is worth its weight in gold.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099838011
-    m_Localized: The caravan declined the guide's services and continued along the
-      main road. A polite nod in farewell.
+    m_Localized: " \u0447\u0442\u043E \u0434\u043E\u0440\u043E\u0433\u0430 \u044F\u0441\u043D\u0430."
     m_Metadata:
       m_Items: []
   - m_Id: 651148099838012
-    m_Localized: The healer has joined the caravan. His herbs and remedies are protection
-      against illness and injury on the long road.
+    m_Localized: The healer joined the caravan. His herbs and skills could save lives.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099838013
-    m_Localized: The caravan continued without the healer. One could only hope that
-      health would hold.
+    m_Localized: The caravan moved on without the healer. In case of illness they
+      will have to manage alone.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099838014
-    m_Localized: The merchant has joined the caravan, bringing his goods and connections.
-      His experience will prove useful in the markets.
+    m_Localized: The merchant companion joined. His goods complement the caravan's
+      stock.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099838015
-    m_Localized: The caravan refused the merchant and moved on. He trudged sadly
-      in the opposite direction.
+    m_Localized: The small merchant was left alone on the road. His journey is perilous
+      without companions.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099838016
-    m_Localized: Food was purchased from passing travelers for a steep price. Hunger
-      retreated, but the purse grew noticeably thinner.
+    m_Localized: A food seller was found and supplies bought at an inflated price.
+      The hunger subsides.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099838017
-    m_Localized: "A pack animal was slaughtered \u2014 the meat fed the caravan,
-      but the cart lost pulling power."
+    m_Localized: " \u043D\u043E \u043A\u0430\u0440\u0430\u0432\u0430\u043D \u043D\u0430\u043A\u043E\u0440\u043C\u043B\u0435\u043D."
     m_Metadata:
       m_Items: []
   - m_Id: 651148099838018
-    m_Localized: "Strict rationing barely kept people on their feet. Hungry eyes
-      and weak hands \u2014 but the caravan pressed forward."
+    m_Localized: " \u043D\u043E \u0434\u0435\u0440\u0436\u0430\u0442\u0441\u044F."
     m_Metadata:
       m_Items: []
   - m_Id: 651148099838019
-    m_Localized: Emergency repairs cost a great deal, but the craftsman reinforced
-      the frame solidly. The cart is sturdy once more.
+    m_Localized: " \u0440\u0430\u043C\u0430 \u0441\u0442\u044F\u043D\u0443\u0442\u0430
+      \u0432\u0435\u0440\u0451\u0432\u043A\u0430\u043C\u0438. \u041F\u043E\u0447\u0438\u043D\u043A\u0430
+      \u043D\u0435\u043D\u0430\u0434\u0451\u0436\u043D\u0430\u044F"
     m_Metadata:
       m_Items: []
   - m_Id: 651148099838020
-    m_Localized: Cargo was redistributed among carts and pack animals. The frame
-      held a little better, but some food had to be sacrificed.
+    m_Localized: " \u043D\u043E \u043D\u0438\u0447\u0435\u0433\u043E \u043D\u0435
+      \u043F\u043E\u0442\u0435\u0440\u044F\u043D\u043E."
     m_Metadata:
       m_Items: []
   - m_Id: 651148099838021
-    m_Localized: Some goods were abandoned by the roadside to save the cart. Money
-      was lost, but the frame is reinforced and the caravan moves.
+    m_Localized: Some goods were abandoned by the road. The lighter cart rolls on.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099838022
-    m_Localized: The chase after thieves through the night camp bore no fruit. Some
-      food was gone, and the commotion attracted predators.
+    m_Localized: The thieves were tracked down and some supplies recovered. The rest
+      was already consumed or hidden.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099838023
-    m_Localized: The caravan accepted the loss and strengthened the guard. Supplies
-      dropped noticeably, but thieves will think twice next time.
+    m_Localized: The losses are accepted. The caravan rations what remains and pushes
+      on.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099838024
-    m_Localized: The fire was extinguished, but the cart was scorched and some food
-      turned to ash. Acrid smoke lingered in the air for hours.
+    m_Localized: " \u043D\u043E \u0447\u0430\u0441\u0442\u044C \u0442\u043E\u0432\u0430\u0440\u0430
+      \u043E\u0431\u0433\u043E\u0440\u0435\u043B\u0430. \u0428\u0451\u043B\u043A
+      \u0438 \u0441\u043F\u0435\u0446\u0438\u0438 \u043F\u043E\u0441\u0442\u0440\u0430\u0434\u0430\u043B\u0438
+      \u0441\u0438\u043B\u044C\u043D\u0435\u0435 \u0432\u0441\u0435\u0433\u043E."
     m_Metadata:
       m_Items: []
   - m_Id: 651148099838025
-    m_Localized: The most valuable goods were saved from the flames, but the cart
-      suffered and money went toward firefighting and recovery.
+    m_Localized: The most valuable goods were pulled from the flames. The rest burned
+      to ashes.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099838026
-    m_Localized: The caravan retreated from the burning cart. The fire consumed the
-      frame to cinders, but no one was hurt.
+    m_Localized: " \u043D\u043E \u0432\u0435\u0441\u044C \u0433\u0440\u0443\u0437
+      \u043F\u043E\u0442\u0435\u0440\u044F\u043D."
     m_Metadata:
       m_Items: []
   - m_Id: 651148099838027
-    m_Localized: The animal was given rest and treatment, but the long halt consumed
-      supplies. The delay made the journey slightly more dangerous.
+    m_Localized: " \u043D\u043E \u0441\u043E\u0445\u0440\u0430\u043D\u0438\u043B
+      \u0432\u044C\u044E\u0447\u043D\u043E\u0433\u043E."
     m_Metadata:
       m_Items: []
   - m_Id: 651148099838028
-    m_Localized: A new pack animal was bought from a passing trader for a steep price.
-      The caravan is back at full strength.
+    m_Localized: " \u043D\u043E \u043A\u0430\u0440\u0430\u0432\u0430\u043D \u0441\u043D\u043E\u0432\u0430
+      \u0432 \u043F\u0443\u0442\u0438."
     m_Metadata:
       m_Items: []
   - m_Id: 651148099838029
-    m_Localized: The load was redistributed among the remaining animals. The cart
-      is overloaded and groaning, and some food had to be abandoned.
+    m_Localized: " \u043D\u043E \u0438\u0434\u0443\u0442."
     m_Metadata:
       m_Items: []
   - m_Id: 651148099838030
-    m_Localized: Breaking through the ambush cost blood and coin. The bandits retreated,
-      but wounds and losses were heavy.
+    m_Localized: The caravan broke through the bandit ring with losses. Several bales
+      were lost in the fight.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099838031
-    m_Localized: Surrendering goods saved lives. The bandits took most of the valuables,
-      but the caravan departed unscathed.
+    m_Localized: " \u043D\u043E \u043A\u0430\u0437\u043D\u0430 \u043F\u043E\u043B\u0435\u0433\u0447\u0430\u043B\u0430."
     m_Metadata:
       m_Items: []
   - m_Id: 651148099838032
-    m_Localized: "Negotiations met with partial success \u2014 the bandits took a
-      moderate ransom and released the caravan."
+    m_Localized: "A deal was struck \u2014 the bandits took a toll and let the caravan
+      pass. It could have been worse."
     m_Metadata:
       m_Items: []
   - m_Id: 651148099838033
-    m_Localized: The search for water led to a muddy stream. The water was not the
-      cleanest, but thirst was quenched. Strength was spent searching.
+    m_Localized: "After a long search a hidden spring was found. Waterskins are filled
+      \u2014 the caravan is saved."
     m_Metadata:
       m_Items: []
   - m_Id: 651148099838034
-    m_Localized: Passing travelers sold water at a steep price. The caravan drank
-      its fill and restocked.
+    m_Localized: " \u043D\u043E \u0436\u0430\u0436\u0434\u0430 \u0443\u0442\u043E\u043B\u0435\u043D\u0430."
     m_Metadata:
       m_Items: []
   - m_Id: 651148099838035
-    m_Localized: Strict water rationing held out until the next source, but the people
-      grew weak from thirst and the journey became more perilous.
+    m_Localized: " \u043D\u043E \u0434\u043E\u0442\u044F\u043D\u0443\u043B\u0438
+      \u0434\u043E \u0441\u043B\u0435\u0434\u0443\u044E\u0449\u0435\u0433\u043E \u043A\u043E\u043B\u043E\u0434\u0446\u0430."
     m_Metadata:
       m_Items: []
   - m_Id: 651148099838036
-    m_Localized: Quarantine slowed the caravan. The sick were isolated, food went
-      toward treatment, but the epidemic did not spread further.
+    m_Localized: " \u043D\u043E \u043A\u0430\u0440\u0430\u0432\u0430\u043D \u0441\u0442\u043E\u0438\u0442
+      \u043D\u0430 \u043C\u0435\u0441\u0442\u0435."
     m_Metadata:
       m_Items: []
   - m_Id: 651148099838037
-    m_Localized: A hired healer halted the disease, but his services were costly.
-      Some supplies went toward medicine.
+    m_Localized: The healer brewed remedies and got the sick back on their feet.
+      His services did not come cheap.
     m_Metadata:
       m_Items: []
   - m_Id: 651148099838038
-    m_Localized: The caravan pushed on, ignoring the illness. Fever struck down people,
-      and the cart suffered from the weakened crew's neglect.
+    m_Localized: " \u043D\u043E \u0431\u043E\u043B\u0435\u0437\u043D\u044C \u043F\u0440\u043E\u0434\u043E\u043B\u0436\u0430\u0435\u0442
+      \u043A\u043E\u0441\u0438\u0442\u044C \u043B\u044E\u0434\u0435\u0439. \u0421\u0438\u043B\u044B
+      \u0442\u0430\u044E\u0442 \u0441 \u043A\u0430\u0436\u0434\u044B\u043C \u0434\u043D\u0451\u043C."
     m_Metadata:
       m_Items: []
   - m_Id: 651148099838039
-    m_Localized: Cargo was abandoned to speed the escape. Money and food were lost,
-      but the danger dropped sharply.
+    m_Localized: " \u043D\u043E \u043F\u0440\u0438\u0431\u044B\u043B\u044C \u043F\u043E\u0442\u0435\u0440\u044F\u043D\u0430."
     m_Metadata:
       m_Items: []
   - m_Id: 651148099838040
-    m_Localized: "The desperate battle exhausted the caravan. Food was lost, and
-      the danger only grew \u2014 the enemies will return."
+    m_Localized: " \u043D\u043E \u043F\u043E\u043D\u0451\u0441 \u0442\u044F\u0436\u0451\u043B\u044B\u0435
+      \u043F\u043E\u0442\u0435\u0440\u0438."
     m_Metadata:
       m_Items: []
   - m_Id: 651148099838041
-    m_Localized: "The caravan split \u2014 some went with goods, others traveled
-      light. Money and food were lost, and the road ahead grew uncertain."
+    m_Localized: " \u043E\u0441\u0442\u0430\u043B\u044C\u043D\u044B\u0435 \u0436\u0434\u0443\u0442.
+      \u0420\u0438\u0441\u043A\u043E\u0432\u0430\u043D\u043D\u043E"
     m_Metadata:
       m_Items: []
   - m_Id: 651148099838042
-    m_Localized: "The last battle was fierce and bloody. Lives, food, and money were
-      lost \u2014 but the caravan held and broke through."
+    m_Localized: " \u0447\u0442\u043E \u043E\u0441\u0442\u0430\u043B\u043E\u0441\u044C
+      \u043E\u0442 \u043B\u0430\u0433\u0435\u0440\u044F."
     m_Metadata:
       m_Items: []
   - m_Id: 651148099838043
-    m_Localized: Surrendering to the enemy's mercy cost all valuables. But lives
-      were spared, and the danger receded.
+    m_Localized: "Resistance was futile \u2014 the caravan surrendered. The attackers
+      took everything of value and left."
     m_Metadata:
       m_Items: []
   - m_Id: 651148099838044
-    m_Localized: A desperate flight through the night cost food and the cart. But
-      the caravan escaped destruction, though not without losses.
+    m_Localized: " \u043D\u043E \u043E\u0441\u0442\u0430\u043B\u044C\u043D\u044B\u0435
+      \u0436\u0438\u0432\u044B."
     m_Metadata:
       m_Items: []
   - m_Id: 651148099838045

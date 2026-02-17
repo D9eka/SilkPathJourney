@@ -69,6 +69,8 @@ namespace Internal.Scripts.Installers
         [SerializeField] private ArrowView _arrowPrefab;
         [Header("World Labels")]
         [SerializeField] private WorldCanvasSettings _worldCanvasSettings;
+        [Header("Path Visualization")]
+        [SerializeField] private Shader _pathShader;
         [Header("UI Theme")]
         [SerializeField] private BiomePaletteMap _biomePaletteMap;
 
@@ -268,7 +270,7 @@ namespace Internal.Scripts.Installers
 
         private void InstallPathVisualization()
         {
-            var pathMaterial = new Material(Shader.Find("Unlit/Color"));
+            var pathMaterial = new Material(_pathShader);
             pathMaterial.color = Color.yellow;
 
             Container.Bind<PathLineRenderer>().AsSingle();

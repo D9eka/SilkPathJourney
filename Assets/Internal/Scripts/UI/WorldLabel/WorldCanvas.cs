@@ -55,7 +55,8 @@ namespace Internal.Scripts.UI.WorldLabel
             label.gameObject.name = goName;
 
             PositionElement(label.GetComponent<RectTransform>(), worldPosition, offset);
-            label.Initialize(_tooltipService, _camera, _settings, _zoomerData);
+            AddBillboard(label.gameObject);
+            label.Initialize(_tooltipService);
 
             return label;
         }
@@ -78,9 +79,17 @@ namespace Internal.Scripts.UI.WorldLabel
             label.gameObject.name = goName;
 
             PositionElement(label.GetComponent<RectTransform>(), worldPosition, Vector3.zero);
-            label.Initialize(_tooltipService, _camera, _settings, _zoomerData);
+            AddBillboard(label.gameObject);
+            label.Initialize(_tooltipService);
 
             return label;
+        }
+
+        public WorldCanvasBillboard AddBillboard(GameObject target)
+        {
+            var bb = target.AddComponent<WorldCanvasBillboard>();
+            bb.Initialize(_camera, _settings, _zoomerData);
+            return bb;
         }
 
         public RectTransform CreatePositionedRoot(Vector3 worldPosition, Vector3 offset, string goName)

@@ -16,14 +16,14 @@ namespace Internal.Scripts.UI.Arrow.Placement
 
         public ArrowView CreateArrow(Vector3 worldPosition, string name)
         {
-            WorldLabelView labelView = _worldCanvas.CreateLabel(worldPosition, name);
-            if (labelView == null) return null;
+            RectTransform root = _worldCanvas.CreatePositionedRoot(worldPosition, Vector3.zero, name);
+            if (root == null) return null;
 
-            labelView.NameText.gameObject.SetActive(false);
+            _worldCanvas.AddBillboard(root.gameObject);
 
-            ArrowView arrow = Object.Instantiate(_arrowPrefab, labelView.transform);
+            ArrowView arrow = Object.Instantiate(_arrowPrefab, root);
             arrow.transform.localPosition = Vector3.zero;
-            arrow.RootObject = labelView.gameObject;
+            arrow.RootObject = root.gameObject;
 
             return arrow;
         }
