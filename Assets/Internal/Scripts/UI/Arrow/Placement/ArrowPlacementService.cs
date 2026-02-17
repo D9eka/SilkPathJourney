@@ -11,11 +11,13 @@ namespace Internal.Scripts.UI.Arrow.Placement
         private const float HIDE_ANIMATION_DURATION = 0.2f;
 
         private readonly ArrowFactory _arrowFactory;
+        private readonly UnityEngine.Camera _camera;
         private readonly List<ArrowView> _activeArrows = new();
 
-        public ArrowPlacementService(ArrowFactory arrowFactory)
+        public ArrowPlacementService(ArrowFactory arrowFactory, UnityEngine.Camera camera)
         {
             _arrowFactory = arrowFactory;
+            _camera = camera;
         }
 
         public void PlaceArrows(List<ArrowData> arrowDataList)
@@ -61,7 +63,7 @@ namespace Internal.Scripts.UI.Arrow.Placement
         {
             ArrowView arrow = _arrowFactory.CreateArrow(data.WorldPos, $"Arrow_{data.Segment.SegmentId}");
             arrow.Initialize(data.Segment, data.Type);
-            arrow.SetDirection(data.WorldDir);
+            arrow.SetDirection(data.WorldDir, _camera);
 
             _activeArrows.Add(arrow);
         }

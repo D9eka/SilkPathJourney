@@ -18,10 +18,11 @@ namespace Internal.Scripts.UI.StackService
         private readonly ScreenId _initialScreenId;
         private readonly List<ScreenInstance> _stack = new();
         private readonly Dictionary<ScreenId, ScreenInstance> _instances = new();
-        
+
         public ScreenId TopId => _stack.Count > 0 ? _stack[^1].Id : ScreenId.None;
 
-        public ScreenStackService(UIScreenRoots roots, ScreenCatalog catalog, IScreenViewModelFactory viewModelFactory, ScreenId initialScreenId)
+        public ScreenStackService(UIScreenRoots roots, ScreenCatalog catalog,
+            IScreenViewModelFactory viewModelFactory, ScreenId initialScreenId)
         {
             _roots = roots;
             _catalog = catalog;

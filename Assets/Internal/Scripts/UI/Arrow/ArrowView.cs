@@ -13,17 +13,30 @@ namespace Internal.Scripts.UI.Arrow
 
         [SerializeField] private Image _arrowImage;
 
+        private UnityEngine.Camera _camera;
+        private Vector3 _worldDirection;
+
         public void Initialize(RoadPathSegment segment, ArrowType type)
         {
             Segment = segment;
             if (_arrowImage != null)
                 _arrowImage.color = GetColor(type);
         }
-    
-        public void SetDirection(Vector3 worldDirection)
+
+        public void SetDirection(Vector3 worldDirection, UnityEngine.Camera camera)
         {
-            float angle = Mathf.Atan2(worldDirection.x, worldDirection.z) * Mathf.Rad2Deg;
-            transform.localRotation = Quaternion.Euler(0, 0, -angle);
+            _worldDirection = worldDirection;
+            _camera = camera;
+        }
+
+        private void LateUpdate()
+        {
+            if (_camera == null || _worldDirection.sqrMagnitude < 0.001f) return;
+
+            float x = Vector3.Dot(_worldDirection, _camera.transform.right);
+            float y = Vector3.Dot(_worldDirection, _camera.transform.up);
+            float angle = Mathf.Atan2(y, x) * Mathf.Rad2Deg;
+            transform.localRotation = Quaternion.Euler(0, 0, angle);
         }
     
         protected override void OnClickEffect()
