@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Internal.Scripts.Road.Core;
 using Internal.Scripts.Road.Nodes;
 using Internal.Scripts.Road.Path;
+using Internal.Scripts.Road.State;
 using Internal.Scripts.World.Roads;
 using UnityEngine;
 using Zenject;
@@ -14,19 +15,22 @@ namespace Internal.Scripts.Road.Graph
         private readonly RoadRuntime[] _roadRuntimes;
         private readonly IRoadNodeLookup _nodeLookup;
         private readonly RoadSamplerCache _samplerCache;
+        private readonly RoadUnlockService _unlockService;
 
         private readonly HashSet<string> _nodes = new();
         private readonly Dictionary<string, List<RoadGraphEdge>> _edges = new();
         private readonly Dictionary<RoadSegmentId, RoadSegmentData> _segments = new();
+        private readonly Dictionary<string, RoadRuntime> _runtimeByRoadId = new();
 
         public IReadOnlyDictionary<RoadSegmentId, RoadSegmentData> Segments => _segments;
         public IEnumerable<string> Nodes => _nodes;
 
-        public RoadNetwork(RoadRuntime[] roadRuntimes, IRoadNodeLookup nodeLookup, RoadSamplerCache samplerCache)
+        public RoadNetwork(RoadRuntime[] roadRuntimes, IRoadNodeLookup nodeLookup, RoadSamplerCache samplerCache, RoadUnlockService unlockService)
         {
             _roadRuntimes = roadRuntimes ?? Array.Empty<RoadRuntime>();
             _nodeLookup = nodeLookup;
             _samplerCache = samplerCache;
+            _unlockService = unlockService;
         }
 
         public void Initialize()
@@ -34,6 +38,7 @@ namespace Internal.Scripts.Road.Graph
             _nodes.Clear();
             _edges.Clear();
             _segments.Clear();
+            _runtimeByRoadId.Clear();
 
             foreach (RoadRuntime runtime in _roadRuntimes)
             {
@@ -46,6 +51,14 @@ namespace Internal.Scripts.Road.Graph
                     string.IsNullOrWhiteSpace(data.EndNodeId))
                 {
                     Debug.LogWarning($"[RoadNetwork] RoadRuntime '{runtime.name}' has invalid RoadData (missing ids). Skipping.");
+                    continue;
+                }
+
+                _runtimeByRoadId[data.RoadId] = runtime;
+
+                if (data.IsHidden && !_unlockService.IsUnlocked(data.RoadId))
+                {
+                    runtime.gameObject.SetActive(false);
                     continue;
                 }
 
@@ -75,6 +88,35 @@ namespace Internal.Scripts.Road.Graph
 
             if (_edges.Count == 0)
                 Debug.LogWarning("[RoadNetwork] No valid road edges were built. Pathfinding will fail.");
+        }
+
+        public void UnlockRoad(string roadId)
+        {
+            if (!_runtimeByRoadId.TryGetValue(roadId, out RoadRuntime runtime))
+            {
+                Debug.LogWarning($"[RoadNetwork] Cannot unlock road '{roadId}': runtime not found.");
+                return;
+            }
+
+            RoadData data = runtime.Data;
+            runtime.gameObject.SetActive(true);
+
+            if (!_samplerCache.TryGetSampler(runtime, out RoadPolylineSampler sampler))
+            {
+                Debug.LogWarning($"[RoadNetwork] Failed to build sampler for unlocked road '{roadId}'.");
+                return;
+            }
+
+            float length = sampler.Length;
+            float speedMul = Mathf.Max(0.01f, data.SpeedMul);
+            float cost = length / speedMul;
+
+            AddEdge(data.StartNodeId, data.EndNodeId, new RoadSegmentId(data.RoadId, true), runtime, data, length, speedMul, cost);
+
+            if (data.Bidirectional)
+            {
+                AddEdge(data.EndNodeId, data.StartNodeId, new RoadSegmentId(data.RoadId, false), runtime, data, length, speedMul, cost);
+            }
         }
 
         public bool ContainsNode(string nodeId) => _nodes.Contains(nodeId);

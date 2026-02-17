@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Internal.Scripts.Player.Path;
 using Internal.Scripts.Road.Core;
@@ -6,27 +7,33 @@ using Internal.Scripts.UI.Arrow.DirectionCalculation;
 using Internal.Scripts.UI.Arrow.JunctionBalancer;
 using Internal.Scripts.UI.Arrow.Placement;
 using Internal.Scripts.UI.Arrow.PositionCalculation;
+using Internal.Scripts.World.State;
 using UnityEngine;
 
 namespace Internal.Scripts.UI.Arrow.Controller
 {
-    public sealed class RoadPoseArrowsController : IArrowsController
+    public sealed class RoadPoseArrowsController : IArrowsController, IDisposable
     {
         private readonly IArrowPositionCalculator _positionCalculator;
         private readonly IArrowDirectionCalculator _directionCalculator;
         private readonly IArrowPlacementService _placementService;
         private readonly IArrowJunctionBalancer _balancer;
+        private readonly WorldStateController _worldStateController;
 
         public RoadPoseArrowsController(
             IArrowPositionCalculator positionCalculator,
             IArrowDirectionCalculator directionCalculator,
             IArrowPlacementService placementService,
-            IArrowJunctionBalancer balancer)
+            IArrowJunctionBalancer balancer,
+            WorldStateController worldStateController)
         {
             _positionCalculator = positionCalculator;
             _directionCalculator = directionCalculator;
             _placementService = placementService;
             _balancer = balancer;
+            _worldStateController = worldStateController;
+
+            _worldStateController.OnStateChange += OnViewModeChanged;
         }
 
         public List<ArrowView> GetAllArrows()
@@ -46,7 +53,6 @@ namespace Internal.Scripts.UI.Arrow.Controller
                 (PathGroup group, float angle) = _balancer.GetPathClassification(segment);
                 Vector3 basePos = _positionCalculator.CalculateWorldPosition(segment, RoadLane.Center);
                 Vector3 worldPos = _balancer.GetBalancedPosition(basePos, group, segment);
-                worldPos = _positionCalculator.SnapToGround(worldPos);
                 Vector3 worldDir = _directionCalculator.CalculateWorldDirection(segment, 0f);
                 ArrowData arrowData = new ArrowData
                 {
@@ -84,6 +90,19 @@ namespace Internal.Scripts.UI.Arrow.Controller
                 }
             }
             return ArrowType.Bad;
+        }
+
+        public void Dispose()
+        {
+            _worldStateController.OnStateChange -= OnViewModeChanged;
+        }
+
+        private void OnViewModeChanged(WorldViewMode viewMode)
+        {
+            if (viewMode == WorldViewMode.Detailed)
+            {
+                _placementService.HideArrows();
+            }
         }
     }
 }

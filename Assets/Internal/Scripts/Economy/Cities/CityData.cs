@@ -1,11 +1,14 @@
+using Internal.Scripts.Camera;
 using Internal.Scripts.Economy.Generated;
+using Internal.Scripts.UI.Localization;
+using Internal.Scripts.UI.Tooltip;
 using UnityEngine;
 using UnityEngine.Localization;
 
 namespace Internal.Scripts.Economy.Cities
 {
     [CreateAssetMenu(menuName = "SPJ/Economy/City", fileName = "City")]
-    public class CityData : ScriptableObject
+    public class CityData : LocalizedTooltipData
     {
         [field: SerializeField] public string Id { get; private set; }
         [field: SerializeField] public string NodeId { get; private set; }
@@ -14,7 +17,27 @@ namespace Internal.Scripts.Economy.Cities
         [field: SerializeField] public CultureId SecondaryCulture { get; private set; }
         [field: SerializeField] public float MarketScale { get; private set; }
         [field: SerializeField] public bool HasPort { get; private set; }
+        [field: SerializeField] public Biome Biome { get; private set; }
         [field: SerializeField] public LocalizedString Name { get; private set; } = new();
+        [field: SerializeField] public LocalizedString Description { get; private set; } = new();
+
+        [Header("Detail Scene")]
+        [Tooltip("Detail scene for this city (optional)")]
+        [field: SerializeField] public SceneReference DetailScene { get; private set; }
+
+        protected override LocalizedString TooltipName => Name;
+        protected override LocalizedString TooltipDescription => Description;
+        protected override string TooltipId => Id;
+        protected override string TooltipContext => "CityData";
+        protected override string FallbackDescription
+        {
+            get
+            {
+                string desc = $"{Type}, Market Scale: {MarketScale:F1}";
+                if (HasPort) desc += ", Has Port";
+                return desc;
+            }
+        }
 
 #if UNITY_EDITOR
         public void ApplyImport(
@@ -25,7 +48,9 @@ namespace Internal.Scripts.Economy.Cities
             CultureId secondaryCulture,
             float marketScale,
             bool hasPort,
-            LocalizedString name)
+            Biome biome,
+            LocalizedString name,
+            LocalizedString description = null)
         {
             Id = id;
             NodeId = nodeId;
@@ -34,7 +59,9 @@ namespace Internal.Scripts.Economy.Cities
             SecondaryCulture = secondaryCulture;
             MarketScale = marketScale;
             HasPort = hasPort;
+            Biome = biome;
             Name = name;
+            Description = description ?? new LocalizedString();
         }
 #endif
     }

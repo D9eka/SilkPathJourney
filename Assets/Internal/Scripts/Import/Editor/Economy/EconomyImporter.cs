@@ -1,12 +1,14 @@
 using System;
 using System.Collections.Generic;
 using Internal.Scripts.Economy;
+using Internal.Scripts.Economy.Buildings;
 using Internal.Scripts.Economy.Cities;
 using Internal.Scripts.Economy.Generated;
 using Internal.Scripts.Economy.Items;
 using Internal.Scripts.Import.Editor.Core;
 using Internal.Scripts.Import.Editor.Economy.Generators;
 using Internal.Scripts.Import.Editor.Economy.Tables;
+using Internal.Scripts.Road.Modifiers;
 using UnityEditor;
 using UnityEngine;
 using static Internal.Scripts.Import.Editor.Core.ImportHelpers;
@@ -21,7 +23,7 @@ namespace Internal.Scripts.Import.Editor.Economy
         private const string LOCALIZATION_TABLE_NAME = "Economy";
         private const string UI_LOCALIZATION_TABLE_NAME = "UI";
 
-        [MenuItem("SPJ/Import/Economy/Import All")]
+        [MenuItem("SPJ/Import/Economy")]
         public static void ImportAll()
         {
             if (EditorApplication.isCompiling)
@@ -36,6 +38,7 @@ namespace Internal.Scripts.Import.Editor.Economy
                 ItemTypeGenerator.Generate();
                 CityTypeGenerator.Generate();
                 CultureIdGenerator.Generate();
+                BuildingIdGenerator.Generate();
 
                 // 2. Ensure folders
                 EnsureAssetFolder(ITEMS_FOLDER);
@@ -52,9 +55,19 @@ namespace Internal.Scripts.Import.Editor.Economy
                 var cityTypeMap = BuildEnumMap<CityType>("city_types.csv", "city_type_id", "enum_name");
                 LocalizationImporter.CollectFromCsv(CsvPath("city_types.csv"), "name_key", locEntries);
                 var cultureMap = CulturesTable.Read(locEntries);
+                var biomeMap = BuildEnumMap<Biome>("biome_palettes.csv", "biome_id", "enum_name");
                 var itemIds = ItemsTable.ReadIds();
                 LocalizationImporter.CollectFromCsv(CsvPath("items.csv"), "name_key", locEntries);
                 LocalizationImporter.CollectFromCsv(CsvPath("cities.csv"), "name_key", locEntries);
+                LocalizationImporter.CollectFromCsv(CsvPath("buildings.csv"), "name_key", locEntries);
+                LocalizationImporter.CollectFromCsv(CsvPath("road_modifiers.csv"), "name_key", locEntries);
+                LocalizationImporter.CollectFromCsv(CsvPath("city_modifiers.csv"), "name_key", locEntries);
+                LocalizationImporter.CollectFromCsvPlainLocales(
+                    CsvPath("localization.csv"), "key", "city.", locEntries);
+                LocalizationImporter.CollectFromCsvPlainLocales(
+                    CsvPath("localization.csv"), "key", "modifier.", locEntries);
+                LocalizationImporter.CollectFromCsvPlainLocales(
+                    CsvPath("localization.csv"), "key", "city_modifier.", locEntries);
 
                 // 4. Import localization
                 LocalizationImporter.Import(locEntries, LOCALIZATION_TABLE_NAME,
@@ -76,11 +89,15 @@ namespace Internal.Scripts.Import.Editor.Economy
                 var items = ItemsTable.Import(itemTypeMap, LOCALIZATION_TABLE_NAME, locEntries);
                 var cityTypes = CityTypesTable.Import(cityTypeMap, coefs, profiles,
                     LOCALIZATION_TABLE_NAME, locEntries);
-                var cities = CitiesTable.Import(cityTypeMap, cultureMap,
+                var cities = CitiesTable.Import(cityTypeMap, cultureMap, biomeMap,
                     LOCALIZATION_TABLE_NAME, locEntries);
+                var buildings = BuildingsTable.Import(LOCALIZATION_TABLE_NAME, locEntries);
+                var roadModifiers = RoadModifiersTable.Import(LOCALIZATION_TABLE_NAME, locEntries);
+                var cityModifiers = CityModifiersTable.Import(LOCALIZATION_TABLE_NAME, locEntries);
 
                 // 7. Database
-                UpdateDatabase(items, cityTypes, cities, cultureCatMult, cultureItemMult);
+                UpdateDatabase(items, cityTypes, cities, buildings, roadModifiers, cityModifiers,
+                    cultureCatMult, cultureItemMult);
 
                 AssetDatabase.SaveAssets();
                 AssetDatabase.Refresh();
@@ -96,6 +113,9 @@ namespace Internal.Scripts.Import.Editor.Economy
             List<ItemData> items,
             List<CityTypeData> cityTypes,
             List<CityData> cities,
+            List<BuildingData> buildings,
+            List<RoadModifierData> roadModifiers,
+            List<CityModifierData> cityModifiers,
             List<EconomyDatabase.CultureCategoryDemandMultiplier> cultureCategoryMultipliers,
             List<EconomyDatabase.CultureItemDemandMultiplier> cultureItemMultipliers)
         {
@@ -111,6 +131,9 @@ namespace Internal.Scripts.Import.Editor.Economy
                 items,
                 cityTypes,
                 cities,
+                buildings,
+                roadModifiers,
+                cityModifiers,
                 new List<EconomyDatabase.CultureCategoryDemandMultiplier>(cultureCategoryMultipliers),
                 new List<EconomyDatabase.CultureItemDemandMultiplier>(cultureItemMultipliers));
 

@@ -123,7 +123,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 577896470
-    m_Localized: "Chang\u2019an"
+    m_Localized: Chang'an
     m_Metadata:
       m_Items: []
   - m_Id: 577896471
@@ -528,6 +528,97 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 3360400056770622
     m_Localized: Songbird
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6593451456978944
+    m_Localized: Shop
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6593451503116288
+    m_Localized: Guild
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6593451503116289
+    m_Localized: Tavern
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6593451503116290
+    m_Localized: Temple
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6593451503116291
+    m_Localized: Workshop
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6593451503116292
+    m_Localized: Warehouse
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6593451503116293
+    m_Localized: Speed Bonus
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6593451503116294
+    m_Localized: Danger Zone
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6593451503116295
+    m_Localized: Trade Hub
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6593451503116296
+    m_Localized: Port Access
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6593451503116297
+    m_Localized: "Heart of the Celestial Empire \u2014 the great capital of the Ming
+      dynasty. The finest goods and immeasurable riches are gathered here."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6593451503116298
+    m_Localized: An ancient city at the start of the Silk Road. For centuries caravans
+      departed westward from here across the endless steppes.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6593451503116299
+    m_Localized: A frontier city at the edge of the desert. Merchants prepare here
+      for the perilous crossing through waterless lands.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6593451503116300
+    m_Localized: A growing port on the coast. Sea junks and river boats bring goods
+      here from across southern China.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6593451503116301
+    m_Localized: "Pearl of the south \u2014 a city of craftsmen and weavers. Silk
+      and tea from Hangzhou are renowned throughout the empire."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6593451503116302
+    m_Localized: The greatest maritime port of Ming. Ships depart from here to Southeast
+      Asia and distant Arabia.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6593451503116303
+    m_Localized: "Southern gateway of China. The port connects the empire with overseas
+      lands \u2014 from India to the Spice Islands."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6593451503116304
+    m_Localized: Caravan speed +20%
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6593451503116305
+    m_Localized: Bandit attacks possible
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6593451503116306
+    m_Localized: "Improved trade conditions \u2014 more goods and better prices"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6593451503116307
+    m_Localized: Maritime trade routes provide access to overseas goods
     m_Metadata:
       m_Items: []
   references:

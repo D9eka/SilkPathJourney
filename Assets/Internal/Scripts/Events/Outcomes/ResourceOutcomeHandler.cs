@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Internal.Scripts.Config;
 using Internal.Scripts.Economy;
 using Internal.Scripts.Events.Data;
+using Internal.Scripts.Events.Generated;
 using Internal.Scripts.UI.Components;
 using UnityEngine;
 

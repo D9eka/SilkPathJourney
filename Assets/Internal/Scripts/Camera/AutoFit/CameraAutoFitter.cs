@@ -118,7 +118,7 @@ namespace Internal.Scripts.Camera.AutoFit
         private (float moveDuration, float zoomDuration) CalculateDurations(Vector3 targetPos, float finalSize)
         {
             float distance = Vector3.Distance(_camera.transform.position, targetPos);
-            float zoomDelta = Mathf.Abs(_camera.orthographicSize - finalSize);
+            float zoomDelta = Mathf.Abs(_zoomer.Size - finalSize);
             float moveDuration = Mathf.Clamp(distance / 10f, 0.2f, 2.5f);
             float zoomDuration = Mathf.Clamp(zoomDelta / 10f, 0.2f, 2.5f);
             return (moveDuration, zoomDuration);

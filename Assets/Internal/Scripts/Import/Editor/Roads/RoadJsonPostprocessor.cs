@@ -79,6 +79,7 @@ namespace Internal.Scripts.Import.Editor.Roads
             roadData.SpeedMul = dto.Meta?.SpeedMul ?? 1f;
             roadData.Bidirectional = dto.Meta?.Bidirectional ?? true;
             roadData.SampleStepMeters = dto.Meta?.SampleStepMeters ?? 2f;
+            roadData.IsHidden = dto.Meta?.Hidden ?? false;
 
             roadData.StartNodeId = dto.Endpoints?.StartNodeId ?? "";
             roadData.EndNodeId = dto.Endpoints?.EndNodeId ?? "";

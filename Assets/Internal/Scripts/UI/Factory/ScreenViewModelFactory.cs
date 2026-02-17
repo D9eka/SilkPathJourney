@@ -1,6 +1,6 @@
-using Internal.Scripts.UI.Screen.Config;
-using Internal.Scripts.UI.Screen.View;
-using Internal.Scripts.UI.Screen.ViewModel;
+using Internal.Scripts.UI.Screens.Core.Config;
+using Internal.Scripts.UI.Screens.Core.View;
+using Internal.Scripts.UI.Screens.Core.ViewModel;
 using Internal.Scripts.UI.Screens.Event;
 using Internal.Scripts.UI.Screens.Hud;
 using Internal.Scripts.UI.Screens.Inventory;

@@ -1,4 +1,4 @@
-namespace Internal.Scripts.Events.Data
+﻿namespace Internal.Scripts.Events.Generated
 {
     public enum EventOutcomeType
     {
@@ -10,5 +10,6 @@ namespace Internal.Scripts.Events.Data
         CartDurability = 5,
         AddCompanion = 6,
         AddSkillXp = 7,
+        UnlockRoad = 8,
     }
 }

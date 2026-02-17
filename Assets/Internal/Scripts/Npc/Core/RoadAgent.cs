@@ -43,6 +43,8 @@ namespace Internal.Scripts.Npc.Core
         public void Initialize()
         {
             _cursor.Initialize(_currentNodeId);
+            RoadPose pose = _cursor.CurrentPose;
+            _view.SetPose(pose.Position, pose.Forward);
         }
         
         public void Dispose()

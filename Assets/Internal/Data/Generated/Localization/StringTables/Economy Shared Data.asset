@@ -527,6 +527,90 @@ MonoBehaviour:
     m_Key: item.songbird.name
     m_Metadata:
       m_Items: []
+  - m_Id: 6593451456978944
+    m_Key: building.shop.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6593451503116288
+    m_Key: building.guild.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6593451503116289
+    m_Key: building.tavern.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6593451503116290
+    m_Key: building.temple.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6593451503116291
+    m_Key: building.workshop.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6593451503116292
+    m_Key: building.warehouse.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6593451503116293
+    m_Key: modifier.speed_bonus.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6593451503116294
+    m_Key: modifier.danger_zone.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6593451503116295
+    m_Key: city_modifier.trade_hub.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6593451503116296
+    m_Key: city_modifier.port_access.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6593451503116297
+    m_Key: city.beijing.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6593451503116298
+    m_Key: city.changan.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6593451503116299
+    m_Key: city.lanzhou.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6593451503116300
+    m_Key: city.shanghai.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6593451503116301
+    m_Key: city.hangzhou.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6593451503116302
+    m_Key: city.quanzhou.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6593451503116303
+    m_Key: city.guangzhou.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6593451503116304
+    m_Key: modifier.speed_bonus.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6593451503116305
+    m_Key: modifier.danger_zone.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6593451503116306
+    m_Key: city_modifier.trade_hub.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6593451503116307
+    m_Key: city_modifier.port_access.description
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

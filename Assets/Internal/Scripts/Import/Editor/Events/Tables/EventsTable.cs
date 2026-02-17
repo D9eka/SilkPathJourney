@@ -19,9 +19,10 @@ namespace Internal.Scripts.Import.Editor.Events.Tables
             Dictionary<string, List<EventCondition>> eventConditions,
             Dictionary<string, Dictionary<int, List<EventCondition>>> choiceConditions,
             Dictionary<string, Dictionary<int, List<EventOutcomeEntry>>> outcomes,
-            string locTableName)
+            string locTableName,
+            string csvFile = "events.csv")
         {
-            string csvPath = CsvPath("events.csv");
+            string csvPath = CsvPath(csvFile);
             List<string[]> rows = CsvReader.ReadFile(csvPath);
             List<EventData> events = new();
 

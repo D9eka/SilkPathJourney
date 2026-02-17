@@ -158,12 +158,6 @@ namespace Internal.Scripts.Input
 
         private void HandleCamera(bool isOverUI)
         {
-            if (isOverUI)
-            {
-                OnChangeCameraPosition?.Invoke(Vector2.zero);
-                return;
-            }
-
             OnChangeCameraSize?.Invoke(_zoomValue * CAMERA_SIZE_MODIFIER);
             OnChangeCameraPosition?.Invoke(_moveValue * CameraMovementModifier);
         }

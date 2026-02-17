@@ -49,6 +49,8 @@ namespace Internal.Scripts.Save
         {
             data.Economy ??= new EconomySaveData();
             data.Player ??= new PlayerSaveData();
+            data.Camera ??= new CameraSaveData();
+            data.Roads ??= new RoadSaveData();
             data.Economy.PlayerInventory ??= new InventoryState();
             data.Economy.CityInventories ??= new List<CityInventoryState>();
 

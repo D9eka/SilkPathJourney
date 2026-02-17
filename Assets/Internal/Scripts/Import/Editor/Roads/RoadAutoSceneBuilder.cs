@@ -8,6 +8,7 @@ namespace Internal.Scripts.Import.Editor.Roads
     public static class RoadAutoSceneBuilder
     {
         private const string PREF_KEY = "SPJ_Roads_AutoBuildInScene";
+        private const string STRATEGIC_SCENE = "StrategicView";
 
         static RoadAutoSceneBuilder()
         {
@@ -45,6 +46,9 @@ namespace Internal.Scripts.Import.Editor.Roads
 
             var scene = EditorSceneManager.GetActiveScene();
             if (!scene.IsValid() || !scene.isLoaded)
+                return;
+
+            if (scene.name != STRATEGIC_SCENE)
                 return;
 
             if (GameObject.Find("SPJ_Roads") != null)

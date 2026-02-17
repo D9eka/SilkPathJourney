@@ -19,6 +19,7 @@ MonoBehaviour:
   <SecondaryCulture>k__BackingField: 0
   <MarketScale>k__BackingField: 1
   <HasPort>k__BackingField: 1
+  <Biome>k__BackingField: 5
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Economy
@@ -28,6 +29,19 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  <Description>k__BackingField:
+    m_TableReference:
+      m_TableCollectionName: Economy
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: city.shanghai.description
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  <DetailScene>k__BackingField:
+    _sceneAsset: {fileID: 0}
+    _sceneName: 
+    _cameraSize: 15
   references:
     version: 2
     RefIds: []

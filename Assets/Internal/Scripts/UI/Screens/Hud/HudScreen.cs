@@ -1,11 +1,10 @@
 using System;
 using Internal.Scripts.Economy.Cities;
 using Internal.Scripts.Events;
-using Internal.Scripts.Hud;
 using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Localization;
-using Internal.Scripts.UI.Screen.View;
-using Internal.Scripts.UI.Screen.ViewModel;
+using Internal.Scripts.UI.Screens.Core.View;
+using Internal.Scripts.UI.Screens.Core.ViewModel;
 using R3;
 using TMPro;
 using UnityEngine;
@@ -49,6 +48,7 @@ namespace Internal.Scripts.UI.Screens.Hud
         [SerializeField] private LocalizedString _campLocalizedString;
         [SerializeField] private LocalizedString _moveLocalizedString;
         [SerializeField] private LocalizedString _fastMoveLocalizedString;
+        [SerializeField] private LocalizedString _leaveCityLocalizedString;
 
         private HudScreenViewModel _viewModel;
         private IDisposable _stateSubscription;
@@ -124,11 +124,8 @@ namespace Internal.Scripts.UI.Screens.Hud
                 case HudMode.Travel:
                     ApplyTravelMode(state.ActiveSpeedIndex);
                     break;
-                case HudMode.CityStrategic:
-                    ApplyCityStrategicMode();
-                    break;
-                case HudMode.CityDetailed:
-                    ApplyCityDetailedMode(state.City);
+                case HudMode.City:
+                    ApplyCityMode(state.City);
                     break;
             }
         }
@@ -147,32 +144,25 @@ namespace Internal.Scripts.UI.Screens.Hud
             SetSpeedBorder(activeSpeedIndex);
         }
 
-        private void ApplyCityStrategicMode()
+        private void ApplyCityMode(CityData city)
         {
+            bool inCity = city != null;
+
             _startActionButton.gameObject.SetActive(true);
             _actionButton.gameObject.SetActive(false);
-            _endActionButton.gameObject.SetActive(true);
-            _cityTextContainer.SetActive(false);
+            _endActionButton.gameObject.SetActive(!inCity);
+            _cityTextContainer.SetActive(inCity);
 
-            SetButtonText(_startActionButtonText, _enterCityLocalizedString, "EnterCity");
-            SetButtonText(_endActionButtonText, _moveLocalizedString, "Move");
-
-            ClearSpeedBorders();
-        }
-
-        private void ApplyCityDetailedMode(CityData city)
-        {
-            _startActionButton.gameObject.SetActive(true);
-            _actionButton.gameObject.SetActive(false);
-            _endActionButton.gameObject.SetActive(false);
-            _cityTextContainer.SetActive(true);
-
-            SetButtonText(_startActionButtonText, _moveLocalizedString, "Move");
-
-            if (city != null)
+            if (inCity)
+            {
+                SetButtonText(_startActionButtonText, _leaveCityLocalizedString, "LeaveCity");
                 _cityText.text = LocalizationHelper.ResolveString(city.Name, city.Id, "CityName");
+            }
             else
-                _cityText.text = "";
+            {
+                SetButtonText(_startActionButtonText, _enterCityLocalizedString, "EnterCity");
+                SetButtonText(_endActionButtonText, _moveLocalizedString, "Move");
+            }
 
             ClearSpeedBorders();
         }
