@@ -1,9 +1,7 @@
 using Internal.Scripts.Camera.Zoom;
 using Internal.Scripts.UI.Arrow.PositionCalculation;
 using Internal.Scripts.UI.Tooltip;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Internal.Scripts.UI.WorldLabel
 {
@@ -53,59 +51,60 @@ namespace Internal.Scripts.UI.WorldLabel
                 return null;
             }
 
-            GameObject labelGo = new GameObject(goName);
-            RectTransform labelRt = labelGo.AddComponent<RectTransform>();
-            labelRt.anchorMin = new Vector2(0.5f, 0.5f);
-            labelRt.anchorMax = new Vector2(0.5f, 0.5f);
-            labelGo.transform.SetParent(_canvas.transform, false);
+            WorldLabelView label = Instantiate(_settings.LabelPrefab, _canvas.transform);
+            label.gameObject.name = goName;
 
+            PositionElement(label.GetComponent<RectTransform>(), worldPosition, offset);
+            label.Initialize(_tooltipService, _camera, _settings, _zoomerData);
+
+            return label;
+        }
+
+        public RoadLabelView CreateRoadLabel(Vector3 worldPosition, string goName = "RoadLabel")
+        {
+            if (!_isInitialized || _canvas == null)
+            {
+                Debug.LogError("[WorldCanvas] Not initialized before CreateRoadLabel call.");
+                return null;
+            }
+
+            if (_settings.RoadLabelPrefab == null)
+            {
+                Debug.LogWarning("[WorldCanvas] RoadLabelPrefab is not assigned in WorldCanvasSettings.");
+                return null;
+            }
+
+            RoadLabelView label = Instantiate(_settings.RoadLabelPrefab, _canvas.transform);
+            label.gameObject.name = goName;
+
+            PositionElement(label.GetComponent<RectTransform>(), worldPosition, Vector3.zero);
+            label.Initialize(_tooltipService, _camera, _settings, _zoomerData);
+
+            return label;
+        }
+
+        public RectTransform CreatePositionedRoot(Vector3 worldPosition, Vector3 offset, string goName)
+        {
+            if (!_isInitialized || _canvas == null) return null;
+
+            var go = new GameObject(goName);
+            var rt = go.AddComponent<RectTransform>();
+            rt.anchorMin = new Vector2(0.5f, 0.5f);
+            rt.anchorMax = new Vector2(0.5f, 0.5f);
+            go.transform.SetParent(_canvas.transform, false);
+
+            PositionElement(rt, worldPosition, offset);
+
+            return rt;
+        }
+
+        private void PositionElement(RectTransform rt, Vector3 worldPosition, Vector3 offset)
+        {
             float offsetAboveGround = _settings != null ? _settings.OffsetAboveGround : 0.1f;
             Vector3 snappedPos = _groundSnapper != null
                 ? _groundSnapper.SnapToGround(worldPosition, offsetAboveGround)
                 : worldPosition + Vector3.up * offsetAboveGround;
-            Vector3 localPos = _canvas.transform.InverseTransformPoint(snappedPos + offset);
-            labelRt.anchoredPosition3D = localPos;
-
-            float canvasScale = _settings != null ? _settings.CanvasScale : 0.02f;
-            labelGo.transform.localScale = Vector3.one * canvasScale;
-
-            GameObject bgGo = new GameObject("Background");
-            bgGo.transform.SetParent(labelGo.transform, false);
-            Image bg = bgGo.AddComponent<Image>();
-            bg.color = new Color(0, 0, 0, 0);
-            bg.raycastTarget = true;
-            RectTransform bgRt = bg.GetComponent<RectTransform>();
-            bgRt.sizeDelta = new Vector2(100, 80);
-            bgRt.anchoredPosition = Vector2.zero;
-
-            GameObject textGo = new GameObject("NameText");
-            textGo.transform.SetParent(labelGo.transform, false);
-            TextMeshProUGUI tmp = textGo.AddComponent<TextMeshProUGUI>();
-            int fontSize = _settings != null ? _settings.FontSize : 36;
-            tmp.fontSize = fontSize;
-            tmp.alignment = TextAlignmentOptions.Center;
-            tmp.enableAutoSizing = false;
-            tmp.overflowMode = TextOverflowModes.Overflow;
-            tmp.textWrappingMode = TextWrappingModes.NoWrap;
-
-            RectTransform textRt = tmp.GetComponent<RectTransform>();
-            textRt.sizeDelta = new Vector2(300, 50);
-            textRt.anchoredPosition = Vector2.zero;
-
-            GameObject iconGo = new GameObject("Icon");
-            iconGo.transform.SetParent(labelGo.transform, false);
-            Image icon = iconGo.AddComponent<Image>();
-            icon.preserveAspect = true;
-
-            RectTransform iconRt = icon.GetComponent<RectTransform>();
-            iconRt.sizeDelta = new Vector2(40, 40);
-            iconRt.anchoredPosition = new Vector2(0, 35);
-            iconGo.SetActive(false);
-
-            WorldLabelView label = labelGo.AddComponent<WorldLabelView>();
-            label.Initialize(tmp, icon, _tooltipService, _camera, _settings, _zoomerData);
-
-            return label;
+            rt.anchoredPosition3D = _canvas.transform.InverseTransformPoint(snappedPos + offset);
         }
     }
 }

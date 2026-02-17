@@ -4,9 +4,6 @@ using UnityEngine.InputSystem;
 
 namespace Internal.Scripts.UI.Tooltip
 {
-    /// <summary>
-    /// Service for managing tooltip display with delayed show and instant hide.
-    /// </summary>
     public class TooltipService
     {
         private const float SHOW_DELAY = 0.3f;

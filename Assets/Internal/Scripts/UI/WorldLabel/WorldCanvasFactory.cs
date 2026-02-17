@@ -38,6 +38,7 @@ namespace Internal.Scripts.UI.WorldLabel
 
             var canvas = go.AddComponent<Canvas>();
             canvas.renderMode = RenderMode.WorldSpace;
+            canvas.worldCamera = _camera;
             canvas.sortingOrder = 100;
             go.AddComponent<GraphicRaycaster>();
 
