@@ -7,7 +7,6 @@ using Internal.Scripts.Player;
 using Internal.Scripts.Player.NextSegment;
 using Internal.Scripts.Player.StartMovement;
 using Internal.Scripts.UI.Components;
-using Internal.Scripts.World.State;
 using R3;
 using UnityEngine;
 
@@ -20,7 +19,7 @@ namespace Internal.Scripts.UI.Screens.Hud
         private readonly ICityNodeResolver _cityNodeResolver;
         private readonly IPlayerStartMovement _playerStartMovement;
         private readonly IPlayerTurnChoiceState _turnChoiceState;
-        private readonly WorldStateController _worldStateController;
+        private readonly ICityEntryService _cityEntryService;
         private readonly PlayerResourceRepository _resourceRepository;
         private readonly GameBalanceConfig _balanceConfig;
         private readonly ResourceIconCatalog _iconCatalog;
@@ -39,7 +38,7 @@ namespace Internal.Scripts.UI.Screens.Hud
             ICityNodeResolver cityNodeResolver,
             IPlayerStartMovement playerStartMovement,
             IPlayerTurnChoiceState turnChoiceState,
-            WorldStateController worldStateController,
+            ICityEntryService cityEntryService,
             PlayerResourceRepository resourceRepository,
             GameBalanceConfig balanceConfig,
             ResourceIconCatalog iconCatalog)
@@ -49,7 +48,7 @@ namespace Internal.Scripts.UI.Screens.Hud
             _cityNodeResolver = cityNodeResolver;
             _playerStartMovement = playerStartMovement;
             _turnChoiceState = turnChoiceState;
-            _worldStateController = worldStateController;
+            _cityEntryService = cityEntryService;
             _resourceRepository = resourceRepository;
             _balanceConfig = balanceConfig;
             _iconCatalog = iconCatalog;
@@ -72,7 +71,8 @@ namespace Internal.Scripts.UI.Screens.Hud
             _playerStateEvents.OnDestinationChanged += HandleStateChanged;
             _playerStartMovement.OnSelectionStateChanged += HandleSelectionChanged;
             _turnChoiceState.OnTurnChoiceStateChanged += HandleTurnChoiceChanged;
-            _worldStateController.OnStateChange += HandleViewModeChanged;
+            _cityEntryService.OnCityEntered += HandleCityEntered;
+            _cityEntryService.OnCityExited += HandleCityExited;
             _resourceSubscription = _resourceRepository.StateStream.Subscribe(ComputeResourceState);
             UpdateState();
         }
@@ -83,7 +83,8 @@ namespace Internal.Scripts.UI.Screens.Hud
             _playerStateEvents.OnDestinationChanged -= HandleStateChanged;
             _playerStartMovement.OnSelectionStateChanged -= HandleSelectionChanged;
             _turnChoiceState.OnTurnChoiceStateChanged -= HandleTurnChoiceChanged;
-            _worldStateController.OnStateChange -= HandleViewModeChanged;
+            _cityEntryService.OnCityEntered -= HandleCityEntered;
+            _cityEntryService.OnCityExited -= HandleCityExited;
             _resourceSubscription?.Dispose();
             _resourceSubscription = null;
         }
@@ -160,13 +161,15 @@ namespace Internal.Scripts.UI.Screens.Hud
 
         private void HandleTurnChoiceChanged(bool _) => UpdateState();
 
-        private void HandleViewModeChanged(WorldViewMode _) => UpdateState();
+        private void HandleCityEntered(CityData _) => UpdateState();
+
+        private void HandleCityExited() => UpdateState();
 
         private void UpdateState()
         {
             HudMode mode = DetermineMode();
             CityData city = null;
-            if (mode == HudMode.CityDetailed)
+            if (mode == HudMode.City && _cityEntryService.IsInCityView)
                 TryGetEnterCity(out city);
 
             _state.Value = new HudViewState(mode, _activeSpeedIndex, city);
@@ -182,9 +185,7 @@ namespace Internal.Scripts.UI.Screens.Hud
             if (!string.IsNullOrWhiteSpace(nodeId) &&
                 _cityNodeResolver.TryGetCityByNodeId(nodeId, out _))
             {
-                return _worldStateController.CurrentViewMode == WorldViewMode.CityIso
-                    ? HudMode.CityDetailed
-                    : HudMode.CityStrategic;
+                return HudMode.City;
             }
 
             return HudMode.Travel;
