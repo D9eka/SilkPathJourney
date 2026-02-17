@@ -16,13 +16,13 @@ namespace Internal.Scripts.Import.Editor.Events.Tables
             public string ResultKey;
         }
 
-        public static Dictionary<string, List<ChoiceRaw>> Read()
+        public static Dictionary<string, List<ChoiceRaw>> Read(string csvFile = "event_choices.csv")
         {
             Dictionary<string, List<ChoiceRaw>> map = new(StringComparer.Ordinal);
-            string csvPath = CsvPath("event_choices.csv");
+            string csvPath = CsvPath(csvFile);
             if (!File.Exists(csvPath))
             {
-                Debug.LogWarning("[SPJ] event_choices.csv not found.");
+                Debug.LogWarning($"[SPJ] {csvFile} not found.");
                 return map;
             }
 

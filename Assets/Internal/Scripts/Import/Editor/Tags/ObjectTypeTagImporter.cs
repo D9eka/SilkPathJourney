@@ -1,14 +1,14 @@
 using System;
 using System.Collections.Generic;
-using Internal.Scripts.World.State;
-using Internal.Scripts.World.VisualObjects;
+using Internal.Scripts.World.ObjectType;
 using UnityEditor;
 using UnityEngine;
+
 namespace Internal.Scripts.Import.Editor.Tags
 {
-    public sealed class WorldTypeTagImporter : AssetPostprocessor
+    public sealed class ObjectTypeTagImporter : AssetPostprocessor
     {
-        private const string KEY = "world_type";
+        private const string KEY = "object_type";
 
         public override uint GetVersion() => 1;
 
@@ -27,17 +27,15 @@ namespace Internal.Scripts.Import.Editor.Tags
         private void OnPostprocessGameObjectWithUserProperties(GameObject go, string[] propNames, object[] values)
         {
             string raw = TryGet(propNames, values, KEY);
-            if (string.IsNullOrWhiteSpace(raw))
+            if (string.IsNullOrWhiteSpace(raw) || string.Equals(raw, "none", StringComparison.OrdinalIgnoreCase))
                 return;
 
-            WorldDetailLevel tag = Parse(raw);
-
-            MonoBehVisualObject comp = go.GetComponent<MonoBehVisualObject>();
-            if (comp == null) comp = go.AddComponent<MonoBehVisualObject>();
-            comp.EditorSetViewMode(tag);
+            ObjectTypeTag comp = go.GetComponent<ObjectTypeTag>();
+            if (comp == null) comp = go.AddComponent<ObjectTypeTag>();
+            comp.EditorSetType(raw.Trim().ToLowerInvariant());
             EditorUtility.SetDirty(comp);
 
-            Debug.Log($"[SPJ] world_type='{raw}' -> {tag} on '{go.name}' ({assetPath})", go);
+            Debug.Log($"[SPJ] object_type='{raw}' on '{go.name}' ({assetPath})", go);
         }
 
         private static string TryGet(string[] names, object[] values, string key)
@@ -46,17 +44,6 @@ namespace Internal.Scripts.Import.Editor.Tags
                 if (string.Equals(names[i], key, StringComparison.OrdinalIgnoreCase))
                     return values[i]?.ToString();
             return null;
-        }
-
-        private static WorldDetailLevel Parse(string s)
-        {
-            s = s.Trim().ToLowerInvariant();
-            return s switch
-            {
-                "detailed" => WorldDetailLevel.Detailed,
-                "simple"   => WorldDetailLevel.Simplified,
-                _          => WorldDetailLevel.Both
-            };
         }
     }
 }

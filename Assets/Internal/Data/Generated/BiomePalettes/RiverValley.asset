@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7d5f60ec4d96a84896082c9a4d4a534, type: 3}
+  m_Name: RiverValley
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Theme.UiColorPalette
+  <WindowBackground>k__BackingField: {r: 0.9254902, g: 0.9098039, b: 0.84705883, a: 1}
+  <WindowContainer>k__BackingField: {r: 0.8666667, g: 0.84705883, b: 0.7529412, a: 1}
+  <WindowElement>k__BackingField: {r: 0.76862746, g: 0.7372549, b: 0.59607846, a: 1}
+  <WindowText>k__BackingField: {r: 0.11764706, g: 0.101960786, b: 0.0627451, a: 1}
+  <WindowElementText>k__BackingField: {r: 0.1882353, g: 0.16470589, b: 0.09411765, a: 1}
+  <WindowContainerText>k__BackingField: {r: 0.26666668, g: 0.22745098, b: 0.15686275, a: 1}
+  <HudElementBackground>k__BackingField: {r: 0.9254902, g: 0.9098039, b: 0.84705883, a: 0.8509804}
+  <HudElementText>k__BackingField: {r: 0.11764706, g: 0.101960786, b: 0.0627451, a: 1}
+  <OverlayColor>k__BackingField: {r: 0.039215688, g: 0.03137255, b: 0, a: 0.5019608}
+  <IconPrimary>k__BackingField: {r: 0.41960785, g: 0.47058824, b: 0.21960784, a: 1}
+  <IconSecondary>k__BackingField: {r: 0.59607846, g: 0.627451, b: 0.40784314, a: 1}
+  <TimeButtonBackground>k__BackingField: {r: 0.72156864, g: 0.7529412, b: 0.47058824, a: 1}
+  <SliderBackground>k__BackingField: {r: 0.76862746, g: 0.7372549, b: 0.59607846, a: 1}
+  <SliderFillPositive>k__BackingField: {r: 0.3764706, g: 0.627451, b: 0.28235295, a: 1}
+  <SliderFillNegative>k__BackingField: {r: 0.72156864, g: 0.3764706, b: 0.28235295, a: 1}
+  <ButtonSelectedBorder>k__BackingField: {r: 0.41960785, g: 0.47058824, b: 0.21960784, a: 1}

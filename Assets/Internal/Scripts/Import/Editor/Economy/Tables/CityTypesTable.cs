@@ -29,6 +29,7 @@ namespace Internal.Scripts.Import.Editor.Economy.Tables
             string[] header = rows[0];
             int idIndex = FindColumnIndex(header, "city_type_id");
             int nameIndex = FindColumnIndex(header, "name_key");
+            int descIndex = FindColumnIndex(header, "description_key");
             int moneyIndex = FindColumnIndex(header, "CityMoneyIncomePerScale");
             if (idIndex < 0 || nameIndex < 0 || moneyIndex < 0)
             {
@@ -91,9 +92,12 @@ namespace Internal.Scripts.Import.Editor.Economy.Tables
                     }
                 }
 
+                string descKey = descIndex >= 0 ? GetField(rows[i], descIndex).Trim() : string.Empty;
+
                 asset.ApplyImport(
                     type,
                     MakeLocalizedString(GetField(rows[i], nameIndex).Trim(), locTableName),
+                    MakeLocalizedString(descKey, locTableName),
                     moneyPerScale,
                     coefList,
                     profileList);

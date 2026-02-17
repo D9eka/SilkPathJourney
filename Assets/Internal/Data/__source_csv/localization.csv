@@ -6,6 +6,13 @@ city_type.market_town.name,city_types,7,Обычный город,Market Town
 city_type.oasis_stop.name,city_types,8,Караванная остановка,Caravan Stop
 city_type.resource_city.name,city_types,6,Сырьевой город,Resource City
 city_type.trade_hub.name,city_types,3,Торговый узел,Trade Hub
+city_type.capital.description,city_types,,"Большой рынок, высокий спрос, чаще дороже","Large market, high demand, often more expensive"
+city_type.trade_hub.description,city_types,,"Перепродажа, баланс цен, перевалка","Resale, balanced prices, transit hub"
+city_type.border_city.description,city_types,,"Сильные перекосы, потенциал выгодных сделок","Strong imbalances, potential for profitable deals"
+city_type.craft_city.description,city_types,,"Дешёвые ремесленные товары, спрос на сырьё","Cheap crafts, demand for raw materials"
+city_type.resource_city.description,city_types,,"Дешёвое сырьё, дорогие готовые товары","Cheap raw materials, expensive finished goods"
+city_type.market_town.description,city_types,,Обычный рынок для контраста,Baseline market for contrast
+city_type.oasis_stop.description,city_types,,"Маленький рынок, важная точка маршрута","Small market, important route waypoint"
 city.beijing.name,cities,2,Пекин,Beijing
 city.changan.name,cities,3,Чанъань,Chang'an
 city.guangzhou.name,cities,8,Гуанчжоу,Guangzhou
@@ -13,6 +20,17 @@ city.hangzhou.name,cities,6,Ханчжоу,Hangzhou
 city.lanzhou.name,cities,4,Ланьчжоу,Lanzhou
 city.quanzhou.name,cities,7,Цюаньчжоу,Quanzhou
 city.shanghai.name,cities,5,Шанхай,Shanghai
+city.beijing.description,cities,,Сердце Поднебесной — великая столица династии Мин. Здесь сосредоточены лучшие товары империи и несметные богатства.,Heart of the Celestial Empire — the great capital of the Ming dynasty. The finest goods and immeasurable riches are gathered here.
+city.changan.description,cities,,Древний город у начала Шёлкового пути. Столетиями караваны уходили отсюда на запад через бескрайние степи.,An ancient city at the start of the Silk Road. For centuries caravans departed westward from here across the endless steppes.
+city.lanzhou.description,cities,,Пограничный город на краю пустыни. Здесь торговцы готовятся к опасному переходу через безводные земли.,A frontier city at the edge of the desert. Merchants prepare here for the perilous crossing through waterless lands.
+city.shanghai.description,cities,,Растущий порт на побережье. Морские джонки и речные суда доставляют сюда товары со всего юга Китая.,A growing port on the coast. Sea junks and river boats bring goods here from across southern China.
+city.hangzhou.description,cities,,Жемчужина юга — город мастеров и ткачей. Шёлк и чай из Ханчжоу славятся по всей империи.,Pearl of the south — a city of craftsmen and weavers. Silk and tea from Hangzhou are renowned throughout the empire.
+city.quanzhou.description,cities,,Величайший морской порт Мин. Отсюда корабли уходят в Юго-Восточную Азию и далёкую Аравию.,The greatest maritime port of Ming. Ships depart from here to Southeast Asia and distant Arabia.
+city.guangzhou.description,cities,,Южные врата Китая. Порт связывает империю с заморскими странами — от Индии до островов Пряностей.,Southern gateway of China. The port connects the empire with overseas lands — from India to the Spice Islands.
+modifier.speed_bonus.description,road_modifiers,,Скорость каравана +20%,Caravan speed +20%
+modifier.danger_zone.description,road_modifiers,,Возможны нападения бандитов,Bandit attacks possible
+city_modifier.trade_hub.description,city_modifiers,,Улучшенные торговые условия — больше товаров и выгодные цены,Improved trade conditions — more goods and better prices
+city_modifier.port_access.description,city_modifiers,,Морские торговые маршруты открывают доступ к заморским товарам,Maritime trade routes provide access to overseas goods
 culture.anatolia.name,cultures,8,Анатолия,Anatolia
 culture.byzantine.name,cultures,9,Византия,Byzantine
 culture.central_asia.name,cultures,4,Средняя Азия,Central Asia
