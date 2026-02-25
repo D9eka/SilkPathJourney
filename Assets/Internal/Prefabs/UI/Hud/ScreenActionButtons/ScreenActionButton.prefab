@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6048330175476112981}
   - component: {fileID: 6634102202505189183}
   - component: {fileID: 8311189679153548275}
+  - component: {fileID: 4947947672241161119}
   m_Layer: 5
   m_Name: ScreenActionButton
   m_TagString: Untagged
@@ -121,6 +122,21 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4947947672241161119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 564937131934540317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a16ed461c506a9429e0f0d356af0c13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Theme.UiColorBinder
+  _colorSlot: 6
+  _target: {fileID: 6634102202505189183}
+  _transitionDuration: 0.5
 --- !u!1 &5950649959181000030
 GameObject:
   m_ObjectHideFlags: 0

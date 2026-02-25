@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5205083773890881486}
   - component: {fileID: 625783479258869653}
   - component: {fileID: 7709598776215876027}
+  - component: {fileID: 5549355137671283018}
   m_Layer: 5
   m_Name: SeparatorLarge
   m_TagString: Untagged
@@ -96,3 +97,18 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &5549355137671283018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9215620478014592192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a16ed461c506a9429e0f0d356af0c13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Theme.UiColorBinder
+  _colorSlot: 2
+  _target: {fileID: 625783479258869653}
+  _transitionDuration: 0.5

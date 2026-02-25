@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7873945243044219732}
   - component: {fileID: 4236988502222881339}
   - component: {fileID: 7139752743626347991}
+  - component: {fileID: 8516539664265803695}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -96,6 +97,21 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &8516539664265803695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328408022459393641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac4f98cc426a4934bb06808d7ab2697e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Theme.UiStaticColorBinder
+  _biome: 0
+  _colorSlot: 0
+  _target: {fileID: 4236988502222881339}
 --- !u!1 &2221787234563858855
 GameObject:
   m_ObjectHideFlags: 0
@@ -151,7 +167,6 @@ MonoBehaviour:
   _iconsContainer: {fileID: 5880095848465886639}
   _iconTemplate: {fileID: 5793445532672313509, guid: a33f726d374468b43bd8fbbb48a2bc28, type: 3}
   _highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  _highlightWidth: 0.03
 --- !u!114 &1819472822162023926
 MonoBehaviour:
   m_ObjectHideFlags: 0

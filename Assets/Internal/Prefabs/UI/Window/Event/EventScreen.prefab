@@ -311,6 +311,7 @@ GameObject:
   - component: {fileID: 2766242416572317156}
   - component: {fileID: 2833708681068386482}
   - component: {fileID: 2273073003801484242}
+  - component: {fileID: 3145424033771794818}
   m_Layer: 5
   m_Name: EventText
   m_TagString: Untagged
@@ -436,6 +437,21 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3145424033771794818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4780555661744771666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a16ed461c506a9429e0f0d356af0c13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Theme.UiColorBinder
+  _colorSlot: 3
+  _target: {fileID: 2273073003801484242}
+  _transitionDuration: 0.5
 --- !u!1 &5562332508258963567
 GameObject:
   m_ObjectHideFlags: 0
@@ -447,6 +463,7 @@ GameObject:
   - component: {fileID: 6822708579021594188}
   - component: {fileID: 3251179070543765127}
   - component: {fileID: 536181921152200129}
+  - component: {fileID: 8506005013934452760}
   m_Layer: 5
   m_Name: EventImageContainerBorder
   m_TagString: Untagged
@@ -512,6 +529,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8506005013934452760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5562332508258963567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a16ed461c506a9429e0f0d356af0c13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Theme.UiColorBinder
+  _colorSlot: 9
+  _target: {fileID: 536181921152200129}
+  _transitionDuration: 0.5
 --- !u!1 &5963065303767495929
 GameObject:
   m_ObjectHideFlags: 0
@@ -1584,6 +1616,10 @@ PrefabInstance:
       propertyPath: m_text
       value: "[\u0422\u0438\u043F \u0441\u043E\u0431\u044B\u0442\u0438\u044F]"
       objectReference: {fileID: 0}
+    - target: {fileID: 3126670884895416704, guid: a44e27feb2ea86243806b25e7888aa46, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 3644167863325984503, guid: a44e27feb2ea86243806b25e7888aa46, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

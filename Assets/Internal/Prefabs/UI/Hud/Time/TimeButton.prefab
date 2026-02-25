@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6241840261035445354}
   - component: {fileID: 8423123384405833894}
   - component: {fileID: 521492914582447899}
+  - component: {fileID: 1026350848260524770}
   m_Layer: 5
   m_Name: Icon
   m_TagString: Untagged
@@ -75,6 +76,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1026350848260524770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881422197354784136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a16ed461c506a9429e0f0d356af0c13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Theme.UiColorBinder
+  _colorSlot: 9
+  _target: {fileID: 521492914582447899}
+  _transitionDuration: 0.5
 --- !u!1 &6407638488942655094
 GameObject:
   m_ObjectHideFlags: 0
@@ -88,6 +104,7 @@ GameObject:
   - component: {fileID: 1197512234258766690}
   - component: {fileID: 9206501809109406709}
   - component: {fileID: 6976355823610208091}
+  - component: {fileID: 5316603191206947039}
   m_Layer: 5
   m_Name: TimeButton
   m_TagString: Untagged
@@ -217,3 +234,18 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &5316603191206947039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6407638488942655094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a16ed461c506a9429e0f0d356af0c13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Theme.UiColorBinder
+  _colorSlot: 11
+  _target: {fileID: 1197512234258766690}
+  _transitionDuration: 0.5
