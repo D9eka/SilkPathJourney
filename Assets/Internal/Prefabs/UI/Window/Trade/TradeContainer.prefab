@@ -76,6 +76,7 @@ GameObject:
   - component: {fileID: 7948860573749400154}
   - component: {fileID: 7117119960661494065}
   - component: {fileID: 6295414208175618400}
+  - component: {fileID: 3531328588122642606}
   m_Layer: 5
   m_Name: TradeContainer
   m_TagString: Untagged
@@ -156,6 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Screens.Trade.TradeContainer
   _mainHeader: {fileID: 320106641460442304}
   _totalIndicator: {fileID: 7858523113971775312}
+  _increaseIsPositive: 0
   _itemsView: {fileID: 4883601918144261729}
   _mainHeaderLocalizedString:
     m_TableReference:
@@ -169,6 +171,21 @@ MonoBehaviour:
   references:
     version: 2
     RefIds: []
+--- !u!114 &3531328588122642606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6218082592216587303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a16ed461c506a9429e0f0d356af0c13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Theme.UiColorBinder
+  _colorSlot: 1
+  _target: {fileID: 7117119960661494065}
+  _transitionDuration: 0.5
 --- !u!1001 &3183170082571408796
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6078,6 +6095,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5634508673098935643, guid: 9b10fdf9906eee84c8a17ef0988b2393, type: 3}
+      propertyPath: _colorSlot
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6663615703649059725, guid: 9b10fdf9906eee84c8a17ef0988b2393, type: 3}
+      propertyPath: _colorSlot
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8079999073164307640, guid: 9b10fdf9906eee84c8a17ef0988b2393, type: 3}
       propertyPath: m_Name
       value: MainHeaderText
@@ -6134,6 +6159,10 @@ PrefabInstance:
     - target: {fileID: 276169611866079698, guid: 2c8fe8cc04dafc545aeb200137843400, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 325670938747182123, guid: 2c8fe8cc04dafc545aeb200137843400, type: 3}
+      propertyPath: _colorSlot
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 887381583241568614, guid: 2c8fe8cc04dafc545aeb200137843400, type: 3}
       propertyPath: _text

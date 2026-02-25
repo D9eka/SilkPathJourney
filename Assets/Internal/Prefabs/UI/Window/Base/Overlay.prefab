@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4838974081678705179}
   - component: {fileID: 3493625355124811246}
   - component: {fileID: 6602222438490887485}
+  - component: {fileID: 5131895613606122171}
   m_Layer: 5
   m_Name: Overlay
   m_TagString: Untagged
@@ -89,3 +90,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Screens.OverlayScreen
   _image: {fileID: 3493625355124811246}
+--- !u!114 &5131895613606122171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254759359981083873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a16ed461c506a9429e0f0d356af0c13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Theme.UiColorBinder
+  _colorSlot: 8
+  _target: {fileID: 3493625355124811246}
+  _transitionDuration: 0.5

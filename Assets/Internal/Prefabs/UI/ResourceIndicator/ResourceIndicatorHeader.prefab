@@ -260,11 +260,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3644167863325984503, guid: a44e27feb2ea86243806b25e7888aa46, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 256
       objectReference: {fileID: 0}
     - target: {fileID: 3644167863325984503, guid: a44e27feb2ea86243806b25e7888aa46, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 3644167863325984503, guid: a44e27feb2ea86243806b25e7888aa46, type: 3}
       propertyPath: m_LocalPosition.x
@@ -320,7 +320,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7344628017733324252, guid: a44e27feb2ea86243806b25e7888aa46, type: 3}
       propertyPath: m_Name
-      value: MoneyHeader Variant
+      value: ResourceIndicatorHeader
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1991587577524578746, guid: a44e27feb2ea86243806b25e7888aa46, type: 3}

@@ -110,6 +110,7 @@ GameObject:
   - component: {fileID: 2884746796475493185}
   - component: {fileID: 7579008101435905341}
   - component: {fileID: 7957763140186017222}
+  - component: {fileID: 2931131058085283018}
   m_Layer: 5
   m_Name: Change
   m_TagString: Untagged
@@ -283,6 +284,21 @@ MonoBehaviour:
   _hideDuration: 0.15
   _showEase: 9
   _hideEase: 8
+--- !u!114 &2931131058085283018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5341565297148744343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a16ed461c506a9429e0f0d356af0c13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Theme.UiColorBinder
+  _colorSlot: 4
+  _target: {fileID: 7588124787494197932}
+  _transitionDuration: 0.5
 --- !u!1 &5686987808695019868
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,6 +310,7 @@ GameObject:
   - component: {fileID: 6509409684414517490}
   - component: {fileID: 6855750662809576221}
   - component: {fileID: 1556861594304134133}
+  - component: {fileID: 8820310987310026557}
   m_Layer: 5
   m_Name: Value
   m_TagString: Untagged
@@ -419,6 +436,21 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8820310987310026557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5686987808695019868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a16ed461c506a9429e0f0d356af0c13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Theme.UiColorBinder
+  _colorSlot: 4
+  _target: {fileID: 1556861594304134133}
+  _transitionDuration: 0.5
 --- !u!1 &8496743466160522236
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,7 +489,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 395.16, y: 124.46}
+  m_SizeDelta: {x: 256, y: 128}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &745226859803157707
 MonoBehaviour:
@@ -497,6 +529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ef67efb12d780a418787034ec78c700, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Components.ResourceIndicator
+  _resourceType: 0
   _icon: {fileID: 7534543607833293800}
   _valueText: {fileID: 1556861594304134133}
   _changeText: {fileID: 7588124787494197932}

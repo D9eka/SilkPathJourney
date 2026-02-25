@@ -112,6 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d40347d826e2ce4abd865c06cc83fd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.WorldLabel.WorldLabelView
+  _cityNameContainer: {fileID: 0}
   _nameText: {fileID: 6994718211785631595}
   _icon: {fileID: 6916065827594834761}
   _iconsContainer: {fileID: 2077115641668054693}
