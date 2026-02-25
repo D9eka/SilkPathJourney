@@ -1,9 +1,8 @@
 using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using Internal.Scripts.Economy.Cities.UI;
 using Internal.Scripts.InteractableObjects;
-using Internal.Scripts.Road.Nodes.UI;
-using Internal.Scripts.Road.Nodes.UI.NodesViewer;
 
 namespace Internal.Scripts.Player.StartMovement
 {
@@ -12,7 +11,7 @@ namespace Internal.Scripts.Player.StartMovement
         public event Action<string> OnChooseNode;
         public event Action<bool> OnSelectionStateChanged;
 
-        private readonly INodesViewer _nodesViewer;
+        private readonly CityViewSpawner _cityViewSpawner;
 
         private string _currentPlayerNode;
         private UniTaskCompletionSource<string> _tcs;
@@ -21,9 +20,9 @@ namespace Internal.Scripts.Player.StartMovement
 
         public bool IsChoosingTarget => _isChoosingTarget;
 
-        public PlayerStartMovement(INodesViewer nodesViewer)
+        public PlayerStartMovement(CityViewSpawner cityViewSpawner)
         {
-            _nodesViewer = nodesViewer;
+            _cityViewSpawner = cityViewSpawner;
         }
 
         public void Dispose()
@@ -34,6 +33,14 @@ namespace Internal.Scripts.Player.StartMovement
         public void SetCurrentPlayerNode(string node)
         {
             _currentPlayerNode = node;
+
+            foreach (CityView view in _cityViewSpawner.Views)
+            {
+                if (view.City != null && view.City.NodeId == _currentPlayerNode)
+                    view.Disable();
+                else
+                    view.Enable();
+            }
         }
 
         public void BeginSelection()
@@ -49,11 +56,10 @@ namespace Internal.Scripts.Player.StartMovement
             SetSelectionState(true);
             _cancellationTokenSource = new CancellationTokenSource();
             _tcs = new UniTaskCompletionSource<string>();
-            _cancellationTokenSource.Token.Register(() => 
+            _cancellationTokenSource.Token.Register(() =>
             {
                 _tcs.TrySetCanceled();
             });
-            _nodesViewer.ShowNodes();
             SubscribeToNodes();
 
             try
@@ -65,7 +71,6 @@ namespace Internal.Scripts.Player.StartMovement
             }
             finally
             {
-                _nodesViewer.HideNodes();
                 UnsubscribeToNodes();
                 _tcs = null;
                 _cancellationTokenSource?.Dispose();
@@ -73,7 +78,7 @@ namespace Internal.Scripts.Player.StartMovement
                 SetSelectionState(false);
             }
         }
-        
+
         public void CancelSelection()
         {
             _tcs?.TrySetCanceled();
@@ -81,31 +86,29 @@ namespace Internal.Scripts.Player.StartMovement
 
         private void SubscribeToNodes()
         {
-            foreach (NodeView nodeView in _nodesViewer.GetAllNodes())
+            foreach (CityView view in _cityViewSpawner.Views)
             {
-                if (nodeView.NodeId == _currentPlayerNode)
-                {
-                    nodeView.gameObject.SetActive(false);
+                if (view.City != null && view.City.NodeId == _currentPlayerNode)
                     continue;
-                }
-                nodeView.OnClick += OnChooseNodeCollider;
+                view.OnClick += OnChooseNodeCollider;
             }
         }
-        
+
         private void UnsubscribeToNodes()
         {
-            foreach (NodeView nodeView in _nodesViewer.GetAllNodes())
+            foreach (CityView view in _cityViewSpawner.Views)
             {
-                if (nodeView.NodeId == _currentPlayerNode) continue;
-                nodeView.OnClick -= OnChooseNodeCollider;
+                if (view.City != null && view.City.NodeId == _currentPlayerNode) continue;
+                view.OnClick -= OnChooseNodeCollider;
             }
         }
 
         private void OnChooseNodeCollider(IInteractableObject interactableObject)
         {
-            if (interactableObject is not NodeView view) return;
-            
-            _tcs.TrySetResult(view.NodeId);
+            if (interactableObject is not CityView view) return;
+            if (view.City == null) return;
+
+            _tcs.TrySetResult(view.City.NodeId);
         }
 
         private void SetSelectionState(bool state)

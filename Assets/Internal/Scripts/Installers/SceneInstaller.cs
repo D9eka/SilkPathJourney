@@ -19,13 +19,12 @@ using Internal.Scripts.Road.Core;
 using Internal.Scripts.Road.Graph;
 using Internal.Scripts.Road.Nodes;
 using Internal.Scripts.Road.State;
-using Internal.Scripts.Road.Nodes.UI;
-using Internal.Scripts.Road.Nodes.UI.NodesViewer;
 using Internal.Scripts.Road.Path;
 using Internal.Scripts.World.State;
 using Plugins.Zenject.Source.Install;
 using UnityEngine;
 using Internal.Scripts.Economy.Cities;
+using Internal.Scripts.Economy.Cities.UI;
 using Internal.Scripts.Economy.Save;
 using Internal.Scripts.Save;
 using Internal.Scripts.Player.StartMovement;
@@ -55,7 +54,6 @@ namespace Internal.Scripts.Installers
         [Header("Camera")]
         [SerializeField] private DetailSceneBounds _strategicBounds;
         [Header("World")]
-        [SerializeField] private NodeView _nodeViewPrefab;
         [Header("NPC")]
         [SerializeField] private NpcSpawnEntry[] _spawns;
         [Header("Player")]
@@ -88,11 +86,11 @@ namespace Internal.Scripts.Installers
             InstallNpc();
             InstallEconomy();
             InstallWorldCanvas();
+            InstallWorldLabels();
             InstallPlayer();
             InstallTheme();
             InstallScreens();
             InstallEvents();
-            InstallWorldLabels();
             InstallPathVisualization();
 
             Container.BindInterfacesTo<CameraSaveController>().AsSingle();
@@ -132,7 +130,6 @@ namespace Internal.Scripts.Installers
             Container.Bind<RoadUnlockService>().AsSingle();
 
             Container.BindInterfacesAndSelfTo<RoadNodeLookup>().AsSingle().NonLazy();
-            Container.BindInterfacesTo<NodesViewer>().AsSingle().WithArguments(_nodeViewPrefab);
 
             Container.BindInterfacesAndSelfTo<RoadNetwork>().AsSingle().NonLazy();
             Container.Bind<IRoadPathFinder>().To<RoadPathFinder>().AsSingle();
@@ -242,6 +239,7 @@ namespace Internal.Scripts.Installers
 
         private void InstallWorldLabels()
         {
+            Container.BindInterfacesAndSelfTo<CityViewSpawner>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<CityLabelSpawner>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<RoadEffectIconSpawner>().AsSingle().NonLazy();
         }
