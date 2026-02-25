@@ -1,4 +1,3 @@
-using DG.Tweening;
 using UnityEngine;
 
 namespace Internal.Scripts.Npc.Core
@@ -16,8 +15,8 @@ namespace Internal.Scripts.Npc.Core
 
             if (forward.sqrMagnitude > 1e-6f)
             {
-                Vector3 newRotation = Quaternion.LookRotation(forward, Vector3.up).eulerAngles;
-                t.DORotate(newRotation, 0.3f);
+                Quaternion target = Quaternion.LookRotation(forward, Vector3.up);
+                t.rotation = Quaternion.Slerp(t.rotation, target, Time.deltaTime / 0.1f);
             }
         }
     }
