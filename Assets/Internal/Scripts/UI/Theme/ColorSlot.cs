@@ -18,5 +18,12 @@ namespace Internal.Scripts.UI.Theme
         SliderFillPositive,
         SliderFillNegative,
         ButtonSelectedBorder,
+
+        // Static (same across all biome palettes)
+        RoadHighlight,
+        ValuePositive,
+        ValueNegative,
+        AccentHighlight,
+        CityMarker,
     }
 }

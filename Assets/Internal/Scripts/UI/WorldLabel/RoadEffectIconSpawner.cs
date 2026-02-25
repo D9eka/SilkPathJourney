@@ -1,9 +1,13 @@
 using System;
 using System.Collections.Generic;
 using Internal.Scripts.Economy;
+using Internal.Scripts.Economy.Cities;
+using Internal.Scripts.Economy.Generated;
 using Internal.Scripts.Road.Core;
 using Internal.Scripts.Road.Modifiers;
 using Internal.Scripts.Road.Positioning;
+using Internal.Scripts.UI.Theme;
+using Internal.Scripts.World.Roads;
 using Internal.Scripts.World.State;
 using UnityEngine;
 using Zenject;
@@ -20,6 +24,8 @@ namespace Internal.Scripts.UI.WorldLabel
         private readonly WorldStateController _worldStateController;
         private readonly IRoadSidePositionCalculator _roadSidePositionCalculator;
         private readonly EconomyDatabase _economyDatabase;
+        private readonly StaticColorController _colorController;
+        private readonly ICityNodeResolver _cityResolver;
         private readonly List<RoadLabelView> _labels = new();
 
         public RoadEffectIconSpawner(
@@ -27,13 +33,17 @@ namespace Internal.Scripts.UI.WorldLabel
             WorldStateController worldStateController,
             WorldCanvas worldCanvas,
             IRoadSidePositionCalculator roadSidePositionCalculator,
-            EconomyDatabase economyDatabase)
+            EconomyDatabase economyDatabase,
+            StaticColorController colorController,
+            ICityNodeResolver cityResolver)
         {
             _roads = roads;
             _worldStateController = worldStateController;
             _worldCanvas = worldCanvas;
             _roadSidePositionCalculator = roadSidePositionCalculator;
             _economyDatabase = economyDatabase;
+            _colorController = colorController;
+            _cityResolver = cityResolver;
         }
 
         public void Initialize()
@@ -77,6 +87,7 @@ namespace Internal.Scripts.UI.WorldLabel
 
                 if (label == null) continue;
 
+                label.SetColorController(_colorController, GetRoadBiome(road.Data));
                 label.SetRoad(road);
 
                 AddRandomModifiers(label);
@@ -108,6 +119,15 @@ namespace Internal.Scripts.UI.WorldLabel
                     mod.GetTooltipTitle(),
                     mod.GetTooltipDescription());
             }
+        }
+
+        private Biome GetRoadBiome(RoadData data)
+        {
+            if (_cityResolver.TryGetCityByNodeId(data.StartNodeId, out var city) && city.Biome != Biome.Unknown)
+                return city.Biome;
+            if (_cityResolver.TryGetCityByNodeId(data.EndNodeId, out city) && city.Biome != Biome.Unknown)
+                return city.Biome;
+            return Biome.Plains;
         }
 
         private void OnStateChange(WorldViewMode viewMode)
