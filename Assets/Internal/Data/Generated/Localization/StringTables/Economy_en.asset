@@ -621,6 +621,431 @@ MonoBehaviour:
     m_Localized: Maritime trade routes provide access to overseas goods
     m_Metadata:
       m_Items: []
+  - m_Id: 7217665125900288
+    m_Localized: Port City
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665167843328
+    m_Localized: Holy City
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665167843329
+    m_Localized: India
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665167843330
+    m_Localized: Arabia
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665167843331
+    m_Localized: Tibet
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037632
+    m_Localized: Jiuquan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037633
+    m_Localized: Yumen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037634
+    m_Localized: Anxi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037635
+    m_Localized: Lijiang
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037636
+    m_Localized: Lhasa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037637
+    m_Localized: Dunhuang
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037638
+    m_Localized: Turfan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037639
+    m_Localized: Kucha
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037640
+    m_Localized: Aksu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037641
+    m_Localized: Kashgar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037642
+    m_Localized: Khotan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037643
+    m_Localized: Osh
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037644
+    m_Localized: Tashkent
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037645
+    m_Localized: Samarkand
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037646
+    m_Localized: Bukhara
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037647
+    m_Localized: Balkh
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037648
+    m_Localized: Merv
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037649
+    m_Localized: Kabul
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037650
+    m_Localized: Taxila
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037651
+    m_Localized: Delhi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037652
+    m_Localized: Patna
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037653
+    m_Localized: Allahabad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037654
+    m_Localized: Tamralipti
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037655
+    m_Localized: Cambay
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037656
+    m_Localized: Mashhad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037657
+    m_Localized: Nishapur
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037658
+    m_Localized: Rey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037659
+    m_Localized: Tabriz
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037660
+    m_Localized: Baghdad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037661
+    m_Localized: Mosul
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037662
+    m_Localized: Aleppo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037663
+    m_Localized: Damascus
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037664
+    m_Localized: Antioch
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037665
+    m_Localized: Tripoli
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037666
+    m_Localized: Gaza
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037667
+    m_Localized: Cairo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037668
+    m_Localized: Hormuz
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037669
+    m_Localized: Suhar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037670
+    m_Localized: Medina
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037671
+    m_Localized: Mecca
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037672
+    m_Localized: Aydhab
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037673
+    m_Localized: Trabzon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037674
+    m_Localized: Constantinople
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037675
+    m_Localized: An oasis on the northern route across the Taklamakan. Caravans stock
+      up on water before crossing the desert.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037676
+    m_Localized: One of the world's oldest bazaars. Caravans from east and west meet
+      beneath the stone vaults of the covered market.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037677
+    m_Localized: Sacred confluence of the Ganges and Yamuna. Pilgrims from across
+      India come to bathe in the holy waters.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037678
+    m_Localized: A fortress at the crossroads of worlds. Crusaders and Muslims fought
+      for centuries over control of this coast.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037679
+    m_Localized: The last Chinese outpost. Beyond its walls lies the endless desert
+      and the lands of nomads.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037680
+    m_Localized: A dusty port on the Red Sea shore. Pilgrims embark from here to
+      the holy cities of Arabia.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037681
+    m_Localized: The Round City on the Tigris. The House of Wisdom holds the knowledge
+      of the entire world. The Caliph rules from his golden palace.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037682
+    m_Localized: "Mother of cities \u2014 the oldest city in Central Asia. Lapis
+      lazuli is mined and cotton grown here."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037683
+    m_Localized: A city of scholars and artisans. Bukhara's madrasas are renowned
+      across the Muslim world. Its masters weave the finest carpets.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037684
+    m_Localized: Capital of the Mamluks at the foot of the pyramids. The Nile carries
+      Africa's wealth through the greatest bazaar of the East.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037685
+    m_Localized: "The port of Gujarat \u2014 India's trading window to Arabia and
+      Africa. Textiles and spices head westward."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231936
+    m_Localized: The end of the Silk Road. The dome of Hagia Sophia is visible for
+      miles. The Walls of Theodosius are impregnable. Here East meets West.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231937
+    m_Localized: The oldest continuously inhabited city. Damascus steel and silk
+      are prized from China to Europe.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231938
+    m_Localized: Capital of the Delhi Sultanate. Its vast market and immeasurable
+      riches attract merchants from across Asia.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231939
+    m_Localized: The Mogao Caves hold thousands of Buddhist frescoes. Pilgrims and
+      merchants pray here before the perilous crossing.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231940
+    m_Localized: A trading town on the road from the Levant to Egypt. The last stop
+      before the Sinai Desert.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231941
+    m_Localized: An island fortress in the Persian Gulf. All sea routes between India
+      and Persia pass through this port.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231942
+    m_Localized: A caravan stop in the narrow Hexi Corridor between mountains and
+      desert. Water skins are filled here for the long road ahead.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231943
+    m_Localized: A mountain pass between worlds. The road from Central Asia to India
+      runs through this harsh frontier city.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231944
+    m_Localized: "The great crossroads \u2014 here the northern and southern routes
+      around the Taklamakan converge. The road west lies open."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231945
+    m_Localized: City of jade and silk on the southern route. Stones from the Yurunkash
+      riverbanks are worth their weight in gold in Beijing.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231946
+    m_Localized: An ancient Buddhist center on the northern route. Monastery ruins
+      recall its former grandeur.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231947
+    m_Localized: Sacred city on the roof of the world. The Potala Palace towers above
+      the valley. Monks preserve ancient wisdom.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231948
+    m_Localized: Mountain city of the Naxi people. Tea and horses are the main goods
+      on the ancient Tea Horse Road.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231949
+    m_Localized: A city on the road from Central Asia to Persia. Caravans rest here
+      after crossing the mountains.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231950
+    m_Localized: The holiest site of Islam. Millions of pilgrims from around the
+      world flock to the Kaaba. Trade thrives during the Hajj season.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231951
+    m_Localized: City of the Prophet. The second holiest city of Islam. Pilgrims
+      come to pay respects at the Prophet's Mosque.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231952
+    m_Localized: An oasis in the Karakum Desert. An ancient fortress and military
+      garrison control the trade routes.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231953
+    m_Localized: A city on the Tigris opposite the ruins of Nineveh. A strategic
+      crossing between Mesopotamia and the Levant.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231954
+    m_Localized: City of turquoise mines and poetry. Birthplace of Omar Khayyam.
+      Caravans carry precious stones from here.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231955
+    m_Localized: "The Fergana Valley \u2014 fertile lands at the gateway to Central
+      Asia. Fruits and cotton abound here."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231956
+    m_Localized: A city on the banks of the Ganges. River trade brings goods from
+      deep within India.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231957
+    m_Localized: An ancient city at the foot of the Alborz. The ruins of Rey hold
+      memories of millennia of trade.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231958
+    m_Localized: Heart of the Silk Road. Registan Square gleams with mosaics. Merchants
+      from around the world trade at the great bazaar.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231959
+    m_Localized: "An Omani port \u2014 the starting point for voyages to India. Dhows
+      laden with goods depart with the monsoon winds."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231960
+    m_Localized: A trade hub between Persia and Anatolia. Tabriz Bazaar is one of
+      the largest covered markets in the world.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231961
+    m_Localized: A Bengali port on the route to the islands of Southeast Asia. Monsoons
+      set the rhythm of trade.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231962
+    m_Localized: A major Central Asian city near the Tien Shan mountains. Water from
+      mountain rivers feeds gardens and fields.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231963
+    m_Localized: "An ancient city of Gandhara \u2014 a crossroads of Greek and Indian
+      cultures. University ruins hold the wisdom of ages."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231964
+    m_Localized: A Black Sea port at the foot of the mountains. Gateway to Anatolia
+      for merchants from the Caucasus and Persia.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231965
+    m_Localized: A Levantine port with a Crusader fortress. Ships carry goods along
+      the Mediterranean coast.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231966
+    m_Localized: "An oasis in the Turfan Depression \u2014 the hottest place on the
+      route. Grapes and melons grow amid the sands."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231967
+    m_Localized: "The Jade Gate \u2014 China's ancient frontier. Beyond these gates
+      the empire ends and the unknown begins."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7219978439745536
+    m_Localized: Hami
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7219978485882880
+    m_Localized: A desert oasis on the road from China westward. Caravans stop here
+      to fill their water before the long crossing.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9425860418330624
+    m_Localized: Urumqi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9425860468662272
+    m_Localized: An oasis on the northern route along the Tian Shan. Caravans pass
+      through here on the way to Kucha.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

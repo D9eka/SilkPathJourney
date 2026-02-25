@@ -18,13 +18,5 @@ MonoBehaviour:
   - Biome: 2
     Palette: {fileID: 11400000, guid: 181227687f2720448a0710f478450406, type: 2}
   - Biome: 3
-    Palette: {fileID: 11400000, guid: a6cbef17f2dde0b4a82bc51bb677919e, type: 2}
-  - Biome: 4
-    Palette: {fileID: 11400000, guid: 23bbdadbfcc0724488fa0a1c46286242, type: 2}
-  - Biome: 5
-    Palette: {fileID: 11400000, guid: 04771076e497b4d499de0d8c80a1104f, type: 2}
-  - Biome: 6
-    Palette: {fileID: 11400000, guid: dbb77706b017e0d49b14890f74eb226a, type: 2}
-  - Biome: 7
     Palette: {fileID: 11400000, guid: 36e69d1762948a44292a95d51f33d76d, type: 2}
   _fallback: {fileID: 11400000, guid: a46501edb24369f46afc523cdb17d6b9, type: 2}

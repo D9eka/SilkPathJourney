@@ -24,34 +24,119 @@ city_type.craft_city.description,city_types,5,"Дешёвые ремесленн
 city_type.craft_city.name,city_types,5,Ремесленный центр,Craft City
 city_type.market_town.description,city_types,7,Обычный рынок для контраста,Baseline market for contrast
 city_type.market_town.name,city_types,7,Обычный город,Market Town
+city_type.holy_city.description,city_types,10,"Паломничество, храмы, религиозные события","Pilgrimage, temples, religious events"
+city_type.holy_city.name,city_types,10,Святой город,Holy City
 city_type.oasis_stop.description,city_types,8,"Маленький рынок, важная точка маршрута","Small market, important route waypoint"
 city_type.oasis_stop.name,city_types,8,Караванная остановка,Caravan Stop
+city_type.port_city.description,city_types,9,"Расширенный импорт, экзотические товары","Expanded imports, exotic goods"
+city_type.port_city.name,city_types,9,Порт,Port City
 city_type.resource_city.description,city_types,6,"Дешёвое сырьё, дорогие готовые товары","Cheap raw materials, expensive finished goods"
 city_type.resource_city.name,city_types,6,Сырьевой город,Resource City
 city_type.trade_hub.description,city_types,3,"Перепродажа, баланс цен, перевалка","Resale, balanced prices, transit hub"
 city_type.trade_hub.name,city_types,3,Торговый узел,Trade Hub
-city.beijing.description,cities,2,Сердце Поднебесной — великая столица династии Мин. Здесь сосредоточены лучшие товары империи и несметные богатства.,Heart of the Celestial Empire — the great capital of the Ming dynasty. The finest goods and immeasurable riches are gathered here.
-city.beijing.name,cities,2,Пекин,Beijing
-city.changan.description,cities,3,Древний город у начала Шёлкового пути. Столетиями караваны уходили отсюда на запад через бескрайние степи.,An ancient city at the start of the Silk Road. For centuries caravans departed westward from here across the endless steppes.
-city.changan.name,cities,3,Чанъань,Chang'an
-city.guangzhou.description,cities,8,Южные врата Китая. Порт связывает империю с заморскими странами — от Индии до островов Пряностей.,Southern gateway of China. The port connects the empire with overseas lands — from India to the Spice Islands.
-city.guangzhou.name,cities,8,Гуанчжоу,Guangzhou
-city.hangzhou.description,cities,6,Жемчужина юга — город мастеров и ткачей. Шёлк и чай из Ханчжоу славятся по всей империи.,Pearl of the south — a city of craftsmen and weavers. Silk and tea from Hangzhou are renowned throughout the empire.
-city.hangzhou.name,cities,6,Ханчжоу,Hangzhou
-city.lanzhou.description,cities,4,Пограничный город на краю пустыни. Здесь торговцы готовятся к опасному переходу через безводные земли.,A frontier city at the edge of the desert. Merchants prepare here for the perilous crossing through waterless lands.
-city.lanzhou.name,cities,4,Ланьчжоу,Lanzhou
-city.quanzhou.description,cities,7,Величайший морской порт Мин. Отсюда корабли уходят в Юго-Восточную Азию и далёкую Аравию.,The greatest maritime port of Ming. Ships depart from here to Southeast Asia and distant Arabia.
-city.quanzhou.name,cities,7,Цюаньчжоу,Quanzhou
-city.shanghai.description,cities,5,Растущий порт на побережье. Морские джонки и речные суда доставляют сюда товары со всего юга Китая.,A growing port on the coast. Sea junks and river boats bring goods here from across southern China.
-city.shanghai.name,cities,5,Шанхай,Shanghai
+city.aksu.description,cities,17,Оазис на северном маршруте через Такла-Макан. Караваны запасаются водой перед переходом через пустыню.,An oasis on the northern route across the Taklamakan. Caravans stock up on water before crossing the desert.
+city.aksu.name,cities,17,Аксу,Aksu
+city.aleppo.description,cities,39,Один из древнейших базаров мира. Караваны с востока и запада встречаются под каменными сводами крытого рынка.,One of the world's oldest bazaars. Caravans from east and west meet beneath the stone vaults of the covered market.
+city.aleppo.name,cities,39,Алеппо,Aleppo
+city.allahabad.description,cities,30,Священное место слияния Ганга и Ямуны. Паломники со всей Индии приходят омыться в святых водах.,Sacred confluence of the Ganges and Yamuna. Pilgrims from across India come to bathe in the holy waters.
+city.allahabad.name,cities,30,Аллахабад,Allahabad
+city.antioch.description,cities,41,Крепость на стыке миров. Крестоносцы и мусульмане веками сражались за контроль над этим побережьем.,A fortress at the crossroads of worlds. Crusaders and Muslims fought for centuries over control of this coast.
+city.antioch.name,cities,41,Антиохия,Antioch
+city.anxi.description,cities,11,Последняя китайская застава. За стенами начинается бескрайняя пустыня и земли кочевников.,The last Chinese outpost. Beyond its walls lies the endless desert and the lands of nomads.
+city.anxi.name,cities,11,Аньси,Anxi
+city.aydhab.description,cities,49,Пыльный порт на берегу Красного моря. Отсюда паломники отплывают к святым городам Аравии.,A dusty port on the Red Sea shore. Pilgrims embark from here to the holy cities of Arabia.
+city.aydhab.name,cities,49,Айдхаб,Aydhab
+city.baghdad.description,cities,37,Круглый город на берегу Тигра. Дом мудрости хранит знания всего мира. Халиф правит из золотого дворца.,The Round City on the Tigris. The House of Wisdom holds the knowledge of the entire world. The Caliph rules from his golden palace.
+city.baghdad.name,cities,37,Багдад,Baghdad
+city.balkh.description,cities,24,Мать городов — древнейший из городов Средней Азии. Здесь добывают лазурит и выращивают хлопок.,Mother of cities — the oldest city in Central Asia. Lapis lazuli is mined and cotton grown here.
+city.balkh.name,cities,24,Балх,Balkh
+city.beijing.description,cities,6,Сердце Поднебесной — великая столица династии Мин. Здесь сосредоточены лучшие товары империи и несметные богатства.,Heart of the Celestial Empire — the great capital of the Ming dynasty. The finest goods and immeasurable riches are gathered here.
+city.beijing.name,cities,6,Пекин,Beijing
+city.bukhara.description,cities,23,Город учёных и ремесленников. Медресе Бухары славятся на весь мусульманский мир. Мастера ткут лучшие ковры.,A city of scholars and artisans. Bukhara's madrasas are renowned across the Muslim world. Its masters weave the finest carpets.
+city.bukhara.name,cities,23,Бухара,Bukhara
+city.cairo.description,cities,44,Столица мамлюков у подножия пирамид. Нил несёт богатство Африки через величайший базар Востока.,Capital of the Mamluks at the foot of the pyramids. The Nile carries Africa's wealth through the greatest bazaar of the East.
+city.cairo.name,cities,44,Каир,Cairo
+city.cambay.description,cities,32,Порт Гуджарата — торговое окно Индии в Аравию и Африку. Текстиль и пряности уходят на запад.,The port of Gujarat — India's trading window to Arabia and Africa. Textiles and spices head westward.
+city.cambay.name,cities,32,Камбей,Cambay
+city.changan.description,cities,7,Древний город у начала Шёлкового пути. Столетиями караваны уходили отсюда на запад через бескрайние степи.,An ancient city at the start of the Silk Road. For centuries caravans departed westward from here across the endless steppes.
+city.changan.name,cities,7,Чанъань,Chang'an
+city.constantinople.description,cities,51,Конец Шёлкового пути. Купол Святой Софии виден за мили. Стены Феодосия непреступны. Здесь Восток встречает Запад.,The end of the Silk Road. The dome of Hagia Sophia is visible for miles. The Walls of Theodosius are impregnable. Here East meets West.
+city.constantinople.name,cities,51,Константинополь,Constantinople
+city.damascus.description,cities,40,Старейший из ныне живущих городов. Дамасская сталь и шёлк ценятся от Китая до Европы.,The oldest continuously inhabited city. Damascus steel and silk are prized from China to Europe.
+city.damascus.name,cities,40,Дамаск,Damascus
+city.delhi.description,cities,28,Столица Делийского султаната. Огромный рынок и несметные богатства привлекают торговцев со всей Азии.,Capital of the Delhi Sultanate. Its vast market and immeasurable riches attract merchants from across Asia.
+city.delhi.name,cities,28,Дели,Delhi
+city.gaza.description,cities,43,Торговый город на пути из Леванта в Египет. Последняя остановка перед Синайской пустыней.,A trading town on the road from the Levant to Egypt. The last stop before the Sinai Desert.
+city.gaza.name,cities,43,Газа,Gaza
+city.guangzhou.description,cities,4,Южные врата Китая. Порт связывает империю с заморскими странами — от Индии до островов Пряностей.,Southern gateway of China. The port connects the empire with overseas lands — from India to the Spice Islands.
+city.guangzhou.name,cities,4,Гуанчжоу,Guangzhou
+city.hangzhou.description,cities,5,Жемчужина юга — город мастеров и ткачей. Шёлк и чай из Ханчжоу славятся по всей империи.,Pearl of the south — a city of craftsmen and weavers. Silk and tea from Hangzhou are renowned throughout the empire.
+city.hangzhou.name,cities,5,Ханчжоу,Hangzhou
+city.hami.description,cities,15,Оазис в пустыне на пути из Китая на запад. Караваны останавливаются здесь чтобы набрать воды перед долгим переходом.,A desert oasis on the road from China westward. Caravans stop here to fill their water before the long crossing.
+city.hami.name,cities,15,Хами,Hami
+city.hormuz.description,cities,45,Остров-крепость в Персидском заливе. Все морские пути между Индией и Персией проходят через этот порт.,An island fortress in the Persian Gulf. All sea routes between India and Persia pass through this port.
+city.hormuz.name,cities,45,Хормуз,Hormuz
+city.jiuquan.description,cities,9,Караванная остановка в узком коридоре Хэси между горами и пустыней. Здесь наполняют бурдюки на долгий путь.,A caravan stop in the narrow Hexi Corridor between mountains and desert. Water skins are filled here for the long road ahead.
+city.jiuquan.name,cities,9,Цзюцюань,Jiuquan
+city.kabul.description,cities,26,Горный перевал между мирами. Из Средней Азии в Индию путь лежит через этот суровый пограничный город.,A mountain pass between worlds. The road from Central Asia to India runs through this harsh frontier city.
+city.kabul.name,cities,26,Кабул,Kabul
+city.kashgar.description,cities,18,Великий перекрёсток — здесь сходятся северный и южный пути вокруг Такла-Макан. Дорога на запад открыта.,The great crossroads — here the northern and southern routes around the Taklamakan converge. The road west lies open.
+city.kashgar.name,cities,18,Кашгар,Kashgar
+city.khotan.description,cities,19,Город нефрита и шёлка на южном пути. Камни с берегов Юрункаша ценятся в Пекине на вес золота.,City of jade and silk on the southern route. Stones from the Yurunkash riverbanks are worth their weight in gold in Beijing.
+city.khotan.name,cities,19,Хотан,Khotan
+city.kucha.description,cities,16,Древний буддийский центр на северном пути. Руины монастырей напоминают о былом величии.,An ancient Buddhist center on the northern route. Monastery ruins recall its former grandeur.
+city.kucha.name,cities,16,Куча,Kucha
+city.lanzhou.description,cities,8,Пограничный город на краю пустыни. Здесь торговцы готовятся к опасному переходу через безводные земли.,A frontier city at the edge of the desert. Merchants prepare here for the perilous crossing through waterless lands.
+city.lanzhou.name,cities,8,Ланьчжоу,Lanzhou
+city.lhasa.description,cities,13,Священный город на крыше мира. Дворец Потала возвышается над долиной. Монахи хранят древнюю мудрость.,Sacred city on the roof of the world. The Potala Palace towers above the valley. Monks preserve ancient wisdom.
+city.lhasa.name,cities,13,Лхаса,Lhasa
+city.lijiang.description,cities,12,Горный город народа наси. Чай и лошади — главные товары на древнем Чайном пути.,Mountain city of the Naxi people. Tea and horses are the main goods on the ancient Tea Horse Road.
+city.lijiang.name,cities,12,Лицзян,Lijiang
+city.mashhad.description,cities,33,Город на пути из Средней Азии в Персию. Караваны отдыхают здесь после перехода через горы.,A city on the road from Central Asia to Persia. Caravans rest here after crossing the mountains.
+city.mashhad.name,cities,33,Мешхед,Mashhad
+city.mecca.description,cities,48,Главная святыня ислама. Миллионы паломников со всего мира стремятся к Каабе. Торговля оживляется в сезон хаджа.,The holiest site of Islam. Millions of pilgrims from around the world flock to the Kaaba. Trade thrives during the Hajj season.
+city.mecca.name,cities,48,Мекка,Mecca
+city.medina.description,cities,47,Город Пророка. Второй священный город ислама. Паломники приходят поклониться мечети Пророка.,City of the Prophet. The second holiest city of Islam. Pilgrims come to pay respects at the Prophet's Mosque.
+city.medina.name,cities,47,Медина,Medina
+city.mosul.description,cities,38,Город на Тигре напротив руин Ниневии. Стратегическая переправа между Месопотамией и Левантом.,A city on the Tigris opposite the ruins of Nineveh. A strategic crossing between Mesopotamia and the Levant.
+city.mosul.name,cities,38,Мосул,Mosul
+city.nishapur.description,cities,34,Город бирюзовых копей и поэзии. Родина Омара Хайяма. Караваны везут отсюда драгоценные камни.,City of turquoise mines and poetry. Birthplace of Omar Khayyam. Caravans carry precious stones from here.
+city.nishapur.name,cities,34,Нишапур,Nishapur
+city.osh.description,cities,20,Ферганская долина — плодородные земли у входа в Среднюю Азию. Фрукты и хлопок здесь в избытке.,The Fergana Valley — fertile lands at the gateway to Central Asia. Fruits and cotton abound here.
+city.osh.name,cities,20,Ош,Osh
+city.patna.description,cities,29,Город на берегу Ганга. Речная торговля приносит товары из глубин Индии.,A city on the banks of the Ganges. River trade brings goods from deep within India.
+city.patna.name,cities,29,Патна,Patna
+city.quanzhou.description,cities,2,Величайший морской порт Мин. Отсюда корабли уходят в Юго-Восточную Азию и далёкую Аравию.,The greatest maritime port of Ming. Ships depart from here to Southeast Asia and distant Arabia.
+city.quanzhou.name,cities,2,Цюаньчжоу,Quanzhou
+city.rey.description,cities,35,Древний город у подножия Эльбурса. Руины Рея хранят память о тысячелетиях торговли.,An ancient city at the foot of the Alborz. The ruins of Rey hold memories of millennia of trade.
+city.rey.name,cities,35,Рей,Rey
+city.samarkand.description,cities,22,Сердце Шёлкового пути. Площадь Регистан сверкает мозаиками. Торговцы со всего мира торгуют на великом базаре.,Heart of the Silk Road. Registan Square gleams with mosaics. Merchants from around the world trade at the great bazaar.
+city.samarkand.name,cities,22,Самарканд,Samarkand
+city.shanghai.description,cities,3,Растущий порт на побережье. Морские джонки и речные суда доставляют сюда товары со всего юга Китая.,A growing port on the coast. Sea junks and river boats bring goods here from across southern China.
+city.shanghai.name,cities,3,Шанхай,Shanghai
+city.suhar.description,cities,46,Оманский порт — отправная точка для плавания в Индию. Доу с товарами отходят с муссонными ветрами.,An Omani port — the starting point for voyages to India. Dhows laden with goods depart with the monsoon winds.
+city.suhar.name,cities,46,Сухар,Suhar
+city.tamralipti.description,cities,31,Бенгальский порт на пути к островам Юго-Восточной Азии. Муссоны определяют ритм торговли.,A Bengali port on the route to the islands of Southeast Asia. Monsoons set the rhythm of trade.
+city.tamralipti.name,cities,31,Тамралипти,Tamralipti
+city.trabzon.description,cities,50,Черноморский порт у подножия гор. Ворота в Анатолию для торговцев с Кавказа и из Персии.,A Black Sea port at the foot of the mountains. Gateway to Anatolia for merchants from the Caucasus and Persia.
+city.trabzon.name,cities,50,Трабзон,Trabzon
+city.tripoli.description,cities,42,Левантийский порт с крепостью крестоносцев. Корабли везут товары вдоль побережья Средиземного моря.,A Levantine port with a Crusader fortress. Ships carry goods along the Mediterranean coast.
+city.tripoli.name,cities,42,Триполи,Tripoli
+city.urumqi.description,cities,,Оазис на северном пути вдоль Тянь-Шаня. Караваны проходят здесь по пути в Кучу.,An oasis on the northern route along the Tian Shan. Caravans pass through here on the way to Kucha.
+city.urumqi.name,cities,,Урумчи,Urumqi
+city.yumen.description,cities,10,Нефритовые врата — древний рубеж Китая. За этими воротами заканчивается империя и начинается неизвестность.,The Jade Gate — China's ancient frontier. Beyond these gates the empire ends and the unknown begins.
+city.yumen.name,cities,10,Юймэнь,Yumen
 culture.anatolia.name,cultures,8,Анатолия,Anatolia
+culture.arabia.name,cultures,11,Аравия,Arabia
 culture.byzantine.name,cultures,9,Византия,Byzantine
 culture.central_asia.name,cultures,4,Средняя Азия,Central Asia
 culture.china.name,cultures,2,Китай,China
+culture.india.name,cultures,10,Индия,India
 culture.levant.name,cultures,7,Левант,Levant
 culture.mesopotamia.name,cultures,6,Месопотамия,Mesopotamia
 culture.persia.name,cultures,5,Персия,Persia
 culture.steppe.name,cultures,3,Степь,Steppe
+culture.tibet.name,cultures,12,Тибет,Tibet
 event_type.bandit_attack.name,event_types,2,Нападение,Attack
 event_type.caravan_trouble.name,event_types,7,Поломка,Caravan Trouble
 event_type.companion.name,event_types,9,Спутник,Companion
