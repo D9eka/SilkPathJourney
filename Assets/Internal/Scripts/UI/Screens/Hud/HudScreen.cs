@@ -37,6 +37,7 @@ namespace Internal.Scripts.UI.Screens.Hud
         [SerializeField] private GameObject _actionBorder;
         [SerializeField] private GameObject _endActionBorder;
         [Header("ScreenActionButtons")]
+        [SerializeField] private Button _openPauseButton;
         [SerializeField] private Button _openDiaryButton;
         [SerializeField] private Button _openInventoryButton;
         [SerializeField] private Button _openQuestsButton;
@@ -96,6 +97,7 @@ namespace Internal.Scripts.UI.Screens.Hud
             _actionButton.onClick.AddListener(OnAction);
             _endActionButton.onClick.AddListener(OnEndAction);
             _openInventoryButton.onClick.AddListener(OnOpenInventory);
+            _openPauseButton.onClick.AddListener(OnOpenPause);
         }
 
         private void UnsubscribeViewModel()
@@ -115,6 +117,7 @@ namespace Internal.Scripts.UI.Screens.Hud
             _actionButton.onClick.RemoveListener(OnAction);
             _endActionButton.onClick.RemoveListener(OnEndAction);
             _openInventoryButton.onClick.RemoveListener(OnOpenInventory);
+            _openPauseButton.onClick.RemoveListener(OnOpenPause);
         }
 
         private void ApplyState(HudViewState state)
@@ -257,5 +260,6 @@ namespace Internal.Scripts.UI.Screens.Hud
         private void OnAction() => _viewModel?.OnAction();
         private void OnEndAction() => _viewModel?.OnEndAction();
         private void OnOpenInventory() => _viewModel?.OpenInventory();
+        private void OnOpenPause() => _viewModel?.OpenPause();
     }
 }

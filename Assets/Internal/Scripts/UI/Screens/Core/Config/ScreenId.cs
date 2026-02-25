@@ -7,6 +7,7 @@ namespace Internal.Scripts.UI.Screens.Core.Config
         Trade = 2,
         Hud = 3,
         Event = 4,
-        TargetSelection = 5
+        TargetSelection = 5,
+        Pause = 6
     }
 }
