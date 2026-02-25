@@ -3,7 +3,7 @@ using Internal.Scripts.Installers;
 using Internal.Scripts.Save;
 using Internal.Scripts.UI.Screens.Core.Config;
 using Internal.Scripts.UI.Screens.Core.ViewModel;
-using UnityEngine.SceneManagement;
+using Internal.Scripts.Utils;
 using Zenject;
 
 namespace Internal.Scripts.UI.Screens.MainMenu
@@ -12,12 +12,18 @@ namespace Internal.Scripts.UI.Screens.MainMenu
     {
         private readonly ISaveService _saveService;
         private readonly SceneReference _gameScene;
+        private readonly QuitGameService _quitGameService;
+        private readonly SceneLoaderService _sceneLoader;
 
         public MainMenuScreenViewModel(
             ISaveService saveService,
+            QuitGameService quitGameService,
+            SceneLoaderService sceneLoader,
             [Inject(Id = SceneRefId.Game)] SceneReference gameScene)
         {
             _saveService = saveService;
+            _quitGameService = quitGameService;
+            _sceneLoader = sceneLoader;
             _gameScene = gameScene;
         }
 
@@ -36,12 +42,17 @@ namespace Internal.Scripts.UI.Screens.MainMenu
         public void NewGame()
         {
             _saveService.Delete();
-            SceneManager.LoadScene(_gameScene.SceneName);
+            _sceneLoader.LoadScene(_gameScene);
         }
 
         public void Continue()
         {
-            SceneManager.LoadScene(_gameScene.SceneName);
+            _sceneLoader.LoadScene(_gameScene);
+        }
+
+        public void QuitGame()
+        {
+            _quitGameService.Quit();
         }
     }
 }

@@ -9,6 +9,7 @@ namespace Internal.Scripts.UI.Screens.Pause
     {
         [SerializeField] private Button _backToGameButton;
         [SerializeField] private Button _exitToMenuButton;
+        [SerializeField] private Button _quitButton;
 
         private PauseScreenViewModel _viewModel;
 
@@ -23,6 +24,8 @@ namespace Internal.Scripts.UI.Screens.Pause
                 _backToGameButton.onClick.AddListener(OnBackToGame);
             if (_exitToMenuButton != null)
                 _exitToMenuButton.onClick.AddListener(OnExitToMenu);
+            if (_quitButton != null)
+                _quitButton.onClick.AddListener(OnQuit);
         }
 
         private void OnDisable()
@@ -31,9 +34,12 @@ namespace Internal.Scripts.UI.Screens.Pause
                 _backToGameButton.onClick.RemoveListener(OnBackToGame);
             if (_exitToMenuButton != null)
                 _exitToMenuButton.onClick.RemoveListener(OnExitToMenu);
+            if (_quitButton != null)
+                _quitButton.onClick.RemoveListener(OnQuit);
         }
 
         private void OnBackToGame() => RaiseCloseRequested();
         private void OnExitToMenu() => _viewModel?.ExitToMenu();
+        private void OnQuit() => _viewModel?.QuitGame();
     }
 }

@@ -2,8 +2,8 @@ using Internal.Scripts.Camera;
 using Internal.Scripts.Installers;
 using Internal.Scripts.UI.Screens.Core.Config;
 using Internal.Scripts.UI.Screens.Core.ViewModel;
+using Internal.Scripts.Utils;
 using Internal.Scripts.World.State;
-using UnityEngine.SceneManagement;
 using Zenject;
 
 namespace Internal.Scripts.UI.Screens.Pause
@@ -12,12 +12,18 @@ namespace Internal.Scripts.UI.Screens.Pause
     {
         private readonly GameClock _gameClock;
         private readonly SceneReference _mainMenuScene;
+        private readonly QuitGameService _quitGameService;
+        private readonly SceneLoaderService _sceneLoader;
 
         public PauseScreenViewModel(
             GameClock gameClock,
+            QuitGameService quitGameService,
+            SceneLoaderService sceneLoader,
             [Inject(Id = SceneRefId.MainMenu)] SceneReference mainMenuScene)
         {
             _gameClock = gameClock;
+            _quitGameService = quitGameService;
+            _sceneLoader = sceneLoader;
             _mainMenuScene = mainMenuScene;
         }
 
@@ -36,7 +42,12 @@ namespace Internal.Scripts.UI.Screens.Pause
         public void ExitToMenu()
         {
             _gameClock.Resume();
-            SceneManager.LoadScene(_mainMenuScene.SceneName);
+            _sceneLoader.LoadScene(_mainMenuScene);
+        }
+
+        public void QuitGame()
+        {
+            _quitGameService.Quit();
         }
     }
 }

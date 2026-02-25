@@ -4,6 +4,7 @@ using Internal.Scripts.UI.Factory;
 using Internal.Scripts.UI.Screens.Core.Config;
 using Internal.Scripts.UI.StackService;
 using Internal.Scripts.UI.Theme;
+using Internal.Scripts.Utils;
 using Plugins.Zenject.Source.Install;
 using UnityEngine;
 
@@ -25,6 +26,7 @@ namespace Internal.Scripts.Installers
             Container.Bind<UiThemeService>().AsSingle().WithArguments(defaultPalette);
             Container.Bind<StaticColorController>().AsSingle();
 
+            Container.Bind<SceneLoaderService>().AsSingle();
             Container.Bind<IScreenViewModelFactory>().To<ScreenViewModelFactory>().AsSingle();
             Container.BindInterfacesAndSelfTo<ScreenStackService>().AsSingle()
                 .WithArguments(ScreenId.MainMenu);

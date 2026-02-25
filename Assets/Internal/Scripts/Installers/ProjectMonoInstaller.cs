@@ -15,7 +15,7 @@ namespace Internal.Scripts.Installers
         {
             Container.Bind<UnityEngine.Camera>()
                 .FromMethod(_ => UnityEngine.Camera.main)
-                .AsSingle();
+                .AsTransient();
 
             Container.BindInstance(new GroundSnapper(_groundLayerMask)).AsSingle();
 

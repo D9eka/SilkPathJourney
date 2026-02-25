@@ -46,6 +46,7 @@ using Internal.Scripts.UI.PathVisualization;
 using Internal.Scripts.UI.Screens.Core.Config;
 using Internal.Scripts.UI.Screens.Hud;
 using Internal.Scripts.UI.Theme;
+using Internal.Scripts.Utils;
 
 namespace Internal.Scripts.Installers
 {
@@ -75,6 +76,7 @@ namespace Internal.Scripts.Installers
         public override void InstallBindings()
         {
             Container.Bind<GameClock>().AsSingle();
+            Container.Bind<SceneLoaderService>().AsSingle();
 
             Container.BindInterfacesAndSelfTo<InputManager>()
                 .AsSingle().WithArguments(_interactableLayerMask)

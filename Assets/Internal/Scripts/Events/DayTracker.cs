@@ -35,6 +35,7 @@ namespace Internal.Scripts.Events
 
         public void Dispose()
         {
+            if (_playerRoadAgent == null) return;
             _playerRoadAgent.OnDistanceTraveled -= HandleDistanceTraveled;
         }
 

@@ -9,6 +9,7 @@ namespace Internal.Scripts.UI.Screens.MainMenu
     {
         [SerializeField] private Button _newGameButton;
         [SerializeField] private Button _continueButton;
+        [SerializeField] private Button _quitButton;
 
         private MainMenuScreenViewModel _viewModel;
 
@@ -22,15 +23,20 @@ namespace Internal.Scripts.UI.Screens.MainMenu
         {
             _newGameButton.onClick.AddListener(OnNewGame);
             _continueButton.onClick.AddListener(OnContinue);
+            if (_quitButton != null)
+                _quitButton.onClick.AddListener(OnQuit);
         }
 
         private void OnDisable()
         {
             _newGameButton.onClick.RemoveListener(OnNewGame);
             _continueButton.onClick.RemoveListener(OnContinue);
+            if (_quitButton != null)
+                _quitButton.onClick.RemoveListener(OnQuit);
         }
 
         private void OnNewGame() => _viewModel?.NewGame();
         private void OnContinue() => _viewModel?.Continue();
+        private void OnQuit() => _viewModel?.QuitGame();
     }
 }
