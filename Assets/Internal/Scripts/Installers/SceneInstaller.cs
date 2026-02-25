@@ -167,7 +167,6 @@ namespace Internal.Scripts.Installers
         private void InstallEconomy()
         {
             Container.Bind<ItemCatalog>().AsSingle();
-            Container.Bind<ISaveService>().To<JsonSaveService>().AsSingle();
             Container.Bind<SaveRepository>().AsSingle();
             Container.Bind<EconomySaveBuilder>().AsSingle();
             Container.BindInterfacesAndSelfTo<SaveBootstrapper>().AsSingle().NonLazy();

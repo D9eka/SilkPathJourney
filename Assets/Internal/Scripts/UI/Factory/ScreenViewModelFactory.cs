@@ -4,6 +4,7 @@ using Internal.Scripts.UI.Screens.Core.ViewModel;
 using Internal.Scripts.UI.Screens.Event;
 using Internal.Scripts.UI.Screens.Hud;
 using Internal.Scripts.UI.Screens.Inventory;
+using Internal.Scripts.UI.Screens.MainMenu;
 using Internal.Scripts.UI.Screens.Pause;
 using Internal.Scripts.UI.Screens.TargetSelection;
 using Internal.Scripts.UI.Screens.Trade;
@@ -30,6 +31,7 @@ namespace Internal.Scripts.UI.Factory
                 ScreenId.Event => CreateEvent(view),
                 ScreenId.TargetSelection => CreateTargetSelection(view),
                 ScreenId.Pause => CreatePause(view),
+                ScreenId.MainMenu => CreateMainMenu(view),
                 _ => null
             };
         }
@@ -80,6 +82,14 @@ namespace Internal.Scripts.UI.Factory
                 return null;
 
             return _container.Instantiate<PauseScreenViewModel>();
+        }
+
+        private ScreenViewModelBase CreateMainMenu(IScreenView view)
+        {
+            if (view is not MainMenuScreen)
+                return null;
+
+            return _container.Instantiate<MainMenuScreenViewModel>();
         }
     }
 }

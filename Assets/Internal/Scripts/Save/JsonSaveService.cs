@@ -73,5 +73,11 @@ namespace Internal.Scripts.Save
                 Debug.LogWarning($"[SPJ] Failed to save file: {e.Message}");
             }
         }
+
+        public void Delete()
+        {
+            if (File.Exists(SavePath))
+                File.Delete(SavePath);
+        }
     }
 }

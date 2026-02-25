@@ -8,6 +8,7 @@ namespace Internal.Scripts.UI.Screens.Core.Config
         Hud = 3,
         Event = 4,
         TargetSelection = 5,
-        Pause = 6
+        Pause = 6,
+        MainMenu = 7
     }
 }

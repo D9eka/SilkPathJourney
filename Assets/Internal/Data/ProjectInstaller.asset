@@ -21,4 +21,12 @@ MonoBehaviour:
   _npcSimulationSettings: {fileID: 11400000, guid: 7cc4547f4ffaef74e9c15f5e09b93473, type: 2}
   _screenCatalog: {fileID: 11400000, guid: 666dbe6a588aa6e48900895fc40fcca8, type: 2}
   _resourceIconCatalog: {fileID: 11400000, guid: a42aa19a74ddc194c8d99e338c0cd34a, type: 2}
+  _gameScene:
+    _sceneAsset: {fileID: 102900000, guid: 4469673e4990f2a41b1bebe1d3d4d6e8, type: 3}
+    _sceneName: StrategicView
+    _cameraSize: 15
+  _mainMenuScene:
+    _sceneAsset: {fileID: 102900000, guid: 84c844d909e69d44682d7a4dedcbd0fb, type: 3}
+    _sceneName: MainMenu
+    _cameraSize: 15
   _gameBalanceConfig: {fileID: 11400000, guid: 27f872d135e6d774c89903c048a2126e, type: 2}

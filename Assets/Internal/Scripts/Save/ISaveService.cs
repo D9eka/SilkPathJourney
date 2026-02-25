@@ -5,5 +5,6 @@ namespace Internal.Scripts.Save
         bool HasSave();
         SaveData Load();
         void Save(SaveData data);
+        void Delete();
     }
 }
