@@ -264,6 +264,8 @@ namespace Internal.Scripts.Installers
                 .WithArguments(defaultPalette).NonLazy();
 
             Container.BindInterfacesTo<BiomeThemeController>().AsSingle().NonLazy();
+
+            Container.Bind<StaticColorController>().AsSingle();
         }
 
         private void InstallPathVisualization()

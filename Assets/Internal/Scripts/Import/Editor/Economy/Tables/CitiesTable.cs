@@ -15,7 +15,6 @@ namespace Internal.Scripts.Import.Editor.Economy.Tables
         public static List<CityData> Import(
             Dictionary<string, CityType> cityTypeMap,
             Dictionary<string, CultureId> cultureMap,
-            Dictionary<string, Biome> biomeMap,
             string locTableName,
             Dictionary<string, LocalizationImporter.LocalizationEntry> locEntries)
         {
@@ -36,10 +35,9 @@ namespace Internal.Scripts.Import.Editor.Economy.Tables
             int secondaryCultureIndex = FindColumnIndex(header, "secondary_culture_id");
             int marketScaleIndex = FindColumnIndex(header, "market_scale");
             int hasPortIndex = FindColumnIndex(header, "has_port");
-            int biomeIndex = FindColumnIndex(header, "biome_id");
             if (idIndex < 0 || nodeIndex < 0 || nameIndex < 0 || typeIndex < 0 ||
                 primaryCultureIndex < 0 || secondaryCultureIndex < 0 || marketScaleIndex < 0 ||
-                hasPortIndex < 0 || biomeIndex < 0)
+                hasPortIndex < 0)
             {
                 Debug.LogError("[SPJ] Missing required columns in cities.csv");
                 return cities;
@@ -61,14 +59,6 @@ namespace Internal.Scripts.Import.Editor.Economy.Tables
                 TryParseFloat(GetField(rows[i], marketScaleIndex), out float marketScale);
                 bool hasPort = ParseBool(GetField(rows[i], hasPortIndex));
 
-                string biomeId = GetField(rows[i], biomeIndex).Trim();
-                if (!biomeMap.TryGetValue(biomeId, out Biome biome))
-                {
-                    if (!string.IsNullOrEmpty(biomeId))
-                        Debug.LogWarning($"[SPJ] Unknown biome_id '{biomeId}' in cities.csv (row {i + 1})");
-                    biome = Biome.Unknown;
-                }
-
                 CityData asset = LoadOrCreateAsset<CityData>(OUTPUT_FOLDER, id);
 
                 string descKey = descIndex >= 0 ? GetField(rows[i], descIndex).Trim() : string.Empty;
@@ -81,7 +71,6 @@ namespace Internal.Scripts.Import.Editor.Economy.Tables
                     ParseCulture(GetField(rows[i], secondaryCultureIndex), cultureMap, i + 1, "secondary_culture_id"),
                     marketScale,
                     hasPort,
-                    biome,
                     MakeLocalizedString(GetField(rows[i], nameIndex).Trim(), locTableName),
                     MakeLocalizedString(descKey, locTableName));
 
