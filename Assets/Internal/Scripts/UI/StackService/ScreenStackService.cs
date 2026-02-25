@@ -5,6 +5,7 @@ using Internal.Scripts.UI.Screens.Core;
 using Internal.Scripts.UI.Screens.Core.Config;
 using Internal.Scripts.UI.Screens.Core.View;
 using Internal.Scripts.UI.Screens.Core.ViewModel;
+using Internal.Scripts.UI.Theme;
 using UnityEngine;
 using Zenject;
 
@@ -15,6 +16,8 @@ namespace Internal.Scripts.UI.StackService
         private readonly UIScreenRoots _roots;
         private readonly ScreenCatalog _catalog;
         private readonly IScreenViewModelFactory _viewModelFactory;
+        private readonly StaticColorController _colorController;
+        private readonly UiThemeService _themeService;
         private readonly ScreenId _initialScreenId;
         private readonly List<ScreenInstance> _stack = new();
         private readonly Dictionary<ScreenId, ScreenInstance> _instances = new();
@@ -22,11 +25,14 @@ namespace Internal.Scripts.UI.StackService
         public ScreenId TopId => _stack.Count > 0 ? _stack[^1].Id : ScreenId.None;
 
         public ScreenStackService(UIScreenRoots roots, ScreenCatalog catalog,
-            IScreenViewModelFactory viewModelFactory, ScreenId initialScreenId)
+            IScreenViewModelFactory viewModelFactory, StaticColorController colorController,
+            UiThemeService themeService, ScreenId initialScreenId)
         {
             _roots = roots;
             _catalog = catalog;
             _viewModelFactory = viewModelFactory;
+            _colorController = colorController;
+            _themeService = themeService;
             _initialScreenId = initialScreenId;
         }
 
@@ -82,6 +88,9 @@ namespace Internal.Scripts.UI.StackService
                 }
 
                 GameObject instanceGo = Object.Instantiate(config.Prefab, parent);
+
+                SetupColors(instanceGo);
+
                 ScreenViewBase view = FindView(instanceGo);
                 if (view == null)
                 {
@@ -223,6 +232,20 @@ namespace Internal.Scripts.UI.StackService
 
                 canvas.overrideSorting = true;
                 canvas.sortingOrder = sortOrder;
+            }
+        }
+        
+        private void SetupColors(GameObject instanceGo)
+        {
+            foreach (UiColorBinder colorBinder in 
+                instanceGo.GetComponentsInChildren<UiColorBinder>(true))
+            {
+                colorBinder.Initialize(_themeService);
+            }
+            foreach (UiStaticColorBinder staticColorBinder in 
+                instanceGo.GetComponentsInChildren<UiStaticColorBinder>(true))
+            {
+                staticColorBinder.Initialize(_colorController);
             }
         }
 

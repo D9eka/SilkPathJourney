@@ -6,3 +6,5 @@ craft_city,CraftCity,city_type.craft_city.name,city_type.craft_city.description,
 resource_city,ResourceCity,city_type.resource_city.name,city_type.resource_city.description,600,"дешёвое сырьё, дорогие готовые товары",перевод,Сырьевой город,Resource City
 market_town,MarketTown,city_type.market_town.name,city_type.market_town.description,450,"baseline, нужен для контраста",перевод,Обычный город,Market Town
 oasis_stop,OasisStop,city_type.oasis_stop.name,city_type.oasis_stop.description,250,"маленький рынок, но важная точка маршрута (вода/еда)",перевод,Караванная остановка,Caravan Stop
+port_city,PortCity,city_type.port_city.name,city_type.port_city.description,700,"расширенный импорт, экзотические товары",перевод,Порт,Port City
+holy_city,HolyCity,city_type.holy_city.name,city_type.holy_city.description,400,"паломничество, храмы, религиозные события",перевод,Святой город,Holy City

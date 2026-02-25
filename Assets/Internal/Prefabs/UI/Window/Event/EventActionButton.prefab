@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5078734557990534817}
   - component: {fileID: 5928263570040185718}
   - component: {fileID: 6851236263249815009}
+  - component: {fileID: 1964953993682126410}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -136,6 +137,21 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1964953993682126410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4855034928656481043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a16ed461c506a9429e0f0d356af0c13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Theme.UiColorBinder
+  _colorSlot: 4
+  _target: {fileID: 6851236263249815009}
+  _transitionDuration: 0.5
 --- !u!1 &8450017226784826698
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,6 +165,7 @@ GameObject:
   - component: {fileID: 150921870437155092}
   - component: {fileID: 4579917273863324912}
   - component: {fileID: 483248700663710336}
+  - component: {fileID: 6889443208843684826}
   m_Layer: 5
   m_Name: EventActionButton
   m_TagString: Untagged
@@ -272,3 +289,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6889443208843684826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8450017226784826698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a16ed461c506a9429e0f0d356af0c13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Theme.UiColorBinder
+  _colorSlot: 2
+  _target: {fileID: 4579917273863324912}
+  _transitionDuration: 0.5

@@ -78,11 +78,16 @@ namespace Internal.Scripts.Npc.Core
         {
             if (_cursor.IsEmpty)
             {
-                if (!string.IsNullOrEmpty(_destinationNodeId))
+                if (_cursor.HasArrived && !string.IsNullOrEmpty(_destinationNodeId))
                 {
                     _currentNodeId = _destinationNodeId;
                     _destinationNodeId = null;
                     OnArrived?.Invoke(this);
+                }
+                else if (!string.IsNullOrEmpty(_destinationNodeId))
+                {
+                    Debug.LogWarning($"[RoadAgent] Path to '{_destinationNodeId}' failed. Resetting to idle.");
+                    _destinationNodeId = null;
                 }
                 return;
             }

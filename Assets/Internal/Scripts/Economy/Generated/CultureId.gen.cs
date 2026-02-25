@@ -11,5 +11,8 @@
         Levant = 6,
         Anatolia = 7,
         Byzantine = 8,
+        India = 9,
+        Arabia = 10,
+        Tibet = 11,
     }
 }

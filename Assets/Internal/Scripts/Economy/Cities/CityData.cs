@@ -48,7 +48,6 @@ namespace Internal.Scripts.Economy.Cities
             CultureId secondaryCulture,
             float marketScale,
             bool hasPort,
-            Biome biome,
             LocalizedString name,
             LocalizedString description = null)
         {
@@ -59,9 +58,13 @@ namespace Internal.Scripts.Economy.Cities
             SecondaryCulture = secondaryCulture;
             MarketScale = marketScale;
             HasPort = hasPort;
-            Biome = biome;
             Name = name;
             Description = description ?? new LocalizedString();
+        }
+
+        public void SetBiome(Biome biome)
+        {
+            Biome = biome;
         }
 #endif
     }

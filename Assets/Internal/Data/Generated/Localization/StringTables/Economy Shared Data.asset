@@ -611,6 +611,386 @@ MonoBehaviour:
     m_Key: city_modifier.port_access.description
     m_Metadata:
       m_Items: []
+  - m_Id: 7217665125900288
+    m_Key: city_type.port_city.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665167843328
+    m_Key: city_type.holy_city.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665167843329
+    m_Key: culture.india.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665167843330
+    m_Key: culture.arabia.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665167843331
+    m_Key: culture.tibet.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037632
+    m_Key: city.jiuquan.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037633
+    m_Key: city.yumen.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037634
+    m_Key: city.anxi.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037635
+    m_Key: city.lijiang.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037636
+    m_Key: city.lhasa.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037637
+    m_Key: city.dunhuang.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037638
+    m_Key: city.turfan.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037639
+    m_Key: city.kucha.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037640
+    m_Key: city.aksu.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037641
+    m_Key: city.kashgar.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037642
+    m_Key: city.khotan.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037643
+    m_Key: city.osh.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037644
+    m_Key: city.tashkent.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037645
+    m_Key: city.samarkand.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037646
+    m_Key: city.bukhara.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037647
+    m_Key: city.balkh.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037648
+    m_Key: city.merv.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037649
+    m_Key: city.kabul.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037650
+    m_Key: city.taxila.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037651
+    m_Key: city.delhi.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037652
+    m_Key: city.patna.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037653
+    m_Key: city.allahabad.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037654
+    m_Key: city.tamralipti.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037655
+    m_Key: city.cambay.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037656
+    m_Key: city.mashhad.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037657
+    m_Key: city.nishapur.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037658
+    m_Key: city.rey.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037659
+    m_Key: city.tabriz.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037660
+    m_Key: city.baghdad.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037661
+    m_Key: city.mosul.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037662
+    m_Key: city.aleppo.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037663
+    m_Key: city.damascus.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037664
+    m_Key: city.antioch.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037665
+    m_Key: city.tripoli.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037666
+    m_Key: city.gaza.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037667
+    m_Key: city.cairo.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037668
+    m_Key: city.hormuz.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037669
+    m_Key: city.suhar.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037670
+    m_Key: city.medina.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037671
+    m_Key: city.mecca.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037672
+    m_Key: city.aydhab.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037673
+    m_Key: city.trabzon.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037674
+    m_Key: city.constantinople.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037675
+    m_Key: city.aksu.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037676
+    m_Key: city.aleppo.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037677
+    m_Key: city.allahabad.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037678
+    m_Key: city.antioch.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037679
+    m_Key: city.anxi.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037680
+    m_Key: city.aydhab.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037681
+    m_Key: city.baghdad.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037682
+    m_Key: city.balkh.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037683
+    m_Key: city.bukhara.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037684
+    m_Key: city.cairo.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665172037685
+    m_Key: city.cambay.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231936
+    m_Key: city.constantinople.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231937
+    m_Key: city.damascus.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231938
+    m_Key: city.delhi.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231939
+    m_Key: city.dunhuang.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231940
+    m_Key: city.gaza.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231941
+    m_Key: city.hormuz.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231942
+    m_Key: city.jiuquan.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231943
+    m_Key: city.kabul.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231944
+    m_Key: city.kashgar.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231945
+    m_Key: city.khotan.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231946
+    m_Key: city.kucha.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231947
+    m_Key: city.lhasa.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231948
+    m_Key: city.lijiang.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231949
+    m_Key: city.mashhad.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231950
+    m_Key: city.mecca.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231951
+    m_Key: city.medina.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231952
+    m_Key: city.merv.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231953
+    m_Key: city.mosul.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231954
+    m_Key: city.nishapur.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231955
+    m_Key: city.osh.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231956
+    m_Key: city.patna.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231957
+    m_Key: city.rey.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231958
+    m_Key: city.samarkand.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231959
+    m_Key: city.suhar.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231960
+    m_Key: city.tabriz.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231961
+    m_Key: city.tamralipti.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231962
+    m_Key: city.tashkent.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231963
+    m_Key: city.taxila.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231964
+    m_Key: city.trabzon.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231965
+    m_Key: city.tripoli.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231966
+    m_Key: city.turfan.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7217665176231967
+    m_Key: city.yumen.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7219978439745536
+    m_Key: city.hami.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7219978485882880
+    m_Key: city.hami.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9425860418330624
+    m_Key: city.urumqi.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9425860468662272
+    m_Key: city.urumqi.description
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

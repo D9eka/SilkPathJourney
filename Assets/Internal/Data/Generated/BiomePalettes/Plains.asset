@@ -28,3 +28,8 @@ MonoBehaviour:
   <SliderFillPositive>k__BackingField: {r: 0.41960785, g: 0.6392157, b: 0.33333334, a: 1}
   <SliderFillNegative>k__BackingField: {r: 0.76862746, g: 0.3529412, b: 0.2901961, a: 1}
   <ButtonSelectedBorder>k__BackingField: {r: 0.54509807, g: 0.41960785, b: 0.22745098, a: 1}
+  <RoadHighlight>k__BackingField: {r: 1, g: 1, b: 0, a: 1}
+  <ValuePositive>k__BackingField: {r: 0.2, g: 0.8, b: 0.2, a: 1}
+  <ValueNegative>k__BackingField: {r: 0.9019608, g: 0.2, b: 0.2, a: 1}
+  <AccentHighlight>k__BackingField: {r: 1, g: 0.8509804, b: 0.2, a: 1}
+  <CityMarker>k__BackingField: {r: 0.54509807, g: 0.41960785, b: 0.22745098, a: 1}

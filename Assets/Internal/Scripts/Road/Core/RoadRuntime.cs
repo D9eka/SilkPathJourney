@@ -35,6 +35,22 @@ namespace Internal.Scripts.Road.Core
             => _worldRoot != null ? _worldRoot.TransformDirection(dLocal) : transform.TransformDirection(dLocal);
 
 #if UNITY_EDITOR
+        public static bool ShowGizmos;
+
+        [MenuItem("SPJ/Debug/Show Road Gizmos")]
+        private static void ToggleGizmos()
+        {
+            ShowGizmos = !ShowGizmos;
+            SceneView.RepaintAll();
+        }
+
+        [MenuItem("SPJ/Debug/Show Road Gizmos", true)]
+        private static bool ToggleGizmosValidate()
+        {
+            Menu.SetChecked("SPJ/Debug/Show Road Gizmos", ShowGizmos);
+            return true;
+        }
+
         private RoadPolylineSampler _sampler;
         private float _step;
         private float _arrowEvery;
@@ -42,6 +58,9 @@ namespace Internal.Scripts.Road.Core
 
         private void OnDrawGizmos()
         {
+            if (!ShowGizmos)
+                return;
+
             if (_data == null || _data.PointsLocal == null || _data.PointsLocal.Count < 2)
                 return;
 
@@ -80,16 +99,12 @@ namespace Internal.Scripts.Road.Core
             Handles.zTest = UnityEngine.Rendering.CompareFunction.Always;
             Handles.color = color;
 
-            Vector3 prev = SampleWorld(0f, lateralOffset);
-            for (float d = _step; d <= _sampler.Length; d += _step)
-            {
-                Vector3 cur = SampleWorld(d, lateralOffset);
-                Handles.DrawAAPolyLine(thickness, prev, cur);
-                prev = cur;
-            }
+            int count = _sampler.PointCount;
+            var pts = new Vector3[count];
+            for (int i = 0; i < count; i++)
+                pts[i] = SampleWorld(_sampler.GetCumulativeDistance(i), lateralOffset);
 
-            Vector3 last = SampleWorld(_sampler.Length, lateralOffset);
-            Handles.DrawAAPolyLine(thickness, prev, last);
+            Handles.DrawAAPolyLine(thickness, pts);
 
             if (drawArrows)
                 DrawArrows(lateralOffset);

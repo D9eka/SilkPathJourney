@@ -10,5 +10,7 @@
         ResourceCity = 5,
         MarketTown = 6,
         OasisStop = 7,
+        PortCity = 8,
+        HolyCity = 9,
     }
 }

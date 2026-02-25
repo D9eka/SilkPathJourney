@@ -394,6 +394,7 @@ GameObject:
   - component: {fileID: 8453294013405701428}
   - component: {fileID: 1030901175578752191}
   - component: {fileID: 6899859409053013256}
+  - component: {fileID: 8409939603357363706}
   m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
@@ -478,3 +479,18 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &8409939603357363706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6145081025234455909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a16ed461c506a9429e0f0d356af0c13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Theme.UiColorBinder
+  _colorSlot: 0
+  _target: {fileID: 1030901175578752191}
+  _transitionDuration: 0.5

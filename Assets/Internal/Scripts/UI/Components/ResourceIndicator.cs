@@ -1,7 +1,10 @@
 using DG.Tweening;
+using Internal.Scripts.Economy.Generated;
+using Internal.Scripts.UI.Theme;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 namespace Internal.Scripts.UI.Components
 {
@@ -18,6 +21,8 @@ namespace Internal.Scripts.UI.Components
         [SerializeField] private Color _positiveColor = new Color(0.2f, 0.8f, 0.2f, 1f);
         [SerializeField] private Color _negativeColor = new Color(0.9f, 0.2f, 0.2f, 1f);
 
+        [Inject(Optional = true)] private StaticColorController _colorController;
+
         public ResourceType ResourceType => _resourceType;
 
         public void SetResourceType(ResourceType type) => _resourceType = type;
@@ -28,6 +33,12 @@ namespace Internal.Scripts.UI.Components
 
         protected virtual void Awake()
         {
+            if (_colorController != null)
+            {
+                _positiveColor = _colorController.GetColor(Biome.Plains, ColorSlot.ValuePositive);
+                _negativeColor = _colorController.GetColor(Biome.Plains, ColorSlot.ValueNegative);
+            }
+
             if (_valueText != null && !_cachedColor)
             {
                 _normalValueColor = _valueText.color;

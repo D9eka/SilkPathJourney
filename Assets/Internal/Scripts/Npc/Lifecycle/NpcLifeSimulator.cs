@@ -4,6 +4,7 @@ using UnityEngine;
 using Zenject;
 using Internal.Scripts.Npc.Core;
 using Internal.Scripts.Road.Core;
+using Internal.Scripts.Road.Graph;
 using Internal.Scripts.Road.Nodes;
 
 namespace Internal.Scripts.Npc.Lifecycle
@@ -13,21 +14,29 @@ namespace Internal.Scripts.Npc.Lifecycle
         private readonly NpcSimulationSettings _settings;
         private readonly NpcFactory _factory;
         private readonly IRoadNodeLookup _nodeLookup;
+        private readonly IRoadNetwork _roadNetwork;
         private readonly System.Random _random = new();
 
         private readonly List<RoadAgent> _agents = new();
         private List<string> _nodeIds;
 
-        public NpcLifeSimulator(NpcSimulationSettings settings, NpcFactory factory, IRoadNodeLookup nodeLookup)
+        public NpcLifeSimulator(NpcSimulationSettings settings, NpcFactory factory,
+            IRoadNodeLookup nodeLookup, IRoadNetwork roadNetwork)
         {
             _settings = settings;
             _factory = factory;
             _nodeLookup = nodeLookup;
+            _roadNetwork = roadNetwork;
         }
 
         public void Initialize()
         {
-            _nodeIds = new List<string>(_nodeLookup.Nodes.Keys);
+            _nodeIds = new List<string>();
+            foreach (string nodeId in _nodeLookup.Nodes.Keys)
+            {
+                if (_roadNetwork.GetOutgoingSegments(nodeId).Count > 0)
+                    _nodeIds.Add(nodeId);
+            }
             if (_nodeIds.Count < 2)
             {
                 Debug.LogWarning("[NpcLifeSimulator] Not enough nodes to simulate NPCs.");

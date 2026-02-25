@@ -7,7 +7,7 @@ namespace Internal.Scripts.UI.PathVisualization
         private LineRenderer _lineRenderer;
         private Material _material;
 
-        public void Initialize(Material material)
+        public void Initialize(Material material, Color lineColor)
         {
             _lineRenderer = gameObject.AddComponent<LineRenderer>();
             _material = material;
@@ -15,8 +15,8 @@ namespace Internal.Scripts.UI.PathVisualization
             _lineRenderer.material = _material;
             _lineRenderer.startWidth = 0.4f;
             _lineRenderer.endWidth = 0.4f;
-            _lineRenderer.startColor = Color.yellow;
-            _lineRenderer.endColor = Color.yellow;
+            _lineRenderer.startColor = lineColor;
+            _lineRenderer.endColor = lineColor;
             _lineRenderer.numCornerVertices = 5;
             _lineRenderer.numCapVertices = 5;
             _lineRenderer.useWorldSpace = true;

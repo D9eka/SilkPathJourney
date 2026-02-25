@@ -34,3 +34,13 @@ oasis_stop,raw,1.05,0.80
 oasis_stop,craft,1.10,0.82
 oasis_stop,luxury,1.20,0.85
 oasis_stop,exotic,1.25,0.88
+port_city,food,1.00,0.88
+port_city,raw,0.95,0.90
+port_city,craft,1.00,0.90
+port_city,luxury,1.08,0.98
+port_city,exotic,0.92,0.95
+holy_city,food,1.05,0.82
+holy_city,raw,1.00,0.80
+holy_city,craft,1.05,0.82
+holy_city,luxury,1.18,0.95
+holy_city,exotic,1.12,0.90

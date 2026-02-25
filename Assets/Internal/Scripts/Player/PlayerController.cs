@@ -30,8 +30,7 @@ namespace Internal.Scripts.Player
                 if (_playerStartMovement.IsChoosingTarget)
                     return PlayerState.SelectingTarget;
 
-                if (_roadAgent != null && (_roadAgent.HasPath ||
-                    !string.IsNullOrEmpty(_roadAgent.DestinationNodeId)))
+                if (_roadAgent != null && _roadAgent.HasPath)
                     return PlayerState.Moving;
 
                 return PlayerState.Idle;

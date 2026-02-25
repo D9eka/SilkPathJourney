@@ -34,3 +34,13 @@ oasis_stop,raw,360,-2,0.06
 oasis_stop,craft,260,-2,0.06
 oasis_stop,luxury,160,-1,0.06
 oasis_stop,exotic,120,0,0.06
+port_city,food,650,-10,0.12
+port_city,raw,480,4,0.12
+port_city,craft,520,6,0.12
+port_city,luxury,240,3,0.12
+port_city,exotic,200,5,0.12
+holy_city,food,550,-15,0.08
+holy_city,raw,320,-4,0.08
+holy_city,craft,280,-2,0.08
+holy_city,luxury,200,-3,0.08
+holy_city,exotic,100,-1,0.08

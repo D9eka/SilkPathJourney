@@ -55,7 +55,6 @@ namespace Internal.Scripts.Import.Editor.Economy
                 var cityTypeMap = BuildEnumMap<CityType>("city_types.csv", "city_type_id", "enum_name");
                 LocalizationImporter.CollectFromCsv(CsvPath("city_types.csv"), "name_key", locEntries);
                 var cultureMap = CulturesTable.Read(locEntries);
-                var biomeMap = BuildEnumMap<Biome>("biome_palettes.csv", "biome_id", "enum_name");
                 var itemIds = ItemsTable.ReadIds();
                 LocalizationImporter.CollectFromCsv(CsvPath("items.csv"), "name_key", locEntries);
                 LocalizationImporter.CollectFromCsv(CsvPath("cities.csv"), "name_key", locEntries);
@@ -89,7 +88,7 @@ namespace Internal.Scripts.Import.Editor.Economy
                 var items = ItemsTable.Import(itemTypeMap, LOCALIZATION_TABLE_NAME, locEntries);
                 var cityTypes = CityTypesTable.Import(cityTypeMap, coefs, profiles,
                     LOCALIZATION_TABLE_NAME, locEntries);
-                var cities = CitiesTable.Import(cityTypeMap, cultureMap, biomeMap,
+                var cities = CitiesTable.Import(cityTypeMap, cultureMap,
                     LOCALIZATION_TABLE_NAME, locEntries);
                 var buildings = BuildingsTable.Import(LOCALIZATION_TABLE_NAME, locEntries);
                 var roadModifiers = RoadModifiersTable.Import(LOCALIZATION_TABLE_NAME, locEntries);

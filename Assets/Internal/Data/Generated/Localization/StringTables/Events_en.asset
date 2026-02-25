@@ -2762,6 +2762,88 @@ MonoBehaviour:
     m_Localized: Crisis
     m_Metadata:
       m_Items: []
+  - m_Id: 4296128710303744
+    m_Localized: Overgrown Trail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4296128756441088
+    m_Localized: "An old, nearly forgotten road peers through dense undergrowth.
+      Wheel ruts have long been swallowed by grass, but the direction is still discernible.
+      Locals avoid this place \u2014 they say the path is treacherous."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4296128756441089
+    m_Localized: Clear the path
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4296128756441090
+    m_Localized: "The caravan cuts through the overgrowth. Around the bend, a passable
+      road opens up \u2014 a new route discovered!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4296128756441091
+    m_Localized: Don't risk it
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4296128756441092
+    m_Localized: You decide to stick to the known road. The overgrown trail fades
+      behind you.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4296128756441093
+    m_Localized: The Old Guide
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4296128756441094
+    m_Localized: A grey-haired old man in a dusty robe sits by the roadside, drawing
+      in the dirt with a stick. Seeing the caravan, he looks up and says he knows
+      a road not shown on any map. For a small fee, he'll point the way.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4296128756441095
+    m_Localized: Pay and listen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4296128756441096
+    m_Localized: "The old man draws a detailed map in the sand. His eyes gleam \u2014
+      he is clearly glad someone will finally use his knowledge. A new route is revealed!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4296128756441097
+    m_Localized: Refuse
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4296128756441098
+    m_Localized: The old man shrugs and bends back over his drawings in the dirt.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4296128760635392
+    m_Localized: Caravan Master's Debt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4296128760635393
+    m_Localized: "A seasoned caravan master catches up with your party. He says he
+      owes you his life \u2014 you helped his people at a crossing once before. In
+      gratitude, he offers to reveal a secret route used only by select merchants."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4296128760635394
+    m_Localized: Accept the gratitude
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4296128760635395
+    m_Localized: The caravan master unfolds a hidden map and describes every turn
+      in detail. This route is now open to you as well!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4296128760635396
+    m_Localized: Politely decline
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4296128760635397
+    m_Localized: The caravan master bows and departs, taking his secret with him.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

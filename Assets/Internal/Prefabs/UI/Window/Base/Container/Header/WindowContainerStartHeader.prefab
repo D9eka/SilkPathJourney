@@ -42,11 +42,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2926842855888347636, guid: 794b10334b29e524794d4943a9a10859, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 2926842855888347636, guid: 794b10334b29e524794d4943a9a10859, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 128
       objectReference: {fileID: 0}
     - target: {fileID: 2926842855888347636, guid: 794b10334b29e524794d4943a9a10859, type: 3}
       propertyPath: m_LocalPosition.x
@@ -98,7 +98,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5525355327387200686, guid: 794b10334b29e524794d4943a9a10859, type: 3}
       propertyPath: m_Name
-      value: WindowContainerStartHeader Variant
+      value: WindowContainerStartHeader
       objectReference: {fileID: 0}
     - target: {fileID: 7096107085024272566, guid: 794b10334b29e524794d4943a9a10859, type: 3}
       propertyPath: m_Type

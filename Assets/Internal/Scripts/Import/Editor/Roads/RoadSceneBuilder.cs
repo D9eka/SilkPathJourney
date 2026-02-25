@@ -1,8 +1,12 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Internal.Scripts.Economy;
 using Internal.Scripts.Economy.Cities;
+using Internal.Scripts.Economy.Cities.UI;
+using Internal.Scripts.Economy.Generated;
+using Internal.Scripts.Import.Editor.Roads.DTO;
 using Internal.Scripts.Road.Core;
 using Internal.Scripts.Road.Nodes;
 using Internal.Scripts.World.Roads;
@@ -87,6 +91,7 @@ namespace Internal.Scripts.Import.Editor.Roads
             }
 
             BindCitiesToNodes();
+            RoadMaterialPainter.PaintRoadMaterials();
 
             EditorSceneManager.MarkSceneDirty(scene);
             Debug.Log($"[SPJ] Roads built. Created: {created}, Updated: {updated}, Total: {roadDatas.Length}");
@@ -127,8 +132,12 @@ namespace Internal.Scripts.Import.Editor.Roads
                 return;
             }
 
+            CityView cityViewPrefab = FindCityViewPrefab();
+            Dictionary<string, Biome> nodeBiomes = LoadNodeBiomesFromJson();
+
             int linked = 0;
             int missing = 0;
+            int biomesSet = 0;
 
             foreach (CityData city in db.Cities)
             {
@@ -150,10 +159,53 @@ namespace Internal.Scripts.Import.Editor.Roads
 
                 Undo.RecordObject(link, "Bind City To Node");
                 link.ApplyLink(city);
+
+                if (nodeBiomes.TryGetValue(city.NodeId, out Biome biome))
+                {
+                    Undo.RecordObject(city, "Set City Biome");
+                    city.SetBiome(biome);
+                    EditorUtility.SetDirty(city);
+                    biomesSet++;
+                }
+
+                if (cityViewPrefab != null)
+                    SpawnOrUpdateCityView(node, city, cityViewPrefab);
+
                 linked++;
             }
 
-            Debug.Log($"[SPJ] City-node links updated. Linked: {linked}, Missing nodes: {missing}");
+            Debug.Log($"[SPJ] City-node links updated. Linked: {linked}, Biomes set: {biomesSet}, Missing nodes: {missing}");
+        }
+
+        private static CityView FindCityViewPrefab()
+        {
+            string[] guids = AssetDatabase.FindAssets("t:Prefab CityView",
+                new[] { "Assets/Internal/Prefabs/Interactables" });
+
+            foreach (string guid in guids)
+            {
+                string path = AssetDatabase.GUIDToAssetPath(guid);
+                GameObject go = AssetDatabase.LoadAssetAtPath<GameObject>(path);
+                if (go != null && go.TryGetComponent(out CityView _))
+                    return go.GetComponent<CityView>();
+            }
+
+            Debug.LogWarning("[SPJ] CityView prefab not found in Assets/Internal/Prefabs/Interactables.");
+            return null;
+        }
+
+        private static void SpawnOrUpdateCityView(Transform node, CityData city, CityView prefab)
+        {
+            CityView existing = node.GetComponentInChildren<CityView>();
+            if (existing != null)
+                Undo.DestroyObjectImmediate(existing.gameObject);
+
+            GameObject instance = (GameObject)PrefabUtility.InstantiatePrefab(prefab.gameObject, node);
+            instance.transform.localPosition = Vector3.zero;
+            Undo.RegisterCreatedObjectUndo(instance, "Create CityView");
+
+            CityView view = instance.GetComponent<CityView>();
+            view.ApplyCity(city);
         }
 
         private static EconomyDatabase FindEconomyDatabase()
@@ -167,6 +219,30 @@ namespace Internal.Scripts.Import.Editor.Roads
 
             string path = AssetDatabase.GUIDToAssetPath(guids[0]);
             return AssetDatabase.LoadAssetAtPath<EconomyDatabase>(path);
+        }
+
+        private static Dictionary<string, Biome> LoadNodeBiomesFromJson()
+        {
+            var result = new Dictionary<string, Biome>(StringComparer.Ordinal);
+            const string jsonPath = "Assets/Internal/Models/World/Roads/_all_roads.road.json";
+            if (!File.Exists(jsonPath)) return result;
+
+            string json = File.ReadAllText(jsonPath);
+            var combined = JsonUtility.FromJson<RoadJsonCombined>(json);
+            if (combined?.Nodes == null) return result;
+
+            foreach (NodeJson node in combined.Nodes)
+            {
+                if (string.IsNullOrWhiteSpace(node.NodeId)) continue;
+
+                string biomeStr = (node.Biome ?? "").Trim().Replace("_", "");
+                if (Enum.TryParse(biomeStr, true, out Biome b))
+                    result[node.NodeId] = b;
+                else
+                    result[node.NodeId] = Biome.Unknown;
+            }
+
+            return result;
         }
 
         private static Dictionary<string, Transform> BuildNodeLookup()
