@@ -10,6 +10,8 @@ namespace Internal.Scripts.Road.Path
         private readonly float[] _cumulativeDistance;
         
         public float Length { get; }
+        public int PointCount => _points.Count;
+        public float GetCumulativeDistance(int index) => _cumulativeDistance[index];
 
         public RoadPolylineSampler(IReadOnlyList<Vector3> pointsLocal)
         {

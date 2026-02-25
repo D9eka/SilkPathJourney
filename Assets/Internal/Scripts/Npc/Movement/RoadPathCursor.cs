@@ -7,6 +7,7 @@ using Internal.Scripts.Player.NextSegment;
 using Internal.Scripts.Road.Core;
 using Internal.Scripts.Road.Graph;
 using Internal.Scripts.Road.Path;
+using UnityEngine;
 
 namespace Internal.Scripts.Npc.Movement
 {
@@ -19,7 +20,9 @@ namespace Internal.Scripts.Npc.Movement
         private RoadLane _lane;
         private float _lateralOffset;
 
+        private string _destinationNodeId;
         private bool _hasPath;
+        private bool _arrived;
         private CancellationTokenSource _chooseCts;
 
         public RoadPathCursor(IRoadNetwork roadNetwork, SegmentMover segmentMover, 
@@ -31,6 +34,7 @@ namespace Internal.Scripts.Npc.Movement
         }
 
         public bool IsEmpty => !_hasPath;
+        public bool HasArrived => _arrived;
         public RoadPose CurrentPose => _segmentMover.CurrentPose;
 
         public void Initialize(string currentNodeId)
@@ -55,7 +59,9 @@ namespace Internal.Scripts.Npc.Movement
             _chooseCts = null;
             _lane = lane;
             _lateralOffset = lateralOffset;
+            _destinationNodeId = destinationNodeId;
             _hasPath = true;
+            _arrived = false;
             
             if (_nextSegmentProvider is IDestinationAware targetAware)
             {
@@ -69,6 +75,8 @@ namespace Internal.Scripts.Npc.Movement
         public void CancelPath()
         {
             _hasPath = false;
+            _arrived = false;
+            _destinationNodeId = null;
             _chooseCts?.Cancel();
             _chooseCts?.Dispose();
             _chooseCts = null;
@@ -94,6 +102,15 @@ namespace Internal.Scripts.Npc.Movement
             catch (OperationCanceledException)
             {
                 _hasPath = false;
+                string currentNode = options.Count > 0 ? options[0].FromNodeId : null;
+                if (currentNode == _destinationNodeId)
+                {
+                    _arrived = true;
+                }
+                else
+                {
+                    Debug.LogWarning($"[RoadPathCursor] Path failed at '{currentNode}', destination was '{_destinationNodeId}'");
+                }
             }
         }
     }
