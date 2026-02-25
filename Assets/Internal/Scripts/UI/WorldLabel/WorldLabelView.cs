@@ -1,3 +1,5 @@
+using Internal.Scripts.Economy.Generated;
+using Internal.Scripts.UI.Theme;
 using Internal.Scripts.UI.Tooltip;
 using TMPro;
 using UnityEngine;
@@ -20,6 +22,15 @@ namespace Internal.Scripts.UI.WorldLabel
         private TooltipService _tooltipService;
 
         public TextMeshProUGUI NameText => _nameText;
+
+        public void SetColorController(StaticColorController controller, Biome biome)
+        {
+            foreach (var binder in GetComponentsInChildren<UiStaticColorBinder>(true))
+            {
+                binder.Initialize(controller);
+                binder.SetBiome(biome);
+            }
+        }
 
         public void Initialize(TooltipService tooltipService)
         {

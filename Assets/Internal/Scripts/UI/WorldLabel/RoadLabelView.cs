@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using Internal.Scripts.Economy.Generated;
 using Internal.Scripts.Road.Core;
+using Internal.Scripts.UI.Theme;
 using Internal.Scripts.UI.Tooltip;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -19,10 +21,23 @@ namespace Internal.Scripts.UI.WorldLabel
         [Header("Highlight")]
         [SerializeField] private Color _highlightColor = Color.yellow;
 
+        private StaticColorController _colorController;
+        private Biome _biome = Biome.Plains;
         private TooltipService _tooltipService;
 
         private RoadRuntime _road;
         private LineRenderer _highlightLine;
+
+        public void SetColorController(StaticColorController controller, Biome biome)
+        {
+            _colorController = controller;
+            _biome = biome;
+            foreach (var binder in GetComponentsInChildren<UiStaticColorBinder>(true))
+            {
+                binder.Initialize(controller);
+                binder.SetBiome(biome);
+            }
+        }
 
         public void Initialize(TooltipService tooltipService)
         {
@@ -58,6 +73,8 @@ namespace Internal.Scripts.UI.WorldLabel
 
             var mat = new Material(Shader.Find("Sprites/Default"));
             Color c = _highlightColor;
+            if (_colorController != null)
+                c = _colorController.GetColor(_biome, ColorSlot.RoadHighlight);
             c.a = 0.5f;
             mat.color = c;
             _highlightLine.material = mat;

@@ -11,8 +11,7 @@ namespace Internal.Scripts.UI.Theme
         [SerializeField] private Graphic _target;
         [SerializeField] private float _transitionDuration = 0.5f;
 
-        [Inject(Optional = true)] private UiThemeService _themeService;
-
+        private UiThemeService _themeService;
         private Coroutine _transitionCoroutine;
 
         private void OnEnable()
@@ -34,6 +33,14 @@ namespace Internal.Scripts.UI.Theme
                 StopCoroutine(_transitionCoroutine);
                 _transitionCoroutine = null;
             }
+        }
+
+        public void Initialize(UiThemeService themeService)
+        {
+            _themeService = themeService;
+            if (isActiveAndEnabled)
+                _themeService.PaletteChanged += OnPaletteChanged;
+            ApplyImmediate();
         }
 
         private void OnPaletteChanged(UiColorPalette palette)

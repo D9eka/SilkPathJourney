@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using Internal.Scripts.Economy;
 using Internal.Scripts.Economy.Cities;
-using Internal.Scripts.Road.Nodes.UI;
-using Internal.Scripts.Road.Nodes.UI.NodesViewer;
+using Internal.Scripts.Economy.Cities.UI;
+using Internal.Scripts.UI.Theme;
 using Internal.Scripts.World.State;
 using UnityEngine;
 
@@ -12,38 +12,46 @@ namespace Internal.Scripts.UI.WorldLabel
     {
         private const int MODIFIERS_PER_CITY = 2;
 
-        private readonly INodesViewer _nodesViewer;
+        private readonly CityViewSpawner _cityViewSpawner;
         private readonly EconomyDatabase _economyDatabase;
+        private readonly StaticColorController _colorController;
 
         public CityLabelSpawner(
-            INodesViewer nodesViewer,
+            CityViewSpawner cityViewSpawner,
             WorldStateController worldStateController,
             WorldCanvas worldCanvas,
-            EconomyDatabase economyDatabase)
+            EconomyDatabase economyDatabase,
+            StaticColorController colorController)
             : base(worldStateController, worldCanvas)
         {
-            _nodesViewer = nodesViewer;
+            _cityViewSpawner = cityViewSpawner;
             _economyDatabase = economyDatabase;
+            _colorController = colorController;
         }
 
         protected override bool ShouldShowInViewMode(WorldViewMode viewMode) => true;
 
         protected override void SpawnLabels()
         {
-            foreach (NodeView nodeView in _nodesViewer.GetAllNodes())
+            int total = 0;
+
+            foreach (CityView view in _cityViewSpawner.Views)
             {
-                Transform nodeTransform = nodeView.transform.parent;
-                if (nodeTransform == null) continue;
-                if (!nodeTransform.TryGetComponent(out CityNodeLink link)) continue;
-                if (link.City == null) continue;
+                if (view.City == null) continue;
+                total++;
+
+                CityData city = view.City;
+                Transform nodeTransform = view.transform.parent;
+                Vector3 position = nodeTransform != null ? nodeTransform.position : view.transform.position;
 
                 WorldLabelView label = CreateAndConfigureLabel(
-                    nodeTransform.position,
-                    $"CityLabel_{link.CityId}");
-                label.SetLocalizedText(link.City.Name, link.City.Id);
-                label.SetTooltipProvider(link.City);
+                    position,
+                    $"CityLabel_{city.Id}");
+                label.SetColorController(_colorController, city.Biome);
+                label.SetLocalizedText(city.Name, city.Id);
+                label.SetTooltipProvider(city);
 
-                CityTypeData cityType = _economyDatabase.GetCityType(link.City.Type);
+                CityTypeData cityType = _economyDatabase.GetCityType(city.Type);
                 if (cityType != null)
                 {
                     if (cityType.Icon != null)
@@ -53,6 +61,8 @@ namespace Internal.Scripts.UI.WorldLabel
 
                 AddRandomModifiers(label);
             }
+
+            Debug.Log($"[CityLabelSpawner] City labels created: {total}");
         }
 
         private void AddRandomModifiers(WorldLabelView label)

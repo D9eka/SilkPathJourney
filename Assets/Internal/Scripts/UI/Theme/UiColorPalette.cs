@@ -31,6 +31,13 @@ namespace Internal.Scripts.UI.Theme
         [field: SerializeField] public Color SliderFillNegative { get; private set; }
         [field: SerializeField] public Color ButtonSelectedBorder { get; private set; }
 
+        [Header("Static")]
+        [field: SerializeField] public Color RoadHighlight { get; private set; }
+        [field: SerializeField] public Color ValuePositive { get; private set; }
+        [field: SerializeField] public Color ValueNegative { get; private set; }
+        [field: SerializeField] public Color AccentHighlight { get; private set; }
+        [field: SerializeField] public Color CityMarker { get; private set; }
+
         public Color GetColor(ColorSlot slot) => slot switch
         {
             ColorSlot.WindowBackground => WindowBackground,
@@ -49,6 +56,11 @@ namespace Internal.Scripts.UI.Theme
             ColorSlot.SliderFillPositive => SliderFillPositive,
             ColorSlot.SliderFillNegative => SliderFillNegative,
             ColorSlot.ButtonSelectedBorder => ButtonSelectedBorder,
+            ColorSlot.RoadHighlight => RoadHighlight,
+            ColorSlot.ValuePositive => ValuePositive,
+            ColorSlot.ValueNegative => ValueNegative,
+            ColorSlot.AccentHighlight => AccentHighlight,
+            ColorSlot.CityMarker => CityMarker,
             _ => Color.magenta,
         };
 
@@ -69,7 +81,12 @@ namespace Internal.Scripts.UI.Theme
             Color sliderBackground,
             Color sliderFillPositive,
             Color sliderFillNegative,
-            Color buttonSelectedBorder)
+            Color buttonSelectedBorder,
+            Color roadHighlight,
+            Color valuePositive,
+            Color valueNegative,
+            Color accentHighlight,
+            Color cityMarker)
         {
             WindowBackground = windowBackground;
             WindowContainer = windowContainer;
@@ -87,6 +104,11 @@ namespace Internal.Scripts.UI.Theme
             SliderFillPositive = sliderFillPositive;
             SliderFillNegative = sliderFillNegative;
             ButtonSelectedBorder = buttonSelectedBorder;
+            RoadHighlight = roadHighlight;
+            ValuePositive = valuePositive;
+            ValueNegative = valueNegative;
+            AccentHighlight = accentHighlight;
+            CityMarker = cityMarker;
         }
 #endif
     }
