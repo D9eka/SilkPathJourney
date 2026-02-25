@@ -2495,6 +2495,78 @@ MonoBehaviour:
     m_Key: event_type.crisis.name
     m_Metadata:
       m_Items: []
+  - m_Id: 4296128710303744
+    m_Key: event.road_discover_R_N_Urumqi__N_Kucha.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4296128756441088
+    m_Key: event.road_discover_R_N_Urumqi__N_Kucha.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4296128756441089
+    m_Key: event.road_discover_R_N_Urumqi__N_Kucha.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4296128756441090
+    m_Key: event.road_discover_R_N_Urumqi__N_Kucha.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4296128756441091
+    m_Key: event.road_discover_R_N_Urumqi__N_Kucha.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4296128756441092
+    m_Key: event.road_discover_R_N_Urumqi__N_Kucha.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4296128756441093
+    m_Key: event.road_encounter_R_N_Urumqi__N_Kucha.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4296128756441094
+    m_Key: event.road_encounter_R_N_Urumqi__N_Kucha.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4296128756441095
+    m_Key: event.road_encounter_R_N_Urumqi__N_Kucha.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4296128756441096
+    m_Key: event.road_encounter_R_N_Urumqi__N_Kucha.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4296128756441097
+    m_Key: event.road_encounter_R_N_Urumqi__N_Kucha.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4296128756441098
+    m_Key: event.road_encounter_R_N_Urumqi__N_Kucha.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4296128760635392
+    m_Key: event.road_quest_R_N_Urumqi__N_Kucha.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4296128760635393
+    m_Key: event.road_quest_R_N_Urumqi__N_Kucha.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4296128760635394
+    m_Key: event.road_quest_R_N_Urumqi__N_Kucha.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4296128760635395
+    m_Key: event.road_quest_R_N_Urumqi__N_Kucha.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4296128760635396
+    m_Key: event.road_quest_R_N_Urumqi__N_Kucha.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4296128760635397
+    m_Key: event.road_quest_R_N_Urumqi__N_Kucha.choice2.result
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

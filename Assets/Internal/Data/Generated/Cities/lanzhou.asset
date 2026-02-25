@@ -19,7 +19,7 @@ MonoBehaviour:
   <SecondaryCulture>k__BackingField: 2
   <MarketScale>k__BackingField: 0.95
   <HasPort>k__BackingField: 0
-  <Biome>k__BackingField: 2
+  <Biome>k__BackingField: 1
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Economy

@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Economy.Cities.CityData
   <Id>k__BackingField: quanzhou
   <NodeId>k__BackingField: N_Quanzhou
-  <Type>k__BackingField: 2
+  <Type>k__BackingField: 8
   <PrimaryCulture>k__BackingField: 1
   <SecondaryCulture>k__BackingField: 0
   <MarketScale>k__BackingField: 1.2
   <HasPort>k__BackingField: 1
-  <Biome>k__BackingField: 5
+  <Biome>k__BackingField: 1
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Economy
