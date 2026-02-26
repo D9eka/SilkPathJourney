@@ -9,6 +9,8 @@ namespace Internal.Scripts.UI.Screens.Core.Config
         Event = 4,
         TargetSelection = 5,
         Pause = 6,
-        MainMenu = 7
+        MainMenu = 7,
+        SaveGame = 8,
+        LoadGame = 9
     }
 }

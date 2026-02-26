@@ -118,6 +118,8 @@ namespace Internal.Scripts.UI.StackService
 
             _stack.Add(instance);
             previousTop?.ViewModel?.OnFocusLost();
+            if (config.HidesBelowScreen && previousTop != null)
+                previousTop.View?.Hide();
             instance.View.Show();
             instance.ViewModel.Open(args);
             instance.ViewModel.OnFocusGained();
@@ -150,6 +152,19 @@ namespace Internal.Scripts.UI.StackService
             CloseAtIndex(index);
         }
 
+        public void CloseAllAbove(ScreenId keepId)
+        {
+            if (!IsOpen(keepId))
+                return;
+
+            for (int i = _stack.Count - 1; i >= 0; i--)
+            {
+                if (_stack[i].Id == keepId)
+                    break;
+                CloseAtIndex(i);
+            }
+        }
+
         private void CloseAtIndex(int index)
         {
             ScreenInstance instance = _stack[index];
@@ -161,7 +176,11 @@ namespace Internal.Scripts.UI.StackService
             _stack.RemoveAt(index);
 
             if (wasTop && _stack.Count > 0)
+            {
                 _stack[^1].ViewModel?.OnFocusGained();
+                if (instance.Config != null && instance.Config.HidesBelowScreen)
+                    _stack[^1].View?.Show();
+            }
 
             UpdateOverlays();
         }
