@@ -60,6 +60,8 @@ namespace Internal.Scripts.Installers
             Container.BindInstance(_gameBalanceConfig).AsSingle();
 
             Container.Bind<ISaveService>().To<JsonSaveService>().AsSingle();
+            Container.Bind<ActiveSaveSlot>().AsSingle();
+            Container.Bind<SaveRepository>().AsSingle();
             Container.Bind<QuitGameService>().AsSingle();
             Container.Bind<SceneReference>().WithId(SceneRefId.Game).FromInstance(_gameScene).AsCached();
             Container.Bind<SceneReference>().WithId(SceneRefId.MainMenu).FromInstance(_mainMenuScene).AsCached();

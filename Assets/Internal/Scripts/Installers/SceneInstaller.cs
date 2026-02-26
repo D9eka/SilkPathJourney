@@ -169,7 +169,6 @@ namespace Internal.Scripts.Installers
         private void InstallEconomy()
         {
             Container.Bind<ItemCatalog>().AsSingle();
-            Container.Bind<SaveRepository>().AsSingle();
             Container.Bind<EconomySaveBuilder>().AsSingle();
             Container.BindInterfacesAndSelfTo<SaveBootstrapper>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<InventoryRepository>().AsSingle().NonLazy();

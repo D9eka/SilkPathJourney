@@ -1,10 +1,13 @@
+using System.Collections.Generic;
+
 namespace Internal.Scripts.Save
 {
     public interface ISaveService
     {
-        bool HasSave();
-        SaveData Load();
-        void Save(SaveData data);
-        void Delete();
+        List<SaveMetadata> GetAllSaves();
+        bool HasAnySave();
+        SaveData Load(string slotId);
+        void Save(string slotId, SaveData data, SaveMetadata metadata);
+        void Delete(string slotId);
     }
 }
