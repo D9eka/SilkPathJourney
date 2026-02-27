@@ -35,12 +35,13 @@ namespace Internal.Scripts.UI.Screens.Inventory
         private int _lastItemsHash;
         private bool _hasItemsHash;
         private UnityAction _actionHandler;
-        private LocalizationHelper.LocalizedTextHandle _actionHandle;
+        private LocalizationService.LocalizedTextHandle _actionHandle;
 
         protected override void OnEnable()
         {
             base.OnEnable();
-            BindLocalization();
+            if (Localization != null)
+                BindLocalization();
             SubscribeViewModel();
         }
 
@@ -163,10 +164,16 @@ namespace Internal.Scripts.UI.Screens.Inventory
             _viewModel?.DropItem(item.ItemId, 1);
         }
 
+        protected override void OnLocalizationReady()
+        {
+            base.OnLocalizationReady();
+            BindLocalization();
+        }
+
         private void BindLocalization()
         {
             _actionHandle?.Dispose();
-            _actionHandle = LocalizationHelper.BindText(_actionButtonText, _actionButtonLocalizedString, $"{name}.ActionButton");
+            _actionHandle = Localization.BindText(_actionButtonText, _actionButtonLocalizedString, $"{name}.ActionButton");
         }
     }
 }

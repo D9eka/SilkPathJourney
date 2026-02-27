@@ -8,6 +8,7 @@ using Internal.Scripts.Npc.Lifecycle;
 using Internal.Scripts.Player;
 using Internal.Scripts.Save;
 using Internal.Scripts.UI.Components;
+using Internal.Scripts.UI.Localization;
 using Internal.Scripts.UI.Screens.Config;
 using Internal.Scripts.Utils;
 using Plugins.Zenject.Source.Install;
@@ -62,6 +63,7 @@ namespace Internal.Scripts.Installers
             Container.Bind<ISaveService>().To<JsonSaveService>().AsSingle();
             Container.Bind<ActiveSaveSlot>().AsSingle();
             Container.Bind<SaveRepository>().AsSingle();
+            Container.Bind<LocalizationService>().AsSingle();
             Container.Bind<QuitGameService>().AsSingle();
             Container.Bind<SceneReference>().WithId(SceneRefId.Game).FromInstance(_gameScene).AsCached();
             Container.Bind<SceneReference>().WithId(SceneRefId.MainMenu).FromInstance(_mainMenuScene).AsCached();

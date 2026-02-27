@@ -33,7 +33,7 @@ namespace Internal.Scripts.UI.Screens.Hud
                 _eventIcon.sprite = eventData.Image;
 
             if (_eventText != null)
-                _eventText.text = LocalizationHelper.ResolveString(
+                _eventText.text = LocalizationService.ResolveString(
                     eventData.Name, eventData.Id, "EventToast");
 
             _sequence = DOTween.Sequence()

@@ -47,14 +47,20 @@ namespace Internal.Scripts.UI.Screens.Event
         private List<EventChoice> _currentChoices;
         private int _selectedChoiceIndex = -1;
 
-        private LocalizationHelper.LocalizedTextHandle _mainHeaderHandle;
-        private LocalizationHelper.LocalizedTextHandle _nameHandle;
-        private LocalizationHelper.LocalizedTextHandle _typeHandle;
-        private LocalizationHelper.LocalizedTextHandle _descriptionHandle;
+        private LocalizationService.LocalizedTextHandle _mainHeaderHandle;
+        private LocalizationService.LocalizedTextHandle _nameHandle;
+        private LocalizationService.LocalizedTextHandle _typeHandle;
+        private LocalizationService.LocalizedTextHandle _descriptionHandle;
+
+        protected override void OnLocalizationReady()
+        {
+            BindHeaderLocalization();
+        }
 
         private void OnEnable()
         {
-            BindHeaderLocalization();
+            if (Localization != null)
+                BindHeaderLocalization();
             SubscribeViewModel();
         }
 
@@ -79,7 +85,7 @@ namespace Internal.Scripts.UI.Screens.Event
         {
             _mainHeaderHandle?.Dispose();
             if (_mainHeader != null && _mainHeader.Text != null && _mainHeaderLocalizedString != null)
-                _mainHeaderHandle = LocalizationHelper.BindText(
+                _mainHeaderHandle = Localization.BindText(
                     _mainHeader.Text, _mainHeaderLocalizedString, "Event.MainHeader");
         }
 
@@ -91,7 +97,7 @@ namespace Internal.Scripts.UI.Screens.Event
 
         private void SubscribeViewModel()
         {
-            if (_viewModel == null || _stateSubscription != null)
+            if (_viewModel == null || _stateSubscription != null || Localization == null)
                 return;
 
             _stateSubscription = _viewModel.State.Subscribe(UpdateContent);
@@ -184,14 +190,14 @@ namespace Internal.Scripts.UI.Screens.Event
         }
 
         private void BindLocalizedText(
-            ref LocalizationHelper.LocalizedTextHandle handle,
+            ref LocalizationService.LocalizedTextHandle handle,
             TextMeshProUGUI textField,
             LocalizedString localizedString,
             string fallback)
         {
             handle?.Dispose();
             if (textField != null && localizedString != null)
-                handle = LocalizationHelper.BindText(textField, localizedString, fallback);
+                handle = Localization.BindText(textField, localizedString, fallback);
         }
 
         private void CreateChoiceButtons(List<EventChoice> choices)
@@ -208,6 +214,7 @@ namespace Internal.Scripts.UI.Screens.Event
                 EventChoice choice = choices[i];
                 EventChoiceButton button = Instantiate(_choiceButtonPrefab, _choiceButtonsRoot);
                 button.Initialize(
+                    Localization,
                     choice.Text,
                     () =>
                     {
@@ -273,6 +280,7 @@ namespace Internal.Scripts.UI.Screens.Event
 
             EventChoiceButton continueBtn = Instantiate(_choiceButtonPrefab, _choiceButtonsRoot);
             continueBtn.Initialize(
+                Localization,
                 _continueLocalizedString,
                 () => _viewModel?.ConfirmResult());
             _activeButtons.Add(continueBtn);
@@ -292,11 +300,11 @@ namespace Internal.Scripts.UI.Screens.Event
                 return;
             }
 
-            string cityName = LocalizationHelper.ResolveString(city.Name, city.Id, "CityName");
+            string cityName = LocalizationService.ResolveString(city.Name, city.Id, "CityName");
 
             _eventLocationText.text = isAtCity
                 ? cityName
-                : LocalizationHelper.ResolveString(_nearCityFormat, $"Near {cityName}", "NearCity", cityName);
+                : LocalizationService.ResolveString(_nearCityFormat, $"Near {cityName}", "NearCity", cityName);
         }
     }
 }

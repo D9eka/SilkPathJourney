@@ -54,6 +54,8 @@ namespace Internal.Scripts.UI.Screens.Hud
         private HudScreenViewModel _viewModel;
         private IDisposable _stateSubscription;
         private IDisposable _resourceSubscription;
+        private LocalizationService.LocalizedTextGroup _buttonHandles;
+        private LocalizationService.LocalizedTextHandle _cityHandle;
 
         private void OnEnable()
         {
@@ -82,7 +84,7 @@ namespace Internal.Scripts.UI.Screens.Hud
 
         private void SubscribeViewModel()
         {
-            if (_viewModel == null || _stateSubscription != null)
+            if (_viewModel == null || _stateSubscription != null || Localization == null)
                 return;
 
             _stateSubscription = _viewModel.State.Subscribe(ApplyState);
@@ -113,6 +115,11 @@ namespace Internal.Scripts.UI.Screens.Hud
             _viewModel.InteractableChanged -= SetInteractable;
             _viewModel.DayChanged -= ApplyDay;
 
+            _buttonHandles?.Dispose();
+            _buttonHandles = null;
+            _cityHandle?.Dispose();
+            _cityHandle = null;
+
             _startActionButton.onClick.RemoveListener(OnStartAction);
             _actionButton.onClick.RemoveListener(OnAction);
             _endActionButton.onClick.RemoveListener(OnEndAction);
@@ -140,9 +147,11 @@ namespace Internal.Scripts.UI.Screens.Hud
             _endActionButton.gameObject.SetActive(true);
             _cityTextContainer.SetActive(false);
 
-            SetButtonText(_startActionButtonText, _campLocalizedString, "Camp");
-            SetButtonText(_actionButtonText, _moveLocalizedString, "Move");
-            SetButtonText(_endActionButtonText, _fastMoveLocalizedString, "Rush");
+            _buttonHandles?.Dispose();
+            _buttonHandles = Localization.CreateTextGroup();
+            _buttonHandles.Bind(_startActionButtonText, _campLocalizedString, "Hud.Camp");
+            _buttonHandles.Bind(_actionButtonText, _moveLocalizedString, "Hud.Move");
+            _buttonHandles.Bind(_endActionButtonText, _fastMoveLocalizedString, "Hud.Rush");
 
             SetSpeedBorder(activeSpeedIndex);
         }
@@ -156,15 +165,19 @@ namespace Internal.Scripts.UI.Screens.Hud
             _endActionButton.gameObject.SetActive(!inCity);
             _cityTextContainer.SetActive(inCity);
 
+            _buttonHandles?.Dispose();
+            _buttonHandles = Localization.CreateTextGroup();
+
             if (inCity)
             {
-                SetButtonText(_startActionButtonText, _leaveCityLocalizedString, "LeaveCity");
-                _cityText.text = LocalizationHelper.ResolveString(city.Name, city.Id, "CityName");
+                _buttonHandles.Bind(_startActionButtonText, _leaveCityLocalizedString, "Hud.LeaveCity");
+                _cityHandle?.Dispose();
+                _cityHandle = Localization.BindText(_cityText, city.Name, "Hud.CityName");
             }
             else
             {
-                SetButtonText(_startActionButtonText, _enterCityLocalizedString, "EnterCity");
-                SetButtonText(_endActionButtonText, _moveLocalizedString, "Move");
+                _buttonHandles.Bind(_startActionButtonText, _enterCityLocalizedString, "Hud.EnterCity");
+                _buttonHandles.Bind(_endActionButtonText, _moveLocalizedString, "Hud.Move");
             }
 
             ClearSpeedBorders();
@@ -182,13 +195,6 @@ namespace Internal.Scripts.UI.Screens.Hud
             _startActionBorder.SetActive(false);
             _actionBorder.SetActive(false);
             _endActionBorder.SetActive(false);
-        }
-
-        private void SetButtonText(TextMeshProUGUI textField, LocalizedString localizedString, string context)
-        {
-            if (textField != null)
-                textField.text = LocalizationHelper.ResolveString(localizedString,
-                    localizedString.TableEntryReference.Key, context);
         }
 
         private void ApplyResources(HudResourceViewState res)
@@ -221,9 +227,9 @@ namespace Internal.Scripts.UI.Screens.Hud
 
         private void ApplyDay(int day)
         {
-            string label = LocalizationHelper.ResolveString(
-                _dayTextLocalizedString, _dayTextLocalizedString.TableEntryReference.Key, "Day");
-            _dayText.text = $"{label} {day}";
+            if (_dayText == null) return;
+            _dayText.text = LocalizationService.ResolveString(
+                _dayTextLocalizedString, $"Day {day}", "Hud.Day", day);
         }
 
         private void SetupIcons()

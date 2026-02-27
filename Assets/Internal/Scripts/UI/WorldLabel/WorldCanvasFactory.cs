@@ -1,6 +1,7 @@
 using Internal.Scripts.Camera;
 using Internal.Scripts.Camera.Zoom;
 using Internal.Scripts.UI.Arrow.PositionCalculation;
+using Internal.Scripts.UI.Localization;
 using Internal.Scripts.UI.Tooltip;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,6 +12,7 @@ namespace Internal.Scripts.UI.WorldLabel
     {
         private readonly DetailSceneBounds _bounds;
         private readonly TooltipService _tooltipService;
+        private readonly LocalizationService _localizationService;
         private readonly GroundSnapper _groundSnapper;
         private readonly UnityEngine.Camera _camera;
         private readonly WorldCanvasSettings _settings;
@@ -19,6 +21,7 @@ namespace Internal.Scripts.UI.WorldLabel
         public WorldCanvasFactory(
             DetailSceneBounds bounds,
             TooltipService tooltipService,
+            LocalizationService localizationService,
             GroundSnapper groundSnapper,
             UnityEngine.Camera camera,
             WorldCanvasSettings settings,
@@ -26,6 +29,7 @@ namespace Internal.Scripts.UI.WorldLabel
         {
             _bounds = bounds;
             _tooltipService = tooltipService;
+            _localizationService = localizationService;
             _groundSnapper = groundSnapper;
             _camera = camera;
             _settings = settings;
@@ -52,7 +56,7 @@ namespace Internal.Scripts.UI.WorldLabel
             }
 
             var worldCanvas = go.AddComponent<WorldCanvas>();
-            worldCanvas.Initialize(canvas, _tooltipService, _groundSnapper, _camera, _settings, _zoomerData);
+            worldCanvas.Initialize(canvas, _tooltipService, _localizationService, _groundSnapper, _camera, _settings, _zoomerData);
             return worldCanvas;
         }
     }

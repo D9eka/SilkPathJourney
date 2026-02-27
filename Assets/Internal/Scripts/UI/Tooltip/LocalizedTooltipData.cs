@@ -6,7 +6,7 @@ namespace Internal.Scripts.UI.Tooltip
 {
     /// <summary>
     /// Base class for ScriptableObject data that provides localized tooltip information.
-    /// Provides default implementation using LocalizationHelper.
+    /// Provides default implementation using LocalizationService.
     /// </summary>
     public abstract class LocalizedTooltipData : ScriptableObject, ITooltipDataProvider
     {
@@ -38,7 +38,7 @@ namespace Internal.Scripts.UI.Tooltip
 
         public virtual string GetTooltipTitle()
         {
-            return LocalizationHelper.ResolveString(
+            return LocalizationService.ResolveString(
                 TooltipName,
                 TooltipId,
                 $"{TooltipContext}Name");
@@ -46,7 +46,7 @@ namespace Internal.Scripts.UI.Tooltip
 
         public virtual string GetTooltipDescription()
         {
-            string desc = LocalizationHelper.ResolveString(
+            string desc = LocalizationService.ResolveString(
                 TooltipDescription,
                 string.Empty,
                 $"{TooltipContext}Description");
