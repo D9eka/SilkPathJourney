@@ -196,6 +196,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2023961625302842222}
     m_Modifications:
+    - target: {fileID: 946746372569755740, guid: 811e04bc1563c8242b275a1ddba4673c, type: 3}
+      propertyPath: _resourceType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3171677828548024076, guid: 811e04bc1563c8242b275a1ddba4673c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -393,6 +397,10 @@ PrefabInstance:
     - target: {fileID: 1307238041977244884, guid: a4c5f4bbf95870149a1c5c49c96922b7, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3017174810482134595, guid: a4c5f4bbf95870149a1c5c49c96922b7, type: 3}
+      propertyPath: _resourceType
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3034722986700664372, guid: a4c5f4bbf95870149a1c5c49c96922b7, type: 3}
       propertyPath: m_AnchorMax.y
@@ -663,6 +671,10 @@ PrefabInstance:
     - target: {fileID: 1307238041977244884, guid: a4c5f4bbf95870149a1c5c49c96922b7, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3017174810482134595, guid: a4c5f4bbf95870149a1c5c49c96922b7, type: 3}
+      propertyPath: _resourceType
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3034722986700664372, guid: a4c5f4bbf95870149a1c5c49c96922b7, type: 3}
       propertyPath: m_AnchorMax.y
@@ -949,6 +961,10 @@ PrefabInstance:
     - target: {fileID: 1307238041977244884, guid: a4c5f4bbf95870149a1c5c49c96922b7, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3017174810482134595, guid: a4c5f4bbf95870149a1c5c49c96922b7, type: 3}
+      propertyPath: _resourceType
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3017174810482134595, guid: a4c5f4bbf95870149a1c5c49c96922b7, type: 3}
       propertyPath: _negativeColor.g
