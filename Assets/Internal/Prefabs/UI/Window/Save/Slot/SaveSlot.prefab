@@ -157,13 +157,44 @@ MonoBehaviour:
   _timeText: {fileID: 817310024363547020}
   _dayText: {fileID: 8857056416995590940}
   _cityText: {fileID: 4739160262313196123}
-  _moneyIndicator: {fileID: 6448935191337005542}
+  _playerCartDurabilityIndicator: {fileID: 4554932682988950938}
+  _otherCartsDurabilityIndicator: {fileID: 5150516423346720500}
   _foodIndicator: {fileID: 5001364125468074209}
-  _durabilityIndicator: {fileID: 4554932682988950938}
   _dangerIndicator: {fileID: 1525626999041474978}
   _partnersIndicator: {fileID: 5106018338680710889}
+  _moneyIndicator: {fileID: 6448935191337005542}
   _selectionBorder: {fileID: 9185386231744030359}
   _deleteButton: {fileID: 4166606460582245143}
+  _autoSaveTag:
+    m_TableReference:
+      m_TableCollectionName: GUID:43598c3e97d7d9a439a074f7627fe021
+    m_TableEntryReference:
+      m_KeyId: 8401231889293316
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  _manualSaveTag:
+    m_TableReference:
+      m_TableCollectionName: GUID:43598c3e97d7d9a439a074f7627fe021
+    m_TableEntryReference:
+      m_KeyId: 8401231889293317
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  _dayTextLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:43598c3e97d7d9a439a074f7627fe021
+    m_TableEntryReference:
+      m_KeyId: 8401231889293315
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
 --- !u!1 &5609732602964727387
 GameObject:
   m_ObjectHideFlags: 0
@@ -1565,6 +1596,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ef67efb12d780a418787034ec78c700, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Components.ResourceIndicator
+--- !u!114 &5150516423346720500 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 863050716112110127, guid: 95d85323482d98e4e8860f4ee525ce15, type: 3}
+  m_PrefabInstance: {fileID: 5512515243343334619}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30474e70d2f17004193b7ce4ca11e003, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Components.SliderResourceIndicator
 --- !u!224 &5807089592994985909 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2023961625302842222, guid: 95d85323482d98e4e8860f4ee525ce15, type: 3}

@@ -1,10 +1,12 @@
 using System.Collections.Generic;
 using Internal.Scripts.Save;
+using Internal.Scripts.UI.Localization;
 using Internal.Scripts.UI.Screens.Core.ViewModel;
 using Internal.Scripts.UI.Theme;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Localization;
 using UnityEngine.UI;
 
 namespace Internal.Scripts.UI.Screens.Save
@@ -18,6 +20,7 @@ namespace Internal.Scripts.UI.Screens.Save
         [Header("Action")]
         [SerializeField] private Button _actionButton;
         [SerializeField] private TextMeshProUGUI _actionButtonText;
+        [SerializeField] protected LocalizedString _actionButtonLocalizedString;
 
         protected SaveLoadScreenViewModel ViewModel { get; private set; }
         protected Transform SlotsContainer => _slotsContainer;
@@ -26,6 +29,7 @@ namespace Internal.Scripts.UI.Screens.Save
         private int _selectedIndex = -1;
         private UnityAction _actionHandler;
         private bool _subscribed;
+        private LocalizationService.LocalizedTextHandle _actionButtonHandle;
 
         public override void BindViewModel(IScreenViewModel viewModel)
         {
@@ -57,6 +61,11 @@ namespace Internal.Scripts.UI.Screens.Save
             _actionButton.onClick.AddListener(_actionHandler);
 
             RefreshSlots();
+
+            _actionButtonHandle?.Dispose();
+            if (_actionButtonText != null && Localization != null)
+                _actionButtonHandle = Localization.BindText(
+                    _actionButtonText, _actionButtonLocalizedString, "SaveLoad.ActionButton");
         }
 
         private void UnsubscribeViewModel()
@@ -72,6 +81,9 @@ namespace Internal.Scripts.UI.Screens.Save
                 _actionButton.onClick.RemoveListener(_actionHandler);
                 _actionHandler = null;
             }
+
+            _actionButtonHandle?.Dispose();
+            _actionButtonHandle = null;
         }
 
         protected void RefreshSlots()
@@ -96,9 +108,6 @@ namespace Internal.Scripts.UI.Screens.Save
 
             OnRefreshSlots(count);
 
-            if (_actionButtonText != null)
-                _actionButtonText.text = GetActionButtonText();
-
             if (_selectedIndex >= TotalSlotCount())
                 _selectedIndex = TotalSlotCount() - 1;
 
@@ -108,8 +117,6 @@ namespace Internal.Scripts.UI.Screens.Save
         protected virtual void OnRefreshSlots(int activeSaveCount)
         {
         }
-
-        protected abstract string GetActionButtonText();
 
         protected abstract void PerformAction(int index);
 

@@ -18,11 +18,12 @@ namespace Internal.Scripts.UI.Screens.Save
         [SerializeField] private TextMeshProUGUI _cityText;
 
         [Header("Resources")]
-        [SerializeField] private ResourceIndicator _moneyIndicator;
+        [SerializeField] private ResourceIndicator _playerCartDurabilityIndicator;
+        [SerializeField] private ResourceIndicator _otherCartsDurabilityIndicator;
         [SerializeField] private ResourceIndicator _foodIndicator;
-        [SerializeField] private ResourceIndicator _durabilityIndicator;
         [SerializeField] private ResourceIndicator _dangerIndicator;
         [SerializeField] private ResourceIndicator _partnersIndicator;
+        [SerializeField] private ResourceIndicator _moneyIndicator;
 
         [Header("Selection")]
         [SerializeField] private GameObject _selectionBorder;
@@ -33,6 +34,7 @@ namespace Internal.Scripts.UI.Screens.Save
         [Header("Localization")]
         [SerializeField] private LocalizedString _autoSaveTag;
         [SerializeField] private LocalizedString _manualSaveTag;
+        [SerializeField] private LocalizedString _dayTextLocalizedString;
 
         private SaveLoadScreenBase _owner;
         private int _index;
@@ -52,32 +54,36 @@ namespace Internal.Scripts.UI.Screens.Save
             if (_timeText != null)
             {
                 var localizedTag = metadata.IsAutoSave ? _autoSaveTag : _manualSaveTag;
-                string tag = LocalizationHelper.ResolveString(
+                string tag = LocalizationService.ResolveString(
                     localizedTag, metadata.IsAutoSave ? "А" : "Р", "SaveSlot.Tag");
                 var time = DateTimeOffset.FromUnixTimeSeconds(metadata.LastSavedTimestamp).LocalDateTime;
                 _timeText.text = $"{tag}: {time:dd.MM.yyyy HH:mm:ss}";
             }
 
             if (_dayText != null)
-                _dayText.text = $"День {metadata.CurrentDay}";
+                _dayText.text = LocalizationService.ResolveString(
+                    _dayTextLocalizedString, $"День {metadata.CurrentDay}", "SaveSlot.DayText",
+                    metadata.CurrentDay);
 
             if (_cityText != null)
                 _cityText.text = cityName;
 
-            ApplyIndicator(_moneyIndicator, icons?.Get(ResourceType.Money)?.Icon,
-                metadata.Money, 0);
+            ApplyIndicator(_playerCartDurabilityIndicator, icons?.Get(ResourceType.PlayerCartDurability)?.Icon,
+                metadata.CartDurability, metadata.CartDurabilityMax);
+            ApplyIndicator(_otherCartsDurabilityIndicator, icons?.Get(ResourceType.OtherCartsDurability)?.Icon,
+                metadata.OtherCartsDurability, metadata.OtherCartsDurabilityMax);
             ApplyIndicator(_foodIndicator, icons?.Get(ResourceType.Food)?.Icon,
                 metadata.Food, metadata.FoodMax);
-            ApplyIndicator(_durabilityIndicator, icons?.Get(ResourceType.PlayerCartDurability)?.Icon,
-                metadata.CartDurability, metadata.CartDurabilityMax);
             ApplyIndicator(_dangerIndicator, icons?.Get(ResourceType.Danger)?.Icon,
                 metadata.Danger, metadata.DangerMax);
             ApplyIndicator(_partnersIndicator, icons?.Get(ResourceType.Partners)?.Icon,
                 metadata.PartnerCount, 0);
+            ApplyIndicator(_moneyIndicator, icons?.Get(ResourceType.Money)?.Icon,
+                metadata.Money, 0);
 
             bool hasPartners = metadata.PartnerCount > 0;
-            if (_durabilityIndicator != null)
-                _durabilityIndicator.gameObject.SetActive(hasPartners);
+            if (_otherCartsDurabilityIndicator != null)
+                _otherCartsDurabilityIndicator.gameObject.SetActive(hasPartners);
             if (_partnersIndicator != null)
                 _partnersIndicator.gameObject.SetActive(hasPartners);
         }

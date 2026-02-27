@@ -19,5 +19,7 @@ namespace Internal.Scripts.Save
         public int FoodMax;
         public int CartDurabilityMax;
         public int DangerMax;
+        public int OtherCartsDurability;
+        public int OtherCartsDurabilityMax;
     }
 }

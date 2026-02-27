@@ -10,8 +10,6 @@ namespace Internal.Scripts.UI.Screens.Save
 
         private NewSaveSlotView _spawnedNewSlot;
 
-        protected override string GetActionButtonText() => "Save";
-
         protected override int TotalSlotCount()
         {
             return ActiveSaveSlotCount() + 1;
@@ -26,7 +24,7 @@ namespace Internal.Scripts.UI.Screens.Save
             }
 
             _spawnedNewSlot.gameObject.SetActive(true);
-            _spawnedNewSlot.Bind(this, activeSaveCount);
+            _spawnedNewSlot.Bind(this, activeSaveCount, Localization);
             _spawnedNewSlot.transform.SetAsFirstSibling();
         }
 

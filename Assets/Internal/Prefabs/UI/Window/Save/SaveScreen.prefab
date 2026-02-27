@@ -287,9 +287,9 @@ MonoBehaviour:
   _overlayScreen: {fileID: 4706053145748842755}
   _mainHeaderLocalizedString:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: GUID:43598c3e97d7d9a439a074f7627fe021
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 8401231838961664
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -298,6 +298,15 @@ MonoBehaviour:
   _slotPrefab: {fileID: 197142529526432648, guid: e3d76dad9f2ccb641913bba724cc0cb8, type: 3}
   _actionButton: {fileID: 2851779058007389560}
   _actionButtonText: {fileID: 1488484644705546375}
+  _actionButtonLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: GUID:43598c3e97d7d9a439a074f7627fe021
+    m_TableEntryReference:
+      m_KeyId: 8401231889293312
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   _newSlotPrefab: {fileID: 4137617268248142991, guid: 3503479cb6e9067469bfe52cc9306e85, type: 3}
   references:
     version: 2

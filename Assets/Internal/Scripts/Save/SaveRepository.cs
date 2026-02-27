@@ -40,6 +40,23 @@ namespace Internal.Scripts.Save
             _loadedSlotId = currentSlot;
 
             var resources = _data.Economy?.PlayerResources;
+            var carts = resources?.Carts;
+            int cartCount = carts?.Count ?? 0;
+            int otherDur = 0;
+            int otherDurMax = 0;
+            if (cartCount > 0)
+            {
+                float totalDur = 0f;
+                float totalMax = 0f;
+                foreach (var c in carts)
+                {
+                    totalDur += c.Durability;
+                    totalMax += c.MaxDurability;
+                }
+                otherDur = (int)(totalDur / cartCount);
+                otherDurMax = (int)(totalMax / cartCount);
+            }
+
             var metadata = new SaveMetadata
             {
                 SlotId = currentSlot,
@@ -51,11 +68,13 @@ namespace Internal.Scripts.Save
                 Food = (int)(resources?.Food ?? 0),
                 CartDurability = (int)(resources?.PlayerCart?.Durability ?? 0),
                 Danger = (int)(resources?.AccumulatedDanger ?? 0),
-                PartnerCount = resources?.Carts?.Count ?? 0,
+                PartnerCount = cartCount,
                 IsAutoSave = isAutoSave,
                 FoodMax = (int)_balanceConfig.MaxFood,
                 CartDurabilityMax = (int)(resources?.PlayerCart?.MaxDurability ?? 100),
-                DangerMax = (int)_balanceConfig.MaxDanger
+                DangerMax = (int)_balanceConfig.MaxDanger,
+                OtherCartsDurability = otherDur,
+                OtherCartsDurabilityMax = otherDurMax
             };
 
             _saveService.Save(currentSlot, _data, metadata);
