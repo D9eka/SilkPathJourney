@@ -884,3 +884,24 @@ UI.Trade.Main.Header.Main,interface_names,17,Торговля,Trading
 UI.Trade.Npc.Prefix.NpcNamePrefix,interface_names,20,Груз {0},Cargo {0}
 UI.Trade.Player.Text.PlayerName,interface_names,19,Ваш груз,Your cargo
 UI.Trade.Sell.Header.Main,interface_names,22,Вы продаете,You are selling
+UI.SaveGame.Main.Header.Main,interface_names,30,Сохранение,Save Game
+UI.SaveGame.Main.Button.Action,interface_names,31,Сохранить,Save
+UI.LoadGame.Main.Header.Main,interface_names,32,Загрузка,Load Game
+UI.LoadGame.Main.Button.Action,interface_names,33,Загрузить,Load
+UI.SaveSlot.Main.Text.DayText,interface_names,34,День {0},Day {0}
+UI.SaveSlot.Main.Tag.AutoSave,interface_names,35,А,A
+UI.SaveSlot.Main.Tag.ManualSave,interface_names,36,Р,M
+UI.MainMenu.Main.Button.NewGame,interface_names,37,Новая игра,New Game
+UI.MainMenu.Main.Button.Continue,interface_names,38,Продолжить,Continue
+UI.MainMenu.Main.Button.Load,interface_names,39,Загрузка,Load
+UI.MainMenu.Main.Button.Settings,interface_names,40,Настройки,Settings
+UI.MainMenu.Main.Button.Quit,interface_names,41,Выход,Quit
+UI.Pause.Main.Header.Main,interface_names,42,Пауза,Pause
+UI.Pause.Main.Button.BackToGame,interface_names,43,Продолжить,Resume
+UI.Pause.Main.Button.Save,interface_names,44,Сохранить,Save
+UI.Pause.Main.Button.Load,interface_names,45,Загрузить,Load
+UI.Pause.Main.Button.Settings,interface_names,46,Настройки,Settings
+UI.Pause.Main.Button.ExitToMenu,interface_names,47,В главное меню,Main Menu
+UI.Pause.Main.Button.Quit,interface_names,48,Выход из игры,Quit Game
+UI.SaveSlot.Main.Text.NewSave,interface_names,49,+ Новое сохранение,+ New Save
+UI.MainMenu.Main.Header.GameTitle,interface_names,50,Silk Path Journey,Silk Path Journey

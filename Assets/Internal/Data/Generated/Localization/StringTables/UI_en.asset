@@ -150,6 +150,90 @@ MonoBehaviour:
     m_Localized: Day {0}
     m_Metadata:
       m_Items: []
+  - m_Id: 8401231838961664
+    m_Localized: Save Game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8401231889293312
+    m_Localized: Save
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8401231889293313
+    m_Localized: Load Game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8401231889293314
+    m_Localized: Load
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8401231889293315
+    m_Localized: Day {0}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8401231889293316
+    m_Localized: A
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8401231889293317
+    m_Localized: M
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8401231889293318
+    m_Localized: New Game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8401231889293319
+    m_Localized: Continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8401231889293320
+    m_Localized: Load
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8401231889293321
+    m_Localized: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8401231889293322
+    m_Localized: Quit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8401231889293323
+    m_Localized: Pause
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8401231889293324
+    m_Localized: Resume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8401231889293325
+    m_Localized: Save
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8401231889293326
+    m_Localized: Load
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8401231889293327
+    m_Localized: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8401231889293328
+    m_Localized: Main Menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8401231889293329
+    m_Localized: Quit Game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8412308995825664
+    m_Localized: + New Save
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8412309041963008
+    m_Localized: Silk Path Journey
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

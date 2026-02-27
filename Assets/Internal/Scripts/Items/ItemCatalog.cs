@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Internal.Scripts.Economy;
 using Internal.Scripts.Economy.Items;
-using Internal.Scripts.Localization;
+using Internal.Scripts.UI.Localization;
 
 namespace Internal.Scripts.Items
 {
@@ -39,7 +39,7 @@ namespace Internal.Scripts.Items
                 return itemId ?? string.Empty;
 
             string fallback = string.IsNullOrWhiteSpace(item.Id) ? string.Empty : item.Id;
-            return LocalizedStringResolver.Resolve(item.Name, fallback, $"Item.{item.Id}.Name");
+            return LocalizationService.ResolveString(item.Name, fallback, $"Item.{item.Id}.Name");
         }
 
         public float GetItemWeight(string itemId)
