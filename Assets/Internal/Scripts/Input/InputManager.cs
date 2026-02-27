@@ -26,8 +26,7 @@ namespace Internal.Scripts.Input
 
         public Vector2 UiNavigateValue => _uiNavigateValue;
         
-        private readonly UnityEngine.Camera _mainCamera;
-        private readonly LayerMask _interactableLayerMask;
+        private LayerMask _interactableLayerMask;
         private PlayerInputActions _inputActions;
 
         private IInteractableObject _currentHover;
@@ -46,11 +45,13 @@ namespace Internal.Scripts.Input
         private InputAction _uiNextArea;
         private InputAction _uiPrevArea;
 
-        [Inject]
-        public InputManager(UnityEngine.Camera mainCamera, LayerMask interactableLayerMask)
+        public InputManager()
         {
-            _mainCamera = mainCamera;
-            _interactableLayerMask = interactableLayerMask;
+        }
+
+        public void SetInteractableLayerMask(LayerMask mask)
+        {
+            _interactableLayerMask = mask;
         }
 
         public void Initialize()
@@ -164,11 +165,12 @@ namespace Internal.Scripts.Input
         
         private IInteractableObject TryGetInteractableUnderMouse()
         {
-            if (Mouse.current == null)
+            var cam = UnityEngine.Camera.main;
+            if (cam == null || Mouse.current == null)
                 return null;
 
             Vector2 screenPos = Mouse.current.position.ReadValue();
-            Ray ray = _mainCamera.ScreenPointToRay(screenPos);
+            Ray ray = cam.ScreenPointToRay(screenPos);
 
             if (Physics.Raycast(ray, out RaycastHit hit, MAX_RAY_DISTANCE, _interactableLayerMask))
             {

@@ -34,6 +34,12 @@ namespace Internal.Scripts.UI.StackService
             ScreenId topId = _stackService.TopId;
             if (topId is ScreenId.None) return;
 
+            if (topId == ScreenId.Hud)
+            {
+                _stackService.TryOpen(ScreenId.Pause, out _);
+                return;
+            }
+
             if (_catalog != null && _catalog.TryGet(topId, out ScreenConfig config) && config != null)
             {
                 if (!config.CloseOnBack)

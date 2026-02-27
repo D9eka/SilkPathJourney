@@ -23,6 +23,7 @@ using Internal.Scripts.Road.Path;
 using Internal.Scripts.World.State;
 using Plugins.Zenject.Source.Install;
 using UnityEngine;
+using Zenject;
 using Internal.Scripts.Economy.Cities;
 using Internal.Scripts.Economy.Cities.UI;
 using Internal.Scripts.Economy.Save;
@@ -78,9 +79,8 @@ namespace Internal.Scripts.Installers
             Container.Bind<GameClock>().AsSingle();
             Container.Bind<SceneLoaderService>().AsSingle();
 
-            Container.BindInterfacesAndSelfTo<InputManager>()
-                .AsSingle().WithArguments(_interactableLayerMask)
-                .NonLazy();
+            Container.BindInterfacesTo<InputSceneSetup>().AsSingle()
+                .WithArguments(_interactableLayerMask);
 
             InstallCamera();
             InstallWorld();
@@ -279,6 +279,21 @@ namespace Internal.Scripts.Installers
                 .To<PathVisualizationService>().AsSingle();
             Container.BindInterfacesAndSelfTo<PathVisualizationController>()
                 .AsSingle().NonLazy();
+        }
+
+        private sealed class InputSceneSetup : IInitializable, IDisposable
+        {
+            private readonly InputManager _input;
+            private readonly LayerMask _mask;
+
+            public InputSceneSetup(InputManager input, LayerMask mask)
+            {
+                _input = input;
+                _mask = mask;
+            }
+
+            public void Initialize() => _input.SetInteractableLayerMask(_mask);
+            public void Dispose() => _input.SetInteractableLayerMask(default);
         }
     }
 }
