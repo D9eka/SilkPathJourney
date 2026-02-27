@@ -4,6 +4,9 @@ using Internal.Scripts.UI.Screens.Core.ViewModel;
 using Internal.Scripts.UI.Screens.Event;
 using Internal.Scripts.UI.Screens.Hud;
 using Internal.Scripts.UI.Screens.Inventory;
+using Internal.Scripts.UI.Screens.MainMenu;
+using Internal.Scripts.UI.Screens.Pause;
+using Internal.Scripts.UI.Screens.Save;
 using Internal.Scripts.UI.Screens.TargetSelection;
 using Internal.Scripts.UI.Screens.Trade;
 using Plugins.Zenject.Source.Main;
@@ -28,6 +31,10 @@ namespace Internal.Scripts.UI.Factory
                 ScreenId.Trade => CreateTrade(view),
                 ScreenId.Event => CreateEvent(view),
                 ScreenId.TargetSelection => CreateTargetSelection(view),
+                ScreenId.Pause => CreatePause(view),
+                ScreenId.MainMenu => CreateMainMenu(view),
+                ScreenId.SaveGame => CreateSaveGame(view),
+                ScreenId.LoadGame => CreateLoadGame(view),
                 _ => null
             };
         }
@@ -70,6 +77,38 @@ namespace Internal.Scripts.UI.Factory
                 return null;
 
             return _container.Instantiate<TargetSelectionScreenViewModel>();
+        }
+
+        private ScreenViewModelBase CreatePause(IScreenView view)
+        {
+            if (view is not PauseScreen)
+                return null;
+
+            return _container.Instantiate<PauseScreenViewModel>();
+        }
+
+        private ScreenViewModelBase CreateMainMenu(IScreenView view)
+        {
+            if (view is not MainMenuScreen)
+                return null;
+
+            return _container.Instantiate<MainMenuScreenViewModel>();
+        }
+
+        private ScreenViewModelBase CreateSaveGame(IScreenView view)
+        {
+            if (view is not SaveGameScreen)
+                return null;
+
+            return _container.Instantiate<SaveLoadScreenViewModel>();
+        }
+
+        private ScreenViewModelBase CreateLoadGame(IScreenView view)
+        {
+            if (view is not LoadGameScreen)
+                return null;
+
+            return _container.Instantiate<SaveLoadScreenViewModel>();
         }
     }
 }

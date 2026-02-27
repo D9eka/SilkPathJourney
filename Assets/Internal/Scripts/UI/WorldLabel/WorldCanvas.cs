@@ -1,5 +1,6 @@
 using Internal.Scripts.Camera.Zoom;
 using Internal.Scripts.UI.Arrow.PositionCalculation;
+using Internal.Scripts.UI.Localization;
 using Internal.Scripts.UI.Tooltip;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ namespace Internal.Scripts.UI.WorldLabel
     {
         private Canvas _canvas;
         private TooltipService _tooltipService;
+        private LocalizationService _localizationService;
         private GroundSnapper _groundSnapper;
         private UnityEngine.Camera _camera;
         private WorldCanvasSettings _settings;
@@ -18,6 +20,7 @@ namespace Internal.Scripts.UI.WorldLabel
         public void Initialize(
             Canvas canvas,
             TooltipService tooltipService,
+            LocalizationService localizationService,
             GroundSnapper groundSnapper,
             UnityEngine.Camera camera,
             WorldCanvasSettings settings,
@@ -31,6 +34,7 @@ namespace Internal.Scripts.UI.WorldLabel
 
             _canvas = canvas;
             _tooltipService = tooltipService;
+            _localizationService = localizationService;
             _groundSnapper = groundSnapper;
             _camera = camera;
             _settings = settings;
@@ -56,7 +60,7 @@ namespace Internal.Scripts.UI.WorldLabel
 
             PositionElement(label.GetComponent<RectTransform>(), worldPosition, offset);
             AddBillboard(label.gameObject);
-            label.Initialize(_tooltipService);
+            label.Initialize(_tooltipService, _localizationService);
 
             return label;
         }

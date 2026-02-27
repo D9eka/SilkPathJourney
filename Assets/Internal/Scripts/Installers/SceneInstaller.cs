@@ -23,6 +23,7 @@ using Internal.Scripts.Road.Path;
 using Internal.Scripts.World.State;
 using Plugins.Zenject.Source.Install;
 using UnityEngine;
+using Zenject;
 using Internal.Scripts.Economy.Cities;
 using Internal.Scripts.Economy.Cities.UI;
 using Internal.Scripts.Economy.Save;
@@ -46,6 +47,7 @@ using Internal.Scripts.UI.PathVisualization;
 using Internal.Scripts.UI.Screens.Core.Config;
 using Internal.Scripts.UI.Screens.Hud;
 using Internal.Scripts.UI.Theme;
+using Internal.Scripts.Utils;
 
 namespace Internal.Scripts.Installers
 {
@@ -75,10 +77,10 @@ namespace Internal.Scripts.Installers
         public override void InstallBindings()
         {
             Container.Bind<GameClock>().AsSingle();
+            Container.Bind<SceneLoaderService>().AsSingle();
 
-            Container.BindInterfacesAndSelfTo<InputManager>()
-                .AsSingle().WithArguments(_interactableLayerMask)
-                .NonLazy();
+            Container.BindInterfacesTo<InputSceneSetup>().AsSingle()
+                .WithArguments(_interactableLayerMask);
 
             InstallCamera();
             InstallWorld();
@@ -167,8 +169,6 @@ namespace Internal.Scripts.Installers
         private void InstallEconomy()
         {
             Container.Bind<ItemCatalog>().AsSingle();
-            Container.Bind<ISaveService>().To<JsonSaveService>().AsSingle();
-            Container.Bind<SaveRepository>().AsSingle();
             Container.Bind<EconomySaveBuilder>().AsSingle();
             Container.BindInterfacesAndSelfTo<SaveBootstrapper>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<InventoryRepository>().AsSingle().NonLazy();
@@ -279,6 +279,21 @@ namespace Internal.Scripts.Installers
                 .To<PathVisualizationService>().AsSingle();
             Container.BindInterfacesAndSelfTo<PathVisualizationController>()
                 .AsSingle().NonLazy();
+        }
+
+        private sealed class InputSceneSetup : IInitializable, IDisposable
+        {
+            private readonly InputManager _input;
+            private readonly LayerMask _mask;
+
+            public InputSceneSetup(InputManager input, LayerMask mask)
+            {
+                _input = input;
+                _mask = mask;
+            }
+
+            public void Initialize() => _input.SetInteractableLayerMask(_mask);
+            public void Dispose() => _input.SetInteractableLayerMask(default);
         }
     }
 }

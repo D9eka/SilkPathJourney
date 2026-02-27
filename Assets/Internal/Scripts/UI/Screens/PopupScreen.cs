@@ -18,13 +18,19 @@ namespace Internal.Scripts.UI.Screens
         [Header("Header Localization")]
         [SerializeField] protected LocalizedString _mainHeaderLocalizedString;
 
-        private LocalizationHelper.LocalizedTextHandle _mainHeaderHandle;
+        private LocalizationService.LocalizedTextHandle _mainHeaderHandle;
+
+        protected override void OnLocalizationReady()
+        {
+            BindHeaderLocalization();
+        }
 
         protected virtual void OnEnable()
         {
             if (_closeButton != null)
                 _closeButton.Clicked += HandleCloseClicked;
-            BindHeaderLocalization();
+            if (Localization != null)
+                BindHeaderLocalization();
         }
 
         protected virtual void OnDisable()
@@ -39,7 +45,7 @@ namespace Internal.Scripts.UI.Screens
         {
             _mainHeaderHandle?.Dispose();
             if (_mainHeader != null && _mainHeader.Text != null && _mainHeaderLocalizedString != null)
-                _mainHeaderHandle = LocalizationHelper.BindText(_mainHeader.Text, _mainHeaderLocalizedString, $"{name}.MainHeader");
+                _mainHeaderHandle = Localization.BindText(_mainHeader.Text, _mainHeaderLocalizedString, $"{name}.MainHeader");
         }
 
         private void HandleCloseClicked() => RaiseCloseRequested();

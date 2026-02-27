@@ -71,13 +71,14 @@ namespace Internal.Scripts.UI.Screens.Trade
         private Action<ItemRowData, bool> _sellActivateHandler;
 
         private UnityAction _tradeHandler;
-        private LocalizationHelper.LocalizedTextHandle _tradeButtonHandle;
+        private LocalizationService.LocalizedTextHandle _tradeButtonHandle;
         private bool _iconsInitialized;
 
         protected override void OnEnable()
         {
             base.OnEnable();
-            BindLocalization();
+            if (Localization != null)
+                BindLocalization();
             SubscribeViewModel();
         }
 
@@ -418,10 +419,16 @@ namespace Internal.Scripts.UI.Screens.Trade
                 _viewModel.ReturnFromSell(row.ItemId, addAll);
         }
 
+        protected override void OnLocalizationReady()
+        {
+            base.OnLocalizationReady();
+            BindLocalization();
+        }
+
         private void BindLocalization()
         {
             _tradeButtonHandle?.Dispose();
-            _tradeButtonHandle = LocalizationHelper.BindText(_tradeButtonText, _tradeButtonLocalizedString, $"{name}.TradeButton");
+            _tradeButtonHandle = Localization.BindText(_tradeButtonText, _tradeButtonLocalizedString, $"{name}.TradeButton");
         }
     }
 }

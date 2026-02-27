@@ -1,11 +1,17 @@
 using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Localization;
 
 namespace Internal.Scripts.UI.Localization
 {
-    public static class LocalizationHelper
+    public interface ILocalizationConsumer
+    {
+        void SetLocalization(LocalizationService service);
+    }
+
+    public class LocalizationService
     {
         public sealed class LocalizedTextHandle : IDisposable
         {
@@ -88,25 +94,48 @@ namespace Internal.Scripts.UI.Localization
             }
         }
 
-        public static LocalizedTextHandle BindText(TextMeshProUGUI target, LocalizedString localized, string context)
+        public sealed class LocalizedTextGroup : IDisposable
+        {
+            private readonly LocalizationService _service;
+            private readonly List<LocalizedTextHandle> _handles = new();
+
+            internal LocalizedTextGroup(LocalizationService service)
+            {
+                _service = service;
+            }
+
+            public void Bind(TextMeshProUGUI text, LocalizedString localized, string context)
+            {
+                if (text != null)
+                    _handles.Add(_service.BindText(text, localized, context));
+            }
+
+            public void Dispose()
+            {
+                foreach (var h in _handles)
+                    h.Dispose();
+                _handles.Clear();
+            }
+        }
+
+        public LocalizedTextGroup CreateTextGroup() => new(this);
+
+        public LocalizedTextHandle BindText(TextMeshProUGUI target, LocalizedString localized, string context)
         {
             string fallback = target != null ? target.text : string.Empty;
-            LocalizedTextHandle handle = new LocalizedTextHandle(target, localized, context, fallback);
+            var handle = new LocalizedTextHandle(target, localized, context, fallback);
             if (handle.TryBind())
                 handle.SetArguments(fallback);
             return handle;
         }
 
-        public static void ApplyText(TextMeshProUGUI target, LocalizedString localized, string context, params object[] args)
+        public LocalizedTextHandle BindText(TextMeshProUGUI target, LocalizedString localized,
+            string context, string fallback, params object[] args)
         {
-            if (target == null)
-            {
-                Debug.LogWarning($"[SPJ] Missing Text target for {context}.");
-                return;
-            }
-
-            string fallback = target.text;
-            target.text = ResolveString(localized, fallback, context, args);
+            var handle = new LocalizedTextHandle(target, localized, context, fallback);
+            if (handle.TryBind())
+                handle.SetArguments(fallback, args);
+            return handle;
         }
 
         public static string ResolveString(LocalizedString localized, string fallback, string context, params object[] args)
@@ -144,7 +173,7 @@ namespace Internal.Scripts.UI.Localization
             }
         }
 
-        private static bool IsEmpty(LocalizedString localized)
+        internal static bool IsEmpty(LocalizedString localized)
         {
             string table = localized.TableReference.TableCollectionName;
             string key = localized.TableEntryReference.Key;

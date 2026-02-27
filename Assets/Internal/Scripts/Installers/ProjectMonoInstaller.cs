@@ -1,3 +1,4 @@
+using Internal.Scripts.Input;
 using Internal.Scripts.UI.Arrow.PositionCalculation;
 using Internal.Scripts.UI.Tooltip;
 using Plugins.Zenject.Source.Install;
@@ -15,7 +16,9 @@ namespace Internal.Scripts.Installers
         {
             Container.Bind<UnityEngine.Camera>()
                 .FromMethod(_ => UnityEngine.Camera.main)
-                .AsSingle();
+                .AsTransient();
+
+            Container.BindInterfacesAndSelfTo<InputManager>().AsSingle().NonLazy();
 
             Container.BindInstance(new GroundSnapper(_groundLayerMask)).AsSingle();
 

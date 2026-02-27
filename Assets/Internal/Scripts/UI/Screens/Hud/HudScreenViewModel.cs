@@ -142,6 +142,12 @@ namespace Internal.Scripts.UI.Screens.Hud
                 Debug.LogWarning($"[SPJ] Cannot open inventory screen: {result}");
         }
 
+        public void OpenPause()
+        {
+            if (!_screenStackService.TryOpen(ScreenId.Pause, out ScreenOpenResult result))
+                Debug.LogWarning($"[SPJ] Cannot open pause screen: {result}");
+        }
+
         private void EnterCity()
         {
             if (_turnChoiceState.IsChoosingTurn)

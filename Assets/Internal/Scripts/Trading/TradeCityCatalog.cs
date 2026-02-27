@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Internal.Scripts.Economy;
 using Internal.Scripts.Economy.Cities;
-using Internal.Scripts.Localization;
+using Internal.Scripts.UI.Localization;
 
 namespace Internal.Scripts.Trading
 {
@@ -29,7 +29,7 @@ namespace Internal.Scripts.Trading
                 return string.Empty;
 
             if (_citiesById.TryGetValue(cityId, out CityData city) && city != null)
-                return LocalizedStringResolver.Resolve(city.Name, city.Id, $"City.{city.Id}.Name");
+                return LocalizationService.ResolveString(city.Name, city.Id, $"City.{city.Id}.Name");
 
             return cityId;
         }

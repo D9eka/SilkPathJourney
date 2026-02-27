@@ -14,5 +14,6 @@ namespace Internal.Scripts.UI.Screens.Core.Config
         [field: SerializeField] public bool BlocksWorldInput { get; private set; } = true;
         [field: SerializeField] public bool BlocksUIUnderneath { get; private set; } = true;
         [field: SerializeField] public bool CloseOnBack { get; private set; } = true;
+        [field: SerializeField] public bool HidesBelowScreen { get; private set; }
     }
 }

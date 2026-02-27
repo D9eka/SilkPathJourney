@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Internal.Scripts.UI.Factory;
+using Internal.Scripts.UI.Localization;
 using Internal.Scripts.UI.Screens.Config;
 using Internal.Scripts.UI.Screens.Core;
 using Internal.Scripts.UI.Screens.Core.Config;
@@ -16,6 +17,7 @@ namespace Internal.Scripts.UI.StackService
         private readonly UIScreenRoots _roots;
         private readonly ScreenCatalog _catalog;
         private readonly IScreenViewModelFactory _viewModelFactory;
+        private readonly LocalizationService _localizationService;
         private readonly StaticColorController _colorController;
         private readonly UiThemeService _themeService;
         private readonly ScreenId _initialScreenId;
@@ -25,12 +27,14 @@ namespace Internal.Scripts.UI.StackService
         public ScreenId TopId => _stack.Count > 0 ? _stack[^1].Id : ScreenId.None;
 
         public ScreenStackService(UIScreenRoots roots, ScreenCatalog catalog,
-            IScreenViewModelFactory viewModelFactory, StaticColorController colorController,
+            IScreenViewModelFactory viewModelFactory, LocalizationService localizationService,
+            StaticColorController colorController,
             UiThemeService themeService, ScreenId initialScreenId)
         {
             _roots = roots;
             _catalog = catalog;
             _viewModelFactory = viewModelFactory;
+            _localizationService = localizationService;
             _colorController = colorController;
             _themeService = themeService;
             _initialScreenId = initialScreenId;
@@ -90,6 +94,7 @@ namespace Internal.Scripts.UI.StackService
                 GameObject instanceGo = Object.Instantiate(config.Prefab, parent);
 
                 SetupColors(instanceGo);
+                SetupLocalization(instanceGo);
 
                 ScreenViewBase view = FindView(instanceGo);
                 if (view == null)
@@ -118,6 +123,8 @@ namespace Internal.Scripts.UI.StackService
 
             _stack.Add(instance);
             previousTop?.ViewModel?.OnFocusLost();
+            if (config.HidesBelowScreen && previousTop != null)
+                previousTop.View?.Hide();
             instance.View.Show();
             instance.ViewModel.Open(args);
             instance.ViewModel.OnFocusGained();
@@ -150,6 +157,19 @@ namespace Internal.Scripts.UI.StackService
             CloseAtIndex(index);
         }
 
+        public void CloseAllAbove(ScreenId keepId)
+        {
+            if (!IsOpen(keepId))
+                return;
+
+            for (int i = _stack.Count - 1; i >= 0; i--)
+            {
+                if (_stack[i].Id == keepId)
+                    break;
+                CloseAtIndex(i);
+            }
+        }
+
         private void CloseAtIndex(int index)
         {
             ScreenInstance instance = _stack[index];
@@ -161,7 +181,11 @@ namespace Internal.Scripts.UI.StackService
             _stack.RemoveAt(index);
 
             if (wasTop && _stack.Count > 0)
+            {
                 _stack[^1].ViewModel?.OnFocusGained();
+                if (instance.Config != null && instance.Config.HidesBelowScreen)
+                    _stack[^1].View?.Show();
+            }
 
             UpdateOverlays();
         }
@@ -235,6 +259,15 @@ namespace Internal.Scripts.UI.StackService
             }
         }
         
+        private void SetupLocalization(GameObject instanceGo)
+        {
+            foreach (ILocalizationConsumer consumer in
+                instanceGo.GetComponentsInChildren<ILocalizationConsumer>(true))
+            {
+                consumer.SetLocalization(_localizationService);
+            }
+        }
+
         private void SetupColors(GameObject instanceGo)
         {
             foreach (UiColorBinder colorBinder in 

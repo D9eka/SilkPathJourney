@@ -8,7 +8,7 @@ using UnityEngine.Localization;
 
 namespace Internal.Scripts.UI.Screens.Trade
 {
-    public class TradeContainer : MonoBehaviour
+    public class TradeContainer : MonoBehaviour, ILocalizationConsumer
     {
         [Header("Components")]
         [SerializeField] private HeaderElement _mainHeader;
@@ -21,22 +21,35 @@ namespace Internal.Scripts.UI.Screens.Trade
         [Header("Localization")]
         [SerializeField] private LocalizedString _mainHeaderLocalizedString;
 
-        private LocalizationHelper.LocalizedTextHandle _headerHandle;
+        private LocalizationService _localization;
+        private LocalizationService.LocalizedTextHandle _headerHandle;
 
         public ItemsView ItemsView => _itemsView;
         public HeaderElement MainHeader => _mainHeader;
 
+        public void SetLocalization(LocalizationService service)
+        {
+            _localization = service;
+            BindHeaderLocalization();
+        }
+
         private void OnEnable()
         {
-            _headerHandle?.Dispose();
-            if (_mainHeader != null && _mainHeader.Text != null && _mainHeaderLocalizedString != null)
-                _headerHandle = LocalizationHelper.BindText(_mainHeader.Text, _mainHeaderLocalizedString, $"{name}.MainHeader");
+            if (_localization != null)
+                BindHeaderLocalization();
         }
 
         private void OnDisable()
         {
             _headerHandle?.Dispose();
             _headerHandle = null;
+        }
+
+        private void BindHeaderLocalization()
+        {
+            _headerHandle?.Dispose();
+            if (_mainHeader != null && _mainHeader.Text != null && _mainHeaderLocalizedString != null)
+                _headerHandle = _localization.BindText(_mainHeader.Text, _mainHeaderLocalizedString, $"{name}.MainHeader");
         }
 
         public void SetMainHeaderText(string value) =>

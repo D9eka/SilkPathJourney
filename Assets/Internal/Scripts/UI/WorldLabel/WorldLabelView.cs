@@ -1,4 +1,5 @@
 using Internal.Scripts.Economy.Generated;
+using Internal.Scripts.UI.Localization;
 using Internal.Scripts.UI.Theme;
 using Internal.Scripts.UI.Tooltip;
 using TMPro;
@@ -16,10 +17,9 @@ namespace Internal.Scripts.UI.WorldLabel
         [SerializeField] private RectTransform _iconsContainer;
         [SerializeField] private Image _iconTemplate;
 
-        private LocalizedString _localizedString;
-        private LocalizedString.ChangeHandler _locHandler;
-
         private TooltipService _tooltipService;
+        private LocalizationService _localization;
+        private LocalizationService.LocalizedTextHandle _locHandle;
 
         public TextMeshProUGUI NameText => _nameText;
 
@@ -32,9 +32,10 @@ namespace Internal.Scripts.UI.WorldLabel
             }
         }
 
-        public void Initialize(TooltipService tooltipService)
+        public void Initialize(TooltipService tooltipService, LocalizationService localization)
         {
             _tooltipService = tooltipService;
+            _localization = localization;
         }
 
         public void SetTooltipProvider(ITooltipDataProvider provider)
@@ -53,26 +54,24 @@ namespace Internal.Scripts.UI.WorldLabel
 
         public void SetText(string text)
         {
-            ClearLocalization();
+            _locHandle?.Dispose();
+            _locHandle = null;
             _nameText.text = text;
         }
 
         public void SetLocalizedText(LocalizedString localized, string fallback)
         {
-            ClearLocalization();
+            _locHandle?.Dispose();
+            _locHandle = null;
 
-            if (localized == null || string.IsNullOrWhiteSpace(localized.TableReference.TableCollectionName))
+            if (_localization == null || localized == null
+                || string.IsNullOrWhiteSpace(localized.TableReference.TableCollectionName))
             {
                 _nameText.text = fallback;
                 return;
             }
 
-            _localizedString = localized;
-            _locHandler = value =>
-            {
-                _nameText.text = string.IsNullOrWhiteSpace(value) ? fallback : value;
-            };
-            _localizedString.StringChanged += _locHandler;
+            _locHandle = _localization.BindText(_nameText, localized, "WorldLabel");
         }
 
         public void SetIcon(Sprite sprite)
@@ -113,17 +112,9 @@ namespace Internal.Scripts.UI.WorldLabel
             gameObject.SetActive(false);
         }
 
-        private void ClearLocalization()
-        {
-            if (_localizedString != null && _locHandler != null)
-                _localizedString.StringChanged -= _locHandler;
-            _localizedString = null;
-            _locHandler = null;
-        }
-
         private void OnDestroy()
         {
-            ClearLocalization();
+            _locHandle?.Dispose();
         }
     }
 }

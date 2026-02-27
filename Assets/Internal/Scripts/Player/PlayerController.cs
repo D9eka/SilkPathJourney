@@ -55,6 +55,7 @@ namespace Internal.Scripts.Player
 
         public void Tick()
         {
+            if (_roadAgent == null) return;
             _roadAgent.Tick();
         }
 

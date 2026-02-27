@@ -10,7 +10,7 @@ using UnityEngine.Events;
 
 namespace Internal.Scripts.UI.Screens.Inventory
 {
-    public class ItemsView : MonoBehaviour
+    public class ItemsView : MonoBehaviour, ILocalizationConsumer
     {
 
         [Header("Headers")]
@@ -39,17 +39,25 @@ namespace Internal.Scripts.UI.Screens.Inventory
         private Vector2 _lastNavigateValue = Vector2.zero;
         private UnityAction _actionHandler;
         
-        private LocalizationHelper.LocalizedTextHandle _nameHeaderHandle;
-        private LocalizationHelper.LocalizedTextHandle _weightHeaderHandle;
-        private LocalizationHelper.LocalizedTextHandle _priceHeaderHandle;
-        private LocalizationHelper.LocalizedTextHandle _actionButtonHandle;
+        private LocalizationService _localization;
+        private LocalizationService.LocalizedTextHandle _nameHeaderHandle;
+        private LocalizationService.LocalizedTextHandle _weightHeaderHandle;
+        private LocalizationService.LocalizedTextHandle _priceHeaderHandle;
+        private LocalizationService.LocalizedTextHandle _actionButtonHandle;
 
         public event Action<ItemRowData> ItemSelected;
         public event Action<ItemRowData, bool> ItemActivated;
 
+        public void SetLocalization(LocalizationService service)
+        {
+            _localization = service;
+            BindLocalization();
+        }
+
         private void OnEnable()
         {
-            BindLocalization();
+            if (_localization != null)
+                BindLocalization();
         }
 
         private void OnDisable()
@@ -241,14 +249,15 @@ namespace Internal.Scripts.UI.Screens.Inventory
 
         private void BindLocalization()
         {
+            if (_localization == null) return;
             _nameHeaderHandle?.Dispose();
             _weightHeaderHandle?.Dispose();
             _priceHeaderHandle?.Dispose();
             _actionButtonHandle?.Dispose();
-            _nameHeaderHandle = LocalizationHelper.BindText(_itemsNameHeaderText, _itemsNameHeaderLocalizedString, $"{name}.NameHeader");
-            _weightHeaderHandle = LocalizationHelper.BindText(_itemsWeightHeaderText, _itemsWeightHeaderLocalizedString, $"{name}.WeightHeader");
-            _priceHeaderHandle = LocalizationHelper.BindText(_itemsPriceHeaderText, _itemsPriceHeaderLocalizedString, $"{name}.PriceHeader");
-            _actionButtonHandle = LocalizationHelper.BindText(_actionButtonText, _actionButtonLocalizedString, $"{name}.ActionButton");
+            _nameHeaderHandle = _localization.BindText(_itemsNameHeaderText, _itemsNameHeaderLocalizedString, $"{name}.NameHeader");
+            _weightHeaderHandle = _localization.BindText(_itemsWeightHeaderText, _itemsWeightHeaderLocalizedString, $"{name}.WeightHeader");
+            _priceHeaderHandle = _localization.BindText(_itemsPriceHeaderText, _itemsPriceHeaderLocalizedString, $"{name}.PriceHeader");
+            _actionButtonHandle = _localization.BindText(_actionButtonText, _actionButtonLocalizedString, $"{name}.ActionButton");
         }
     }
 }

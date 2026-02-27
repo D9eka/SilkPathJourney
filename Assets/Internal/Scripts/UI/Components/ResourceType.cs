@@ -7,6 +7,7 @@ namespace Internal.Scripts.UI.Components
         Danger,
         PlayerCartDurability,
         OtherCartsDurability,
-        Weight
+        Weight,
+        Partners
     }
 }

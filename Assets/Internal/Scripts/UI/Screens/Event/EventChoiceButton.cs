@@ -16,9 +16,10 @@ namespace Internal.Scripts.UI.Screens.Event
         private Action _onClickCallback;
         private Action _onHoverEnter;
         private Action _onHoverExit;
-        private LocalizationHelper.LocalizedTextHandle _textHandle;
+        private LocalizationService.LocalizedTextHandle _textHandle;
 
         public void Initialize(
+            LocalizationService localization,
             LocalizedString localizedText,
             Action onClickCallback,
             Action onHoverEnter = null,
@@ -28,8 +29,8 @@ namespace Internal.Scripts.UI.Screens.Event
             _onHoverEnter = onHoverEnter;
             _onHoverExit = onHoverExit;
 
-            if (_text != null && localizedText != null)
-                _textHandle = LocalizationHelper.BindText(_text, localizedText, "Choice");
+            if (_text != null && localizedText != null && localization != null)
+                _textHandle = localization.BindText(_text, localizedText, "Choice");
 
             if (_button != null)
                 _button.onClick.AddListener(HandleClick);

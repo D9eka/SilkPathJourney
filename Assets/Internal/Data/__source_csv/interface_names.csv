@@ -27,3 +27,24 @@ Trade,ItemsView,Button,BackToTraderAction,UI.Trade.ItemsView.Button.BackToTrader
 Event,Main,Header,Main,UI.Event.Main.Header.Main,,,Событие,Event,перевод
 Event,Main,Button,Continue,UI.Event.Main.Button.Continue,,,Продолжить,Continue,перевод
 Event,Main,Prefix,NearCity,UI.Event.Main.Prefix.NearCity,Формат: Рядом с {0},,Рядом с {0},Near {0},перевод
+SaveGame,Main,Header,Main,UI.SaveGame.Main.Header.Main,,,Сохранение,Save Game,перевод
+SaveGame,Main,Button,Action,UI.SaveGame.Main.Button.Action,,,Сохранить,Save,перевод
+LoadGame,Main,Header,Main,UI.LoadGame.Main.Header.Main,,,Загрузка,Load Game,перевод
+LoadGame,Main,Button,Action,UI.LoadGame.Main.Button.Action,,,Загрузить,Load,перевод
+SaveSlot,Main,Text,DayText,UI.SaveSlot.Main.Text.DayText,Формат: День {0},,День {0},Day {0},перевод
+SaveSlot,Main,Tag,AutoSave,UI.SaveSlot.Main.Tag.AutoSave,,,А,A,перевод
+SaveSlot,Main,Tag,ManualSave,UI.SaveSlot.Main.Tag.ManualSave,,,Р,M,перевод
+MainMenu,Main,Button,NewGame,UI.MainMenu.Main.Button.NewGame,,,Новая игра,New Game,перевод
+MainMenu,Main,Button,Continue,UI.MainMenu.Main.Button.Continue,,,Продолжить,Continue,перевод
+MainMenu,Main,Button,Load,UI.MainMenu.Main.Button.Load,,,Загрузка,Load,перевод
+MainMenu,Main,Button,Settings,UI.MainMenu.Main.Button.Settings,,,Настройки,Settings,перевод
+MainMenu,Main,Button,Quit,UI.MainMenu.Main.Button.Quit,,,Выход,Quit,перевод
+Pause,Main,Header,Main,UI.Pause.Main.Header.Main,,,Пауза,Pause,перевод
+Pause,Main,Button,BackToGame,UI.Pause.Main.Button.BackToGame,,,Продолжить,Resume,перевод
+Pause,Main,Button,Save,UI.Pause.Main.Button.Save,,,Сохранить,Save,перевод
+Pause,Main,Button,Load,UI.Pause.Main.Button.Load,,,Загрузить,Load,перевод
+Pause,Main,Button,Settings,UI.Pause.Main.Button.Settings,,,Настройки,Settings,перевод
+Pause,Main,Button,ExitToMenu,UI.Pause.Main.Button.ExitToMenu,,,В главное меню,Main Menu,перевод
+SaveSlot,Main,Text,NewSave,UI.SaveSlot.Main.Text.NewSave,,,+ Новое сохранение,+ New Save,перевод
+MainMenu,Main,Header,GameTitle,UI.MainMenu.Main.Header.GameTitle,Название игры,,Silk Path Journey,Silk Path Journey,перевод
+Pause,Main,Button,Quit,UI.Pause.Main.Button.Quit,,,Выход из игры,Quit Game,перевод

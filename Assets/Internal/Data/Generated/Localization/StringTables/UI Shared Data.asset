@@ -147,6 +147,90 @@ MonoBehaviour:
     m_Key: UI.Hud.Main.Text.DayText
     m_Metadata:
       m_Items: []
+  - m_Id: 8401231838961664
+    m_Key: UI.SaveGame.Main.Header.Main
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8401231889293312
+    m_Key: UI.SaveGame.Main.Button.Action
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8401231889293313
+    m_Key: UI.LoadGame.Main.Header.Main
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8401231889293314
+    m_Key: UI.LoadGame.Main.Button.Action
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8401231889293315
+    m_Key: UI.SaveSlot.Main.Text.DayText
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8401231889293316
+    m_Key: UI.SaveSlot.Main.Tag.AutoSave
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8401231889293317
+    m_Key: UI.SaveSlot.Main.Tag.ManualSave
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8401231889293318
+    m_Key: UI.MainMenu.Main.Button.NewGame
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8401231889293319
+    m_Key: UI.MainMenu.Main.Button.Continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8401231889293320
+    m_Key: UI.MainMenu.Main.Button.Load
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8401231889293321
+    m_Key: UI.MainMenu.Main.Button.Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8401231889293322
+    m_Key: UI.MainMenu.Main.Button.Quit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8401231889293323
+    m_Key: UI.Pause.Main.Header.Main
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8401231889293324
+    m_Key: UI.Pause.Main.Button.BackToGame
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8401231889293325
+    m_Key: UI.Pause.Main.Button.Save
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8401231889293326
+    m_Key: UI.Pause.Main.Button.Load
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8401231889293327
+    m_Key: UI.Pause.Main.Button.Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8401231889293328
+    m_Key: UI.Pause.Main.Button.ExitToMenu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8401231889293329
+    m_Key: UI.Pause.Main.Button.Quit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8412308995825664
+    m_Key: UI.SaveSlot.Main.Text.NewSave
+    m_Metadata:
+      m_Items: []
+  - m_Id: 8412309041963008
+    m_Key: UI.MainMenu.Main.Header.GameTitle
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

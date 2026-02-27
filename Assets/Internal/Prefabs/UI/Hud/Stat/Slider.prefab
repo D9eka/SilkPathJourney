@@ -154,6 +154,7 @@ GameObject:
   - component: {fileID: 6662094759003028780}
   - component: {fileID: 8363224238892808436}
   - component: {fileID: 7509631989998069302}
+  - component: {fileID: 2078623556291142835}
   m_Layer: 5
   m_Name: FillArea
   m_TagString: Untagged
@@ -232,6 +233,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Mask
   m_ShowMaskGraphic: 1
+--- !u!114 &2078623556291142835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6854144642053001730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a16ed461c506a9429e0f0d356af0c13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Theme.UiColorBinder
+  _colorSlot: 12
+  _target: {fileID: 8363224238892808436}
+  _transitionDuration: 0.5
 --- !u!1 &8854646659407678775
 GameObject:
   m_ObjectHideFlags: 0
