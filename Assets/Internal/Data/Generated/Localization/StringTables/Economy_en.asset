@@ -1046,6 +1046,10 @@ MonoBehaviour:
       through here on the way to Kucha.
     m_Metadata:
       m_Items: []
+  - m_Id: 10856455639916544
+    m_Localized: Supplies
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

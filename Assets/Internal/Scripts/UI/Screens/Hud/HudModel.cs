@@ -3,6 +3,9 @@ using Internal.Scripts.Config;
 using Internal.Scripts.Economy;
 using Internal.Scripts.Economy.Cities;
 using Internal.Scripts.Economy.Save;
+using Internal.Scripts.Economy.Save.Models;
+using Internal.Scripts.Inventory;
+using Internal.Scripts.Items;
 using Internal.Scripts.Player;
 using Internal.Scripts.Player.NextSegment;
 using Internal.Scripts.Player.StartMovement;
@@ -22,6 +25,7 @@ namespace Internal.Scripts.UI.Screens.Hud
         private readonly IPlayerTurnChoiceState _turnChoiceState;
         private readonly ICityEntryService _cityEntryService;
         private readonly PlayerResourceRepository _resourceRepository;
+        private readonly InventoryRepository _inventoryRepository;
         private readonly GameBalanceConfig _balanceConfig;
         private readonly ResourceIconCatalog _iconCatalog;
         private readonly GameClock _gameClock;
@@ -33,6 +37,7 @@ namespace Internal.Scripts.UI.Screens.Hud
         private float _prevDanger = -1f;
         private float _prevPlayerCartDur = -1f;
         private IDisposable _resourceSubscription;
+        private IDisposable _inventorySubscription;
 
         private readonly CaravanSpeedService _caravanSpeedService;
 
@@ -44,6 +49,7 @@ namespace Internal.Scripts.UI.Screens.Hud
             IPlayerTurnChoiceState turnChoiceState,
             ICityEntryService cityEntryService,
             PlayerResourceRepository resourceRepository,
+            InventoryRepository inventoryRepository,
             GameBalanceConfig balanceConfig,
             ResourceIconCatalog iconCatalog,
             GameClock gameClock,
@@ -56,6 +62,7 @@ namespace Internal.Scripts.UI.Screens.Hud
             _turnChoiceState = turnChoiceState;
             _cityEntryService = cityEntryService;
             _resourceRepository = resourceRepository;
+            _inventoryRepository = inventoryRepository;
             _balanceConfig = balanceConfig;
             _iconCatalog = iconCatalog;
             _gameClock = gameClock;
@@ -83,6 +90,12 @@ namespace Internal.Scripts.UI.Screens.Hud
             _cityEntryService.OnCityEntered += HandleCityEntered;
             _cityEntryService.OnCityExited += HandleCityExited;
             _resourceSubscription = _resourceRepository.StateStream.Subscribe(ComputeResourceState);
+            _inventorySubscription = _inventoryRepository.PlayerInventoryStream.Subscribe(_ =>
+            {
+                PlayerResourceState res = _resourceRepository.Current;
+                if (res != null)
+                    ComputeResourceState(res);
+            });
             UpdateState();
         }
 
@@ -96,6 +109,8 @@ namespace Internal.Scripts.UI.Screens.Hud
             _cityEntryService.OnCityExited -= HandleCityExited;
             _resourceSubscription?.Dispose();
             _resourceSubscription = null;
+            _inventorySubscription?.Dispose();
+            _inventorySubscription = null;
         }
 
         public void SetSpeed(int index)
@@ -122,7 +137,7 @@ namespace Internal.Scripts.UI.Screens.Hud
 
         private void ComputeResourceState(PlayerResourceState res)
         {
-            float food = res.Food;
+            float food = GetSuppliesCount();
             bool foodAnimate = _prevFood >= 0f && !Mathf.Approximately(food, _prevFood);
             int foodChange = foodAnimate ? Mathf.RoundToInt(food - _prevFood) : 0;
             _prevFood = food;
@@ -165,6 +180,14 @@ namespace Internal.Scripts.UI.Screens.Hud
                 new ResourceIndicatorState(danger, maxDanger, dangerChange, dangerAnimate,
                     GetIncreaseIsPositive(ResourceType.Danger))
             );
+        }
+
+        private int GetSuppliesCount()
+        {
+            InventoryState inv = _inventoryRepository.GetPlayerInventory();
+            if (inv?.Items == null) return 0;
+            ItemStackState stack = inv.Items.Find(s => s.ItemId == SuppliesItemId.Value);
+            return stack?.Count ?? 0;
         }
 
         private bool GetIncreaseIsPositive(ResourceType type) =>

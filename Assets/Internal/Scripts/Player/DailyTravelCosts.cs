@@ -3,6 +3,8 @@ using Internal.Scripts.Config;
 using Internal.Scripts.Economy;
 using Internal.Scripts.Economy.Save;
 using Internal.Scripts.Events;
+using Internal.Scripts.Inventory;
+using Internal.Scripts.Items;
 using UnityEngine;
 
 namespace Internal.Scripts.Player
@@ -14,6 +16,7 @@ namespace Internal.Scripts.Player
         private readonly CaravanSpeedConfig _config;
         private readonly OverloadCalculator _overload;
         private readonly PlayerResourceRepository _resourceRepo;
+        private readonly InventoryRepository _inventoryRepository;
         private readonly GameBalanceConfig _balanceConfig;
 
         public DailyTravelCosts(
@@ -22,6 +25,7 @@ namespace Internal.Scripts.Player
             CaravanSpeedConfig config,
             OverloadCalculator overload,
             PlayerResourceRepository resourceRepo,
+            InventoryRepository inventoryRepository,
             GameBalanceConfig balanceConfig)
         {
             _dayTracker = dayTracker;
@@ -29,6 +33,7 @@ namespace Internal.Scripts.Player
             _config = config;
             _overload = overload;
             _resourceRepo = resourceRepo;
+            _inventoryRepository = inventoryRepository;
             _balanceConfig = balanceConfig;
         }
 
@@ -48,12 +53,20 @@ namespace Internal.Scripts.Player
             float overloadWear = _overload.GetWearModifier();
             float overloadFood = _overload.GetFoodModifier();
 
+            int suppliesToConsume = 0;
+
             _resourceRepo.UpdateResources(state =>
             {
                 ApplyDurabilityWear(state, modeData, overloadWear);
-                ApplyFoodConsumption(state, modeData, overloadFood);
+                suppliesToConsume = AccumulateFoodConsumption(state, modeData, overloadFood);
                 ApplyDangerIncrease(state, modeData);
             });
+
+            if (suppliesToConsume > 0)
+            {
+                _inventoryRepository.UpdatePlayerInventory(inv =>
+                    InventoryStateMutator.RemoveItems(inv, SuppliesItemId.Value, suppliesToConsume));
+            }
         }
 
         private void ApplyDurabilityWear(PlayerResourceState state, SpeedModeData data, float overloadMod)
@@ -67,13 +80,17 @@ namespace Internal.Scripts.Player
                 cart.Durability = Mathf.Max(0f, cart.Durability - cart.MaxDurability * wearRate);
         }
 
-        private void ApplyFoodConsumption(PlayerResourceState state, SpeedModeData data, float overloadMod)
+        private int AccumulateFoodConsumption(PlayerResourceState state, SpeedModeData data, float overloadMod)
         {
             float baseFoodPerDay = state.PlayerCart.FoodConsumptionPerDay;
             foreach (CartState cart in state.Carts)
                 baseFoodPerDay += cart.FoodConsumptionPerDay;
 
-            state.Food = Mathf.Max(0f, state.Food - baseFoodPerDay * data.FoodMultiplier * overloadMod);
+            state.Food += baseFoodPerDay * data.FoodMultiplier * overloadMod;
+
+            int toConsume = (int)state.Food;
+            state.Food -= toConsume;
+            return toConsume;
         }
 
         private void ApplyDangerIncrease(PlayerResourceState state, SpeedModeData data)

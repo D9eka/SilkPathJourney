@@ -3,9 +3,11 @@ using System.Linq;
 using Internal.Scripts.Economy;
 using Internal.Scripts.Economy.Cities;
 using Internal.Scripts.Economy.Save;
+using Internal.Scripts.Economy.Save.Models;
 using Internal.Scripts.Events;
 using Internal.Scripts.Events.Data;
 using Internal.Scripts.Events.Generated;
+using Internal.Scripts.Inventory;
 using Internal.Scripts.Items;
 using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Screens.Core.Config;
@@ -39,6 +41,7 @@ namespace Internal.Scripts.UI.Screens.Event
         private readonly ItemCatalog _itemCatalog;
         private readonly ResourceIconCatalog _resourceIcons;
         private readonly PlayerResourceRepository _resourceRepository;
+        private readonly InventoryRepository _inventoryRepository;
         private readonly ReactiveProperty<EventData> _state = new(null);
         private readonly ReactiveProperty<CityData> _city = new(null);
         private readonly ReactiveProperty<bool> _isAtCity = new(false);
@@ -49,13 +52,15 @@ namespace Internal.Scripts.UI.Screens.Event
             ScreenStackService screenStackService,
             ItemCatalog itemCatalog,
             ResourceIconCatalog resourceIcons,
-            PlayerResourceRepository resourceRepository)
+            PlayerResourceRepository resourceRepository,
+            InventoryRepository inventoryRepository)
         {
             _eventTrigger = eventTrigger;
             _screenStackService = screenStackService;
             _itemCatalog = itemCatalog;
             _resourceIcons = resourceIcons;
             _resourceRepository = resourceRepository;
+            _inventoryRepository = inventoryRepository;
         }
 
         public override ScreenId Id => ScreenId.Event;
@@ -197,6 +202,14 @@ namespace Internal.Scripts.UI.Screens.Event
 
         public float GetCurrentResourceValue(ResourceType type)
         {
+            if (type == ResourceType.Food)
+            {
+                InventoryState inv = _inventoryRepository.GetPlayerInventory();
+                if (inv?.Items == null) return 0f;
+                ItemStackState stack = inv.Items.Find(s => s.ItemId == SuppliesItemId.Value);
+                return stack?.Count ?? 0f;
+            }
+
             return _resourceRepository.Current?.GetValue(type) ?? 0f;
         }
 
