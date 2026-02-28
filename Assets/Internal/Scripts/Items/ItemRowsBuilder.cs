@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Internal.Scripts.Economy.Save.Models;
 
@@ -14,6 +15,11 @@ namespace Internal.Scripts.Items
 
         public IReadOnlyList<ItemRowData> BuildRows(InventoryState inventory, bool includePrice)
         {
+            return BuildRows(inventory, includePrice ? new Func<string, int>(_itemCatalog.GetItemPrice) : null);
+        }
+
+        public IReadOnlyList<ItemRowData> BuildRows(InventoryState inventory, Func<string, int> priceResolver)
+        {
             List<ItemRowData> rows = new();
             if (inventory == null || inventory.Items == null)
                 return rows;
@@ -23,13 +29,19 @@ namespace Internal.Scripts.Items
                 if (stack == null || stack.Count <= 0)
                     continue;
 
-                AddRow(rows, stack.ItemId, stack.Count, includePrice);
+                AddRow(rows, stack.ItemId, stack.Count, priceResolver);
             }
 
+            SortRows(rows);
             return rows;
         }
 
         public IReadOnlyList<ItemRowData> BuildRows(IReadOnlyDictionary<string, int> counts, bool includePrice)
+        {
+            return BuildRows(counts, includePrice ? new Func<string, int>(_itemCatalog.GetItemPrice) : null);
+        }
+
+        public IReadOnlyList<ItemRowData> BuildRows(IReadOnlyDictionary<string, int> counts, Func<string, int> priceResolver)
         {
             List<ItemRowData> rows = new();
             if (counts == null)
@@ -40,14 +52,21 @@ namespace Internal.Scripts.Items
                 if (kvp.Value <= 0)
                     continue;
 
-                AddRow(rows, kvp.Key, kvp.Value, includePrice);
+                AddRow(rows, kvp.Key, kvp.Value, priceResolver);
             }
 
+            SortRows(rows);
             return rows;
         }
 
         public IReadOnlyList<ItemRowData> BuildRemainingRows(IReadOnlyDictionary<string, int> baseCounts,
             IReadOnlyDictionary<string, int> reserved, bool includePrice)
+        {
+            return BuildRemainingRows(baseCounts, reserved, includePrice ? new Func<string, int>(_itemCatalog.GetItemPrice) : null);
+        }
+
+        public IReadOnlyList<ItemRowData> BuildRemainingRows(IReadOnlyDictionary<string, int> baseCounts,
+            IReadOnlyDictionary<string, int> reserved, Func<string, int> priceResolver)
         {
             List<ItemRowData> rows = new();
             if (baseCounts == null)
@@ -61,9 +80,10 @@ namespace Internal.Scripts.Items
                 if (remaining <= 0)
                     continue;
 
-                AddRow(rows, kvp.Key, remaining, includePrice);
+                AddRow(rows, kvp.Key, remaining, priceResolver);
             }
 
+            SortRows(rows);
             return rows;
         }
 
@@ -121,7 +141,19 @@ namespace Internal.Scripts.Items
             return hash;
         }
 
-        private void AddRow(List<ItemRowData> rows, string itemId, int count, bool includePrice)
+        private static void SortRows(List<ItemRowData> rows)
+        {
+            rows.Sort((a, b) =>
+            {
+                bool aSupplies = a.ItemId == SuppliesItemId.Value;
+                bool bSupplies = b.ItemId == SuppliesItemId.Value;
+                if (aSupplies != bSupplies)
+                    return aSupplies ? -1 : 1;
+                return string.Compare(a.ItemId, b.ItemId, StringComparison.Ordinal);
+            });
+        }
+
+        private void AddRow(List<ItemRowData> rows, string itemId, int count, Func<string, int> priceResolver)
         {
             string name = _itemCatalog.ResolveItemName(itemId);
             if (count > 1)
@@ -137,8 +169,8 @@ namespace Internal.Scripts.Items
                 weightText = totalWeight.ToString("0.##");
             }
 
-            if (includePrice)
-                priceText = _itemCatalog.GetItemPrice(itemId).ToString();
+            if (priceResolver != null)
+                priceText = priceResolver(itemId).ToString();
 
             rows.Add(new ItemRowData(itemId, count, name, weightText, priceText));
         }

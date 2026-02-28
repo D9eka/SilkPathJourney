@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Internal.Scripts.Economy;
 using Internal.Scripts.Economy.Save;
 using Internal.Scripts.Economy.Save.Models;
+using Internal.Scripts.Economy.Simulation;
 using Internal.Scripts.Inventory;
 using Internal.Scripts.Items;
 using R3;
@@ -14,6 +15,7 @@ namespace Internal.Scripts.Trading
     {
         private readonly InventoryRepository _inventoryRepository;
         private readonly PlayerResourceRepository _resourceRepository;
+        private readonly CityTradePriceService _priceService;
         private readonly TradeSession _session = new();
         private readonly TradeCityCatalog _cityCatalog;
         private readonly ItemRowsBuilder _rowsBuilder;
@@ -40,10 +42,12 @@ namespace Internal.Scripts.Trading
         public TradeModel(
             InventoryRepository inventoryRepository,
             PlayerResourceRepository resourceRepository,
-            EconomyDatabase economyDatabase)
+            EconomyDatabase economyDatabase,
+            CityTradePriceService priceService)
         {
             _inventoryRepository = inventoryRepository;
             _resourceRepository = resourceRepository;
+            _priceService = priceService;
             ItemCatalog itemCatalog = new ItemCatalog(economyDatabase);
             _cityCatalog = new TradeCityCatalog(economyDatabase);
             _rowsBuilder = new ItemRowsBuilder(itemCatalog);
@@ -130,8 +134,8 @@ namespace Internal.Scripts.Trading
             InventoryState npcSnapshot = citySnapshot != null ? citySnapshot.Inventory : null;
             if (npcSnapshot == null) return;
 
-            int buyTotal = _totalsCalculator.CalculateTotal(_session.ToBuy);
-            int sellTotal = _totalsCalculator.CalculateTotal(_session.ToSell);
+            int buyTotal = _totalsCalculator.CalculateTotal(_session.ToBuy, BuyPriceResolver);
+            int sellTotal = _totalsCalculator.CalculateTotal(_session.ToSell, SellPriceResolver);
 
             if (!_totalsCalculator.HasPlayerFunds(buyTotal, sellTotal, _playerResources.Money))
                 return;
@@ -196,8 +200,8 @@ namespace Internal.Scripts.Trading
             _session.ClampReserved();
             UpdateItemsIfChanged();
 
-            int buyTotal = _totalsCalculator.CalculateTotal(_session.ToBuy);
-            int sellTotal = _totalsCalculator.CalculateTotal(_session.ToSell);
+            int buyTotal = _totalsCalculator.CalculateTotal(_session.ToBuy, BuyPriceResolver);
+            int sellTotal = _totalsCalculator.CalculateTotal(_session.ToSell, SellPriceResolver);
 
             int playerMoney = _playerResources != null ? _playerResources.Money : 0;
             int npcMoney = _npcInventory != null ? _npcInventory.Money : 0;
@@ -221,31 +225,34 @@ namespace Internal.Scripts.Trading
 
         private void UpdateItemsIfChanged()
         {
+            Func<string, int> sellResolver = SellPriceResolver;
+            Func<string, int> buyResolver = BuyPriceResolver;
+
             int playerHash = _rowsBuilder.ComputeRemainingHash(_session.PlayerBase, _session.ToSell);
             if (playerHash != _playerItemsHash)
             {
-                _playerItems = _rowsBuilder.BuildRemainingRows(_session.PlayerBase, _session.ToSell, includePrice: true);
+                _playerItems = _rowsBuilder.BuildRemainingRows(_session.PlayerBase, _session.ToSell, sellResolver);
                 _playerItemsHash = playerHash;
             }
 
             int npcHash = _rowsBuilder.ComputeRemainingHash(_session.NpcBase, _session.ToBuy);
             if (npcHash != _npcItemsHash)
             {
-                _npcItems = _rowsBuilder.BuildRemainingRows(_session.NpcBase, _session.ToBuy, includePrice: true);
+                _npcItems = _rowsBuilder.BuildRemainingRows(_session.NpcBase, _session.ToBuy, buyResolver);
                 _npcItemsHash = npcHash;
             }
 
             int buyHash = _rowsBuilder.ComputeCountsHash(_session.ToBuy);
             if (buyHash != _buyItemsHash)
             {
-                _buyItems = _rowsBuilder.BuildRows(_session.ToBuy, includePrice: true);
+                _buyItems = _rowsBuilder.BuildRows(_session.ToBuy, buyResolver);
                 _buyItemsHash = buyHash;
             }
 
             int sellHash = _rowsBuilder.ComputeCountsHash(_session.ToSell);
             if (sellHash != _sellItemsHash)
             {
-                _sellItems = _rowsBuilder.BuildRows(_session.ToSell, includePrice: true);
+                _sellItems = _rowsBuilder.BuildRows(_session.ToSell, sellResolver);
                 _sellItemsHash = sellHash;
             }
         }
@@ -272,6 +279,16 @@ namespace Internal.Scripts.Trading
 
             foreach (KeyValuePair<string, int> kvp in toSell)
                 InventoryStateMutator.AddItems(npc, kvp.Key, kvp.Value);
+        }
+
+        private int BuyPriceResolver(string itemId)
+        {
+            return _priceService.GetPrice(_cityId, itemId, TradePriceKind.BuyFromCity);
+        }
+
+        private int SellPriceResolver(string itemId)
+        {
+            return _priceService.GetPrice(_cityId, itemId, TradePriceKind.SellToCity);
         }
 
         private void ResetCaches()

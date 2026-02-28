@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Internal.Scripts.Items;
 
@@ -22,6 +23,24 @@ namespace Internal.Scripts.Trading
                 if (kvp.Value <= 0) continue;
 
                 total += _itemCatalog.GetItemPrice(kvp.Key) * kvp.Value;
+            }
+
+            return total;
+        }
+
+        public int CalculateTotal(IReadOnlyDictionary<string, int> counts, Func<string, int> priceResolver)
+        {
+            if (priceResolver == null)
+                return CalculateTotal(counts);
+
+            int total = 0;
+            if (counts == null) return total;
+
+            foreach (KeyValuePair<string, int> kvp in counts)
+            {
+                if (kvp.Value <= 0) continue;
+
+                total += priceResolver(kvp.Key) * kvp.Value;
             }
 
             return total;
