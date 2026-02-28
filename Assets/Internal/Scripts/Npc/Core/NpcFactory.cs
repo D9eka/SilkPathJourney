@@ -14,18 +14,18 @@ namespace Internal.Scripts.Npc.Core
         private readonly RoadSamplerCache _samplerCache;
         private readonly NpcSimulation _simulation;
         private readonly RoadPoseSampler _poseSampler;
-        private readonly GameClock _gameClock;
+        private readonly IGameDayDeltaProvider _gameDayDeltaProvider;
 
         public NpcFactory(IRoadPathFinder pathFinder, IRoadNetwork network,
             RoadSamplerCache samplerCache, NpcSimulation simulation, RoadPoseSampler poseSampler,
-            GameClock gameClock)
+            IGameDayDeltaProvider gameDayDeltaProvider)
         {
             _pathFinder = pathFinder;
             _network = network;
             _samplerCache = samplerCache;
             _simulation = simulation;
             _poseSampler = poseSampler;
-            _gameClock = gameClock;
+            _gameDayDeltaProvider = gameDayDeltaProvider;
         }
 
         public RoadAgent Create(NpcView view, RoadAgentConfig config, string startNodeId)
@@ -33,7 +33,7 @@ namespace Internal.Scripts.Npc.Core
             RoadPathCursor cursor = new RoadPathCursor(_network,
                 new SegmentMover(_network, _samplerCache, _poseSampler),
                 new NpcNextSegmentProvider(_pathFinder));
-            RoadAgent agent = new RoadAgent(view, config, cursor, _gameClock, startNodeId);
+            RoadAgent agent = new RoadAgent(view, config, cursor, _gameDayDeltaProvider, startNodeId);
             _simulation.Register(agent);
             return agent;
         }

@@ -88,13 +88,7 @@ namespace Internal.Scripts.Economy.Save
                 Money = _playerConfig.StartMoney,
                 Food = _playerConfig.StartFood,
                 AccumulatedDanger = 0f,
-                PlayerCart = new CartState
-                {
-                    Capacity = 100f,
-                    Durability = 100f,
-                    MaxDurability = 100f,
-                    Speed = _playerConfig.RoadAgentConfig.SpeedMetersPerSecond
-                },
+                PlayerCart = CreatePlayerCart(),
                 Carts = new List<CartState>()
             };
 
@@ -112,6 +106,19 @@ namespace Internal.Scripts.Economy.Save
             }
 
             return resources;
+        }
+
+        private CartState CreatePlayerCart()
+        {
+            Config.CartConfig cartConfig = _playerConfig.StartCartConfig;
+            return new CartState
+            {
+                Capacity = cartConfig.BaseCapacity,
+                Durability = cartConfig.BaseMaxDurability,
+                MaxDurability = cartConfig.BaseMaxDurability,
+                Speed = cartConfig.BaseSpeed,
+                FoodConsumptionPerDay = cartConfig.FoodConsumptionPerDay
+            };
         }
 
         private InventoryState CreateCityInventory(CityData city)

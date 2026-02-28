@@ -23,6 +23,10 @@ namespace Internal.Scripts.Input
         public Action OnUiAction;
         public Action OnUiNextArea;
         public Action OnUiPrevArea;
+        public Action OnTimeSpeedPause;
+        public Action OnTimeSpeed1;
+        public Action OnTimeSpeed2;
+        public Action OnTimeSpeed3;
 
         public Vector2 UiNavigateValue => _uiNavigateValue;
         
@@ -90,6 +94,11 @@ namespace Internal.Scripts.Input
             _inputActions.Player.MoveCamera.performed += OnMoveCamera;
             _inputActions.Player.MoveCamera.canceled += OnMoveCamera;
 
+            _inputActions.Player.TimeSpeedPause.performed += OnTimeSpeedPauseAction;
+            _inputActions.Player.TimeSpeed1.performed += OnTimeSpeed1Action;
+            _inputActions.Player.TimeSpeed2.performed += OnTimeSpeed2Action;
+            _inputActions.Player.TimeSpeed3.performed += OnTimeSpeed3Action;
+
             if (_uiMap != null)
             {
                 _uiNavigate.performed += OnUiNavigateAction;
@@ -110,6 +119,11 @@ namespace Internal.Scripts.Input
             _inputActions.Player.ZoomCamera.canceled -= OnZoomCamera;
             _inputActions.Player.MoveCamera.performed -= OnMoveCamera;
             _inputActions.Player.MoveCamera.canceled -= OnMoveCamera;
+
+            _inputActions.Player.TimeSpeedPause.performed -= OnTimeSpeedPauseAction;
+            _inputActions.Player.TimeSpeed1.performed -= OnTimeSpeed1Action;
+            _inputActions.Player.TimeSpeed2.performed -= OnTimeSpeed2Action;
+            _inputActions.Player.TimeSpeed3.performed -= OnTimeSpeed3Action;
 
             if (_uiMap != null)
             {
@@ -266,6 +280,30 @@ namespace Internal.Scripts.Input
         {
             if (context.performed)
                 OnUiPrevArea?.Invoke();
+        }
+
+        private void OnTimeSpeedPauseAction(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+                OnTimeSpeedPause?.Invoke();
+        }
+
+        private void OnTimeSpeed1Action(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+                OnTimeSpeed1?.Invoke();
+        }
+
+        private void OnTimeSpeed2Action(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+                OnTimeSpeed2?.Invoke();
+        }
+
+        private void OnTimeSpeed3Action(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+                OnTimeSpeed3?.Invoke();
         }
     }
 }

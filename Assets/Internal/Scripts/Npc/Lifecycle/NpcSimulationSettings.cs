@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Internal.Scripts.Npc.Core;
+using UnityEngine.Serialization;
 
 namespace Internal.Scripts.Npc.Lifecycle
 {
@@ -8,7 +9,10 @@ namespace Internal.Scripts.Npc.Lifecycle
     public sealed class NpcSimulationSettings : ScriptableObject
     {
         [Min(1)] public int AgentCount = 5;
-        public Vector2 SpeedRangeMetersPerSecond = new(2f, 6f);
+
+        [FormerlySerializedAs("SpeedRangeMetersPerSecond")]
+        public Vector2 SpeedRangeMetersPerDay = new(2f, 6f);
+
         public List<NpcView> Prefabs = new();
         public List<Color> AvailableColors = new();
     }

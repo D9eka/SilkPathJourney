@@ -1,6 +1,8 @@
+using Internal.Scripts.Config;
 using Internal.Scripts.Economy.Save;
 using Internal.Scripts.Player;
 using Internal.Scripts.Road.State;
+using UnityEngine;
 using Zenject;
 
 namespace Internal.Scripts.Save
@@ -11,23 +13,29 @@ namespace Internal.Scripts.Save
         private readonly EconomySaveBuilder _economySaveBuilder;
         private readonly PlayerConfig _playerConfig;
         private readonly RoadUnlockService _roadUnlockService;
+        private readonly GameBalanceConfig _balanceConfig;
 
         public SaveBootstrapper(
             SaveRepository saveRepository,
             EconomySaveBuilder economySaveBuilder,
             PlayerConfig playerConfig,
-            RoadUnlockService roadUnlockService)
+            RoadUnlockService roadUnlockService,
+            GameBalanceConfig balanceConfig)
         {
             _saveRepository = saveRepository;
             _economySaveBuilder = economySaveBuilder;
             _playerConfig = playerConfig;
             _roadUnlockService = roadUnlockService;
+            _balanceConfig = balanceConfig;
         }
 
         public void Initialize()
         {
             SaveData data = _saveRepository.Data;
             bool changed = false;
+
+            if (data.Version < 2)
+                changed |= MigrateToV2(data);
 
             if (data.Economy == null || !data.Economy.IsInitialized)
             {
@@ -51,6 +59,31 @@ namespace Internal.Scripts.Save
 
             if (changed)
                 _saveRepository.Save();
+        }
+
+        private bool MigrateToV2(SaveData data)
+        {
+            float secondsPerDay = _balanceConfig != null
+                ? Mathf.Max(0f, _balanceConfig.SecondsPerDay)
+                : 0f;
+
+            if (secondsPerDay > 0f)
+            {
+                PlayerResourceState resources = data.Economy?.PlayerResources;
+                if (resources?.PlayerCart != null)
+                {
+                    resources.PlayerCart.Speed *= secondsPerDay;
+                }
+
+                if (resources?.Carts != null)
+                {
+                    foreach (CartState cart in resources.Carts)
+                        cart.Speed *= secondsPerDay;
+                }
+            }
+
+            data.Version = 2;
+            return true;
         }
 
         private string ResolveStartNodeId()

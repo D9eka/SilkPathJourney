@@ -46,6 +46,8 @@ namespace Internal.Scripts.Installers
 
         [Header("Balance")]
         [SerializeField] private GameBalanceConfig _gameBalanceConfig;
+        [SerializeField] private TimeSpeedConfig _timeSpeedConfig;
+        [SerializeField] private CaravanSpeedConfig _caravanSpeedConfig;
 
         public override void InstallBindings()
         {
@@ -59,6 +61,8 @@ namespace Internal.Scripts.Installers
             Container.BindInstance(_screenCatalog).AsSingle();
             Container.BindInstance(_resourceIconCatalog).AsSingle();
             Container.BindInstance(_gameBalanceConfig).AsSingle();
+            Container.BindInstance(_timeSpeedConfig).AsSingle();
+            Container.BindInstance(_caravanSpeedConfig).AsSingle();
 
             Container.Bind<ISaveService>().To<JsonSaveService>().AsSingle();
             Container.Bind<ActiveSaveSlot>().AsSingle();

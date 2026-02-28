@@ -87,6 +87,11 @@ namespace Internal.Scripts.Npc.Movement
         {
             return _segmentMover.Advance(deltaMeters);
         }
+
+        public float AdvanceByDaySpeed(float speedMetersPerDay, float dayDelta)
+        {
+            return _segmentMover.AdvanceByDaySpeed(speedMetersPerDay, dayDelta);
+        }
         
         private async void ChooseNextSegment(List<RoadPathSegment> options)
         {

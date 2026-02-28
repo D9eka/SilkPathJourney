@@ -118,6 +118,42 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""TimeSpeedPause"",
+                    ""type"": ""Button"",
+                    ""id"": ""a1b2c3d4-0001-4000-8000-000000000001"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""TimeSpeed1"",
+                    ""type"": ""Button"",
+                    ""id"": ""a1b2c3d4-0002-4000-8000-000000000002"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""TimeSpeed2"",
+                    ""type"": ""Button"",
+                    ""id"": ""a1b2c3d4-0003-4000-8000-000000000003"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""TimeSpeed3"",
+                    ""type"": ""Button"",
+                    ""id"": ""a1b2c3d4-0004-4000-8000-000000000004"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -219,6 +255,50 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""MoveCamera"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b1c2d3e4-0001-4000-8000-000000000011"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TimeSpeedPause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b1c2d3e4-0002-4000-8000-000000000012"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TimeSpeed1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b1c2d3e4-0003-4000-8000-000000000013"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TimeSpeed2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b1c2d3e4-0004-4000-8000-000000000014"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TimeSpeed3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -470,7 +550,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""1763e059-c869-4c0d-9f21-65261f50f723"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -565,6 +645,10 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_Click = m_Player.FindAction("Click", throwIfNotFound: true);
         m_Player_ZoomCamera = m_Player.FindAction("ZoomCamera", throwIfNotFound: true);
         m_Player_MoveCamera = m_Player.FindAction("MoveCamera", throwIfNotFound: true);
+        m_Player_TimeSpeedPause = m_Player.FindAction("TimeSpeedPause", throwIfNotFound: true);
+        m_Player_TimeSpeed1 = m_Player.FindAction("TimeSpeed1", throwIfNotFound: true);
+        m_Player_TimeSpeed2 = m_Player.FindAction("TimeSpeed2", throwIfNotFound: true);
+        m_Player_TimeSpeed3 = m_Player.FindAction("TimeSpeed3", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -658,6 +742,10 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Click;
     private readonly InputAction m_Player_ZoomCamera;
     private readonly InputAction m_Player_MoveCamera;
+    private readonly InputAction m_Player_TimeSpeedPause;
+    private readonly InputAction m_Player_TimeSpeed1;
+    private readonly InputAction m_Player_TimeSpeed2;
+    private readonly InputAction m_Player_TimeSpeed3;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -681,6 +769,22 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/MoveCamera".
         /// </summary>
         public InputAction @MoveCamera => m_Wrapper.m_Player_MoveCamera;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/TimeSpeedPause".
+        /// </summary>
+        public InputAction @TimeSpeedPause => m_Wrapper.m_Player_TimeSpeedPause;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/TimeSpeed1".
+        /// </summary>
+        public InputAction @TimeSpeed1 => m_Wrapper.m_Player_TimeSpeed1;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/TimeSpeed2".
+        /// </summary>
+        public InputAction @TimeSpeed2 => m_Wrapper.m_Player_TimeSpeed2;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/TimeSpeed3".
+        /// </summary>
+        public InputAction @TimeSpeed3 => m_Wrapper.m_Player_TimeSpeed3;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -716,6 +820,18 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @MoveCamera.started += instance.OnMoveCamera;
             @MoveCamera.performed += instance.OnMoveCamera;
             @MoveCamera.canceled += instance.OnMoveCamera;
+            @TimeSpeedPause.started += instance.OnTimeSpeedPause;
+            @TimeSpeedPause.performed += instance.OnTimeSpeedPause;
+            @TimeSpeedPause.canceled += instance.OnTimeSpeedPause;
+            @TimeSpeed1.started += instance.OnTimeSpeed1;
+            @TimeSpeed1.performed += instance.OnTimeSpeed1;
+            @TimeSpeed1.canceled += instance.OnTimeSpeed1;
+            @TimeSpeed2.started += instance.OnTimeSpeed2;
+            @TimeSpeed2.performed += instance.OnTimeSpeed2;
+            @TimeSpeed2.canceled += instance.OnTimeSpeed2;
+            @TimeSpeed3.started += instance.OnTimeSpeed3;
+            @TimeSpeed3.performed += instance.OnTimeSpeed3;
+            @TimeSpeed3.canceled += instance.OnTimeSpeed3;
         }
 
         /// <summary>
@@ -736,6 +852,18 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @MoveCamera.started -= instance.OnMoveCamera;
             @MoveCamera.performed -= instance.OnMoveCamera;
             @MoveCamera.canceled -= instance.OnMoveCamera;
+            @TimeSpeedPause.started -= instance.OnTimeSpeedPause;
+            @TimeSpeedPause.performed -= instance.OnTimeSpeedPause;
+            @TimeSpeedPause.canceled -= instance.OnTimeSpeedPause;
+            @TimeSpeed1.started -= instance.OnTimeSpeed1;
+            @TimeSpeed1.performed -= instance.OnTimeSpeed1;
+            @TimeSpeed1.canceled -= instance.OnTimeSpeed1;
+            @TimeSpeed2.started -= instance.OnTimeSpeed2;
+            @TimeSpeed2.performed -= instance.OnTimeSpeed2;
+            @TimeSpeed2.canceled -= instance.OnTimeSpeed2;
+            @TimeSpeed3.started -= instance.OnTimeSpeed3;
+            @TimeSpeed3.performed -= instance.OnTimeSpeed3;
+            @TimeSpeed3.canceled -= instance.OnTimeSpeed3;
         }
 
         /// <summary>
@@ -959,6 +1087,34 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnMoveCamera(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "TimeSpeedPause" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnTimeSpeedPause(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "TimeSpeed1" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnTimeSpeed1(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "TimeSpeed2" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnTimeSpeed2(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "TimeSpeed3" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnTimeSpeed3(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.

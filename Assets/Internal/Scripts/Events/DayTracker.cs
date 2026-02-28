@@ -1,59 +1,48 @@
 using System;
 using Internal.Scripts.Config;
-using Internal.Scripts.Npc.Core;
+using Internal.Scripts.Player;
 using Internal.Scripts.Save;
+using Internal.Scripts.World.State;
 using UnityEngine;
 using Zenject;
 
 namespace Internal.Scripts.Events
 {
-    public class DayTracker : IDisposable
+    public class DayTracker : IFixedTickable
     {
         public event Action<int> OnDayChanged;
 
         private readonly SaveRepository _saveRepository;
         private readonly GameBalanceConfig _balanceConfig;
-        private float _metersPerDay;
+        private readonly GameClock _gameClock;
+        private readonly IPlayerStateProvider _playerState;
 
-        private RoadAgent _playerRoadAgent;
-        private float _lastDistanceCheckpoint = 0f;
+        private float _accumulatedTime;
 
         public int CurrentDay => _saveRepository.Data.Player.CurrentDay;
 
-        public DayTracker(SaveRepository saveRepository, GameBalanceConfig balanceConfig)
+        public DayTracker(SaveRepository saveRepository, GameBalanceConfig balanceConfig,
+            GameClock gameClock, IPlayerStateProvider playerState)
         {
             _saveRepository = saveRepository;
             _balanceConfig = balanceConfig;
+            _gameClock = gameClock;
+            _playerState = playerState;
         }
 
-        public void Initialize(RoadAgent playerRoadAgent)
+        public void FixedTick()
         {
-            _playerRoadAgent = playerRoadAgent;
-            _metersPerDay = _balanceConfig.SecondsPerDay * _playerRoadAgent.Speed;
-            _playerRoadAgent.OnDistanceTraveled += HandleDistanceTraveled;
-        }
+            if (_gameClock.IsPaused) return;
+            if (_playerState.State != PlayerState.Moving) return;
 
-        public void Dispose()
-        {
-            if (_playerRoadAgent == null) return;
-            _playerRoadAgent.OnDistanceTraveled -= HandleDistanceTraveled;
-        }
+            _accumulatedTime += Time.fixedDeltaTime * _gameClock.TimeScale;
 
-        private void HandleDistanceTraveled(float totalDistance)
-        {
-            float distanceSinceLastDay = totalDistance - _lastDistanceCheckpoint;
-
-            if (distanceSinceLastDay >= _metersPerDay)
+            while (_accumulatedTime >= _balanceConfig.SecondsPerDay)
             {
-                int daysToAdd = Mathf.FloorToInt(distanceSinceLastDay / _metersPerDay);
-                _lastDistanceCheckpoint += daysToAdd * _metersPerDay;
-
-                for (int i = 0; i < daysToAdd; i++)
-                {
-                    _saveRepository.Data.Player.CurrentDay++;
-                    _saveRepository.Save();
-                    OnDayChanged?.Invoke(CurrentDay);
-                }
+                _accumulatedTime -= _balanceConfig.SecondsPerDay;
+                _saveRepository.Data.Player.CurrentDay++;
+                _saveRepository.Save();
+                OnDayChanged?.Invoke(CurrentDay);
             }
         }
     }

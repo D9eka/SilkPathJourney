@@ -30,3 +30,5 @@ MonoBehaviour:
     _sceneName: MainMenu
     _cameraSize: 15
   _gameBalanceConfig: {fileID: 11400000, guid: 27f872d135e6d774c89903c048a2126e, type: 2}
+  _timeSpeedConfig: {fileID: 11400000, guid: 737c1a3dfdcef1f428755b88361aa2df, type: 2}
+  _caravanSpeedConfig: {fileID: 11400000, guid: 57feadfa4050739439ed160a6b15c563, type: 2}
