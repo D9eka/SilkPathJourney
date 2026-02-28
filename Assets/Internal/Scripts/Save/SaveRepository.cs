@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Internal.Scripts.Config;
 using Internal.Scripts.Economy.Save;
 using Internal.Scripts.Economy.Save.Models;
+using Internal.Scripts.Items;
 
 namespace Internal.Scripts.Save
 {
@@ -65,12 +66,12 @@ namespace Internal.Scripts.Save
                 DisplayName = $"День {_data.Player?.CurrentDay ?? 1}",
                 CurrentNodeId = _data.Player?.CurrentNodeId ?? "",
                 Money = resources?.Money ?? 0,
-                Food = (int)(resources?.Food ?? 0),
+                Food = GetSuppliesCount(_data.Economy?.PlayerInventory),
                 CartDurability = (int)(resources?.PlayerCart?.Durability ?? 0),
                 Danger = (int)(resources?.AccumulatedDanger ?? 0),
                 PartnerCount = cartCount,
                 IsAutoSave = isAutoSave,
-                FoodMax = (int)_balanceConfig.MaxFood,
+                FoodMax = 0,
                 CartDurabilityMax = (int)(resources?.PlayerCart?.MaxDurability ?? 100),
                 DangerMax = (int)_balanceConfig.MaxDanger,
                 OtherCartsDurability = otherDur,
@@ -95,6 +96,13 @@ namespace Internal.Scripts.Save
             Normalize(_data);
             _isLoaded = true;
             _loadedSlotId = currentSlot;
+        }
+
+        private static int GetSuppliesCount(InventoryState inv)
+        {
+            if (inv?.Items == null) return 0;
+            ItemStackState stack = inv.Items.Find(s => s.ItemId == SuppliesItemId.Value);
+            return stack?.Count ?? 0;
         }
 
         private static void Normalize(SaveData data)

@@ -3,6 +3,8 @@ using Internal.Scripts.Config;
 using Internal.Scripts.Economy;
 using Internal.Scripts.Events.Data;
 using Internal.Scripts.Events.Generated;
+using Internal.Scripts.Inventory;
+using Internal.Scripts.Items;
 using Internal.Scripts.UI.Components;
 using UnityEngine;
 
@@ -18,12 +20,15 @@ namespace Internal.Scripts.Events.Outcomes
         };
 
         private readonly PlayerResourceRepository _resourceRepository;
+        private readonly InventoryRepository _inventoryRepository;
         private readonly GameBalanceConfig _balanceConfig;
 
         public ResourceOutcomeHandler(PlayerResourceRepository resourceRepository,
+            InventoryRepository inventoryRepository,
             GameBalanceConfig balanceConfig)
         {
             _resourceRepository = resourceRepository;
+            _inventoryRepository = inventoryRepository;
             _balanceConfig = balanceConfig;
         }
 
@@ -45,8 +50,13 @@ namespace Internal.Scripts.Events.Outcomes
                     _resourceRepository.UpdateResources(s => s.Money += Mathf.RoundToInt(entry.Value));
                     break;
                 case EventOutcomeType.Food:
-                    _resourceRepository.UpdateResources(s =>
-                        s.Food = Mathf.Clamp(s.Food + entry.Value, 0f, _balanceConfig.MaxFood));
+                    int foodDelta = Mathf.RoundToInt(entry.Value);
+                    if (foodDelta > 0)
+                        _inventoryRepository.UpdatePlayerInventory(inv =>
+                            InventoryStateMutator.AddItems(inv, SuppliesItemId.Value, foodDelta));
+                    else if (foodDelta < 0)
+                        _inventoryRepository.UpdatePlayerInventory(inv =>
+                            InventoryStateMutator.RemoveItems(inv, SuppliesItemId.Value, -foodDelta));
                     break;
                 case EventOutcomeType.Danger:
                     _resourceRepository.UpdateResources(s =>
@@ -63,7 +73,7 @@ namespace Internal.Scripts.Events.Outcomes
             return type switch
             {
                 EventOutcomeType.Money => res.Money + netValue >= 0,
-                EventOutcomeType.Food => res.Food + netValue >= 0,
+                EventOutcomeType.Food => true,
                 _ => true
             };
         }

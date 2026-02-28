@@ -12,15 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8323ffbd31409fd4b9990dca4f0223c2, type: 3}
   m_Name: PlayerConfig
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Player.PlayerConfig
-  <RoadAgentConfig>k__BackingField:
-    SpeedMetersPerSecond: 10
-    Lane: 1
-    LateralOffsetMeters: 0
+  <StartCartConfig>k__BackingField: {fileID: 11400000, guid: f82abfc9533689c45b72badb37766aa1, type: 2}
   <StartNodeId>k__BackingField: N_Quanzhou
   <StartMoney>k__BackingField: 200
-  <MaxWeightKg>k__BackingField: 100
+  <StartFood>k__BackingField: 50
   <StartItems>k__BackingField:
   - <ItemId>k__BackingField: silk
     <Count>k__BackingField: 3
   - <ItemId>k__BackingField: tea
     <Count>k__BackingField: 5
+  <StartCarts>k__BackingField: []

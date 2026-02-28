@@ -86,6 +86,28 @@ namespace Internal.Scripts.Inventory
             return true;
         }
 
+        public List<CityInventoryState> GetAllCityInventories()
+        {
+            EnsureLoaded();
+            return _saveData.CityInventories;
+        }
+
+        public void UpdateAllCityInventories(Action<List<CityInventoryState>> mutator)
+        {
+            if (mutator == null)
+                return;
+
+            EnsureLoaded();
+            mutator(_saveData.CityInventories);
+            _saveRepository.Save();
+
+            foreach (CityInventoryState cityState in _saveData.CityInventories)
+            {
+                if (cityState != null && !string.IsNullOrWhiteSpace(cityState.CityId))
+                    UpdateCityStream(cityState.CityId, cityState.Inventory);
+            }
+        }
+
         public bool HasPlayerItem(string itemId, int minCount = 1)
         {
             EnsureLoaded();

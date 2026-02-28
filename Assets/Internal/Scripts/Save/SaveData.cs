@@ -6,7 +6,7 @@ namespace Internal.Scripts.Save
     [Serializable]
     public class SaveData
     {
-        public int Version = 1;
+        public int Version = 2;
         public EconomySaveData Economy;
         public PlayerSaveData Player;
         public CameraSaveData Camera;

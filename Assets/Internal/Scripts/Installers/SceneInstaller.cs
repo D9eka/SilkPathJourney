@@ -47,6 +47,7 @@ using Internal.Scripts.UI.PathVisualization;
 using Internal.Scripts.UI.Screens.Core.Config;
 using Internal.Scripts.UI.Screens.Hud;
 using Internal.Scripts.UI.Theme;
+using Internal.Scripts.Economy.Simulation;
 using Internal.Scripts.Utils;
 
 namespace Internal.Scripts.Installers
@@ -77,6 +78,7 @@ namespace Internal.Scripts.Installers
         public override void InstallBindings()
         {
             Container.Bind<GameClock>().AsSingle();
+            Container.BindInterfacesAndSelfTo<GameDayDeltaProvider>().AsSingle();
             Container.Bind<SceneLoaderService>().AsSingle();
 
             Container.BindInterfacesTo<InputSceneSetup>().AsSingle()
@@ -162,6 +164,9 @@ namespace Internal.Scripts.Installers
             Container.BindInterfacesTo<PlayerStartMovement>().AsSingle();
             Container.BindInterfacesAndSelfTo<PlayerController>().AsSingle();
             Container.BindInterfacesAndSelfTo<PlayerSaveController>().AsSingle();
+            Container.Bind<OverloadCalculator>().AsSingle();
+            Container.Bind<CaravanSpeedService>().AsSingle();
+            Container.Bind<DailyTravelCosts>().AsSingle();
             Container.BindInterfacesTo<PlayerInitializer>().AsSingle();
             Container.BindInterfacesTo<CityNodeResolver>().AsSingle();
         }
@@ -169,10 +174,15 @@ namespace Internal.Scripts.Installers
         private void InstallEconomy()
         {
             Container.Bind<ItemCatalog>().AsSingle();
+            Container.Bind<ItemWeightCalculator>().AsSingle();
             Container.Bind<EconomySaveBuilder>().AsSingle();
             Container.BindInterfacesAndSelfTo<SaveBootstrapper>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<InventoryRepository>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<PlayerResourceRepository>().AsSingle().NonLazy();
+
+            Container.Bind<CityMarketProfileService>().AsSingle();
+            Container.Bind<CityTradePriceService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<CityEconomySimulator>().AsSingle().NonLazy();
         }
 
         private void InstallScreens()
@@ -187,6 +197,7 @@ namespace Internal.Scripts.Installers
             Container.Bind<IScreenViewModelFactory>().To<ScreenViewModelFactory>().AsSingle();
             Container.BindInterfacesAndSelfTo<ScreenStackService>().AsSingle().WithArguments(ScreenId.Hud);
             Container.BindInterfacesTo<ScreenBackHandler>().AsSingle();
+            Container.BindInterfacesTo<Input.TimeSpeedInputHandler>().AsSingle();
         }
 
         private void InstallArrows()

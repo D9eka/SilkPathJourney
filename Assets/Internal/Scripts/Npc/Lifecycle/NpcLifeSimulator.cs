@@ -76,7 +76,7 @@ namespace Internal.Scripts.Npc.Lifecycle
             agent.SetDestination(target);
             _agents.Add(agent);
 
-            Debug.Log($"[NpcLifeSimulator] Spawned agent '{prefab.name}' color {color} speed {config.SpeedMetersPerSecond:F1} from {start} to {target}");
+            Debug.Log($"[NpcLifeSimulator] Spawned agent '{prefab.name}' color {color} speed/day {config.SpeedMetersPerDay:F1} from {start} to {target}");
         }
 
         private void HandleArrival(RoadAgent agent)
@@ -150,13 +150,13 @@ namespace Internal.Scripts.Npc.Lifecycle
 
         private RoadAgentConfig BuildRandomConfig()
         {
-            float min = Mathf.Min(_settings.SpeedRangeMetersPerSecond.x, _settings.SpeedRangeMetersPerSecond.y);
-            float max = Mathf.Max(_settings.SpeedRangeMetersPerSecond.x, _settings.SpeedRangeMetersPerSecond.y);
+            float min = Mathf.Min(_settings.SpeedRangeMetersPerDay.x, _settings.SpeedRangeMetersPerDay.y);
+            float max = Mathf.Max(_settings.SpeedRangeMetersPerDay.x, _settings.SpeedRangeMetersPerDay.y);
             float speed = Mathf.Lerp(min, max, (float)_random.NextDouble());
 
             return new RoadAgentConfig
             {
-                SpeedMetersPerSecond = speed,
+                SpeedMetersPerDay = speed,
                 Lane = RoadLane.Right,
                 LateralOffsetMeters = 0f
             };

@@ -3567,7 +3567,7 @@ MonoBehaviour:
   _spawns: []
   _playerViewPrefab: {fileID: 782032695739537741, guid: 5d12c5d784414c84985da5dd4b8ddfed, type: 3}
   _playerAgentConfig:
-    SpeedMetersPerSecond: 1
+    SpeedMetersPerDay: 0.12
     Lane: 1
     LateralOffsetMeters: 0
   _uiScreenRoots: {fileID: 1469674747}

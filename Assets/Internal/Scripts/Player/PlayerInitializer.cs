@@ -1,6 +1,5 @@
 using System;
 using Internal.Scripts.Economy;
-using Internal.Scripts.Events;
 using Internal.Scripts.Npc.Core;
 using Internal.Scripts.Npc.Movement;
 using Internal.Scripts.Npc.NextSegment;
@@ -25,15 +24,17 @@ namespace Internal.Scripts.Player
         private readonly PlayerController _playerController;
         private readonly PlayerConfig _playerConfig;
         private readonly SaveRepository _saveRepository;
-        private readonly DayTracker _dayTracker;
-        private readonly GameClock _gameClock;
+        private readonly IGameDayDeltaProvider _gameDayDeltaProvider;
         private readonly PlayerResourceRepository _resourceRepository;
+        private readonly CaravanSpeedService _caravanSpeedService;
+        private readonly DailyTravelCosts _dailyTravelCosts;
 
         public PlayerInitializer(RoadAgentView view, RoadAgentConfig config,
             IRoadNetwork roadNetwork, SegmentMover segmentMover,
             INextSegmentProvider nextSegmentProvider, IArrowJunctionBalancer arrowJunctionBalancer,
             PlayerController playerController, PlayerConfig playerConfig, SaveRepository saveRepository,
-            DayTracker dayTracker, GameClock gameClock, PlayerResourceRepository resourceRepository)
+            IGameDayDeltaProvider gameDayDeltaProvider, PlayerResourceRepository resourceRepository,
+            CaravanSpeedService caravanSpeedService, DailyTravelCosts dailyTravelCosts)
         {
             _view = view;
             _config = config;
@@ -44,9 +45,10 @@ namespace Internal.Scripts.Player
             _playerController = playerController;
             _playerConfig = playerConfig;
             _saveRepository = saveRepository;
-            _dayTracker = dayTracker;
-            _gameClock = gameClock;
+            _gameDayDeltaProvider = gameDayDeltaProvider;
             _resourceRepository = resourceRepository;
+            _caravanSpeedService = caravanSpeedService;
+            _dailyTravelCosts = dailyTravelCosts;
         }
 
         public void Initialize()
@@ -54,16 +56,17 @@ namespace Internal.Scripts.Player
             string startNodeId = ResolveStartNodeId();
 
             RoadAgent agent = new RoadAgent(_view, _config,
-                new RoadPathCursor(_roadNetwork, _segmentMover, _nextSegmentProvider), _gameClock, startNodeId);
+                new RoadPathCursor(_roadNetwork, _segmentMover, _nextSegmentProvider), _gameDayDeltaProvider, startNodeId);
 
             var resources = _resourceRepository.Current;
-            agent.Speed = resources.PlayerCart.Speed;
+            agent.SpeedMetersPerDay = resources.PlayerCart.Speed;
             agent.Weight = resources.TotalCapacity;
 
             agent.Initialize();
             _arrowJunctionBalancer.Initialize(agent);
             _playerController.Initialize(agent);
-            _dayTracker.Initialize(agent);
+            _caravanSpeedService.Initialize(agent);
+            _dailyTravelCosts.Activate();
 
             string destinationNodeId = ResolveDestinationNodeId();
             if (!string.IsNullOrWhiteSpace(destinationNodeId) && destinationNodeId != startNodeId)

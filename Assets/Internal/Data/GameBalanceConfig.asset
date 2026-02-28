@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de14abb496cae014e84217e4cc1a1e64, type: 3}
   m_Name: GameBalanceConfig
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Config.GameBalanceConfig
-  <SecondsPerDay>k__BackingField: 1
-  <DaysBetweenEvents>k__BackingField: 3
+  <SecondsPerDay>k__BackingField: 2.5
+  <DaysBetweenMajorEvents>k__BackingField: 5
+  <DaysBetweenMinorEvents>k__BackingField: 2
+  <ToastDisplayDuration>k__BackingField: 4
   <MaxFood>k__BackingField: 100
-  <MaxCartDurability>k__BackingField: 100
+  <MaxDanger>k__BackingField: 100

@@ -44,3 +44,12 @@ holy_city,raw,320,-4,0.08
 holy_city,craft,280,-2,0.08
 holy_city,luxury,200,-3,0.08
 holy_city,exotic,100,-1,0.08
+capital,animals,110,1,0.10
+trade_hub,animals,120,2,0.14
+border_city,animals,95,0,0.08
+craft_city,animals,85,-1,0.12
+resource_city,animals,150,4,0.09
+market_town,animals,100,0,0.11
+oasis_stop,animals,65,-1,0.06
+port_city,animals,135,3,0.12
+holy_city,animals,55,-2,0.08

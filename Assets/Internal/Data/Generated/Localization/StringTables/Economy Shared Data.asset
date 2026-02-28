@@ -991,6 +991,10 @@ MonoBehaviour:
     m_Key: city.urumqi.description
     m_Metadata:
       m_Items: []
+  - m_Id: 10856455639916544
+    m_Key: item.supplies.name
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

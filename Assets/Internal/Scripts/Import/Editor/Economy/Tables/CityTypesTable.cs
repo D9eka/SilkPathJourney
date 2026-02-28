@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Internal.Scripts.Economy.Cities;
 using Internal.Scripts.Economy.Generated;
@@ -37,9 +38,9 @@ namespace Internal.Scripts.Import.Editor.Economy.Tables
                 return cityTypes;
             }
 
-            bool anyProfilesLoaded = profiles.Count > 0;
-            int missingProfilesCount = 0;
-            int missingCoefsCount = 0;
+            ItemType[] allCategories = BuildCategoryList();
+            HashSet<string> coefCoverage = BuildCategoryCoverage(coefs);
+            HashSet<string> profileCoverage = BuildCategoryCoverage(profiles);
 
             for (int i = 1; i < rows.Count; i++)
             {
@@ -61,15 +62,20 @@ namespace Internal.Scripts.Import.Editor.Economy.Tables
                     coefs.TryGetValue(id, out List<CityTypeData.CategoryCoef> cl)
                         ? new List<CityTypeData.CategoryCoef>(cl)
                         : new List<CityTypeData.CategoryCoef>();
-                if (coefList.Count == 0)
-                    missingCoefsCount++;
 
                 List<CityTypeData.CategoryStockProfile> profileList =
                     profiles.TryGetValue(id, out List<CityTypeData.CategoryStockProfile> pl)
                         ? new List<CityTypeData.CategoryStockProfile>(pl)
                         : new List<CityTypeData.CategoryStockProfile>();
-                if (profileList.Count == 0)
-                    missingProfilesCount++;
+
+                foreach (ItemType category in allCategories)
+                {
+                    string key = $"{id}|{category}";
+                    if (!coefCoverage.Contains(key))
+                        Debug.LogWarning($"[SPJ Economy] Missing category coef: city_type='{id}', category='{category}' in city_type_category_coefs.csv");
+                    if (!profileCoverage.Contains(key))
+                        Debug.LogWarning($"[SPJ Economy] Missing stock profile: city_type='{id}', category='{category}' in city_type_category_stock_profile.csv");
+                }
 
                 if (coefList.Count > 0)
                 {
@@ -106,15 +112,42 @@ namespace Internal.Scripts.Import.Editor.Economy.Tables
                 cityTypes.Add(asset);
             }
 
-            if (missingCoefsCount > 0)
-                Debug.LogWarning($"[SPJ] Missing category coefs for {missingCoefsCount} city types. Check city_type_category_coefs.csv.");
-
-            if (!anyProfilesLoaded && cityTypes.Count > 0)
-                Debug.LogWarning("[SPJ] No stock profiles loaded. Defaults from category coefs were applied.");
-            else if (missingProfilesCount > 0)
-                Debug.LogWarning($"[SPJ] Missing stock profiles for {missingProfilesCount} city types. Defaults from category coefs were applied.");
-
             return cityTypes;
+        }
+
+        private static ItemType[] BuildCategoryList()
+        {
+            ItemType[] all = (ItemType[])Enum.GetValues(typeof(ItemType));
+            List<ItemType> result = new();
+            foreach (ItemType t in all)
+            {
+                if (t != ItemType.Unknown)
+                    result.Add(t);
+            }
+
+            return result.ToArray();
+        }
+
+        private static HashSet<string> BuildCategoryCoverage<T>(Dictionary<string, List<T>> data)
+            where T : struct
+        {
+            HashSet<string> coverage = new();
+            foreach (KeyValuePair<string, List<T>> kvp in data)
+            {
+                foreach (T entry in kvp.Value)
+                {
+                    ItemType category = default;
+                    if (entry is CityTypeData.CategoryCoef coef)
+                        category = coef.Category;
+                    else if (entry is CityTypeData.CategoryStockProfile profile)
+                        category = profile.Category;
+
+                    if (category != ItemType.Unknown)
+                        coverage.Add($"{kvp.Key}|{category}");
+                }
+            }
+
+            return coverage;
         }
     }
 }

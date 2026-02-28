@@ -1,8 +1,11 @@
 using System;
 using System.Collections.Generic;
 using Internal.Scripts.Economy.Save;
+using Internal.Scripts.Economy.Save.Models;
 using Internal.Scripts.Events.Data;
 using Internal.Scripts.Events.Generated;
+using Internal.Scripts.Inventory;
+using Internal.Scripts.Items;
 
 namespace Internal.Scripts.Events.Conditions
 {
@@ -19,8 +22,6 @@ namespace Internal.Scripts.Events.Conditions
         {
             [EventConditionType.MinMoney] = r => r.Money,
             [EventConditionType.MaxMoney] = r => r.Money,
-            [EventConditionType.MinFood] = r => r.Food,
-            [EventConditionType.MaxFood] = r => r.Food,
             [EventConditionType.MinDanger] = r => r.AccumulatedDanger,
             [EventConditionType.MaxDanger] = r => r.AccumulatedDanger
         };
@@ -32,17 +33,42 @@ namespace Internal.Scripts.Events.Conditions
             EventConditionType.MinDanger
         };
 
+        private readonly InventoryRepository _inventoryRepository;
+
+        public ResourceConditionHandler(InventoryRepository inventoryRepository)
+        {
+            _inventoryRepository = inventoryRepository;
+        }
+
         public IEnumerable<EventConditionType> SupportedTypes => Types;
 
         public bool Evaluate(EventCondition condition, PlayerResourceState resources)
         {
-            if (!Getters.TryGetValue(condition.Type, out var getter))
-                return true;
+            float current;
 
-            float current = getter(resources);
+            if (condition.Type == EventConditionType.MinFood || condition.Type == EventConditionType.MaxFood)
+            {
+                current = GetSuppliesCount();
+            }
+            else
+            {
+                if (!Getters.TryGetValue(condition.Type, out var getter))
+                    return true;
+
+                current = getter(resources);
+            }
+
             return MinTypes.Contains(condition.Type)
                 ? current >= condition.Value
                 : current <= condition.Value;
+        }
+
+        private int GetSuppliesCount()
+        {
+            InventoryState inv = _inventoryRepository.GetPlayerInventory();
+            if (inv?.Items == null) return 0;
+            ItemStackState stack = inv.Items.Find(s => s.ItemId == SuppliesItemId.Value);
+            return stack?.Count ?? 0;
         }
     }
 }

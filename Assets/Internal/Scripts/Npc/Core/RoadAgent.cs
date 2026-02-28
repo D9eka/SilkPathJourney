@@ -10,34 +10,31 @@ namespace Internal.Scripts.Npc.Core
     public sealed class RoadAgent : IInitializable, IDisposable
     {
         public event Action<RoadAgent> OnArrived;
-        public event Action<float> OnDistanceTraveled;
 
         private readonly RoadAgentView _view;
         private readonly RoadAgentConfig _config;
         private readonly RoadPathCursor _cursor;
-        private readonly GameClock _gameClock;
+        private readonly IGameDayDeltaProvider _gameDayDeltaProvider;
 
         private string _currentNodeId;
         private string _destinationNodeId;
-        private float _totalDistanceTraveled = 0f;
 
         public string CurrentNodeId => _currentNodeId;
         public string DestinationNodeId => _destinationNodeId;
         public bool HasPath => !_cursor.IsEmpty;
         public RoadPose CurrentPose => _cursor.CurrentPose;
-        public float TotalDistanceTraveled => _totalDistanceTraveled;
-        public float Speed { get; set; }
+        public float SpeedMetersPerDay { get; set; }
         public float Weight { get; set; }
 
         public RoadAgent(RoadAgentView view, RoadAgentConfig config,
-            RoadPathCursor cursor, GameClock gameClock, string startNodeId)
+            RoadPathCursor cursor, IGameDayDeltaProvider gameDayDeltaProvider, string startNodeId)
         {
             _view = view;
             _config = config ?? new RoadAgentConfig();
             _cursor = cursor;
-            _gameClock = gameClock;
+            _gameDayDeltaProvider = gameDayDeltaProvider;
             _currentNodeId = startNodeId;
-            Speed = _config.SpeedMetersPerSecond;
+            SpeedMetersPerDay = _config.SpeedMetersPerDay;
         }
         
         public void Initialize()
@@ -92,12 +89,8 @@ namespace Internal.Scripts.Npc.Core
                 return;
             }
 
-            float deltaTime = Time.deltaTime * _gameClock.TimeScale;
-            float distanceToTravel = Speed * deltaTime;
-            float actualDistance = _cursor.Advance(distanceToTravel);
-
-            _totalDistanceTraveled += actualDistance;
-            OnDistanceTraveled?.Invoke(_totalDistanceTraveled);
+            float dayDelta = _gameDayDeltaProvider.GetFrameDayDelta();
+            _cursor.AdvanceByDaySpeed(SpeedMetersPerDay, dayDelta);
 
             RoadPose pose = _cursor.CurrentPose;
             _view.SetPose(pose.Position, pose.Forward);

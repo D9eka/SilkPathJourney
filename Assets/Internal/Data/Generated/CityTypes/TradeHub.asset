@@ -49,6 +49,9 @@ MonoBehaviour:
   - <Category>k__BackingField: 4
     <BuyCoef>k__BackingField: 1.1
     <SellCoef>k__BackingField: 0.96
+  - <Category>k__BackingField: 6
+    <BuyCoef>k__BackingField: 1.02
+    <SellCoef>k__BackingField: 0.9
   <CategoryStockProfiles>k__BackingField:
   - <Category>k__BackingField: 1
     <DesiredPerScale>k__BackingField: 650
@@ -69,6 +72,10 @@ MonoBehaviour:
   - <Category>k__BackingField: 4
     <DesiredPerScale>k__BackingField: 150
     <DailyNet>k__BackingField: 1
+    <EquilibriumPull>k__BackingField: 0.14
+  - <Category>k__BackingField: 6
+    <DesiredPerScale>k__BackingField: 120
+    <DailyNet>k__BackingField: 2
     <EquilibriumPull>k__BackingField: 0.14
   references:
     version: 2

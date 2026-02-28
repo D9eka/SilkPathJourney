@@ -5,6 +5,7 @@ using Internal.Scripts.Economy.Generated;
 using Internal.Scripts.Economy.Items;
 using Internal.Scripts.Economy.Save.Models;
 using Internal.Scripts.Economy.Simulation;
+using Internal.Scripts.Items;
 using Internal.Scripts.Player;
 using UnityEngine;
 
@@ -63,6 +64,16 @@ namespace Internal.Scripts.Economy.Save
                 Items = new List<ItemStackState>()
             };
 
+            int startSupplies = Mathf.RoundToInt(_playerConfig.StartFood);
+            if (startSupplies > 0)
+            {
+                inv.Items.Add(new ItemStackState
+                {
+                    ItemId = SuppliesItemId.Value,
+                    Count = startSupplies
+                });
+            }
+
             if (_playerConfig.StartItems != null)
             {
                 foreach (PlayerConfig.StartItemEntry entry in _playerConfig.StartItems)
@@ -86,15 +97,9 @@ namespace Internal.Scripts.Economy.Save
             PlayerResourceState resources = new PlayerResourceState
             {
                 Money = _playerConfig.StartMoney,
-                Food = _playerConfig.StartFood,
+                Food = 0f,
                 AccumulatedDanger = 0f,
-                PlayerCart = new CartState
-                {
-                    Capacity = 100f,
-                    Durability = 100f,
-                    MaxDurability = 100f,
-                    Speed = _playerConfig.RoadAgentConfig.SpeedMetersPerSecond
-                },
+                PlayerCart = CreatePlayerCart(),
                 Carts = new List<CartState>()
             };
 
@@ -112,6 +117,19 @@ namespace Internal.Scripts.Economy.Save
             }
 
             return resources;
+        }
+
+        private CartState CreatePlayerCart()
+        {
+            Config.CartConfig cartConfig = _playerConfig.StartCartConfig;
+            return new CartState
+            {
+                Capacity = cartConfig.BaseCapacity,
+                Durability = cartConfig.BaseMaxDurability,
+                MaxDurability = cartConfig.BaseMaxDurability,
+                Speed = cartConfig.BaseSpeed,
+                FoodConsumptionPerDay = cartConfig.FoodConsumptionPerDay
+            };
         }
 
         private InventoryState CreateCityInventory(CityData city)

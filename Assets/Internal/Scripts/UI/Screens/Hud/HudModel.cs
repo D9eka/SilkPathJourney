@@ -3,10 +3,14 @@ using Internal.Scripts.Config;
 using Internal.Scripts.Economy;
 using Internal.Scripts.Economy.Cities;
 using Internal.Scripts.Economy.Save;
+using Internal.Scripts.Economy.Save.Models;
+using Internal.Scripts.Inventory;
+using Internal.Scripts.Items;
 using Internal.Scripts.Player;
 using Internal.Scripts.Player.NextSegment;
 using Internal.Scripts.Player.StartMovement;
 using Internal.Scripts.UI.Components;
+using Internal.Scripts.World.State;
 using R3;
 using UnityEngine;
 
@@ -21,16 +25,21 @@ namespace Internal.Scripts.UI.Screens.Hud
         private readonly IPlayerTurnChoiceState _turnChoiceState;
         private readonly ICityEntryService _cityEntryService;
         private readonly PlayerResourceRepository _resourceRepository;
+        private readonly InventoryRepository _inventoryRepository;
         private readonly GameBalanceConfig _balanceConfig;
         private readonly ResourceIconCatalog _iconCatalog;
+        private readonly GameClock _gameClock;
         private readonly ReactiveProperty<HudViewState> _state;
         private readonly ReactiveProperty<HudResourceViewState> _resourceState = new();
 
-        private int _activeSpeedIndex = 1;
+        private int _activeActionIndex = 1;
         private float _prevFood = -1f;
         private float _prevDanger = -1f;
         private float _prevPlayerCartDur = -1f;
         private IDisposable _resourceSubscription;
+        private IDisposable _inventorySubscription;
+
+        private readonly CaravanSpeedService _caravanSpeedService;
 
         public HudModel(
             IPlayerStateProvider playerStateProvider,
@@ -40,8 +49,11 @@ namespace Internal.Scripts.UI.Screens.Hud
             IPlayerTurnChoiceState turnChoiceState,
             ICityEntryService cityEntryService,
             PlayerResourceRepository resourceRepository,
+            InventoryRepository inventoryRepository,
             GameBalanceConfig balanceConfig,
-            ResourceIconCatalog iconCatalog)
+            ResourceIconCatalog iconCatalog,
+            GameClock gameClock,
+            CaravanSpeedService caravanSpeedService)
         {
             _playerStateProvider = playerStateProvider;
             _playerStateEvents = playerStateEvents;
@@ -50,14 +62,18 @@ namespace Internal.Scripts.UI.Screens.Hud
             _turnChoiceState = turnChoiceState;
             _cityEntryService = cityEntryService;
             _resourceRepository = resourceRepository;
+            _inventoryRepository = inventoryRepository;
             _balanceConfig = balanceConfig;
             _iconCatalog = iconCatalog;
+            _gameClock = gameClock;
+            _caravanSpeedService = caravanSpeedService;
             _state = new ReactiveProperty<HudViewState>(
-                new HudViewState(HudMode.Travel, _activeSpeedIndex, null));
+                new HudViewState(HudMode.Travel, _activeActionIndex, null));
         }
 
         public Observable<HudViewState> State => _state;
         public Observable<HudResourceViewState> ResourceState => _resourceState;
+        public Observable<TimeSpeed> TimeSpeedState => _gameClock.SelectedSpeed;
 
         public HudMode CurrentMode => _state.Value.Mode;
 
@@ -74,6 +90,12 @@ namespace Internal.Scripts.UI.Screens.Hud
             _cityEntryService.OnCityEntered += HandleCityEntered;
             _cityEntryService.OnCityExited += HandleCityExited;
             _resourceSubscription = _resourceRepository.StateStream.Subscribe(ComputeResourceState);
+            _inventorySubscription = _inventoryRepository.PlayerInventoryStream.Subscribe(_ =>
+            {
+                PlayerResourceState res = _resourceRepository.Current;
+                if (res != null)
+                    ComputeResourceState(res);
+            });
             UpdateState();
         }
 
@@ -87,12 +109,20 @@ namespace Internal.Scripts.UI.Screens.Hud
             _cityEntryService.OnCityExited -= HandleCityExited;
             _resourceSubscription?.Dispose();
             _resourceSubscription = null;
+            _inventorySubscription?.Dispose();
+            _inventorySubscription = null;
         }
 
         public void SetSpeed(int index)
         {
-            _activeSpeedIndex = index;
+            _activeActionIndex = index;
+            _caravanSpeedService.SetMode((CaravanSpeedMode)index);
             UpdateState();
+        }
+
+        public void SetTimeSpeed(TimeSpeed speed)
+        {
+            _gameClock.SetSelectedSpeed(speed);
         }
 
         public bool TryGetEnterCity(out CityData city)
@@ -107,7 +137,7 @@ namespace Internal.Scripts.UI.Screens.Hud
 
         private void ComputeResourceState(PlayerResourceState res)
         {
-            float food = res.Food;
+            float food = GetSuppliesCount();
             bool foodAnimate = _prevFood >= 0f && !Mathf.Approximately(food, _prevFood);
             int foodChange = foodAnimate ? Mathf.RoundToInt(food - _prevFood) : 0;
             _prevFood = food;
@@ -152,6 +182,14 @@ namespace Internal.Scripts.UI.Screens.Hud
             );
         }
 
+        private int GetSuppliesCount()
+        {
+            InventoryState inv = _inventoryRepository.GetPlayerInventory();
+            if (inv?.Items == null) return 0;
+            ItemStackState stack = inv.Items.Find(s => s.ItemId == SuppliesItemId.Value);
+            return stack?.Count ?? 0;
+        }
+
         private bool GetIncreaseIsPositive(ResourceType type) =>
             _iconCatalog?.Get(type)?.IncreaseIsPositive ?? true;
 
@@ -172,7 +210,7 @@ namespace Internal.Scripts.UI.Screens.Hud
             if (mode == HudMode.City && _cityEntryService.IsInCityView)
                 TryGetEnterCity(out city);
 
-            _state.Value = new HudViewState(mode, _activeSpeedIndex, city);
+            _state.Value = new HudViewState(mode, _activeActionIndex, city);
         }
 
         private HudMode DetermineMode()

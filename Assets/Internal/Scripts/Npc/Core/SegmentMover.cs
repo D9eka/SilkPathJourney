@@ -75,6 +75,15 @@ namespace Internal.Scripts.Npc.Core
             UpdatePose();
             return moved;
         }
+
+        public float AdvanceByDaySpeed(float speedMetersPerDay, float dayDelta)
+        {
+            if (speedMetersPerDay <= 0f || dayDelta <= 0f)
+                return 0f;
+
+            float distanceToTravel = speedMetersPerDay * dayDelta * GetCurrentSegmentSpeedMultiplier();
+            return Advance(distanceToTravel);
+        }
         
         public void SetPose(RoadPathSegment segment)
         {
@@ -91,6 +100,16 @@ namespace Internal.Scripts.Npc.Core
             if (_currentSegment == null) return;
 
             CurrentPose = SamplePose(_currentSegment, _distanceOnSegment);
+        }
+
+        private float GetCurrentSegmentSpeedMultiplier()
+        {
+            if (_currentSegment == null)
+                return 1f;
+
+            return _network.TryGetSegment(_currentSegment.SegmentId, out RoadSegmentData data)
+                ? Mathf.Max(0.01f, data.SpeedMultiplier)
+                : 1f;
         }
 
         private RoadPose SamplePose(RoadPathSegment segment, float distanceOnSegment)
