@@ -5,13 +5,13 @@ namespace Internal.Scripts.UI.Screens.Hud
     public readonly struct HudViewState
     {
         public readonly HudMode Mode;
-        public readonly int ActiveSpeedIndex;
+        public readonly int ActiveActionIndex;
         public readonly CityData City;
 
         public HudViewState(HudMode mode, int activeSpeedIndex, CityData city)
         {
             Mode = mode;
-            ActiveSpeedIndex = activeSpeedIndex;
+            ActiveActionIndex = activeSpeedIndex;
             City = city;
         }
     }

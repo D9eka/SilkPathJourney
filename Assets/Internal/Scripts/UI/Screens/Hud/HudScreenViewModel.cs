@@ -11,6 +11,7 @@ using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Screens.Core.Config;
 using Internal.Scripts.UI.Screens.Core.ViewModel;
 using Internal.Scripts.UI.StackService;
+using Internal.Scripts.World.State;
 using R3;
 using UnityEngine;
 
@@ -73,6 +74,7 @@ namespace Internal.Scripts.UI.Screens.Hud
 
         public Observable<HudViewState> State => _model.State;
         public Observable<HudResourceViewState> Resources => _model.ResourceState;
+        public Observable<TimeSpeed> TimeSpeedState => _model.TimeSpeedState;
         public int CurrentDay => _dayTracker.CurrentDay;
         public ResourceIconCatalog ResourceIcons => _iconCatalog;
 
@@ -140,6 +142,11 @@ namespace Internal.Scripts.UI.Screens.Hud
         {
             if (!_screenStackService.TryOpen(ScreenId.Inventory, out ScreenOpenResult result))
                 Debug.LogWarning($"[SPJ] Cannot open inventory screen: {result}");
+        }
+
+        public void OnTimeSpeedSelected(TimeSpeed speed)
+        {
+            _model.SetTimeSpeed(speed);
         }
 
         public void OpenPause()

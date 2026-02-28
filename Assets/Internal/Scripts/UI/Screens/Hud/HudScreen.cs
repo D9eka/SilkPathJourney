@@ -5,6 +5,7 @@ using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Localization;
 using Internal.Scripts.UI.Screens.Core.View;
 using Internal.Scripts.UI.Screens.Core.ViewModel;
+using Internal.Scripts.World.State;
 using R3;
 using TMPro;
 using UnityEngine;
@@ -36,6 +37,16 @@ namespace Internal.Scripts.UI.Screens.Hud
         [SerializeField] private GameObject _startActionBorder;
         [SerializeField] private GameObject _actionBorder;
         [SerializeField] private GameObject _endActionBorder;
+        [Header("TimeSpeedButtons")]
+        [SerializeField] private Button _pauseTimeButton;
+        [SerializeField] private Button _normalTimeButton;
+        [SerializeField] private Button _fastTimeButton;
+        [SerializeField] private Button _veryFastTimeButton;
+        [Header("TimeSpeedBorders")]
+        [SerializeField] private GameObject _pauseTimeBorder;
+        [SerializeField] private GameObject _normalTimeBorder;
+        [SerializeField] private GameObject _fastTimeBorder;
+        [SerializeField] private GameObject _veryFastTimeBorder;
         [Header("ScreenActionButtons")]
         [SerializeField] private Button _openPauseButton;
         [SerializeField] private Button _openDiaryButton;
@@ -54,6 +65,7 @@ namespace Internal.Scripts.UI.Screens.Hud
         private HudScreenViewModel _viewModel;
         private IDisposable _stateSubscription;
         private IDisposable _resourceSubscription;
+        private IDisposable _timeSpeedSubscription;
         private LocalizationService.LocalizedTextGroup _buttonHandles;
         private LocalizationService.LocalizedTextHandle _cityHandle;
 
@@ -100,6 +112,12 @@ namespace Internal.Scripts.UI.Screens.Hud
             _endActionButton.onClick.AddListener(OnEndAction);
             _openInventoryButton.onClick.AddListener(OnOpenInventory);
             _openPauseButton.onClick.AddListener(OnOpenPause);
+
+            _timeSpeedSubscription = _viewModel.TimeSpeedState.Subscribe(ApplyTimeSpeedBorder);
+            if (_pauseTimeButton != null) _pauseTimeButton.onClick.AddListener(OnPauseTime);
+            if (_normalTimeButton != null) _normalTimeButton.onClick.AddListener(OnNormalTime);
+            if (_fastTimeButton != null) _fastTimeButton.onClick.AddListener(OnFastTime);
+            if (_veryFastTimeButton != null) _veryFastTimeButton.onClick.AddListener(OnVeryFastTime);
         }
 
         private void UnsubscribeViewModel()
@@ -111,6 +129,8 @@ namespace Internal.Scripts.UI.Screens.Hud
             _stateSubscription = null;
             _resourceSubscription?.Dispose();
             _resourceSubscription = null;
+            _timeSpeedSubscription?.Dispose();
+            _timeSpeedSubscription = null;
 
             _viewModel.InteractableChanged -= SetInteractable;
             _viewModel.DayChanged -= ApplyDay;
@@ -125,6 +145,11 @@ namespace Internal.Scripts.UI.Screens.Hud
             _endActionButton.onClick.RemoveListener(OnEndAction);
             _openInventoryButton.onClick.RemoveListener(OnOpenInventory);
             _openPauseButton.onClick.RemoveListener(OnOpenPause);
+
+            if (_pauseTimeButton != null) _pauseTimeButton.onClick.RemoveListener(OnPauseTime);
+            if (_normalTimeButton != null) _normalTimeButton.onClick.RemoveListener(OnNormalTime);
+            if (_fastTimeButton != null) _fastTimeButton.onClick.RemoveListener(OnFastTime);
+            if (_veryFastTimeButton != null) _veryFastTimeButton.onClick.RemoveListener(OnVeryFastTime);
         }
 
         private void ApplyState(HudViewState state)
@@ -132,7 +157,7 @@ namespace Internal.Scripts.UI.Screens.Hud
             switch (state.Mode)
             {
                 case HudMode.Travel:
-                    ApplyTravelMode(state.ActiveSpeedIndex);
+                    ApplyTravelMode(state.ActiveActionIndex);
                     break;
                 case HudMode.City:
                     ApplyCityMode(state.City);
@@ -140,7 +165,7 @@ namespace Internal.Scripts.UI.Screens.Hud
             }
         }
 
-        private void ApplyTravelMode(int activeSpeedIndex)
+        private void ApplyTravelMode(int activeActionIndex)
         {
             _startActionButton.gameObject.SetActive(true);
             _actionButton.gameObject.SetActive(true);
@@ -153,7 +178,7 @@ namespace Internal.Scripts.UI.Screens.Hud
             _buttonHandles.Bind(_actionButtonText, _moveLocalizedString, "Hud.Move");
             _buttonHandles.Bind(_endActionButtonText, _fastMoveLocalizedString, "Hud.Rush");
 
-            SetSpeedBorder(activeSpeedIndex);
+            SetActionBorder(activeActionIndex);
         }
 
         private void ApplyCityMode(CityData city)
@@ -183,7 +208,7 @@ namespace Internal.Scripts.UI.Screens.Hud
             ClearSpeedBorders();
         }
 
-        private void SetSpeedBorder(int activeIndex)
+        private void SetActionBorder(int activeIndex)
         {
             _startActionBorder.SetActive(activeIndex == 0);
             _actionBorder.SetActive(activeIndex == 1);
@@ -249,6 +274,10 @@ namespace Internal.Scripts.UI.Screens.Hud
             _startActionButton.interactable = state;
             _actionButton.interactable = state;
             _endActionButton.interactable = state;
+            if (_pauseTimeButton != null) _pauseTimeButton.interactable = state;
+            if (_normalTimeButton != null) _normalTimeButton.interactable = state;
+            if (_fastTimeButton != null) _fastTimeButton.interactable = state;
+            if (_veryFastTimeButton != null) _veryFastTimeButton.interactable = state;
         }
 
         private void SetVisible(bool visible)
@@ -262,10 +291,22 @@ namespace Internal.Scripts.UI.Screens.Hud
                 _viewModel.VisibilityChanged -= SetVisible;
         }
 
+        private void ApplyTimeSpeedBorder(TimeSpeed speed)
+        {
+            if (_pauseTimeBorder != null) _pauseTimeBorder.SetActive(speed == TimeSpeed.Paused);
+            if (_normalTimeBorder != null) _normalTimeBorder.SetActive(speed == TimeSpeed.Normal);
+            if (_fastTimeBorder != null) _fastTimeBorder.SetActive(speed == TimeSpeed.Fast);
+            if (_veryFastTimeBorder != null) _veryFastTimeBorder.SetActive(speed == TimeSpeed.VeryFast);
+        }
+
         private void OnStartAction() => _viewModel?.OnStartAction();
         private void OnAction() => _viewModel?.OnAction();
         private void OnEndAction() => _viewModel?.OnEndAction();
         private void OnOpenInventory() => _viewModel?.OpenInventory();
         private void OnOpenPause() => _viewModel?.OpenPause();
+        private void OnPauseTime() => _viewModel?.OnTimeSpeedSelected(TimeSpeed.Paused);
+        private void OnNormalTime() => _viewModel?.OnTimeSpeedSelected(TimeSpeed.Normal);
+        private void OnFastTime() => _viewModel?.OnTimeSpeedSelected(TimeSpeed.Fast);
+        private void OnVeryFastTime() => _viewModel?.OnTimeSpeedSelected(TimeSpeed.VeryFast);
     }
 }

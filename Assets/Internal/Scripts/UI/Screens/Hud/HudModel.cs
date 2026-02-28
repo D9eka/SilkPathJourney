@@ -7,6 +7,7 @@ using Internal.Scripts.Player;
 using Internal.Scripts.Player.NextSegment;
 using Internal.Scripts.Player.StartMovement;
 using Internal.Scripts.UI.Components;
+using Internal.Scripts.World.State;
 using R3;
 using UnityEngine;
 
@@ -23,14 +24,17 @@ namespace Internal.Scripts.UI.Screens.Hud
         private readonly PlayerResourceRepository _resourceRepository;
         private readonly GameBalanceConfig _balanceConfig;
         private readonly ResourceIconCatalog _iconCatalog;
+        private readonly GameClock _gameClock;
         private readonly ReactiveProperty<HudViewState> _state;
         private readonly ReactiveProperty<HudResourceViewState> _resourceState = new();
 
-        private int _activeSpeedIndex = 1;
+        private int _activeActionIndex = 1;
         private float _prevFood = -1f;
         private float _prevDanger = -1f;
         private float _prevPlayerCartDur = -1f;
         private IDisposable _resourceSubscription;
+
+        private readonly CaravanSpeedService _caravanSpeedService;
 
         public HudModel(
             IPlayerStateProvider playerStateProvider,
@@ -41,7 +45,9 @@ namespace Internal.Scripts.UI.Screens.Hud
             ICityEntryService cityEntryService,
             PlayerResourceRepository resourceRepository,
             GameBalanceConfig balanceConfig,
-            ResourceIconCatalog iconCatalog)
+            ResourceIconCatalog iconCatalog,
+            GameClock gameClock,
+            CaravanSpeedService caravanSpeedService)
         {
             _playerStateProvider = playerStateProvider;
             _playerStateEvents = playerStateEvents;
@@ -52,12 +58,15 @@ namespace Internal.Scripts.UI.Screens.Hud
             _resourceRepository = resourceRepository;
             _balanceConfig = balanceConfig;
             _iconCatalog = iconCatalog;
+            _gameClock = gameClock;
+            _caravanSpeedService = caravanSpeedService;
             _state = new ReactiveProperty<HudViewState>(
-                new HudViewState(HudMode.Travel, _activeSpeedIndex, null));
+                new HudViewState(HudMode.Travel, _activeActionIndex, null));
         }
 
         public Observable<HudViewState> State => _state;
         public Observable<HudResourceViewState> ResourceState => _resourceState;
+        public Observable<TimeSpeed> TimeSpeedState => _gameClock.SelectedSpeed;
 
         public HudMode CurrentMode => _state.Value.Mode;
 
@@ -91,8 +100,14 @@ namespace Internal.Scripts.UI.Screens.Hud
 
         public void SetSpeed(int index)
         {
-            _activeSpeedIndex = index;
+            _activeActionIndex = index;
+            _caravanSpeedService.SetMode((CaravanSpeedMode)index);
             UpdateState();
+        }
+
+        public void SetTimeSpeed(TimeSpeed speed)
+        {
+            _gameClock.SetSelectedSpeed(speed);
         }
 
         public bool TryGetEnterCity(out CityData city)
@@ -172,7 +187,7 @@ namespace Internal.Scripts.UI.Screens.Hud
             if (mode == HudMode.City && _cityEntryService.IsInCityView)
                 TryGetEnterCity(out city);
 
-            _state.Value = new HudViewState(mode, _activeSpeedIndex, city);
+            _state.Value = new HudViewState(mode, _activeActionIndex, city);
         }
 
         private HudMode DetermineMode()

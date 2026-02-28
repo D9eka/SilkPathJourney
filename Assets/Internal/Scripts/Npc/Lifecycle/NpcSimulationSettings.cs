@@ -10,7 +10,6 @@ namespace Internal.Scripts.Npc.Lifecycle
     {
         [Min(1)] public int AgentCount = 5;
 
-        [FormerlySerializedAs("SpeedRangeMetersPerSecond")]
         public Vector2 SpeedRangeMetersPerDay = new(2f, 6f);
 
         public List<NpcView> Prefabs = new();

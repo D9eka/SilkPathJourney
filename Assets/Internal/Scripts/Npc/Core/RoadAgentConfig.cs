@@ -7,7 +7,6 @@ namespace Internal.Scripts.Npc.Core
     [Serializable]
     public class RoadAgentConfig
     {
-        [FormerlySerializedAs("SpeedMetersPerSecond")]
         public float SpeedMetersPerDay = 5f;
         public RoadLane Lane = RoadLane.Right;
         public float LateralOffsetMeters = 0f;
