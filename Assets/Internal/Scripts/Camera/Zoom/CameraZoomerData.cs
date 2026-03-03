@@ -15,5 +15,8 @@ namespace Internal.Scripts.Camera.Zoom
 
         [field: SerializeField] public bool EnableZoomToCursor { get; private set; } = true;
         [field: SerializeField] public float ZoomSpeed { get; private set; } = 10f;
+
+        public float SizeToY(float size) => BaseYPosition + (size - BaseSizeValue) / ScaleFactor;
+        public float YToSize(float y) => BaseSizeValue + (y - BaseYPosition) * ScaleFactor;
     }
 }
