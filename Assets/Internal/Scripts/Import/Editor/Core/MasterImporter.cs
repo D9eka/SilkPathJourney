@@ -13,11 +13,7 @@ namespace Internal.Scripts.Import.Editor.Core
         [MenuItem("SPJ/Import/All")]
         public static void ImportAll()
         {
-            if (EditorApplication.isCompiling)
-            {
-                Debug.LogWarning("[SPJ] Cannot import while Unity is compiling.");
-                return;
-            }
+            if (ImportHelpers.IsCompiling()) return;
 
             try
             {

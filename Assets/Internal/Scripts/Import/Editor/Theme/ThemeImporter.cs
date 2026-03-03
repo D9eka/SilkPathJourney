@@ -17,11 +17,7 @@ namespace Internal.Scripts.Import.Editor.Theme
         [MenuItem("SPJ/Import/Theme")]
         public static void ImportColors()
         {
-            if (EditorApplication.isCompiling)
-            {
-                Debug.LogWarning("[SPJ] Cannot import while Unity is compiling.");
-                return;
-            }
+            if (IsCompiling()) return;
 
             try
             {
@@ -55,11 +51,7 @@ namespace Internal.Scripts.Import.Editor.Theme
         [MenuItem("SPJ/Import/Localization")]
         public static void ImportLocalization()
         {
-            if (EditorApplication.isCompiling)
-            {
-                Debug.LogWarning("[SPJ] Cannot import while Unity is compiling.");
-                return;
-            }
+            if (IsCompiling()) return;
 
             try
             {
@@ -86,12 +78,7 @@ namespace Internal.Scripts.Import.Editor.Theme
         private static void UpdateBiomePaletteMap(List<(Biome biome, UiColorPalette palette)> palettes)
         {
             string assetPath = $"{DATABASES_FOLDER}/BiomePaletteMap.asset";
-            BiomePaletteMap map = AssetDatabase.LoadAssetAtPath<BiomePaletteMap>(assetPath);
-            if (map == null)
-            {
-                map = ScriptableObject.CreateInstance<BiomePaletteMap>();
-                AssetDatabase.CreateAsset(map, assetPath);
-            }
+            BiomePaletteMap map = LoadOrCreateAsset<BiomePaletteMap>(assetPath);
 
             var entries = new BiomePaletteMap.Entry[palettes.Count];
             UiColorPalette fallback = null;

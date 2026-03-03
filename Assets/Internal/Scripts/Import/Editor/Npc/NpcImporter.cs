@@ -16,11 +16,7 @@ namespace Internal.Scripts.Import.Editor.Npc
         [MenuItem("SPJ/Import/Npc/Import Names")]
         public static void ImportNames()
         {
-            if (EditorApplication.isCompiling)
-            {
-                Debug.LogWarning("[SPJ] Cannot import while Unity is compiling.");
-                return;
-            }
+            if (IsCompiling()) return;
 
             try
             {
@@ -39,12 +35,7 @@ namespace Internal.Scripts.Import.Editor.Npc
                 LocalizationImporter.Import(
                     locEntries, NPC_LOC_TABLE, LOCALIZATION_TABLES_FOLDER, LOCALIZATION_LOCALES_FOLDER);
 
-                NameDatabase db = AssetDatabase.LoadAssetAtPath<NameDatabase>(NAME_DATABASE_PATH);
-                if (db == null)
-                {
-                    db = ScriptableObject.CreateInstance<NameDatabase>();
-                    AssetDatabase.CreateAsset(db, NAME_DATABASE_PATH);
-                }
+                NameDatabase db = LoadOrCreateAsset<NameDatabase>(NAME_DATABASE_PATH);
 
                 db.ApplyImport(entries);
                 EditorUtility.SetDirty(db);
