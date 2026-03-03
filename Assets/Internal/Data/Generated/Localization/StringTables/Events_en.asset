@@ -2844,6 +2844,49 @@ MonoBehaviour:
     m_Localized: The caravan master bows and departs, taking his secret with him.
     m_Metadata:
       m_Items: []
+  - m_Id: 7979484790644736
+    m_Localized: Caravan on the Road
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7979484832587776
+    m_Localized: A caravan "{0}" is visible on the road ahead. The merchant gestures
+      you to approach.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7979484832587777
+    m_Localized: Travelling Merchant
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7979484832587778
+    m_Localized: At a resting spot you notice a merchant from "{0}" displaying goods
+      on a carpet. He nods warmly.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7979484832587779
+    m_Localized: Caravan Meeting
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7979484832587780
+    m_Localized: Your route and "{0}"'s have crossed. There's a chance to exchange
+      goods.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7979484832587781
+    m_Localized: Trade
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7979484832587782
+    m_Localized: You begin trading.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7979484832587783
+    m_Localized: Continue journey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7979484832587784
+    m_Localized: You nodded politely and continued on your way.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
