@@ -1,5 +1,6 @@
 using Internal.Scripts.Config;
 using Internal.Scripts.Economy.Save;
+using Internal.Scripts.Npc.Save;
 using Internal.Scripts.Player;
 using Internal.Scripts.Road.State;
 using UnityEngine;
@@ -36,6 +37,9 @@ namespace Internal.Scripts.Save
 
             if (data.Version < 2)
                 changed |= MigrateToV2(data);
+
+            if (data.Version < 3)
+                changed |= MigrateToV3(data);
 
             if (data.Economy == null || !data.Economy.IsInitialized)
             {
@@ -83,6 +87,13 @@ namespace Internal.Scripts.Save
             }
 
             data.Version = 2;
+            return true;
+        }
+
+        private bool MigrateToV3(SaveData data)
+        {
+            data.Npcs ??= new NpcSaveData();
+            data.Version = 3;
             return true;
         }
 

@@ -1,4 +1,6 @@
+using Internal.Scripts.UI.WorldLabel;
 using UnityEngine;
+using UnityEngine.Localization;
 
 namespace Internal.Scripts.Npc.Core
 {
@@ -7,6 +9,36 @@ namespace Internal.Scripts.Npc.Core
         [SerializeField] private Renderer[] _renderersToColor;
         [field: SerializeField] public string DefaultStartNodeId { get; private set; }
         [field: SerializeField] public string DefaultDestinationNodeId { get; private set; }
+
+        private WorldCanvas _worldCanvas;
+        private WorldLabelViewHelper _labelHelper;
+        private static readonly Vector3 LabelOffset = new(0f, 2f, 0f);
+
+        public void InitLabel(WorldCanvas worldCanvas, string npcName, LocalizedString localizedName)
+        {
+            _worldCanvas = worldCanvas;
+            _labelHelper = new WorldLabelViewHelper(worldCanvas);
+            WorldLabelView label = localizedName != null
+                ? _labelHelper.CreateLabel(
+                    transform.position, LabelOffset, $"NpcLabel_{npcName}", localizedName, npcName)
+                : _labelHelper.CreateLabel(
+                    transform.position, LabelOffset, $"NpcLabel_{npcName}", npcName);
+            label?.HideIcon();
+        }
+
+        private void LateUpdate()
+        {
+            if (_worldCanvas != null && _labelHelper?.Label != null)
+            {
+                RectTransform rt = _labelHelper.Label.GetComponent<RectTransform>();
+                _worldCanvas.UpdateLabelPosition(rt, transform.position, LabelOffset);
+            }
+        }
+
+        private void OnDestroy()
+        {
+            _labelHelper?.Dispose();
+        }
 
         public void ApplyColor(Color color)
         {

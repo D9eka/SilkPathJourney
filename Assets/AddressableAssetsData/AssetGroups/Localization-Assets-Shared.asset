@@ -21,6 +21,12 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ab65eb4bd4dc0a44cbc63c3222417f46
+    m_Address: Assets/Internal/Data/Generated/Localization/StringTables/Npc Shared
+      Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b2e541a37c4586c4f92b1d797521ddc1
     m_Address: Assets/Internal/Data/Generated/Localization/StringTables/Events Shared
       Data.asset

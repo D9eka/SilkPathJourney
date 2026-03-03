@@ -63,5 +63,33 @@ namespace Internal.Scripts.Road.Nodes
 
             return nearest;
         }
+
+        public string FindNearestAmong(string fromNodeId, List<string> candidates)
+        {
+            if (candidates.Count == 0)
+                return fromNodeId;
+
+            if (!TryGetTransform(fromNodeId, out Transform fromTransform))
+                return candidates[0];
+
+            Vector3 fromPos = fromTransform.position;
+            string closest = candidates[0];
+            float closestDist = float.MaxValue;
+
+            foreach (string nodeId in candidates)
+            {
+                if (!TryGetTransform(nodeId, out Transform t))
+                    continue;
+
+                float dist = (t.position - fromPos).sqrMagnitude;
+                if (dist < closestDist)
+                {
+                    closestDist = dist;
+                    closest = nodeId;
+                }
+            }
+
+            return closest;
+        }
     }
 }

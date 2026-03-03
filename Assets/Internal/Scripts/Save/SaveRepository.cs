@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using Internal.Scripts.Config;
 using Internal.Scripts.Economy.Save;
 using Internal.Scripts.Economy.Save.Models;
+using Internal.Scripts.Inventory;
 using Internal.Scripts.Items;
+using Internal.Scripts.Npc.Save;
 
 namespace Internal.Scripts.Save
 {
@@ -66,7 +68,7 @@ namespace Internal.Scripts.Save
                 DisplayName = $"День {_data.Player?.CurrentDay ?? 1}",
                 CurrentNodeId = _data.Player?.CurrentNodeId ?? "",
                 Money = resources?.Money ?? 0,
-                Food = GetSuppliesCount(_data.Economy?.PlayerInventory),
+                Food = InventoryStateMutator.GetItemCount(_data.Economy?.PlayerInventory, SuppliesItemId.Value),
                 CartDurability = (int)(resources?.PlayerCart?.Durability ?? 0),
                 Danger = (int)(resources?.AccumulatedDanger ?? 0),
                 PartnerCount = cartCount,
@@ -98,19 +100,13 @@ namespace Internal.Scripts.Save
             _loadedSlotId = currentSlot;
         }
 
-        private static int GetSuppliesCount(InventoryState inv)
-        {
-            if (inv?.Items == null) return 0;
-            ItemStackState stack = inv.Items.Find(s => s.ItemId == SuppliesItemId.Value);
-            return stack?.Count ?? 0;
-        }
-
         private static void Normalize(SaveData data)
         {
             data.Economy ??= new EconomySaveData();
             data.Player ??= new PlayerSaveData();
             data.Camera ??= new CameraSaveData();
             data.Roads ??= new RoadSaveData();
+            data.Npcs ??= new NpcSaveData();
             data.Economy.PlayerInventory ??= new InventoryState();
             data.Economy.CityInventories ??= new List<CityInventoryState>();
 
