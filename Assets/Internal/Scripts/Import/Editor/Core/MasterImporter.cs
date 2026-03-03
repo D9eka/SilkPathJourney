@@ -1,6 +1,7 @@
 using System;
 using Internal.Scripts.Import.Editor.Economy;
 using Internal.Scripts.Import.Editor.Events;
+using Internal.Scripts.Import.Editor.Npc;
 using Internal.Scripts.Import.Editor.Theme;
 using UnityEditor;
 using UnityEngine;
@@ -12,11 +13,7 @@ namespace Internal.Scripts.Import.Editor.Core
         [MenuItem("SPJ/Import/All")]
         public static void ImportAll()
         {
-            if (EditorApplication.isCompiling)
-            {
-                Debug.LogWarning("[SPJ] Cannot import while Unity is compiling.");
-                return;
-            }
+            if (ImportHelpers.IsCompiling()) return;
 
             try
             {
@@ -24,6 +21,7 @@ namespace Internal.Scripts.Import.Editor.Core
                 EventImporter.ImportAll();
                 ThemeImporter.ImportColors();
                 ThemeImporter.ImportLocalization();
+                NpcImporter.ImportNames();
 
                 AssetDatabase.SaveAssets();
                 AssetDatabase.Refresh();

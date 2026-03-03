@@ -6,13 +6,13 @@ using Zenject;
 
 namespace Internal.Scripts.UI.StackService
 {
-    public sealed class ScreenBackHandler : IInitializable, IDisposable
+    public sealed class ScreenBackNavigator : IInitializable, IDisposable
     {
         private readonly ScreenStackService _stackService;
         private readonly ScreenCatalog _catalog;
-        private readonly InputManager _inputManager;
+        private readonly InputRouter _inputManager;
 
-        public ScreenBackHandler(ScreenStackService stackService, ScreenCatalog catalog, InputManager inputManager)
+        public ScreenBackNavigator(ScreenStackService stackService, ScreenCatalog catalog, InputRouter inputManager)
         {
             _stackService = stackService;
             _catalog = catalog;

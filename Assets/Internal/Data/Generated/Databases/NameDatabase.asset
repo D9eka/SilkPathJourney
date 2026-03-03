@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b37ad4c11c0cdf4fb29848aa64044d3, type: 3}
+  m_Name: NameDatabase
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Npc.Names.NameDatabase
+  _entries:
+  - <Id>k__BackingField: npc.name.li_wei
+    <Culture>k__BackingField: 1
+    <Name>k__BackingField: Li Wei
+  - <Id>k__BackingField: npc.name.zhang_hao
+    <Culture>k__BackingField: 1
+    <Name>k__BackingField: Zhang Hao
+  - <Id>k__BackingField: npc.name.chen_ming
+    <Culture>k__BackingField: 1
+    <Name>k__BackingField: Chen Ming
+  - <Id>k__BackingField: npc.name.wang_jun
+    <Culture>k__BackingField: 1
+    <Name>k__BackingField: Wang Jun
+  - <Id>k__BackingField: npc.name.batuhan
+    <Culture>k__BackingField: 2
+    <Name>k__BackingField: Batuhan
+  - <Id>k__BackingField: npc.name.timur
+    <Culture>k__BackingField: 2
+    <Name>k__BackingField: Timur
+  - <Id>k__BackingField: npc.name.altai
+    <Culture>k__BackingField: 2
+    <Name>k__BackingField: Altai
+  - <Id>k__BackingField: npc.name.rashid
+    <Culture>k__BackingField: 3
+    <Name>k__BackingField: Rashid
+  - <Id>k__BackingField: npc.name.farid
+    <Culture>k__BackingField: 3
+    <Name>k__BackingField: Farid
+  - <Id>k__BackingField: npc.name.karim
+    <Culture>k__BackingField: 3
+    <Name>k__BackingField: Karim
+  - <Id>k__BackingField: npc.name.darius
+    <Culture>k__BackingField: 4
+    <Name>k__BackingField: Darius
+  - <Id>k__BackingField: npc.name.farhad
+    <Culture>k__BackingField: 4
+    <Name>k__BackingField: Farhad
+  - <Id>k__BackingField: npc.name.cyrus
+    <Culture>k__BackingField: 4
+    <Name>k__BackingField: Cyrus
+  - <Id>k__BackingField: npc.name.ahmad
+    <Culture>k__BackingField: 5
+    <Name>k__BackingField: Ahmad
+  - <Id>k__BackingField: npc.name.yusuf
+    <Culture>k__BackingField: 5
+    <Name>k__BackingField: Yusuf
+  - <Id>k__BackingField: npc.name.alexios
+    <Culture>k__BackingField: 8
+    <Name>k__BackingField: Alexios
+  - <Id>k__BackingField: npc.name.konstantinos
+    <Culture>k__BackingField: 8
+    <Name>k__BackingField: Konstantinos
+  - <Id>k__BackingField: npc.name.arjun
+    <Culture>k__BackingField: 9
+    <Name>k__BackingField: Arjun
+  - <Id>k__BackingField: npc.name.ravi
+    <Culture>k__BackingField: 9
+    <Name>k__BackingField: Ravi
+  - <Id>k__BackingField: npc.name.omar
+    <Culture>k__BackingField: 10
+    <Name>k__BackingField: Omar

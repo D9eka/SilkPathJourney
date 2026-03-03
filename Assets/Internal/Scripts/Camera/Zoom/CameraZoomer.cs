@@ -14,7 +14,7 @@ namespace Internal.Scripts.Camera.Zoom
     public class CameraZoomer : ICameraZoomer, IInitializable, IDisposable
     {
         private readonly UnityEngine.Camera _camera;
-        private readonly InputManager _inputManager;
+        private readonly InputRouter _inputManager;
         private readonly CameraZoomerData _cameraZoomerData;
         private readonly CameraBounds _bounds;
         private readonly CameraSceneSettings _settings;
@@ -24,13 +24,11 @@ namespace Internal.Scripts.Camera.Zoom
 
         private Tween _tweenY;
 
-        public float Size => _cameraZoomerData.BaseSizeValue +
-            (_camera.transform.position.y - _cameraZoomerData.BaseYPosition) *
-            _cameraZoomerData.ScaleFactor;
+        public float Size => _cameraZoomerData.YToSize(_camera.transform.position.y);
 
         public CameraZoomer(
             UnityEngine.Camera camera,
-            InputManager inputManager,
+            InputRouter inputManager,
             CameraZoomerData cameraZoomerData,
             CameraBounds bounds,
             CameraSceneSettings settings,
@@ -84,8 +82,7 @@ namespace Internal.Scripts.Camera.Zoom
         public void ZoomTo(float size, Vector3? targetWorldPos, float duration, Action onComplete = null)
         {
             float currentY = _camera.transform.position.y;
-            float targetY = _cameraZoomerData.BaseYPosition +
-                (size - _cameraZoomerData.BaseSizeValue) / _cameraZoomerData.ScaleFactor;
+            float targetY = _cameraZoomerData.SizeToY(size);
 
             Vector3 currentPos = _camera.transform.position;
 
@@ -118,7 +115,7 @@ namespace Internal.Scripts.Camera.Zoom
 
             if (_settings.EnableDetailSceneLoading)
             {
-                float thresholdSize = YToSize(_settings.DetailSceneLoadThreshold);
+                float thresholdSize = _cameraZoomerData.YToSize(_settings.DetailSceneLoadThreshold);
                 if (newSize < thresholdSize && !HasDetailSceneAtCurrentPosition())
                     newSize = thresholdSize;
             }
@@ -132,12 +129,6 @@ namespace Internal.Scripts.Camera.Zoom
             ZoomTo(newSize, mouseWorldPos);
         }
 
-        private float YToSize(float y)
-        {
-            return _cameraZoomerData.BaseSizeValue +
-                (y - _cameraZoomerData.BaseYPosition) * _cameraZoomerData.ScaleFactor;
-        }
-
         private bool HasDetailSceneAtCurrentPosition()
         {
             string nodeId = _playerStateProvider.CurrentNodeId;
@@ -149,7 +140,7 @@ namespace Internal.Scripts.Camera.Zoom
             if (!nodePos.HasValue) return false;
 
             Vector2 cityXZ = new Vector2(nodePos.Value.x, nodePos.Value.z);
-            Vector2 cameraXZ = GetCameraWorldTarget();
+            Vector2 cameraXZ = _camera.transform.GetWorldTarget();
             float maxDistance = city.DetailScene.CameraSize > 0
                 ? city.DetailScene.CameraSize
                 : _settings.DefaultCityDetailZoomSize;
@@ -157,23 +148,14 @@ namespace Internal.Scripts.Camera.Zoom
             return Vector2.Distance(cameraXZ, cityXZ) <= maxDistance;
         }
 
-        private Vector2 GetCameraWorldTarget()
-        {
-            Vector3 pos = _camera.transform.position;
-            Vector3 forward = _camera.transform.forward;
-            float zOffset = Mathf.Abs(forward.y) < 0.001f ? 0f : pos.y * forward.z / forward.y;
-            return new Vector2(pos.x, pos.z - zOffset);
-        }
-
         private void ClampPositionToBounds()
         {
-            Vector2 worldTarget = GetCameraWorldTarget();
+            Vector2 worldTarget = _camera.transform.GetWorldTarget();
             Vector2 clamped = _bounds.Clamp(worldTarget);
             if (worldTarget != clamped)
             {
+                float zOffset = _camera.transform.GetZOffset();
                 Vector3 pos = _camera.transform.position;
-                Vector3 forward = _camera.transform.forward;
-                float zOffset = Mathf.Abs(forward.y) < 0.001f ? 0f : pos.y * forward.z / forward.y;
                 _camera.transform.position = new Vector3(clamped.x, pos.y, clamped.y + zOffset);
             }
         }

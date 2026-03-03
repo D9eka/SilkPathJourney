@@ -11,6 +11,14 @@ namespace Internal.Scripts.Import.Editor.Core
 {
     public static class ImportHelpers
     {
+        public static bool IsCompiling()
+        {
+            if (!EditorApplication.isCompiling)
+                return false;
+            Debug.LogWarning("[SPJ] Cannot import while Unity is compiling.");
+            return true;
+        }
+
         public const string CSV_FOLDER = "Assets/Internal/Data/__source_csv";
         public const string GENERATED_DATA_FOLDER = "Assets/Internal/Data/Generated";
         public const string DATABASES_FOLDER = GENERATED_DATA_FOLDER + "/Databases";
@@ -134,6 +142,15 @@ namespace Internal.Scripts.Import.Editor.Core
 
             asset = ScriptableObject.CreateInstance<T>();
             AssetDatabase.CreateAsset(asset, newPath);
+            return asset;
+        }
+
+        public static T LoadOrCreateAsset<T>(string assetPath) where T : ScriptableObject
+        {
+            T asset = AssetDatabase.LoadAssetAtPath<T>(assetPath);
+            if (asset != null) return asset;
+            asset = ScriptableObject.CreateInstance<T>();
+            AssetDatabase.CreateAsset(asset, assetPath);
             return asset;
         }
 

@@ -905,3 +905,33 @@ UI.Pause.Main.Button.ExitToMenu,interface_names,47,В главное меню,Ma
 UI.Pause.Main.Button.Quit,interface_names,48,Выход из игры,Quit Game
 UI.SaveSlot.Main.Text.NewSave,interface_names,49,+ Новое сохранение,+ New Save
 UI.MainMenu.Main.Header.GameTitle,interface_names,50,Silk Path Journey,Silk Path Journey
+event.npc_encounter_1.name,events,,Караван на дороге,Caravan on the Road
+event.npc_encounter_1.description,events,,"Впереди на дороге виднеется караван «{0}». Торговец жестом приглашает подойти.","A caravan ""{0}"" is visible on the road ahead. The merchant gestures you to approach."
+event.npc_encounter_2.name,events,,Странствующий торговец,Travelling Merchant
+event.npc_encounter_2.description,events,,"На привале вы заметили торговца из каравана «{0}», разложившего товары на ковре. Он приветливо кивает.","At a resting spot you notice a merchant from ""{0}"" displaying goods on a carpet. He nods warmly."
+event.npc_encounter_3.name,events,,Встреча караванов,Caravan Meeting
+event.npc_encounter_3.description,events,,"Дороги вашего и каравана «{0}» пересеклись. Есть возможность обменяться товарами.","Your route and ""{0}""'s have crossed. There's a chance to exchange goods."
+event.npc_encounter.trade,event_choices,,Торговать,Trade
+event.npc_encounter.trade_result,event_choices,,Вы начинаете торговлю.,You begin trading.
+event.npc_encounter.pass,event_choices,,Продолжить путь,Continue journey
+event.npc_encounter.pass_result,event_choices,,Вы вежливо кивнули и продолжили путь.,You nodded politely and continued on your way.
+npc.name.li_wei,npc,,Ли Вэй,Li Wei
+npc.name.zhang_hao,npc,,Чжан Хао,Zhang Hao
+npc.name.chen_ming,npc,,Чэнь Мин,Chen Ming
+npc.name.wang_jun,npc,,Ван Цзюнь,Wang Jun
+npc.name.batuhan,npc,,Батухан,Batuhan
+npc.name.timur,npc,,Тимур,Timur
+npc.name.altai,npc,,Алтай,Altai
+npc.name.rashid,npc,,Рашид,Rashid
+npc.name.farid,npc,,Фарид,Farid
+npc.name.karim,npc,,Карим,Karim
+npc.name.darius,npc,,Дарий,Darius
+npc.name.farhad,npc,,Фархад,Farhad
+npc.name.cyrus,npc,,Кир,Cyrus
+npc.name.ahmad,npc,,Ахмад,Ahmad
+npc.name.yusuf,npc,,Юсуф,Yusuf
+npc.name.alexios,npc,,Алексий,Alexios
+npc.name.konstantinos,npc,,Константин,Konstantinos
+npc.name.arjun,npc,,Арджун,Arjun
+npc.name.ravi,npc,,Рави,Ravi
+npc.name.omar,npc,,Омар,Omar

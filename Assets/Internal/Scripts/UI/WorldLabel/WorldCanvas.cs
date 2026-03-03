@@ -111,6 +111,12 @@ namespace Internal.Scripts.UI.WorldLabel
             return rt;
         }
 
+        public void UpdateLabelPosition(RectTransform rt, Vector3 worldPosition, Vector3 offset = default)
+        {
+            if (rt == null || _canvas == null) return;
+            PositionElement(rt, worldPosition, offset);
+        }
+
         private void PositionElement(RectTransform rt, Vector3 worldPosition, Vector3 offset)
         {
             float offsetAboveGround = _settings != null ? _settings.OffsetAboveGround : 0.1f;

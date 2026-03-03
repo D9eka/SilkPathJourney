@@ -30,7 +30,7 @@ namespace Internal.Scripts.Installers
             Container.Bind<IScreenViewModelFactory>().To<ScreenViewModelFactory>().AsSingle();
             Container.BindInterfacesAndSelfTo<ScreenStackService>().AsSingle()
                 .WithArguments(ScreenId.MainMenu);
-            Container.BindInterfacesTo<ScreenBackHandler>().AsSingle();
+            Container.BindInterfacesTo<ScreenBackNavigator>().AsSingle();
         }
     }
 }

@@ -26,11 +26,7 @@ namespace Internal.Scripts.Import.Editor.Economy
         [MenuItem("SPJ/Import/Economy")]
         public static void ImportAll()
         {
-            if (EditorApplication.isCompiling)
-            {
-                Debug.LogWarning("[SPJ] Cannot import while Unity is compiling. Please wait and try again.");
-                return;
-            }
+            if (IsCompiling()) return;
 
             try
             {
@@ -119,12 +115,7 @@ namespace Internal.Scripts.Import.Editor.Economy
             List<EconomyDatabase.CultureItemDemandMultiplier> cultureItemMultipliers)
         {
             string assetPath = $"{DATABASES_FOLDER}/EconomyDatabase.asset";
-            EconomyDatabase db = AssetDatabase.LoadAssetAtPath<EconomyDatabase>(assetPath);
-            if (db == null)
-            {
-                db = ScriptableObject.CreateInstance<EconomyDatabase>();
-                AssetDatabase.CreateAsset(db, assetPath);
-            }
+            EconomyDatabase db = LoadOrCreateAsset<EconomyDatabase>(assetPath);
 
             db.ApplyImport(
                 items,

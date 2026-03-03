@@ -1,5 +1,6 @@
 using System;
 using Internal.Scripts.Economy.Save;
+using Internal.Scripts.Npc.Save;
 
 namespace Internal.Scripts.Save
 {
@@ -11,5 +12,6 @@ namespace Internal.Scripts.Save
         public PlayerSaveData Player;
         public CameraSaveData Camera;
         public RoadSaveData Roads;
+        public NpcSaveData Npcs;
     }
 }

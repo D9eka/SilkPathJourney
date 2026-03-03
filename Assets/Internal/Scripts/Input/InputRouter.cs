@@ -7,7 +7,7 @@ using Zenject;
 
 namespace Internal.Scripts.Input
 {
-    public class InputManager : IInitializable, ITickable, IDisposable
+    public class InputRouter : IInitializable, ITickable, IDisposable
     {
         private const float CAMERA_SIZE_MODIFIER = -1f;
         private const float MAX_RAY_DISTANCE = 1000f;
@@ -49,7 +49,7 @@ namespace Internal.Scripts.Input
         private InputAction _uiNextArea;
         private InputAction _uiPrevArea;
 
-        public InputManager()
+        public InputRouter()
         {
         }
 

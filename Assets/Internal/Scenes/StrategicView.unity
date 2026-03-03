@@ -3565,6 +3565,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Installers.SceneInstaller
   _strategicBounds: {fileID: 935085562}
   _spawns: []
+  _npcEncounterSettings: {fileID: 11400000, guid: 6b755f7dc6e2ac04fa7fcfc36e4f08dc, type: 2}
   _playerViewPrefab: {fileID: 782032695739537741, guid: 5d12c5d784414c84985da5dd4b8ddfed, type: 3}
   _playerAgentConfig:
     SpeedMetersPerDay: 0.12

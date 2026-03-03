@@ -1,0 +1,21 @@
+name_id,culture_id,name
+npc.name.li_wei,china,Li Wei
+npc.name.zhang_hao,china,Zhang Hao
+npc.name.chen_ming,china,Chen Ming
+npc.name.wang_jun,china,Wang Jun
+npc.name.batuhan,steppe,Batuhan
+npc.name.timur,steppe,Timur
+npc.name.altai,steppe,Altai
+npc.name.rashid,central_asia,Rashid
+npc.name.farid,central_asia,Farid
+npc.name.karim,central_asia,Karim
+npc.name.darius,persia,Darius
+npc.name.farhad,persia,Farhad
+npc.name.cyrus,persia,Cyrus
+npc.name.ahmad,mesopotamia,Ahmad
+npc.name.yusuf,mesopotamia,Yusuf
+npc.name.alexios,byzantine,Alexios
+npc.name.konstantinos,byzantine,Konstantinos
+npc.name.arjun,india,Arjun
+npc.name.ravi,india,Ravi
+npc.name.omar,arabia,Omar

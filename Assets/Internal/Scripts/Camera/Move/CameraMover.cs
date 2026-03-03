@@ -10,7 +10,7 @@ namespace Internal.Scripts.Camera.Move
     public class CameraMover : ICameraMover, IInitializable, ILateTickable, IDisposable
     {
         private readonly UnityEngine.Camera _camera;
-        private readonly InputManager _inputManager;
+        private readonly InputRouter _inputManager;
         private readonly ICameraTilter _tilter;
         private readonly CameraBounds _bounds;
         private readonly CameraSceneSettings _settings;
@@ -21,7 +21,7 @@ namespace Internal.Scripts.Camera.Move
 
         public bool SuspendLateTick { get; set; }
 
-        public CameraMover(UnityEngine.Camera camera, InputManager inputManager, ICameraTilter tilter,
+        public CameraMover(UnityEngine.Camera camera, InputRouter inputManager, ICameraTilter tilter,
             CameraBounds bounds, CameraSceneSettings settings)
         {
             _camera = camera;
@@ -35,7 +35,7 @@ namespace Internal.Scripts.Camera.Move
         {
             _inputManager.OnChangeCameraPosition += ChangePosition;
 
-            float zOffset = CalculateZOffset();
+            float zOffset = _camera.transform.GetZOffset();
             Vector3 pos = _camera.transform.position;
             _camera.transform.position = new Vector3(
                 _bounds.Center.x, pos.y, _bounds.Center.y + zOffset);
@@ -53,11 +53,11 @@ namespace Internal.Scripts.Camera.Move
             float speed = _settings.MoveSensitivity * yFactor * Time.deltaTime;
             _camera.transform.position += new Vector3(_moveDelta.x, 0, _moveDelta.y) * speed;
 
-            Vector2 worldTarget = GetCurrentWorldTarget();
+            Vector2 worldTarget = _camera.transform.GetWorldTarget();
             Vector2 clamped = _bounds.Clamp(worldTarget);
             if (worldTarget != clamped)
             {
-                float zOffset = CalculateZOffset();
+                float zOffset = _camera.transform.GetZOffset();
                 Vector3 pos = _camera.transform.position;
                 _camera.transform.position = new Vector3(clamped.x, pos.y, clamped.y + zOffset);
             }
@@ -72,7 +72,7 @@ namespace Internal.Scripts.Camera.Move
 
         public void MoveTo(Vector2 worldPosition, Action onComplete = null)
         {
-            Vector2 currentWorld = GetCurrentWorldTarget();
+            Vector2 currentWorld = _camera.transform.GetWorldTarget();
             float dx = worldPosition.x - currentWorld.x;
             float dz = worldPosition.y - currentWorld.y;
             float distance = Mathf.Sqrt(dx * dx + dz * dz);
@@ -83,7 +83,7 @@ namespace Internal.Scripts.Camera.Move
         public void MoveTo(Vector2 worldPosition, float duration, Action onComplete = null)
         {
             worldPosition = _bounds.Clamp(worldPosition);
-            float zOffset = CalculateZOffset();
+            float zOffset = _camera.transform.GetZOffset();
 
             _tweenX?.Kill();
             _tweenZ?.Kill();
@@ -94,18 +94,9 @@ namespace Internal.Scripts.Camera.Move
             _tweenZ = _camera.transform.DOMoveZ(worldPosition.y + zOffset, duration).OnComplete(Check);
         }
 
-        private Vector2 GetCurrentWorldTarget()
+        public void ResetMovement()
         {
-            Vector3 pos = _camera.transform.position;
-            float zOffset = CalculateZOffset();
-            return new Vector2(pos.x, pos.z - zOffset);
-        }
-
-        private float CalculateZOffset()
-        {
-            Vector3 forward = _camera.transform.forward;
-            if (Mathf.Abs(forward.y) < 0.001f) return 0f;
-            return _camera.transform.position.y * forward.z / forward.y;
+            _moveDelta = Vector2.zero;
         }
 
         private void ChangePosition(Vector2 delta)

@@ -1,5 +1,6 @@
 using System;
 using Internal.Scripts.Input;
+using Internal.Scripts.Npc.Encounter;
 using Internal.Scripts.Trading;
 using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Screens.Core.Config;
@@ -13,7 +14,7 @@ namespace Internal.Scripts.UI.Screens.Trade
     public sealed class TradeScreenViewModel : ScreenViewModelBase
     {
         private readonly TradeModel _model;
-        private readonly InputManager _inputManager;
+        private readonly InputRouter _inputManager;
         private readonly ResourceIconCatalog _resourceIcons;
         private float _ignoreSubmitUntil;
 
@@ -23,7 +24,7 @@ namespace Internal.Scripts.UI.Screens.Trade
         public event Action NextArea;
         public event Action PrevArea;
 
-        public TradeScreenViewModel(TradeModel model, InputManager inputManager, ResourceIconCatalog resourceIcons)
+        public TradeScreenViewModel(TradeModel model, InputRouter inputManager, ResourceIconCatalog resourceIcons)
         {
             _model = model;
             _inputManager = inputManager;
@@ -37,7 +38,10 @@ namespace Internal.Scripts.UI.Screens.Trade
 
         protected override void OnOpen(object args)
         {
-            _model.Activate(args as string);
+            if (args is NpcTradeArgs npcArgs)
+                _model.ActivateWithNpc(npcArgs);
+            else
+                _model.Activate(args as string);
             _inputManager.OnUiNavigate += HandleNavigate;
             _inputManager.OnUiSubmit += HandleSubmit;
             _inputManager.OnUiSubmitAll += HandleSubmitAll;

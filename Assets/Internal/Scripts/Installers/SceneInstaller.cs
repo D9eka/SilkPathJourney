@@ -10,7 +10,10 @@ using Internal.Scripts.Economy.Generated;
 using Internal.Scripts.Input;
 using Internal.Scripts.Inventory;
 using Internal.Scripts.Npc.Core;
+using Internal.Scripts.Npc.Encounter;
 using Internal.Scripts.Npc.Lifecycle;
+using Internal.Scripts.Npc.Save;
+using Internal.Scripts.Npc.Trading;
 using Internal.Scripts.Player;
 using Internal.Scripts.Player.Input;
 using Internal.Scripts.Player.NextSegment;
@@ -59,6 +62,7 @@ namespace Internal.Scripts.Installers
         [Header("World")]
         [Header("NPC")]
         [SerializeField] private NpcSpawnEntry[] _spawns;
+        [SerializeField] private NpcEncounterSettings _npcEncounterSettings;
         [Header("Player")]
         [SerializeField] private RoadAgentView _playerViewPrefab;
         [SerializeField] private RoadAgentConfig _playerAgentConfig;
@@ -79,6 +83,7 @@ namespace Internal.Scripts.Installers
         {
             Container.Bind<GameClock>().AsSingle();
             Container.BindInterfacesAndSelfTo<GameDayDeltaProvider>().AsSingle();
+            Container.Bind<IWorldSimulationState>().To<WorldSimulationState>().AsSingle();
             Container.Bind<SceneLoaderService>().AsSingle();
 
             Container.BindInterfacesTo<InputSceneSetup>().AsSingle()
@@ -149,6 +154,16 @@ namespace Internal.Scripts.Installers
                 .WhenInjectedInto<NpcBootstrapper>();
             Container.BindInterfacesAndSelfTo<NpcBootstrapper>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<NpcLifeSimulator>().AsSingle().NonLazy();
+            Container.Bind<CityTransactionService>().AsSingle();
+            Container.Bind<NpcSupplyPlanner>().AsSingle();
+            Container.Bind<NpcTrader>().AsSingle();
+            Container.BindInterfacesTo<NpcSaveController>().AsSingle();
+
+            if (_npcEncounterSettings != null)
+            {
+                Container.BindInstance(_npcEncounterSettings).AsSingle();
+                Container.BindInterfacesTo<NpcEncounterTrigger>().AsSingle();
+            }
         }
 
         private void InstallPlayer()
@@ -196,8 +211,8 @@ namespace Internal.Scripts.Installers
 
             Container.Bind<IScreenViewModelFactory>().To<ScreenViewModelFactory>().AsSingle();
             Container.BindInterfacesAndSelfTo<ScreenStackService>().AsSingle().WithArguments(ScreenId.Hud);
-            Container.BindInterfacesTo<ScreenBackHandler>().AsSingle();
-            Container.BindInterfacesTo<Input.TimeSpeedInputHandler>().AsSingle();
+            Container.BindInterfacesTo<ScreenBackNavigator>().AsSingle();
+            Container.BindInterfacesTo<Input.GameSpeedController>().AsSingle();
         }
 
         private void InstallArrows()
@@ -294,10 +309,10 @@ namespace Internal.Scripts.Installers
 
         private sealed class InputSceneSetup : IInitializable, IDisposable
         {
-            private readonly InputManager _input;
+            private readonly InputRouter _input;
             private readonly LayerMask _mask;
 
-            public InputSceneSetup(InputManager input, LayerMask mask)
+            public InputSceneSetup(InputRouter input, LayerMask mask)
             {
                 _input = input;
                 _mask = mask;

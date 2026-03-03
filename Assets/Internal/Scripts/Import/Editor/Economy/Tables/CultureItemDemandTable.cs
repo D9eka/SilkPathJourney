@@ -92,7 +92,7 @@ namespace Internal.Scripts.Import.Editor.Economy.Tables
             HashSet<string> itemIds)
         {
             List<EconomyDatabase.CultureItemDemandMultiplier> result = new();
-            List<CultureId> cultures = GetSortedCultureList(cultureMap);
+            List<CultureId> cultures = cultureMap.ToSortedUniqueValues(CultureId.None);
             List<string> items = new List<string>(itemIds);
             items.Sort(StringComparer.Ordinal);
 
@@ -112,22 +112,5 @@ namespace Internal.Scripts.Import.Editor.Economy.Tables
             return result;
         }
 
-        private static List<CultureId> GetSortedCultureList(Dictionary<string, CultureId> cultureMap)
-        {
-            List<string> keys = new List<string>(cultureMap.Keys);
-            keys.Sort(StringComparer.Ordinal);
-
-            List<CultureId> cultures = new List<CultureId>();
-            foreach (string key in keys)
-            {
-                CultureId culture = cultureMap[key];
-                if (culture == CultureId.None)
-                    continue;
-                if (!cultures.Contains(culture))
-                    cultures.Add(culture);
-            }
-
-            return cultures;
-        }
     }
 }

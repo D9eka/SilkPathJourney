@@ -18,7 +18,7 @@ namespace Internal.Scripts.Installers
                 .FromMethod(_ => UnityEngine.Camera.main)
                 .AsTransient();
 
-            Container.BindInterfacesAndSelfTo<InputManager>().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<InputRouter>().AsSingle().NonLazy();
 
             Container.BindInstance(new GroundSnapper(_groundLayerMask)).AsSingle();
 

@@ -2567,6 +2567,46 @@ MonoBehaviour:
     m_Key: event.road_quest_R_N_Urumqi__N_Kucha.choice2.result
     m_Metadata:
       m_Items: []
+  - m_Id: 7979484790644736
+    m_Key: event.npc_encounter_1.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7979484832587776
+    m_Key: event.npc_encounter_1.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7979484832587777
+    m_Key: event.npc_encounter_2.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7979484832587778
+    m_Key: event.npc_encounter_2.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7979484832587779
+    m_Key: event.npc_encounter_3.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7979484832587780
+    m_Key: event.npc_encounter_3.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7979484832587781
+    m_Key: event.npc_encounter.trade
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7979484832587782
+    m_Key: event.npc_encounter.trade_result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7979484832587783
+    m_Key: event.npc_encounter.pass
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7979484832587784
+    m_Key: event.npc_encounter.pass_result
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

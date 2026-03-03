@@ -89,8 +89,8 @@ namespace Internal.Scripts.Import.Editor.Economy.Tables
             Dictionary<string, ItemType> itemTypeMap)
         {
             List<EconomyDatabase.CultureCategoryDemandMultiplier> result = new();
-            List<CultureId> cultures = GetSortedCultureList(cultureMap);
-            List<ItemType> categories = GetSortedCategoryList(itemTypeMap);
+            List<CultureId> cultures = cultureMap.ToSortedUniqueValues(CultureId.None);
+            List<ItemType> categories = itemTypeMap.ToSortedUniqueValues(ItemType.Unknown);
 
             foreach (CultureId culture in cultures)
             {
@@ -108,40 +108,5 @@ namespace Internal.Scripts.Import.Editor.Economy.Tables
             return result;
         }
 
-        private static List<CultureId> GetSortedCultureList(Dictionary<string, CultureId> cultureMap)
-        {
-            List<string> keys = new List<string>(cultureMap.Keys);
-            keys.Sort(StringComparer.Ordinal);
-
-            List<CultureId> cultures = new List<CultureId>();
-            foreach (string key in keys)
-            {
-                CultureId culture = cultureMap[key];
-                if (culture == CultureId.None)
-                    continue;
-                if (!cultures.Contains(culture))
-                    cultures.Add(culture);
-            }
-
-            return cultures;
-        }
-
-        private static List<ItemType> GetSortedCategoryList(Dictionary<string, ItemType> itemTypeMap)
-        {
-            List<string> keys = new List<string>(itemTypeMap.Keys);
-            keys.Sort(StringComparer.Ordinal);
-
-            List<ItemType> categories = new List<ItemType>();
-            foreach (string key in keys)
-            {
-                ItemType category = itemTypeMap[key];
-                if (category == ItemType.Unknown)
-                    continue;
-                if (!categories.Contains(category))
-                    categories.Add(category);
-            }
-
-            return categories;
-        }
     }
 }

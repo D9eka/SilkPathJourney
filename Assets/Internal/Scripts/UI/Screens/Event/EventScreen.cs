@@ -123,7 +123,14 @@ namespace Internal.Scripts.UI.Screens.Event
 
             BindLocalizedText(ref _nameHandle, _eventNameText, eventData.Name, "EventName");
             BindLocalizedText(ref _typeHandle, _eventTypeText, eventData.EventType, "EventType");
-            BindLocalizedText(ref _descriptionHandle, _eventDescriptionText, eventData.Description, "EventDescription");
+
+            object[] formatArgs = _viewModel.FormatArgs;
+            if (formatArgs != null && formatArgs.Length > 0)
+                BindLocalizedTextWithArgs(ref _descriptionHandle, _eventDescriptionText,
+                    eventData.Description, "EventDescription", formatArgs);
+            else
+                BindLocalizedText(ref _descriptionHandle, _eventDescriptionText,
+                    eventData.Description, "EventDescription");
 
             if (eventData.Image != null)
                 _eventImage.sprite = eventData.Image;
@@ -198,6 +205,18 @@ namespace Internal.Scripts.UI.Screens.Event
             handle?.Dispose();
             if (textField != null && localizedString != null)
                 handle = Localization.BindText(textField, localizedString, fallback);
+        }
+
+        private void BindLocalizedTextWithArgs(
+            ref LocalizationService.LocalizedTextHandle handle,
+            TextMeshProUGUI textField,
+            LocalizedString localizedString,
+            string fallback,
+            object[] args)
+        {
+            handle?.Dispose();
+            if (textField != null && localizedString != null)
+                handle = Localization.BindText(textField, localizedString, fallback, fallback, args);
         }
 
         private void CreateChoiceButtons(List<EventChoice> choices)

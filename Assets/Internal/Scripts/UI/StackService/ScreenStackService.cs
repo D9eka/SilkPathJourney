@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using Internal.Scripts.Camera.Move;
 using Internal.Scripts.UI.Factory;
 using Internal.Scripts.UI.Localization;
 using Internal.Scripts.UI.Screens.Config;
@@ -9,6 +11,7 @@ using Internal.Scripts.UI.Screens.Core.ViewModel;
 using Internal.Scripts.UI.Theme;
 using UnityEngine;
 using Zenject;
+using Object = UnityEngine.Object;
 
 namespace Internal.Scripts.UI.StackService
 {
@@ -24,7 +27,11 @@ namespace Internal.Scripts.UI.StackService
         private readonly List<ScreenInstance> _stack = new();
         private readonly Dictionary<ScreenId, ScreenInstance> _instances = new();
 
+        [InjectOptional] private ICameraMover _cameraMover;
+
         public ScreenId TopId => _stack.Count > 0 ? _stack[^1].Id : ScreenId.None;
+
+        public event Action<ScreenId> OnScreenClosed;
 
         public ScreenStackService(UIScreenRoots roots, ScreenCatalog catalog,
             IScreenViewModelFactory viewModelFactory, LocalizationService localizationService,
@@ -56,69 +63,16 @@ namespace Internal.Scripts.UI.StackService
 
         public bool TryOpen(ScreenId id, object args, out ScreenOpenResult result)
         {
-            if (!_catalog.TryGet(id, out ScreenConfig config) || config == null)
-            {
-                result = ScreenOpenResult.MissingConfig;
+            if (!ValidateOpenRequest(id, out ScreenConfig config, out result))
                 return false;
-            }
-
-            if (config.Prefab == null)
-            {
-                result = ScreenOpenResult.MissingPrefab;
-                return false;
-            }
-
-            if (IsOpen(id))
-            {
-                result = ScreenOpenResult.AlreadyOpen;
-                return false;
-            }
-
-            if (IsBlockedByExclusive(id))
-            {
-                result = ScreenOpenResult.BlockedByExclusive;
-                return false;
-            }
 
             ScreenInstance previousTop = _stack.Count > 0 ? _stack[^1] : null;
 
             if (!_instances.TryGetValue(id, out ScreenInstance instance))
             {
-                Transform parent = _roots != null ? _roots.ScreensRoot : null;
-                if (parent == null)
-                {
-                    result = ScreenOpenResult.MissingRoot;
+                instance = InstantiateScreen(id, config, out result);
+                if (instance == null)
                     return false;
-                }
-
-                GameObject instanceGo = Object.Instantiate(config.Prefab, parent);
-
-                SetupColors(instanceGo);
-                SetupLocalization(instanceGo);
-
-                ScreenViewBase view = FindView(instanceGo);
-                if (view == null)
-                {
-                    Object.Destroy(instanceGo);
-                    result = ScreenOpenResult.MissingView;
-                    return false;
-                }
-
-                ApplySortingOrder(instanceGo, config.SortOrder);
-
-                ScreenViewModelBase viewModel = _viewModelFactory?.Create(id, view);
-                if (viewModel == null)
-                {
-                    Object.Destroy(instanceGo);
-                    result = ScreenOpenResult.MissingViewModel;
-                    return false;
-                }
-
-                instance = new ScreenInstance(config.Id, config, instanceGo, view, viewModel);
-                if (view is IScreenViewModelBinder binder)
-                    binder.BindViewModel(viewModel);
-                view.CloseRequested += () => Close(id);
-                _instances.Add(id, instance);
             }
 
             _stack.Add(instance);
@@ -130,6 +84,7 @@ namespace Internal.Scripts.UI.StackService
             instance.ViewModel.OnFocusGained();
 
             UpdateOverlays();
+            _cameraMover?.ResetMovement();
 
             result = ScreenOpenResult.Success;
             return true;
@@ -170,10 +125,85 @@ namespace Internal.Scripts.UI.StackService
             }
         }
 
+        private bool ValidateOpenRequest(ScreenId id, out ScreenConfig config, out ScreenOpenResult result)
+        {
+            config = null;
+
+            if (!_catalog.TryGet(id, out config) || config == null)
+            {
+                result = ScreenOpenResult.MissingConfig;
+                return false;
+            }
+
+            if (config.Prefab == null)
+            {
+                result = ScreenOpenResult.MissingPrefab;
+                return false;
+            }
+
+            if (IsOpen(id))
+            {
+                result = ScreenOpenResult.AlreadyOpen;
+                return false;
+            }
+
+            if (IsBlockedByExclusive(id))
+            {
+                result = ScreenOpenResult.BlockedByExclusive;
+                return false;
+            }
+
+            result = ScreenOpenResult.Success;
+            return true;
+        }
+
+        private ScreenInstance InstantiateScreen(ScreenId id, ScreenConfig config, out ScreenOpenResult result)
+        {
+            Transform parent = _roots != null ? _roots.ScreensRoot : null;
+            if (parent == null)
+            {
+                result = ScreenOpenResult.MissingRoot;
+                return null;
+            }
+
+            GameObject instanceGo = Object.Instantiate(config.Prefab, parent);
+
+            SetupColors(instanceGo);
+            SetupLocalization(instanceGo);
+
+            ScreenViewBase view = FindView(instanceGo);
+            if (view == null)
+            {
+                Object.Destroy(instanceGo);
+                result = ScreenOpenResult.MissingView;
+                return null;
+            }
+
+            ApplySortingOrder(instanceGo, config.SortOrder);
+
+            ScreenViewModelBase viewModel = _viewModelFactory?.Create(id, view);
+            if (viewModel == null)
+            {
+                Object.Destroy(instanceGo);
+                result = ScreenOpenResult.MissingViewModel;
+                return null;
+            }
+
+            ScreenInstance instance = new ScreenInstance(config.Id, config, instanceGo, view, viewModel);
+            if (view is IScreenViewModelBinder binder)
+                binder.BindViewModel(viewModel);
+            view.CloseRequested += () => Close(id);
+            _instances.Add(id, instance);
+
+            result = ScreenOpenResult.Success;
+            return instance;
+        }
+
         private void CloseAtIndex(int index)
         {
             ScreenInstance instance = _stack[index];
             bool wasTop = index == _stack.Count - 1;
+            ScreenId closedId = instance.Id;
 
             instance.ViewModel?.Close();
             instance.View?.Hide();
@@ -188,6 +218,7 @@ namespace Internal.Scripts.UI.StackService
             }
 
             UpdateOverlays();
+            OnScreenClosed?.Invoke(closedId);
         }
 
         private bool IsBlockedByExclusive(ScreenId openingId)

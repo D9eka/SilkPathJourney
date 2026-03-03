@@ -5,6 +5,7 @@ using Internal.Scripts.Economy;
 using Internal.Scripts.Economy.Simulation;
 using Internal.Scripts.Events.Data;
 using Internal.Scripts.Npc.Lifecycle;
+using Internal.Scripts.Npc.Names;
 using Internal.Scripts.Player;
 using Internal.Scripts.Save;
 using Internal.Scripts.UI.Components;
@@ -35,6 +36,7 @@ namespace Internal.Scripts.Installers
 
         [Header("NPC")]
         [SerializeField] private NpcSimulationSettings _npcSimulationSettings;
+        [SerializeField] private NameDatabase _nameDatabase;
 
         [Header("UI")]
         [SerializeField] private ScreenCatalog _screenCatalog;
@@ -58,6 +60,7 @@ namespace Internal.Scripts.Installers
             Container.BindInstance(_eventDatabase).AsSingle();
             Container.BindInstance(_playerProfile).AsSingle();
             Container.BindInstance(_npcSimulationSettings).AsSingle();
+            Container.BindInstance(_nameDatabase).AsSingle();
             Container.BindInstance(_screenCatalog).AsSingle();
             Container.BindInstance(_resourceIconCatalog).AsSingle();
             Container.BindInstance(_gameBalanceConfig).AsSingle();

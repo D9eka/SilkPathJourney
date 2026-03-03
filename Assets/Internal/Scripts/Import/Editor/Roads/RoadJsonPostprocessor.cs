@@ -63,12 +63,7 @@ namespace Internal.Scripts.Import.Editor.Roads
 
             string assetPath = $"{assetDir}/{dto.RoadId}.asset".Replace('\\', '/');
 
-            RoadData roadData = AssetDatabase.LoadAssetAtPath<RoadData>(assetPath);
-            if (roadData == null)
-            {
-                roadData = ScriptableObject.CreateInstance<RoadData>();
-                AssetDatabase.CreateAsset(roadData, assetPath);
-            }
+            RoadData roadData = ImportHelpers.LoadOrCreateAsset<RoadData>(assetPath);
 
             roadData.Version = dto.Version;
             roadData.RoadId = dto.RoadId;

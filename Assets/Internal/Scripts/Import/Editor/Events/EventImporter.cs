@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Internal.Scripts.Events.Data;
 using Internal.Scripts.Import.Editor.Core;
 using Internal.Scripts.Import.Editor.Events.Generators;
 using Internal.Scripts.Import.Editor.Events.Tables;
+using Internal.Scripts.Npc.Encounter;
 using UnityEditor;
 using UnityEngine;
 using static Internal.Scripts.Import.Editor.Core.ImportHelpers;
@@ -19,11 +21,7 @@ namespace Internal.Scripts.Import.Editor.Events
         [MenuItem("SPJ/Import/Events/Import All")]
         public static void ImportAll()
         {
-            if (EditorApplication.isCompiling)
-            {
-                Debug.LogWarning("[SPJ] Cannot import while compiling. Please wait and try again.");
-                return;
-            }
+            if (IsCompiling()) return;
 
             try
             {
@@ -55,9 +53,9 @@ namespace Internal.Scripts.Import.Editor.Events
 
                     EventConditionsTable.Read(out var roadEC, out var roadCC, "road_event_conditions.csv");
                     MergeInto(eventConditions, roadEC);
-                    MergeNestedInto(choiceConditions, roadCC);
+                    MergeInto(choiceConditions, roadCC);
 
-                    MergeNestedInto(outcomes, EventOutcomesTable.Read("road_event_outcomes.csv"));
+                    MergeInto(outcomes, EventOutcomesTable.Read("road_event_outcomes.csv"));
                 }
 
                 // 4. Localization
@@ -89,6 +87,7 @@ namespace Internal.Scripts.Import.Editor.Events
                 }
 
                 UpdateEventDatabase(events);
+                UpdateNpcEncounterSettings(events);
 
                 AssetDatabase.SaveAssets();
                 AssetDatabase.Refresh();
@@ -107,22 +106,28 @@ namespace Internal.Scripts.Import.Editor.Events
                 target[kvp.Key] = kvp.Value;
         }
 
-        private static void MergeNestedInto<TKey, TInner>(
-            Dictionary<TKey, TInner> target, Dictionary<TKey, TInner> source)
+        private const string NPC_ENCOUNTER_PREFIX = "npc_encounter_";
+        private const string NPC_SETTINGS_PATH = DATABASES_FOLDER + "/NpcEncounterSettings.asset";
+
+        private static void UpdateNpcEncounterSettings(List<EventData> allEvents)
         {
-            foreach (var kvp in source)
-                target[kvp.Key] = kvp.Value;
+            var encounterEvents = allEvents
+                .Where(e => e.Id.StartsWith(NPC_ENCOUNTER_PREFIX, StringComparison.Ordinal))
+                .ToList();
+
+            if (encounterEvents.Count == 0)
+                return;
+
+            NpcEncounterSettings settings = LoadOrCreateAsset<NpcEncounterSettings>(NPC_SETTINGS_PATH);
+
+            settings.EncounterEvents = encounterEvents;
+            EditorUtility.SetDirty(settings);
         }
 
         private static void UpdateEventDatabase(List<EventData> events)
         {
             string assetPath = $"{DATABASES_FOLDER}/EventDatabase.asset";
-            EventDatabase db = AssetDatabase.LoadAssetAtPath<EventDatabase>(assetPath);
-            if (db == null)
-            {
-                db = ScriptableObject.CreateInstance<EventDatabase>();
-                AssetDatabase.CreateAsset(db, assetPath);
-            }
+            EventDatabase db = LoadOrCreateAsset<EventDatabase>(assetPath);
 
             db.ApplyImport(events);
             EditorUtility.SetDirty(db);
