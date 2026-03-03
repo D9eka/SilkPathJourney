@@ -5,5 +5,6 @@ namespace Internal.Scripts.Camera.Move
         bool SuspendLateTick { get; set; }
         void MoveTo(UnityEngine.Vector2 position, System.Action onComplete = null);
         void MoveTo(UnityEngine.Vector2 position, float duration, System.Action onComplete = null);
+        void ResetMovement();
     }
 }

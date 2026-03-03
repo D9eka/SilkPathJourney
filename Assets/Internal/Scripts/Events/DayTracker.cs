@@ -1,6 +1,5 @@
 using System;
 using Internal.Scripts.Config;
-using Internal.Scripts.Player;
 using Internal.Scripts.Save;
 using Internal.Scripts.World.State;
 using UnityEngine;
@@ -15,25 +14,24 @@ namespace Internal.Scripts.Events
         private readonly SaveRepository _saveRepository;
         private readonly GameBalanceConfig _balanceConfig;
         private readonly GameClock _gameClock;
-        private readonly IPlayerStateProvider _playerState;
+        private readonly IWorldSimulationState _worldState;
 
         private float _accumulatedTime;
 
         public int CurrentDay => _saveRepository.Data.Player.CurrentDay;
 
         public DayTracker(SaveRepository saveRepository, GameBalanceConfig balanceConfig,
-            GameClock gameClock, IPlayerStateProvider playerState)
+            GameClock gameClock, IWorldSimulationState worldState)
         {
             _saveRepository = saveRepository;
             _balanceConfig = balanceConfig;
             _gameClock = gameClock;
-            _playerState = playerState;
+            _worldState = worldState;
         }
 
         public void FixedTick()
         {
-            if (_gameClock.IsPaused) return;
-            if (_playerState.State != PlayerState.Moving) return;
+            if (!_worldState.IsActive) return;
 
             _accumulatedTime += Time.fixedDeltaTime * _gameClock.TimeScale;
 

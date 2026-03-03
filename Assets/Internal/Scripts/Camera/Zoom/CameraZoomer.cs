@@ -14,7 +14,7 @@ namespace Internal.Scripts.Camera.Zoom
     public class CameraZoomer : ICameraZoomer, IInitializable, IDisposable
     {
         private readonly UnityEngine.Camera _camera;
-        private readonly InputManager _inputManager;
+        private readonly InputRouter _inputManager;
         private readonly CameraZoomerData _cameraZoomerData;
         private readonly CameraBounds _bounds;
         private readonly CameraSceneSettings _settings;
@@ -30,7 +30,7 @@ namespace Internal.Scripts.Camera.Zoom
 
         public CameraZoomer(
             UnityEngine.Camera camera,
-            InputManager inputManager,
+            InputRouter inputManager,
             CameraZoomerData cameraZoomerData,
             CameraBounds bounds,
             CameraSceneSettings settings,

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Internal.Scripts.World.State;
 using Zenject;
 
 namespace Internal.Scripts.Npc.Core
@@ -7,6 +8,12 @@ namespace Internal.Scripts.Npc.Core
     public sealed class NpcSimulation : ITickable, IDisposable
     {
         private readonly List<RoadAgent> _agents = new();
+        private readonly IWorldSimulationState _worldState;
+
+        public NpcSimulation(IWorldSimulationState worldState)
+        {
+            _worldState = worldState;
+        }
 
         public void Register(RoadAgent agent)
         {
@@ -17,8 +24,20 @@ namespace Internal.Scripts.Npc.Core
             }
         }
 
+        public void Unregister(RoadAgent agent)
+        {
+            if (agent != null)
+            {
+                _agents.Remove(agent);
+                agent.Dispose();
+            }
+        }
+
         public void Tick()
         {
+            if (!_worldState.IsActive)
+                return;
+
             for (int i = 0; i < _agents.Count; i++)
                 _agents[i].Tick();
         }

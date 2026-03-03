@@ -10,7 +10,7 @@ namespace Internal.Scripts.Camera.Move
     public class CameraMover : ICameraMover, IInitializable, ILateTickable, IDisposable
     {
         private readonly UnityEngine.Camera _camera;
-        private readonly InputManager _inputManager;
+        private readonly InputRouter _inputManager;
         private readonly ICameraTilter _tilter;
         private readonly CameraBounds _bounds;
         private readonly CameraSceneSettings _settings;
@@ -21,7 +21,7 @@ namespace Internal.Scripts.Camera.Move
 
         public bool SuspendLateTick { get; set; }
 
-        public CameraMover(UnityEngine.Camera camera, InputManager inputManager, ICameraTilter tilter,
+        public CameraMover(UnityEngine.Camera camera, InputRouter inputManager, ICameraTilter tilter,
             CameraBounds bounds, CameraSceneSettings settings)
         {
             _camera = camera;
@@ -106,6 +106,11 @@ namespace Internal.Scripts.Camera.Move
             Vector3 forward = _camera.transform.forward;
             if (Mathf.Abs(forward.y) < 0.001f) return 0f;
             return _camera.transform.position.y * forward.z / forward.y;
+        }
+
+        public void ResetMovement()
+        {
+            _moveDelta = Vector2.zero;
         }
 
         private void ChangePosition(Vector2 delta)

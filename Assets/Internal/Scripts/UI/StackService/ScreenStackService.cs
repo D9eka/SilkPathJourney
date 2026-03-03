@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using Internal.Scripts.Camera.Move;
 using Internal.Scripts.UI.Factory;
 using Internal.Scripts.UI.Localization;
 using Internal.Scripts.UI.Screens.Config;
@@ -9,6 +11,7 @@ using Internal.Scripts.UI.Screens.Core.ViewModel;
 using Internal.Scripts.UI.Theme;
 using UnityEngine;
 using Zenject;
+using Object = UnityEngine.Object;
 
 namespace Internal.Scripts.UI.StackService
 {
@@ -24,7 +27,11 @@ namespace Internal.Scripts.UI.StackService
         private readonly List<ScreenInstance> _stack = new();
         private readonly Dictionary<ScreenId, ScreenInstance> _instances = new();
 
+        [InjectOptional] private ICameraMover _cameraMover;
+
         public ScreenId TopId => _stack.Count > 0 ? _stack[^1].Id : ScreenId.None;
+
+        public event Action<ScreenId> OnScreenClosed;
 
         public ScreenStackService(UIScreenRoots roots, ScreenCatalog catalog,
             IScreenViewModelFactory viewModelFactory, LocalizationService localizationService,
@@ -130,6 +137,7 @@ namespace Internal.Scripts.UI.StackService
             instance.ViewModel.OnFocusGained();
 
             UpdateOverlays();
+            _cameraMover?.ResetMovement();
 
             result = ScreenOpenResult.Success;
             return true;
@@ -174,6 +182,7 @@ namespace Internal.Scripts.UI.StackService
         {
             ScreenInstance instance = _stack[index];
             bool wasTop = index == _stack.Count - 1;
+            ScreenId closedId = instance.Id;
 
             instance.ViewModel?.Close();
             instance.View?.Hide();
@@ -188,6 +197,7 @@ namespace Internal.Scripts.UI.StackService
             }
 
             UpdateOverlays();
+            OnScreenClosed?.Invoke(closedId);
         }
 
         private bool IsBlockedByExclusive(ScreenId openingId)
