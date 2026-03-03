@@ -1,5 +1,6 @@
 using System;
 using Internal.Scripts.Input;
+using Internal.Scripts.Npc.Encounter;
 using Internal.Scripts.Trading;
 using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Screens.Core.Config;
@@ -37,7 +38,10 @@ namespace Internal.Scripts.UI.Screens.Trade
 
         protected override void OnOpen(object args)
         {
-            _model.Activate(args as string);
+            if (args is NpcTradeArgs npcArgs)
+                _model.ActivateWithNpc(npcArgs);
+            else
+                _model.Activate(args as string);
             _inputManager.OnUiNavigate += HandleNavigate;
             _inputManager.OnUiSubmit += HandleSubmit;
             _inputManager.OnUiSubmitAll += HandleSubmitAll;
