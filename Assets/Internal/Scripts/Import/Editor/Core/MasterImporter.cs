@@ -1,6 +1,7 @@
 using System;
 using Internal.Scripts.Import.Editor.Economy;
 using Internal.Scripts.Import.Editor.Events;
+using Internal.Scripts.Import.Editor.Npc;
 using Internal.Scripts.Import.Editor.Theme;
 using UnityEditor;
 using UnityEngine;
@@ -24,6 +25,7 @@ namespace Internal.Scripts.Import.Editor.Core
                 EventImporter.ImportAll();
                 ThemeImporter.ImportColors();
                 ThemeImporter.ImportLocalization();
+                NpcImporter.ImportNames();
 
                 AssetDatabase.SaveAssets();
                 AssetDatabase.Refresh();

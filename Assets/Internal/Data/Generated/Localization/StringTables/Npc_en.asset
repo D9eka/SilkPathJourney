@@ -1,0 +1,103 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Npc_en
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: ab65eb4bd4dc0a44cbc63c3222417f46, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 414179328
+    m_Localized: Li Wei
+    m_Metadata:
+      m_Items: []
+  - m_Id: 460316672
+    m_Localized: Zhang Hao
+    m_Metadata:
+      m_Items: []
+  - m_Id: 460316673
+    m_Localized: Chen Ming
+    m_Metadata:
+      m_Items: []
+  - m_Id: 460316674
+    m_Localized: Wang Jun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 460316675
+    m_Localized: Batuhan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 460316676
+    m_Localized: Timur
+    m_Metadata:
+      m_Items: []
+  - m_Id: 460316677
+    m_Localized: Altai
+    m_Metadata:
+      m_Items: []
+  - m_Id: 460316678
+    m_Localized: Rashid
+    m_Metadata:
+      m_Items: []
+  - m_Id: 460316679
+    m_Localized: Farid
+    m_Metadata:
+      m_Items: []
+  - m_Id: 460316680
+    m_Localized: Karim
+    m_Metadata:
+      m_Items: []
+  - m_Id: 460316681
+    m_Localized: Darius
+    m_Metadata:
+      m_Items: []
+  - m_Id: 460316682
+    m_Localized: Farhad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 460316683
+    m_Localized: Cyrus
+    m_Metadata:
+      m_Items: []
+  - m_Id: 460316684
+    m_Localized: Ahmad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 460316685
+    m_Localized: Yusuf
+    m_Metadata:
+      m_Items: []
+  - m_Id: 460316686
+    m_Localized: Alexios
+    m_Metadata:
+      m_Items: []
+  - m_Id: 460316687
+    m_Localized: Konstantinos
+    m_Metadata:
+      m_Items: []
+  - m_Id: 460316688
+    m_Localized: Arjun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 460316689
+    m_Localized: Ravi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 460316690
+    m_Localized: Omar
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []
