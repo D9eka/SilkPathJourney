@@ -48,7 +48,8 @@ namespace Internal.Scripts.Events.Conditions
 
             if (condition.Type == EventConditionType.MinFood || condition.Type == EventConditionType.MaxFood)
             {
-                current = GetSuppliesCount();
+                current = InventoryStateMutator.GetItemCount(
+                    _inventoryRepository.GetPlayerInventory(), SuppliesItemId.Value);
             }
             else
             {
@@ -63,12 +64,5 @@ namespace Internal.Scripts.Events.Conditions
                 : current <= condition.Value;
         }
 
-        private int GetSuppliesCount()
-        {
-            InventoryState inv = _inventoryRepository.GetPlayerInventory();
-            if (inv?.Items == null) return 0;
-            ItemStackState stack = inv.Items.Find(s => s.ItemId == SuppliesItemId.Value);
-            return stack?.Count ?? 0;
-        }
     }
 }

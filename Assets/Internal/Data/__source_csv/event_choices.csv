@@ -232,3 +232,9 @@ valley_crocodiles,1,event.valley_crocodiles.choice1,
 valley_crocodiles,2,event.valley_crocodiles.choice2,
 valley_fertile_bank,1,event.valley_fertile_bank.choice1,
 valley_fertile_bank,2,event.valley_fertile_bank.choice2,
+npc_encounter_1,1,event.npc_encounter.trade,event.npc_encounter.trade_result
+npc_encounter_1,2,event.npc_encounter.pass,event.npc_encounter.pass_result
+npc_encounter_2,1,event.npc_encounter.trade,event.npc_encounter.trade_result
+npc_encounter_2,2,event.npc_encounter.pass,event.npc_encounter.pass_result
+npc_encounter_3,1,event.npc_encounter.trade,event.npc_encounter.trade_result
+npc_encounter_3,2,event.npc_encounter.pass,event.npc_encounter.pass_result

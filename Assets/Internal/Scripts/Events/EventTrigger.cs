@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Internal.Scripts.Config;
@@ -16,10 +17,11 @@ using Internal.Scripts.UI.Screens.Core.Config;
 using Internal.Scripts.UI.StackService;
 using UnityEngine;
 using Zenject;
+using Random = UnityEngine.Random;
 
 namespace Internal.Scripts.Events
 {
-    public class EventTrigger : IInitializable, System.IDisposable
+    public class EventTrigger : IInitializable, IDisposable
     {
         private readonly DayTracker _dayTracker;
         private readonly EventDatabase _eventDatabase;
@@ -187,9 +189,14 @@ namespace Internal.Scripts.Events
         public bool CanAffordOutcomes(List<EventOutcomeEntry> outcomes) =>
             _outcomeApplier.CanAffordAll(outcomes);
 
+        public int LastChoiceIndex { get; set; } = -1;
+
+        public event Action OnEventClosed;
+
         public void OnEventCompleted()
         {
             _gameClock.Resume();
+            OnEventClosed?.Invoke();
         }
 
         public void ApplyOutcome(List<EventOutcomeEntry> outcomes)

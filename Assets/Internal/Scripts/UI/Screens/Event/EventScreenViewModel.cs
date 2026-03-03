@@ -46,6 +46,7 @@ namespace Internal.Scripts.UI.Screens.Event
         private readonly ReactiveProperty<CityData> _city = new(null);
         private readonly ReactiveProperty<bool> _isAtCity = new(false);
         private readonly ReactiveProperty<EventChoice?> _selectedChoice = new(null);
+        private object[] _formatArgs;
 
         public EventScreenViewModel(
             EventTrigger eventTrigger,
@@ -69,6 +70,7 @@ namespace Internal.Scripts.UI.Screens.Event
         public Observable<CityData> City => _city;
         public Observable<bool> IsAtCity => _isAtCity;
         public Observable<EventChoice?> SelectedChoice => _selectedChoice;
+        public object[] FormatArgs => _formatArgs;
         public ItemCatalog ItemCatalog => _itemCatalog;
         public ResourceIconCatalog ResourceIcons => _resourceIcons;
         public PlayerResourceState PlayerResources => _resourceRepository.Current;
@@ -77,6 +79,7 @@ namespace Internal.Scripts.UI.Screens.Event
         {
             if (args is EventTriggerArgs triggerArgs)
             {
+                _formatArgs = triggerArgs.FormatArgs;
                 _state.Value = triggerArgs.EventData;
                 _city.Value = triggerArgs.City;
                 _isAtCity.Value = triggerArgs.IsAtCity;
@@ -86,6 +89,7 @@ namespace Internal.Scripts.UI.Screens.Event
                 _state.Value = args as EventData;
                 _city.Value = null;
                 _isAtCity.Value = false;
+                _formatArgs = null;
             }
 
             if (_state.Value == null)
@@ -101,6 +105,7 @@ namespace Internal.Scripts.UI.Screens.Event
             _city.Value = null;
             _isAtCity.Value = false;
             _selectedChoice.Value = null;
+            _formatArgs = null;
             _eventTrigger.OnEventCompleted();
         }
 
@@ -203,12 +208,8 @@ namespace Internal.Scripts.UI.Screens.Event
         public float GetCurrentResourceValue(ResourceType type)
         {
             if (type == ResourceType.Food)
-            {
-                InventoryState inv = _inventoryRepository.GetPlayerInventory();
-                if (inv?.Items == null) return 0f;
-                ItemStackState stack = inv.Items.Find(s => s.ItemId == SuppliesItemId.Value);
-                return stack?.Count ?? 0f;
-            }
+                return InventoryStateMutator.GetItemCount(
+                    _inventoryRepository.GetPlayerInventory(), SuppliesItemId.Value);
 
             return _resourceRepository.Current?.GetValue(type) ?? 0f;
         }
@@ -230,6 +231,7 @@ namespace Internal.Scripts.UI.Screens.Event
                 return;
 
             EventChoice choice = available[choiceIndex];
+            _eventTrigger.LastChoiceIndex = choiceIndex;
             _eventTrigger.ApplyOutcome(choice.Outcomes);
             _selectedChoice.Value = choice;
         }

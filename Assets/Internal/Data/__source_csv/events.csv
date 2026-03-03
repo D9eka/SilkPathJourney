@@ -89,3 +89,6 @@ water_crisis,crisis,event.water_crisis.name,event.water_crisis.description,water
 disease_outbreak,crisis,event.disease_outbreak.name,event.disease_outbreak.description,disease_outbreak,"sick merchants lying in carts with fever, others wearing cloth over faces, makeshift quarantine camp, worried healthy members keeping distance",1.5,0
 desperate_choice,crisis,event.desperate_choice.name,event.desperate_choice.description,desperate_choice,"exhausted caravan at critical crossroads in hostile territory, low supplies visible, dangerous path ahead, merchants in heated argument about survival",2.5,0
 last_stand,crisis,event.last_stand.name,event.last_stand.description,last_stand,"final desperate defensive position behind overturned carts, armed merchants making last stand against approaching threat, dramatic sunset, dire stakes",3.0,0
+npc_encounter_1,encounter,event.npc_encounter_1.name,event.npc_encounter_1.description,desert_nomads,,0,0
+npc_encounter_2,encounter,event.npc_encounter_2.name,event.npc_encounter_2.description,plains_merchant_camp,,0,0
+npc_encounter_3,encounter,event.npc_encounter_3.name,event.npc_encounter_3.description,desert_nomads,,0,0
