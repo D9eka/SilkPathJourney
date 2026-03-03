@@ -13,7 +13,7 @@ namespace Internal.Scripts.UI.Screens.Trade
     public sealed class TradeScreenViewModel : ScreenViewModelBase
     {
         private readonly TradeModel _model;
-        private readonly InputManager _inputManager;
+        private readonly InputRouter _inputManager;
         private readonly ResourceIconCatalog _resourceIcons;
         private float _ignoreSubmitUntil;
 
@@ -23,7 +23,7 @@ namespace Internal.Scripts.UI.Screens.Trade
         public event Action NextArea;
         public event Action PrevArea;
 
-        public TradeScreenViewModel(TradeModel model, InputManager inputManager, ResourceIconCatalog resourceIcons)
+        public TradeScreenViewModel(TradeModel model, InputRouter inputManager, ResourceIconCatalog resourceIcons)
         {
             _model = model;
             _inputManager = inputManager;

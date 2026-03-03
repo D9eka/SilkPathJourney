@@ -196,8 +196,8 @@ namespace Internal.Scripts.Installers
 
             Container.Bind<IScreenViewModelFactory>().To<ScreenViewModelFactory>().AsSingle();
             Container.BindInterfacesAndSelfTo<ScreenStackService>().AsSingle().WithArguments(ScreenId.Hud);
-            Container.BindInterfacesTo<ScreenBackHandler>().AsSingle();
-            Container.BindInterfacesTo<Input.TimeSpeedInputHandler>().AsSingle();
+            Container.BindInterfacesTo<ScreenBackNavigator>().AsSingle();
+            Container.BindInterfacesTo<Input.GameSpeedController>().AsSingle();
         }
 
         private void InstallArrows()
@@ -294,10 +294,10 @@ namespace Internal.Scripts.Installers
 
         private sealed class InputSceneSetup : IInitializable, IDisposable
         {
-            private readonly InputManager _input;
+            private readonly InputRouter _input;
             private readonly LayerMask _mask;
 
-            public InputSceneSetup(InputManager input, LayerMask mask)
+            public InputSceneSetup(InputRouter input, LayerMask mask)
             {
                 _input = input;
                 _mask = mask;

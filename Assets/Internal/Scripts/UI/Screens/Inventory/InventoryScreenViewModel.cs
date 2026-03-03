@@ -12,7 +12,7 @@ namespace Internal.Scripts.UI.Screens.Inventory
     public sealed class InventoryScreenViewModel : ScreenViewModelBase
     {
         private readonly InventoryModel _model;
-        private readonly InputManager _inputManager;
+        private readonly InputRouter _inputManager;
         private readonly ResourceIconCatalog _resourceIcons;
         private int _lastDropFrame = -1;
 
@@ -21,7 +21,7 @@ namespace Internal.Scripts.UI.Screens.Inventory
         public event Action SubmitAll;
         public event Action Action;
 
-        public InventoryScreenViewModel(InventoryModel model, InputManager inputManager, ResourceIconCatalog resourceIcons)
+        public InventoryScreenViewModel(InventoryModel model, InputRouter inputManager, ResourceIconCatalog resourceIcons)
         {
             _model = model;
             _inputManager = inputManager;
