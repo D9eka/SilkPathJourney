@@ -44,17 +44,16 @@ namespace Internal.Scripts.UI.Screens.Trade
         public TradeContainer ItemsToBuyContainer => _itemsToBuyTradeContainer;
         public TradeContainer ItemsToSellContainer => _itemsToSellTradeContainer;
 
+        private struct HashCache
+        {
+            public int Hash;
+            public bool Valid;
+        }
+
         private TradeScreenViewModel _viewModel;
         private IDisposable _stateSubscription;
         private TradeArea _activeArea = TradeArea.Player;
-        private int _lastPlayerItemsHash;
-        private int _lastNpcItemsHash;
-        private int _lastBuyItemsHash;
-        private int _lastSellItemsHash;
-        private bool _hasPlayerItemsHash;
-        private bool _hasNpcItemsHash;
-        private bool _hasBuyItemsHash;
-        private bool _hasSellItemsHash;
+        private HashCache _playerCache, _npcCache, _buyCache, _sellCache;
 
         private ItemsView _playerItemsView;
         private ItemsView _npcItemsView;
@@ -172,10 +171,10 @@ namespace Internal.Scripts.UI.Screens.Trade
             if (_viewModel == null || _stateSubscription != null)
                 return;
 
-            _hasPlayerItemsHash = false;
-            _hasNpcItemsHash = false;
-            _hasBuyItemsHash = false;
-            _hasSellItemsHash = false;
+            _playerCache = default;
+            _npcCache = default;
+            _buyCache = default;
+            _sellCache = default;
             _iconsInitialized = false;
             CacheViews();
             _stateSubscription = _viewModel.State.Subscribe(ApplyState);
@@ -212,30 +211,14 @@ namespace Internal.Scripts.UI.Screens.Trade
         {
             InitIcons();
 
-            if (!_hasPlayerItemsHash || _lastPlayerItemsHash != state.PlayerItemsHash)
-            {
-                _lastPlayerItemsHash = state.PlayerItemsHash;
-                _hasPlayerItemsHash = true;
-                SetPlayerItems(state.PlayerItems, showWeight: false, showPrice: true);
-            }
-            if (!_hasNpcItemsHash || _lastNpcItemsHash != state.NpcItemsHash)
-            {
-                _lastNpcItemsHash = state.NpcItemsHash;
-                _hasNpcItemsHash = true;
-                SetNpcItems(state.NpcItems, showWeight: false, showPrice: true);
-            }
-            if (!_hasBuyItemsHash || _lastBuyItemsHash != state.BuyItemsHash)
-            {
-                _lastBuyItemsHash = state.BuyItemsHash;
-                _hasBuyItemsHash = true;
-                SetItemsToBuy(state.BuyItems, showWeight: false, showPrice: true);
-            }
-            if (!_hasSellItemsHash || _lastSellItemsHash != state.SellItemsHash)
-            {
-                _lastSellItemsHash = state.SellItemsHash;
-                _hasSellItemsHash = true;
-                SetItemsToSell(state.SellItems, showWeight: false, showPrice: true);
-            }
+            UpdateIfChanged(ref _playerCache, state.PlayerItemsHash,
+                () => SetPlayerItems(state.PlayerItems, showWeight: false, showPrice: true));
+            UpdateIfChanged(ref _npcCache, state.NpcItemsHash,
+                () => SetNpcItems(state.NpcItems, showWeight: false, showPrice: true));
+            UpdateIfChanged(ref _buyCache, state.BuyItemsHash,
+                () => SetItemsToBuy(state.BuyItems, showWeight: false, showPrice: true));
+            UpdateIfChanged(ref _sellCache, state.SellItemsHash,
+                () => SetItemsToSell(state.SellItems, showWeight: false, showPrice: true));
 
             SetPlayerMoney(state.PlayerMoney);
             SetNpcMoney(state.NpcMoney);
@@ -429,6 +412,16 @@ namespace Internal.Scripts.UI.Screens.Trade
         {
             _tradeButtonHandle?.Dispose();
             _tradeButtonHandle = Localization.BindText(_tradeButtonText, _tradeButtonLocalizedString, $"{name}.TradeButton");
+        }
+
+        private static void UpdateIfChanged(ref HashCache cache, int newHash, Action apply)
+        {
+            if (cache.Valid && cache.Hash == newHash)
+                return;
+
+            cache.Hash = newHash;
+            cache.Valid = true;
+            apply();
         }
     }
 }

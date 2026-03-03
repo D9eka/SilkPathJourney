@@ -137,7 +137,8 @@ namespace Internal.Scripts.UI.Screens.Hud
 
         private void ComputeResourceState(PlayerResourceState res)
         {
-            float food = GetSuppliesCount();
+            float food = InventoryStateMutator.GetItemCount(
+                _inventoryRepository.GetPlayerInventory(), SuppliesItemId.Value);
             bool foodAnimate = _prevFood >= 0f && !Mathf.Approximately(food, _prevFood);
             int foodChange = foodAnimate ? Mathf.RoundToInt(food - _prevFood) : 0;
             _prevFood = food;
@@ -180,14 +181,6 @@ namespace Internal.Scripts.UI.Screens.Hud
                 new ResourceIndicatorState(danger, maxDanger, dangerChange, dangerAnimate,
                     GetIncreaseIsPositive(ResourceType.Danger))
             );
-        }
-
-        private int GetSuppliesCount()
-        {
-            InventoryState inv = _inventoryRepository.GetPlayerInventory();
-            if (inv?.Items == null) return 0;
-            ItemStackState stack = inv.Items.Find(s => s.ItemId == SuppliesItemId.Value);
-            return stack?.Count ?? 0;
         }
 
         private bool GetIncreaseIsPositive(ResourceType type) =>
