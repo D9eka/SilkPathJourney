@@ -1,4 +1,5 @@
 using Internal.Scripts.Save;
+using Internal.Scripts.UI.Theme;
 using UnityEngine;
 
 namespace Internal.Scripts.UI.Screens.Save
@@ -20,7 +21,7 @@ namespace Internal.Scripts.UI.Screens.Save
             if (_spawnedNewSlot == null)
             {
                 _spawnedNewSlot = Instantiate(_newSlotPrefab, SlotsContainer);
-                SetupColors(_spawnedNewSlot.gameObject);
+                _spawnedNewSlot.gameObject.InitializeColorBinders(ViewModel?.ThemeService, ViewModel?.ColorController);
             }
 
             _spawnedNewSlot.gameObject.SetActive(true);

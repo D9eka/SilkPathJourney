@@ -25,11 +25,7 @@ namespace Internal.Scripts.UI.WorldLabel
 
         public void SetColorController(StaticColorController controller, Biome biome)
         {
-            foreach (var binder in GetComponentsInChildren<UiStaticColorBinder>(true))
-            {
-                binder.Initialize(controller);
-                binder.SetBiome(biome);
-            }
+            gameObject.InitializeColorBinders(colorController: controller, biome: biome);
         }
 
         public void Initialize(TooltipService tooltipService, LocalizationService localization)
