@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2cd17d61312f360439f0cc95ffa1419d, type: 3}
-  m_Name: ScreenCatalog
+  m_Name: _ScreenCatalog
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.System.ScreenCatalog
   _configs:
   - {fileID: 11400000, guid: c54a0c38bce58d54e9ccb39faa5fcb66, type: 2}
@@ -22,3 +22,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a6a7e00e4dd9cb443bc5d17c348e9d71, type: 2}
   - {fileID: 11400000, guid: 3e54a2f70afe04f41ba38ebd19fb5211, type: 2}
   - {fileID: 11400000, guid: 92ca0af8a58d10c4a96b1eb49f0fc7a6, type: 2}
+  - {fileID: 11400000, guid: 1775c9fba80f20145a523761e3d4e268, type: 2}

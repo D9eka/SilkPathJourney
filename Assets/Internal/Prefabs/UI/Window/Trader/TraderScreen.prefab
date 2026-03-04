@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 8948792643996312655}
   - component: {fileID: 3587550116606597836}
   - component: {fileID: 3822165696225161345}
-  - component: {fileID: 5284315348987568659}
+  - component: {fileID: 8769161207415229473}
   m_Layer: 5
   m_Name: TraderScreen
   m_TagString: Untagged
@@ -214,7 +214,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &5284315348987568659
+--- !u!114 &8769161207415229473
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -223,9 +223,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2574579420981362131}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 496cdc197fdb45359f57c1725c8bd23c, type: 3}
+  m_Script: {fileID: 11500000, guid: a42a6dc06f9789344adbf20afede2bce, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Screens.Inventory.InventoryScreen
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Screens.Trader.TraderScreen
   _mainHeader: {fileID: 7117940736765815096}
   _closeButton: {fileID: 6382519010726826004}
   _overlayScreen: {fileID: 2918913011854932942}
@@ -233,25 +233,15 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:43598c3e97d7d9a439a074f7627fe021
     m_TableEntryReference:
-      m_KeyId: 514981897
+      m_KeyId: 10460751817859072
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  _actionButtonText: {fileID: 0}
-  _moneyIndicator: {fileID: 0}
-  _weightIndicator: {fileID: 0}
-  _actionButton: {fileID: 0}
-  _itemsView: {fileID: 0}
-  _actionButtonLocalizedString:
-    m_TableReference:
-      m_TableCollectionName: GUID:43598c3e97d7d9a439a074f7627fe021
-    m_TableEntryReference:
-      m_KeyId: 514981896
-      m_Key: 
-    m_FallbackState: 0
-    m_WaitForCompletion: 0
-    m_LocalVariables: []
+  _profileItemPrefab: {fileID: 2044511839448697833, guid: 1202b4234564c85458b70927cd7f70af, type: 3}
+  _skillViewPrefab: {fileID: 1858454722325487996, guid: 7b531b901d74c364fa0138b9e992112f, type: 3}
+  _profileContent: {fileID: 6078348560292103850}
+  _skillsContent: {fileID: 7060172592549929751}
   references:
     version: 2
     RefIds: []
@@ -625,6 +615,10 @@ PrefabInstance:
     - target: {fileID: 5474055095106096035, guid: 4ae9f8a836278bf44ad6afa0338e828c, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5962500631672983818, guid: 4ae9f8a836278bf44ad6afa0338e828c, type: 3}
+      propertyPath: m_Name
+      value: LanguageContent
       objectReference: {fileID: 0}
     - target: {fileID: 6233543168564827711, guid: 4ae9f8a836278bf44ad6afa0338e828c, type: 3}
       propertyPath: m_ChildControlHeight
@@ -1184,6 +1178,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5962500631672983818, guid: 4ae9f8a836278bf44ad6afa0338e828c, type: 3}
+      propertyPath: m_Name
+      value: ProfileContent
+      objectReference: {fileID: 0}
     - target: {fileID: 6233543168564827711, guid: 4ae9f8a836278bf44ad6afa0338e828c, type: 3}
       propertyPath: m_ChildControlHeight
       value: 1
@@ -1300,6 +1298,11 @@ PrefabInstance:
 --- !u!224 &2278380182388828601 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6289181366579398910, guid: 4ae9f8a836278bf44ad6afa0338e828c, type: 3}
+  m_PrefabInstance: {fileID: 5249446287608897863}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &6078348560292103850 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2054598393310488557, guid: 4ae9f8a836278bf44ad6afa0338e828c, type: 3}
   m_PrefabInstance: {fileID: 5249446287608897863}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7976164789572144612
@@ -1752,6 +1755,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5962500631672983818, guid: 4ae9f8a836278bf44ad6afa0338e828c, type: 3}
+      propertyPath: m_Name
+      value: SkillsContent
+      objectReference: {fileID: 0}
     - target: {fileID: 6233543168564827711, guid: 4ae9f8a836278bf44ad6afa0338e828c, type: 3}
       propertyPath: m_ChildControlHeight
       value: 1
@@ -1868,5 +1875,10 @@ PrefabInstance:
 --- !u!224 &3043882402453097476 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6289181366579398910, guid: 4ae9f8a836278bf44ad6afa0338e828c, type: 3}
+  m_PrefabInstance: {fileID: 9041437820719138042}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &7060172592549929751 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2054598393310488557, guid: 4ae9f8a836278bf44ad6afa0338e828c, type: 3}
   m_PrefabInstance: {fileID: 9041437820719138042}
   m_PrefabAsset: {fileID: 0}

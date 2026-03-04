@@ -127,7 +127,7 @@ MonoBehaviour:
   _openDiaryButton: {fileID: 6496253825596914464}
   _openInventoryButton: {fileID: 7101399780139091914}
   _openQuestsButton: {fileID: 3205290613027191561}
-  _openPerksButton: {fileID: 3469200898044087820}
+  _openTraderButton: {fileID: 3469200898044087820}
   _openCompanionsButton: {fileID: 8767585009740807084}
   _dayTextLocalizedString:
     m_TableReference:
@@ -2354,7 +2354,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 564937131934540317, guid: 8bce9bce8d064844cb89ea7ad3b7fb41, type: 3}
       propertyPath: m_Name
-      value: PerksScreenActionButton
+      value: TraderScreenActionButton
       objectReference: {fileID: 0}
     - target: {fileID: 2579676087591298420, guid: 8bce9bce8d064844cb89ea7ad3b7fb41, type: 3}
       propertyPath: m_Sprite

@@ -231,6 +231,54 @@ MonoBehaviour:
     m_Key: UI.MainMenu.Main.Header.GameTitle
     m_Metadata:
       m_Items: []
+  - m_Id: 10459162851926016
+    m_Key: UI.Trader.Header.Profile
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10459162898063360
+    m_Key: UI.Trader.Header.Skills
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10459162898063361
+    m_Key: UI.Trader.Header.Languages
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10459162898063362
+    m_Key: UI.Trader.Profile.Backstory
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10459162898063363
+    m_Key: UI.Trader.Profile.Cart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10459162898063364
+    m_Key: UI.Trader.Skill.Survival.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10459162898063365
+    m_Key: UI.Trader.Skill.Survival.Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10459162898063366
+    m_Key: UI.Trader.Skill.Charisma.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10459162898063367
+    m_Key: UI.Trader.Skill.Charisma.Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10459162898063368
+    m_Key: UI.Trader.Skill.Trade.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10459162898063369
+    m_Key: UI.Trader.Skill.Trade.Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10460751817859072
+    m_Key: UI.Trader.Main.Header.Main
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

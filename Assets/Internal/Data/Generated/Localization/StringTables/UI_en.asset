@@ -234,6 +234,54 @@ MonoBehaviour:
     m_Localized: Silk Path Journey
     m_Metadata:
       m_Items: []
+  - m_Id: 10459162851926016
+    m_Localized: Profile
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10459162898063360
+    m_Localized: Skills
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10459162898063361
+    m_Localized: Languages
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10459162898063362
+    m_Localized: Backstory
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10459162898063363
+    m_Localized: Cart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10459162898063364
+    m_Localized: Survival
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10459162898063365
+    m_Localized: Affects events and crises
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10459162898063366
+    m_Localized: Charisma
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10459162898063367
+    m_Localized: Affects negotiations and hiring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10459162898063368
+    m_Localized: Trade
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10459162898063369
+    m_Localized: Affects prices and deals
+    m_Metadata:
+      m_Items: []
+  - m_Id: 10460751817859072
+    m_Localized: Trader
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

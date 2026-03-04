@@ -52,7 +52,7 @@ namespace Internal.Scripts.UI.Screens.Hud
         [SerializeField] private Button _openDiaryButton;
         [SerializeField] private Button _openInventoryButton;
         [SerializeField] private Button _openQuestsButton;
-        [SerializeField] private Button _openPerksButton;
+        [SerializeField] private Button _openTraderButton;
         [SerializeField] private Button _openCompanionsButton;
         [Header("LocalizedStrings")]
         [SerializeField] private LocalizedString _dayTextLocalizedString;
@@ -112,6 +112,7 @@ namespace Internal.Scripts.UI.Screens.Hud
             _endActionButton.onClick.AddListener(OnEndAction);
             _openInventoryButton.onClick.AddListener(OnOpenInventory);
             _openPauseButton.onClick.AddListener(OnOpenPause);
+            _openTraderButton.onClick.AddListener(OnOpenTrader);
 
             _timeSpeedSubscription = _viewModel.TimeSpeedState.Subscribe(ApplyTimeSpeedBorder);
             if (_pauseTimeButton != null) _pauseTimeButton.onClick.AddListener(OnPauseTime);
@@ -145,6 +146,7 @@ namespace Internal.Scripts.UI.Screens.Hud
             _endActionButton.onClick.RemoveListener(OnEndAction);
             _openInventoryButton.onClick.RemoveListener(OnOpenInventory);
             _openPauseButton.onClick.RemoveListener(OnOpenPause);
+            _openTraderButton.onClick.RemoveListener(OnOpenTrader);
 
             if (_pauseTimeButton != null) _pauseTimeButton.onClick.RemoveListener(OnPauseTime);
             if (_normalTimeButton != null) _normalTimeButton.onClick.RemoveListener(OnNormalTime);
@@ -271,6 +273,7 @@ namespace Internal.Scripts.UI.Screens.Hud
         private void SetInteractable(bool state)
         {
             _openInventoryButton.interactable = state;
+            _openTraderButton.interactable = state;
             _startActionButton.interactable = state;
             _actionButton.interactable = state;
             _endActionButton.interactable = state;
@@ -304,6 +307,7 @@ namespace Internal.Scripts.UI.Screens.Hud
         private void OnEndAction() => _viewModel?.OnEndAction();
         private void OnOpenInventory() => _viewModel?.OpenInventory();
         private void OnOpenPause() => _viewModel?.OpenPause();
+        private void OnOpenTrader() => _viewModel?.OpenTrader();
         private void OnPauseTime() => _viewModel?.OnTimeSpeedSelected(TimeSpeed.Paused);
         private void OnNormalTime() => _viewModel?.OnTimeSpeedSelected(TimeSpeed.Normal);
         private void OnFastTime() => _viewModel?.OnTimeSpeedSelected(TimeSpeed.Fast);

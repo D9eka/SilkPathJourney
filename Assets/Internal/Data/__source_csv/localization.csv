@@ -935,3 +935,15 @@ npc.name.konstantinos,npc,,Константин,Konstantinos
 npc.name.arjun,npc,,Арджун,Arjun
 npc.name.ravi,npc,,Рави,Ravi
 npc.name.omar,npc,,Омар,Omar
+UI.Trader.Main.Header.Main,interface_names,,Торговец,Trader
+UI.Trader.Header.Profile,interface_names,,Профиль,Profile
+UI.Trader.Header.Skills,interface_names,,Навыки,Skills
+UI.Trader.Header.Languages,interface_names,,Языки,Languages
+UI.Trader.Profile.Backstory,interface_names,,Предыстория,Backstory
+UI.Trader.Profile.Cart,interface_names,,Телега,Cart
+UI.Trader.Skill.Survival.Name,interface_names,,Выживание,Survival
+UI.Trader.Skill.Survival.Description,interface_names,,Влияет на события и кризисы,Affects events and crises
+UI.Trader.Skill.Charisma.Name,interface_names,,Харизма,Charisma
+UI.Trader.Skill.Charisma.Description,interface_names,,Влияет на переговоры и найм,Affects negotiations and hiring
+UI.Trader.Skill.Trade.Name,interface_names,,Торговля,Trade
+UI.Trader.Skill.Trade.Description,interface_names,,Влияет на цены и сделки,Affects prices and deals

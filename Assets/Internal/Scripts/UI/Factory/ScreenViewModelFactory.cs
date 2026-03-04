@@ -9,6 +9,7 @@ using Internal.Scripts.UI.Screens.Pause;
 using Internal.Scripts.UI.Screens.Save;
 using Internal.Scripts.UI.Screens.TargetSelection;
 using Internal.Scripts.UI.Screens.Trade;
+using Internal.Scripts.UI.Screens.Trader;
 using Plugins.Zenject.Source.Main;
 
 namespace Internal.Scripts.UI.Factory
@@ -35,6 +36,7 @@ namespace Internal.Scripts.UI.Factory
                 ScreenId.MainMenu => CreateMainMenu(view),
                 ScreenId.SaveGame => CreateSaveGame(view),
                 ScreenId.LoadGame => CreateLoadGame(view),
+                ScreenId.Trader => CreateTrader(view),
                 _ => null
             };
         }
@@ -109,6 +111,14 @@ namespace Internal.Scripts.UI.Factory
                 return null;
 
             return _container.Instantiate<SaveLoadScreenViewModel>();
+        }
+
+        private ScreenViewModelBase CreateTrader(IScreenView view)
+        {
+            if (view is not TraderScreen)
+                return null;
+
+            return _container.Instantiate<TraderScreenViewModel>();
         }
     }
 }

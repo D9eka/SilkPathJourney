@@ -48,3 +48,15 @@ Pause,Main,Button,ExitToMenu,UI.Pause.Main.Button.ExitToMenu,,,В главное
 SaveSlot,Main,Text,NewSave,UI.SaveSlot.Main.Text.NewSave,,,+ Новое сохранение,+ New Save,перевод
 MainMenu,Main,Header,GameTitle,UI.MainMenu.Main.Header.GameTitle,Название игры,,Silk Path Journey,Silk Path Journey,перевод
 Pause,Main,Button,Quit,UI.Pause.Main.Button.Quit,,,Выход из игры,Quit Game,перевод
+Trader,Main,Header,Main,UI.Trader.Main.Header.Main,,,Торговец,Trader,перевод
+Trader,Header,Header,Profile,UI.Trader.Header.Profile,,,Профиль,Profile,перевод
+Trader,Header,Header,Skills,UI.Trader.Header.Skills,,,Навыки,Skills,перевод
+Trader,Header,Header,Languages,UI.Trader.Header.Languages,,,Языки,Languages,перевод
+Trader,Profile,Text,Backstory,UI.Trader.Profile.Backstory,,,Предыстория,Backstory,перевод
+Trader,Profile,Text,Cart,UI.Trader.Profile.Cart,,,Телега,Cart,перевод
+Trader,Skill,Text,SurvivalName,UI.Trader.Skill.Survival.Name,,,Выживание,Survival,перевод
+Trader,Skill,Text,SurvivalDesc,UI.Trader.Skill.Survival.Description,,,Влияет на события и кризисы,Affects events and crises,перевод
+Trader,Skill,Text,CharismaName,UI.Trader.Skill.Charisma.Name,,,Харизма,Charisma,перевод
+Trader,Skill,Text,CharismaDesc,UI.Trader.Skill.Charisma.Description,,,Влияет на переговоры и найм,Affects negotiations and hiring,перевод
+Trader,Skill,Text,TradeName,UI.Trader.Skill.Trade.Name,,,Торговля,Trade,перевод
+Trader,Skill,Text,TradeDesc,UI.Trader.Skill.Trade.Description,,,Влияет на цены и сделки,Affects prices and deals,перевод

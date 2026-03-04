@@ -11,6 +11,7 @@ namespace Internal.Scripts.UI.Screens.Core.Config
         Pause = 6,
         MainMenu = 7,
         SaveGame = 8,
-        LoadGame = 9
+        LoadGame = 9,
+        Trader = 10
     }
 }
