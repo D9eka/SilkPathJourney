@@ -194,7 +194,9 @@ namespace Internal.Scripts.Installers
             Container.BindInterfacesAndSelfTo<SaveBootstrapper>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<InventoryRepository>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<PlayerResourceRepository>().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<Player.Skills.PlayerSkillRepository>().AsSingle().NonLazy();
 
+            Container.Bind<Player.Skills.TradePriceSkillModifier>().AsSingle();
             Container.Bind<CityMarketProfileService>().AsSingle();
             Container.Bind<CityTradePriceService>().AsSingle();
             Container.BindInterfacesAndSelfTo<CityEconomySimulator>().AsSingle().NonLazy();
@@ -243,20 +245,20 @@ namespace Internal.Scripts.Installers
         {
             Container.BindInterfacesAndSelfTo<DayTracker>().AsSingle().NonLazy();
 
-            Container.Bind<Events.Conditions.ResourceConditionHandler>().AsSingle();
-            Container.Bind<Events.Conditions.InventoryConditionHandler>().AsSingle();
-            Container.Bind<Events.Conditions.CartConditionHandler>().AsSingle();
-            Container.Bind<Events.Conditions.LocationConditionHandler>().AsSingle();
-            Container.Bind<Events.Conditions.CompanionConditionHandler>().AsSingle();
-            Container.Bind<Events.Conditions.SkillConditionHandler>().AsSingle();
+            Container.Bind<Events.Conditions.ResourceEvaluator>().AsSingle();
+            Container.Bind<Events.Conditions.InventoryEvaluator>().AsSingle();
+            Container.Bind<Events.Conditions.CartEvaluator>().AsSingle();
+            Container.Bind<Events.Conditions.LocationEvaluator>().AsSingle();
+            Container.Bind<Events.Conditions.CompanionEvaluator>().AsSingle();
+            Container.Bind<Events.Conditions.MinSkillEvaluator>().AsSingle();
             Container.Bind<Events.Conditions.ConditionEvaluator>().AsSingle();
 
-            Container.Bind<Events.Outcomes.ResourceOutcomeHandler>().AsSingle();
-            Container.Bind<Events.Outcomes.ItemOutcomeHandler>().AsSingle();
-            Container.Bind<Events.Outcomes.CartDurabilityOutcomeHandler>().AsSingle();
-            Container.Bind<Events.Outcomes.CompanionOutcomeHandler>().AsSingle();
-            Container.Bind<Events.Outcomes.SkillOutcomeHandler>().AsSingle();
-            Container.Bind<Events.Outcomes.RoadUnlockOutcomeHandler>().AsSingle();
+            Container.Bind<Events.Outcomes.ResourceApplier>().AsSingle();
+            Container.Bind<Events.Outcomes.ItemApplier>().AsSingle();
+            Container.Bind<Events.Outcomes.CartDurabilityApplier>().AsSingle();
+            Container.Bind<Events.Outcomes.CompanionApplier>().AsSingle();
+            Container.Bind<Events.Outcomes.SkillXpApplier>().AsSingle();
+            Container.Bind<Events.Outcomes.RoadUnlockApplier>().AsSingle();
             Container.Bind<Events.Outcomes.OutcomeApplier>().AsSingle();
 
             Container.Bind<EventToastController>().AsSingle();

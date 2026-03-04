@@ -9,7 +9,7 @@ using Internal.Scripts.Items;
 
 namespace Internal.Scripts.Events.Conditions
 {
-    public class ResourceConditionHandler : IConditionHandler
+    public class ResourceEvaluator : IConditionEvaluator
     {
         private static readonly EventConditionType[] Types =
         {
@@ -35,7 +35,7 @@ namespace Internal.Scripts.Events.Conditions
 
         private readonly InventoryRepository _inventoryRepository;
 
-        public ResourceConditionHandler(InventoryRepository inventoryRepository)
+        public ResourceEvaluator(InventoryRepository inventoryRepository)
         {
             _inventoryRepository = inventoryRepository;
         }

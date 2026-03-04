@@ -6,18 +6,18 @@ using UnityEngine;
 
 namespace Internal.Scripts.Events.Conditions
 {
-    public class SkillConditionHandler : IConditionHandler
+    public class CompanionEvaluator : IConditionEvaluator
     {
         private static readonly EventConditionType[] Types =
         {
-            EventConditionType.MinSkill
+            EventConditionType.HasCompanion
         };
 
         public IEnumerable<EventConditionType> SupportedTypes => Types;
 
         public bool Evaluate(EventCondition condition, PlayerResourceState resources)
         {
-            Debug.LogWarning($"[SPJ Events] MinSkill НЕ РЕАЛИЗОВАНО (param={condition.Param}, value={condition.Value})");
+            Debug.LogWarning($"[SPJ Events] HasCompanion НЕ РЕАЛИЗОВАНО (param={condition.Param})");
             return true;
         }
     }

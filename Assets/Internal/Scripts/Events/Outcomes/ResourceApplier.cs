@@ -10,7 +10,7 @@ using UnityEngine;
 
 namespace Internal.Scripts.Events.Outcomes
 {
-    public class ResourceOutcomeHandler : IOutcomeHandler
+    public class ResourceApplier : IOutcomeApplier
     {
         private static readonly EventOutcomeType[] Types =
         {
@@ -23,7 +23,7 @@ namespace Internal.Scripts.Events.Outcomes
         private readonly InventoryRepository _inventoryRepository;
         private readonly GameBalanceConfig _balanceConfig;
 
-        public ResourceOutcomeHandler(PlayerResourceRepository resourceRepository,
+        public ResourceApplier(PlayerResourceRepository resourceRepository,
             InventoryRepository inventoryRepository,
             GameBalanceConfig balanceConfig)
         {

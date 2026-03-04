@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Internal.Scripts.Events.Outcomes
 {
-    public class CompanionOutcomeHandler : IOutcomeHandler
+    public class CompanionApplier : IOutcomeApplier
     {
         private static readonly EventOutcomeType[] Types =
         {

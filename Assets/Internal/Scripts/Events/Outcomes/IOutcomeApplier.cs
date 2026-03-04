@@ -5,7 +5,7 @@ using Internal.Scripts.UI.Components;
 
 namespace Internal.Scripts.Events.Outcomes
 {
-    public interface IOutcomeHandler
+    public interface IOutcomeApplier
     {
         IEnumerable<EventOutcomeType> SupportedTypes { get; }
         ResourceType? GetAffectedResource(EventOutcomeType type);

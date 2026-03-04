@@ -5,7 +5,7 @@ using Internal.Scripts.Events.Generated;
 
 namespace Internal.Scripts.Events.Conditions
 {
-    public interface IConditionHandler
+    public interface IConditionEvaluator
     {
         IEnumerable<EventConditionType> SupportedTypes { get; }
         bool Evaluate(EventCondition condition, PlayerResourceState resources);

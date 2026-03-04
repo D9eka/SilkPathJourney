@@ -6,7 +6,7 @@ using Internal.Scripts.Events.Generated;
 
 namespace Internal.Scripts.Events.Conditions
 {
-    public class CartConditionHandler : IConditionHandler
+    public class CartEvaluator : IConditionEvaluator
     {
         private static readonly EventConditionType[] Types =
         {

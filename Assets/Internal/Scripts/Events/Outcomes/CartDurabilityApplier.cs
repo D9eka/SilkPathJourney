@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Internal.Scripts.Events.Outcomes
 {
-    public class CartDurabilityOutcomeHandler : IOutcomeHandler
+    public class CartDurabilityApplier : IOutcomeApplier
     {
         private static readonly EventOutcomeType[] Types =
         {
@@ -16,7 +16,7 @@ namespace Internal.Scripts.Events.Outcomes
 
         private readonly PlayerResourceRepository _resourceRepository;
 
-        public CartDurabilityOutcomeHandler(PlayerResourceRepository resourceRepository)
+        public CartDurabilityApplier(PlayerResourceRepository resourceRepository)
         {
             _resourceRepository = resourceRepository;
         }

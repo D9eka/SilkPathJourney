@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Internal.Scripts.Events.Outcomes
 {
-    public class ItemOutcomeHandler : IOutcomeHandler
+    public class ItemApplier : IOutcomeApplier
     {
         private static readonly EventOutcomeType[] Types =
         {
@@ -16,7 +16,7 @@ namespace Internal.Scripts.Events.Outcomes
 
         private readonly InventoryRepository _inventoryRepository;
 
-        public ItemOutcomeHandler(InventoryRepository inventoryRepository)
+        public ItemApplier(InventoryRepository inventoryRepository)
         {
             _inventoryRepository = inventoryRepository;
         }

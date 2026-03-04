@@ -8,12 +8,12 @@ using UnityEngine;
 
 namespace Internal.Scripts.Events.Outcomes
 {
-    public class RoadUnlockOutcomeHandler : IOutcomeHandler
+    public class RoadUnlockApplier : IOutcomeApplier
     {
         private readonly RoadUnlockService _unlockService;
         private readonly RoadNetwork _network;
 
-        public RoadUnlockOutcomeHandler(RoadUnlockService unlockService, RoadNetwork network)
+        public RoadUnlockApplier(RoadUnlockService unlockService, RoadNetwork network)
         {
             _unlockService = unlockService;
             _network = network;

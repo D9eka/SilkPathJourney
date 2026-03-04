@@ -8,15 +8,15 @@ namespace Internal.Scripts.Events.Outcomes
 {
     public class OutcomeApplier
     {
-        private readonly Dictionary<EventOutcomeType, IOutcomeHandler> _handlers = new();
+        private readonly Dictionary<EventOutcomeType, IOutcomeApplier> _appliers = new();
 
         public OutcomeApplier(
-            ResourceOutcomeHandler resource,
-            ItemOutcomeHandler item,
-            CartDurabilityOutcomeHandler cartDurability,
-            CompanionOutcomeHandler companion,
-            SkillOutcomeHandler skill,
-            RoadUnlockOutcomeHandler roadUnlock)
+            ResourceApplier resource,
+            ItemApplier item,
+            CartDurabilityApplier cartDurability,
+            CompanionApplier companion,
+            SkillXpApplier skill,
+            RoadUnlockApplier roadUnlock)
         {
             Register(resource);
             Register(item);
@@ -28,20 +28,20 @@ namespace Internal.Scripts.Events.Outcomes
 
         public ResourceType? GetAffectedResource(EventOutcomeType type)
         {
-            if (_handlers.TryGetValue(type, out var handler))
-                return handler.GetAffectedResource(type);
+            if (_appliers.TryGetValue(type, out var applier))
+                return applier.GetAffectedResource(type);
             return null;
         }
 
         public void Apply(EventOutcomeEntry entry)
         {
-            if (_handlers.TryGetValue(entry.Type, out var handler))
+            if (_appliers.TryGetValue(entry.Type, out var applier))
             {
-                handler.Apply(entry);
+                applier.Apply(entry);
                 return;
             }
 
-            Debug.LogWarning($"[SPJ Events] No outcome handler for {entry.Type}");
+            Debug.LogWarning($"[SPJ Events] No outcome applier for {entry.Type}");
         }
 
         public bool CanAffordAll(List<EventOutcomeEntry> outcomes)
@@ -59,16 +59,16 @@ namespace Internal.Scripts.Events.Outcomes
             foreach (var kvp in net)
             {
                 if (kvp.Value >= 0) continue;
-                if (_handlers.TryGetValue(kvp.Key, out var handler) && !handler.CanAfford(kvp.Key, kvp.Value))
+                if (_appliers.TryGetValue(kvp.Key, out var applier) && !applier.CanAfford(kvp.Key, kvp.Value))
                     return false;
             }
             return true;
         }
 
-        private void Register(IOutcomeHandler handler)
+        private void Register(IOutcomeApplier applier)
         {
-            foreach (var type in handler.SupportedTypes)
-                _handlers[type] = handler;
+            foreach (var type in applier.SupportedTypes)
+                _appliers[type] = applier;
         }
     }
 }
