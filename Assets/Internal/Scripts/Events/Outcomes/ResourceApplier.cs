@@ -10,7 +10,7 @@ using UnityEngine;
 
 namespace Internal.Scripts.Events.Outcomes
 {
-    public class ResourceApplier : IOutcomeApplier
+    public class ResourceApplier : IResourceOutcomeApplier
     {
         private static readonly EventOutcomeType[] Types =
         {

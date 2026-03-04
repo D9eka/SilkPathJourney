@@ -3,7 +3,6 @@ using Internal.Scripts.Events.Data;
 using Internal.Scripts.Events.Generated;
 using Internal.Scripts.Road.Graph;
 using Internal.Scripts.Road.State;
-using Internal.Scripts.UI.Components;
 using UnityEngine;
 
 namespace Internal.Scripts.Events.Outcomes
@@ -20,10 +19,6 @@ namespace Internal.Scripts.Events.Outcomes
         }
 
         public IEnumerable<EventOutcomeType> SupportedTypes => new[] { EventOutcomeType.UnlockRoad };
-
-        public ResourceType? GetAffectedResource(EventOutcomeType type) => null;
-
-        public bool CanAfford(EventOutcomeType type, float netValue) => true;
 
         public void Apply(EventOutcomeEntry entry)
         {

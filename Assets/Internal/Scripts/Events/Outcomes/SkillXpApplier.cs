@@ -23,8 +23,6 @@ namespace Internal.Scripts.Events.Outcomes
 
         public IEnumerable<EventOutcomeType> SupportedTypes => Types;
 
-        public ResourceType? GetAffectedResource(EventOutcomeType type) => null;
-
         public void Apply(EventOutcomeEntry entry)
         {
             if (!Enum.TryParse(entry.Param, true, out SkillType skillType) || skillType == SkillType.None)
@@ -36,7 +34,5 @@ namespace Internal.Scripts.Events.Outcomes
             int amount = Mathf.RoundToInt(entry.Value);
             _skillRepository.AddSkill(skillType, amount);
         }
-
-        public bool CanAfford(EventOutcomeType type, float netValue) => true;
     }
 }

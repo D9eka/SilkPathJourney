@@ -28,8 +28,8 @@ namespace Internal.Scripts.Events.Outcomes
 
         public ResourceType? GetAffectedResource(EventOutcomeType type)
         {
-            if (_appliers.TryGetValue(type, out var applier))
-                return applier.GetAffectedResource(type);
+            if (_appliers.TryGetValue(type, out var applier) && applier is IResourceOutcomeApplier res)
+                return res.GetAffectedResource(type);
             return null;
         }
 
@@ -59,7 +59,9 @@ namespace Internal.Scripts.Events.Outcomes
             foreach (var kvp in net)
             {
                 if (kvp.Value >= 0) continue;
-                if (_appliers.TryGetValue(kvp.Key, out var applier) && !applier.CanAfford(kvp.Key, kvp.Value))
+                if (_appliers.TryGetValue(kvp.Key, out var applier)
+                    && applier is IResourceOutcomeApplier res
+                    && !res.CanAfford(kvp.Key, kvp.Value))
                     return false;
             }
             return true;

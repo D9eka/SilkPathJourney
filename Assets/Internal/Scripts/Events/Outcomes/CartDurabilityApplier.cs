@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Internal.Scripts.Events.Outcomes
 {
-    public class CartDurabilityApplier : IOutcomeApplier
+    public class CartDurabilityApplier : IResourceOutcomeApplier
     {
         private static readonly EventOutcomeType[] Types =
         {

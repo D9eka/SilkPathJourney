@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using Internal.Scripts.Events.Data;
 using Internal.Scripts.Events.Generated;
 using Internal.Scripts.Inventory;
-using Internal.Scripts.UI.Components;
 using UnityEngine;
 
 namespace Internal.Scripts.Events.Outcomes
@@ -23,8 +22,6 @@ namespace Internal.Scripts.Events.Outcomes
 
         public IEnumerable<EventOutcomeType> SupportedTypes => Types;
 
-        public ResourceType? GetAffectedResource(EventOutcomeType type) => null;
-
         public void Apply(EventOutcomeEntry entry)
         {
             int count = Mathf.RoundToInt(entry.Value);
@@ -39,7 +36,5 @@ namespace Internal.Scripts.Events.Outcomes
                     InventoryStateMutator.RemoveItems(state, entry.Param, -count));
             }
         }
-
-        public bool CanAfford(EventOutcomeType type, float netValue) => true;
     }
 }
