@@ -108,7 +108,6 @@ namespace Internal.Scripts.Save
             data.Camera ??= new CameraSaveData();
             data.Roads ??= new RoadSaveData();
             data.Npcs ??= new NpcSaveData();
-            data.Skills ??= new PlayerSkillState();
             data.Economy.PlayerInventory ??= new InventoryState();
             data.Economy.CityInventories ??= new List<CityInventoryState>();
 
