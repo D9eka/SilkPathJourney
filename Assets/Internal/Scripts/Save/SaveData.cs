@@ -1,6 +1,7 @@
 using System;
 using Internal.Scripts.Economy.Save;
 using Internal.Scripts.Npc.Save;
+using Internal.Scripts.Player.Skills;
 
 namespace Internal.Scripts.Save
 {
@@ -13,5 +14,6 @@ namespace Internal.Scripts.Save
         public CameraSaveData Camera;
         public RoadSaveData Roads;
         public NpcSaveData Npcs;
+        public PlayerSkillState Skills;
     }
 }

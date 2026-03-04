@@ -117,7 +117,7 @@ MonoBehaviour:
       m_LocalVariables: []
     <Conditions>k__BackingField:
     - <Type>k__BackingField: 11
-      <Param>k__BackingField: diplomacy
+      <Param>k__BackingField: Charisma
       <Value>k__BackingField: 2
     <Outcomes>k__BackingField:
     - <Type>k__BackingField: 1
@@ -127,7 +127,7 @@ MonoBehaviour:
       <Param>k__BackingField: jade
       <Value>k__BackingField: 2
     - <Type>k__BackingField: 7
-      <Param>k__BackingField: diplomacy
+      <Param>k__BackingField: Charisma
       <Value>k__BackingField: 15
   <IsMinor>k__BackingField: 0
   <AutoOutcomes>k__BackingField: []

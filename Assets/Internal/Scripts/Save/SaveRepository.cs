@@ -6,6 +6,7 @@ using Internal.Scripts.Economy.Save.Models;
 using Internal.Scripts.Inventory;
 using Internal.Scripts.Items;
 using Internal.Scripts.Npc.Save;
+using Internal.Scripts.Player.Skills;
 
 namespace Internal.Scripts.Save
 {
@@ -107,6 +108,7 @@ namespace Internal.Scripts.Save
             data.Camera ??= new CameraSaveData();
             data.Roads ??= new RoadSaveData();
             data.Npcs ??= new NpcSaveData();
+            data.Skills ??= new PlayerSkillState();
             data.Economy.PlayerInventory ??= new InventoryState();
             data.Economy.CityInventories ??= new List<CityInventoryState>();
 

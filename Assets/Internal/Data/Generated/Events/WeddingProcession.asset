@@ -72,7 +72,7 @@ MonoBehaviour:
       <Param>k__BackingField: 
       <Value>k__BackingField: -10
     - <Type>k__BackingField: 7
-      <Param>k__BackingField: diplomacy
+      <Param>k__BackingField: Charisma
       <Value>k__BackingField: 10
   - <Text>k__BackingField:
       m_TableReference:

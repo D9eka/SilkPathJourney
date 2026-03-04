@@ -1,7 +1,9 @@
+using System.Collections.Generic;
 using Internal.Scripts.Config;
 using Internal.Scripts.Economy.Save;
 using Internal.Scripts.Npc.Save;
 using Internal.Scripts.Player;
+using Internal.Scripts.Player.Skills;
 using Internal.Scripts.Road.State;
 using UnityEngine;
 using Zenject;
@@ -40,6 +42,9 @@ namespace Internal.Scripts.Save
 
             if (data.Version < 3)
                 changed |= MigrateToV3(data);
+
+            if (data.Version < 4)
+                changed |= MigrateToV4(data);
 
             if (data.Economy == null || !data.Economy.IsInitialized)
             {
@@ -94,6 +99,21 @@ namespace Internal.Scripts.Save
         {
             data.Npcs ??= new NpcSaveData();
             data.Version = 3;
+            return true;
+        }
+
+        private bool MigrateToV4(SaveData data)
+        {
+            data.Skills ??= new PlayerSkillState
+            {
+                Skills = new List<SkillEntry>
+                {
+                    new() { Type = SkillType.Survival, Value = 10 },
+                    new() { Type = SkillType.Charisma, Value = 10 },
+                    new() { Type = SkillType.Trade, Value = 20 }
+                }
+            };
+            data.Version = 4;
             return true;
         }
 

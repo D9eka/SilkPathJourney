@@ -89,7 +89,7 @@ MonoBehaviour:
     <Conditions>k__BackingField: []
     <Outcomes>k__BackingField:
     - <Type>k__BackingField: 7
-      <Param>k__BackingField: diplomacy
+      <Param>k__BackingField: Charisma
       <Value>k__BackingField: 5
   <IsMinor>k__BackingField: 0
   <AutoOutcomes>k__BackingField: []

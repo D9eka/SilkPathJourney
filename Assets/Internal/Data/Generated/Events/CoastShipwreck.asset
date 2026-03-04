@@ -117,7 +117,7 @@ MonoBehaviour:
       m_LocalVariables: []
     <Conditions>k__BackingField:
     - <Type>k__BackingField: 11
-      <Param>k__BackingField: survival
+      <Param>k__BackingField: Survival
       <Value>k__BackingField: 1
     <Outcomes>k__BackingField:
     - <Type>k__BackingField: 3
@@ -133,7 +133,7 @@ MonoBehaviour:
       <Param>k__BackingField: spices
       <Value>k__BackingField: 1
     - <Type>k__BackingField: 7
-      <Param>k__BackingField: survival
+      <Param>k__BackingField: Survival
       <Value>k__BackingField: 10
   <IsMinor>k__BackingField: 0
   <AutoOutcomes>k__BackingField: []

@@ -30,7 +30,8 @@ namespace Internal.Scripts.Trading
             if (available <= 0)
                 return (0, 0);
 
-            int buyPrice = _priceService.GetPrice(cityId, itemId, TradePriceKind.BuyFromCity);
+            int buyPrice = _priceService.GetPrice(cityId, itemId, TradePriceKind.BuyFromCity,
+                applySkillBonus: false);
             if (buyPrice <= 0)
                 return (0, 0);
 
@@ -93,7 +94,8 @@ namespace Internal.Scripts.Trading
             int total = 0;
             foreach (ItemStackState stack in items)
             {
-                int price = _priceService.GetPrice(cityId, stack.ItemId, TradePriceKind.SellToCity);
+                int price = _priceService.GetPrice(cityId, stack.ItemId, TradePriceKind.SellToCity,
+                    applySkillBonus: false);
                 priced.Add((stack, price));
                 total += price * stack.Count;
             }
@@ -122,7 +124,8 @@ namespace Internal.Scripts.Trading
 
         public int GetBuyPrice(string cityId, string itemId)
         {
-            return _priceService.GetPrice(cityId, itemId, TradePriceKind.BuyFromCity);
+            return _priceService.GetPrice(cityId, itemId, TradePriceKind.BuyFromCity,
+                applySkillBonus: false);
         }
 
         public void ApplyBatchTrade(string cityId,
