@@ -22,9 +22,15 @@ namespace Internal.Scripts.UI.Screens.Save
             _owner = owner;
             _index = index;
             _localization = localization;
+            BindText();
         }
 
         private void OnEnable()
+        {
+            BindText();
+        }
+
+        private void BindText()
         {
             _textHandle?.Dispose();
             if (_text != null && _localization != null)

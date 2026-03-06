@@ -134,8 +134,17 @@ namespace Internal.Scripts.Npc.Encounter
                 _gameClock.Pause();
                 var tradeArgs = new NpcTradeArgs(agent, _pendingPriceCityId,
                     _settings.NpcTradeMarkup, _settings.SuppliesMarkupMultiplier);
-                _screenStackService.TryOpen(ScreenId.Trade, tradeArgs, out _);
-                _waitingForTradeClose = true;
+
+                if (_screenStackService.TryOpen(ScreenId.Trade, tradeArgs, out ScreenOpenResult result))
+                {
+                    _waitingForTradeClose = true;
+                }
+                else
+                {
+                    Debug.LogError($"[SPJ NPC] Cannot open trade screen: {result}");
+                    _lastTradeAgent = null;
+                    _gameClock.Resume();
+                }
             }
         }
 

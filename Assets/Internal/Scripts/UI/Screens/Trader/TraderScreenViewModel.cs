@@ -38,6 +38,10 @@ namespace Internal.Scripts.UI.Screens.Trader
         {
             BuildState();
         }
+        
+        protected override void OnClose()
+        {
+        }
 
         private void BuildState()
         {
