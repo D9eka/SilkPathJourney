@@ -958,3 +958,60 @@ event.coast_shipwreck.choice3.fail,,,"Течение оказалось слиш
 event.rival_caravan.choice3.fail,,,Переговоры провалились — конкуренты воспользовались моментом и увели клиентов. Убытки.,Negotiations failed — the rivals seized the moment and stole our clients. Losses.
 event.mysterious_stranger.choice3.fail,,,Незнакомец оказался мошенником. Забрал деньги и скрылся в ночи.,The stranger turned out to be a con artist. Took the money and disappeared into the night.
 event.ambush_siege.choice3.fail,,,Переговоры провалились — бандиты потребовали больше. Пришлось отдать почти всё.,Negotiations failed — the bandits demanded more. Had to give up almost everything.
+template.discovery.0.name,road_templates,,Заросшая тропа,Overgrown Trail
+template.discovery.0.desc,road_templates,,"Сквозь густые заросли проглядывает старая, почти забытая дорога. Выбоины от колёс давно заросли травой, но направление ещё угадывается. Местные обходят это место стороной — говорят, путь опасен.","An old, nearly forgotten road peers through dense undergrowth. Wheel ruts have long been swallowed by grass, but the direction is still discernible. Locals avoid this place — they say the path is treacherous."
+template.discovery.0.choice1,road_templates,,Расчистить путь,Clear the path
+template.discovery.0.choice1.result,road_templates,,"Караван прокладывает дорогу сквозь заросли. За поворотом открывается пригодный для движения тракт — новый маршрут найден!","The caravan cuts through the overgrowth. Around the bend, a passable road opens up — a new route discovered!"
+template.discovery.0.choice1.fail,road_templates,,"Заросли оказались непроходимы — караван вернулся на основную дорогу, потеряв время и нервы.","The undergrowth proved impassable — the caravan returned to the main road, losing time and morale."
+template.discovery.0.choice2,road_templates,,Не рисковать,Don't risk it
+template.discovery.0.choice2.result,road_templates,,Вы решаете не сходить с проверенного пути. Заросшая тропа остаётся позади.,You decide to stick to the known road. The overgrown trail fades behind you.
+template.discovery.1.name,road_templates,,Древний указатель,Ancient Waystone
+template.discovery.1.desc,road_templates,,"Полузасыпанный камень с полустёртыми надписями указывает в сторону от основной дороги. Рядом — следы старого мощения, уходящие за холм. Кто-то когда-то проложил здесь путь.","A half-buried stone with weathered inscriptions points away from the main road. Nearby, remnants of old paving stones trail off beyond a hill. Someone once built a road here."
+template.discovery.1.choice1,road_templates,,Следовать указателю,Follow the marker
+template.discovery.1.choice1.result,road_templates,,"За холмом открывается забытая дорога, ведущая к далёкому горизонту. Путь свободен — караван может пройти!","Beyond the hill, a forgotten road stretches toward the distant horizon. The way is clear — the caravan can pass!"
+template.discovery.1.choice1.fail,road_templates,,"Надписи на камне нечитаемы, а старое мощение обрывается у оврага. Дорога не найдена.","The inscriptions are illegible, and the old paving ends at a ravine. The road was not found."
+template.discovery.1.choice2,road_templates,,Пройти мимо,Pass by
+template.discovery.1.choice2.result,road_templates,,"Камень остаётся у дороги, храня свою тайну.","The stone remains by the road, keeping its secret."
+template.discovery.2.name,road_templates,,Скрытый перевал,Hidden Pass
+template.discovery.2.desc,road_templates,,"Между скал виднеется узкий проход, замаскированный кустарником и осыпью. Птицы свободно пролетают насквозь — значит, с другой стороны есть выход. Может, это короткий путь?","A narrow gap between the rocks, masked by bushes and scree, catches your eye. Birds fly freely through it — there must be an exit on the other side. Could this be a shortcut?"
+template.discovery.2.choice1,road_templates,,Исследовать проход,Explore the passage
+template.discovery.2.choice1.result,road_templates,,"Проход оказывается достаточно широким для повозки. С другой стороны — дорога, о которой не знают караванщики!","The passage is wide enough for a wagon. On the other side — a road unknown to any caravan master!"
+template.discovery.2.choice1.fail,road_templates,,"Проход слишком узок и осыпается — пришлось отступить, не найдя пути.","The passage is too narrow and crumbling — you had to retreat without finding the way."
+template.discovery.2.choice2,road_templates,,Слишком рискованно,Too risky
+template.discovery.2.choice2.result,road_templates,,Вы оставляете проход нетронутым и продолжаете путь.,You leave the passage untouched and continue on your way.
+template.encounter.0.name,road_templates,,Старый проводник,The Old Guide
+template.encounter.0.desc,road_templates,,"Седой старик в пыльном халате сидит у обочины, чертя палкой на земле. Увидев караван, он поднимает голову и говорит, что знает дорогу, которую не показывают на картах. За небольшую плату он готов указать путь.","A grey-haired old man in a dusty robe sits by the roadside, drawing in the dirt with a stick. Seeing the caravan, he looks up and says he knows a road not shown on any map. For a small fee, he'll point the way."
+template.encounter.0.choice1,road_templates,,Заплатить и выслушать,Pay and listen
+template.encounter.0.choice1.result,road_templates,,"Старик рисует на песке подробную карту. Его глаза блестят — он явно рад, что кто-то наконец воспользуется его знанием. Новый путь открыт!","The old man draws a detailed map in the sand. His eyes gleam — he is clearly glad someone will finally use his knowledge. A new route is revealed!"
+template.encounter.0.choice2,road_templates,,Отказаться,Refuse
+template.encounter.0.choice2.result,road_templates,,Старик пожимает плечами и снова склоняется к своим рисункам на земле.,The old man shrugs and bends back over his drawings in the dirt.
+template.encounter.1.name,road_templates,,Купец с секретом,Merchant with a Secret
+template.encounter.1.desc,road_templates,,"Встречный торговец останавливает караван и шёпотом предлагает сделку. Он знает обходной путь, который сэкономит дни пути — но просит взамен несколько монет и обещание молчать.","A passing merchant stops the caravan and whispers an offer. He knows a bypass that will save days of travel — but he wants a few coins and a promise of silence in return."
+template.encounter.1.choice1,road_templates,,Согласиться,Agree
+template.encounter.1.choice1.result,road_templates,,"Торговец достаёт потрёпанную карту и показывает скрытый маршрут. «Только никому», — подмигивает он. Путь открыт!","The merchant produces a worn map and reveals the hidden route. 'Tell no one,' he winks. The path is open!"
+template.encounter.1.choice2,road_templates,,Отвергнуть,Decline
+template.encounter.1.choice2.result,road_templates,,"Торговец прячет карту и уходит, бормоча что-то себе под нос.","The merchant hides his map and walks off, muttering under his breath."
+template.encounter.2.name,road_templates,,Благодарный путник,Grateful Traveler
+template.encounter.2.desc,road_templates,,"У дороги лежит раненый путник — его ограбили разбойники. Он умоляет о помощи и обещает щедро отблагодарить, если караван поделится припасами и перевяжет раны.","A wounded traveler lies by the road — bandits robbed him. He begs for help and promises generous repayment if the caravan shares supplies and binds his wounds."
+template.encounter.2.choice1,road_templates,,Помочь путнику,Help the traveler
+template.encounter.2.choice1.result,road_templates,,"Оправившись, путник благодарит караван и раскрывает тайную тропу, о которой знают лишь местные контрабандисты. Новый маршрут открыт!","Once recovered, the traveler thanks the caravan and reveals a secret trail known only to local smugglers. A new route unlocked!"
+template.encounter.2.choice2,road_templates,,Пройти мимо,Walk past
+template.encounter.2.choice2.result,road_templates,,"Путник провожает караван горьким взглядом. Его тайна остаётся при нём.",The traveler watches the caravan leave with a bitter gaze. His secret stays with him.
+template.quest.0.name,road_templates,,Долг караванщика,Caravan Master's Debt
+template.quest.0.desc,road_templates,,"Бывалый караванщик догоняет ваш отряд. Он говорит, что обязан вам жизнью — в прошлый раз вы помогли его людям на переправе. В благодарность он готов открыть секретный маршрут, которым пользуются только избранные торговцы.","A seasoned caravan master catches up with your party. He says he owes you his life — you helped his people at a crossing once before. In gratitude, he offers to reveal a secret route used only by select merchants."
+template.quest.0.choice1,road_templates,,Принять благодарность,Accept the gratitude
+template.quest.0.choice1.result,road_templates,,"Караванщик разворачивает потайную карту и подробно описывает каждый поворот. Теперь этот путь открыт и для вас!","The caravan master unfolds a hidden map and describes every turn in detail. This route is now open to you as well!"
+template.quest.0.choice2,road_templates,,Вежливо отказать,Politely decline
+template.quest.0.choice2.result,road_templates,,"Караванщик кланяется и уходит, унося свой секрет.","The caravan master bows and departs, taking his secret with him."
+template.quest.1.name,road_templates,,Благословение храма,Temple's Blessing
+template.quest.1.desc,road_templates,,"Настоятель придорожного храма узнаёт караван — вы когда-то пожертвовали щедрую сумму на восстановление. В благодарность он ведёт вас к тайной двери за алтарём, откуда начинается древний паломнический путь.","The abbot of a roadside temple recognizes the caravan — you once donated generously to its restoration. In gratitude, he leads you to a hidden door behind the altar, where an ancient pilgrim's road begins."
+template.quest.1.choice1,road_templates,,Войти,Enter
+template.quest.1.choice1.result,road_templates,,"За дверью — высеченный в скале тоннель, выходящий на забытую, но пригодную дорогу. Монах благословляет вас в путь. Новый маршрут открыт!","Behind the door, a tunnel carved into rock opens onto a forgotten but passable road. The monk blesses your journey. A new route unlocked!"
+template.quest.1.choice2,road_templates,,Поблагодарить и уйти,Thank and leave
+template.quest.1.choice2.result,road_templates,,Настоятель кивает с пониманием и закрывает дверь за алтарём.,The abbot nods with understanding and closes the door behind the altar.
+template.quest.2.name,road_templates,,Карта контрабандиста,Smuggler's Map
+template.quest.2.desc,road_templates,,"Ночью к лагерю подкрадывается тень. Это контрабандист, которого вы когда-то не выдали стражникам. Он протягивает свёрнутый пергамент — на нём отмечен тайный путь через горы, который он использовал годами.","A shadow creeps toward the camp at night. It is a smuggler you once shielded from the guards. He extends a rolled parchment — on it, a secret mountain path he has used for years."
+template.quest.2.choice1,road_templates,,Взять карту,Take the map
+template.quest.2.choice1.result,road_templates,,"Пергамент покрыт точными отметками и символами. Контрабандист исчезает в ночи так же тихо, как пришёл. Тайный маршрут теперь ваш!","The parchment is covered in precise markings and symbols. The smuggler vanishes into the night as silently as he came. The secret route is now yours!"
+template.quest.2.choice2,road_templates,,Отказаться,Refuse
+template.quest.2.choice2.result,road_templates,,Контрабандист молча прячет пергамент и растворяется в темноте.,The smuggler silently hides the parchment and melts into the darkness.

@@ -8,3 +8,6 @@ coast_shipwreck,3,Survival,0.4,event.coast_shipwreck.choice3.fail
 rival_caravan,3,Trade,0.35,event.rival_caravan.choice3.fail
 mysterious_stranger,3,Charisma,0.35,event.mysterious_stranger.choice3.fail
 ambush_siege,3,Charisma,0.3,event.ambush_siege.choice3.fail
+template_discovery_0,1,Survival,0.5,template.discovery.0.choice1.fail
+template_discovery_1,1,Survival,0.5,template.discovery.1.choice1.fail
+template_discovery_2,1,Survival,0.5,template.discovery.2.choice1.fail
