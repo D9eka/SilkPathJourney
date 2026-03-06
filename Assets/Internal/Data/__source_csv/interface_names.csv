@@ -1,4 +1,4 @@
-screen_id,section_id,element_id,name_id,name_key,notes,,loc_ru,loc_en,loc_link
+screen_id,section_id,element_id,name_id,name_key,notes,,loc_ru,loc_en,link
 Hud,Main,Button,OpenInventory,UI.Hud.Main.Button.OpenInventory,,,Инвентарь,Inventory,перевод
 Hud,Main,Button,EnterCity,UI.Hud.Main.Button.EnterCity,,,Войти в город,Enter City,перевод
 Hud,Main,Button,LeaveCity,UI.Hud.Main.Button.LeaveCity,,,Покинуть город,Leave City,перевод
@@ -60,3 +60,11 @@ Trader,Skill,Text,CharismaName,UI.Trader.Skill.Charisma.Name,,,Харизма,Ch
 Trader,Skill,Text,CharismaDesc,UI.Trader.Skill.Charisma.Description,,,Влияет на переговоры и найм,Affects negotiations and hiring,перевод
 Trader,Skill,Text,TradeName,UI.Trader.Skill.Trade.Name,,,Торговля,Trade,перевод
 Trader,Skill,Text,TradeDesc,UI.Trader.Skill.Trade.Description,,,Влияет на цены и сделки,Affects prices and deals,перевод
+Event,Outcome,Text,SkillCheckSuccess,UI.Event.Outcome.Text.SkillCheckSuccess,,,Проверка {skill_name}: Успех!,Skill check {skill_name}: Success!,перевод
+Event,Outcome,Text,SkillCheckFail,UI.Event.Outcome.Text.SkillCheckFail,,,Проверка {skill_name}: Провал!,Skill check {skill_name}: Failure!,перевод
+Event,Outcome,Text,Gain,UI.Event.Outcome.Text.Gain,,,Вы получили: {details},You received: {details},перевод
+Event,Outcome,Text,Loss,UI.Event.Outcome.Text.Loss,,,Вы потеряли: {details},You lost: {details},перевод
+Event,Outcome,Resource,Money,UI.Event.Outcome.Resource.Money,,,монет,gold,перевод
+Event,Outcome,Resource,Food,UI.Event.Outcome.Resource.Food,,,провизии,supplies,перевод
+Event,Outcome,Resource,Danger,UI.Event.Outcome.Resource.Danger,,,опасности,danger,перевод
+Event,Outcome,Resource,Durability,UI.Event.Outcome.Resource.Durability,,,прочности,durability,перевод

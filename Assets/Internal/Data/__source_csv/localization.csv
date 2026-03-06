@@ -947,3 +947,14 @@ UI.Trader.Skill.Charisma.Name,interface_names,,Харизма,Charisma
 UI.Trader.Skill.Charisma.Description,interface_names,,Влияет на переговоры и найм,Affects negotiations and hiring
 UI.Trader.Skill.Trade.Name,interface_names,,Торговля,Trade
 UI.Trader.Skill.Trade.Description,interface_names,,Влияет на цены и сделки,Affects prices and deals
+event.skill_check_info,,,{skill_name}: {chance}%,{skill_name}: {chance}%
+event.item_condition_info,,,{item_name} x{count},{item_name} x{count}
+event.desert_sand_trap.choice3.fail,,,Попытка обойти ловушку провалилась — повозка увязла ещё глубже. Пришлось бросить часть припасов.,The attempt to bypass the trap failed — the cart sank even deeper. Some supplies had to be abandoned.
+event.forest_fire.choice3.fail,,,Обходной путь оказался тупиком. Пламя настигло караван — повозка повреждена и припасы сгорели.,The detour turned out to be a dead end. The flames caught the caravan — the cart was damaged and supplies burned.
+event.forest_ruins.choice3.fail,,,Неосторожный шаг обрушил часть стены. Караван отступил с потерями — только синяки и страх.,A careless step collapsed part of the wall. The caravan retreated with losses — just bruises and fear.
+event.plains_wild_horses.choice3.fail,,,Жеребец вырвался и ударил копытом. Несколько человек ранены — пришлось отступить.,The stallion broke free and kicked. Several people were injured — had to retreat.
+event.plains_crossroads.choice3.fail,,,Знаки оказались ловушкой. Караван попал в засаду — потеряли деньги и время.,The signs turned out to be a trap. The caravan walked into an ambush — lost money and time.
+event.coast_shipwreck.choice3.fail,,,"Течение оказалось слишком сильным, ныряльщики вернулись ни с чем. Потеряли время и припасы.","The current was too strong, the divers returned empty-handed. Lost time and supplies."
+event.rival_caravan.choice3.fail,,,Переговоры провалились — конкуренты воспользовались моментом и увели клиентов. Убытки.,Negotiations failed — the rivals seized the moment and stole our clients. Losses.
+event.mysterious_stranger.choice3.fail,,,Незнакомец оказался мошенником. Забрал деньги и скрылся в ночи.,The stranger turned out to be a con artist. Took the money and disappeared into the night.
+event.ambush_siege.choice3.fail,,,Переговоры провалились — бандиты потребовали больше. Пришлось отдать почти всё.,Negotiations failed — the bandits demanded more. Had to give up almost everything.

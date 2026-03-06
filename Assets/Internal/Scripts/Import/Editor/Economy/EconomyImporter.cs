@@ -71,6 +71,8 @@ namespace Internal.Scripts.Import.Editor.Economy
                 var uiEntries = new Dictionary<string, LocalizationImporter.LocalizationEntry>();
                 LocalizationImporter.CollectFromCsvWithPrefix(
                     CsvPath("localization.csv"), "key", "UI.", uiEntries);
+                LocalizationImporter.CollectFromCsvWithPrefix(
+                    CsvPath("interface_names.csv"), "name_key", "UI.", uiEntries);
                 LocalizationImporter.Import(uiEntries, UI_LOCALIZATION_TABLE_NAME,
                     LOCALIZATION_TABLES_FOLDER, LOCALIZATION_LOCALES_FOLDER);
 
