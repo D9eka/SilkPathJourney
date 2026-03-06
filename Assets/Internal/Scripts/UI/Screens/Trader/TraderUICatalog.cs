@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Internal.Scripts.Player.Skills;
+using Internal.Scripts.UI.Localization;
 using UnityEngine;
 using UnityEngine.Localization;
 
@@ -50,6 +51,13 @@ namespace Internal.Scripts.UI.Screens.Trader
             name = null;
             description = null;
             return false;
+        }
+
+        public string GetSkillName(SkillType type)
+        {
+            if (TryGetSkill(type, out LocalizedString name, out _))
+                return LocalizationService.ResolveString(name, type.ToString(), "SkillName");
+            return type.ToString();
         }
 
         public bool TryGetProfileHeader(string id, out LocalizedString header)
