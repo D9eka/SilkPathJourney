@@ -20,5 +20,7 @@ namespace Internal.Scripts.Config
         [Header("Skills")]
         [field: SerializeField] public int MaxSkill { get; private set; } = 100;
         [field: SerializeField] public float TradePriceDivisor { get; private set; } = 500f;
+        [field: SerializeField] public float SkillBonusPerPoint { get; private set; } = 0.0045f;
+        [field: SerializeField] public float SkillChanceCap { get; private set; } = 0.95f;
     }
 }
