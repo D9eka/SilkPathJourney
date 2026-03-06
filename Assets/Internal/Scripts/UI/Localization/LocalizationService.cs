@@ -80,7 +80,8 @@ namespace Internal.Scripts.UI.Localization
                     return;
                 }
 
-                _localized.Arguments = args;
+                if (args != null && args.Length > 0)
+                    _localized.Arguments = args;
                 _localized.RefreshString();
             }
 

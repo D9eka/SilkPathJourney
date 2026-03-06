@@ -87,6 +87,7 @@ MonoBehaviour:
   - <Type>k__BackingField: 2
     <Param>k__BackingField: 
     <Value>k__BackingField: -2
+  <SkillChecks>k__BackingField: []
   <Conditions>k__BackingField: []
   <Weight>k__BackingField: 0.5
   references:

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4c358121688704698e50dc11e318a4, type: 3}
+  m_Name: SceneDataInstaller
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Installers.SceneDataInstaller
+  _npcEncounterSettings: {fileID: 11400000, guid: 6b755f7dc6e2ac04fa7fcfc36e4f08dc, type: 2}
+  _playerAgentConfig:
+    SpeedMetersPerDay: 0.12
+    Lane: 1
+    LateralOffsetMeters: 0
+  _traderUICatalog: {fileID: 11400000, guid: d537a0f7f3d611e45865b968a7601647, type: 2}
+  _worldCanvasSettings: {fileID: 11400000, guid: 465b4a30c55110640a5902bffcb3c689, type: 2}
+  _biomePaletteMap: {fileID: 11400000, guid: 75b7332186ed57648b17dcece8f410f0, type: 2}

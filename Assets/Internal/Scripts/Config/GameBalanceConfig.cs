@@ -16,5 +16,11 @@ namespace Internal.Scripts.Config
         [Header("Resource Limits")]
         [field: SerializeField] public float MaxFood { get; private set; } = 100f;
         [field: SerializeField] public float MaxDanger { get; private set; } = 100f;
+
+        [Header("Skills")]
+        [field: SerializeField] public int MaxSkill { get; private set; } = 100;
+        [field: SerializeField] public float TradePriceDivisor { get; private set; } = 500f;
+        [field: SerializeField] public float SkillBonusPerPoint { get; private set; } = 0.0045f;
+        [field: SerializeField] public float SkillChanceCap { get; private set; } = 0.95f;
     }
 }

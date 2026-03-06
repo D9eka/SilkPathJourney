@@ -168,7 +168,7 @@ namespace Internal.Scripts.UI.StackService
 
             GameObject instanceGo = Object.Instantiate(config.Prefab, parent);
 
-            SetupColors(instanceGo);
+            instanceGo.InitializeColorBinders(_themeService, _colorController);
             SetupLocalization(instanceGo);
 
             ScreenViewBase view = FindView(instanceGo);
@@ -299,19 +299,6 @@ namespace Internal.Scripts.UI.StackService
             }
         }
 
-        private void SetupColors(GameObject instanceGo)
-        {
-            foreach (UiColorBinder colorBinder in 
-                instanceGo.GetComponentsInChildren<UiColorBinder>(true))
-            {
-                colorBinder.Initialize(_themeService);
-            }
-            foreach (UiStaticColorBinder staticColorBinder in 
-                instanceGo.GetComponentsInChildren<UiStaticColorBinder>(true))
-            {
-                staticColorBinder.Initialize(_colorController);
-            }
-        }
 
         private static ScreenViewBase FindView(GameObject root)
         {

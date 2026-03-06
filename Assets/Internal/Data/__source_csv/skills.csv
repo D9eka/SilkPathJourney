@@ -1,0 +1,4 @@
+skill_id,name_key,description_key
+Survival,UI.Trader.Skill.Survival.Name,UI.Trader.Skill.Survival.Description
+Charisma,UI.Trader.Skill.Charisma.Name,UI.Trader.Skill.Charisma.Description
+Trade,UI.Trader.Skill.Trade.Name,UI.Trader.Skill.Trade.Description

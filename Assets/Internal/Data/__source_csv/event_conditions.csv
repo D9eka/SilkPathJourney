@@ -4,7 +4,6 @@ desert_bandits,3,min_money,,40
 desert_storm,,max_cart_durability,,70
 desert_drought,,max_food,,30
 desert_drought,3,has_companion,guide,1
-desert_sand_trap,3,min_skill,survival,1
 desert_wheel_stuck,1,min_money,,25
 desert_nomads,3,has_item,silk,1
 desert_ruins,1,min_food,,10
@@ -18,18 +17,13 @@ mountain_cave,1,min_food,,8
 mountain_monastery,3,has_item,incense,1
 forest_ambush,,min_danger,,20
 forest_ambush,3,min_money,,40
-forest_fire,3,min_skill,survival,1
-forest_ruins,3,min_skill,survival,1
 forest_woodcutter,3,min_money,,15
 plains_raiders,,min_danger,,15
 plains_raiders,3,min_money,,50
-plains_wild_horses,3,min_skill,survival,1
-plains_crossroads,3,min_skill,diplomacy,1
 plains_merchant_camp,3,min_money,,30
 coast_pirates,,min_danger,,15
 coast_pirates,3,min_money,,45
 coast_flood,3,has_item,tools,1
-coast_shipwreck,3,min_skill,survival,1
 coast_smugglers,3,min_money,,35
 highland_yak_herders,3,has_item,tea,1
 highland_monastery,3,min_money,,15
@@ -45,9 +39,6 @@ refugee_caravan,3,min_food,,10
 traveling_scholar,1,min_money,,10
 wounded_soldier,1,min_food,,5
 wounded_soldier,3,has_companion,healer,1
-rival_caravan,3,min_skill,trade,2
-mysterious_stranger,1,min_money,,15
-mysterious_stranger,3,min_skill,diplomacy,2
 guard_for_hire,,min_money,,30
 translator_offer,,min_money,,20
 guide_encounter,,min_money,,25
@@ -59,7 +50,6 @@ cart_collapse,,max_cart_durability,,10
 cart_collapse,1,min_money,,40
 supply_theft,,min_food,,15
 ambush_siege,,min_danger,,60
-ambush_siege,3,min_skill,diplomacy,2
 water_crisis,,max_food,,10
 water_crisis,2,min_money,,25
 disease_outbreak,,max_food,,20

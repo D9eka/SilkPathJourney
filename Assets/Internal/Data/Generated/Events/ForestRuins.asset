@@ -112,10 +112,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    <Conditions>k__BackingField:
-    - <Type>k__BackingField: 11
-      <Param>k__BackingField: survival
-      <Value>k__BackingField: 1
+    <Conditions>k__BackingField: []
     <Outcomes>k__BackingField:
     - <Type>k__BackingField: 3
       <Param>k__BackingField: 
@@ -127,10 +124,30 @@ MonoBehaviour:
       <Param>k__BackingField: incense
       <Value>k__BackingField: 2
     - <Type>k__BackingField: 7
-      <Param>k__BackingField: survival
+      <Param>k__BackingField: Survival
       <Value>k__BackingField: 10
   <IsMinor>k__BackingField: 0
   <AutoOutcomes>k__BackingField: []
+  <SkillChecks>k__BackingField:
+  - <ChoiceIndex>k__BackingField: 3
+    <SkillType>k__BackingField: 1
+    <BaseChance>k__BackingField: 0.45
+    <FailResultText>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Events
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: event.forest_ruins.choice3.fail
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <FailOutcomes>k__BackingField:
+    - <Type>k__BackingField: 3
+      <Param>k__BackingField: 
+      <Value>k__BackingField: 15
+    - <Type>k__BackingField: 2
+      <Param>k__BackingField: 
+      <Value>k__BackingField: -5
   <Conditions>k__BackingField: []
   <Weight>k__BackingField: 0.3
   references:

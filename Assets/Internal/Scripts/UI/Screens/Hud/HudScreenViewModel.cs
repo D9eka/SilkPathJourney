@@ -155,6 +155,12 @@ namespace Internal.Scripts.UI.Screens.Hud
                 Debug.LogWarning($"[SPJ] Cannot open pause screen: {result}");
         }
 
+        public void OpenTrader()
+        {
+            if (!_screenStackService.TryOpen(ScreenId.Trader, out ScreenOpenResult result))
+                Debug.LogWarning($"[SPJ] Cannot open trader screen: {result}");
+        }
+
         private void EnterCity()
         {
             if (_turnChoiceState.IsChoosingTurn)

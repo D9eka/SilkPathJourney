@@ -7,6 +7,7 @@ using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Localization;
 using Internal.Scripts.UI.Screens.Core.View;
 using Internal.Scripts.UI.Screens.Core.ViewModel;
+using Internal.Scripts.UI.Theme;
 using R3;
 using TMPro;
 using UnityEngine;
@@ -231,7 +232,9 @@ namespace Internal.Scripts.UI.Screens.Event
             {
                 int choiceIndex = i;
                 EventChoice choice = choices[i];
+                ConditionContent condition = _viewModel.GetChoiceConditionInfo(choiceIndex, choices);
                 EventChoiceButton button = Instantiate(_choiceButtonPrefab, _choiceButtonsRoot);
+                button.gameObject.InitializeColorBinders(themeService: _viewModel?.ThemeService);
                 button.Initialize(
                     Localization,
                     choice.Text,
@@ -241,7 +244,8 @@ namespace Internal.Scripts.UI.Screens.Event
                         _viewModel?.SelectChoice(choiceIndex);
                     },
                     () => ShowOutcomePreview(choiceIndex),
-                    HideOutcomePreview);
+                    HideOutcomePreview,
+                    condition);
                 bool canAfford = _viewModel.CanAffordChoice(choiceIndex, choices);
                 button.SetInteractable(canAfford);
                 _activeButtons.Add(button);
@@ -290,14 +294,31 @@ namespace Internal.Scripts.UI.Screens.Event
             if (choice == null)
                 return;
 
-            if (choice.Value.ResultText != null && !choice.Value.ResultText.IsEmpty)
-                BindLocalizedText(ref _descriptionHandle, _eventDescriptionText, choice.Value.ResultText, "Result");
+            LocalizedString resultText = _viewModel.LastSkillCheckSucceeded
+                ? choice.Value.ResultText
+                : _viewModel.LastFailResultText;
+
+            if (resultText != null && !resultText.IsEmpty)
+            {
+                _descriptionHandle?.Dispose();
+                _descriptionHandle = null;
+                string skillCheck = _viewModel.BuildSkillCheckLine();
+                string resolved = LocalizationService.ResolveString(resultText, "Result", "Result");
+                string summary = _viewModel.BuildOutcomeSummary();
+
+                var parts = new List<string>();
+                if (!string.IsNullOrEmpty(skillCheck)) parts.Add(skillCheck);
+                parts.Add(resolved);
+                if (!string.IsNullOrEmpty(summary)) parts.Add(summary);
+                _eventDescriptionText.text = string.Join("\n\n", parts);
+            }
 
             foreach (EventChoiceButton button in _activeButtons)
                 Destroy(button.gameObject);
             _activeButtons.Clear();
 
             EventChoiceButton continueBtn = Instantiate(_choiceButtonPrefab, _choiceButtonsRoot);
+            continueBtn.gameObject.InitializeColorBinders(themeService: _viewModel?.ThemeService);
             continueBtn.Initialize(
                 Localization,
                 _continueLocalizedString,

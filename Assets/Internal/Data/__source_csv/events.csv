@@ -92,3 +92,12 @@ last_stand,crisis,event.last_stand.name,event.last_stand.description,last_stand,
 npc_encounter_1,encounter,event.npc_encounter_1.name,event.npc_encounter_1.description,desert_nomads,,0,0
 npc_encounter_2,encounter,event.npc_encounter_2.name,event.npc_encounter_2.description,plains_merchant_camp,,0,0
 npc_encounter_3,encounter,event.npc_encounter_3.name,event.npc_encounter_3.description,desert_nomads,,0,0
+template_discovery_0,discovery,template.discovery.0.name,template.discovery.0.desc,,,0,0
+template_discovery_1,discovery,template.discovery.1.name,template.discovery.1.desc,,,0,0
+template_discovery_2,discovery,template.discovery.2.name,template.discovery.2.desc,,,0,0
+template_encounter_0,encounter,template.encounter.0.name,template.encounter.0.desc,,,0,0
+template_encounter_1,encounter,template.encounter.1.name,template.encounter.1.desc,,,0,0
+template_encounter_2,encounter,template.encounter.2.name,template.encounter.2.desc,,,0,0
+template_quest_0,discovery,template.quest.0.name,template.quest.0.desc,,,0,0
+template_quest_1,discovery,template.quest.1.name,template.quest.1.desc,,,0,0
+template_quest_2,discovery,template.quest.2.name,template.quest.2.desc,,,0,0

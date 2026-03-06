@@ -8,15 +8,15 @@ namespace Internal.Scripts.Events.Conditions
 {
     public class ConditionEvaluator
     {
-        private readonly Dictionary<EventConditionType, IConditionHandler> _handlers = new();
+        private readonly Dictionary<EventConditionType, IConditionEvaluator> _evaluators = new();
 
         public ConditionEvaluator(
-            ResourceConditionHandler resource,
-            InventoryConditionHandler inventory,
-            CartConditionHandler cart,
-            LocationConditionHandler location,
-            CompanionConditionHandler companion,
-            SkillConditionHandler skill)
+            ResourceEvaluator resource,
+            InventoryEvaluator inventory,
+            CartEvaluator cart,
+            LocationEvaluator location,
+            CompanionEvaluator companion,
+            MinSkillEvaluator skill)
         {
             Register(resource);
             Register(inventory);
@@ -28,17 +28,17 @@ namespace Internal.Scripts.Events.Conditions
 
         public bool Evaluate(EventCondition condition, PlayerResourceState resources)
         {
-            if (_handlers.TryGetValue(condition.Type, out var handler))
-                return handler.Evaluate(condition, resources);
+            if (_evaluators.TryGetValue(condition.Type, out var evaluator))
+                return evaluator.Evaluate(condition, resources);
 
-            Debug.LogWarning($"[SPJ Events] No condition handler for {condition.Type}");
+            Debug.LogWarning($"[SPJ Events] No condition evaluator for {condition.Type}");
             return true;
         }
 
-        private void Register(IConditionHandler handler)
+        private void Register(IConditionEvaluator evaluator)
         {
-            foreach (var type in handler.SupportedTypes)
-                _handlers[type] = handler;
+            foreach (var type in evaluator.SupportedTypes)
+                _evaluators[type] = evaluator;
         }
     }
 }

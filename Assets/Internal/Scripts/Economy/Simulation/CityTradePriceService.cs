@@ -3,6 +3,7 @@ using Internal.Scripts.Economy.Items;
 using Internal.Scripts.Economy.Save.Models;
 using Internal.Scripts.Inventory;
 using Internal.Scripts.Items;
+using Internal.Scripts.Player.Skills;
 using UnityEngine;
 
 namespace Internal.Scripts.Economy.Simulation
@@ -13,21 +14,25 @@ namespace Internal.Scripts.Economy.Simulation
         private readonly EconomySimulationSettings _settings;
         private readonly InventoryRepository _inventoryRepository;
         private readonly ItemCatalog _itemCatalog;
+        private readonly TradePriceSkillModifier _skillModifier;
         private readonly HashSet<string> _warnedKeys = new();
 
         public CityTradePriceService(
             CityMarketProfileService profileService,
             EconomySimulationSettings settings,
             InventoryRepository inventoryRepository,
-            ItemCatalog itemCatalog)
+            ItemCatalog itemCatalog,
+            TradePriceSkillModifier skillModifier)
         {
             _profileService = profileService;
             _settings = settings;
             _inventoryRepository = inventoryRepository;
             _itemCatalog = itemCatalog;
+            _skillModifier = skillModifier;
         }
 
-        public int GetPrice(string cityId, string itemId, TradePriceKind kind)
+        public int GetPrice(string cityId, string itemId, TradePriceKind kind,
+            bool applySkillBonus = true)
         {
             ItemData item = _itemCatalog.GetItem(itemId);
             if (item == null)
@@ -49,7 +54,15 @@ namespace Internal.Scripts.Economy.Simulation
                     _settings.PriceMultiplierMax);
             }
 
-            int price = Mathf.Max(1, Mathf.RoundToInt(item.BasePrice * baseCoef * scarcityMult));
+            float skillMult = 1f;
+            if (applySkillBonus)
+            {
+                skillMult = kind == TradePriceKind.BuyFromCity
+                    ? _skillModifier.GetBuyMultiplier()
+                    : _skillModifier.GetSellMultiplier();
+            }
+
+            int price = Mathf.Max(1, Mathf.RoundToInt(item.BasePrice * baseCoef * scarcityMult * skillMult));
             return price;
         }
 

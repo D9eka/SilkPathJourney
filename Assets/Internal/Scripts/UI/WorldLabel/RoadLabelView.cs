@@ -32,11 +32,7 @@ namespace Internal.Scripts.UI.WorldLabel
         {
             _colorController = controller;
             _biome = biome;
-            foreach (var binder in GetComponentsInChildren<UiStaticColorBinder>(true))
-            {
-                binder.Initialize(controller);
-                binder.SetBiome(biome);
-            }
+            gameObject.InitializeColorBinders(colorController: controller, biome: biome);
         }
 
         public void Initialize(TooltipService tooltipService)

@@ -1,14 +1,18 @@
 using System;
-using System.Linq;
 using Internal.Scripts.Camera;
 using Internal.Scripts.Camera.AutoFit;
 using Internal.Scripts.Camera.Move;
 using Internal.Scripts.Camera.Tilt;
 using Internal.Scripts.Camera.Zoom;
 using Internal.Scripts.Economy;
-using Internal.Scripts.Economy.Generated;
+using Internal.Scripts.Economy.Cities;
+using Internal.Scripts.Economy.Cities.UI;
+using Internal.Scripts.Economy.Save;
+using Internal.Scripts.Economy.Simulation;
+using Internal.Scripts.Events;
 using Internal.Scripts.Input;
 using Internal.Scripts.Inventory;
+using Internal.Scripts.Items;
 using Internal.Scripts.Npc.Core;
 using Internal.Scripts.Npc.Encounter;
 using Internal.Scripts.Npc.Lifecycle;
@@ -18,40 +22,35 @@ using Internal.Scripts.Player;
 using Internal.Scripts.Player.Input;
 using Internal.Scripts.Player.NextSegment;
 using Internal.Scripts.Player.Path;
+using Internal.Scripts.Player.StartMovement;
 using Internal.Scripts.Road.Core;
 using Internal.Scripts.Road.Graph;
 using Internal.Scripts.Road.Nodes;
-using Internal.Scripts.Road.State;
 using Internal.Scripts.Road.Path;
-using Internal.Scripts.World.State;
-using Plugins.Zenject.Source.Install;
-using UnityEngine;
-using Zenject;
-using Internal.Scripts.Economy.Cities;
-using Internal.Scripts.Economy.Cities.UI;
-using Internal.Scripts.Economy.Save;
+using Internal.Scripts.Road.Positioning;
+using Internal.Scripts.Road.State;
 using Internal.Scripts.Save;
-using Internal.Scripts.Player.StartMovement;
+using Internal.Scripts.Trading;
 using Internal.Scripts.UI;
 using Internal.Scripts.UI.Arrow;
 using Internal.Scripts.UI.Arrow.Controller;
 using Internal.Scripts.UI.Arrow.DirectionCalculation;
 using Internal.Scripts.UI.Arrow.JunctionBalancer;
 using Internal.Scripts.UI.Arrow.Placement;
-using Internal.Scripts.UI.Factory;
-using Internal.Scripts.UI.StackService;
-using Internal.Scripts.Trading;
-using Internal.Scripts.Events;
-using Internal.Scripts.Items;
-using Internal.Scripts.UI.WorldLabel;
-using Internal.Scripts.Road.Positioning;
 using Internal.Scripts.UI.Arrow.PositionCalculation;
+using Internal.Scripts.UI.Factory;
 using Internal.Scripts.UI.PathVisualization;
 using Internal.Scripts.UI.Screens.Core.Config;
+using Internal.Scripts.UI.Screens.Event;
+using Internal.Scripts.UI.Screens.Event.ConditionLines;
 using Internal.Scripts.UI.Screens.Hud;
-using Internal.Scripts.UI.Theme;
-using Internal.Scripts.Economy.Simulation;
+using Internal.Scripts.UI.StackService;
+using Internal.Scripts.UI.WorldLabel;
 using Internal.Scripts.Utils;
+using Internal.Scripts.World.State;
+using Plugins.Zenject.Source.Install;
+using UnityEngine;
+using Zenject;
 
 namespace Internal.Scripts.Installers
 {
@@ -59,25 +58,18 @@ namespace Internal.Scripts.Installers
     {
         [Header("Camera")]
         [SerializeField] private DetailSceneBounds _strategicBounds;
-        [Header("World")]
         [Header("NPC")]
         [SerializeField] private NpcSpawnEntry[] _spawns;
-        [SerializeField] private NpcEncounterSettings _npcEncounterSettings;
         [Header("Player")]
         [SerializeField] private RoadAgentView _playerViewPrefab;
-        [SerializeField] private RoadAgentConfig _playerAgentConfig;
-        [Header("UI Screens")]
-        [SerializeField] private UIScreenRoots _uiScreenRoots;
         [Header("Interactables")]
         [SerializeField] private LayerMask _interactableLayerMask;
         [Header("Arrows")]
         [SerializeField] private ArrowView _arrowPrefab;
-        [Header("World Labels")]
-        [SerializeField] private WorldCanvasSettings _worldCanvasSettings;
+        [Header("UI")]
+        [SerializeField] private UIScreenRoots _uiScreenRoots;
         [Header("Path Visualization")]
         [SerializeField] private Shader _pathShader;
-        [Header("UI Theme")]
-        [SerializeField] private BiomePaletteMap _biomePaletteMap;
 
         public override void InstallBindings()
         {
@@ -97,7 +89,6 @@ namespace Internal.Scripts.Installers
             InstallWorldCanvas();
             InstallWorldLabels();
             InstallPlayer();
-            InstallTheme();
             InstallScreens();
             InstallEvents();
             InstallPathVisualization();
@@ -159,11 +150,7 @@ namespace Internal.Scripts.Installers
             Container.Bind<NpcTrader>().AsSingle();
             Container.BindInterfacesTo<NpcSaveController>().AsSingle();
 
-            if (_npcEncounterSettings != null)
-            {
-                Container.BindInstance(_npcEncounterSettings).AsSingle();
-                Container.BindInterfacesTo<NpcEncounterTrigger>().AsSingle();
-            }
+            Container.BindInterfacesTo<NpcEncounterTrigger>().AsSingle();
         }
 
         private void InstallPlayer()
@@ -173,7 +160,6 @@ namespace Internal.Scripts.Installers
             Container.Bind<PathHintsCreator>().AsSingle();
             Container.Bind<RoadAgentView>().FromComponentInNewPrefab(_playerViewPrefab).AsSingle()
                 .WhenInjectedInto<PlayerInitializer>();
-            Container.Bind<RoadAgentConfig>().FromInstance(_playerAgentConfig).AsSingle();
             Container.BindInterfacesAndSelfTo<SegmentMover>().AsSingle().WhenInjectedInto<PlayerInitializer>();
             Container.BindInterfacesAndSelfTo<PlayerNextSegmentsProvider>().AsSingle();
             Container.BindInterfacesTo<PlayerStartMovement>().AsSingle();
@@ -194,7 +180,9 @@ namespace Internal.Scripts.Installers
             Container.BindInterfacesAndSelfTo<SaveBootstrapper>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<InventoryRepository>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<PlayerResourceRepository>().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<Player.Skills.PlayerSkillRepository>().AsSingle().NonLazy();
 
+            Container.Bind<Player.Skills.TradePriceSkillModifier>().AsSingle();
             Container.Bind<CityMarketProfileService>().AsSingle();
             Container.Bind<CityTradePriceService>().AsSingle();
             Container.BindInterfacesAndSelfTo<CityEconomySimulator>().AsSingle().NonLazy();
@@ -243,21 +231,28 @@ namespace Internal.Scripts.Installers
         {
             Container.BindInterfacesAndSelfTo<DayTracker>().AsSingle().NonLazy();
 
-            Container.Bind<Events.Conditions.ResourceConditionHandler>().AsSingle();
-            Container.Bind<Events.Conditions.InventoryConditionHandler>().AsSingle();
-            Container.Bind<Events.Conditions.CartConditionHandler>().AsSingle();
-            Container.Bind<Events.Conditions.LocationConditionHandler>().AsSingle();
-            Container.Bind<Events.Conditions.CompanionConditionHandler>().AsSingle();
-            Container.Bind<Events.Conditions.SkillConditionHandler>().AsSingle();
+            Container.Bind<Events.Conditions.ResourceEvaluator>().AsSingle();
+            Container.Bind<Events.Conditions.InventoryEvaluator>().AsSingle();
+            Container.Bind<Events.Conditions.CartEvaluator>().AsSingle();
+            Container.Bind<Events.Conditions.LocationEvaluator>().AsSingle();
+            Container.Bind<Events.Conditions.CompanionEvaluator>().AsSingle();
+            Container.Bind<Events.Conditions.MinSkillEvaluator>().AsSingle();
             Container.Bind<Events.Conditions.ConditionEvaluator>().AsSingle();
 
-            Container.Bind<Events.Outcomes.ResourceOutcomeHandler>().AsSingle();
-            Container.Bind<Events.Outcomes.ItemOutcomeHandler>().AsSingle();
-            Container.Bind<Events.Outcomes.CartDurabilityOutcomeHandler>().AsSingle();
-            Container.Bind<Events.Outcomes.CompanionOutcomeHandler>().AsSingle();
-            Container.Bind<Events.Outcomes.SkillOutcomeHandler>().AsSingle();
-            Container.Bind<Events.Outcomes.RoadUnlockOutcomeHandler>().AsSingle();
+            Container.Bind<Events.Outcomes.ResourceApplier>().AsSingle();
+            Container.Bind<Events.Outcomes.ItemApplier>().AsSingle();
+            Container.Bind<Events.Outcomes.CartDurabilityApplier>().AsSingle();
+            Container.Bind<Events.Outcomes.CompanionApplier>().AsSingle();
+            Container.Bind<Events.Outcomes.SkillXpApplier>().AsSingle();
+            Container.Bind<Events.Outcomes.RoadUnlockApplier>().AsSingle();
             Container.Bind<Events.Outcomes.OutcomeApplier>().AsSingle();
+
+            Container.Bind<SkillCheckService>().AsSingle();
+            Container.Bind<EventSelector>().AsSingle();
+            Container.Bind<EventOutcomeFormatter>().AsSingle();
+            Container.Bind<SkillCheckConditionLine>().AsSingle();
+            Container.Bind<ItemConditionLine>().AsSingle();
+            Container.Bind<ConditionLineBuilder>().AsSingle();
 
             Container.Bind<EventToastController>().AsSingle();
             Container.BindInterfacesAndSelfTo<EventTrigger>().AsSingle().NonLazy();
@@ -273,25 +268,11 @@ namespace Internal.Scripts.Installers
         private void InstallWorldCanvas()
         {
             Container.BindInstance(_strategicBounds).AsSingle();
-            Container.BindInstance(_worldCanvasSettings).AsSingle();
             Container.Bind<WorldCanvasFactory>().AsSingle();
             Container.Bind<WorldCanvas>()
                 .FromMethod(ctx => ctx.Container.Resolve<WorldCanvasFactory>().Create())
                 .AsSingle()
                 .NonLazy();
-        }
-
-        private void InstallTheme()
-        {
-            Container.BindInstance(_biomePaletteMap).AsSingle();
-
-            _biomePaletteMap.TryGetPalette(Biome.Plains, out var defaultPalette);
-            Container.Bind<UiThemeService>().AsSingle()
-                .WithArguments(defaultPalette).NonLazy();
-
-            Container.BindInterfacesTo<BiomeThemeController>().AsSingle().NonLazy();
-
-            Container.Bind<StaticColorController>().AsSingle();
         }
 
         private void InstallPathVisualization()

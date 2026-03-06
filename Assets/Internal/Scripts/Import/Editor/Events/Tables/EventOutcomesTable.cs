@@ -11,10 +11,16 @@ namespace Internal.Scripts.Import.Editor.Events.Tables
 {
     public static class EventOutcomesTable
     {
-        public static Dictionary<string, Dictionary<int, List<EventOutcomeEntry>>> Read(
+        public struct OutcomeBranch
+        {
+            public List<EventOutcomeEntry> Success;
+            public List<EventOutcomeEntry> Fail;
+        }
+
+        public static Dictionary<string, Dictionary<int, OutcomeBranch>> Read(
             string csvFile = "event_choice_outcomes.csv")
         {
-            Dictionary<string, Dictionary<int, List<EventOutcomeEntry>>> map =
+            Dictionary<string, Dictionary<int, OutcomeBranch>> map =
                 new(StringComparer.Ordinal);
 
             string csvPath = CsvPath(csvFile);
@@ -33,6 +39,7 @@ namespace Internal.Scripts.Import.Editor.Events.Tables
             int typeIndex = FindColumnIndex(header, "type");
             int paramIndex = FindColumnIndex(header, "param");
             int valueIndex = FindColumnIndex(header, "value");
+            int branchIndex = FindColumnIndex(header, "branch");
             if (eventIdIndex < 0 || choiceIndexIndex < 0 || typeIndex < 0 || valueIndex < 0)
             {
                 Debug.LogError("[SPJ] Missing columns in event_choice_outcomes.csv");
@@ -48,26 +55,37 @@ namespace Internal.Scripts.Import.Editor.Events.Tables
                 string typeStr = GetField(rows[i], typeIndex).Trim();
                 string param = paramIndex >= 0 ? GetField(rows[i], paramIndex).Trim() : "";
                 TryParseFloat(GetField(rows[i], valueIndex), out float value);
+                string branch = branchIndex >= 0 ? GetField(rows[i], branchIndex).Trim().ToLowerInvariant() : "";
 
                 if (!TryParseOutcomeType(typeStr, out EventOutcomeType outcomeType))
                 {
-                    Debug.LogWarning($"[SPJ] Unknown outcome type '{typeStr}' in event_choice_outcomes.csv (row {i + 1})");
+                    Debug.LogWarning($"[SPJ] Unknown outcome type '{typeStr}' in {csvFile} (row {i + 1})");
                     continue;
                 }
 
-                if (!map.TryGetValue(eventId, out Dictionary<int, List<EventOutcomeEntry>> byChoice))
+                if (!map.TryGetValue(eventId, out Dictionary<int, OutcomeBranch> byChoice))
                 {
-                    byChoice = new Dictionary<int, List<EventOutcomeEntry>>();
+                    byChoice = new Dictionary<int, OutcomeBranch>();
                     map[eventId] = byChoice;
                 }
 
-                if (!byChoice.TryGetValue(choiceIndex, out List<EventOutcomeEntry> oList))
+                if (!byChoice.TryGetValue(choiceIndex, out OutcomeBranch ob))
                 {
-                    oList = new List<EventOutcomeEntry>();
-                    byChoice[choiceIndex] = oList;
+                    ob = new OutcomeBranch
+                    {
+                        Success = new List<EventOutcomeEntry>(),
+                        Fail = new List<EventOutcomeEntry>()
+                    };
                 }
 
-                oList.Add(new EventOutcomeEntry(outcomeType, param, value));
+                var entry = new EventOutcomeEntry(outcomeType, param, value);
+
+                if (branch == "fail")
+                    ob.Fail.Add(entry);
+                else
+                    ob.Success.Add(entry);
+
+                byChoice[choiceIndex] = ob;
             }
 
             return map;

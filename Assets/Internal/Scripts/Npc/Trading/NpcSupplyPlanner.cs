@@ -59,7 +59,8 @@ namespace Internal.Scripts.Npc.Trading
             ItemStackState cityStack = cityState?.Inventory?.Items?.Find(s => s.ItemId == SuppliesItemId.Value);
             int available = cityStack?.Count ?? 0;
 
-            int buyPrice = _priceService.GetPrice(cityId, SuppliesItemId.Value, TradePriceKind.BuyFromCity);
+            int buyPrice = _priceService.GetPrice(cityId, SuppliesItemId.Value, TradePriceKind.BuyFromCity,
+                applySkillBonus: false);
             if (buyPrice <= 0)
                 return currentSupplies >= suppliesNeeded;
 

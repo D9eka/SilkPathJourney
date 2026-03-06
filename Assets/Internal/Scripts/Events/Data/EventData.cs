@@ -23,9 +23,21 @@ namespace Internal.Scripts.Events.Data
         [field: SerializeField] public bool IsMinor { get; private set; }
         [field: SerializeField] public List<EventOutcomeEntry> AutoOutcomes { get; private set; }
 
+        [Header("Skill Checks")]
+        [field: SerializeField] public List<SkillCheckData> SkillChecks { get; private set; }
+
         [Header("Conditions")]
         [field: SerializeField] public List<EventCondition> Conditions { get; private set; }
         [field: SerializeField] public float Weight { get; private set; } = 1f;
+
+        public SkillCheckData? GetSkillCheck(int choiceIndex)
+        {
+            if (SkillChecks == null) return null;
+            for (int i = 0; i < SkillChecks.Count; i++)
+                if (SkillChecks[i].ChoiceIndex == choiceIndex)
+                    return SkillChecks[i];
+            return null;
+        }
 
 #if UNITY_EDITOR
         public void ApplyImport(
@@ -38,7 +50,8 @@ namespace Internal.Scripts.Events.Data
             List<EventChoice> choices,
             List<EventOutcomeEntry> autoOutcomes,
             List<EventCondition> conditions,
-            float weight)
+            float weight,
+            List<SkillCheckData> skillChecks = null)
         {
             Id = id;
             Name = name;
@@ -48,6 +61,7 @@ namespace Internal.Scripts.Events.Data
             IsMinor = isMinor;
             Choices = choices ?? new List<EventChoice>();
             AutoOutcomes = autoOutcomes ?? new List<EventOutcomeEntry>();
+            SkillChecks = skillChecks ?? new List<SkillCheckData>();
             Conditions = conditions ?? new List<EventCondition>();
             Weight = weight;
         }

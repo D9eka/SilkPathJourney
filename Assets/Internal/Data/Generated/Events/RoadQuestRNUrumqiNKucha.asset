@@ -65,6 +65,9 @@ MonoBehaviour:
     - <Type>k__BackingField: 8
       <Param>k__BackingField: R_N_Urumqi__N_Kucha
       <Value>k__BackingField: 0
+    - <Type>k__BackingField: 7
+      <Param>k__BackingField: Survival
+      <Value>k__BackingField: 3
   - <Text>k__BackingField:
       m_TableReference:
         m_TableCollectionName: Events
@@ -87,6 +90,7 @@ MonoBehaviour:
     <Outcomes>k__BackingField: []
   <IsMinor>k__BackingField: 0
   <AutoOutcomes>k__BackingField: []
+  <SkillChecks>k__BackingField: []
   <Conditions>k__BackingField:
   - <Type>k__BackingField: 12
     <Param>k__BackingField: N_Urumqi

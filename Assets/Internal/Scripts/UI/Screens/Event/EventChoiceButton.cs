@@ -1,5 +1,6 @@
 using System;
 using Internal.Scripts.UI.Localization;
+using Internal.Scripts.UI.Localization.Args;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -12,6 +13,7 @@ namespace Internal.Scripts.UI.Screens.Event
     {
         [SerializeField] private Button _button;
         [SerializeField] private TextMeshProUGUI _text;
+        [SerializeField] private TextMeshProUGUI _conditionText;
 
         private Action _onClickCallback;
         private Action _onHoverEnter;
@@ -23,7 +25,8 @@ namespace Internal.Scripts.UI.Screens.Event
             LocalizedString localizedText,
             Action onClickCallback,
             Action onHoverEnter = null,
-            Action onHoverExit = null)
+            Action onHoverExit = null,
+            ConditionContent condition = null)
         {
             _onClickCallback = onClickCallback;
             _onHoverEnter = onHoverEnter;
@@ -31,6 +34,14 @@ namespace Internal.Scripts.UI.Screens.Event
 
             if (_text != null && localizedText != null && localization != null)
                 _textHandle = localization.BindText(_text, localizedText, "Choice");
+
+            if (_conditionText != null)
+            {
+                bool hasCondition = condition != null;
+                _conditionText.gameObject.SetActive(hasCondition);
+                if (hasCondition)
+                    _conditionText.text = LocArgRenderer.Format(condition.Format, condition.Args);
+            }
 
             if (_button != null)
                 _button.onClick.AddListener(HandleClick);

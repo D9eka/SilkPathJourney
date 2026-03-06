@@ -204,21 +204,10 @@ namespace Internal.Scripts.UI.Screens.Save
             while (_spawnedSlots.Count < count)
             {
                 SaveSlotView view = Instantiate(_slotPrefab, _slotsContainer);
-                SetupColors(view.gameObject);
+                view.gameObject.InitializeColorBinders(ViewModel?.ThemeService, ViewModel?.ColorController);
                 _spawnedSlots.Add(view);
             }
         }
 
-        protected void SetupColors(GameObject go)
-        {
-            if (ViewModel == null)
-                return;
-
-            foreach (UiColorBinder binder in go.GetComponentsInChildren<UiColorBinder>(true))
-                binder.Initialize(ViewModel.ThemeService);
-
-            foreach (UiStaticColorBinder binder in go.GetComponentsInChildren<UiStaticColorBinder>(true))
-                binder.Initialize(ViewModel.ColorController);
-        }
     }
 }

@@ -2607,6 +2607,54 @@ MonoBehaviour:
     m_Key: event.npc_encounter.pass_result
     m_Metadata:
       m_Items: []
+  - m_Id: 9433775275499520
+    m_Key: event.skill_check_info
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9433775325831168
+    m_Key: event.desert_sand_trap.choice3.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9433775325831169
+    m_Key: event.forest_fire.choice3.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9433775325831170
+    m_Key: event.forest_ruins.choice3.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9433775325831171
+    m_Key: event.plains_wild_horses.choice3.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9433775325831172
+    m_Key: event.plains_crossroads.choice3.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9433775325831173
+    m_Key: event.coast_shipwreck.choice3.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9433775325831174
+    m_Key: event.rival_caravan.choice3.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9433775325831175
+    m_Key: event.mysterious_stranger.choice3.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9433775325831176
+    m_Key: event.ambush_siege.choice3.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9758956028157952
+    m_Key: event.item_condition_info
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9773297158840320
+    m_Key: event.road_discover_R_N_Urumqi__N_Kucha.choice1.fail
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -6,6 +6,7 @@ using Internal.Scripts.Economy.Save.Models;
 using Internal.Scripts.Inventory;
 using Internal.Scripts.Items;
 using Internal.Scripts.Npc.Save;
+using Internal.Scripts.Player.Skills;
 
 namespace Internal.Scripts.Save
 {
