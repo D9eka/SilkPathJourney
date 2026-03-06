@@ -44,6 +44,7 @@ namespace Internal.Scripts.Import.Editor.Events
                 var choices = EventChoicesTable.Read();
                 EventConditionsTable.Read(out var eventConditions, out var choiceConditions);
                 var outcomes = EventOutcomesTable.Read();
+                var skillChecks = EventSkillChecksTable.Read();
 
                 // 3b. Merge road event data (only if generated files exist)
                 bool hasRoadEvents = File.Exists(CsvPath("road_events.csv"));
@@ -56,6 +57,7 @@ namespace Internal.Scripts.Import.Editor.Events
                     MergeInto(choiceConditions, roadCC);
 
                     MergeInto(outcomes, EventOutcomesTable.Read("road_event_outcomes.csv"));
+                    MergeInto(skillChecks, EventSkillChecksTable.Read("road_event_skill_checks.csv"));
                 }
 
                 // 4. Localization
@@ -75,14 +77,15 @@ namespace Internal.Scripts.Import.Editor.Events
 
                 // 5. Import events + database
                 var events = EventsTable.Import(
-                    typeNameKeys, choices, eventConditions, choiceConditions, outcomes, LOCALIZATION_TABLE_NAME);
+                    typeNameKeys, choices, eventConditions, choiceConditions, outcomes,
+                    skillChecks, LOCALIZATION_TABLE_NAME);
 
                 // 5b. Road events
                 if (hasRoadEvents)
                 {
                     var roadEvents = EventsTable.Import(
                         typeNameKeys, choices, eventConditions, choiceConditions, outcomes,
-                        LOCALIZATION_TABLE_NAME, "road_events.csv");
+                        skillChecks, LOCALIZATION_TABLE_NAME, "road_events.csv");
                     events.AddRange(roadEvents);
                 }
 
