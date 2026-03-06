@@ -1,4 +1,4 @@
-event_id,choice_index,type,param,value
+event_id,choice_index,type,param,value,branch
 desert_bandits,1,danger,,15
 desert_bandits,1,food,,-5
 desert_bandits,1,add_skill_xp,Survival,10
@@ -42,6 +42,7 @@ desert_wheel_stuck,3,money,,-5
 desert_nomads,1,money,,-15
 desert_nomads,1,food,,5
 desert_nomads,1,add_skill_xp,Trade,10
+desert_nomads,3,add_item,silk,-1
 desert_nomads,3,add_item,spices,2
 desert_nomads,3,money,,-10
 desert_nomads,3,add_skill_xp,Charisma,10
@@ -91,6 +92,7 @@ mountain_broken_axle,3,money,,-5
 mountain_broken_axle,3,cart_durability,-1,-10
 mountain_hermit,1,food,,-5
 mountain_hermit,1,add_skill_xp,Survival,15
+mountain_hermit,3,add_item,tea,-1
 mountain_hermit,3,add_skill_xp,Charisma,15
 mountain_hermit,3,food,,5
 mountain_cave,1,food,,-5
@@ -106,6 +108,7 @@ mountain_cold_night,0,food,,-3
 mountain_monastery,1,money,,-20
 mountain_monastery,1,food,,8
 mountain_monastery,1,add_skill_xp,Charisma,10
+mountain_monastery,3,add_item,incense,-1
 mountain_monastery,3,add_skill_xp,Charisma,15
 mountain_monastery,3,food,,5
 mountain_monastery,3,cart_durability,-1,10
@@ -210,6 +213,7 @@ coast_flood,1,cart_durability,-1,-5
 coast_flood,2,cart_durability,-1,-20
 coast_flood,2,danger,,15
 coast_flood,2,food,,-5
+coast_flood,3,add_item,tools,-1
 coast_flood,3,food,,-4
 coast_flood,3,cart_durability,-1,5
 coast_flood,3,add_skill_xp,Survival,10
@@ -259,6 +263,7 @@ highland_yak_herders,1,food,,8
 highland_yak_herders,1,money,,-10
 highland_yak_herders,1,add_skill_xp,Charisma,5
 highland_yak_herders,2,danger,,5
+highland_yak_herders,3,add_item,tea,-1
 highland_yak_herders,3,food,,10
 highland_yak_herders,3,add_skill_xp,Charisma,10
 highland_avalanche,1,food,,-10
@@ -290,6 +295,7 @@ valley_fishermen,1,food,,5
 valley_fishermen,1,money,,-8
 valley_fishermen,1,add_skill_xp,Charisma,5
 valley_fishermen,2,danger,,5
+valley_fishermen,3,add_item,salt,-1
 valley_fishermen,3,food,,8
 valley_fishermen,3,add_skill_xp,Trade,10
 valley_stuck_mud,1,money,,-20
@@ -301,6 +307,7 @@ valley_stuck_mud,3,cart_durability,-1,-20
 wandering_merchant,1,money,,-20
 wandering_merchant,1,add_item,spices,2
 wandering_merchant,1,add_skill_xp,Trade,5
+wandering_merchant,3,add_item,silk,-1
 wandering_merchant,3,money,,15
 wandering_merchant,3,add_skill_xp,Trade,10
 lost_traveler,1,food,,-5
@@ -421,3 +428,22 @@ last_stand,2,danger,,-30
 last_stand,3,food,,-15
 last_stand,3,cart_durability,-1,-25
 last_stand,3,danger,,-10
+desert_sand_trap,3,food,,-8,fail
+desert_sand_trap,3,cart_durability,-1,-10,fail
+forest_fire,3,food,,-10,fail
+forest_fire,3,cart_durability,-1,-15,fail
+forest_fire,3,danger,,10,fail
+forest_ruins,3,danger,,15,fail
+forest_ruins,3,food,,-5,fail
+plains_wild_horses,3,danger,,15,fail
+plains_wild_horses,3,food,,-5,fail
+plains_crossroads,3,danger,,10,fail
+plains_crossroads,3,money,,-10,fail
+coast_shipwreck,3,danger,,20,fail
+coast_shipwreck,3,food,,-5,fail
+rival_caravan,3,money,,-10,fail
+rival_caravan,3,danger,,10,fail
+mysterious_stranger,3,money,,-20,fail
+mysterious_stranger,3,danger,,10,fail
+ambush_siege,3,money,,-30,fail
+ambush_siege,3,danger,,10,fail
