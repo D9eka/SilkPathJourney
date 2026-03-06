@@ -1,10 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Internal.Scripts.Config;
-using Internal.Scripts.Economy;
 using Internal.Scripts.Economy.Cities;
-using Internal.Scripts.Events.Conditions;
 using Internal.Scripts.Events.Data;
 using Internal.Scripts.Events.Generated;
 using Internal.Scripts.Events.Outcomes;
@@ -17,19 +14,16 @@ using Internal.Scripts.UI.Screens.Core.Config;
 using Internal.Scripts.UI.StackService;
 using UnityEngine;
 using Zenject;
-using Random = UnityEngine.Random;
 
 namespace Internal.Scripts.Events
 {
     public class EventTrigger : IInitializable, IDisposable
     {
         private readonly DayTracker _dayTracker;
-        private readonly EventDatabase _eventDatabase;
+        private readonly EventSelector _eventSelector;
         private readonly ScreenStackService _screenStackService;
-        private readonly PlayerResourceRepository _resourceRepository;
         private readonly SaveRepository _saveRepository;
         private readonly GameClock _gameClock;
-        private readonly ConditionEvaluator _conditionEvaluator;
         private readonly OutcomeApplier _outcomeApplier;
         private readonly GameBalanceConfig _balanceConfig;
         private readonly IRoadNodeLookup _nodeLookup;
@@ -39,12 +33,10 @@ namespace Internal.Scripts.Events
 
         public EventTrigger(
             DayTracker dayTracker,
-            EventDatabase eventDatabase,
+            EventSelector eventSelector,
             ScreenStackService screenStackService,
-            PlayerResourceRepository resourceRepository,
             SaveRepository saveRepository,
             GameClock gameClock,
-            ConditionEvaluator conditionEvaluator,
             OutcomeApplier outcomeApplier,
             GameBalanceConfig balanceConfig,
             IRoadNodeLookup nodeLookup,
@@ -53,12 +45,10 @@ namespace Internal.Scripts.Events
             EventToastController toastController)
         {
             _dayTracker = dayTracker;
-            _eventDatabase = eventDatabase;
+            _eventSelector = eventSelector;
             _screenStackService = screenStackService;
-            _resourceRepository = resourceRepository;
             _saveRepository = saveRepository;
             _gameClock = gameClock;
-            _conditionEvaluator = conditionEvaluator;
             _outcomeApplier = outcomeApplier;
             _balanceConfig = balanceConfig;
             _nodeLookup = nodeLookup;
@@ -92,7 +82,7 @@ namespace Internal.Scripts.Events
             if (currentDay - lastMajorDay < _balanceConfig.DaysBetweenMajorEvents)
                 return;
 
-            EventData eventData = SelectEvent(minor: false);
+            EventData eventData = _eventSelector.SelectEvent(minor: false);
             if (eventData == null)
                 return;
 
@@ -105,55 +95,11 @@ namespace Internal.Scripts.Events
             if (currentDay - lastMinorDay < _balanceConfig.DaysBetweenMinorEvents)
                 return;
 
-            EventData eventData = SelectEvent(minor: true);
+            EventData eventData = _eventSelector.SelectEvent(minor: true);
             if (eventData == null)
                 return;
 
             TriggerMinorEvent(eventData, currentDay);
-        }
-
-        private EventData SelectEvent(bool minor)
-        {
-            if (_eventDatabase == null || _eventDatabase.Events == null || _eventDatabase.Events.Count == 0)
-                return null;
-
-            List<EventData> eligible = new();
-            float totalWeight = 0f;
-
-            foreach (var evt in _eventDatabase.Events)
-            {
-                if (evt.IsMinor != minor)
-                    continue;
-
-                if (!CheckConditions(evt.Conditions))
-                    continue;
-
-                eligible.Add(evt);
-                totalWeight += evt.Weight;
-            }
-
-            if (eligible.Count == 0)
-                return null;
-
-            float roll = Random.Range(0f, totalWeight);
-            float cumulative = 0f;
-            foreach (var evt in eligible)
-            {
-                cumulative += evt.Weight;
-                if (roll <= cumulative)
-                    return evt;
-            }
-
-            return eligible[eligible.Count - 1];
-        }
-
-        public bool CheckConditions(List<EventCondition> conditions)
-        {
-            if (conditions == null || conditions.Count == 0)
-                return true;
-
-            var resources = _resourceRepository.Current;
-            return conditions.All(c => _conditionEvaluator.Evaluate(c, resources));
         }
 
         private void TriggerMajorEvent(EventData eventData, int currentDay)
