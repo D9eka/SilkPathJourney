@@ -128,6 +128,7 @@ MonoBehaviour:
       <Value>k__BackingField: -5
   <IsMinor>k__BackingField: 0
   <AutoOutcomes>k__BackingField: []
+  <SkillChecks>k__BackingField: []
   <Conditions>k__BackingField:
   - <Type>k__BackingField: 3
     <Param>k__BackingField: 

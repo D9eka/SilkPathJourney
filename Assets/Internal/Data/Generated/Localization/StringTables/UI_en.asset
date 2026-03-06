@@ -282,6 +282,38 @@ MonoBehaviour:
     m_Localized: Trader
     m_Metadata:
       m_Items: []
+  - m_Id: 11135896043642880
+    m_Localized: 'Skill check {skill_name}: Success!'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11135896093974528
+    m_Localized: 'Skill check {skill_name}: Failure!'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11135896093974529
+    m_Localized: 'You received: {details}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11135896093974530
+    m_Localized: 'You lost: {details}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11135896093974531
+    m_Localized: gold
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11135896093974532
+    m_Localized: supplies
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11135896093974533
+    m_Localized: danger
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11135896093974534
+    m_Localized: durability
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

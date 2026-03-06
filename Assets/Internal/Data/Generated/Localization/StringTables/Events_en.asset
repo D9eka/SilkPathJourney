@@ -2887,6 +2887,64 @@ MonoBehaviour:
     m_Localized: You nodded politely and continued on your way.
     m_Metadata:
       m_Items: []
+  - m_Id: 9433775275499520
+    m_Localized: '{skill_name}: {chance}%'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9433775325831168
+    m_Localized: "The attempt to bypass the trap failed \u2014 the cart sank even
+      deeper. Some supplies had to be abandoned."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9433775325831169
+    m_Localized: "The detour turned out to be a dead end. The flames caught the caravan
+      \u2014 the cart was damaged and supplies burned."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9433775325831170
+    m_Localized: "A careless step collapsed part of the wall. The caravan retreated
+      with losses \u2014 just bruises and fear."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9433775325831171
+    m_Localized: "The stallion broke free and kicked. Several people were injured
+      \u2014 had to retreat."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9433775325831172
+    m_Localized: "The signs turned out to be a trap. The caravan walked into an ambush
+      \u2014 lost money and time."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9433775325831173
+    m_Localized: The current was too strong, the divers returned empty-handed. Lost
+      time and supplies.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9433775325831174
+    m_Localized: "Negotiations failed \u2014 the rivals seized the moment and stole
+      our clients. Losses."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9433775325831175
+    m_Localized: The stranger turned out to be a con artist. Took the money and disappeared
+      into the night.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9433775325831176
+    m_Localized: "Negotiations failed \u2014 the bandits demanded more. Had to give
+      up almost everything."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9758956028157952
+    m_Localized: '{item_name} x{count}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9773297158840320
+    m_Localized: "The undergrowth proved impassable \u2014 the caravan returned to
+      the main road, losing time and morale."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

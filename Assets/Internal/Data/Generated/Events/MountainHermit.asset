@@ -111,6 +111,9 @@ MonoBehaviour:
       <Param>k__BackingField: tea
       <Value>k__BackingField: 1
     <Outcomes>k__BackingField:
+    - <Type>k__BackingField: 4
+      <Param>k__BackingField: tea
+      <Value>k__BackingField: -1
     - <Type>k__BackingField: 7
       <Param>k__BackingField: Charisma
       <Value>k__BackingField: 15
@@ -119,6 +122,7 @@ MonoBehaviour:
       <Value>k__BackingField: 5
   <IsMinor>k__BackingField: 0
   <AutoOutcomes>k__BackingField: []
+  <SkillChecks>k__BackingField: []
   <Conditions>k__BackingField: []
   <Weight>k__BackingField: 0.4
   references:

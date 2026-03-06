@@ -279,6 +279,38 @@ MonoBehaviour:
     m_Key: UI.Trader.Main.Header.Main
     m_Metadata:
       m_Items: []
+  - m_Id: 11135896043642880
+    m_Key: UI.Event.Outcome.Text.SkillCheckSuccess
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11135896093974528
+    m_Key: UI.Event.Outcome.Text.SkillCheckFail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11135896093974529
+    m_Key: UI.Event.Outcome.Text.Gain
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11135896093974530
+    m_Key: UI.Event.Outcome.Text.Loss
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11135896093974531
+    m_Key: UI.Event.Outcome.Resource.Money
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11135896093974532
+    m_Key: UI.Event.Outcome.Resource.Food
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11135896093974533
+    m_Key: UI.Event.Outcome.Resource.Danger
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11135896093974534
+    m_Key: UI.Event.Outcome.Resource.Durability
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

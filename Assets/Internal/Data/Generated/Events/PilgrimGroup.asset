@@ -93,6 +93,7 @@ MonoBehaviour:
     <Outcomes>k__BackingField: []
   <IsMinor>k__BackingField: 0
   <AutoOutcomes>k__BackingField: []
+  <SkillChecks>k__BackingField: []
   <Conditions>k__BackingField: []
   <Weight>k__BackingField: 0.4
   references:
