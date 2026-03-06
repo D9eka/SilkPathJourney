@@ -10,14 +10,30 @@ using Internal.Scripts.Events.Generated;
 using Internal.Scripts.Inventory;
 using Internal.Scripts.Items;
 using Internal.Scripts.UI.Components;
+using Internal.Scripts.UI.Localization.Args;
+using Internal.Scripts.UI.Screens.Event.ConditionLines;
 using Internal.Scripts.UI.Screens.Core.Config;
 using Internal.Scripts.UI.Screens.Core.ViewModel;
 using Internal.Scripts.UI.StackService;
+using Internal.Scripts.UI.Theme;
 using R3;
 using UnityEngine;
+using UnityEngine.Localization;
 
 namespace Internal.Scripts.UI.Screens.Event
 {
+    public class ConditionContent
+    {
+        public readonly string Format;
+        public readonly IReadOnlyList<ILocArg> Args;
+
+        public ConditionContent(string format, IReadOnlyList<ILocArg> args)
+        {
+            Format = format;
+            Args = args;
+        }
+    }
+
     public readonly struct EventResourceInfo
     {
         public readonly EventOutcomeType OutcomeType;
@@ -38,30 +54,47 @@ namespace Internal.Scripts.UI.Screens.Event
     {
         private readonly EventTrigger _eventTrigger;
         private readonly ScreenStackService _screenStackService;
-        private readonly ItemCatalog _itemCatalog;
+        private readonly UiThemeService _themeService;
         private readonly ResourceIconCatalog _resourceIcons;
         private readonly PlayerResourceRepository _resourceRepository;
         private readonly InventoryRepository _inventoryRepository;
+        private readonly ConditionLineBuilder _conditionLineBuilder;
+        private readonly SkillCheckService _skillCheckService;
+        private readonly EventSelector _eventSelector;
+        private readonly EventOutcomeFormatter _formatter;
+        private List<EventOutcomeEntry> _lastAppliedOutcomes;
         private readonly ReactiveProperty<EventData> _state = new(null);
         private readonly ReactiveProperty<CityData> _city = new(null);
         private readonly ReactiveProperty<bool> _isAtCity = new(false);
         private readonly ReactiveProperty<EventChoice?> _selectedChoice = new(null);
         private object[] _formatArgs;
+        private SkillCheckData? _lastSkillCheck;
+
+        public bool LastSkillCheckSucceeded { get; private set; } = true;
+        public LocalizedString LastFailResultText => _lastSkillCheck?.FailResultText;
 
         public EventScreenViewModel(
             EventTrigger eventTrigger,
             ScreenStackService screenStackService,
-            ItemCatalog itemCatalog,
+            UiThemeService themeService,
             ResourceIconCatalog resourceIcons,
             PlayerResourceRepository resourceRepository,
-            InventoryRepository inventoryRepository)
+            InventoryRepository inventoryRepository,
+            ConditionLineBuilder conditionLineBuilder,
+            SkillCheckService skillCheckService,
+            EventSelector eventSelector,
+            EventOutcomeFormatter formatter)
         {
             _eventTrigger = eventTrigger;
             _screenStackService = screenStackService;
-            _itemCatalog = itemCatalog;
+            _themeService = themeService;
             _resourceIcons = resourceIcons;
             _resourceRepository = resourceRepository;
             _inventoryRepository = inventoryRepository;
+            _conditionLineBuilder = conditionLineBuilder;
+            _skillCheckService = skillCheckService;
+            _eventSelector = eventSelector;
+            _formatter = formatter;
         }
 
         public override ScreenId Id => ScreenId.Event;
@@ -71,7 +104,7 @@ namespace Internal.Scripts.UI.Screens.Event
         public Observable<bool> IsAtCity => _isAtCity;
         public Observable<EventChoice?> SelectedChoice => _selectedChoice;
         public object[] FormatArgs => _formatArgs;
-        public ItemCatalog ItemCatalog => _itemCatalog;
+        public UiThemeService ThemeService => _themeService;
         public ResourceIconCatalog ResourceIcons => _resourceIcons;
         public PlayerResourceState PlayerResources => _resourceRepository.Current;
 
@@ -117,7 +150,7 @@ namespace Internal.Scripts.UI.Screens.Event
 
             return eventData.Choices.Where(c =>
                 c.Conditions == null || c.Conditions.Count == 0 ||
-                _eventTrigger.CheckConditions(c.Conditions)).ToList();
+                _eventSelector.CheckConditions(c.Conditions)).ToList();
         }
 
         public List<EventResourceInfo> GetAffectedResources(List<EventChoice> choices)
@@ -231,9 +264,67 @@ namespace Internal.Scripts.UI.Screens.Event
                 return;
 
             EventChoice choice = available[choiceIndex];
+            int originalIndex = GetOriginalChoiceIndex(choice);
             _eventTrigger.LastChoiceIndex = choiceIndex;
-            _eventTrigger.ApplyOutcome(choice.Outcomes);
+
+            SkillCheckData? skillCheck = _state.Value?.GetSkillCheck(originalIndex);
+            if (skillCheck.HasValue)
+            {
+                LastSkillCheckSucceeded = _skillCheckService.RollSkillCheck(
+                    skillCheck.Value.SkillType, skillCheck.Value.BaseChance);
+                _lastSkillCheck = skillCheck.Value;
+                _lastAppliedOutcomes = LastSkillCheckSucceeded ? choice.Outcomes : skillCheck.Value.FailOutcomes;
+                _eventTrigger.ApplyOutcome(_lastAppliedOutcomes);
+            }
+            else
+            {
+                LastSkillCheckSucceeded = true;
+                _lastSkillCheck = null;
+                _lastAppliedOutcomes = choice.Outcomes;
+                _eventTrigger.ApplyOutcome(_lastAppliedOutcomes);
+            }
+
             _selectedChoice.Value = choice;
+        }
+
+        public ConditionContent GetChoiceConditionInfo(int choiceIndex, List<EventChoice> choices)
+        {
+            if (_state.Value == null || choices == null || choiceIndex < 0 || choiceIndex >= choices.Count)
+                return null;
+
+            EventChoice choice = choices[choiceIndex];
+            int originalIndex = GetOriginalChoiceIndex(choice);
+
+            var ctx = new ConditionLineContext(_state.Value, choice, originalIndex);
+            string text = _conditionLineBuilder.Build(ctx);
+
+            return text == null ? null : new ConditionContent(text, null);
+        }
+
+        private int GetOriginalChoiceIndex(EventChoice choice)
+        {
+            EventData eventData = _state.Value;
+            if (eventData?.Choices == null) return -1;
+
+            for (int i = 0; i < eventData.Choices.Count; i++)
+            {
+                if (ReferenceEquals(eventData.Choices[i].Text, choice.Text) &&
+                    ReferenceEquals(eventData.Choices[i].ResultText, choice.ResultText))
+                    return i + 1;
+            }
+
+            return -1;
+        }
+
+        public string BuildSkillCheckLine()
+        {
+            if (!_lastSkillCheck.HasValue) return null;
+            return _formatter.BuildSkillCheckLine(_lastSkillCheck.Value, LastSkillCheckSucceeded);
+        }
+
+        public string BuildOutcomeSummary()
+        {
+            return _formatter.BuildOutcomeSummary(_lastAppliedOutcomes);
         }
 
         public void ConfirmResult()
