@@ -41,6 +41,8 @@ using Internal.Scripts.UI.Arrow.PositionCalculation;
 using Internal.Scripts.UI.Factory;
 using Internal.Scripts.UI.PathVisualization;
 using Internal.Scripts.UI.Screens.Core.Config;
+using Internal.Scripts.UI.Screens.Event;
+using Internal.Scripts.UI.Screens.Event.ConditionLines;
 using Internal.Scripts.UI.Screens.Hud;
 using Internal.Scripts.UI.StackService;
 using Internal.Scripts.UI.WorldLabel;
@@ -244,6 +246,13 @@ namespace Internal.Scripts.Installers
             Container.Bind<Events.Outcomes.SkillXpApplier>().AsSingle();
             Container.Bind<Events.Outcomes.RoadUnlockApplier>().AsSingle();
             Container.Bind<Events.Outcomes.OutcomeApplier>().AsSingle();
+
+            Container.Bind<SkillCheckService>().AsSingle();
+            Container.Bind<EventSelector>().AsSingle();
+            Container.Bind<EventOutcomeFormatter>().AsSingle();
+            Container.Bind<SkillCheckConditionLine>().AsSingle();
+            Container.Bind<ItemConditionLine>().AsSingle();
+            Container.Bind<ConditionLineBuilder>().AsSingle();
 
             Container.Bind<EventToastController>().AsSingle();
             Container.BindInterfacesAndSelfTo<EventTrigger>().AsSingle().NonLazy();
