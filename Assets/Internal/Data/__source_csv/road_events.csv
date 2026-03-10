@@ -1,4 +1,4 @@
 ﻿event_id,event_type_id,name_key,description_key,image_name,image_prompt,weight,is_minor
 road_discover_R_N_Urumqi__N_Kucha,discovery,event.road_discover_R_N_Urumqi__N_Kucha.name,event.road_discover_R_N_Urumqi__N_Kucha.description,,,2,0
 road_encounter_R_N_Urumqi__N_Kucha,encounter,event.road_encounter_R_N_Urumqi__N_Kucha.name,event.road_encounter_R_N_Urumqi__N_Kucha.description,,,1,0
-road_quest_R_N_Urumqi__N_Kucha,discovery,event.road_quest_R_N_Urumqi__N_Kucha.name,event.road_quest_R_N_Urumqi__N_Kucha.description,,,1,0
+road_quest_R_N_Urumqi__N_Kucha,quest,event.road_quest_R_N_Urumqi__N_Kucha.name,event.road_quest_R_N_Urumqi__N_Kucha.description,,,1,0

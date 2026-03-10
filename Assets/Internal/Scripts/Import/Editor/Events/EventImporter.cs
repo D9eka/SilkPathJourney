@@ -67,11 +67,6 @@ namespace Internal.Scripts.Import.Editor.Events
                 LocalizationImporter.CollectFromCsvPlainLocales(
                     CsvPath("localization.csv"), "key", "event_type.", locEntries);
 
-                // 4b. Road event localization
-                if (hasRoadEvents)
-                    LocalizationImporter.CollectFromCsvPlainLocales(
-                        CsvPath("road_events_localization.csv"), "key", "event.", locEntries);
-
                 LocalizationImporter.Import(
                     locEntries, LOCALIZATION_TABLE_NAME, LOCALIZATION_TABLES_FOLDER, LOCALIZATION_LOCALES_FOLDER);
 
