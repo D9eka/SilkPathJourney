@@ -1,0 +1,161 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6987321839e5c54cac58e088f94c8c8, type: 3}
+  m_Name: DesertHajjPilgrims
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
+  <Id>k__BackingField: desert_hajj_pilgrims
+  <Name>k__BackingField:
+    m_TableReference:
+      m_TableCollectionName: Events
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: event.desert_hajj_pilgrims.name
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  <EventType>k__BackingField:
+    m_TableReference:
+      m_TableCollectionName: Events
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: event_type.encounter.name
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  <Description>k__BackingField:
+    m_TableReference:
+      m_TableCollectionName: Events
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: event.desert_hajj_pilgrims.description
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  <Image>k__BackingField: {fileID: 0}
+  <Choices>k__BackingField:
+  - <Text>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Events
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: event.desert_hajj_pilgrims.choice1
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <ResultText>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Events
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: event.desert_hajj_pilgrims.choice1.result
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <Conditions>k__BackingField:
+    - <Type>k__BackingField: 5
+      <Param>k__BackingField: 
+      <Value>k__BackingField: 15
+    <Outcomes>k__BackingField:
+    - <Type>k__BackingField: 2
+      <Param>k__BackingField: 
+      <Value>k__BackingField: -5
+    - <Type>k__BackingField: 11
+      <Param>k__BackingField: 
+      <Value>k__BackingField: 8
+    - <Type>k__BackingField: 10
+      <Param>k__BackingField: 
+      <Value>k__BackingField: 5
+  - <Text>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Events
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: event.desert_hajj_pilgrims.choice2
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <ResultText>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Events
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: event.desert_hajj_pilgrims.choice2.result
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <Conditions>k__BackingField: []
+    <Outcomes>k__BackingField:
+    - <Type>k__BackingField: 10
+      <Param>k__BackingField: 
+      <Value>k__BackingField: -2
+  - <Text>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Events
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: event.desert_hajj_pilgrims.choice3
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <ResultText>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Events
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: event.desert_hajj_pilgrims.choice3.result
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <Conditions>k__BackingField:
+    - <Type>k__BackingField: 7
+      <Param>k__BackingField: Dates
+      <Value>k__BackingField: 1
+    <Outcomes>k__BackingField:
+    - <Type>k__BackingField: 14
+      <Param>k__BackingField: Dates
+      <Value>k__BackingField: 1
+    - <Type>k__BackingField: 11
+      <Param>k__BackingField: 
+      <Value>k__BackingField: 10
+    - <Type>k__BackingField: 10
+      <Param>k__BackingField: 
+      <Value>k__BackingField: 8
+    - <Type>k__BackingField: 4
+      <Param>k__BackingField: Dates
+      <Value>k__BackingField: 2
+  <IsMinor>k__BackingField: 0
+  <AutoOutcomes>k__BackingField: []
+  <SkillChecks>k__BackingField:
+  - <ChoiceIndex>k__BackingField: 2
+    <SkillType>k__BackingField: 2
+    <BaseChance>k__BackingField: 0.5
+    <FailResultText>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Events
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: event.desert_hajj_pilgrims.choice2.fail
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <FailOutcomes>k__BackingField:
+    - <Type>k__BackingField: 10
+      <Param>k__BackingField: 
+      <Value>k__BackingField: -5
+    - <Type>k__BackingField: 11
+      <Param>k__BackingField: 
+      <Value>k__BackingField: -3
+  <Conditions>k__BackingField: []
+  <Weight>k__BackingField: 0.5
+  references:
+    version: 2
+    RefIds: []

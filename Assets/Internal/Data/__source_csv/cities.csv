@@ -30,11 +30,11 @@ cambay,N_Cambay,city.cambay.name,city.cambay.description,port_city,india,,1.00,T
 mashhad,N_Mashhad,city.mashhad.name,city.mashhad.description,market_town,persia,,0.80,FALSE,Город на пути из Средней Азии в Персию,перевод,Мешхед,Mashhad
 nishapur,N_Nishapur,city.nishapur.name,city.nishapur.description,market_town,persia,,0.80,FALSE,"Бирюза, поэзия Хайяма",перевод,Нишапур,Nishapur
 rey,N_Rayy,city.rey.name,city.rey.description,market_town,persia,,0.80,FALSE,Древний город у Тегерана,перевод,Рей,Rey
-baghdad,N_Baghdad,city.baghdad.name,city.baghdad.description,capital,mesopotamia,,1.20,FALSE,"Круглый город, Дом мудрости, халифат",перевод,Багдад,Baghdad
+baghdad,N_Baghdad,city.baghdad.name,city.baghdad.description,capital,mesopotamia,persia,1.20,FALSE,"Круглый город, Дом мудрости, халифат",перевод,Багдад,Baghdad
 mosul,N_Mosul,city.mosul.name,city.mosul.description,border_city,mesopotamia,,0.90,FALSE,"Пограничный город, переправа через Тигр",перевод,Мосул,Mosul
 aleppo,N_Aleppo,city.aleppo.name,city.aleppo.description,trade_hub,levant,,1.10,FALSE,"Древний базар, перекрёсток путей",перевод,Алеппо,Aleppo
 damascus,N_Damascus,city.damascus.name,city.damascus.description,craft_city,levant,,1.05,FALSE,"Дамасская сталь, ремёсла",перевод,Дамаск,Damascus
-antioch,N_Antioch,city.antioch.name,city.antioch.description,border_city,levant,,0.90,FALSE,Крепость крестоносцев на побережье,перевод,Антиохия,Antioch
+antioch,N_Antioch,city.antioch.name,city.antioch.description,border_city,levant,byzantine,0.90,FALSE,Крепость крестоносцев на побережье,перевод,Антиохия,Antioch
 tripoli,N_Tripoly,city.tripoli.name,city.tripoli.description,port_city,levant,,0.95,TRUE,Левантийский порт,перевод,Триполи,Tripoli
 gaza,N_Gaza,city.gaza.name,city.gaza.description,market_town,levant,,0.75,FALSE,Торговый город на пути в Египет,перевод,Газа,Gaza
 cairo,N_Cairo,city.cairo.name,city.cairo.description,capital,levant,,1.20,FALSE,"Столица мамлюков, врата Африки",перевод,Каир,Cairo

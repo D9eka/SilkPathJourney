@@ -93,13 +93,13 @@ MonoBehaviour:
   <SkillChecks>k__BackingField:
   - <ChoiceIndex>k__BackingField: 1
     <SkillType>k__BackingField: 1
-    <BaseChance>k__BackingField: 0.5
+    <BaseChance>k__BackingField: 0
     <FailResultText>k__BackingField:
       m_TableReference:
         m_TableCollectionName: Events
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: event.road_discover_R_N_Urumqi__N_Kucha.choice1.fail
+        m_Key: 5
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []

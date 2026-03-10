@@ -1,0 +1,9 @@
+language_id,enum_name,name_key,description_key
+Sogdian,Sogdian,UI.Language.Sogdian.Name,UI.Language.Sogdian.Description
+Chinese,Chinese,UI.Language.Chinese.Name,UI.Language.Chinese.Description
+Tibetan,Tibetan,UI.Language.Tibetan.Name,UI.Language.Tibetan.Description
+Turkic,Turkic,UI.Language.Turkic.Name,UI.Language.Turkic.Description
+Sanskrit,Sanskrit,UI.Language.Sanskrit.Name,UI.Language.Sanskrit.Description
+Persian,Persian,UI.Language.Persian.Name,UI.Language.Persian.Description
+Arabic,Arabic,UI.Language.Arabic.Name,UI.Language.Arabic.Description
+Greek,Greek,UI.Language.Greek.Name,UI.Language.Greek.Description

@@ -995,6 +995,74 @@ MonoBehaviour:
     m_Key: item.supplies.name
     m_Metadata:
       m_Items: []
+  - m_Id: 14116544056385536
+    m_Key: building.language_school.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14238429633044480
+    m_Key: city_type.border_city.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14238429674987520
+    m_Key: city_type.capital.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14238429674987521
+    m_Key: city_type.craft_city.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14238429674987522
+    m_Key: city_type.market_town.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14238429674987523
+    m_Key: city_type.holy_city.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14238429674987524
+    m_Key: city_type.oasis_stop.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14238429674987525
+    m_Key: city_type.port_city.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14238429674987526
+    m_Key: city_type.resource_city.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14238429674987527
+    m_Key: city_type.trade_hub.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14278747350884352
+    m_Key: building.guild.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14278747397021696
+    m_Key: building.shop.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14278747397021697
+    m_Key: building.tavern.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14278747397021698
+    m_Key: building.temple.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14278747397021699
+    m_Key: building.warehouse.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14278747397021700
+    m_Key: building.workshop.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14278747397021701
+    m_Key: building.language_school.description
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

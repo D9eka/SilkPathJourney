@@ -27,7 +27,7 @@ MonoBehaviour:
       m_TableCollectionName: Events
     m_TableEntryReference:
       m_KeyId: 0
-      m_Key: event_type.encounter.name
+      m_Key: event_type.trade.name
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
@@ -62,15 +62,15 @@ MonoBehaviour:
       m_LocalVariables: []
     <Conditions>k__BackingField: []
     <Outcomes>k__BackingField:
-    - <Type>k__BackingField: 1
+    - <Type>k__BackingField: 2
       <Param>k__BackingField: 
-      <Value>k__BackingField: -15
-    - <Type>k__BackingField: 4
-      <Param>k__BackingField: tea
-      <Value>k__BackingField: 2
-    - <Type>k__BackingField: 7
-      <Param>k__BackingField: Trade
-      <Value>k__BackingField: 5
+      <Value>k__BackingField: -6
+    - <Type>k__BackingField: 13
+      <Param>k__BackingField: -5
+      <Value>k__BackingField: 1
+    - <Type>k__BackingField: 10
+      <Param>k__BackingField: 
+      <Value>k__BackingField: -3
   - <Text>k__BackingField:
       m_TableReference:
         m_TableCollectionName: Events
@@ -91,39 +91,16 @@ MonoBehaviour:
       m_LocalVariables: []
     <Conditions>k__BackingField: []
     <Outcomes>k__BackingField:
-    - <Type>k__BackingField: 3
-      <Param>k__BackingField: 
-      <Value>k__BackingField: 5
-  - <Text>k__BackingField:
-      m_TableReference:
-        m_TableCollectionName: Events
-      m_TableEntryReference:
-        m_KeyId: 0
-        m_Key: event.rival_caravan.choice3
-      m_FallbackState: 0
-      m_WaitForCompletion: 0
-      m_LocalVariables: []
-    <ResultText>k__BackingField:
-      m_TableReference:
-        m_TableCollectionName: Events
-      m_TableEntryReference:
-        m_KeyId: 0
-        m_Key: event.rival_caravan.choice3.result
-      m_FallbackState: 0
-      m_WaitForCompletion: 0
-      m_LocalVariables: []
-    <Conditions>k__BackingField: []
-    <Outcomes>k__BackingField:
     - <Type>k__BackingField: 1
       <Param>k__BackingField: 
-      <Value>k__BackingField: 20
+      <Value>k__BackingField: 10
     - <Type>k__BackingField: 7
       <Param>k__BackingField: Trade
-      <Value>k__BackingField: 15
+      <Value>k__BackingField: 2
   <IsMinor>k__BackingField: 0
   <AutoOutcomes>k__BackingField: []
   <SkillChecks>k__BackingField:
-  - <ChoiceIndex>k__BackingField: 3
+  - <ChoiceIndex>k__BackingField: 2
     <SkillType>k__BackingField: 3
     <BaseChance>k__BackingField: 0.35
     <FailResultText>k__BackingField:
@@ -131,17 +108,14 @@ MonoBehaviour:
         m_TableCollectionName: Events
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: event.rival_caravan.choice3.fail
+        m_Key: event.rival_caravan.choice2.fail
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
     <FailOutcomes>k__BackingField:
-    - <Type>k__BackingField: 1
+    - <Type>k__BackingField: 10
       <Param>k__BackingField: 
-      <Value>k__BackingField: -10
-    - <Type>k__BackingField: 3
-      <Param>k__BackingField: 
-      <Value>k__BackingField: 10
+      <Value>k__BackingField: -5
   <Conditions>k__BackingField: []
   <Weight>k__BackingField: 0.5
   references:

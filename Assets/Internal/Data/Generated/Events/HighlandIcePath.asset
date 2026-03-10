@@ -53,15 +53,18 @@ MonoBehaviour:
       m_LocalVariables: []
     <ResultText>k__BackingField:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: Events
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: event.highland_ice_path.choice1.result
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
     <Conditions>k__BackingField: []
-    <Outcomes>k__BackingField: []
+    <Outcomes>k__BackingField:
+    - <Type>k__BackingField: 7
+      <Param>k__BackingField: Survival
+      <Value>k__BackingField: 2
   - <Text>k__BackingField:
       m_TableReference:
         m_TableCollectionName: Events
@@ -73,16 +76,22 @@ MonoBehaviour:
       m_LocalVariables: []
     <ResultText>k__BackingField:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: Events
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: event.highland_ice_path.choice2.result
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
     <Conditions>k__BackingField: []
-    <Outcomes>k__BackingField: []
-  <IsMinor>k__BackingField: 1
+    <Outcomes>k__BackingField:
+    - <Type>k__BackingField: 5
+      <Param>k__BackingField: 
+      <Value>k__BackingField: -5
+    - <Type>k__BackingField: 3
+      <Param>k__BackingField: 
+      <Value>k__BackingField: 5
+  <IsMinor>k__BackingField: 0
   <AutoOutcomes>k__BackingField: []
   <SkillChecks>k__BackingField: []
   <Conditions>k__BackingField: []

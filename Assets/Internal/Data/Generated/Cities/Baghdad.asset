@@ -16,7 +16,7 @@ MonoBehaviour:
   <NodeId>k__BackingField: N_Baghdad
   <Type>k__BackingField: 1
   <PrimaryCulture>k__BackingField: 5
-  <SecondaryCulture>k__BackingField: 0
+  <SecondaryCulture>k__BackingField: 4
   <MarketScale>k__BackingField: 1.2
   <HasPort>k__BackingField: 0
   <Biome>k__BackingField: 1
@@ -38,6 +38,7 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  <Buildings>k__BackingField: 010000000300000004000000020000000500000007000000
   <DetailScene>k__BackingField:
     _sceneAsset: {fileID: 0}
     _sceneName: 
