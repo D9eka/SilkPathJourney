@@ -136,6 +136,10 @@ PrefabInstance:
       propertyPath: m_FlexibleWidth
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6417276813286867815, guid: d5c1ed13c87e48d4f92d5fc21fd3a2b6, type: 3}
+      propertyPath: m_LayoutPriority
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
