@@ -5,6 +5,7 @@ using Internal.Scripts.Import.Editor.Core;
 using Internal.Scripts.UI.Screens.Core.Config;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Localization;
 using static Internal.Scripts.Import.Editor.Core.ImportHelpers;
 
 namespace Internal.Scripts.Import.Editor.Economy.Tables
@@ -14,8 +15,7 @@ namespace Internal.Scripts.Import.Editor.Economy.Tables
         private const string OUTPUT_FOLDER = GENERATED_DATA_FOLDER + "/Buildings";
 
         public static List<BuildingData> Import(
-            string locTableName,
-            Dictionary<string, LocalizationImporter.LocalizationEntry> locEntries)
+            string locTableName)
         {
             string csvPath = CsvPath("buildings.csv");
             List<string[]> rows = CsvReader.ReadFile(csvPath);
@@ -28,6 +28,7 @@ namespace Internal.Scripts.Import.Editor.Economy.Tables
             int idIndex = FindColumnIndex(header, "building_id");
             int enumIndex = FindColumnIndex(header, "enum_name");
             int nameIndex = FindColumnIndex(header, "name_key");
+            int descIndex = FindColumnIndex(header, "description_key");
             int screenIndex = FindColumnIndex(header, "interaction_screen");
             if (idIndex < 0 || enumIndex < 0 || nameIndex < 0)
             {
@@ -58,12 +59,17 @@ namespace Internal.Scripts.Import.Editor.Economy.Tables
                         Enum.TryParse(screenStr, true, out screen);
                 }
 
+                var descLS = descIndex >= 0
+                    ? MakeLocalizedString(GetField(rows[i], descIndex).Trim(), locTableName)
+                    : new LocalizedString();
+
                 BuildingData asset = LoadOrCreateAsset<BuildingData>(OUTPUT_FOLDER, id);
 
                 asset.ApplyImport(
                     id,
                     type,
                     MakeLocalizedString(GetField(rows[i], nameIndex).Trim(), locTableName),
+                    descLS,
                     screen);
 
                 EditorUtility.SetDirty(asset);

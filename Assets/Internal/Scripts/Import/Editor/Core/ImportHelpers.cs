@@ -154,6 +154,27 @@ namespace Internal.Scripts.Import.Editor.Core
             return asset;
         }
 
+        public static Sprite LoadSprite(string folder, string[] row, int iconIndex, string context)
+        {
+            if (iconIndex < 0) return null;
+            string iconName = GetField(row, iconIndex).Trim();
+            if (string.IsNullOrWhiteSpace(iconName)) return null;
+            string path = $"{folder}/{iconName}.png";
+            var sprite = AssetDatabase.LoadAssetAtPath<Sprite>(path);
+            if (sprite == null)
+                Debug.LogWarning($"[SPJ] {context} icon not found: {path}");
+            return sprite;
+        }
+
+        public static TValue TryLookup<TValue>(
+            Dictionary<string, TValue> map, string key, TValue defaultValue,
+            string csvFile, int row, string columnName)
+        {
+            if (map.TryGetValue(key, out TValue result)) return result;
+            Debug.LogWarning($"[SPJ] Unknown {columnName} '{key}' in {csvFile} (row {row})");
+            return defaultValue;
+        }
+
         public static LocalizedString MakeLocalizedString(string key, string tableName)
         {
             if (string.IsNullOrWhiteSpace(key))
@@ -164,8 +185,13 @@ namespace Internal.Scripts.Import.Editor.Core
         public static Dictionary<string, TEnum> BuildEnumMap<TEnum>(string csvFile, string idColumn, string enumNameColumn)
             where TEnum : struct, Enum
         {
-            string csvPath = CsvPath(csvFile);
-            List<string[]> rows = CsvReader.ReadFile(csvPath);
+            List<string[]> rows = CsvReader.ReadFile(CsvPath(csvFile));
+            return BuildEnumMap<TEnum>(rows, csvFile, idColumn, enumNameColumn);
+        }
+
+        public static Dictionary<string, TEnum> BuildEnumMap<TEnum>(List<string[]> rows, string csvFile, string idColumn, string enumNameColumn)
+            where TEnum : struct, Enum
+        {
             Dictionary<string, TEnum> map = new(StringComparer.Ordinal);
 
             if (rows.Count == 0)

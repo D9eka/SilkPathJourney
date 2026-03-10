@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using Internal.Scripts.Import.Editor.Core;
 using UnityEngine;
 using static Internal.Scripts.Import.Editor.Core.ImportHelpers;
@@ -19,15 +18,8 @@ namespace Internal.Scripts.Import.Editor.Events.Tables
         public static Dictionary<string, List<ChoiceRaw>> Read(string csvFile = "event_choices.csv")
         {
             Dictionary<string, List<ChoiceRaw>> map = new(StringComparer.Ordinal);
-            string csvPath = CsvPath(csvFile);
-            if (!File.Exists(csvPath))
-            {
-                Debug.LogWarning($"[SPJ] {csvFile} not found.");
-                return map;
-            }
-
-            List<string[]> rows = CsvReader.ReadFile(csvPath);
-            if (rows.Count == 0) return map;
+            var rows = CsvReader.ReadFileSafe(CsvPath(csvFile));
+            if (rows == null) return map;
 
             string[] header = rows[0];
             int eventIdIndex = FindColumnIndex(header, "event_id");
@@ -47,15 +39,10 @@ namespace Internal.Scripts.Import.Editor.Events.Tables
 
                 TryParseInt(GetField(rows[i], choiceIndexIndex), out int choiceIndex);
                 string nameKey = GetField(rows[i], nameKeyIndex).Trim();
-                string resultKey = resultKeyIndex >= 0 ? GetField(rows[i], resultKeyIndex).Trim() : "";
+                string resultKey = GetField(rows[i], resultKeyIndex).Trim();
 
-                if (!map.TryGetValue(eventId, out List<ChoiceRaw> list))
-                {
-                    list = new List<ChoiceRaw>();
-                    map[eventId] = list;
-                }
-
-                list.Add(new ChoiceRaw { Index = choiceIndex, NameKey = nameKey, ResultKey = resultKey });
+                map.GetOrCreateList(eventId)
+                    .Add(new ChoiceRaw { Index = choiceIndex, NameKey = nameKey, ResultKey = resultKey });
             }
 
             foreach (var list in map.Values)

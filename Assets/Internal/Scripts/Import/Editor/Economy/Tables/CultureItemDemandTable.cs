@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using Internal.Scripts.Economy;
 using Internal.Scripts.Economy.Generated;
 using Internal.Scripts.Import.Editor.Core;
@@ -15,17 +14,10 @@ namespace Internal.Scripts.Import.Editor.Economy.Tables
             Dictionary<string, CultureId> cultureMap,
             HashSet<string> itemIds)
         {
-            string csvPath = CsvPath("culture_item_demand_mult.csv");
-            if (!File.Exists(csvPath))
+            List<string[]> rows = CsvReader.ReadFileSafe(CsvPath("culture_item_demand_mult.csv"));
+            if (rows == null || rows.Count <= 1)
             {
-                Debug.LogWarning("[SPJ] culture_item_demand_mult.csv not found. Using default multipliers.");
-                return BuildDefaults(cultureMap, itemIds);
-            }
-
-            List<string[]> rows = CsvReader.ReadFile(csvPath);
-            if (rows.Count <= 1)
-            {
-                Debug.LogWarning("[SPJ] culture_item_demand_mult.csv has no data rows. Using default multipliers.");
+                Debug.LogWarning("[SPJ] culture_item_demand_mult.csv not found or empty. Using default multipliers.");
                 return BuildDefaults(cultureMap, itemIds);
             }
 

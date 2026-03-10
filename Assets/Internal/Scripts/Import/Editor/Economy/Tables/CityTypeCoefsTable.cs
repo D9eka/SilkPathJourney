@@ -16,9 +16,8 @@ namespace Internal.Scripts.Import.Editor.Economy.Tables
             Dictionary<string, List<CityTypeData.CategoryCoef>> result =
                 new Dictionary<string, List<CityTypeData.CategoryCoef>>(StringComparer.Ordinal);
 
-            string csvPath = CsvPath("city_type_category_coefs.csv");
-            List<string[]> rows = CsvReader.ReadFile(csvPath);
-            if (rows.Count == 0)
+            List<string[]> rows = CsvReader.ReadFileSafe(CsvPath("city_type_category_coefs.csv"));
+            if (rows == null)
                 return result;
 
             string[] header = rows[0];
@@ -39,11 +38,8 @@ namespace Internal.Scripts.Import.Editor.Economy.Tables
                     continue;
 
                 string categoryId = GetField(rows[i], categoryIndex).Trim();
-                if (!itemTypeMap.TryGetValue(categoryId, out ItemType category))
-                {
-                    Debug.LogWarning($"[SPJ] Unknown category_id '{categoryId}' in city_type_category_coefs.csv (row {i + 1})");
-                    category = ItemType.Unknown;
-                }
+                ItemType category = TryLookup(itemTypeMap, categoryId, ItemType.Unknown,
+                    "city_type_category_coefs.csv", i + 1, "category_id");
 
                 if (!TryParseFloat(GetField(rows[i], buyIndex), out float buy))
                 {
@@ -55,13 +51,7 @@ namespace Internal.Scripts.Import.Editor.Economy.Tables
                     Debug.LogWarning($"[SPJ] Invalid sell_coef '{GetField(rows[i], sellIndex)}' (row {i + 1})");
                 }
 
-                if (!result.TryGetValue(cityTypeId, out List<CityTypeData.CategoryCoef> list))
-                {
-                    list = new List<CityTypeData.CategoryCoef>();
-                    result[cityTypeId] = list;
-                }
-
-                list.Add(new CityTypeData.CategoryCoef
+                result.GetOrCreateList(cityTypeId).Add(new CityTypeData.CategoryCoef
                 {
                     Category = category,
                     BuyCoef = buy,

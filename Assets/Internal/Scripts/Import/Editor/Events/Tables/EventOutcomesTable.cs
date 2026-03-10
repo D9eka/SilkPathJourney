@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using Internal.Scripts.Events.Data;
 using Internal.Scripts.Events.Generated;
 using Internal.Scripts.Import.Editor.Core;
@@ -23,15 +22,8 @@ namespace Internal.Scripts.Import.Editor.Events.Tables
             Dictionary<string, Dictionary<int, OutcomeBranch>> map =
                 new(StringComparer.Ordinal);
 
-            string csvPath = CsvPath(csvFile);
-            if (!File.Exists(csvPath))
-            {
-                Debug.LogWarning($"[SPJ] {csvFile} not found.");
-                return map;
-            }
-
-            List<string[]> rows = CsvReader.ReadFile(csvPath);
-            if (rows.Count == 0) return map;
+            var rows = CsvReader.ReadFileSafe(CsvPath(csvFile));
+            if (rows == null) return map;
 
             string[] header = rows[0];
             int eventIdIndex = FindColumnIndex(header, "event_id");
@@ -53,9 +45,9 @@ namespace Internal.Scripts.Import.Editor.Events.Tables
 
                 TryParseInt(GetField(rows[i], choiceIndexIndex), out int choiceIndex);
                 string typeStr = GetField(rows[i], typeIndex).Trim();
-                string param = paramIndex >= 0 ? GetField(rows[i], paramIndex).Trim() : "";
+                string param = GetField(rows[i], paramIndex).Trim();
                 TryParseFloat(GetField(rows[i], valueIndex), out float value);
-                string branch = branchIndex >= 0 ? GetField(rows[i], branchIndex).Trim().ToLowerInvariant() : "";
+                string branch = GetField(rows[i], branchIndex).Trim().ToLowerInvariant();
 
                 if (!TryParseOutcomeType(typeStr, out EventOutcomeType outcomeType))
                 {
@@ -63,13 +55,13 @@ namespace Internal.Scripts.Import.Editor.Events.Tables
                     continue;
                 }
 
-                if (!map.TryGetValue(eventId, out Dictionary<int, OutcomeBranch> byChoice))
+                if (!map.TryGetValue(eventId, out var byChoice))
                 {
                     byChoice = new Dictionary<int, OutcomeBranch>();
                     map[eventId] = byChoice;
                 }
 
-                if (!byChoice.TryGetValue(choiceIndex, out OutcomeBranch ob))
+                if (!byChoice.TryGetValue(choiceIndex, out var ob))
                 {
                     ob = new OutcomeBranch
                     {

@@ -32,8 +32,7 @@ namespace Internal.Scripts.Import.Editor.Theme
                 var biomeMap = BuildEnumMap<Biome>("biome_palettes.csv", "biome_id", "enum_name");
 
                 // 4. Import palettes
-                var locEntries = new Dictionary<string, LocalizationImporter.LocalizationEntry>();
-                var palettes = BiomePalettesTable.Import(biomeMap, locEntries);
+                var palettes = BiomePalettesTable.Import(biomeMap);
 
                 // 5. Create/update BiomePaletteMap
                 UpdateBiomePaletteMap(palettes);
@@ -60,8 +59,8 @@ namespace Internal.Scripts.Import.Editor.Theme
                 EnsureAssetFolder(LOCALIZATION_TABLES_FOLDER);
 
                 var locEntries = new Dictionary<string, LocalizationImporter.LocalizationEntry>();
-                LocalizationImporter.CollectFromCsv(
-                    CsvPath("biome_palettes.csv"), "name_key", locEntries);
+                LocalizationImporter.CollectFromCsvPlainLocales(
+                    CsvPath("localization.csv"), "key", "biome.", locEntries);
 
                 LocalizationImporter.Import(locEntries, LOCALIZATION_TABLE_NAME,
                     LOCALIZATION_TABLES_FOLDER, LOCALIZATION_LOCALES_FOLDER);

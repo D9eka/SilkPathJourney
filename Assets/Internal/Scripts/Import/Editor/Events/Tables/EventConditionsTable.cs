@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using Internal.Scripts.Events.Data;
 using Internal.Scripts.Events.Generated;
 using Internal.Scripts.Import.Editor.Core;
@@ -19,15 +18,8 @@ namespace Internal.Scripts.Import.Editor.Events.Tables
             eventConditions = new Dictionary<string, List<EventCondition>>(StringComparer.Ordinal);
             choiceConditions = new Dictionary<string, Dictionary<int, List<EventCondition>>>(StringComparer.Ordinal);
 
-            string csvPath = CsvPath(csvFile);
-            if (!File.Exists(csvPath))
-            {
-                Debug.LogWarning($"[SPJ] {csvFile} not found.");
-                return;
-            }
-
-            List<string[]> rows = CsvReader.ReadFile(csvPath);
-            if (rows.Count == 0) return;
+            var rows = CsvReader.ReadFileSafe(CsvPath(csvFile));
+            if (rows == null) return;
 
             string[] header = rows[0];
             int eventIdIndex = FindColumnIndex(header, "event_id");
@@ -46,9 +38,9 @@ namespace Internal.Scripts.Import.Editor.Events.Tables
                 string eventId = GetField(rows[i], eventIdIndex).Trim();
                 if (string.IsNullOrWhiteSpace(eventId)) continue;
 
-                string choiceIndexStr = choiceIndexIndex >= 0 ? GetField(rows[i], choiceIndexIndex).Trim() : "";
+                string choiceIndexStr = GetField(rows[i], choiceIndexIndex).Trim();
                 string typeStr = GetField(rows[i], typeIndex).Trim();
-                string param = paramIndex >= 0 ? GetField(rows[i], paramIndex).Trim() : "";
+                string param = GetField(rows[i], paramIndex).Trim();
                 TryParseFloat(GetField(rows[i], valueIndex), out float value);
 
                 if (!TryParseConditionType(typeStr, out EventConditionType condType))
@@ -61,27 +53,17 @@ namespace Internal.Scripts.Import.Editor.Events.Tables
 
                 if (string.IsNullOrWhiteSpace(choiceIndexStr))
                 {
-                    if (!eventConditions.TryGetValue(eventId, out List<EventCondition> list))
-                    {
-                        list = new List<EventCondition>();
-                        eventConditions[eventId] = list;
-                    }
-                    list.Add(condition);
+                    eventConditions.GetOrCreateList(eventId).Add(condition);
                 }
                 else
                 {
                     TryParseInt(choiceIndexStr, out int choiceIdx);
-                    if (!choiceConditions.TryGetValue(eventId, out Dictionary<int, List<EventCondition>> byChoice))
+                    if (!choiceConditions.TryGetValue(eventId, out var byChoice))
                     {
                         byChoice = new Dictionary<int, List<EventCondition>>();
                         choiceConditions[eventId] = byChoice;
                     }
-                    if (!byChoice.TryGetValue(choiceIdx, out List<EventCondition> cList))
-                    {
-                        cList = new List<EventCondition>();
-                        byChoice[choiceIdx] = cList;
-                    }
-                    cList.Add(condition);
+                    byChoice.GetOrCreateList(choiceIdx).Add(condition);
                 }
             }
         }

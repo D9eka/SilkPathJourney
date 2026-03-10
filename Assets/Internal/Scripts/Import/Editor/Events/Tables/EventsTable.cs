@@ -54,9 +54,9 @@ namespace Internal.Scripts.Import.Editor.Events.Tables
 
                 string typeId = GetField(rows[i], typeIdIndex).Trim();
                 string nameKey = GetField(rows[i], nameKeyIndex).Trim();
-                string descKey = descKeyIndex >= 0 ? GetField(rows[i], descKeyIndex).Trim() : "";
-                string imageName = imageIndex >= 0 ? GetField(rows[i], imageIndex).Trim() : "";
-                TryParseFloat(weightIndex >= 0 ? GetField(rows[i], weightIndex) : "1", out float weight);
+                string descKey = GetField(rows[i], descKeyIndex).Trim();
+                string weightStr = GetField(rows[i], weightIndex);
+                TryParseFloat(string.IsNullOrEmpty(weightStr) ? "1" : weightStr, out float weight);
 
                 bool isMinor = false;
                 if (isMinorIndex >= 0)
@@ -68,13 +68,10 @@ namespace Internal.Scripts.Import.Editor.Events.Tables
                 LocalizedString nameLS = MakeLocalizedString(nameKey, locTableName);
                 LocalizedString descLS = MakeLocalizedString(descKey, locTableName);
 
-                LocalizedString eventTypeLS = new LocalizedString();
-                if (typeNameKeys.TryGetValue(typeId, out string typeNameKey))
-                    eventTypeLS = MakeLocalizedString(typeNameKey, locTableName);
-                else
-                    Debug.LogWarning($"[SPJ] Unknown event_type_id '{typeId}' in events.csv (row {i + 1})");
+                string typeNameKey = TryLookup(typeNameKeys, typeId, "", csvFile, i + 1, "event_type_id");
+                LocalizedString eventTypeLS = MakeLocalizedString(typeNameKey, locTableName);
 
-                Sprite image = LoadEventSprite(imageName);
+                Sprite image = LoadSprite(SPRITES_FOLDER, rows[i], imageIndex, "Event");
 
                 List<EventChoice> builtChoices = BuildChoicesForEvent(
                     id, choices, choiceConditions, outcomes, locTableName);
@@ -173,16 +170,5 @@ namespace Internal.Scripts.Import.Editor.Events.Tables
             return result.Count > 0 ? result : null;
         }
 
-        private static Sprite LoadEventSprite(string imageName)
-        {
-            if (string.IsNullOrWhiteSpace(imageName))
-                return null;
-
-            string path = $"{SPRITES_FOLDER}/{imageName}.png";
-            Sprite sprite = AssetDatabase.LoadAssetAtPath<Sprite>(path);
-            if (sprite == null)
-                Debug.LogWarning($"[SPJ] Event sprite not found: {path}");
-            return sprite;
-        }
     }
 }

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using Internal.Scripts.Import.Editor.Core;
 using UnityEngine;
 using static Internal.Scripts.Import.Editor.Core.ImportHelpers;
@@ -21,12 +20,8 @@ namespace Internal.Scripts.Import.Editor.Events.Tables
             string csvFile = "event_skill_checks.csv")
         {
             Dictionary<string, List<SkillCheckRaw>> map = new(StringComparer.Ordinal);
-            string csvPath = CsvPath(csvFile);
-            if (!File.Exists(csvPath))
-                return map;
-
-            List<string[]> rows = CsvReader.ReadFile(csvPath);
-            if (rows.Count == 0) return map;
+            var rows = CsvReader.ReadFileSafe(CsvPath(csvFile));
+            if (rows == null) return map;
 
             string[] header = rows[0];
             int eventIdIndex = FindColumnIndex(header, "event_id");
@@ -49,19 +44,11 @@ namespace Internal.Scripts.Import.Editor.Events.Tables
                 TryParseInt(GetField(rows[i], choiceIndexIndex), out int choiceIndex);
                 string skillType = GetField(rows[i], skillTypeIndex).Trim();
                 TryParseFloat(GetField(rows[i], baseChanceIndex), out float baseChance);
-                string failResultKey = failResultIndex >= 0
-                    ? GetField(rows[i], failResultIndex).Trim()
-                    : "";
+                string failResultKey = GetField(rows[i], failResultIndex).Trim();
 
                 if (string.IsNullOrWhiteSpace(skillType)) continue;
 
-                if (!map.TryGetValue(eventId, out List<SkillCheckRaw> list))
-                {
-                    list = new List<SkillCheckRaw>();
-                    map[eventId] = list;
-                }
-
-                list.Add(new SkillCheckRaw
+                map.GetOrCreateList(eventId).Add(new SkillCheckRaw
                 {
                     ChoiceIndex = choiceIndex,
                     SkillType = skillType,

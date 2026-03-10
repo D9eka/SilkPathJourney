@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Internal.Scripts.Economy.Cities;
 using Internal.Scripts.Economy.Generated;
@@ -15,8 +16,8 @@ namespace Internal.Scripts.Import.Editor.Economy.Tables
         public static List<CityData> Import(
             Dictionary<string, CityType> cityTypeMap,
             Dictionary<string, CultureId> cultureMap,
-            string locTableName,
-            Dictionary<string, LocalizationImporter.LocalizationEntry> locEntries)
+            Dictionary<string, List<BuildingId>> cityBuildingMap,
+            string locTableName)
         {
             string csvPath = CsvPath("cities.csv");
             List<string[]> rows = CsvReader.ReadFile(csvPath);
@@ -50,18 +51,17 @@ namespace Internal.Scripts.Import.Editor.Economy.Tables
                     continue;
 
                 string typeId = GetField(rows[i], typeIndex).Trim();
-                if (!cityTypeMap.TryGetValue(typeId, out CityType type))
-                {
-                    Debug.LogWarning($"[SPJ] Unknown city_type_id '{typeId}' in cities.csv (row {i + 1})");
-                    type = CityType.Unknown;
-                }
+                CityType type = TryLookup(cityTypeMap, typeId, CityType.Unknown, "cities.csv", i + 1, "city_type_id");
 
                 TryParseFloat(GetField(rows[i], marketScaleIndex), out float marketScale);
                 bool hasPort = ParseBool(GetField(rows[i], hasPortIndex));
 
                 CityData asset = LoadOrCreateAsset<CityData>(OUTPUT_FOLDER, id);
 
-                string descKey = descIndex >= 0 ? GetField(rows[i], descIndex).Trim() : string.Empty;
+                string descKey = GetField(rows[i], descIndex).Trim();
+                var buildings = cityBuildingMap.TryGetValue(id, out var bList)
+                    ? bList.ToArray()
+                    : Array.Empty<BuildingId>();
 
                 asset.ApplyImport(
                     id,
@@ -72,7 +72,8 @@ namespace Internal.Scripts.Import.Editor.Economy.Tables
                     marketScale,
                     hasPort,
                     MakeLocalizedString(GetField(rows[i], nameIndex).Trim(), locTableName),
-                    MakeLocalizedString(descKey, locTableName));
+                    MakeLocalizedString(descKey, locTableName),
+                    buildings);
 
                 EditorUtility.SetDirty(asset);
                 cities.Add(asset);

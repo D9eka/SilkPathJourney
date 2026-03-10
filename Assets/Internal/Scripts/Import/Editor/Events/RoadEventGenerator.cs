@@ -193,7 +193,7 @@ namespace Internal.Scripts.Import.Editor.Events
         {
             string eventId = $"road_quest_{roadId}";
 
-            events.AppendLine($"{eventId},discovery,event.{eventId}.name,event.{eventId}.description,,,1,0");
+            events.AppendLine($"{eventId},quest,event.{eventId}.name,event.{eventId}.description,,,1,0");
 
             foreach (var choice in t.Choices)
             {

@@ -12,6 +12,14 @@ namespace Internal.Scripts.Import.Editor.Core
             return Read(content);
         }
 
+        public static List<string[]> ReadFileSafe(string path)
+        {
+            if (!File.Exists(path))
+                return null;
+            var rows = ReadFile(path);
+            return rows.Count == 0 ? null : rows;
+        }
+
         public static List<string[]> Read(string content)
         {
             List<string[]> rows = new List<string[]>();
