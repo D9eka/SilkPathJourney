@@ -8,6 +8,7 @@ namespace Internal.Scripts.Economy.Buildings
         Tavern = 3,
         Temple = 4,
         Workshop = 5,
-        Warehouse = 6
+        Warehouse = 6,
+        LanguageSchool = 7
     }
 }
