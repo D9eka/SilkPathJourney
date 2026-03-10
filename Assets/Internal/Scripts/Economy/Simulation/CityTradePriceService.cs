@@ -3,7 +3,7 @@ using Internal.Scripts.Economy.Items;
 using Internal.Scripts.Economy.Save.Models;
 using Internal.Scripts.Inventory;
 using Internal.Scripts.Items;
-using Internal.Scripts.Player.Skills;
+using Internal.Scripts.Trading;
 using UnityEngine;
 
 namespace Internal.Scripts.Economy.Simulation
@@ -14,7 +14,7 @@ namespace Internal.Scripts.Economy.Simulation
         private readonly EconomySimulationSettings _settings;
         private readonly InventoryRepository _inventoryRepository;
         private readonly ItemCatalog _itemCatalog;
-        private readonly TradePriceSkillModifier _skillModifier;
+        private readonly TradePriceModifiers _modifiers;
         private readonly HashSet<string> _warnedKeys = new();
 
         public CityTradePriceService(
@@ -22,24 +22,32 @@ namespace Internal.Scripts.Economy.Simulation
             EconomySimulationSettings settings,
             InventoryRepository inventoryRepository,
             ItemCatalog itemCatalog,
-            TradePriceSkillModifier skillModifier)
+            TradePriceModifiers modifiers)
         {
             _profileService = profileService;
             _settings = settings;
             _inventoryRepository = inventoryRepository;
             _itemCatalog = itemCatalog;
-            _skillModifier = skillModifier;
+            _modifiers = modifiers;
         }
 
         public int GetPrice(string cityId, string itemId, TradePriceKind kind,
             bool applySkillBonus = true)
+            => CalculatePrice(cityId, itemId, kind, applySkillBonus).FinalPrice;
+
+        public PriceBreakdown GetPriceBreakdown(string cityId, string itemId, TradePriceKind kind)
+            => CalculatePrice(cityId, itemId, kind, true);
+
+        private PriceBreakdown CalculatePrice(string cityId, string itemId, TradePriceKind kind, bool applySkillBonus)
         {
             ItemData item = _itemCatalog.GetItem(itemId);
+            string itemName = _itemCatalog.ResolveItemName(itemId);
+
             if (item == null)
-                return 0;
+                return new PriceBreakdown(itemName, 0, 1f, 1f, 0, false);
 
             if (!_profileService.TryGetProfile(cityId, itemId, out CityItemMarketProfile profile))
-                return item.BasePrice;
+                return new PriceBreakdown(itemName, item.BasePrice, 1f, 1f, item.BasePrice, false);
 
             float baseCoef = kind == TradePriceKind.BuyFromCity ? profile.BuyCoef : profile.SellCoef;
 
@@ -54,16 +62,17 @@ namespace Internal.Scripts.Economy.Simulation
                     _settings.PriceMultiplierMax);
             }
 
-            float skillMult = 1f;
+            float modifierMult = 1f;
             if (applySkillBonus)
             {
-                skillMult = kind == TradePriceKind.BuyFromCity
-                    ? _skillModifier.GetBuyMultiplier()
-                    : _skillModifier.GetSellMultiplier();
+                modifierMult = kind == TradePriceKind.BuyFromCity
+                    ? _modifiers.GetBuyMultiplier(cityId)
+                    : _modifiers.GetSellMultiplier(cityId);
             }
 
-            int price = Mathf.Max(1, Mathf.RoundToInt(item.BasePrice * baseCoef * scarcityMult * skillMult));
-            return price;
+            float marketMult = baseCoef * scarcityMult;
+            int finalPrice = Mathf.Max(1, Mathf.RoundToInt(item.BasePrice * marketMult * modifierMult));
+            return new PriceBreakdown(itemName, item.BasePrice, marketMult, modifierMult, finalPrice, false);
         }
 
         private int GetCurrentStock(string cityId, string itemId)

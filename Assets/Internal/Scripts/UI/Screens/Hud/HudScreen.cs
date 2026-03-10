@@ -83,6 +83,8 @@ namespace Internal.Scripts.UI.Screens.Hud
         {
             _viewModel = viewModel as HudScreenViewModel;
             RegisterToastView();
+            if (_minorEventView != null)
+                _minorEventView.SetOutcomeFormatter(_viewModel.OutcomeFormatter);
             _viewModel.VisibilityChanged += SetVisible;
             SubscribeViewModel();
         }

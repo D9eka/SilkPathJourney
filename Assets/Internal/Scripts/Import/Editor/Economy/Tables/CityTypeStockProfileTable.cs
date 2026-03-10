@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using Internal.Scripts.Economy.Cities;
 using Internal.Scripts.Economy.Generated;
 using Internal.Scripts.Import.Editor.Core;
@@ -17,17 +16,10 @@ namespace Internal.Scripts.Import.Editor.Economy.Tables
             Dictionary<string, List<CityTypeData.CategoryStockProfile>> result =
                 new Dictionary<string, List<CityTypeData.CategoryStockProfile>>(StringComparer.Ordinal);
 
-            string csvPath = CsvPath("city_type_category_stock_profile.csv");
-            if (!File.Exists(csvPath))
+            List<string[]> rows = CsvReader.ReadFileSafe(CsvPath("city_type_category_stock_profile.csv"));
+            if (rows == null || rows.Count <= 1)
             {
-                Debug.LogWarning("[SPJ] city_type_category_stock_profile.csv not found. Stock profiles will be empty.");
-                return result;
-            }
-
-            List<string[]> rows = CsvReader.ReadFile(csvPath);
-            if (rows.Count <= 1)
-            {
-                Debug.LogWarning("[SPJ] city_type_category_stock_profile.csv has no data rows. Defaults will be used.");
+                Debug.LogWarning("[SPJ] city_type_category_stock_profile.csv not found or empty. Defaults will be used.");
                 return result;
             }
 
@@ -51,23 +43,14 @@ namespace Internal.Scripts.Import.Editor.Economy.Tables
                     continue;
 
                 string categoryId = GetField(rows[i], categoryIndex).Trim();
-                if (!itemTypeMap.TryGetValue(categoryId, out ItemType category))
-                {
-                    Debug.LogWarning($"[SPJ] Unknown category_id '{categoryId}' in city_type_category_stock_profile.csv (row {i + 1})");
-                    category = ItemType.Unknown;
-                }
+                ItemType category = TryLookup(itemTypeMap, categoryId, ItemType.Unknown,
+                    "city_type_category_stock_profile.csv", i + 1, "category_id");
 
                 TryParseFloat(GetField(rows[i], desiredIndex), out float desiredPerScale);
                 TryParseFloat(GetField(rows[i], dailyNetIndex), out float dailyNet);
                 TryParseFloat(GetField(rows[i], equilibriumIndex), out float equilibriumPull);
 
-                if (!result.TryGetValue(cityTypeId, out List<CityTypeData.CategoryStockProfile> list))
-                {
-                    list = new List<CityTypeData.CategoryStockProfile>();
-                    result[cityTypeId] = list;
-                }
-
-                list.Add(new CityTypeData.CategoryStockProfile
+                result.GetOrCreateList(cityTypeId).Add(new CityTypeData.CategoryStockProfile
                 {
                     Category = category,
                     DesiredPerScale = desiredPerScale,

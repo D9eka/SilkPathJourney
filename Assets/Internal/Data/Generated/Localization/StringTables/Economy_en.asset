@@ -1050,6 +1050,74 @@ MonoBehaviour:
     m_Localized: Supplies
     m_Metadata:
       m_Items: []
+  - m_Id: 14116544056385536
+    m_Localized: Language School
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14238429633044480
+    m_Localized: Strong imbalances, potential for profitable deals
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14238429674987520
+    m_Localized: Large market, high demand, often more expensive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14238429674987521
+    m_Localized: Cheap crafts, demand for raw materials
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14238429674987522
+    m_Localized: Baseline market for contrast
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14238429674987523
+    m_Localized: Pilgrimage, temples, religious events
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14238429674987524
+    m_Localized: Small market, important route waypoint
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14238429674987525
+    m_Localized: Expanded imports, exotic goods
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14238429674987526
+    m_Localized: Cheap raw materials, expensive finished goods
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14238429674987527
+    m_Localized: Resale, balanced prices, transit hub
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14278747350884352
+    m_Localized: Trade licenses, guild quests
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14278747397021696
+    m_Localized: Trade goods
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14278747397021697
+    m_Localized: Road rumors, events
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14278747397021698
+    m_Localized: Prayer, donations
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14278747397021699
+    m_Localized: Goods storage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14278747397021700
+    m_Localized: Craft goods, cart upgrades
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14278747397021701
+    m_Localized: Learn regional languages
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

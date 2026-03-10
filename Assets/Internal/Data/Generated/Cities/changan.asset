@@ -38,6 +38,7 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  <Buildings>k__BackingField: 010000000300000004000000020000000500000007000000
   <DetailScene>k__BackingField:
     _sceneAsset: {fileID: 102900000, guid: f33f21a974403b84e9f833831579bd99, type: 3}
     _sceneName: New Scene

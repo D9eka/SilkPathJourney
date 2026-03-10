@@ -17,8 +17,7 @@ namespace Internal.Scripts.Import.Editor.Economy.Tables
             Dictionary<string, CityType> typeMap,
             Dictionary<string, List<CityTypeData.CategoryCoef>> coefs,
             Dictionary<string, List<CityTypeData.CategoryStockProfile>> profiles,
-            string locTableName,
-            Dictionary<string, LocalizationImporter.LocalizationEntry> locEntries)
+            string locTableName)
         {
             string csvPath = CsvPath("city_types.csv");
             List<string[]> rows = CsvReader.ReadFile(csvPath);
@@ -48,11 +47,7 @@ namespace Internal.Scripts.Import.Editor.Economy.Tables
                 if (string.IsNullOrWhiteSpace(id))
                     continue;
 
-                if (!typeMap.TryGetValue(id, out CityType type))
-                {
-                    Debug.LogWarning($"[SPJ] Unknown city_type_id '{id}' in city_types.csv (row {i + 1})");
-                    type = CityType.Unknown;
-                }
+                CityType type = TryLookup(typeMap, id, CityType.Unknown, "city_types.csv", i + 1, "city_type_id");
 
                 CityTypeData asset = LoadOrCreateAsset<CityTypeData>(OUTPUT_FOLDER, id);
 
@@ -98,7 +93,7 @@ namespace Internal.Scripts.Import.Editor.Economy.Tables
                     }
                 }
 
-                string descKey = descIndex >= 0 ? GetField(rows[i], descIndex).Trim() : string.Empty;
+                string descKey = GetField(rows[i], descIndex).Trim();
 
                 asset.ApplyImport(
                     type,

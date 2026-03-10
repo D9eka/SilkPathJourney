@@ -112,6 +112,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScrollbarVerticalSmall
       objectReference: {fileID: 0}
+    - target: {fileID: 8621131274110760822, guid: b288e621e7b70bc42acf399797918a28, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -143,11 +147,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 451696559511474186, guid: fb42f8020839445458a52910d54bf2dd, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -28
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 451696559511474186, guid: fb42f8020839445458a52910d54bf2dd, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -14
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 739555588021795646, guid: fb42f8020839445458a52910d54bf2dd, type: 3}
       propertyPath: m_Pivot.x
@@ -229,6 +233,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 741903397006015931, guid: fb42f8020839445458a52910d54bf2dd, type: 3}
+      propertyPath: _scrollbarPadding
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 741903397006015931, guid: fb42f8020839445458a52910d54bf2dd, type: 3}
+      propertyPath: m_VerticalScrollbar
+      value: 
+      objectReference: {fileID: 4354034174670989891}
     - target: {fileID: 1941335103718838675, guid: fb42f8020839445458a52910d54bf2dd, type: 3}
       propertyPath: m_Content
       value: 
@@ -247,7 +259,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4721921509853303853, guid: fb42f8020839445458a52910d54bf2dd, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 736
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6817670603869548602, guid: fb42f8020839445458a52910d54bf2dd, type: 3}
       propertyPath: m_Name

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Internal.Scripts.Economy.Save.Models;
+using Internal.Scripts.Trading;
 
 namespace Internal.Scripts.Items
 {
@@ -43,6 +44,12 @@ namespace Internal.Scripts.Items
 
         public IReadOnlyList<ItemRowData> BuildRows(IReadOnlyDictionary<string, int> counts, Func<string, int> priceResolver)
         {
+            return BuildRows(counts, priceResolver, null);
+        }
+
+        public IReadOnlyList<ItemRowData> BuildRows(IReadOnlyDictionary<string, int> counts,
+            Func<string, int> priceResolver, Func<string, PriceBreakdown> breakdownResolver)
+        {
             List<ItemRowData> rows = new();
             if (counts == null)
                 return rows;
@@ -52,7 +59,7 @@ namespace Internal.Scripts.Items
                 if (kvp.Value <= 0)
                     continue;
 
-                AddRow(rows, kvp.Key, kvp.Value, priceResolver);
+                AddRow(rows, kvp.Key, kvp.Value, priceResolver, breakdownResolver);
             }
 
             SortRows(rows);
@@ -68,6 +75,13 @@ namespace Internal.Scripts.Items
         public IReadOnlyList<ItemRowData> BuildRemainingRows(IReadOnlyDictionary<string, int> baseCounts,
             IReadOnlyDictionary<string, int> reserved, Func<string, int> priceResolver)
         {
+            return BuildRemainingRows(baseCounts, reserved, priceResolver, null);
+        }
+
+        public IReadOnlyList<ItemRowData> BuildRemainingRows(IReadOnlyDictionary<string, int> baseCounts,
+            IReadOnlyDictionary<string, int> reserved, Func<string, int> priceResolver,
+            Func<string, PriceBreakdown> breakdownResolver)
+        {
             List<ItemRowData> rows = new();
             if (baseCounts == null)
                 return rows;
@@ -80,7 +94,7 @@ namespace Internal.Scripts.Items
                 if (remaining <= 0)
                     continue;
 
-                AddRow(rows, kvp.Key, remaining, priceResolver);
+                AddRow(rows, kvp.Key, remaining, priceResolver, breakdownResolver);
             }
 
             SortRows(rows);
@@ -153,7 +167,8 @@ namespace Internal.Scripts.Items
             });
         }
 
-        private void AddRow(List<ItemRowData> rows, string itemId, int count, Func<string, int> priceResolver)
+        private void AddRow(List<ItemRowData> rows, string itemId, int count,
+            Func<string, int> priceResolver, Func<string, PriceBreakdown> breakdownResolver = null)
         {
             string name = _itemCatalog.ResolveItemName(itemId);
             if (count > 1)
@@ -161,6 +176,8 @@ namespace Internal.Scripts.Items
 
             string weightText = string.Empty;
             string priceText = string.Empty;
+            string tooltipTitle = null;
+            string tooltipText = null;
 
             float weight = _itemCatalog.GetItemWeight(itemId);
             if (weight > 0f)
@@ -172,7 +189,13 @@ namespace Internal.Scripts.Items
             if (priceResolver != null)
                 priceText = priceResolver(itemId).ToString();
 
-            rows.Add(new ItemRowData(itemId, count, name, weightText, priceText));
+            if (breakdownResolver != null)
+            {
+                PriceBreakdown breakdown = breakdownResolver(itemId);
+                (tooltipTitle, tooltipText) = PriceTooltipFormatter.Format(breakdown);
+            }
+
+            rows.Add(new ItemRowData(itemId, count, name, weightText, priceText, tooltipTitle, tooltipText));
         }
     }
 }

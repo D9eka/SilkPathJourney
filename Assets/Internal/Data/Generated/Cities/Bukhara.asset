@@ -38,6 +38,7 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  <Buildings>k__BackingField: 01000000030000000500000007000000
   <DetailScene>k__BackingField:
     _sceneAsset: {fileID: 0}
     _sceneName: 

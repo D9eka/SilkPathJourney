@@ -6,6 +6,7 @@ using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Localization;
 using Internal.Scripts.UI.Screens.Core.ViewModel;
 using Internal.Scripts.UI.Screens.Inventory;
+using Internal.Scripts.UI.Tooltip;
 using R3;
 using TMPro;
 using UnityEngine;
@@ -17,14 +18,6 @@ namespace Internal.Scripts.UI.Screens.Trade
 {
     public class TradeScreen : PopupScreen
     {
-        private enum TradeArea
-        {
-            Player,
-            Npc,
-            Buy,
-            Sell
-        }
-
         [Header("Texts")]
         [SerializeField] private TextMeshProUGUI _tradeButtonText;
         [Header("Resources")]
@@ -177,6 +170,11 @@ namespace Internal.Scripts.UI.Screens.Trade
             _sellCache = default;
             _iconsInitialized = false;
             CacheViews();
+            var tooltip = _viewModel?.TooltipService;
+            _playerItemsView?.SetTooltipService(tooltip);
+            _npcItemsView?.SetTooltipService(tooltip);
+            _buyItemsView?.SetTooltipService(tooltip);
+            _sellItemsView?.SetTooltipService(tooltip);
             _stateSubscription = _viewModel.State.Subscribe(ApplyState);
             _viewModel.Navigate += HandleNavigate;
             _viewModel.Submit += HandleSubmit;

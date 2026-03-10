@@ -45,6 +45,8 @@ using Internal.Scripts.UI.Screens.Event;
 using Internal.Scripts.UI.Screens.Event.ConditionLines;
 using Internal.Scripts.UI.Screens.Hud;
 using Internal.Scripts.UI.StackService;
+using Internal.Scripts.UI.Theme;
+using Internal.Scripts.UI.Tooltip;
 using Internal.Scripts.UI.WorldLabel;
 using Internal.Scripts.Utils;
 using Internal.Scripts.World.State;
@@ -181,8 +183,11 @@ namespace Internal.Scripts.Installers
             Container.BindInterfacesAndSelfTo<InventoryRepository>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<PlayerResourceRepository>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<Player.Skills.PlayerSkillRepository>().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<Player.Languages.PlayerLanguageRepository>().AsSingle().NonLazy();
 
             Container.Bind<Player.Skills.TradePriceSkillModifier>().AsSingle();
+            Container.Bind<Player.Languages.LanguagePriceModifier>().AsSingle();
+            Container.Bind<TradePriceModifiers>().AsSingle();
             Container.Bind<CityMarketProfileService>().AsSingle();
             Container.Bind<CityTradePriceService>().AsSingle();
             Container.BindInterfacesAndSelfTo<CityEconomySimulator>().AsSingle().NonLazy();
@@ -201,6 +206,7 @@ namespace Internal.Scripts.Installers
             Container.BindInterfacesAndSelfTo<ScreenStackService>().AsSingle().WithArguments(ScreenId.Hud);
             Container.BindInterfacesTo<ScreenBackNavigator>().AsSingle();
             Container.BindInterfacesTo<Input.GameSpeedController>().AsSingle();
+            Container.BindInterfacesTo<TooltipThemeSetup>().AsSingle();
         }
 
         private void InstallArrows()
@@ -237,6 +243,7 @@ namespace Internal.Scripts.Installers
             Container.Bind<Events.Conditions.LocationEvaluator>().AsSingle();
             Container.Bind<Events.Conditions.CompanionEvaluator>().AsSingle();
             Container.Bind<Events.Conditions.MinSkillEvaluator>().AsSingle();
+            Container.Bind<Events.Conditions.MinLanguageProficiencyEvaluator>().AsSingle();
             Container.Bind<Events.Conditions.ConditionEvaluator>().AsSingle();
 
             Container.Bind<Events.Outcomes.ResourceApplier>().AsSingle();
@@ -245,6 +252,8 @@ namespace Internal.Scripts.Installers
             Container.Bind<Events.Outcomes.CompanionApplier>().AsSingle();
             Container.Bind<Events.Outcomes.SkillXpApplier>().AsSingle();
             Container.Bind<Events.Outcomes.RoadUnlockApplier>().AsSingle();
+            Container.Bind<Events.Outcomes.LanguageProficiencyApplier>().AsSingle();
+            Container.Bind<Events.Outcomes.SkipDaysApplier>().AsSingle();
             Container.Bind<Events.Outcomes.OutcomeApplier>().AsSingle();
 
             Container.Bind<SkillCheckService>().AsSingle();
@@ -252,6 +261,7 @@ namespace Internal.Scripts.Installers
             Container.Bind<EventOutcomeFormatter>().AsSingle();
             Container.Bind<SkillCheckConditionLine>().AsSingle();
             Container.Bind<ItemConditionLine>().AsSingle();
+            Container.Bind<LanguageConditionLine>().AsSingle();
             Container.Bind<ConditionLineBuilder>().AsSingle();
 
             Container.Bind<EventToastController>().AsSingle();
@@ -301,6 +311,20 @@ namespace Internal.Scripts.Installers
 
             public void Initialize() => _input.SetInteractableLayerMask(_mask);
             public void Dispose() => _input.SetInteractableLayerMask(default);
+        }
+
+        private sealed class TooltipThemeSetup : IInitializable
+        {
+            private readonly TooltipView _view;
+            private readonly UiThemeService _theme;
+
+            public TooltipThemeSetup(TooltipView view, UiThemeService theme)
+            {
+                _view = view;
+                _theme = theme;
+            }
+
+            public void Initialize() => _view.gameObject.InitializeColorBinders(themeService: _theme);
         }
     }
 }

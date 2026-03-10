@@ -113,8 +113,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -24, y: 0}
-  m_SizeDelta: {x: -48, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8832849493869385904
 MonoBehaviour:
@@ -176,7 +176,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 739555588021795646}
-  - component: {fileID: 1941335103718838675}
+  - component: {fileID: 741903397006015931}
   m_Layer: 5
   m_Name: ScrollView
   m_TagString: Untagged
@@ -205,7 +205,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1941335103718838675
+--- !u!114 &741903397006015931
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -214,11 +214,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 6817670603869548602}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aa08ab6e0800fa44ae55d278d1423e3, type: 3}
+  m_Script: {fileID: 11500000, guid: dc5bb555d69807f4dbb19554a2d17318, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.ScrollRect
-  m_Content: {fileID: 2054598393310488557, guid: 4ae9f8a836278bf44ad6afa0338e828c, type: 3}
-  m_Horizontal: 0
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Components.AdaptiveScrollRect
+  m_Content: {fileID: 4721921509853303853}
+  m_Horizontal: 1
   m_Vertical: 1
   m_MovementType: 2
   m_Elasticity: 0.1
@@ -235,6 +235,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+  _scrollbarPadding: 16
 --- !u!1001 &1203742656587358110
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -335,13 +336,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: ScrollbarVertical
       objectReference: {fileID: 0}
-    - target: {fileID: 5623233091282353361, guid: a03ca712287b8a544a573919243aac3d, type: 3}
-      propertyPath: m_AnchorMax.x
+    - target: {fileID: 5356633228639748656, guid: a03ca712287b8a544a573919243aac3d, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5623233091282353361, guid: a03ca712287b8a544a573919243aac3d, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5623233091282353361, guid: a03ca712287b8a544a573919243aac3d, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5623233091282353361, guid: a03ca712287b8a544a573919243aac3d, type: 3}
       propertyPath: m_AnchorMin.y

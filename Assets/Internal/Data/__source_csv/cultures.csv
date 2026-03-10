@@ -1,12 +1,12 @@
-culture_id,enum_name,name_key,notes,loc_link,loc_ru,loc_en
-china,China,culture.china.name,"ядро Китая (Сиань, Север/Восток)",перевод,Китай,China
-steppe,Steppe,culture.steppe.name,кочевые зоны/приграничные степные районы,перевод,Степь,Steppe
-central_asia,CentralAsia,culture.central_asia.name,Самарканд/Бухара/Фергана и т.п.,перевод,Средняя Азия,Central Asia
-persia,Persia,culture.persia.name,Иранский культурный пояс,перевод,Персия,Persia
-mesopotamia,Mesopotamia,culture.mesopotamia.name,Ирак/Багдадский регион,перевод,Месопотамия,Mesopotamia
-levant,Levant,culture.levant.name,"Сирия/Палестина, вост. Средиземноморье",перевод,Левант,Levant
-anatolia,Anatolia,culture.anatolia.name,Малая Азия,перевод,Анатолия,Anatolia
-byzantine,Byzantine,culture.byzantine.name,Константинополь/греческий пояс,перевод,Византия,Byzantine
-india,India,culture.india.name,Индийский субконтинент,перевод,Индия,India
-arabia,Arabia,culture.arabia.name,Аравийский полуостров,перевод,Аравия,Arabia
-tibet,Tibet,culture.tibet.name,Тибетское нагорье,перевод,Тибет,Tibet
+culture_id,enum_name,language_id,name_key,notes,loc_link,loc_ru,loc_en
+china,China,Chinese,culture.china.name,"ядро Китая (Сиань, Север/Восток)",перевод,Китай,China
+steppe,Steppe,Turkic,culture.steppe.name,кочевые зоны/приграничные степные районы,перевод,Степь,Steppe
+central_asia,CentralAsia,Sogdian,culture.central_asia.name,Самарканд/Бухара/Фергана и т.п.,перевод,Средняя Азия,Central Asia
+persia,Persia,Persian,culture.persia.name,Иранский культурный пояс,перевод,Персия,Persia
+mesopotamia,Mesopotamia,Arabic,culture.mesopotamia.name,Ирак/Багдадский регион,перевод,Месопотамия,Mesopotamia
+levant,Levant,Arabic,culture.levant.name,"Сирия/Палестина, вост. Средиземноморье",перевод,Левант,Levant
+anatolia,Anatolia,Greek,culture.anatolia.name,Малая Азия,перевод,Анатолия,Anatolia
+byzantine,Byzantine,Greek,culture.byzantine.name,Константинополь/греческий пояс,перевод,Византия,Byzantine
+india,India,Sanskrit,culture.india.name,Индийский субконтинент,перевод,Индия,India
+arabia,Arabia,Arabic,culture.arabia.name,Аравийский полуостров,перевод,Аравия,Arabia
+tibet,Tibet,Tibetan,culture.tibet.name,Тибетское нагорье,перевод,Тибет,Tibet

@@ -3,6 +3,7 @@ using Internal.Scripts.Import.Editor.Economy;
 using Internal.Scripts.Import.Editor.Events;
 using Internal.Scripts.Import.Editor.Npc;
 using Internal.Scripts.Import.Editor.Theme;
+using Internal.Scripts.Import.Editor.Languages;
 using Internal.Scripts.Import.Editor.Trader;
 using UnityEditor;
 using UnityEngine;
@@ -24,6 +25,7 @@ namespace Internal.Scripts.Import.Editor.Core
                 ThemeImporter.ImportLocalization();
                 NpcImporter.ImportNames();
                 TraderImporter.Import();
+                LanguageTypeGenerator.Generate();
 
                 AssetDatabase.SaveAssets();
                 AssetDatabase.Refresh();

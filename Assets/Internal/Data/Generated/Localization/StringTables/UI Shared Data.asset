@@ -311,6 +311,210 @@ MonoBehaviour:
     m_Key: UI.Event.Outcome.Resource.Durability
     m_Metadata:
       m_Items: []
+  - m_Id: 11185858504810496
+    m_Key: UI.Language.Sogdian.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11185858546753536
+    m_Key: UI.Language.Sogdian.Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11185858546753537
+    m_Key: UI.Language.Chinese.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11185858546753538
+    m_Key: UI.Language.Chinese.Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11185858546753539
+    m_Key: UI.Language.Tibetan.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11185858546753540
+    m_Key: UI.Language.Tibetan.Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11185858546753541
+    m_Key: UI.Language.Turkic.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11185858546753542
+    m_Key: UI.Language.Turkic.Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11185858546753543
+    m_Key: UI.Language.Sanskrit.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11185858546753544
+    m_Key: UI.Language.Sanskrit.Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11185858546753545
+    m_Key: UI.Language.Persian.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11185858546753546
+    m_Key: UI.Language.Persian.Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11185858546753547
+    m_Key: UI.Language.Arabic.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11185858546753548
+    m_Key: UI.Language.Arabic.Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11185858546753549
+    m_Key: UI.Language.Greek.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11185858546753550
+    m_Key: UI.Language.Greek.Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12255451369431040
+    m_Key: UI.Language.Proficiency.None
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12255451394596864
+    m_Key: UI.Language.Proficiency.Basic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12255451394596865
+    m_Key: UI.Language.Proficiency.Conversational
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12255451394596866
+    m_Key: UI.Language.Proficiency.Fluent
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12255451394596867
+    m_Key: UI.Language.Proficiency.Native
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12255451394596868
+    m_Key: UI.LanguageSchool.Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12255451394596869
+    m_Key: UI.LanguageSchool.Learn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12255451394596870
+    m_Key: UI.LanguageSchool.MaxLevel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12255451394596871
+    m_Key: UI.LanguageSchool.CantLearnNative
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12255451394596872
+    m_Key: UI.Event.Outcome.Resource.Morale
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12255451394596873
+    m_Key: UI.Event.Outcome.Resource.Reputation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12348593322057728
+    m_Key: UI.Tooltip.BasePrice
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12348593368195072
+    m_Key: UI.Tooltip.Market
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12348593368195073
+    m_Key: UI.Tooltip.NpcMarkup
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12348593368195074
+    m_Key: UI.Tooltip.Bonus
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12348593368195075
+    m_Key: UI.Tooltip.Total
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12363399710105600
+    m_Key: UI.Tooltip.UnknownLanguage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12394730271793152
+    m_Key: UI.LanguageSchool.CurrentLevel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12394730317930496
+    m_Key: UI.LanguageSchool.NextLevel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12394730317930497
+    m_Key: UI.LanguageSchool.DaysToLearn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12394730317930498
+    m_Key: UI.LanguageSchool.LearnFor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12394730317930499
+    m_Key: UI.LanguageSchool.BuySellEffect
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12394730317930500
+    m_Key: UI.LanguageSchool.AvailableLanguages
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12394730317930501
+    m_Key: UI.LanguageSchool.Attention
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12399148878782464
+    m_Key: UI.LanguageSchool.Main.Header.Main
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12399148887171072
+    m_Key: UI.LanguageSchool.Main.Button.Learn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12399148887171073
+    m_Key: UI.LanguageSchool.Main.Text.MaxLevel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12399148887171074
+    m_Key: UI.LanguageSchool.Main.Text.CantLearnNative
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12399148887171075
+    m_Key: UI.LanguageSchool.Item.Text.CurrentLevel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12399148887171076
+    m_Key: UI.LanguageSchool.Item.Text.NextLevel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12399148887171077
+    m_Key: UI.LanguageSchool.Item.Text.DaysToLearn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12399148887171078
+    m_Key: UI.LanguageSchool.Item.Button.LearnFor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12399148887171079
+    m_Key: UI.LanguageSchool.Item.Text.BuySellEffect
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12399148887171080
+    m_Key: UI.LanguageSchool.Main.Header.AvailableLanguages
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12399148887171081
+    m_Key: UI.LanguageSchool.Main.Text.Attention
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

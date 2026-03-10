@@ -9,5 +9,6 @@
         Temple = 4,
         Workshop = 5,
         Warehouse = 6,
+        LanguageSchool = 7,
     }
 }

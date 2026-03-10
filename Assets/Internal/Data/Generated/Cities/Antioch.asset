@@ -16,7 +16,7 @@ MonoBehaviour:
   <NodeId>k__BackingField: N_Antioch
   <Type>k__BackingField: 3
   <PrimaryCulture>k__BackingField: 6
-  <SecondaryCulture>k__BackingField: 0
+  <SecondaryCulture>k__BackingField: 8
   <MarketScale>k__BackingField: 0.9
   <HasPort>k__BackingField: 0
   <Biome>k__BackingField: 2
@@ -38,6 +38,7 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  <Buildings>k__BackingField: 0100000003000000
   <DetailScene>k__BackingField:
     _sceneAsset: {fileID: 0}
     _sceneName: 

@@ -178,6 +178,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 84bc7d178d89cab468c0941d79f9ec6f, type: 2}
   - {fileID: 11400000, guid: a23f3f16c3485e6449f8672e6343eb54, type: 2}
   - {fileID: 11400000, guid: 95e3ae4b5262d654b8c1a8f3bbec7fd0, type: 2}
+  - {fileID: 11400000, guid: 0878f6db5d2c25a40966e7b2172bd5a9, type: 2}
   <RoadModifiers>k__BackingField:
   - {fileID: 11400000, guid: fc00ef3abe94fc641ba1a518a3a14ca6, type: 2}
   - {fileID: 11400000, guid: 33d55eee591b7d74e837de5800b204f4, type: 2}
@@ -423,3 +424,26 @@ MonoBehaviour:
   - <Culture>k__BackingField: 2
     <ItemId>k__BackingField: purebred_camel
     <Multiplier>k__BackingField: 0.85
+  <CultureLanguages>k__BackingField:
+  - <Culture>k__BackingField: 1
+    <Language>k__BackingField: 2
+  - <Culture>k__BackingField: 2
+    <Language>k__BackingField: 4
+  - <Culture>k__BackingField: 3
+    <Language>k__BackingField: 1
+  - <Culture>k__BackingField: 4
+    <Language>k__BackingField: 6
+  - <Culture>k__BackingField: 5
+    <Language>k__BackingField: 7
+  - <Culture>k__BackingField: 6
+    <Language>k__BackingField: 7
+  - <Culture>k__BackingField: 7
+    <Language>k__BackingField: 8
+  - <Culture>k__BackingField: 8
+    <Language>k__BackingField: 8
+  - <Culture>k__BackingField: 9
+    <Language>k__BackingField: 5
+  - <Culture>k__BackingField: 10
+    <Language>k__BackingField: 7
+  - <Culture>k__BackingField: 11
+    <Language>k__BackingField: 3

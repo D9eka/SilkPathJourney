@@ -1,17 +1,21 @@
 using System;
 using System.Collections.Generic;
 using Internal.Scripts.Config;
+using Internal.Scripts.Player.Languages;
+using Internal.Scripts.Player.Languages.Generated;
 using Internal.Scripts.Player.Skills;
 using Internal.Scripts.UI.Screens.Core.Config;
 using Internal.Scripts.UI.Screens.Core.ViewModel;
 using Internal.Scripts.UI.Theme;
 using R3;
+using UnityEngine.Localization;
 
 namespace Internal.Scripts.UI.Screens.Trader
 {
     public sealed class TraderScreenViewModel : ScreenViewModelBase
     {
         private readonly PlayerSkillRepository _skillRepository;
+        private readonly PlayerLanguageRepository _languageRepository;
         private readonly GameBalanceConfig _config;
         private readonly TraderUICatalog _catalog;
         private readonly UiThemeService _themeService;
@@ -19,11 +23,13 @@ namespace Internal.Scripts.UI.Screens.Trader
 
         public TraderScreenViewModel(
             PlayerSkillRepository skillRepository,
+            PlayerLanguageRepository languageRepository,
             GameBalanceConfig config,
             TraderUICatalog catalog,
             UiThemeService themeService)
         {
             _skillRepository = skillRepository;
+            _languageRepository = languageRepository;
             _config = config;
             _catalog = catalog;
             _themeService = themeService;
@@ -47,7 +53,8 @@ namespace Internal.Scripts.UI.Screens.Trader
         {
             var profiles = BuildProfiles();
             var skills = BuildSkills();
-            _state.Value = new TraderViewState(profiles, skills);
+            var languages = BuildLanguages();
+            _state.Value = new TraderViewState(profiles, skills, languages);
         }
 
         private List<ProfileEntry> BuildProfiles()
@@ -78,6 +85,27 @@ namespace Internal.Scripts.UI.Screens.Trader
                 float progress = maxSkill > 0 ? (float)value / maxSkill : 0f;
 
                 list.Add(new SkillViewData(name, desc, progress, value.ToString()));
+            }
+
+            return list;
+        }
+
+        private List<LanguageViewData> BuildLanguages()
+        {
+            var list = new List<LanguageViewData>();
+            PlayerLanguageState current = _languageRepository.Current;
+
+            foreach (LanguageType type in Enum.GetValues(typeof(LanguageType)))
+            {
+                if (type == LanguageType.None)
+                    continue;
+
+                if (!_catalog.TryGetLanguage(type, out var name, out var desc))
+                    continue;
+
+                LanguageProficiency proficiency = current.GetProficiency(type);
+                var value = new LocalizedString("UI", $"UI.Language.Proficiency.{proficiency}");
+                list.Add(new LanguageViewData(name, desc, proficiency, value));
             }
 
             return list;

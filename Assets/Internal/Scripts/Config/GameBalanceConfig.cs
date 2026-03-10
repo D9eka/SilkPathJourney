@@ -17,6 +17,14 @@ namespace Internal.Scripts.Config
         [field: SerializeField] public float MaxFood { get; private set; } = 100f;
         [field: SerializeField] public float MaxDanger { get; private set; } = 100f;
 
+        [Header("Language School")]
+        [field: SerializeField] public int SchoolCostBasic { get; private set; } = 40;
+        [field: SerializeField] public int SchoolDaysBasic { get; private set; } = 5;
+        [field: SerializeField] public int SchoolCostConversational { get; private set; } = 100;
+        [field: SerializeField] public int SchoolDaysConversational { get; private set; } = 10;
+        [field: SerializeField] public int SchoolCostFluent { get; private set; } = 150;
+        [field: SerializeField] public int SchoolDaysFluent { get; private set; } = 20;
+
         [Header("Skills")]
         [field: SerializeField] public int MaxSkill { get; private set; } = 100;
         [field: SerializeField] public float TradePriceDivisor { get; private set; } = 500f;

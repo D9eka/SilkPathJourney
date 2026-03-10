@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.IO;
 using Internal.Scripts.Economy.Generated;
 using Internal.Scripts.Economy.Items;
 using Internal.Scripts.Import.Editor.Core;
@@ -15,8 +14,7 @@ namespace Internal.Scripts.Import.Editor.Economy.Tables
 
         public static List<ItemData> Import(
             Dictionary<string, ItemType> typeMap,
-            string locTableName,
-            Dictionary<string, LocalizationImporter.LocalizationEntry> locEntries)
+            string locTableName)
         {
             string csvPath = CsvPath("items.csv");
             List<string[]> rows = CsvReader.ReadFile(csvPath);
@@ -46,11 +44,7 @@ namespace Internal.Scripts.Import.Editor.Economy.Tables
                     continue;
 
                 string categoryId = GetField(rows[i], categoryIndex).Trim();
-                if (!typeMap.TryGetValue(categoryId, out ItemType type))
-                {
-                    Debug.LogWarning($"[SPJ] Unknown category_id '{categoryId}' in items.csv (row {i + 1})");
-                    type = ItemType.Unknown;
-                }
+                ItemType type = TryLookup(typeMap, categoryId, ItemType.Unknown, "items.csv", i + 1, "category_id");
 
                 TryParseFloat(GetField(rows[i], weightIndex), out float weight);
                 TryParseInt(GetField(rows[i], priceIndex), out int price);
@@ -76,12 +70,8 @@ namespace Internal.Scripts.Import.Editor.Economy.Tables
         public static HashSet<string> ReadIds()
         {
             HashSet<string> ids = new(System.StringComparer.Ordinal);
-            string csvPath = CsvPath("items.csv");
-            if (!File.Exists(csvPath))
-                return ids;
-
-            List<string[]> rows = CsvReader.ReadFile(csvPath);
-            if (rows.Count == 0)
+            List<string[]> rows = CsvReader.ReadFileSafe(CsvPath("items.csv"));
+            if (rows == null)
                 return ids;
 
             string[] header = rows[0];

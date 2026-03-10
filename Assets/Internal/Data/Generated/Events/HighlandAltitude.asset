@@ -92,7 +92,7 @@ MonoBehaviour:
       <Param>k__BackingField: 
       <Value>k__BackingField: 10
     - <Type>k__BackingField: 5
-      <Param>k__BackingField: -1
+      <Param>k__BackingField: 
       <Value>k__BackingField: -10
   - <Text>k__BackingField:
       m_TableReference:
@@ -112,7 +112,10 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    <Conditions>k__BackingField: []
+    <Conditions>k__BackingField:
+    - <Type>k__BackingField: 10
+      <Param>k__BackingField: Guide
+      <Value>k__BackingField: 1
     <Outcomes>k__BackingField:
     - <Type>k__BackingField: 2
       <Param>k__BackingField: 

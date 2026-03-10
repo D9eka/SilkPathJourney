@@ -16,8 +16,8 @@ namespace Internal.Scripts.Import.Editor.Events
         private const string ROAD_CHOICES_CSV = "road_event_choices.csv";
         private const string ROAD_CONDITIONS_CSV = "road_event_conditions.csv";
         private const string ROAD_OUTCOMES_CSV = "road_event_outcomes.csv";
-        private const string ROAD_LOC_CSV = "road_events_localization.csv";
         private const string ROAD_SKILL_CHECKS_CSV = "road_event_skill_checks.csv";
+        private const string ROAD_LOC_KEY_PREFIX = "event.road_";
 
         private struct TemplateData
         {
@@ -96,8 +96,8 @@ namespace Internal.Scripts.Import.Editor.Events
             WriteCsv(ROAD_CHOICES_CSV, choices);
             WriteCsv(ROAD_CONDITIONS_CSV, conditions);
             WriteCsv(ROAD_OUTCOMES_CSV, outcomes);
-            WriteCsv(ROAD_LOC_CSV, loc);
             WriteCsv(ROAD_SKILL_CHECKS_CSV, skillChecks);
+            MergeLocIntoMainCsv(loc);
 
             Debug.Log($"[SPJ] Generated road events for {hiddenRoads.Count} hidden road(s).");
         }
@@ -193,7 +193,7 @@ namespace Internal.Scripts.Import.Editor.Events
         {
             string eventId = $"road_quest_{roadId}";
 
-            events.AppendLine($"{eventId},discovery,event.{eventId}.name,event.{eventId}.description,,,1,0");
+            events.AppendLine($"{eventId},quest,event.{eventId}.name,event.{eventId}.description,,,1,0");
 
             foreach (var choice in t.Choices)
             {
@@ -369,6 +369,28 @@ namespace Internal.Scripts.Import.Editor.Events
             if (value.Contains(',') || value.Contains('"') || value.Contains('\n'))
                 return "\"" + value.Replace("\"", "\"\"") + "\"";
             return value;
+        }
+
+        private static void MergeLocIntoMainCsv(StringBuilder newEntries)
+        {
+            string csvPath = CsvPath("localization.csv");
+            var lines = new List<string>(File.ReadAllLines(csvPath, Encoding.UTF8));
+
+            lines.RemoveAll(line =>
+            {
+                int commaIdx = line.IndexOf(',');
+                string key = commaIdx > 0 ? line.Substring(0, commaIdx).Trim().Trim('"') : line;
+                return key.StartsWith(ROAD_LOC_KEY_PREFIX);
+            });
+
+            foreach (string entry in newEntries.ToString().Split('\n'))
+            {
+                string trimmed = entry.TrimEnd('\r');
+                if (!string.IsNullOrEmpty(trimmed) && !trimmed.StartsWith("key,"))
+                    lines.Add(trimmed);
+            }
+
+            File.WriteAllLines(csvPath, lines, Encoding.UTF8);
         }
 
         private static void WriteCsv(string fileName, StringBuilder content)

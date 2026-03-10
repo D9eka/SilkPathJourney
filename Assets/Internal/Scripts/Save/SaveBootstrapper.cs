@@ -3,6 +3,8 @@ using Internal.Scripts.Config;
 using Internal.Scripts.Economy.Save;
 using Internal.Scripts.Npc.Save;
 using Internal.Scripts.Player;
+using Internal.Scripts.Player.Languages;
+using Internal.Scripts.Player.Languages.Generated;
 using Internal.Scripts.Player.Skills;
 using Internal.Scripts.Road.State;
 using UnityEngine;
@@ -45,6 +47,9 @@ namespace Internal.Scripts.Save
 
             if (data.Version < 4)
                 changed |= MigrateToV4(data);
+
+            if (data.Version < 5)
+                changed |= MigrateToV5(data);
 
             if (data.Economy == null || !data.Economy.IsInitialized)
             {
@@ -114,6 +119,22 @@ namespace Internal.Scripts.Save
                 }
             };
             data.Version = 4;
+            return true;
+        }
+
+        private bool MigrateToV5(SaveData data)
+        {
+            if (data.Languages == null || data.Languages.Languages.Count == 0)
+            {
+                data.Languages = new PlayerLanguageState
+                {
+                    Languages = new List<LanguageEntry>
+                    {
+                        new() { Type = LanguageType.Arabic, Proficiency = LanguageProficiency.Native }
+                    }
+                };
+            }
+            data.Version = 5;
             return true;
         }
 

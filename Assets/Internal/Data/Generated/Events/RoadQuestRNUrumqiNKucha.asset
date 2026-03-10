@@ -27,7 +27,7 @@ MonoBehaviour:
       m_TableCollectionName: Events
     m_TableEntryReference:
       m_KeyId: 0
-      m_Key: event_type.discovery.name
+      m_Key: event_type.quest.name
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []

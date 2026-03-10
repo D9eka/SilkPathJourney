@@ -7,3 +7,12 @@ cart_durability,CartDurability
 add_companion,AddCompanion
 add_skill_xp,AddSkillXp
 unlock_road,UnlockRoad
+change_language_proficiency,ChangeLanguageProficiency
+morale,Morale
+reputation,Reputation
+extra_cart_durability,ExtraCartDurability
+main_cart_durability,MainCartDurability
+remove_item,RemoveItem
+block_movement,BlockMovement
+companion_injured,CompanionInjured
+skip_days,SkipDays

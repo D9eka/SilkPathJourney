@@ -12,6 +12,8 @@ namespace Internal.Scripts.UI.Screens.Core.Config
         MainMenu = 7,
         SaveGame = 8,
         LoadGame = 9,
-        Trader = 10
+        Trader = 10,
+        LanguageSchool = 11,
+        EnterCity = 12
     }
 }

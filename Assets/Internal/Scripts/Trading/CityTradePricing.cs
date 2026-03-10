@@ -18,5 +18,11 @@ namespace Internal.Scripts.Trading
 
         public int GetSellPrice(string itemId)
             => _service.GetPrice(_cityId, itemId, TradePriceKind.SellToCity);
+
+        public PriceBreakdown GetBuyBreakdown(string itemId)
+            => _service.GetPriceBreakdown(_cityId, itemId, TradePriceKind.BuyFromCity);
+
+        public PriceBreakdown GetSellBreakdown(string itemId)
+            => _service.GetPriceBreakdown(_cityId, itemId, TradePriceKind.SellToCity);
     }
 }

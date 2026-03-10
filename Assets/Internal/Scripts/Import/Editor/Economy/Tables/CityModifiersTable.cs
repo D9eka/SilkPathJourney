@@ -13,8 +13,7 @@ namespace Internal.Scripts.Import.Editor.Economy.Tables
         private const string ICONS_FOLDER = "Assets/Internal/Sprites/CityModifiers";
 
         public static List<CityModifierData> Import(
-            string locTableName,
-            Dictionary<string, LocalizationImporter.LocalizationEntry> locEntries)
+            string locTableName)
         {
             string csvPath = CsvPath("city_modifiers.csv");
             List<string[]> rows = CsvReader.ReadFile(csvPath);
@@ -43,20 +42,8 @@ namespace Internal.Scripts.Import.Editor.Economy.Tables
                     continue;
 
                 string nameKey = GetField(rows[i], nameIndex).Trim();
-                string descKey = descIndex >= 0 ? GetField(rows[i], descIndex).Trim() : string.Empty;
-
-                Sprite icon = null;
-                if (iconIndex >= 0)
-                {
-                    string iconName = GetField(rows[i], iconIndex).Trim();
-                    if (!string.IsNullOrWhiteSpace(iconName))
-                    {
-                        string iconPath = $"{ICONS_FOLDER}/{iconName}.png";
-                        icon = AssetDatabase.LoadAssetAtPath<Sprite>(iconPath);
-                        if (icon == null)
-                            Debug.LogWarning($"[SPJ] City modifier icon not found: {iconPath}");
-                    }
-                }
+                string descKey = GetField(rows[i], descIndex).Trim();
+                Sprite icon = LoadSprite(ICONS_FOLDER, rows[i], iconIndex, "City modifier");
 
                 CityModifierData asset = LoadOrCreateAsset<CityModifierData>(OUTPUT_FOLDER, id);
 

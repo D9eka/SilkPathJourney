@@ -25,8 +25,7 @@ namespace Internal.Scripts.Import.Editor.Theme
         };
 
         public static List<(Biome biome, UiColorPalette palette)> Import(
-            Dictionary<string, Biome> biomeMap,
-            Dictionary<string, LocalizationImporter.LocalizationEntry> locEntries)
+            Dictionary<string, Biome> biomeMap)
         {
             EnsureAssetFolder(OUTPUT_FOLDER);
 
@@ -42,7 +41,6 @@ namespace Internal.Scripts.Import.Editor.Theme
 
             string[] header = rows[0];
             int idIndex = FindColumnIndex(header, "biome_id");
-            int nameKeyIndex = FindColumnIndex(header, "name_key");
 
             if (idIndex < 0)
             {
@@ -57,8 +55,6 @@ namespace Internal.Scripts.Import.Editor.Theme
                 if (colorIndices[c] < 0)
                     Debug.LogWarning($"[SPJ] Missing color column '{ColorColumns[c]}' in biome_palettes.csv");
             }
-
-            LocalizationImporter.CollectFromCsv(csvPath, "name_key", locEntries);
 
             for (int i = 1; i < rows.Count; i++)
             {

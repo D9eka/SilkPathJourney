@@ -4,6 +4,8 @@ using System.Text;
 using Internal.Scripts.Events.Data;
 using Internal.Scripts.Events.Generated;
 using Internal.Scripts.Items;
+using Internal.Scripts.Player.Languages;
+using Internal.Scripts.Player.Languages.Generated;
 using Internal.Scripts.Player.Skills;
 using Internal.Scripts.UI.Localization;
 using Internal.Scripts.UI.Localization.Args;
@@ -23,6 +25,8 @@ namespace Internal.Scripts.UI.Screens.Event
         private const string FoodKey = "UI.Event.Outcome.Resource.Food";
         private const string DangerKey = "UI.Event.Outcome.Resource.Danger";
         private const string DurabilityKey = "UI.Event.Outcome.Resource.Durability";
+        private const string MoraleKey = "UI.Event.Outcome.Resource.Morale";
+        private const string ReputationKey = "UI.Event.Outcome.Resource.Reputation";
 
         private readonly ItemCatalog _itemCatalog;
         private readonly TraderUICatalog _catalog;
@@ -107,6 +111,10 @@ namespace Internal.Scripts.UI.Screens.Event
                     return $"{rounded} {ResolveResourceName(DangerKey, "danger")}";
                 case EventOutcomeType.CartDurability:
                     return $"{rounded} {ResolveResourceName(DurabilityKey, "durability")}";
+                case EventOutcomeType.Morale:
+                    return $"{rounded} {ResolveResourceName(MoraleKey, "morale")}";
+                case EventOutcomeType.Reputation:
+                    return $"{rounded} {ResolveResourceName(ReputationKey, "reputation")}";
                 case EventOutcomeType.AddItem:
                     string itemName = _itemCatalog.ResolveItemName(entry.Param);
                     return $"{itemName} ×{rounded}";
@@ -114,6 +122,10 @@ namespace Internal.Scripts.UI.Screens.Event
                     if (Enum.TryParse(entry.Param, out SkillType skillType))
                         return $"{_catalog.GetSkillName(skillType)} +{rounded} XP";
                     return $"{entry.Param} +{rounded} XP";
+                case EventOutcomeType.ChangeLanguageProficiency:
+                    if (Enum.TryParse(entry.Param, true, out LanguageType langType))
+                        return $"{_catalog.GetLanguageName(langType)}: {(LanguageProficiency)rounded}";
+                    return $"{entry.Param}: {(LanguageProficiency)rounded}";
                 default:
                     return null;
             }

@@ -314,6 +314,210 @@ MonoBehaviour:
     m_Localized: durability
     m_Metadata:
       m_Items: []
+  - m_Id: 11185858504810496
+    m_Localized: Sogdian
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11185858546753536
+    m_Localized: Language of Sogdian merchants and caravan traders
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11185858546753537
+    m_Localized: Chinese
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11185858546753538
+    m_Localized: Official language of the Tang Empire
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11185858546753539
+    m_Localized: Tibetan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11185858546753540
+    m_Localized: Language of the Tibetan Empire and mountain monasteries
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11185858546753541
+    m_Localized: Turkic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11185858546753542
+    m_Localized: Language of Turkic khaganates and nomadic tribes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11185858546753543
+    m_Localized: Sanskrit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11185858546753544
+    m_Localized: Sacred language of India and Buddhist texts
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11185858546753545
+    m_Localized: Persian
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11185858546753546
+    m_Localized: Language of the Sasanian legacy and trade routes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11185858546753547
+    m_Localized: Arabic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11185858546753548
+    m_Localized: Language of the Caliphate and Islamic scholarship
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11185858546753549
+    m_Localized: Greek
+    m_Metadata:
+      m_Items: []
+  - m_Id: 11185858546753550
+    m_Localized: Language of Byzantium and the Hellenistic heritage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12255451369431040
+    m_Localized: None
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12255451394596864
+    m_Localized: Basic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12255451394596865
+    m_Localized: Conversational
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12255451394596866
+    m_Localized: Fluent
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12255451394596867
+    m_Localized: Native
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12255451394596868
+    m_Localized: Language Training
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12255451394596869
+    m_Localized: Learn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12255451394596870
+    m_Localized: Maximum level
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12255451394596871
+    m_Localized: Only through experience
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12255451394596872
+    m_Localized: morale
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12255451394596873
+    m_Localized: reputation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12348593322057728
+    m_Localized: Base Price
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12348593368195072
+    m_Localized: Market
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12348593368195073
+    m_Localized: Markup
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12348593368195074
+    m_Localized: Bonuses
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12348593368195075
+    m_Localized: Total
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12363399710105600
+    m_Localized: You don't know this language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12394730271793152
+    m_Localized: 'Current level: {0}, {1}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12394730317930496
+    m_Localized: 'Next level: {0}, {1}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12394730317930497
+    m_Localized: 'Days to learn: {0} (supplies: {1}, gold: {2})'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12394730317930498
+    m_Localized: Learn for {0}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12394730317930499
+    m_Localized: Buy {0}, Sell {1}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12394730317930500
+    m_Localized: Available Languages
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12394730317930501
+    m_Localized: Training requires spending days in the city
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12399148878782464
+    m_Localized: Language Training
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12399148887171072
+    m_Localized: Learn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12399148887171073
+    m_Localized: Maximum level
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12399148887171074
+    m_Localized: Only through experience
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12399148887171075
+    m_Localized: 'Current level: {0}, {1}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12399148887171076
+    m_Localized: 'Next level: {0}, {1}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12399148887171077
+    m_Localized: 'Days to learn: {0} (supplies: {1}, gold: {2})'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12399148887171078
+    m_Localized: Learn for {0}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12399148887171079
+    m_Localized: Buy {0}, Sell {1}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12399148887171080
+    m_Localized: Available Languages
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12399148887171081
+    m_Localized: Training requires spending days in the city
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

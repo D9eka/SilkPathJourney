@@ -60,6 +60,11 @@ Trader,Skill,Text,CharismaName,UI.Trader.Skill.Charisma.Name,,,Харизма,Ch
 Trader,Skill,Text,CharismaDesc,UI.Trader.Skill.Charisma.Description,,,Влияет на переговоры и найм,Affects negotiations and hiring,перевод
 Trader,Skill,Text,TradeName,UI.Trader.Skill.Trade.Name,,,Торговля,Trade,перевод
 Trader,Skill,Text,TradeDesc,UI.Trader.Skill.Trade.Description,,,Влияет на цены и сделки,Affects prices and deals,перевод
+Trader,Language,Text,ProficiencyNone,UI.Language.Proficiency.None,,,Нет,None,перевод
+Trader,Language,Text,ProficiencyBasic,UI.Language.Proficiency.Basic,,,Базовый,Basic,перевод
+Trader,Language,Text,ProficiencyConversational,UI.Language.Proficiency.Conversational,,,Разговорный,Conversational,перевод
+Trader,Language,Text,ProficiencyFluent,UI.Language.Proficiency.Fluent,,,Свободный,Fluent,перевод
+Trader,Language,Text,ProficiencyNative,UI.Language.Proficiency.Native,,,Родной,Native,перевод
 Event,Outcome,Text,SkillCheckSuccess,UI.Event.Outcome.Text.SkillCheckSuccess,,,Проверка {skill_name}: Успех!,Skill check {skill_name}: Success!,перевод
 Event,Outcome,Text,SkillCheckFail,UI.Event.Outcome.Text.SkillCheckFail,,,Проверка {skill_name}: Провал!,Skill check {skill_name}: Failure!,перевод
 Event,Outcome,Text,Gain,UI.Event.Outcome.Text.Gain,,,Вы получили: {details},You received: {details},перевод
@@ -68,3 +73,5 @@ Event,Outcome,Resource,Money,UI.Event.Outcome.Resource.Money,,,монет,gold,�
 Event,Outcome,Resource,Food,UI.Event.Outcome.Resource.Food,,,провизии,supplies,перевод
 Event,Outcome,Resource,Danger,UI.Event.Outcome.Resource.Danger,,,опасности,danger,перевод
 Event,Outcome,Resource,Durability,UI.Event.Outcome.Resource.Durability,,,прочности,durability,перевод
+Event,Outcome,Resource,Morale,UI.Event.Outcome.Resource.Morale,,,морали,morale,перевод
+Event,Outcome,Resource,Reputation,UI.Event.Outcome.Resource.Reputation,,,репутации,reputation,перевод

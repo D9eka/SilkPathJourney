@@ -66,7 +66,7 @@ MonoBehaviour:
       <Param>k__BackingField: 
       <Value>k__BackingField: -8
     - <Type>k__BackingField: 5
-      <Param>k__BackingField: -1
+      <Param>k__BackingField: 
       <Value>k__BackingField: -5
   - <Text>k__BackingField:
       m_TableReference:
@@ -92,7 +92,7 @@ MonoBehaviour:
       <Param>k__BackingField: 
       <Value>k__BackingField: -12
     - <Type>k__BackingField: 5
-      <Param>k__BackingField: -1
+      <Param>k__BackingField: 
       <Value>k__BackingField: -25
     - <Type>k__BackingField: 3
       <Param>k__BackingField: 

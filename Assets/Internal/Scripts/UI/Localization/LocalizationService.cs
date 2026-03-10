@@ -18,16 +18,19 @@ namespace Internal.Scripts.UI.Localization
             private readonly TextMeshProUGUI _target;
             private readonly LocalizedString _localized;
             private readonly string _context;
+            private readonly Func<string, string> _postProcess;
             private string _fallback;
             private bool _isBound;
             private LocalizedString.ChangeHandler _handler;
 
-            internal LocalizedTextHandle(TextMeshProUGUI target, LocalizedString localized, string context, string fallback)
+            internal LocalizedTextHandle(TextMeshProUGUI target, LocalizedString localized,
+                string context, string fallback, Func<string, string> postProcess = null)
             {
                 _target = target;
                 _localized = localized;
                 _context = context;
                 _fallback = fallback ?? string.Empty;
+                _postProcess = postProcess;
             }
 
             internal bool TryBind()
@@ -60,7 +63,7 @@ namespace Internal.Scripts.UI.Localization
                         return;
                     }
 
-                    _target.text = value;
+                    _target.text = _postProcess != null ? _postProcess(value) : value;
                 };
 
                 _localized.StringChanged += _handler;
@@ -131,11 +134,21 @@ namespace Internal.Scripts.UI.Localization
         }
 
         public LocalizedTextHandle BindText(TextMeshProUGUI target, LocalizedString localized,
-            string context, string fallback, params object[] args)
+            string context, string fallback, Func<string, string> postProcess, params object[] args)
         {
-            var handle = new LocalizedTextHandle(target, localized, context, fallback);
+            var handle = new LocalizedTextHandle(target, localized, context, fallback, postProcess);
             if (handle.TryBind())
                 handle.SetArguments(fallback, args);
+            return handle;
+        }
+
+        public LocalizedTextHandle BindText(TextMeshProUGUI target, LocalizedString localized,
+            string context, Func<string, string> postProcess)
+        {
+            string fallback = target != null ? target.text : string.Empty;
+            var handle = new LocalizedTextHandle(target, localized, context, fallback, postProcess);
+            if (handle.TryBind())
+                handle.SetArguments(fallback);
             return handle;
         }
 
@@ -159,7 +172,7 @@ namespace Internal.Scripts.UI.Localization
                     ? localized.GetLocalizedString(args)
                     : localized.GetLocalizedString();
 
-                if (string.IsNullOrWhiteSpace(value))
+                if (string.IsNullOrWhiteSpace(value) || value.StartsWith("No translation found"))
                 {
                     Debug.LogWarning($"[SPJ] LocalizedString resolved empty for {context}.");
                     return fallback;

@@ -5,12 +5,15 @@ using Internal.Scripts.Events.Data;
 using Internal.Scripts.Events.Generated;
 using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Localization;
+using Internal.Scripts.UI.Localization.Args;
 using Internal.Scripts.UI.Screens.Core.View;
 using Internal.Scripts.UI.Screens.Core.ViewModel;
 using Internal.Scripts.UI.Theme;
+using Internal.Scripts.UI.Tooltip;
 using R3;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.Localization;
 using UnityEngine.UI;
 
@@ -33,6 +36,9 @@ namespace Internal.Scripts.UI.Screens.Event
         [Header("Choices")]
         [SerializeField] private Transform _choiceButtonsRoot;
         [SerializeField] private EventChoiceButton _choiceButtonPrefab;
+        [Header("Layout")]
+        [SerializeField] private AdaptiveLayoutHeight _scrollViewLayout;
+        [SerializeField] private AdaptiveScrollRect _scrollRect;
         [Header("Result")]
         [SerializeField] private LocalizedString _continueLocalizedString;
         [SerializeField] private LocalizedString _nearCityFormat;
@@ -47,6 +53,8 @@ namespace Internal.Scripts.UI.Screens.Event
         private readonly Dictionary<string, ResourceIndicator> _itemIndicators = new();
         private List<EventChoice> _currentChoices;
         private int _selectedChoiceIndex = -1;
+        private int _lastLinkIndex = -1;
+        private string _unknownLanguageTooltip;
 
         private LocalizationService.LocalizedTextHandle _mainHeaderHandle;
         private LocalizationService.LocalizedTextHandle _nameHandle;
@@ -68,6 +76,9 @@ namespace Internal.Scripts.UI.Screens.Event
         private void OnDisable()
         {
             UnsubscribeViewModel();
+            _lastLinkIndex = -1;
+            _unknownLanguageTooltip = null;
+            _viewModel?.TooltipService?.HideTooltip();
 
             _mainHeaderHandle?.Dispose();
             _nameHandle?.Dispose();
@@ -80,6 +91,34 @@ namespace Internal.Scripts.UI.Screens.Event
             _descriptionHandle = null;
 
             ClearResourceIndicators();
+        }
+
+        private void Update()
+        {
+            if (_eventDescriptionText == null || _viewModel?.TooltipService == null)
+                return;
+
+            Vector2 mousePos = Mouse.current?.position.ReadValue() ?? Vector2.zero;
+            int linkIndex = TMP_TextUtilities.FindIntersectingLink(
+                _eventDescriptionText, mousePos, null);
+
+            if (linkIndex == _lastLinkIndex)
+                return;
+            _lastLinkIndex = linkIndex;
+
+            if (linkIndex >= 0 &&
+                _eventDescriptionText.textInfo.linkInfo[linkIndex].GetLinkID() == NpcSpeechLocArg.UnknownLinkId)
+            {
+                _unknownLanguageTooltip ??= LocalizationService.ResolveString(
+                    new LocalizedString("UI", "UI.Tooltip.UnknownLanguage"),
+                    "You don't know this language", "UI.Tooltip.UnknownLanguage");
+                _viewModel.TooltipService.ShowTooltipDelayed(
+                    new SimpleTooltipData("", _unknownLanguageTooltip));
+            }
+            else
+            {
+                _viewModel.TooltipService.HideTooltip();
+            }
         }
 
         private void BindHeaderLocalization()
@@ -126,12 +165,9 @@ namespace Internal.Scripts.UI.Screens.Event
             BindLocalizedText(ref _typeHandle, _eventTypeText, eventData.EventType, "EventType");
 
             object[] formatArgs = _viewModel.FormatArgs;
-            if (formatArgs != null && formatArgs.Length > 0)
-                BindLocalizedTextWithArgs(ref _descriptionHandle, _eventDescriptionText,
-                    eventData.Description, "EventDescription", formatArgs);
-            else
-                BindLocalizedText(ref _descriptionHandle, _eventDescriptionText,
-                    eventData.Description, "EventDescription");
+            BindLocalizedTextWithArgs(ref _descriptionHandle, _eventDescriptionText,
+                eventData.Description, "EventDescription", formatArgs,
+                raw => LocArgRenderer.ProcessNpcSpeech(raw, _viewModel?.LanguageRepo));
 
             if (eventData.Image != null)
                 _eventImage.sprite = eventData.Image;
@@ -140,6 +176,8 @@ namespace Internal.Scripts.UI.Screens.Event
             _selectedChoiceIndex = -1;
             SpawnResourceIndicators();
             CreateChoiceButtons(_currentChoices);
+            _scrollViewLayout?.Refresh();
+            _scrollRect?.Refresh();
         }
 
         private void SpawnResourceIndicators()
@@ -201,10 +239,16 @@ namespace Internal.Scripts.UI.Screens.Event
             ref LocalizationService.LocalizedTextHandle handle,
             TextMeshProUGUI textField,
             LocalizedString localizedString,
-            string fallback)
+            string fallback,
+            Func<string, string> postProcess = null)
         {
             handle?.Dispose();
-            if (textField != null && localizedString != null)
+            if (textField == null || localizedString == null)
+                return;
+
+            if (postProcess != null)
+                handle = Localization.BindText(textField, localizedString, fallback, postProcess);
+            else
                 handle = Localization.BindText(textField, localizedString, fallback);
         }
 
@@ -213,11 +257,12 @@ namespace Internal.Scripts.UI.Screens.Event
             TextMeshProUGUI textField,
             LocalizedString localizedString,
             string fallback,
-            object[] args)
+            object[] args,
+            Func<string, string> postProcess = null)
         {
             handle?.Dispose();
             if (textField != null && localizedString != null)
-                handle = Localization.BindText(textField, localizedString, fallback, fallback, args);
+                handle = Localization.BindText(textField, localizedString, fallback, fallback, postProcess, args);
         }
 
         private void CreateChoiceButtons(List<EventChoice> choices)
@@ -304,6 +349,7 @@ namespace Internal.Scripts.UI.Screens.Event
                 _descriptionHandle = null;
                 string skillCheck = _viewModel.BuildSkillCheckLine();
                 string resolved = LocalizationService.ResolveString(resultText, "Result", "Result");
+                resolved = LocArgRenderer.ProcessNpcSpeech(resolved, _viewModel?.LanguageRepo);
                 string summary = _viewModel.BuildOutcomeSummary();
 
                 var parts = new List<string>();
@@ -328,6 +374,8 @@ namespace Internal.Scripts.UI.Screens.Event
             SetCurrentResourceValues();
             if (_selectedChoiceIndex >= 0)
                 ShowOutcomePreview(_selectedChoiceIndex);
+            _scrollViewLayout?.Refresh();
+            _scrollRect?.Refresh();
         }
 
         private void UpdateLocation(CityData city, bool isAtCity)

@@ -12,15 +12,18 @@ namespace Internal.Scripts.UI.Screens.Trader
         [Header("Prefabs")]
         [SerializeField] private ProfileItem _profileItemPrefab;
         [SerializeField] private SkillView _skillViewPrefab;
+        [SerializeField] private LanguageView _languageViewPrefab;
 
         [Header("Containers")]
         [SerializeField] private RectTransform _profileContent;
         [SerializeField] private RectTransform _skillsContent;
+        [SerializeField] private RectTransform _languagesContent;
 
         private TraderScreenViewModel _viewModel;
         private IDisposable _stateSubscription;
         private readonly List<ProfileItem> _spawnedProfiles = new();
         private readonly List<SkillView> _spawnedSkills = new();
+        private readonly List<LanguageView> _spawnedLanguages = new();
 
         protected override void OnEnable()
         {
@@ -61,6 +64,7 @@ namespace Internal.Scripts.UI.Screens.Trader
         {
             RebuildProfiles(state.ProfileItems);
             RebuildSkills(state.Skills);
+            RebuildLanguages(state.Languages);
         }
 
         private void RebuildProfiles(IReadOnlyList<ProfileEntry> items)
@@ -97,6 +101,24 @@ namespace Internal.Scripts.UI.Screens.Trader
                 instance.gameObject.InitializeColorBinders(themeService: _viewModel?.ThemeService);
                 instance.Initialize(Localization, data.Name, data.Description, data.Progress, data.Value);
                 _spawnedSkills.Add(instance);
+            }
+        }
+
+        private void RebuildLanguages(IReadOnlyList<LanguageViewData> languages)
+        {
+            foreach (LanguageView view in _spawnedLanguages)
+                Destroy(view.gameObject);
+            _spawnedLanguages.Clear();
+
+            if (languages == null || _languageViewPrefab == null || _languagesContent == null)
+                return;
+
+            foreach (LanguageViewData data in languages)
+            {
+                LanguageView instance = Instantiate(_languageViewPrefab, _languagesContent);
+                instance.gameObject.InitializeColorBinders(themeService: _viewModel?.ThemeService);
+                instance.Initialize(Localization, data.Name, data.Description, data.Progress, data.Value);
+                _spawnedLanguages.Add(instance);
             }
         }
     }

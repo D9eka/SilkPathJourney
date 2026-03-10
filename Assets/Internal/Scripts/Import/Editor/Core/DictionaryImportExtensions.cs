@@ -24,5 +24,16 @@ namespace Internal.Scripts.Import.Editor.Core
 
             return result;
         }
+
+        public static List<TValue> GetOrCreateList<TKey, TValue>(
+            this Dictionary<TKey, List<TValue>> dict, TKey key)
+        {
+            if (!dict.TryGetValue(key, out var list))
+            {
+                list = new List<TValue>();
+                dict[key] = list;
+            }
+            return list;
+        }
     }
 }
