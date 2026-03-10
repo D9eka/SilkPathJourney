@@ -12,10 +12,11 @@ namespace Internal.Scripts.Economy.Buildings
         [field: SerializeField] public string Id { get; private set; }
         [field: SerializeField] public BuildingType Type { get; private set; }
         [field: SerializeField] public LocalizedString Name { get; private set; } = new();
+        [field: SerializeField] public LocalizedString Description { get; private set; } = new();
         [field: SerializeField] public ScreenId InteractionScreen { get; private set; } = ScreenId.None;
 
         protected override LocalizedString TooltipName => Name;
-        protected override LocalizedString TooltipDescription => default;
+        protected override LocalizedString TooltipDescription => Description;
         protected override string TooltipId => Id;
         protected override string TooltipContext => "BuildingData";
         protected override string FallbackDescription => Type.ToString();
@@ -25,11 +26,13 @@ namespace Internal.Scripts.Economy.Buildings
             string id,
             BuildingType type,
             LocalizedString name,
+            LocalizedString description,
             ScreenId interactionScreen)
         {
             Id = id;
             Type = type;
             Name = name;
+            Description = description ?? new LocalizedString();
             InteractionScreen = interactionScreen;
         }
 #endif

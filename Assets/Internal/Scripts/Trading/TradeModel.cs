@@ -315,28 +315,30 @@ namespace Internal.Scripts.Trading
             int playerHash = _rowsBuilder.ComputeRemainingHash(_session.PlayerBase, _session.ToSell);
             if (playerHash != _playerItemsHash)
             {
-                _playerItems = _rowsBuilder.BuildRemainingRows(_session.PlayerBase, _session.ToSell, _pricing.GetSellPrice);
+                _playerItems = _rowsBuilder.BuildRemainingRows(_session.PlayerBase, _session.ToSell,
+                    _pricing.GetSellPrice, _pricing.GetSellBreakdown);
                 _playerItemsHash = playerHash;
             }
 
             int npcHash = _rowsBuilder.ComputeRemainingHash(_session.NpcBase, _session.ToBuy);
             if (npcHash != _npcItemsHash)
             {
-                _npcItems = _rowsBuilder.BuildRemainingRows(_session.NpcBase, _session.ToBuy, _pricing.GetBuyPrice);
+                _npcItems = _rowsBuilder.BuildRemainingRows(_session.NpcBase, _session.ToBuy,
+                    _pricing.GetBuyPrice, _pricing.GetBuyBreakdown);
                 _npcItemsHash = npcHash;
             }
 
             int buyHash = _rowsBuilder.ComputeCountsHash(_session.ToBuy);
             if (buyHash != _buyItemsHash)
             {
-                _buyItems = _rowsBuilder.BuildRows(_session.ToBuy, _pricing.GetBuyPrice);
+                _buyItems = _rowsBuilder.BuildRows(_session.ToBuy, _pricing.GetBuyPrice, _pricing.GetBuyBreakdown);
                 _buyItemsHash = buyHash;
             }
 
             int sellHash = _rowsBuilder.ComputeCountsHash(_session.ToSell);
             if (sellHash != _sellItemsHash)
             {
-                _sellItems = _rowsBuilder.BuildRows(_session.ToSell, _pricing.GetSellPrice);
+                _sellItems = _rowsBuilder.BuildRows(_session.ToSell, _pricing.GetSellPrice, _pricing.GetSellBreakdown);
                 _sellItemsHash = sellHash;
             }
         }

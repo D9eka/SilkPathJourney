@@ -1,3 +1,4 @@
+using System;
 using Internal.Scripts.Camera;
 using Internal.Scripts.Economy.Generated;
 using Internal.Scripts.UI.Localization;
@@ -20,6 +21,8 @@ namespace Internal.Scripts.Economy.Cities
         [field: SerializeField] public Biome Biome { get; private set; }
         [field: SerializeField] public LocalizedString Name { get; private set; } = new();
         [field: SerializeField] public LocalizedString Description { get; private set; } = new();
+
+        [field: SerializeField] public BuildingId[] Buildings { get; private set; } = Array.Empty<BuildingId>();
 
         [Header("Detail Scene")]
         [Tooltip("Detail scene for this city (optional)")]
@@ -49,7 +52,8 @@ namespace Internal.Scripts.Economy.Cities
             float marketScale,
             bool hasPort,
             LocalizedString name,
-            LocalizedString description = null)
+            LocalizedString description = null,
+            BuildingId[] buildings = null)
         {
             Id = id;
             NodeId = nodeId;
@@ -60,6 +64,7 @@ namespace Internal.Scripts.Economy.Cities
             HasPort = hasPort;
             Name = name;
             Description = description ?? new LocalizedString();
+            Buildings = buildings ?? Array.Empty<BuildingId>();
         }
 
         public void SetBiome(Biome biome)
