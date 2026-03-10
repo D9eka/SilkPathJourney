@@ -5,6 +5,7 @@ using Internal.Scripts.Trading;
 using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Screens.Core.Config;
 using Internal.Scripts.UI.Screens.Core.ViewModel;
+using Internal.Scripts.UI.Tooltip;
 using R3;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -16,6 +17,7 @@ namespace Internal.Scripts.UI.Screens.Trade
         private readonly TradeModel _model;
         private readonly InputRouter _inputManager;
         private readonly ResourceIconCatalog _resourceIcons;
+        private readonly TooltipService _tooltipService;
         private float _ignoreSubmitUntil;
 
         public event Action<Vector2> Navigate;
@@ -24,17 +26,20 @@ namespace Internal.Scripts.UI.Screens.Trade
         public event Action NextArea;
         public event Action PrevArea;
 
-        public TradeScreenViewModel(TradeModel model, InputRouter inputManager, ResourceIconCatalog resourceIcons)
+        public TradeScreenViewModel(TradeModel model, InputRouter inputManager,
+            ResourceIconCatalog resourceIcons, TooltipService tooltipService)
         {
             _model = model;
             _inputManager = inputManager;
             _resourceIcons = resourceIcons;
+            _tooltipService = tooltipService;
         }
 
         public override ScreenId Id => ScreenId.Trade;
 
         public Observable<TradeViewState> State => _model.State;
         public ResourceIconCatalog ResourceIcons => _resourceIcons;
+        public TooltipService TooltipService => _tooltipService;
 
         protected override void OnOpen(object args)
         {

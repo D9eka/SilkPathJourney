@@ -5,6 +5,7 @@ using Internal.Scripts.Economy.Cities;
 using Internal.Scripts.Economy.Save;
 using Internal.Scripts.Events;
 using Internal.Scripts.Player;
+using Internal.Scripts.UI.Screens.Event;
 using Internal.Scripts.Player.NextSegment;
 using Internal.Scripts.UI.Arrow.Controller;
 using Internal.Scripts.UI.Components;
@@ -31,6 +32,7 @@ namespace Internal.Scripts.UI.Screens.Hud
         private readonly DayTracker _dayTracker;
         private readonly GameBalanceConfig _balanceConfig;
         private readonly ResourceIconCatalog _iconCatalog;
+        private readonly EventOutcomeFormatter _outcomeFormatter;
 
         public event Action<bool> InteractableChanged;
         public event Action<bool> VisibilityChanged;
@@ -48,7 +50,8 @@ namespace Internal.Scripts.UI.Screens.Hud
             PlayerResourceRepository resourceRepository,
             DayTracker dayTracker,
             GameBalanceConfig balanceConfig,
-            ResourceIconCatalog iconCatalog)
+            ResourceIconCatalog iconCatalog,
+            EventOutcomeFormatter outcomeFormatter)
         {
             _model = model;
             _screenStackService = screenStackService;
@@ -62,6 +65,7 @@ namespace Internal.Scripts.UI.Screens.Hud
             _dayTracker = dayTracker;
             _balanceConfig = balanceConfig;
             _iconCatalog = iconCatalog;
+            _outcomeFormatter = outcomeFormatter;
         }
 
         public void RegisterToastView(IEventToastView view)
@@ -77,6 +81,7 @@ namespace Internal.Scripts.UI.Screens.Hud
         public Observable<TimeSpeed> TimeSpeedState => _model.TimeSpeedState;
         public int CurrentDay => _dayTracker.CurrentDay;
         public ResourceIconCatalog ResourceIcons => _iconCatalog;
+        public EventOutcomeFormatter OutcomeFormatter => _outcomeFormatter;
 
         protected override void OnOpen(object args)
         {
@@ -180,7 +185,7 @@ namespace Internal.Scripts.UI.Screens.Hud
             }
             else
             {
-                _screenStackService.TryOpen(ScreenId.Trade, city.Id, out _);
+                _screenStackService.TryOpen(ScreenId.EnterCity, city.Id, out _);
             }
         }
 

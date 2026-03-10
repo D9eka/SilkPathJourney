@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Internal.Scripts.Items;
 using Internal.Scripts.UI.Localization;
+using Internal.Scripts.UI.Tooltip;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Localization;
@@ -38,6 +39,7 @@ namespace Internal.Scripts.UI.Screens.Inventory
         private int _selectedIndex = -1;
         private Vector2 _lastNavigateValue = Vector2.zero;
         private UnityAction _actionHandler;
+        private TooltipService _tooltipService;
         
         private LocalizationService _localization;
         private LocalizationService.LocalizedTextHandle _nameHeaderHandle;
@@ -47,6 +49,11 @@ namespace Internal.Scripts.UI.Screens.Inventory
 
         public event Action<ItemRowData> ItemSelected;
         public event Action<ItemRowData, bool> ItemActivated;
+
+        public void SetTooltipService(TooltipService service)
+        {
+            _tooltipService = service;
+        }
 
         public void SetLocalization(LocalizationService service)
         {
@@ -104,13 +111,17 @@ namespace Internal.Scripts.UI.Screens.Inventory
                 ItemView view = _spawnedItems[i];
                 view.gameObject.SetActive(true);
                 view.Bind(this, i);
+                view.SetTooltipService(_tooltipService);
                 view.SetWeightState(showWeight);
                 view.SetPriceState(showPrice);
-                view.SetData(data.Name, data.Weight, data.Price);
+                view.SetData(data.Name, data.Weight, data.Price, data.PriceTooltipTitle, data.PriceTooltipText);
             }
 
             for (int i = count; i < _spawnedItems.Count; i++)
+            {
+                _spawnedItems[i].SetData(string.Empty, string.Empty, string.Empty);
                 _spawnedItems[i].gameObject.SetActive(false);
+            }
 
             if (_selectedIndex >= count)
                 _selectedIndex = count - 1;

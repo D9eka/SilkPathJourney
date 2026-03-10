@@ -9,6 +9,8 @@ using Internal.Scripts.UI.Screens.Pause;
 using Internal.Scripts.UI.Screens.Save;
 using Internal.Scripts.UI.Screens.TargetSelection;
 using Internal.Scripts.UI.Screens.Trade;
+using Internal.Scripts.UI.Screens.EnterCity;
+using Internal.Scripts.UI.Screens.LanguageSchool;
 using Internal.Scripts.UI.Screens.Trader;
 using Plugins.Zenject.Source.Main;
 
@@ -37,6 +39,8 @@ namespace Internal.Scripts.UI.Factory
                 ScreenId.SaveGame => CreateSaveGame(view),
                 ScreenId.LoadGame => CreateLoadGame(view),
                 ScreenId.Trader => CreateTrader(view),
+                ScreenId.LanguageSchool => CreateLanguageSchool(view),
+                ScreenId.EnterCity => CreateEnterCity(view),
                 _ => null
             };
         }
@@ -119,6 +123,22 @@ namespace Internal.Scripts.UI.Factory
                 return null;
 
             return _container.Instantiate<TraderScreenViewModel>();
+        }
+
+        private ScreenViewModelBase CreateLanguageSchool(IScreenView view)
+        {
+            if (view is not LanguageSchoolScreen)
+                return null;
+
+            return _container.Instantiate<LanguageSchoolScreenViewModel>();
+        }
+
+        private ScreenViewModelBase CreateEnterCity(IScreenView view)
+        {
+            if (view is not EnterCityScreen)
+                return null;
+
+            return _container.Instantiate<EnterCityScreenViewModel>();
         }
     }
 }
