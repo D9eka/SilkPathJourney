@@ -15,5 +15,8 @@
         HasCompanion = 10,
         MinSkill = 11,
         NearNode = 12,
+        MinLanguageProficiency = 13,
+        InCamp = 14,
+        MinCompanions = 15,
     }
 }

@@ -16,7 +16,8 @@ namespace Internal.Scripts.Events.Conditions
             CartEvaluator cart,
             LocationEvaluator location,
             CompanionEvaluator companion,
-            MinSkillEvaluator skill)
+            MinSkillEvaluator skill,
+            MinLanguageProficiencyEvaluator language)
         {
             Register(resource);
             Register(inventory);
@@ -24,6 +25,7 @@ namespace Internal.Scripts.Events.Conditions
             Register(location);
             Register(companion);
             Register(skill);
+            Register(language);
         }
 
         public bool Evaluate(EventCondition condition, PlayerResourceState resources)

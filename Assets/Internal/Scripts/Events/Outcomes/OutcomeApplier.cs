@@ -16,7 +16,9 @@ namespace Internal.Scripts.Events.Outcomes
             CartDurabilityApplier cartDurability,
             CompanionApplier companion,
             SkillXpApplier skill,
-            RoadUnlockApplier roadUnlock)
+            RoadUnlockApplier roadUnlock,
+            LanguageProficiencyApplier language,
+            SkipDaysApplier skipDays)
         {
             Register(resource);
             Register(item);
@@ -24,6 +26,8 @@ namespace Internal.Scripts.Events.Outcomes
             Register(companion);
             Register(skill);
             Register(roadUnlock);
+            Register(language);
+            Register(skipDays);
         }
 
         public ResourceType? GetAffectedResource(EventOutcomeType type)

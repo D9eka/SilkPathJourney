@@ -9,6 +9,7 @@ using Internal.Scripts.Events.Data;
 using Internal.Scripts.Events.Generated;
 using Internal.Scripts.Inventory;
 using Internal.Scripts.Items;
+using Internal.Scripts.Player.Languages;
 using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Localization.Args;
 using Internal.Scripts.UI.Screens.Event.ConditionLines;
@@ -16,6 +17,7 @@ using Internal.Scripts.UI.Screens.Core.Config;
 using Internal.Scripts.UI.Screens.Core.ViewModel;
 using Internal.Scripts.UI.StackService;
 using Internal.Scripts.UI.Theme;
+using Internal.Scripts.UI.Tooltip;
 using R3;
 using UnityEngine;
 using UnityEngine.Localization;
@@ -62,6 +64,8 @@ namespace Internal.Scripts.UI.Screens.Event
         private readonly SkillCheckService _skillCheckService;
         private readonly EventSelector _eventSelector;
         private readonly EventOutcomeFormatter _formatter;
+        private readonly PlayerLanguageRepository _languageRepo;
+        private readonly TooltipService _tooltipService;
         private List<EventOutcomeEntry> _lastAppliedOutcomes;
         private readonly ReactiveProperty<EventData> _state = new(null);
         private readonly ReactiveProperty<CityData> _city = new(null);
@@ -83,7 +87,9 @@ namespace Internal.Scripts.UI.Screens.Event
             ConditionLineBuilder conditionLineBuilder,
             SkillCheckService skillCheckService,
             EventSelector eventSelector,
-            EventOutcomeFormatter formatter)
+            EventOutcomeFormatter formatter,
+            PlayerLanguageRepository languageRepo,
+            TooltipService tooltipService)
         {
             _eventTrigger = eventTrigger;
             _screenStackService = screenStackService;
@@ -95,6 +101,8 @@ namespace Internal.Scripts.UI.Screens.Event
             _skillCheckService = skillCheckService;
             _eventSelector = eventSelector;
             _formatter = formatter;
+            _languageRepo = languageRepo;
+            _tooltipService = tooltipService;
         }
 
         public override ScreenId Id => ScreenId.Event;
@@ -106,6 +114,8 @@ namespace Internal.Scripts.UI.Screens.Event
         public object[] FormatArgs => _formatArgs;
         public UiThemeService ThemeService => _themeService;
         public ResourceIconCatalog ResourceIcons => _resourceIcons;
+        public PlayerLanguageRepository LanguageRepo => _languageRepo;
+        public TooltipService TooltipService => _tooltipService;
         public PlayerResourceState PlayerResources => _resourceRepository.Current;
 
         protected override void OnOpen(object args)

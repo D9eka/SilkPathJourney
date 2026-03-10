@@ -19,6 +19,7 @@ namespace Internal.Scripts.Events
         private float _accumulatedTime;
 
         public int CurrentDay => _saveRepository.Data.Player.CurrentDay;
+        public bool IsSkipping { get; private set; }
 
         public DayTracker(SaveRepository saveRepository, GameBalanceConfig balanceConfig,
             GameClock gameClock, IWorldSimulationState worldState)
@@ -27,6 +28,18 @@ namespace Internal.Scripts.Events
             _balanceConfig = balanceConfig;
             _gameClock = gameClock;
             _worldState = worldState;
+        }
+
+        public void AdvanceDays(int count)
+        {
+            IsSkipping = true;
+            for (int i = 0; i < count; i++)
+            {
+                _saveRepository.Data.Player.CurrentDay++;
+                OnDayChanged?.Invoke(CurrentDay);
+            }
+            IsSkipping = false;
+            _saveRepository.Save();
         }
 
         public void FixedTick()

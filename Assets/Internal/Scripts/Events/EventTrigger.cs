@@ -69,6 +69,7 @@ namespace Internal.Scripts.Events
 
         private void HandleDayChanged(int currentDay)
         {
+            if (_dayTracker.IsSkipping) return;
             if (_screenStackService.IsOpen(ScreenId.Event))
                 return;
 
