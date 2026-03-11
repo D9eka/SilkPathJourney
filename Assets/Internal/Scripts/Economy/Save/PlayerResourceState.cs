@@ -15,6 +15,7 @@ namespace Internal.Scripts.Economy.Save
         public List<CartState> Carts = new();
 
         public float TotalCapacity => PlayerCart.Capacity + (Carts?.Sum(c => c.Capacity) ?? 0f);
+        public float TotalFoodPerDay => PlayerCart.FoodConsumptionPerDay + (Carts?.Sum(c => c.FoodConsumptionPerDay) ?? 0f);
 
         public float GetValue(ResourceType type) => type switch
         {

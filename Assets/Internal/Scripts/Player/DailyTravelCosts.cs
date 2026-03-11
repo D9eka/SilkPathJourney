@@ -82,11 +82,7 @@ namespace Internal.Scripts.Player
 
         private int AccumulateFoodConsumption(PlayerResourceState state, SpeedModeData data, float overloadMod)
         {
-            float baseFoodPerDay = state.PlayerCart.FoodConsumptionPerDay;
-            foreach (CartState cart in state.Carts)
-                baseFoodPerDay += cart.FoodConsumptionPerDay;
-
-            state.Food += baseFoodPerDay * data.FoodMultiplier * overloadMod;
+            state.Food += state.TotalFoodPerDay * data.FoodMultiplier * overloadMod;
 
             int toConsume = (int)state.Food;
             state.Food -= toConsume;

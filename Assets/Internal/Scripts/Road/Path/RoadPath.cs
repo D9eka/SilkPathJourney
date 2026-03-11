@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Internal.Scripts.Road.Path
 {
@@ -9,6 +10,9 @@ namespace Internal.Scripts.Road.Path
         public IReadOnlyList<RoadPathSegment> Segments { get; }
         public float TotalLengthMeters { get; }
         public bool IsValid => Segments.Count > 0;
+
+        public int EstimateDays(float speedMetersPerDay) =>
+            speedMetersPerDay > 0f ? Mathf.CeilToInt(TotalLengthMeters / speedMetersPerDay) : -1;
 
         public RoadPath(IReadOnlyList<RoadPathSegment> segments, float totalLengthMeters)
         {

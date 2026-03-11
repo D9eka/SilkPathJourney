@@ -97,6 +97,13 @@ namespace Internal.Scripts.UI.Screens.Trader
             return type.ToString();
         }
 
+        public static string GetProficiencyName(LanguageProficiency proficiency)
+        {
+            string key = $"UI.Language.Proficiency.{proficiency}";
+            return LocalizationService.ResolveString(
+                new LocalizedString("UI", key), proficiency.ToString(), "ProficiencyName");
+        }
+
         public bool TryGetProfileHeader(string id, out LocalizedString header)
         {
             foreach (ProfileLocEntry entry in _profileItems)
