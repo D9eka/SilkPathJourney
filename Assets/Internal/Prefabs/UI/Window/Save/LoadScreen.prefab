@@ -115,9 +115,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f24b5e7034886c4b9a1b6daf7a6f4c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Screens.Save.LoadGameScreen
+  _animationRoots:
+  - {fileID: 4643841966326521958}
+  _canvasGroup: {fileID: 4119398312345108114}
   _mainHeader: {fileID: 6012678948648418237}
   _closeButton: {fileID: 305365225229028605}
-  _overlayScreen: {fileID: 1818149326061168971}
   _mainHeaderLocalizedString:
     m_TableReference:
       m_TableCollectionName: GUID:43598c3e97d7d9a439a074f7627fe021
@@ -237,11 +239,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6826666647458472783, guid: fb42f8020839445458a52910d54bf2dd, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6826666647458472783, guid: fb42f8020839445458a52910d54bf2dd, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6826666647458472783, guid: fb42f8020839445458a52910d54bf2dd, type: 3}
       propertyPath: m_AnchorMin.y
@@ -521,7 +523,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 920153621790064630, guid: b2552674d8eb96847bc68f513878fc1a, type: 3}
       propertyPath: m_Name
-      value: Overlay
+      value: PopupScreen
       objectReference: {fileID: 0}
     - target: {fileID: 2268240748140936967, guid: b2552674d8eb96847bc68f513878fc1a, type: 3}
       propertyPath: m_SizeDelta.x
@@ -693,7 +695,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8776477108901258530, guid: b2552674d8eb96847bc68f513878fc1a, type: 3}
       propertyPath: m_Name
-      value: LoadScreen
+      value: Screen
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -715,17 +717,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6742786195633694490, guid: b2552674d8eb96847bc68f513878fc1a, type: 3}
   m_PrefabInstance: {fileID: 6847817084121915233}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1818149326061168971 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5058396111674144298, guid: b2552674d8eb96847bc68f513878fc1a, type: 3}
+--- !u!225 &4119398312345108114 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 7359831407693947379, guid: b2552674d8eb96847bc68f513878fc1a, type: 3}
   m_PrefabInstance: {fileID: 6847817084121915233}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95645af8e60142078d8b7ccca1779cac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Screens.OverlayScreen
 --- !u!224 &4643841966326521958 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2268240748140936967, guid: b2552674d8eb96847bc68f513878fc1a, type: 3}

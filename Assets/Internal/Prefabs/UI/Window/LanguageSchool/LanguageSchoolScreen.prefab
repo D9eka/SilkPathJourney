@@ -267,9 +267,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f446c887642957b4f9534f82deba4c96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Screens.LanguageSchool.LanguageSchoolScreen
+  _animationRoots:
+  - {fileID: 6657001265847437034}
+  _canvasGroup: {fileID: 2682839411576821790}
   _mainHeader: {fileID: 5719858972571229489}
   _closeButton: {fileID: 8447142341575828509}
-  _overlayScreen: {fileID: 372404478196174791}
   _mainHeaderLocalizedString:
     m_TableReference:
       m_TableCollectionName: GUID:43598c3e97d7d9a439a074f7627fe021
@@ -525,7 +527,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 920153621790064630, guid: b2552674d8eb96847bc68f513878fc1a, type: 3}
       propertyPath: m_Name
-      value: Overlay
+      value: PopupScreen
       objectReference: {fileID: 0}
     - target: {fileID: 2268240748140936967, guid: b2552674d8eb96847bc68f513878fc1a, type: 3}
       propertyPath: m_SizeDelta.x
@@ -685,7 +687,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8776477108901258530, guid: b2552674d8eb96847bc68f513878fc1a, type: 3}
       propertyPath: m_Name
-      value: LanguageSchoolScreen
+      value: Screen
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -707,20 +709,14 @@ PrefabInstance:
       addedObject: {fileID: 1100524751579920534}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2552674d8eb96847bc68f513878fc1a, type: 3}
---- !u!114 &372404478196174791 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5058396111674144298, guid: b2552674d8eb96847bc68f513878fc1a, type: 3}
-  m_PrefabInstance: {fileID: 4834618120518253037}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95645af8e60142078d8b7ccca1779cac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Screens.OverlayScreen
 --- !u!224 &2200909747476979447 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6742786195633694490, guid: b2552674d8eb96847bc68f513878fc1a, type: 3}
+  m_PrefabInstance: {fileID: 4834618120518253037}
+  m_PrefabAsset: {fileID: 0}
+--- !u!225 &2682839411576821790 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 7359831407693947379, guid: b2552674d8eb96847bc68f513878fc1a, type: 3}
   m_PrefabInstance: {fileID: 4834618120518253037}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &5719858972571229489 stripped
@@ -734,6 +730,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d919d659504ae6c44b2d0089f557e493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Components.HeaderElement
+--- !u!224 &6657001265847437034 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2268240748140936967, guid: b2552674d8eb96847bc68f513878fc1a, type: 3}
+  m_PrefabInstance: {fileID: 4834618120518253037}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &8112455125250316087 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3714688372514467546, guid: b2552674d8eb96847bc68f513878fc1a, type: 3}

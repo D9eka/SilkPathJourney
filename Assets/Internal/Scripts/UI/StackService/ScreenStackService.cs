@@ -83,6 +83,7 @@ namespace Internal.Scripts.UI.StackService
             instance.ViewModel.Open(args);
             instance.ViewModel.OnFocusGained();
 
+            UpdateSortingOrders();
             UpdateOverlays();
             _cameraMover?.ResetMovement();
 
@@ -179,8 +180,6 @@ namespace Internal.Scripts.UI.StackService
                 return null;
             }
 
-            ApplySortingOrder(instanceGo, config.SortOrder);
-
             ScreenViewModelBase viewModel = _viewModelFactory?.Create(id, view);
             if (viewModel == null)
             {
@@ -217,6 +216,7 @@ namespace Internal.Scripts.UI.StackService
                     _stack[^1].View?.Show();
             }
 
+            UpdateSortingOrders();
             UpdateOverlays();
             OnScreenClosed?.Invoke(closedId);
         }
@@ -248,29 +248,28 @@ namespace Internal.Scripts.UI.StackService
             return false;
         }
 
+        private void UpdateSortingOrders()
+        {
+            for (int i = 0; i < _stack.Count; i++)
+                ApplySortingOrder(_stack[i].Root, i * 2);
+        }
+
         private void UpdateOverlays()
         {
             if (_roots == null)
                 return;
 
-            bool worldBlocked = false;
-            bool uiBlocked = false;
-
-            foreach (ScreenInstance instance in _stack)
+            if (_stack.Count > 0)
             {
-                ScreenConfig config = instance.Config;
-                if (config == null)
-                    continue;
-
-                if (config.BlocksWorldInput)
-                    worldBlocked = true;
-
-                if (instance == _stack[^1] && config.BlocksUIUnderneath)
-                    uiBlocked = true;
+                ScreenInstance top = _stack[^1];
+                bool showDim = top.Config != null && top.Config.ShowsDimOverlay;
+                int overlayOrder = (_stack.Count - 1) * 2 - 1;
+                _roots.SetDimOverlayVisible(showDim, overlayOrder);
             }
-
-            _roots.SetWorldBlockerVisible(worldBlocked);
-            _roots.SetUiBlockerVisible(uiBlocked);
+            else
+            {
+                _roots.SetDimOverlayVisible(false);
+            }
         }
 
         private static void ApplySortingOrder(GameObject root, int sortOrder)
@@ -285,7 +284,6 @@ namespace Internal.Scripts.UI.StackService
                 if (parent != null && parent.GetComponentInParent<Canvas>() != null)
                     continue;
 
-                canvas.overrideSorting = true;
                 canvas.sortingOrder = sortOrder;
             }
         }

@@ -115,9 +115,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0811ea856f4b4c94d9370998873efb62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Screens.Save.SaveGameScreen
+  _animationRoots:
+  - {fileID: 1731109457304510510}
+  _canvasGroup: {fileID: 7016350640081845978}
   _mainHeader: {fileID: 794125496881101813}
   _closeButton: {fileID: 9018819631220478762}
-  _overlayScreen: {fileID: 4706053145748842755}
   _mainHeaderLocalizedString:
     m_TableReference:
       m_TableCollectionName: GUID:43598c3e97d7d9a439a074f7627fe021
@@ -154,7 +156,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 920153621790064630, guid: b2552674d8eb96847bc68f513878fc1a, type: 3}
       propertyPath: m_Name
-      value: Overlay
+      value: PopupScreen
       objectReference: {fileID: 0}
     - target: {fileID: 2268240748140936967, guid: b2552674d8eb96847bc68f513878fc1a, type: 3}
       propertyPath: m_SizeDelta.x
@@ -326,7 +328,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8776477108901258530, guid: b2552674d8eb96847bc68f513878fc1a, type: 3}
       propertyPath: m_Name
-      value: SaveScreen
+      value: Screen
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -369,20 +371,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3714688372514467546, guid: b2552674d8eb96847bc68f513878fc1a, type: 3}
   m_PrefabInstance: {fileID: 539387489970151209}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4706053145748842755 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5058396111674144298, guid: b2552674d8eb96847bc68f513878fc1a, type: 3}
-  m_PrefabInstance: {fileID: 539387489970151209}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95645af8e60142078d8b7ccca1779cac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Screens.OverlayScreen
 --- !u!224 &6552590404667226163 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6742786195633694490, guid: b2552674d8eb96847bc68f513878fc1a, type: 3}
+  m_PrefabInstance: {fileID: 539387489970151209}
+  m_PrefabAsset: {fileID: 0}
+--- !u!225 &7016350640081845978 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 7359831407693947379, guid: b2552674d8eb96847bc68f513878fc1a, type: 3}
   m_PrefabInstance: {fileID: 539387489970151209}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3118235139519888341
@@ -592,11 +588,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6826666647458472783, guid: fb42f8020839445458a52910d54bf2dd, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6826666647458472783, guid: fb42f8020839445458a52910d54bf2dd, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6826666647458472783, guid: fb42f8020839445458a52910d54bf2dd, type: 3}
       propertyPath: m_AnchorMin.y

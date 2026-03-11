@@ -245,9 +245,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 705bf1f608e74dcea904c1cd515befd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Screens.Trade.TradeScreen
+  _animationRoots:
+  - {fileID: 941164078703459383}
+  _canvasGroup: {fileID: 8383055864472789699}
   _mainHeader: {fileID: 2165318489011906540}
   _closeButton: {fileID: 2618706757414444736}
-  _overlayScreen: {fileID: 6072768995201021210}
   _mainHeaderLocalizedString:
     m_TableReference:
       m_TableCollectionName: GUID:43598c3e97d7d9a439a074f7627fe021
@@ -670,7 +672,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7431381843878480746, guid: 5797feaa37f004347bd3bae657f70f56, type: 3}
       propertyPath: m_Size
-      value: 0.754717
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7431381843878480746, guid: 5797feaa37f004347bd3bae657f70f56, type: 3}
       propertyPath: m_Value
@@ -739,7 +741,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 920153621790064630, guid: b2552674d8eb96847bc68f513878fc1a, type: 3}
       propertyPath: m_Name
-      value: Overlay
+      value: PopupScreen
       objectReference: {fileID: 0}
     - target: {fileID: 1865986617691072775, guid: b2552674d8eb96847bc68f513878fc1a, type: 3}
       propertyPath: m_AnchorMax.y
@@ -943,7 +945,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8776477108901258530, guid: b2552674d8eb96847bc68f513878fc1a, type: 3}
       propertyPath: m_Name
-      value: TradeScreen
+      value: Screen
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -956,6 +958,11 @@ PrefabInstance:
       addedObject: {fileID: 4882773839401992350}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2552674d8eb96847bc68f513878fc1a, type: 3}
+--- !u!224 &941164078703459383 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2268240748140936967, guid: b2552674d8eb96847bc68f513878fc1a, type: 3}
+  m_PrefabInstance: {fileID: 1330188408692900656}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2165318489011906540 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 898757292442805468, guid: b2552674d8eb96847bc68f513878fc1a, type: 3}
@@ -993,17 +1000,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6742786195633694490, guid: b2552674d8eb96847bc68f513878fc1a, type: 3}
   m_PrefabInstance: {fileID: 1330188408692900656}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6072768995201021210 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5058396111674144298, guid: b2552674d8eb96847bc68f513878fc1a, type: 3}
+--- !u!225 &8383055864472789699 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 7359831407693947379, guid: b2552674d8eb96847bc68f513878fc1a, type: 3}
   m_PrefabInstance: {fileID: 1330188408692900656}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95645af8e60142078d8b7ccca1779cac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Screens.OverlayScreen
 --- !u!1001 &4171805473715993781
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1611,7 +1612,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7431381843878480746, guid: 5797feaa37f004347bd3bae657f70f56, type: 3}
       propertyPath: m_Size
-      value: 0.754717
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7431381843878480746, guid: 5797feaa37f004347bd3bae657f70f56, type: 3}
       propertyPath: m_Value
@@ -2048,7 +2049,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7431381843878480746, guid: 5797feaa37f004347bd3bae657f70f56, type: 3}
       propertyPath: m_Size
-      value: 0.2777778
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7431381843878480746, guid: 5797feaa37f004347bd3bae657f70f56, type: 3}
       propertyPath: m_Value
@@ -2513,7 +2514,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7431381843878480746, guid: 5797feaa37f004347bd3bae657f70f56, type: 3}
       propertyPath: m_Size
-      value: 0.2777778
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7431381843878480746, guid: 5797feaa37f004347bd3bae657f70f56, type: 3}
       propertyPath: m_Value
