@@ -14,3 +14,8 @@ near_node,NearNode
 min_language_proficiency,MinLanguageProficiency
 in_camp,InCamp
 min_companions,MinCompanions
+in_city,InCity
+city_modifier,CityModifier
+min_reputation,MinReputation
+max_reputation,MaxReputation
+max_morale,MaxMorale

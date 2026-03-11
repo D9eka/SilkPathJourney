@@ -18,5 +18,10 @@
         MinLanguageProficiency = 13,
         InCamp = 14,
         MinCompanions = 15,
+        InCity = 16,
+        CityModifier = 17,
+        MinReputation = 18,
+        MaxReputation = 19,
+        MaxMorale = 20,
     }
 }

@@ -5,18 +5,18 @@ using Internal.Scripts.Events.Generated;
 
 namespace Internal.Scripts.Events.Conditions
 {
-    public class CompanionEvaluator : IConditionEvaluator
+    public class MoraleConditionEvaluator : IConditionEvaluator
     {
         private static readonly EventConditionType[] Types =
         {
-            EventConditionType.HasCompanion
+            EventConditionType.MaxMorale
         };
 
         public IEnumerable<EventConditionType> SupportedTypes => Types;
 
         public bool Evaluate(EventCondition condition, PlayerResourceState resources)
         {
-            return false;
+            return true;
         }
     }
 }

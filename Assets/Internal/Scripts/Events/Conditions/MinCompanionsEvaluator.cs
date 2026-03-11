@@ -5,11 +5,11 @@ using Internal.Scripts.Events.Generated;
 
 namespace Internal.Scripts.Events.Conditions
 {
-    public class CompanionEvaluator : IConditionEvaluator
+    public class MinCompanionsEvaluator : IConditionEvaluator
     {
         private static readonly EventConditionType[] Types =
         {
-            EventConditionType.HasCompanion
+            EventConditionType.MinCompanions
         };
 
         public IEnumerable<EventConditionType> SupportedTypes => Types;

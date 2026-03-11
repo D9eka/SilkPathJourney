@@ -3,6 +3,7 @@ using System.Linq;
 using Internal.Scripts.Economy;
 using Internal.Scripts.Events.Conditions;
 using Internal.Scripts.Events.Data;
+using Internal.Scripts.Events.Outcomes;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -13,15 +14,18 @@ namespace Internal.Scripts.Events
         private readonly EventDatabase _eventDatabase;
         private readonly ConditionEvaluator _conditionEvaluator;
         private readonly PlayerResourceRepository _resourceRepository;
+        private readonly OutcomeApplier _outcomeApplier;
 
         public EventSelector(
             EventDatabase eventDatabase,
             ConditionEvaluator conditionEvaluator,
-            PlayerResourceRepository resourceRepository)
+            PlayerResourceRepository resourceRepository,
+            OutcomeApplier outcomeApplier)
         {
             _eventDatabase = eventDatabase;
             _conditionEvaluator = conditionEvaluator;
             _resourceRepository = resourceRepository;
+            _outcomeApplier = outcomeApplier;
         }
 
         public EventData SelectEvent(bool minor)
@@ -65,11 +69,12 @@ namespace Internal.Scripts.Events
         public bool HasAvailableChoices(EventData eventData)
         {
             if (eventData.Choices == null || eventData.Choices.Count == 0)
-                return true;
+                return false;
 
             return eventData.Choices.Any(c =>
-                c.Conditions == null || c.Conditions.Count == 0 ||
-                CheckConditions(c.Conditions));
+                (c.Conditions == null || c.Conditions.Count == 0 ||
+                 CheckConditions(c.Conditions))
+                && _outcomeApplier.CanAffordAll(c.Outcomes));
         }
 
         public bool CheckConditions(List<EventCondition> conditions)
