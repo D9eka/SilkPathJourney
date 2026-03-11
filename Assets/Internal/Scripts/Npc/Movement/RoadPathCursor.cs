@@ -36,6 +36,8 @@ namespace Internal.Scripts.Npc.Movement
         public bool IsEmpty => !_hasPath;
         public bool HasArrived => _arrived;
         public RoadPose CurrentPose => _segmentMover.CurrentPose;
+        public string CurrentFromNodeId => _segmentMover.CurrentFromNodeId;
+        public string CurrentToNodeId => _segmentMover.CurrentToNodeId;
 
         public void Initialize(string currentNodeId)
         {

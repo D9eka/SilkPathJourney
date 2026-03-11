@@ -1,8 +1,10 @@
 using System;
 using System.Threading;
 using Cysharp.Threading.Tasks;
+using Internal.Scripts.Economy.Cities;
 using Internal.Scripts.Economy.Cities.UI;
 using Internal.Scripts.InteractableObjects;
+using UnityEngine;
 
 namespace Internal.Scripts.Player.StartMovement
 {
@@ -10,6 +12,7 @@ namespace Internal.Scripts.Player.StartMovement
     {
         public event Action<string> OnChooseNode;
         public event Action<bool> OnSelectionStateChanged;
+        public event Action<CityData, Vector3> OnCityPreview;
 
         private readonly CityViewSpawner _cityViewSpawner;
 
@@ -17,6 +20,7 @@ namespace Internal.Scripts.Player.StartMovement
         private UniTaskCompletionSource<string> _tcs;
         private CancellationTokenSource _cancellationTokenSource;
         private bool _isChoosingTarget;
+        private CityView _pendingCity;
 
         public bool IsChoosingTarget => _isChoosingTarget;
 
@@ -33,14 +37,6 @@ namespace Internal.Scripts.Player.StartMovement
         public void SetCurrentPlayerNode(string node)
         {
             _currentPlayerNode = node;
-
-            foreach (CityView view in _cityViewSpawner.Views)
-            {
-                if (view.City != null && view.City.NodeId == _currentPlayerNode)
-                    view.Disable();
-                else
-                    view.Enable();
-            }
         }
 
         public void BeginSelection()
@@ -72,6 +68,7 @@ namespace Internal.Scripts.Player.StartMovement
             finally
             {
                 UnsubscribeToNodes();
+                _pendingCity = null;
                 _tcs = null;
                 _cancellationTokenSource?.Dispose();
                 _cancellationTokenSource = null;
@@ -82,6 +79,19 @@ namespace Internal.Scripts.Player.StartMovement
         public void CancelSelection()
         {
             _tcs?.TrySetCanceled();
+        }
+
+        public void ConfirmSelection()
+        {
+            if (_pendingCity == null || _pendingCity.City == null) return;
+            string nodeId = _pendingCity.City.NodeId;
+            _pendingCity = null;
+            _tcs?.TrySetResult(nodeId);
+        }
+
+        public void CancelPreview()
+        {
+            _pendingCity = null;
         }
 
         private void SubscribeToNodes()
@@ -106,9 +116,11 @@ namespace Internal.Scripts.Player.StartMovement
         private void OnChooseNodeCollider(IInteractableObject interactableObject)
         {
             if (interactableObject is not CityView view) return;
-            if (view.City == null) return;
+            if (view.City == null || _pendingCity != null)
+                return;
 
-            _tcs.TrySetResult(view.City.NodeId);
+            _pendingCity = view;
+            OnCityPreview?.Invoke(view.City, view.transform.position);
         }
 
         private void SetSelectionState(bool state)

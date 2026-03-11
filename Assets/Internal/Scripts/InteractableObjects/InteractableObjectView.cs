@@ -40,7 +40,7 @@ namespace Internal.Scripts.InteractableObjects
             OnClick?.Invoke(this);
         }
     
-        public void TriggerHoverEnter()
+        public virtual void TriggerHoverEnter()
         {
             transform.localScale = OriginalScale * _hoverScale;
             OnHoverEnterEffect();
