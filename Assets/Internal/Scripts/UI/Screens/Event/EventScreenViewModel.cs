@@ -67,6 +67,7 @@ namespace Internal.Scripts.UI.Screens.Event
         private readonly PlayerLanguageRepository _languageRepo;
         private readonly TooltipService _tooltipService;
         private List<EventOutcomeEntry> _lastAppliedOutcomes;
+        public List<EventOutcomeEntry> LastAppliedOutcomes => _lastAppliedOutcomes;
         private readonly ReactiveProperty<EventData> _state = new(null);
         private readonly ReactiveProperty<CityData> _city = new(null);
         private readonly ReactiveProperty<bool> _isAtCity = new(false);
@@ -159,8 +160,9 @@ namespace Internal.Scripts.UI.Screens.Event
                 return new List<EventChoice>();
 
             return eventData.Choices.Where(c =>
-                c.Conditions == null || c.Conditions.Count == 0 ||
-                _eventSelector.CheckConditions(c.Conditions)).ToList();
+                (c.Conditions == null || c.Conditions.Count == 0 ||
+                 _eventSelector.CheckConditions(c.Conditions))
+                && _eventTrigger.CanAffordOutcomes(c.Outcomes)).ToList();
         }
 
         public List<EventResourceInfo> GetAffectedResources(List<EventChoice> choices)
@@ -170,12 +172,12 @@ namespace Internal.Scripts.UI.Screens.Event
             {
                 foreach (EventChoice choice in choices)
                 {
-                    if (choice.Outcomes == null) continue;
-                    foreach (EventOutcomeEntry outcome in choice.Outcomes)
-                    {
-                        if (outcome.Type != EventOutcomeType.None && outcome.Type != EventOutcomeType.AddItem)
-                            outcomeTypes.Add(outcome.Type);
-                    }
+                    CollectOutcomeTypes(choice.Outcomes, outcomeTypes);
+
+                    int originalIndex = GetOriginalChoiceIndex(choice);
+                    SkillCheckData? skillCheck = _state.Value?.GetSkillCheck(originalIndex);
+                    if (skillCheck.HasValue)
+                        CollectOutcomeTypes(skillCheck.Value.FailOutcomes, outcomeTypes);
                 }
             }
 
@@ -189,56 +191,18 @@ namespace Internal.Scripts.UI.Screens.Event
             return result;
         }
 
-        public HashSet<string> GetAffectedItems(List<EventChoice> choices)
+        public static bool IsResourceOutcome(EventOutcomeType type)
+            => type != EventOutcomeType.None
+            && type != EventOutcomeType.AddItem
+            && type != EventOutcomeType.RemoveItem;
+
+        private static void CollectOutcomeTypes(List<EventOutcomeEntry> outcomes, HashSet<EventOutcomeType> types)
         {
-            HashSet<string> itemIds = new();
-            if (choices != null)
-            {
-                foreach (EventChoice choice in choices)
-                {
-                    if (choice.Outcomes == null) continue;
-                    foreach (EventOutcomeEntry outcome in choice.Outcomes)
-                    {
-                        if (outcome.Type == EventOutcomeType.AddItem && !string.IsNullOrEmpty(outcome.Param))
-                            itemIds.Add(outcome.Param);
-                    }
-                }
-            }
-            return itemIds;
-        }
-
-        public void GetChoicePreview(int choiceIndex, List<EventChoice> choices,
-            out Dictionary<EventOutcomeType, float> resourceChanges,
-            out Dictionary<string, float> itemChanges)
-        {
-            resourceChanges = new Dictionary<EventOutcomeType, float>();
-            itemChanges = new Dictionary<string, float>();
-
-            if (choices == null || choiceIndex < 0 || choiceIndex >= choices.Count)
-                return;
-
-            List<EventOutcomeEntry> outcomes = choices[choiceIndex].Outcomes;
             if (outcomes == null) return;
-
-            foreach (EventOutcomeEntry entry in outcomes)
+            foreach (EventOutcomeEntry outcome in outcomes)
             {
-                if (entry.Type == EventOutcomeType.AddItem)
-                {
-                    if (!string.IsNullOrEmpty(entry.Param))
-                    {
-                        if (itemChanges.ContainsKey(entry.Param))
-                            itemChanges[entry.Param] += entry.Value;
-                        else
-                            itemChanges[entry.Param] = entry.Value;
-                    }
-                }
-                else if (entry.Type != EventOutcomeType.None)
-                {
-                    if (resourceChanges.ContainsKey(entry.Type))
-                        resourceChanges[entry.Type] += entry.Value;
-                    else
-                        resourceChanges[entry.Type] = entry.Value;
-                }
+                if (IsResourceOutcome(outcome.Type))
+                    types.Add(outcome.Type);
             }
         }
 
@@ -284,16 +248,15 @@ namespace Internal.Scripts.UI.Screens.Event
                     skillCheck.Value.SkillType, skillCheck.Value.BaseChance);
                 _lastSkillCheck = skillCheck.Value;
                 _lastAppliedOutcomes = LastSkillCheckSucceeded ? choice.Outcomes : skillCheck.Value.FailOutcomes;
-                _eventTrigger.ApplyOutcome(_lastAppliedOutcomes);
             }
             else
             {
                 LastSkillCheckSucceeded = true;
                 _lastSkillCheck = null;
                 _lastAppliedOutcomes = choice.Outcomes;
-                _eventTrigger.ApplyOutcome(_lastAppliedOutcomes);
             }
 
+            _eventTrigger.ApplyOutcome(_lastAppliedOutcomes);
             _selectedChoice.Value = choice;
         }
 

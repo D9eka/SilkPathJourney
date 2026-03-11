@@ -124,8 +124,11 @@ namespace Internal.Scripts.UI.Screens.Event
                     return $"{entry.Param} +{rounded} XP";
                 case EventOutcomeType.ChangeLanguageProficiency:
                     if (Enum.TryParse(entry.Param, true, out LanguageType langType))
-                        return $"{_catalog.GetLanguageName(langType)}: {(LanguageProficiency)rounded}";
-                    return $"{entry.Param}: {(LanguageProficiency)rounded}";
+                    {
+                        string profName = TraderUICatalog.GetProficiencyName((LanguageProficiency)rounded);
+                        return $"{_catalog.GetLanguageName(langType)}: {profName}";
+                    }
+                    return $"{entry.Param}: {TraderUICatalog.GetProficiencyName((LanguageProficiency)rounded)}";
                 default:
                     return null;
             }

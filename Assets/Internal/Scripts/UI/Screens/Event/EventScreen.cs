@@ -50,9 +50,7 @@ namespace Internal.Scripts.UI.Screens.Event
         private readonly List<EventChoiceButton> _activeButtons = new();
         private readonly List<ResourceIndicator> _spawnedIndicators = new();
         private readonly Dictionary<EventOutcomeType, ResourceIndicator> _resourceIndicators = new();
-        private readonly Dictionary<string, ResourceIndicator> _itemIndicators = new();
         private List<EventChoice> _currentChoices;
-        private int _selectedChoiceIndex = -1;
         private int _lastLinkIndex = -1;
         private string _unknownLanguageTooltip;
 
@@ -173,8 +171,14 @@ namespace Internal.Scripts.UI.Screens.Event
                 _eventImage.sprite = eventData.Image;
 
             _currentChoices = _viewModel.GetAvailableChoices();
-            _selectedChoiceIndex = -1;
             SpawnResourceIndicators();
+
+            if (_currentChoices.Count == 0)
+            {
+                _viewModel.ConfirmResult();
+                return;
+            }
+
             CreateChoiceButtons(_currentChoices);
             _scrollViewLayout?.Refresh();
             _scrollRect?.Refresh();
@@ -189,9 +193,8 @@ namespace Internal.Scripts.UI.Screens.Event
             foreach (EventResourceInfo info in resources)
                 SpawnResourceIndicator(info);
 
-            HashSet<string> itemIds = _viewModel.GetAffectedItems(_currentChoices);
-            foreach (string itemId in itemIds)
-                SpawnItemIndicator(itemId);
+            if (_resourceIndicatorsRoot != null)
+                _resourceIndicatorsRoot.gameObject.SetActive(resources.Count > 0);
 
             SetCurrentResourceValues();
         }
@@ -204,14 +207,6 @@ namespace Internal.Scripts.UI.Screens.Event
             indicator.HideChangeImmediate();
             _spawnedIndicators.Add(indicator);
             _resourceIndicators[info.OutcomeType] = indicator;
-        }
-
-        private void SpawnItemIndicator(string itemId)
-        {
-            ResourceIndicator indicator = Instantiate(_resourceIndicatorPrefab, _resourceIndicatorsRoot);
-            indicator.HideChangeImmediate();
-            _spawnedIndicators.Add(indicator);
-            _itemIndicators[itemId] = indicator;
         }
 
         private void SetCurrentResourceValues()
@@ -232,7 +227,6 @@ namespace Internal.Scripts.UI.Screens.Event
             }
             _spawnedIndicators.Clear();
             _resourceIndicators.Clear();
-            _itemIndicators.Clear();
         }
 
         private void BindLocalizedText(
@@ -267,10 +261,7 @@ namespace Internal.Scripts.UI.Screens.Event
 
         private void CreateChoiceButtons(List<EventChoice> choices)
         {
-            foreach (EventChoiceButton button in _activeButtons)
-                Destroy(button.gameObject);
-            _activeButtons.Clear();
-
+            ClearChoiceButtons();
             if (choices == null) return;
 
             for (int i = 0; i < choices.Count; i++)
@@ -283,55 +274,31 @@ namespace Internal.Scripts.UI.Screens.Event
                 button.Initialize(
                     Localization,
                     choice.Text,
-                    () =>
-                    {
-                        _selectedChoiceIndex = choiceIndex;
-                        _viewModel?.SelectChoice(choiceIndex);
-                    },
-                    () => ShowOutcomePreview(choiceIndex),
-                    HideOutcomePreview,
+                    () => _viewModel?.SelectChoice(choiceIndex),
+                    null,
+                    null,
                     condition);
-                bool canAfford = _viewModel.CanAffordChoice(choiceIndex, choices);
-                button.SetInteractable(canAfford);
+                button.SetInteractable(true);
                 _activeButtons.Add(button);
             }
         }
 
-        private void ShowOutcomePreview(int choiceIndex)
+        private void ClearChoiceButtons()
         {
-            HideOutcomePreview();
-
-            _viewModel.GetChoicePreview(choiceIndex, _currentChoices,
-                out Dictionary<EventOutcomeType, float> resourceChanges,
-                out Dictionary<string, float> itemChanges);
-
-            foreach (KeyValuePair<EventOutcomeType, float> kvp in resourceChanges)
-            {
-                if (_resourceIndicators.TryGetValue(kvp.Key, out ResourceIndicator indicator))
-                {
-                    ResourceEntry entry = _viewModel.GetResourceEntry(kvp.Key);
-                    if (entry != null)
-                        indicator.SetChange(Mathf.RoundToInt(kvp.Value), entry.IncreaseIsPositive);
-
-                    float current = _viewModel.GetCurrentResourceValue(indicator.ResourceType);
-                    indicator.SetHighlight(kvp.Value < 0 && current + kvp.Value < 0);
-                }
-            }
-
-            foreach (KeyValuePair<string, float> kvp in itemChanges)
-            {
-                if (_itemIndicators.TryGetValue(kvp.Key, out ResourceIndicator indicator))
-                    indicator.SetChange(Mathf.RoundToInt(kvp.Value), true);
-            }
+            foreach (EventChoiceButton button in _activeButtons)
+                Destroy(button.gameObject);
+            _activeButtons.Clear();
         }
 
-        private void HideOutcomePreview()
+        private void SpawnContinueButton()
         {
-            foreach (ResourceIndicator indicator in _spawnedIndicators)
-            {
-                indicator.HideChange();
-                indicator.SetHighlight(false);
-            }
+            EventChoiceButton continueBtn = Instantiate(_choiceButtonPrefab, _choiceButtonsRoot);
+            continueBtn.gameObject.InitializeColorBinders(themeService: _viewModel?.ThemeService);
+            continueBtn.Initialize(
+                Localization,
+                _continueLocalizedString,
+                () => _viewModel?.ConfirmResult());
+            _activeButtons.Add(continueBtn);
         }
 
         private void OnSelectedChoiceChanged(EventChoice? choice)
@@ -359,23 +326,34 @@ namespace Internal.Scripts.UI.Screens.Event
                 _eventDescriptionText.text = string.Join("\n\n", parts);
             }
 
-            foreach (EventChoiceButton button in _activeButtons)
-                Destroy(button.gameObject);
-            _activeButtons.Clear();
+            ClearChoiceButtons();
+            SpawnContinueButton();
 
-            EventChoiceButton continueBtn = Instantiate(_choiceButtonPrefab, _choiceButtonsRoot);
-            continueBtn.gameObject.InitializeColorBinders(themeService: _viewModel?.ThemeService);
-            continueBtn.Initialize(
-                Localization,
-                _continueLocalizedString,
-                () => _viewModel?.ConfirmResult());
-            _activeButtons.Add(continueBtn);
-
-            SetCurrentResourceValues();
-            if (_selectedChoiceIndex >= 0)
-                ShowOutcomePreview(_selectedChoiceIndex);
+            AnimateOutcomeResults();
             _scrollViewLayout?.Refresh();
             _scrollRect?.Refresh();
+        }
+
+        private void AnimateOutcomeResults()
+        {
+            List<EventOutcomeEntry> outcomes = _viewModel.LastAppliedOutcomes;
+            if (outcomes == null) return;
+
+            foreach (EventOutcomeEntry outcome in outcomes)
+            {
+                if (!EventScreenViewModel.IsResourceOutcome(outcome.Type)) continue;
+
+                if (!_resourceIndicators.TryGetValue(outcome.Type, out ResourceIndicator indicator))
+                    continue;
+
+                ResourceEntry entry = _viewModel.GetResourceEntry(outcome.Type);
+                if (entry == null) continue;
+
+                float newValue = _viewModel.GetCurrentResourceValue(indicator.ResourceType);
+                float oldValue = newValue - outcome.Value;
+                indicator.AnimateValueChange(
+                    Mathf.RoundToInt(outcome.Value), entry.IncreaseIsPositive, oldValue, newValue);
+            }
         }
 
         private void UpdateLocation(CityData city, bool isAtCity)
