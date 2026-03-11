@@ -16,7 +16,7 @@ namespace Internal.Scripts.Import.Editor.Trader
         private const string CATALOG_FOLDER = ImportHelpers.GENERATED_DATA_FOLDER + "/UI";
         private const string LOC_TABLE = "UI";
 
-        [MenuItem("SPJ/Import/Trader/Import Data")]
+        [MenuItem("SPJ/Import/Trader")]
         public static void Import()
         {
             if (ImportHelpers.IsCompiling())

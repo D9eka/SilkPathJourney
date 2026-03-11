@@ -1,4 +1,4 @@
-key,source_sheet,source_row,ru,en
+﻿key,source_sheet,source_row,ru,en
 biome.coast.name,biome_palettes,6,Побережье,Coast
 biome.desert.name,biome_palettes,3,Пустыня,Desert
 biome.forest.name,biome_palettes,5,Лес,Forest
@@ -285,8 +285,8 @@ UI.Event.Outcome.Resource.Morale,interface_names,76,морали,morale
 UI.Event.Outcome.Resource.Reputation,interface_names,77,репутации,reputation
 UI.Event.Outcome.Text.Gain,interface_names,70,Вы получили: {details},You received: {details}
 UI.Event.Outcome.Text.Loss,interface_names,71,Вы потеряли: {details},You lost: {details}
-UI.Event.Outcome.Text.SkillCheckFail,interface_names,69,"Проверка {skill_name}: Провал!","Skill check {skill_name}: Failure!"
-UI.Event.Outcome.Text.SkillCheckSuccess,interface_names,68,"Проверка {skill_name}: Успех!","Skill check {skill_name}: Success!"
+UI.Event.Outcome.Text.SkillCheckFail,interface_names,69,Проверка {skill_name}: Провал!,Skill check {skill_name}: Failure!
+UI.Event.Outcome.Text.SkillCheckSuccess,interface_names,68,Проверка {skill_name}: Успех!,Skill check {skill_name}: Success!
 UI.Global.Buy.Prefix.SummaryPricePrefix,interface_names,16,За {0},For {0}
 UI.Global.ItemsView.Header.Name,interface_names,13,Название,Name
 UI.Global.ItemsView.Header.Price,interface_names,15,Цена,Price
@@ -1078,7 +1078,7 @@ event.highland_frozen_wheels.choice3.result,event_choices,,Повозку бро
 event.highland_ice_path.name,events,,Ледяная тропа,Ice Path
 event.highland_ice_path.description,events,,"Узкая горная тропа покрыта коркой льда. Одно неверное движение — и повозка соскользнёт в пропасть. Под ногами хрустит лёд, а внизу — сотни метров пустоты.","A treacherous sheet of ice coats the narrow mountain trail. One wrong step and the cart will slide into the abyss below. Ice crunches underfoot, and hundreds of meters of void yawn beneath."
 event.highland_ice_path.choice1,event_choices,,Осторожный проход,Careful crossing
-event.highland_ice_path.choice1.result,event_choices,,,
+event.highland_ice_path.choice1.result,event_choices,,"Шаг за шагом, расстелив шкуры под колёса, караван преодолел обледеневший участок. Заняло полдня, но ни одна повозка не соскользнула.","Step by step, laying hides under the wheels, the caravan crossed the icy stretch. It took half a day, but not a single cart slipped."
 event.highland_ice_path.choice2,event_choices,,Быстрый проезд,Rush across
 event.highland_ice_path.choice2.result,event_choices,,"Разогнавшись, повозка проскочила обледеневший участок. Пара ушибов — мелочь по сравнению с пропастью.","Gathering speed, the cart shot across the icy stretch. A few bruises — nothing compared to the abyss."
 event.highland_tibetan_patrol.name,events,,Тибетский патруль,Tibetan Patrol
@@ -1086,7 +1086,7 @@ event.highland_tibetan_patrol.description,events,,"Из-за скального 
 event.highland_tibetan_patrol.choice1,event_choices,,Заплатить пошлину,Pay the toll
 event.highland_tibetan_patrol.choice1.result,event_choices,,Серебро переходит из рук в руки. Командир кивает и даёт знак пропустить караван. Дорога свободна.,Silver changes hands. The commander nods and signals to let the caravan pass. The road is clear.
 event.highland_tibetan_patrol.choice2,event_choices,,Торговаться,Negotiate
-event.highland_tibetan_patrol.choice2.result,event_choices,,,
+event.highland_tibetan_patrol.choice2.result,event_choices,,Долгий торг на жестах и ломаных словах. Командир нехотя снизил пошлину вдвое — но запомнил лицо купца.,A long negotiation through gestures and broken words. The commander reluctantly halved the toll — but remembered the merchant's face.
 event.highland_tibetan_patrol.choice3,event_choices,,Поговорить на тибетском,Speak Tibetan
 event.highland_tibetan_patrol.choice3.result,event_choices,,Свободная тибетская речь удивила командира. Он приглашает разделить чай с маслом и расспрашивает о новостях с равнин. Пошлину он забыл упомянуть.,Fluent Tibetan surprised the commander. He invites the caravan to share butter tea and asks for news from the lowlands. The toll was conveniently forgotten.
 event.highland_pamir_bandits.name,events,,Памирские разбойники,Pamir Bandits
@@ -1094,7 +1094,7 @@ event.highland_pamir_bandits.description,events,,"На узком перевал
 event.highland_pamir_bandits.choice1,event_choices,,Откупиться,Pay them off
 event.highland_pamir_bandits.choice1.result,event_choices,,"Главарь пересчитал монеты, кивнул и махнул рукой — баррикаду разобрали. Дешёвая цена за жизнь.","The bandit leader counted the coins, nodded, and waved his hand — the barricade was dismantled. A cheap price for your life."
 event.highland_pamir_bandits.choice2,event_choices,,Дать отпор,Fight back
-event.highland_pamir_bandits.choice2.result,event_choices,,,
+event.highland_pamir_bandits.choice2.result,event_choices,,"Стычка была короткой, но жёсткой. Разбойники отступили, оставив раненых. Караван прошёл, заплатив кровью, а не серебром.","The skirmish was short but brutal. The bandits retreated, leaving their wounded behind. The caravan passed through, paying in blood rather than silver."
 event.highland_pamir_bandits.choice3,event_choices,,Стражник знает проход,Guard knows a way
 event.highland_pamir_bandits.choice3.result,event_choices,,Стражник заметил козью тропу в обход баррикады. Тихий манёвр — и разбойники остались ни с чем.,The guard spotted a goat trail bypassing the barricade. A quiet maneuver — and the bandits were left empty-handed.
 event.highland_yak_herders.name,events,,Пастухи яков,Yak Herders
@@ -1132,13 +1132,13 @@ event.highland_warrior_monk.description,events,,"На тропе стоит че
 event.highland_warrior_monk.choice1,event_choices,,Принять его помощь,Accept his help
 event.highland_warrior_monk.choice1.result,event_choices,,"Воин-монах провёл караван через ущелье, распевая мантры. «Демоны» оказались обвалоопасным участком — его молитвы предупреждали об осторожности.","The warrior monk led the caravan through the gorge, chanting mantras. The ""demons"" turned out to be a landslide-prone stretch — his prayers were warnings of caution."
 event.highland_warrior_monk.choice2,event_choices,,Обойти его стороной,Go around him
-event.highland_warrior_monk.choice2.result,event_choices,,,
+event.highland_warrior_monk.choice2.result,event_choices,,"Караван обогнул монаха и двинулся через ущелье. В узком месте камнепад обрушился на тропу — пришлось расчищать путь вручную, потеряв время и часть груза.","The caravan skirted the monk and pressed on through the gorge. At a narrow point, a rockfall struck the trail — they had to clear the path by hand, losing time and some cargo."
 event.highland_mountain_guide.name,events,,Горный проводник,Mountain Guide
 event.highland_mountain_guide.description,events,,"Молодая женщина в меховой шапке и с ячьей верёвкой через плечо выходит из-за камней. Она указывает на развилку впереди и что-то говорит — быстро, с горным акцентом.","A young woman in a fur hat, a yak-hair rope over her shoulder, steps out from behind the rocks. She points at the fork ahead and speaks — quickly, with a mountain accent."
 event.highland_mountain_guide.choice1,event_choices,,Нанять проводницу,Hire her
 event.highland_mountain_guide.choice1.result,event_choices,,"Проводница знает каждый камень. По дороге она учит тибетским словам и показывает, где искать укрытие от ветра.",The guide knows every stone. Along the way she teaches Tibetan words and shows where to find shelter from the wind.
 event.highland_mountain_guide.choice2,event_choices,,Идти самим,Go alone
-event.highland_mountain_guide.choice2.result,event_choices,,,
+event.highland_mountain_guide.choice2.result,event_choices,,"Без проводника караван выбрал неверную тропу на развилке. Лишний день пути по камням и ветру. Животные измотаны, люди угрюмы.","Without a guide, the caravan chose the wrong trail at the fork. An extra day's march over rocks and wind. The animals are exhausted, the people sullen."
 event.highland_greek_monk.name,events,,Византийский монах,Byzantine Monk
 event.highland_greek_monk.description,events,,"У развалин придорожной часовни на анатолийском нагорье сидит монах в чёрной рясе, перед ним раскрытая книга. Увидев караван, он поднимается и обращается к путникам.","By the ruins of a roadside chapel on the Anatolian plateau sits a monk in a black cassock, an open book before him. Seeing the caravan, he rises and addresses the travelers."
 event.highland_greek_monk.choice1,event_choices,,Помочь монаху,Help the monk
@@ -1150,7 +1150,7 @@ event.highland_greek_monk.choice3.result,event_choices,,Целитель кар�
 event.highland_pass_lights.name,events,,Огни на перевале,Pass Lights
 event.highland_pass_lights.description,events,,"Ночью, когда караван остановился на перевале, странные голубоватые огни появляются на склонах. Они движутся медленно, словно процессия. Люди шепчутся о горных духах. Животные беспокоятся.","At night, as the caravan rests on the pass, eerie bluish lights appear on the slopes. They move slowly, like a procession. People whisper of mountain spirits. The animals grow restless."
 event.highland_pass_lights.choice1,event_choices,,Исследовать,Investigate
-event.highland_pass_lights.choice1.result,event_choices,,,
+event.highland_pass_lights.choice1.result,event_choices,,"Смельчаки нашли источник огней — светящийся мох в трещинах скал и выход горячего газа. Никаких духов, но рядом обнаружилась пещера с чистой водой.","The bold ones found the source — luminous moss in the rock crevices and hot gas seeping through. No spirits, but a cave with fresh water was discovered nearby."
 event.highland_pass_lights.choice2,event_choices,,Не приближаться,Stay away
 event.highland_pass_lights.choice2.result,event_choices,,Огни погасли к рассвету. Никто не спал этой ночью.,The lights faded by dawn. Nobody slept that night.
 event.highland_mountain_spirit.name,events,,Горный дух,Mountain Spirit
@@ -1172,7 +1172,7 @@ event.highland_elder_blessing.choice3.result,event_choices,,"Переводчи�
 event.highland_cart_slide.name,events,,Телега на склоне,Cart on the Slope
 event.highland_cart_slide.description,events,,"На крутом обледеневшем спуске повозка начинает скользить. Волы упираются, но их копыта не находят опоры. Повозка набирает скорость, и если её не остановить — она рухнет в пропасть вместе с грузом.","On a steep icy descent, the cart begins to slide. The oxen dig in but their hooves find no grip. The cart picks up speed, and if it is not stopped it will plunge into the ravine with all its cargo."
 event.highland_cart_slide.choice1,event_choices,,Заклинить колёса,Block the wheels
-event.highland_cart_slide.choice1.result,event_choices,,,
+event.highland_cart_slide.choice1.result,event_choices,,"Камни и брёвна под колёса, верёвки за скальный выступ. Повозка остановилась в паре шагов от обрыва. Ось треснула от удара, но груз цел.","Rocks and logs under the wheels, ropes around a rocky outcrop. The cart stopped a few paces from the edge. The axle cracked from the impact, but the cargo survived."
 event.highland_cart_slide.choice2,event_choices,,Разгрузить и спускать вручную,Unload and lower by hand
 event.highland_cart_slide.choice2.result,event_choices,,"Полдня на разгрузку, спуск вручную и загрузку обратно. Медленно, но надёжно.","Half a day to unload, lower by hand, and reload. Slow but sure."
 event.highland_cart_slide.choice3,event_choices,,Проводник знает пологий спуск,Guide knows a gentle slope
@@ -1180,25 +1180,23 @@ event.highland_cart_slide.choice3.result,event_choices,,"Проводник вс
 event.highland_broken_axle.name,events,,Сломанная ось,Broken Axle
 event.highland_broken_axle.description,events,,"Резкий треск — и повозка просела на одну сторону. Ось лопнула на камне, скрытом под снегом. На такой высоте найти дерево для замены — задача нетривиальная.","A sharp crack — and the cart sags to one side. The axle snapped on a rock hidden under the snow. At this altitude, finding wood for a replacement is no simple task."
 event.highland_broken_axle.choice1,event_choices,,Чинить на месте,Repair in place
-event.highland_broken_axle.choice1.result,event_choices,,,
+event.highland_broken_axle.choice1.result,event_choices,,"Срубленное деревце и полоски кожи заменили сломанную ось. Починка грубая, но до ближайшего селения дотянет. Полдня потеряно.","A felled sapling and leather strips replaced the broken axle. A rough fix, but enough to reach the nearest settlement. Half a day lost."
 event.highland_broken_axle.choice2,event_choices,,Перераспределить груз,Redistribute cargo
 event.highland_broken_axle.choice2.result,event_choices,,"Часть груза перекинули на вьючных животных, часть — на запасные телеги. Идём дальше, но медленнее.","Part of the cargo went to pack animals, part to spare carts. Moving on, but slower."
 event.highland_crystal_cave.name,events,,Горная пещера,Crystal Cave
 event.highland_crystal_cave.description,events,,"Буря загнала караван в узкую расщелину. Внутри — пещера, стены которой искрятся кристаллами в свете факела. Воздух тёплый и сухой. Среди кристаллов блестит что-то ценное, но свод ненадёжен.","A storm drove the caravan into a narrow crevice. Inside — a cave whose walls sparkle with crystals in the torchlight. The air is warm and dry. Something valuable glints among the crystals, but the ceiling looks unstable."
 event.highland_crystal_cave.choice1,event_choices,,Добыть кристаллы,Mine the crystals
-event.highland_crystal_cave.choice1.result,event_choices,,,
+event.highland_crystal_cave.choice1.result,event_choices,,"Осторожная добыча принесла горсть горных кристаллов — торговцы в городах заплатят хорошо. Но свод дрогнул, и пришлось выбираться быстрее, чем хотелось.","Careful extraction yielded a handful of mountain crystals — city merchants will pay well. But the ceiling shuddered, and the exit was hastier than planned."
 event.highland_crystal_cave.choice2,event_choices,,Переждать бурю,Wait out the storm
 event.highland_crystal_cave.choice2.result,event_choices,,Ночь в тёплой пещере — редкий подарок на высокогорье. Утром буря стихла.,A night in a warm cave — a rare gift in the highlands. By morning the storm had passed.
 event.highland_abandoned_shrine.name,events,,Заброшенный храм,Abandoned Shrine
 event.highland_abandoned_shrine.description,events,,"Среди скал обнаружились руины каменного храма. Крыша провалилась, но стены стоят. Внутри — полустёршиеся фрески, каменный алтарь и запах старого сандала. В нише что-то поблёскивает.","Among the rocks, ruins of a stone shrine emerge. The roof has caved in, but the walls stand. Inside — faded frescoes, a stone altar, and the scent of old sandalwood. Something glimmers in a niche."
 event.highland_abandoned_shrine.choice1,event_choices,,Обыскать храм,Search the shrine
-event.highland_abandoned_shrine.choice1.result,event_choices,,,
+event.highland_abandoned_shrine.choice1.result,event_choices,,За алтарём нашлась ниша с подношениями: старые монеты и бронзовая курильница. Древние паломники были щедры к этому месту.,"Behind the altar, a niche held old offerings: ancient coins and a bronze censer. Pilgrims of ages past had been generous to this place."
 event.highland_abandoned_shrine.choice2,event_choices,,Помолиться и уйти,Pray and leave
 event.highland_abandoned_shrine.choice2.result,event_choices,,"Молитва в тишине древнего храма. Нет ни золота, ни опасности — только покой.","Prayer in the silence of an ancient shrine. No gold, no danger — only peace."
 event.highland_abandoned_shrine.choice3,event_choices,,Прочитать фрески,Read the frescoes
 event.highland_abandoned_shrine.choice3.result,event_choices,,"Фрески рассказывают историю торгового пути, существовавшего века назад. Некоторые символы до сих пор в ходу на тибетских рынках. Знание, вычитанное из камня.",The frescoes tell the story of a trade route that existed centuries ago. Some symbols are still used in Tibetan markets. Knowledge read from stone.
-event.Категории.name,events,,Категории,Категории
-event.Категории.description,events,,,
 event.wolves_attack.name,events,,Ночная атака волков,Night Wolf Attack
 event.wolves_attack.description,events,,"Глубокой ночью в темноте за кругом костра загораются жёлтые глаза. Стая волков, голодная и дерзкая, подбирается к повозкам. Животные каравана бьются в привязях, люди хватаются за факелы. Вожак стаи — крупный серый зверь — не отводит взгляда от мешков с провизией.","Deep in the night, yellow eyes ignite beyond the firelight. A hungry, bold wolf pack creeps toward the wagons. The caravan animals strain at their tethers, men grab for torches. The pack leader — a large grey beast — fixes its gaze on the supply sacks."
 event.wolves_attack.choice1,event_choices,,Отогнать огнём и шумом,Drive them off with fire and noise
@@ -1818,158 +1816,107 @@ event.pilgrim_group.choice2.fail,event_choices,,"Паломники поклон
 event.pilgrim_group.choice3,event_choices,,Переводчик расспрашивает о дорогах,The translator asks about routes
 event.pilgrim_group.choice3.result,event_choices,,"Переводчик долго беседовал с монахом — на смеси санскрита и фарси. Паломники рассказали, какие дороги безопасны, где стоят разбойники, где можно найти воду. Бесценные сведения для караванщика.","The translator spoke at length with the monk — in a mix of Sanskrit and Farsi. The pilgrims told which roads are safe, where bandits lurk, where water can be found. Priceless intelligence for a caravan master."
 event.minor_found_coins.name,events,,Монеты на дороге,Coins on the Road
-event.minor_found_coins.description,events,,Один из погонщиков замечает кожаный кошелёк у обочины. Внутри — несколько медных монет.,"One of the drivers spots a leather purse by the roadside. Inside — a few copper coins.
-**Исходы:** money +2"
+event.minor_found_coins.description,events,,Один из погонщиков замечает кожаный кошелёк у обочины. Внутри — несколько медных монет.,One of the drivers spots a leather purse by the roadside. Inside — a few copper coins.
 event.minor_broken_strap.name,events,,Порванный ремень,Torn Strap
-event.minor_broken_strap.description,events,,"Упряжной ремень лопнул на ходу. Караван останавливается, пока погонщики вяжут замену из верёвки.","A harness strap snaps mid-journey. The caravan halts while drivers tie a rope replacement.
-**Исходы:** cart_durability -1"
+event.minor_broken_strap.description,events,,"Упряжной ремень лопнул на ходу. Караван останавливается, пока погонщики вяжут замену из верёвки.",A harness strap snaps mid-journey. The caravan halts while drivers tie a rope replacement.
 event.minor_tailwind.name,events,,Попутный ветер,Tailwind
-event.minor_tailwind.description,events,,Сильный попутный ветер подгоняет караван. Верблюды идут быстрее обычного.,"A strong tailwind pushes the caravan forward. The camels move faster than usual.
-**Исходы:** morale +1"
+event.minor_tailwind.description,events,,Сильный попутный ветер подгоняет караван. Верблюды идут быстрее обычного.,A strong tailwind pushes the caravan forward. The camels move faster than usual.
 event.minor_headwind.name,events,,Встречный ветер,Headwind
-event.minor_headwind.description,events,,"Порывистый встречный ветер бьёт в лицо, забивает глаза пылью. Погонщики щурятся и ругаются.","Gusty headwind beats against the face and fills eyes with dust. Drivers squint and curse.
-**Исходы:** morale -1"
+event.minor_headwind.description,events,,"Порывистый встречный ветер бьёт в лицо, забивает глаза пылью. Погонщики щурятся и ругаются.",Gusty headwind beats against the face and fills eyes with dust. Drivers squint and curse.
 event.minor_good_sleep.name,events,,Крепкий сон,Good Sleep
-event.minor_good_sleep.description,events,,"Тихая ночь, тёплый воздух и мягкая земля — караванщики отлично выспались.","A quiet night, warm air, and soft ground — the caravan crew slept soundly.
-**Исходы:** morale +2"
+event.minor_good_sleep.description,events,,"Тихая ночь, тёплый воздух и мягкая земля — караванщики отлично выспались.","A quiet night, warm air, and soft ground — the caravan crew slept soundly."
 event.minor_mosquitoes.name,events,,Комары в лагере,Camp Mosquitoes
-event.minor_mosquitoes.description,events,,Тучи комаров не дали уснуть до рассвета. Люди злые и не выспавшиеся.,"Clouds of mosquitoes kept everyone awake until dawn. The crew is irritable and exhausted.
-**Исходы:** morale -2"
+event.minor_mosquitoes.description,events,,Тучи комаров не дали уснуть до рассвета. Люди злые и не выспавшиеся.,Clouds of mosquitoes kept everyone awake until dawn. The crew is irritable and exhausted.
 event.minor_wolf_howl.name,events,,Вой волков,Wolf Howl
-event.minor_wolf_howl.description,events,,"Протяжный волчий вой разносится в ночи. Верблюды тревожно прядут ушами, но стая далеко.","A prolonged wolf howl echoes through the night. The camels prick their ears nervously, but the pack is far away.
-**Исходы:** --"
+event.minor_wolf_howl.description,events,,"Протяжный волчий вой разносится в ночи. Верблюды тревожно прядут ушами, но стая далеко.","A prolonged wolf howl echoes through the night. The camels prick their ears nervously, but the pack is far away."
 event.minor_shooting_star.name,events,,Падающая звезда,Shooting Star
-event.minor_shooting_star.description,events,,Яркая звезда прочерчивает небо и гаснет за горизонтом. Погонщики шепчут молитвы — добрый знак.,"A bright star streaks across the sky and fades beyond the horizon. Drivers whisper prayers — a good omen.
-**Исходы:** --"
+event.minor_shooting_star.description,events,,Яркая звезда прочерчивает небо и гаснет за горизонтом. Погонщики шепчут молитвы — добрый знак.,A bright star streaks across the sky and fades beyond the horizon. Drivers whisper prayers — a good omen.
 event.minor_old_marker.name,events,,Старый указатель,Old Marker
-event.minor_old_marker.description,events,,У развилки стоит выцветший каменный столб с арабской вязью. Надпись подтверждает — караван на верном пути.,"A faded stone pillar with Arabic script stands at a fork. The inscription confirms the caravan is on the right path.
-**Исходы:** add_skill_xp Navigation 1"
+event.minor_old_marker.description,events,,У развилки стоит выцветший каменный столб с арабской вязью. Надпись подтверждает — караван на верном пути.,A faded stone pillar with Arabic script stands at a fork. The inscription confirms the caravan is on the right path.
 event.minor_spilled_grain.name,events,,Рассыпанное зерно,Spilled Grain
-event.minor_spilled_grain.description,events,,Мешок с зерном развязался на ходу. Часть припасов высыпалась на дорогу.,"A grain sack came untied while moving. Some provisions spilled onto the road.
-**Исходы:** food -1"
+event.minor_spilled_grain.description,events,,Мешок с зерном развязался на ходу. Часть припасов высыпалась на дорогу.,A grain sack came untied while moving. Some provisions spilled onto the road.
 event.minor_wild_herbs.name,events,,Дикие травы,Wild Herbs
-event.minor_wild_herbs.description,events,,У дороги растут пучки дикого тимьяна. Погонщики собирают их — пригодятся для похлёбки.,"Bunches of wild thyme grow by the road. The drivers gather them — useful for stew.
-**Исходы:** food +1"
+event.minor_wild_herbs.description,events,,У дороги растут пучки дикого тимьяна. Погонщики собирают их — пригодятся для похлёбки.,Bunches of wild thyme grow by the road. The drivers gather them — useful for stew.
 event.minor_loose_wheel.name,events,,Разболтанное колесо,Loose Wheel
-event.minor_loose_wheel.description,events,,Колесо телеги начинает вихлять. Погонщик замечает это вовремя и подтягивает крепление.,"A cart wheel starts wobbling. A driver notices in time and tightens the fastening.
-**Исходы:** add_skill_xp Craft 1"
+event.minor_loose_wheel.description,events,,Колесо телеги начинает вихлять. Погонщик замечает это вовремя и подтягивает крепление.,A cart wheel starts wobbling. A driver notices in time and tightens the fastening.
 event.minor_camel_stubborn.name,events,,Упрямый верблюд,Stubborn Camel
-event.minor_camel_stubborn.description,events,,"Головной верблюд ложится посреди дороги и отказывается вставать. Полчаса уговоров, прежде чем он соизволил подняться.","The lead camel lies down in the middle of the road and refuses to get up. Half an hour of coaxing before it deigns to rise.
-**Исходы:** morale -1"
+event.minor_camel_stubborn.description,events,,"Головной верблюд ложится посреди дороги и отказывается вставать. Полчаса уговоров, прежде чем он соизволил подняться.",The lead camel lies down in the middle of the road and refuses to get up. Half an hour of coaxing before it deigns to rise.
 event.minor_dawn_mist.name,events,,Утренний туман,Dawn Mist
-event.minor_dawn_mist.description,events,,Густой утренний туман окутывает тропу. Силуэты верблюдов растворяются в молочной дымке — красиво и тревожно.,"Thick morning fog blankets the trail. Camel silhouettes dissolve into the milky haze — beautiful and unsettling.
-**Исходы:** --"
+event.minor_dawn_mist.description,events,,Густой утренний туман окутывает тропу. Силуэты верблюдов растворяются в молочной дымке — красиво и тревожно.,Thick morning fog blankets the trail. Camel silhouettes dissolve into the milky haze — beautiful and unsettling.
 event.minor_ancient_ruts.name,events,,Древние колеи,Ancient Ruts
-event.minor_ancient_ruts.description,events,,"Глубокие колеи, пробитые тысячами повозок за столетия. Этой дорогой ходили ещё при Тан.","Deep ruts worn by thousands of carts over centuries. This road was travelled since the Tang dynasty.
-**Исходы:** --"
+event.minor_ancient_ruts.description,events,,"Глубокие колеи, пробитые тысячами повозок за столетия. Этой дорогой ходили ещё при Тан.",Deep ruts worn by thousands of carts over centuries. This road was travelled since the Tang dynasty.
 event.desert_hot_wind.name,events,,Горячий ветер,Hot Wind
-event.desert_hot_wind.description,events,,"Раскалённый ветер дует из пустыни, обжигая кожу. Вода в бурдюках теплеет на глазах.","Scorching wind blows from the desert, burning exposed skin. Water in the skins warms visibly.
-**Исходы:** food -1"
+event.desert_hot_wind.description,events,,"Раскалённый ветер дует из пустыни, обжигая кожу. Вода в бурдюках теплеет на глазах.","Scorching wind blows from the desert, burning exposed skin. Water in the skins warms visibly."
 event.desert_mirage_shimmer.name,events,,Марево,Heat Shimmer
-event.desert_mirage_shimmer.description,events,,На горизонте дрожит марево — миражи рисуют озеро с пальмами. Погонщики знают: это ложь песков.,"The horizon shimmers with haze — mirages paint a lake with palm trees. The drivers know: it is the desert's lie.
-**Исходы:** --"
+event.desert_mirage_shimmer.description,events,,На горизонте дрожит марево — миражи рисуют озеро с пальмами. Погонщики знают: это ложь песков.,The horizon shimmers with haze — mirages paint a lake with palm trees. The drivers know: it is the desert's lie.
 event.desert_sand_in_cargo.name,events,,Песок в грузе,Sand in Cargo
-event.desert_sand_in_cargo.description,events,,Мелкий песок проник в тюки через щели. Ткани придётся перетряхивать на следующей стоянке.,"Fine sand seeped into the bales through gaps. The fabrics will need shaking out at the next stop.
-**Исходы:** morale -1"
+event.desert_sand_in_cargo.description,events,,Мелкий песок проник в тюки через щели. Ткани придётся перетряхивать на следующей стоянке.,Fine sand seeped into the bales through gaps. The fabrics will need shaking out at the next stop.
 event.desert_cool_dawn.name,events,,Прохладный рассвет,Cool Dawn
-event.desert_cool_dawn.description,events,,Караван вышел до рассвета и прошёл долгий перегон в прохладе. Люди бодры и довольны.,"The caravan set out before dawn and covered a long stretch in the cool air. The crew is cheerful and energetic.
-**Исходы:** morale +2"
+event.desert_cool_dawn.description,events,,Караван вышел до рассвета и прошёл долгий перегон в прохладе. Люди бодры и довольны.,The caravan set out before dawn and covered a long stretch in the cool air. The crew is cheerful and energetic.
 event.desert_lizard_scurry.name,events,,Ящерицы на камнях,Lizards on Rocks
-event.desert_lizard_scurry.description,events,,Десятки ящериц греются на придорожных камнях и стремглав разбегаются при приближении каравана.,"Dozens of lizards bask on roadside rocks and scatter at the caravan's approach.
-**Исходы:** --"
+event.desert_lizard_scurry.description,events,,Десятки ящериц греются на придорожных камнях и стремглав разбегаются при приближении каравана.,Dozens of lizards bask on roadside rocks and scatter at the caravan's approach.
 event.desert_dried_well_minor.name,events,,Пересохший колодец,Dried Well
-event.desert_dried_well_minor.description,events,,Колодец у дороги оказался сухим — на дне только потрескавшаяся глина. Придётся экономить воду.,"The roadside well turns out to be dry — only cracked clay at the bottom. Water must be rationed.
-**Исходы:** food -1, danger +1"
+event.desert_dried_well_minor.description,events,,Колодец у дороги оказался сухим — на дне только потрескавшаяся глина. Придётся экономить воду.,The roadside well turns out to be dry — only cracked clay at the bottom. Water must be rationed.
 event.desert_caravan_tracks.name,events,,Следы каравана,Caravan Tracks
-event.desert_caravan_tracks.description,events,,"Свежие следы верблюдов на песке — другой караван прошёл здесь недавно. Значит, путь безопасен.","Fresh camel tracks in the sand — another caravan passed here recently. The route must be safe.
-**Исходы:** danger -1"
+event.desert_caravan_tracks.description,events,,"Свежие следы верблюдов на песке — другой караван прошёл здесь недавно. Значит, путь безопасен.",Fresh camel tracks in the sand — another caravan passed here recently. The route must be safe.
 event.desert_night_cold.name,events,,Ночной холод пустыни,Desert Night Cold
-event.desert_night_cold.description,events,,После дневной жары ночь обрушивается ледяным холодом. Люди жмутся к костру и не могут согреться.,"After the daytime heat, night brings freezing cold. The crew huddles by the fire, unable to get warm.
-**Исходы:** morale -1"
+event.desert_night_cold.description,events,,После дневной жары ночь обрушивается ледяным холодом. Люди жмутся к костру и не могут согреться.,"After the daytime heat, night brings freezing cold. The crew huddles by the fire, unable to get warm."
 event.plains_lark_song.name,events,,Песня жаворонка,Lark Song
-event.plains_lark_song.description,events,,Высоко в небе заливается жаворонок. Его трель разносится над степью — погонщики улыбаются.,"A lark trills high in the sky. Its song carries over the steppe — the drivers smile.
-**Исходы:** morale +1"
+event.plains_lark_song.description,events,,Высоко в небе заливается жаворонок. Его трель разносится над степью — погонщики улыбаются.,A lark trills high in the sky. Its song carries over the steppe — the drivers smile.
 event.plains_tall_grass.name,events,,Высокая трава,Tall Grass
-event.plains_tall_grass.description,events,,"Трава вымахала выше пояса и скрывает тропу. Верблюды продираются сквозь заросли, замедляя ход.","Grass has grown waist-high and hides the trail. Camels push through the thickets, slowing the pace.
-**Исходы:** add_skill_xp Navigation 1"
+event.plains_tall_grass.description,events,,"Трава вымахала выше пояса и скрывает тропу. Верблюды продираются сквозь заросли, замедляя ход.","Grass has grown waist-high and hides the trail. Camels push through the thickets, slowing the pace."
 event.plains_grazing_halt.name,events,,Привал для выпаса,Grazing Halt
-event.plains_grazing_halt.description,events,,"Сочные луга — редкость в пути. Караван делает привал, чтобы верблюды наелись вдоволь свежей травы.","Lush meadows are rare on the road. The caravan stops so the camels can feast on fresh grass.
-**Исходы:** food +1"
+event.plains_grazing_halt.description,events,,"Сочные луга — редкость в пути. Караван делает привал, чтобы верблюды наелись вдоволь свежей травы.",Lush meadows are rare on the road. The caravan stops so the camels can feast on fresh grass.
 event.plains_distant_riders.name,events,,Всадники на горизонте,Riders on the Horizon
-event.plains_distant_riders.description,events,,"На горизонте мелькают силуэты всадников. Они скачут параллельным курсом, но не приближаются.","Riders' silhouettes appear on the horizon. They gallop on a parallel course but do not approach.
-**Исходы:** danger +1"
+event.plains_distant_riders.description,events,,"На горизонте мелькают силуэты всадников. Они скачут параллельным курсом, но не приближаются.",Riders' silhouettes appear on the horizon. They gallop on a parallel course but do not approach.
 event.plains_rutted_road.name,events,,Разбитая дорога,Rutted Road
-event.plains_rutted_road.description,events,,Размытая дождями дорога в рытвинах и лужах. Телега подпрыгивает на каждой кочке.,"A rain-washed road full of ruts and puddles. The cart bounces over every bump.
-**Исходы:** cart_durability -1"
+event.plains_rutted_road.description,events,,Размытая дождями дорога в рытвинах и лужах. Телега подпрыгивает на каждой кочке.,A rain-washed road full of ruts and puddles. The cart bounces over every bump.
 event.plains_shepherd_wave.name,events,,Пастух у стада,Shepherd by the Flock
-event.plains_shepherd_wave.description,events,,Пастух с отарой овец машет каравану и указывает на родник за холмом. Добрый совет.,"A shepherd with a flock of sheep waves to the caravan and points to a spring beyond the hill. Good advice.
-**Исходы:** add_skill_xp Survival 1"
+event.plains_shepherd_wave.description,events,,Пастух с отарой овец машет каравану и указывает на родник за холмом. Добрый совет.,A shepherd with a flock of sheep waves to the caravan and points to a spring beyond the hill. Good advice.
 event.plains_hawk_circle.name,events,,Ястреб в небе,Circling Hawk
-event.plains_hawk_circle.description,events,,"Ястреб кружит над караваном, описывая широкие дуги. Погонщики спорят — к удаче это или к беде.","A hawk circles above the caravan in wide arcs. The drivers argue — is it luck or trouble?
-**Исходы:** --"
+event.plains_hawk_circle.description,events,,"Ястреб кружит над караваном, описывая широкие дуги. Погонщики спорят — к удаче это или к беде.",A hawk circles above the caravan in wide arcs. The drivers argue — is it luck or trouble?
 event.mountain_rockfall_dust.name,events,,Камнепад вдалеке,Distant Rockfall
-event.mountain_rockfall_dust.description,events,,"С соседнего склона с грохотом сходят камни. Облако пыли поднимается над ущельем — повезло, что не здесь.","Rocks tumble down a nearby slope with a roar. A dust cloud rises above the gorge — lucky it wasn't here.
-**Исходы:** danger +1"
+event.mountain_rockfall_dust.description,events,,"С соседнего склона с грохотом сходят камни. Облако пыли поднимается над ущельем — повезло, что не здесь.",Rocks tumble down a nearby slope with a roar. A dust cloud rises above the gorge — lucky it wasn't here.
 event.mountain_narrow_ledge.name,events,,Узкий карниз,Narrow Ledge
-event.mountain_narrow_ledge.description,events,,Тропа сужается до узкого карниза над обрывом. Верблюды прижимаются к скале и осторожно ступают.,"The trail narrows to a thin ledge above a precipice. The camels press against the rock and step carefully.
-**Исходы:** danger +1, add_skill_xp Navigation 1"
+event.mountain_narrow_ledge.description,events,,Тропа сужается до узкого карниза над обрывом. Верблюды прижимаются к скале и осторожно ступают.,The trail narrows to a thin ledge above a precipice. The camels press against the rock and step carefully.
 event.mountain_spring_found.name,events,,Горный родник,Mountain Spring
-event.mountain_spring_found.description,events,,Из расщелины бьёт ледяной родник. Караван пополняет запасы чистейшей горной водой.,"An icy spring gushes from a rock crevice. The caravan refills its water supplies with pristine mountain water.
-**Исходы:** food +2"
+event.mountain_spring_found.description,events,,Из расщелины бьёт ледяной родник. Караван пополняет запасы чистейшей горной водой.,An icy spring gushes from a rock crevice. The caravan refills its water supplies with pristine mountain water.
 event.mountain_echo_canyon.name,events,,Эхо в каньоне,Canyon Echo
-event.mountain_echo_canyon.description,events,,"Звон колокольчиков на верблюдах многократно отражается от стен каньона. Кажется, будто навстречу идёт невидимый караван.","The chime of camel bells bounces off the canyon walls again and again. It sounds as if an invisible caravan approaches.
-**Исходы:** --"
+event.mountain_echo_canyon.description,events,,"Звон колокольчиков на верблюдах многократно отражается от стен каньона. Кажется, будто навстречу идёт невидимый караван.",The chime of camel bells bounces off the canyon walls again and again. It sounds as if an invisible caravan approaches.
 event.mountain_goat_path.name,events,,Козья тропа,Goat Path
-event.mountain_goat_path.description,events,,Стадо горных козлов пересекает тропу и скрывается среди камней. Погонщики провожают их взглядом — ловкие твари.,"A herd of mountain goats crosses the trail and vanishes among the rocks. The drivers watch them go — nimble creatures.
-**Исходы:** --"
+event.mountain_goat_path.description,events,,Стадо горных козлов пересекает тропу и скрывается среди камней. Погонщики провожают их взглядом — ловкие твари.,A herd of mountain goats crosses the trail and vanishes among the rocks. The drivers watch them go — nimble creatures.
 event.mountain_broken_path.name,events,,Обрушенный участок,Collapsed Section
-event.mountain_broken_path.description,events,,Часть тропы обрушилась после оползня. Приходится разгружать телегу и переносить тюки по одному.,"Part of the trail has collapsed after a landslide. The cart must be unloaded and bales carried one by one.
-**Исходы:** cart_durability -1, morale -1"
+event.mountain_broken_path.description,events,,Часть тропы обрушилась после оползня. Приходится разгружать телегу и переносить тюки по одному.,Part of the trail has collapsed after a landslide. The cart must be unloaded and bales carried one by one.
 event.highland_thin_air_minor.name,events,,Разрежённый воздух,Thin Air
-event.highland_thin_air_minor.description,events,,"На высоте дышать тяжело. Погонщики задыхаются от любого усилия, головы раскалываются.","Breathing is difficult at this altitude. The drivers gasp with every effort, heads pounding.
-**Исходы:** morale -2"
+event.highland_thin_air_minor.description,events,,"На высоте дышать тяжело. Погонщики задыхаются от любого усилия, головы раскалываются.","Breathing is difficult at this altitude. The drivers gasp with every effort, heads pounding."
 event.highland_prayer_flags.name,events,,Молитвенные флаги,Prayer Flags
-event.highland_prayer_flags.description,events,,На горном перевале трепещут цветные молитвенные флаги. Ветер уносит написанные на них мантры к небесам.,"Colorful prayer flags flutter at a mountain pass. The wind carries the mantras written on them toward the heavens.
-**Исходы:** morale +1"
+event.highland_prayer_flags.description,events,,На горном перевале трепещут цветные молитвенные флаги. Ветер уносит написанные на них мантры к небесам.,Colorful prayer flags flutter at a mountain pass. The wind carries the mantras written on them toward the heavens.
 event.highland_yak_butter.name,events,,Ячий чай,Yak Butter Tea
-event.highland_yak_butter.description,events,,"Встречный пастух-тибетец угощает караванщиков горячим чаем с ячьим маслом. Солёный, жирный, согревающий.","A Tibetan herder offers the caravan crew hot yak butter tea. Salty, rich, and warming.
-**Исходы:** morale +2, food +1"
+event.highland_yak_butter.description,events,,"Встречный пастух-тибетец угощает караванщиков горячим чаем с ячьим маслом. Солёный, жирный, согревающий.","A Tibetan herder offers the caravan crew hot yak butter tea. Salty, rich, and warming."
 event.highland_frost_morning.name,events,,Морозное утро,Frosty Morning
-event.highland_frost_morning.description,events,,"Утром тюки покрыты инеем, а вода в бурдюках схватилась тонкой коркой льда.","In the morning, bales are coated with frost and water skins have a thin crust of ice.
-**Исходы:** food -1"
+event.highland_frost_morning.description,events,,"Утром тюки покрыты инеем, а вода в бурдюках схватилась тонкой коркой льда.","In the morning, bales are coated with frost and water skins have a thin crust of ice."
 event.highland_cairn.name,events,,Каменная пирамидка,Stone Cairn
-event.highland_cairn.description,events,,У тропы сложена пирамидка из камней — обо. Погонщики добавляют по камню и обходят её по солнцу на удачу.,"A stone cairn — an ovoo — stands by the trail. Drivers add a stone each and circle it clockwise for luck.
-**Исходы:** --"
+event.highland_cairn.description,events,,У тропы сложена пирамидка из камней — обо. Погонщики добавляют по камню и обходят её по солнцу на удачу.,A stone cairn — an ovoo — stands by the trail. Drivers add a stone each and circle it clockwise for luck.
 event.forest_dappled_shade.name,events,,Тень под кронами,Dappled Shade
-event.forest_dappled_shade.description,events,,Густые кроны деревьев дают блаженную тень после открытой дороги. Прохлада поднимает дух.,"Dense tree canopies provide blessed shade after the open road. The coolness lifts everyone's spirits.
-**Исходы:** morale +1"
+event.forest_dappled_shade.description,events,,Густые кроны деревьев дают блаженную тень после открытой дороги. Прохлада поднимает дух.,Dense tree canopies provide blessed shade after the open road. The coolness lifts everyone's spirits.
 event.forest_fallen_tree.name,events,,Упавшее дерево,Fallen Tree
-event.forest_fallen_tree.description,events,,Поваленное дерево перегораживает тропу. Погонщики рубят ствол и растаскивают его по частям.,"A fallen tree blocks the trail. The drivers chop the trunk and drag it aside piece by piece.
-**Исходы:** add_skill_xp Survival 1"
+event.forest_fallen_tree.description,events,,Поваленное дерево перегораживает тропу. Погонщики рубят ствол и растаскивают его по частям.,A fallen tree blocks the trail. The drivers chop the trunk and drag it aside piece by piece.
 event.forest_berries.name,events,,Лесные ягоды,Forest Berries
-event.forest_berries.description,events,,"Кусты вдоль тропы усыпаны спелыми ягодами. Погонщики набирают полные горсти — сладкие, сочные.","Bushes along the trail are heavy with ripe berries. The drivers grab handfuls — sweet and juicy.
-**Исходы:** food +1, morale +1"
+event.forest_berries.description,events,,"Кусты вдоль тропы усыпаны спелыми ягодами. Погонщики набирают полные горсти — сладкие, сочные.",Bushes along the trail are heavy with ripe berries. The drivers grab handfuls — sweet and juicy.
 event.forest_leech_marsh.name,events,,Болотистый участок,Marshy Stretch
-event.forest_leech_marsh.description,events,,"Тропа проходит через болотистую низину. Верблюды вязнут по щиколотку, а на ногах погонщиков — пиявки.","The trail crosses a marshy hollow. Camels sink to their ankles, and leeches cling to the drivers' legs.
-**Исходы:** morale -1, danger +1"
+event.forest_leech_marsh.description,events,,"Тропа проходит через болотистую низину. Верблюды вязнут по щиколотку, а на ногах погонщиков — пиявки.","The trail crosses a marshy hollow. Camels sink to their ankles, and leeches cling to the drivers' legs."
 event.valley_ferry_wait.name,events,,Ожидание парома,Waiting for the Ferry
-event.valley_ferry_wait.description,events,,"Паромщик на том берегу. Караван ждёт у переправы, пока лодка неспешно пересекает мутную реку.","The ferryman is on the far bank. The caravan waits at the crossing while the boat slowly traverses the muddy river.
-**Исходы:** morale -1"
+event.valley_ferry_wait.description,events,,"Паромщик на том берегу. Караван ждёт у переправы, пока лодка неспешно пересекает мутную реку.",The ferryman is on the far bank. The caravan waits at the crossing while the boat slowly traverses the muddy river.
 event.valley_river_fish.name,events,,Рыба в реке,River Fish
-event.valley_river_fish.description,events,,Лагерь стоит у реки. Погонщики ловят рыбу голыми руками на мелководье — ужин обеспечен.,"The camp is set by a river. Drivers catch fish with bare hands in the shallows — dinner is secured.
-**Исходы:** food +2"
+event.valley_river_fish.description,events,,Лагерь стоит у реки. Погонщики ловят рыбу голыми руками на мелководье — ужин обеспечен.,The camp is set by a river. Drivers catch fish with bare hands in the shallows — dinner is secured.
 event.valley_muddy_bank.name,events,,Топкий берег,Muddy Bank
-event.valley_muddy_bank.description,events,,Колёса телеги увязают в раскисшей глине у реки. Приходится подкладывать ветки и выталкивать вручную.,"Cart wheels sink into sodden clay near the river. Branches must be laid down and the cart pushed out by hand.
-**Исходы:** cart_durability -1, add_skill_xp Craft 1"
+event.valley_muddy_bank.description,events,,Колёса телеги увязают в раскисшей глине у реки. Приходится подкладывать ветки и выталкивать вручную.,Cart wheels sink into sodden clay near the river. Branches must be laid down and the cart pushed out by hand.
 event.coast_salt_breeze.name,events,,Солёный бриз,Salt Breeze
-event.coast_salt_breeze.description,events,,С моря тянет свежим солёным бризом. После пыльных дорог солоноватый воздух кажется целебным.,"A fresh salt breeze drifts in from the sea. After dusty roads, the briny air feels medicinal.
-**Исходы:** morale +1"
+event.coast_salt_breeze.description,events,,С моря тянет свежим солёным бризом. После пыльных дорог солоноватый воздух кажется целебным.,"A fresh salt breeze drifts in from the sea. After dusty roads, the briny air feels medicinal."
 event.coast_seashells.name,events,,Ракушки на берегу,Seashells on Shore
-event.coast_seashells.description,events,,"Погонщики подбирают красивые раковины на берегу. Один находит крупную перламутровую — может, удастся продать.","Drivers pick up pretty shells on the shore. One finds a large mother-of-pearl shell — perhaps it can be sold.
-**Исходы:** money +1"
+event.coast_seashells.description,events,,"Погонщики подбирают красивые раковины на берегу. Один находит крупную перламутровую — может, удастся продать.",Drivers pick up pretty shells on the shore. One finds a large mother-of-pearl shell — perhaps it can be sold.
 event.coast_rust_salt.name,events,,Ржавчина от соли,Salt Rust
-event.coast_rust_salt.description,events,,Морской воздух разъедает металлические крепления телеги. На петлях и скобах выступает рыжая ржавчина.,"Sea air corrodes the cart's metal fittings. Orange rust blooms on hinges and brackets.
-**Исходы:** cart_durability -1"
+event.coast_rust_salt.description,events,,Морской воздух разъедает металлические крепления телеги. На петлях и скобах выступает рыжая ржавчина.,Sea air corrodes the cart's metal fittings. Orange rust blooms on hinges and brackets.
 event.camp_plains_hunt.name,events,,Охота в степи,Steppe Hunt
 event.camp_plains_hunt.description,events,,"За лагерем, в высокой траве, мелькают тени — куропатки, а может, зайцы. Ветер приносит запах полыни и сухой земли. Один из погонщиков достаёт из-под тюков короткий лук и кивает в сторону степи: припасы на исходе, дичь сама просится в руки. Вопрос лишь в том, кто пойдёт и как далеко стоит углубляться.","Beyond the camp, shadows dart through the tall grass — partridges, perhaps hares. The wind carries the scent of wormwood and dry earth. One of the drivers pulls a short bow from beneath the bales and nods toward the steppe: supplies are running low, and game is practically begging to be taken. The only question is who goes and how far to venture."
 event.camp_plains_hunt.choice1,event_choices,,Охотиться у лагеря,Hunt near the camp
@@ -2703,54 +2650,18 @@ event.quest_silk_start.choice2.result,event_choices,,"Вы отводите ма
 event.quest_silk_start.choice2.fail,event_choices,,"Вы пытаетесь договориться, но мастер Чэнь быстро понимает, что вы не отличите индиго от сажи. Он вежливо кланяется, прячет свои плошки и уходит. Вы потратили деньги на базарное угощение и не узнали ничего, кроме того, что вам есть чему учиться.","You try to negotiate, but Master Chen quickly realizes you cannot tell indigo from soot. He bows politely, hides his dishes, and leaves. You spent money on market treats and learned nothing except that you have much to learn."
 event.quest_silk_start.choice3,event_choices,,Переводчик расспрашивает на китайском,The translator converses in Chinese
 event.quest_silk_start.choice3.result,event_choices,,"Ваш переводчик заговорил с мастером Чэнем на родном — и старик преобразился. Он заговорил быстро, жестикулируя синими пальцами, показывая на ткани, на небо, на землю. Переводчик едва успевает передавать — речь идёт о редком растении в окрестностях Аньси, о секрете пурпура, о том, как императорский двор когда-то заказывал ткани именно у его семьи. Мастер Чэнь вкладывает вам в руку плошку с индиго и кланяется. «Человек, при котором есть толмач, умеющий говорить по-нашему — не простой торговец. Я доверяю.» Вы уходите с рынка с заданием, красителем и несколькими китайскими словами, осевшими в памяти.","Your translator addressed Master Chen in his native tongue — and the old man transformed. He spoke rapidly, gesticulating with blue-stained fingers, pointing at fabrics, at the sky, at the earth. The translator could barely keep up — the talk was of a rare plant near Anxi, the secret of purple, how the imperial court once commissioned cloth from his family alone. Master Chen places a dish of indigo into your hand and bows. ""A man who travels with an interpreter who speaks our language is no ordinary merchant. I trust you."" You leave the market with a task, a dye sample, and a few Chinese words lodged in your memory."
-event.road_pamir_caravan.name,events,,Караван на Памирском тракте,Caravan on the Pamir Road
-event.road_pamir_caravan.description,events,,"Тропа сужается до ширины одной повозки — слева отвесная стена бурого сланца, справа обрыв в долину, затянутую облаками. Впереди, из-за скального выступа, доносится скрип колёс и крики погонщиков. Встречный караван — десяток вьючных яков и три повозки, гружённых тюками шерсти. Разминуться на этом участке невозможно: кому-то придётся отступить к расширению тропы за полверсты назад. Предводитель встречного каравана — широкоплечий тюрк в лисьей шапке — уже машет руками и кричит:
 
-<npc_speech lang=""Turkic"">Toqta, yolchu! Bu yol tar — ikimiz syghmaz. Kim aldin kechär? Söylä tez!</npc_speech>","The trail narrows to the width of a single cart — a sheer wall of brown schist on the left, a cloud-filled valley dropping away on the right. From beyond a rocky outcrop come the creak of wheels and the shouts of drovers. An oncoming caravan: a dozen laden yaks and three wagons piled with wool bales. There is no room to pass on this stretch — someone must back up to a widening half a verst behind. The leader of the oncoming caravan, a broad-shouldered Turk in a fox-fur hat, is already waving his arms and shouting:
+"<npc_speech lang=""""Turkic"""">Toqta"," yolchu! Bu yol tar — ikimiz syghmaz. Kim aldin kechär? Söylä tez!</npc_speech>""","The trail narrows to the width of a single cart — a sheer wall of brown schist on the left, a cloud-filled valley dropping away on the right. From beyond a rocky outcrop come the creak of wheels and the shouts of drovers. An oncoming caravan: a dozen laden yaks and three wagons piled with wool bales. There is no room to pass on this stretch — someone must back up to a widening half a verst behind. The leader of the oncoming caravan, a broad-shouldered Turk in a fox-fur hat, is already waving his arms and shouting:
 
 <npc_speech lang=""Turkic"">Toqta, yolchu! Bu yol tar — ikimiz syghmaz. Kim aldin kechär? Söylä tez!</npc_speech>"
-event.road_pamir_caravan.choice1,event_choices,,Уступить дорогу,Yield the road
-event.road_pamir_caravan.choice1.result,event_choices,,"Полдня ушло на то, чтобы сдать повозки назад по узкой тропе — колесо за колесом, шаг за шагом, под скрежет тормозных колодок о камень. Погонщики кричали, яки упирались, один тюк едва не слетел в пропасть. Встречный караван прошёл, тюрк кивнул на прощание, но времени потеряно немало. Люди вымотаны и злы.","Half a day spent backing the carts along the narrow trail — wheel by wheel, step by step, brake shoes grinding against rock. Drivers shouted, yaks balked, one bale nearly tumbled into the abyss. The oncoming caravan passed, the Turk nodded farewell, but the time lost is considerable. The men are exhausted and irritable."
-event.road_pamir_caravan.choice2,event_choices,,Настоять на своём праве прохода,Insist on right of passage
-event.road_pamir_caravan.choice2.result,event_choices,,"Вы указали на ширину своих повозок, на вес груза и на обрыв — убедительно и спокойно. Тюрк покосился на пропасть, прикинул риск и нехотя дал команду своим пятиться. Его яки, привыкшие к горным тропам, отступили увереннее ваших лошадей. Через час путь свободен. Погонщики горды — их караван не отступил.","You pointed to the width of your carts, the weight of your load, and the cliff edge — calmly and convincingly. The Turk eyed the drop, weighed the risk, and grudgingly ordered his men to back up. His yaks, bred for mountain trails, retreated more surely than your horses would have. Within an hour the way is clear. The drivers are proud — their caravan did not yield."
-event.road_pamir_caravan.choice2.fail,event_choices,,"Тюрк не уступил — оба каравана застряли лицом к лицу, погонщики переругивались, яки мычали. Когда ваш крайний як попытался протиснуться, он столкнул камень с края тропы, и повозку тряхнуло так, что треснула боковая стойка. Пришлось отступать всё равно, но уже с повреждённой телегой и подмоченной репутацией.","The Turk did not yield — both caravans stood face to face, drivers cursing, yaks bellowing. When your outermost yak tried to squeeze past, it knocked a stone off the trail edge, jolting the cart hard enough to crack a side post. You had to retreat anyway, now with a damaged wagon and bruised pride."
-event.road_pamir_caravan.choice3,event_choices,,Проводник знает обходную тропу,The guide knows a bypass trail
-event.road_pamir_caravan.choice3.result,event_choices,,"Проводник тронул вас за локоть и кивнул на едва заметную тропку, уходящую вверх по осыпи. «Пастухи ходят — выше на гребень и обратно. Повозки не пройдут, но яков проведём по одному, а телеги подождут.» Через два часа караван обошёл затор, и тюрк, поражённый вашей хваткой, подарил тюк кашемировой шерсти — знак уважения от одного горного путника к другому.","The guide touched your elbow and nodded toward a barely visible path climbing up the scree. ""Herders use it — up to the ridge and back down. Carts won't fit, but we can lead the yaks one by one, and the wagons wait."" Two hours later the caravan had bypassed the jam, and the Turk, impressed by your resourcefulness, presented a bale of cashmere wool — a mark of respect from one mountain traveler to another."
-event.road_taklamakan_well.name,events,,Колодец в пустыне Такламакан,Well in the Taklamakan Desert
-event.road_taklamakan_well.description,events,,"Третий день без пополнения воды. Бурдюки почти пусты, верблюды идут тяжело, губы растрескались у каждого в караване. По расчётам, единственный колодец на маршруте должен быть где-то здесь — среди серых солончаков и мёртвых тополей, занесённых песком по самые кроны. Наконец, погонщик замечает каменную кладку колодца, полузасыпанную песком. Но радость гаснет быстро: вода на дне мутная, с желтоватым оттенком и сладковатым запахом. То ли минеральные соли, то ли что-то хуже. Мёртвый ворон лежит у края сруба, крылья раскинуты.","Third day without resupply. The waterskins are nearly empty, the camels plod heavily, every lip in the caravan is cracked. By calculation, the only well on this route should be somewhere here — among grey salt flats and dead poplars buried to their crowns in sand. At last, a driver spots the stone masonry of a well, half-choked with sand. But relief fades quickly: the water at the bottom is cloudy, yellowish, with a sickly-sweet smell. Mineral salts, perhaps — or something worse. A dead raven lies at the wellhead, wings splayed."
-event.road_taklamakan_well.choice1,event_choices,,Рискнуть — пить воду,Risk it — drink the water
-event.road_taklamakan_well.choice1.result,event_choices,,"Выбора нет — бурдюки пусты, а до Хотана ещё два перехода. Воду процедили через ткань, прокипятили и разлили. Вкус горький, металлический, но горло смочил. К вечеру двоих погонщиков скрутило — живот, жар, слабость. Вода оказалась отравлена минеральными солями. Караван ползёт дальше с больными на повозках.","There is no choice — the waterskins are empty, and Khotan is still two marches away. The water was strained through cloth, boiled, and distributed. The taste is bitter, metallic, but it wets the throat. By evening two drivers are doubled over — cramps, fever, weakness. The water was tainted with mineral salts. The caravan crawls on with the sick riding in the carts."
-event.road_taklamakan_well.choice2,event_choices,,Искать другой источник,Search for another source
-event.road_taklamakan_well.choice2.result,event_choices,,"Вы заметили полоску зелени у подножия бархана — верный признак подземной воды. Два часа копали руками и черпаками, пока не хлынул прозрачный родничок. Вода чистая, холодная, без привкуса. Бурдюки наполнены, верблюды напоены, люди плачут от облегчения. Мёртвый колодец остался позади — предупреждение для тех, кто идёт следом.","You noticed a strip of green at the base of a dune — a sure sign of underground water. Two hours of digging with hands and scoops before a clear spring broke through. The water is clean, cold, without aftertaste. Waterskins filled, camels watered, men weep with relief. The dead well is left behind — a warning for those who follow."
-event.road_taklamakan_well.choice2.fail,event_choices,,"Полдня блужданий среди барханов не дали ничего — ни зелени, ни влажного песка, ни следов животных. Караван вернулся к отравленному колодцу, потеряв время и последние силы. Жажда давит, люди смотрят на мутную воду с отчаянием.","Half a day of wandering among the dunes yielded nothing — no greenery, no damp sand, no animal tracks. The caravan returned to the poisoned well, having spent time and the last of its strength. Thirst presses, the men stare at the cloudy water with desperation."
-event.road_taklamakan_well.choice3,event_choices,,Лекарь очищает воду,The healer purifies the water
-event.road_taklamakan_well.choice3.result,event_choices,,"Лекарь осмотрел воду, понюхал, растёр каплю между пальцев. «Соли. Не яд, но и не питьё в таком виде.» Он достал из своего мешка горсть толчёного алюминия и бросил в кожаное ведро с мутной водой. Через час осадок лёг на дно, а сверху — прозрачный слой. Прокипятили, процедили — чистая вода, пригодная для питья. Бурдюки наполнены до краёв, верблюды напоены. Погонщики смотрят на лекаря как на чудотворца.","The healer examined the water, sniffed it, rubbed a drop between his fingers. ""Salts. Not poison, but not drinkable as is."" He pulled a handful of powdered alum from his satchel and dropped it into a leather bucket of cloudy water. Within an hour the sediment settled to the bottom, leaving a clear layer above. Boiled and strained — clean water, fit to drink. Waterskins filled to the brim, camels watered. The drivers look at the healer as if he performed a miracle."
-event.road_gansu_patrol.name,events,,Танский патруль в Ганьсуском коридоре,Tang Patrol on the Gansu Corridor
-event.road_gansu_patrol.description,events,,"Лёссовая дорога упирается в бамбуковый шлагбаум между двумя глинобитными сторожевыми башнями. На верёвках сушится вяленое мясо, рядом дымит полевая кухня. Это застава Ганьсуского коридора — танские солдаты проверяют каждый караван, идущий на запад. Офицер в пластинчатых доспехах с красно-лаковыми пластинами стоит посередине дороги, держа в руках деревянную дощечку для записей. Двое солдат с бронзовыми алебардами перекрывают проход. Офицер поднимает руку и обращается по-китайски:
 
-<npc_speech lang=""Chinese"">Zhànzhù! Nín shì nǎ guó shāngrén? Chūshì tōngxíng wénshū hé huòwù qīngdān. Wèi jīng xǔkě, bùdé tōngxíng.</npc_speech>","The loess road ends at a bamboo barrier stretched between two mud-brick watchtowers. Strips of dried meat hang on ropes, a field kitchen smokes nearby. This is a Gansu Corridor checkpoint — Tang soldiers inspect every caravan heading west. An officer in lamellar armor with red-lacquered plates stands in the middle of the road, holding a wooden writing tablet. Two soldiers with bronze-tipped halberds block the passage. The officer raises his hand and addresses you in Chinese:
+"<npc_speech lang=""""Chinese"""">Zhànzhù! Nín shì nǎ guó shāngrén? Chūshì tōngxíng wénshū hé huòwù qīngdān. Wèi jīng xǔkě"," bùdé tōngxíng.</npc_speech>""","The loess road ends at a bamboo barrier stretched between two mud-brick watchtowers. Strips of dried meat hang on ropes, a field kitchen smokes nearby. This is a Gansu Corridor checkpoint — Tang soldiers inspect every caravan heading west. An officer in lamellar armor with red-lacquered plates stands in the middle of the road, holding a wooden writing tablet. Two soldiers with bronze-tipped halberds block the passage. The officer raises his hand and addresses you in Chinese:
 
 <npc_speech lang=""Chinese"">Zhànzhù! Nín shì nǎ guó shāngrén? Chūshì tōngxíng wénshū hé huòwù qīngdān. Wèi jīng xǔkě, bùdé tōngxíng.</npc_speech>"
-event.road_gansu_patrol.choice1,event_choices,,Заплатить пошлину без лишних вопросов,Pay the toll without questions
-event.road_gansu_patrol.choice1.result,event_choices,,"Серебро перешло из рук в руки, офицер сделал запись на дощечке и кивнул солдатам. Шлагбаум поднялся. Быстро, безболезненно, но кошелёк заметно полегчал. Офицер даже не пересчитал монеты — привычка, выработанная сотнями караванов.","Silver changed hands, the officer made a note on his tablet and nodded to the soldiers. The barrier rose. Quick, painless, but the purse is noticeably lighter. The officer did not even count the coins — a habit born of hundreds of caravans."
-event.road_gansu_patrol.choice2,event_choices,,Попытаться договориться,Try to negotiate
-event.road_gansu_patrol.choice2.result,event_choices,,"Вы поклонились по танскому обычаю — правильно, глубоко, с ладонями сложенными перед грудью. Офицер приподнял бровь. Вы заговорили о почтении к империи, о грузе, что принесёт славу заставе, и о скромном подношении, достойном храброго стража. Пошлина снижена до символической, а офицер, явно польщённый, выписал охранную грамоту на имперской бумаге — с ней следующие заставы пропустят быстрее.","You bowed in the Tang fashion — correctly, deeply, palms pressed together before your chest. The officer raised an eyebrow. You spoke of respect for the empire, of cargo that would bring credit to the post, and of a modest gift worthy of a brave guardian. The toll was reduced to a token sum, and the officer, clearly flattered, issued a safe-conduct on imperial paper — it will speed passage through checkpoints ahead."
-event.road_gansu_patrol.choice2.fail,event_choices,,"Офицер нахмурился — ваш поклон вышел неловким, слова звучали как плохо заученная речь. «Нет бумаг — плати двойную пошлину. Или стой здесь, пока не приедет начальник заставы.» Пришлось платить сполна и выслушать нотацию о варварах, не знающих обычаев Поднебесной. Люди угрюмо молчат.","The officer frowned — your bow was clumsy, your words sounded like a poorly rehearsed speech. ""No papers — pay double toll. Or wait here until the post commander arrives."" You paid in full and endured a lecture about barbarians ignorant of the customs of the Celestial Empire. The men are grimly silent."
-event.road_gansu_patrol.choice3,event_choices,,Переводчик улаживает формальности,The translator handles the formalities
-event.road_gansu_patrol.choice3.result,event_choices,,"Переводчик вышел вперёд и заговорил с офицером на безупречном китайском — почтительно, но уверенно, с правильными титулами и придворными оборотами. Офицер выпрямился, как перед инспектором. Через четверть часа пошлина уплачена минимальная, охранная грамота выписана, а солдаты угостили караван горячей лапшой из полевой кухни. Переводчик даже успел выучить пару военных терминов — пригодится на следующей заставе.","The translator stepped forward and addressed the officer in flawless Chinese — respectful but assured, with the correct titles and courtly turns of phrase. The officer straightened as if before an inspector. Within a quarter-hour the toll was paid at the minimum rate, a safe-conduct was issued, and the soldiers treated the caravan to hot noodles from the field kitchen. The translator even picked up a few military terms — useful at the next checkpoint."
-event.road_levant_pirates.name,events,,Пираты на Левантийском побережье,Pirates on the Levantine Coast
-event.road_levant_pirates.description,events,,"Караванная тропа прижимается к берегу — справа обрыв к морю, слева скалистые холмы в сухом колючем кустарнике. Солёный ветер приносит запах водорослей и дыма. Из-за мыса выскальзывает длинная лодка с косым парусом — и ещё одна. На берегу, среди выброшенных штормом брёвен, появляются фигуры в тёмных обмотках, с кривыми саблями и круглыми щитами из верблюжьей кожи. Береговые пираты — полудюжина, может, больше — перекрывают тропу впереди. Главарь, жилистый мужчина со шрамом через левую бровь, вскидывает руку и кричит:
 
-<npc_speech lang=""Arabic"">Qif, yaa taajir! Haadhihi ardhunaa wa bahrunaa. Idfaa' al-kharaaj aw sa-na'khudhu maa na-sha'!</npc_speech>","The caravan trail hugs the coast — a drop to the sea on the right, rocky hills in dry thorny scrub on the left. The salt wind carries the smell of seaweed and smoke. From behind a headland a long boat with a lateen sail slides out — then another. On the shore, among storm-thrown driftwood, figures appear in dark wrappings, with curved sabres and round camel-hide shields. Coastal pirates — half a dozen, perhaps more — block the trail ahead. Their leader, a wiry man with a scar across his left brow, raises his hand and shouts:
+"<npc_speech lang=""""Arabic"""">Qif"," yaa taajir! Haadhihi ardhunaa wa bahrunaa. Idfaa' al-kharaaj aw sa-na'khudhu maa na-sha'!</npc_speech>""","The caravan trail hugs the coast — a drop to the sea on the right, rocky hills in dry thorny scrub on the left. The salt wind carries the smell of seaweed and smoke. From behind a headland a long boat with a lateen sail slides out — then another. On the shore, among storm-thrown driftwood, figures appear in dark wrappings, with curved sabres and round camel-hide shields. Coastal pirates — half a dozen, perhaps more — block the trail ahead. Their leader, a wiry man with a scar across his left brow, raises his hand and shouts:
 
 <npc_speech lang=""Arabic"">Qif, yaa taajir! Haadhihi ardhunaa wa bahrunaa. Idfaa' al-kharaaj aw sa-na'khudhu maa na-sha'!</npc_speech>"
-event.road_levant_pirates.choice1,event_choices,,Заплатить дань,Pay the tribute
-event.road_levant_pirates.choice1.result,event_choices,,"Кошель монет полетел к ногам главаря. Тот поднял, взвесил на ладони и ухмыльнулся — зубы жёлтые, один золотой. Махнул своим, и пираты расступились, не спуская глаз с повозок. Дань уплачена, проход свободен. Горько, но караван цел, и это главное.","A purse of coins landed at the leader's feet. He picked it up, weighed it in his palm, and grinned — yellow teeth, one gold. He waved to his men, and the pirates parted, never taking their eyes off the wagons. Tribute paid, passage clear. Bitter, but the caravan is whole, and that is what matters."
-event.road_levant_pirates.choice2,event_choices,,Предложить торговый обмен вместо дани,Offer a trade instead of tribute
-event.road_levant_pirates.choice2.result,event_choices,,"Вы подняли руки — пустые, без оружия — и заговорили о деле. Пираты промышляют не только грабежом: у них кораллы со дна, жемчуг из раковин, добыча с разбитых кораблей. Вы предложили обменять товар по справедливой цене и выложили пробный образец. Главарь повертел его в руках, хмыкнул и кивнул. Через час караван двинулся дальше — с коралловой веткой в тюках и репутацией человека, с которым можно иметь дело.","You raised your hands — empty, no weapon — and spoke business. Pirates do not only plunder: they have coral from the seabed, pearls from shells, salvage from wrecked ships. You offered a fair trade and laid out a sample. The leader turned it over, grunted, and nodded. An hour later the caravan moved on — with a branch of coral in the bales and a reputation as someone worth dealing with."
-event.road_levant_pirates.choice2.fail,event_choices,,"Главарь выслушал, сплюнул и рассмеялся. «Ты торговаться пришёл — к нам?» Его люди сомкнулись, сабли наголо. Пришлось отдать больше, чем просили изначально, — и один тюк сверху, вскрытый и растащенный на глазах. Унижение жжёт не меньше, чем потеря.","The leader listened, spat, and laughed. ""You came to haggle — with us?"" His men closed ranks, sabres drawn. You ended up paying more than originally demanded — plus one bale, ripped open and picked through before your eyes. The humiliation stings as much as the loss."
-event.road_levant_pirates.choice3,event_choices,,Стражник организует оборону,The guard organizes a defense
-event.road_levant_pirates.choice3.result,event_choices,,"Стражник оценил ситуацию мгновенно: шестеро, легко вооружены, лодки на берегу — путь отхода. Он тихо скомандовал погонщикам развернуть повозки полукругом, достал арбалет и выстрелил болтом в песок у ног главаря. Пираты замерли. «Следующий — в грудь,» — сказал стражник по-арабски, показав на арбалет. Главарь посмотрел на полукруг повозок, на арбалет, на решительные лица погонщиков — и отступил. Его люди бросили ветку коралла на тропу, как знак перемирия, и скрылись за мысом. Караван прошёл без потерь.","The guard assessed the situation instantly: six men, lightly armed, boats on the shore — an escape route. He quietly ordered the drivers to wheel the carts into a half-circle, drew his crossbow, and put a bolt into the sand at the leader's feet. The pirates froze. ""The next one hits the chest,"" the guard said in Arabic, gesturing at the crossbow. The leader looked at the cart barricade, at the crossbow, at the determined faces of the drivers — and backed off. His men tossed a branch of coral onto the trail as a truce token and vanished behind the headland. The caravan passed without loss."
 event.minor_desert_caravan_bells.name,events,,Звон колокольчиков далёкого каравана,Minor Desert Caravan Bells
 event.minor_desert_caravan_bells.description,events,,"В раскалённой тишине пустыни рождается звук — тонкий, серебристый перезвон колокольчиков. Откуда-то из-за барханов, невидимый, движется другой караван. Звон то приближается, то тонет в шорохе песка, словно ветер играет на невидимых струнах. Никто не показывается на горизонте, но сам звук — доказательство, что дорога жива, что где-то рядом идут люди. Погонщики переглядываются и улыбаются: мы не одни.","In the scorched silence of the desert, a sound is born — a thin, silvery chime of camel bells. From somewhere beyond the dunes, unseen, another caravan moves. The ringing draws closer, then drowns in the whisper of sand, as if the wind plays invisible strings. No one appears on the horizon, but the sound itself is proof that the road lives, that people walk nearby. The drivers exchange glances and smile: we are not alone."
 event.minor_highland_waterfall.name,events,,Горный водопад у тропы,Minor Highland Waterfall
@@ -2773,3 +2684,25 @@ UI.Tooltip.NpcMarkup,,,Наценка,Markup
 UI.Tooltip.Bonus,,,Бонусы,Bonuses
 UI.Tooltip.Total,,,Итого,Total
 UI.Tooltip.UnknownLanguage,,,Вы не знаете этот язык,You don't know this language
+UI.TargetSelection.Main.Label.TravelTo,,,Отправиться в {0}?,Travel to {0}?
+UI.TargetSelection.Main.Button.Confirm,,,Да,Yes
+UI.TargetSelection.Main.Button.Cancel,,,Нет,No
+event.road_discover_R_N_Urumqi__N_Kucha.choice1,road_events,,Расчистить путь,Clear the path
+event.road_discover_R_N_Urumqi__N_Kucha.choice1.result,road_events,,Караван прокладывает дорогу сквозь заросли. За поворотом открывается пригодный для движения тракт — новый маршрут найден!,"The caravan cuts through the overgrowth. Around the bend, a passable road opens up — a new route discovered!"
+event.road_discover_R_N_Urumqi__N_Kucha.choice2,road_events,,Не рисковать,Don't risk it
+event.road_discover_R_N_Urumqi__N_Kucha.choice2.result,road_events,,Вы решаете не сходить с проверенного пути. Заросшая тропа остаётся позади.,You decide to stick to the known road. The overgrown trail fades behind you.
+event.road_discover_R_N_Urumqi__N_Kucha.choice1.fail,road_events,,"Заросли оказались непроходимы — караван вернулся на основную дорогу, потеряв время и нервы.","The undergrowth proved impassable — the caravan returned to the main road, losing time and morale."
+event.road_discover_R_N_Urumqi__N_Kucha.name,road_events,,Заросшая тропа,Overgrown Trail
+event.road_discover_R_N_Urumqi__N_Kucha.description,road_events,,"Сквозь густые заросли проглядывает старая, почти забытая дорога. Выбоины от колёс давно заросли травой, но направление ещё угадывается. Местные обходят это место стороной — говорят, путь опасен.","An old, nearly forgotten road peers through dense undergrowth. Wheel ruts have long been swallowed by grass, but the direction is still discernible. Locals avoid this place — they say the path is treacherous."
+event.road_encounter_R_N_Urumqi__N_Kucha.choice1,road_events,,Заплатить и выслушать,Pay and listen
+event.road_encounter_R_N_Urumqi__N_Kucha.choice1.result,road_events,,"Старик рисует на песке подробную карту. Его глаза блестят — он явно рад, что кто-то наконец воспользуется его знанием. Новый путь открыт!",The old man draws a detailed map in the sand. His eyes gleam — he is clearly glad someone will finally use his knowledge. A new route is revealed!
+event.road_encounter_R_N_Urumqi__N_Kucha.choice2,road_events,,Отказаться,Refuse
+event.road_encounter_R_N_Urumqi__N_Kucha.choice2.result,road_events,,Старик пожимает плечами и снова склоняется к своим рисункам на земле.,The old man shrugs and bends back over his drawings in the dirt.
+event.road_encounter_R_N_Urumqi__N_Kucha.name,road_events,,Старый проводник,The Old Guide
+event.road_encounter_R_N_Urumqi__N_Kucha.description,road_events,,"Седой старик в пыльном халате сидит у обочины, чертя палкой на земле. Увидев караван, он поднимает голову и говорит, что знает дорогу, которую не показывают на картах. За небольшую плату он готов указать путь.","A grey-haired old man in a dusty robe sits by the roadside, drawing in the dirt with a stick. Seeing the caravan, he looks up and says he knows a road not shown on any map. For a small fee, he'll point the way."
+event.road_quest_R_N_Urumqi__N_Kucha.choice1,road_events,,Принять благодарность,Accept the gratitude
+event.road_quest_R_N_Urumqi__N_Kucha.choice1.result,road_events,,Караванщик разворачивает потайную карту и подробно описывает каждый поворот. Теперь этот путь открыт и для вас!,The caravan master unfolds a hidden map and describes every turn in detail. This route is now open to you as well!
+event.road_quest_R_N_Urumqi__N_Kucha.choice2,road_events,,Вежливо отказать,Politely decline
+event.road_quest_R_N_Urumqi__N_Kucha.choice2.result,road_events,,"Караванщик кланяется и уходит, унося свой секрет.","The caravan master bows and departs, taking his secret with him."
+event.road_quest_R_N_Urumqi__N_Kucha.name,road_events,,Долг караванщика,Caravan Master's Debt
+event.road_quest_R_N_Urumqi__N_Kucha.description,road_events,,"Бывалый караванщик догоняет ваш отряд. Он говорит, что обязан вам жизнью — в прошлый раз вы помогли его людям на переправе. В благодарность он готов открыть секретный маршрут, которым пользуются только избранные торговцы.","A seasoned caravan master catches up with your party. He says he owes you his life — you helped his people at a crossing once before. In gratitude, he offers to reveal a secret route used only by select merchants."

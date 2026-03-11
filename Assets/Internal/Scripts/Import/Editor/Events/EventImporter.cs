@@ -35,9 +35,6 @@ namespace Internal.Scripts.Import.Editor.Events
                 // 2. Ensure folders
                 EnsureAssetFolder(EVENTS_FOLDER);
                 EnsureAssetFolder(DATABASES_FOLDER);
-                EnsureAssetFolder(LOCALIZATION_FOLDER);
-                EnsureAssetFolder(LOCALIZATION_LOCALES_FOLDER);
-                EnsureAssetFolder(LOCALIZATION_TABLES_FOLDER);
 
                 // 3. Build lookups (main CSVs)
                 var typeNameKeys = EventTypesTable.Read();
@@ -60,22 +57,12 @@ namespace Internal.Scripts.Import.Editor.Events
                     MergeInto(skillChecks, EventSkillChecksTable.Read("road_event_skill_checks.csv"));
                 }
 
-                // 4. Localization
-                var locEntries = new Dictionary<string, LocalizationImporter.LocalizationEntry>();
-                LocalizationImporter.CollectFromCsvPlainLocales(
-                    CsvPath("localization.csv"), "key", "event.", locEntries);
-                LocalizationImporter.CollectFromCsvPlainLocales(
-                    CsvPath("localization.csv"), "key", "event_type.", locEntries);
-
-                LocalizationImporter.Import(
-                    locEntries, LOCALIZATION_TABLE_NAME, LOCALIZATION_TABLES_FOLDER, LOCALIZATION_LOCALES_FOLDER);
-
-                // 5. Import events + database
+                // 4. Import events + database
                 var events = EventsTable.Import(
                     typeNameKeys, choices, eventConditions, choiceConditions, outcomes,
                     skillChecks, LOCALIZATION_TABLE_NAME);
 
-                // 5b. Road events
+                // 4b. Road events
                 if (hasRoadEvents)
                 {
                     var roadEvents = EventsTable.Import(

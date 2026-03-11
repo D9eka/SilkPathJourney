@@ -52,7 +52,7 @@ namespace Internal.Scripts.Import.Editor.Core
                     continue;
                 }
 
-                if (c == '"')
+                if (c == '"' && field.Length == 0)
                 {
                     inQuotes = true;
                     continue;

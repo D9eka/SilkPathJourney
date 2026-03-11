@@ -12,7 +12,6 @@ namespace Internal.Scripts.Import.Editor.Theme
     public static class ThemeImporter
     {
         private const string PALETTES_FOLDER = GENERATED_DATA_FOLDER + "/BiomePalettes";
-        private const string LOCALIZATION_TABLE_NAME = "Theme";
 
         [MenuItem("SPJ/Import/Theme")]
         public static void ImportColors()
@@ -40,33 +39,6 @@ namespace Internal.Scripts.Import.Editor.Theme
                 AssetDatabase.SaveAssets();
                 AssetDatabase.Refresh();
                 Debug.Log($"[SPJ] Theme colors imported: {palettes.Count} palettes.");
-            }
-            catch (Exception e)
-            {
-                Debug.LogException(e);
-            }
-        }
-
-        [MenuItem("SPJ/Import/Localization")]
-        public static void ImportLocalization()
-        {
-            if (IsCompiling()) return;
-
-            try
-            {
-                EnsureAssetFolder(LOCALIZATION_FOLDER);
-                EnsureAssetFolder(LOCALIZATION_LOCALES_FOLDER);
-                EnsureAssetFolder(LOCALIZATION_TABLES_FOLDER);
-
-                var locEntries = new Dictionary<string, LocalizationImporter.LocalizationEntry>();
-                LocalizationImporter.CollectFromCsvPlainLocales(
-                    CsvPath("localization.csv"), "key", "biome.", locEntries);
-
-                LocalizationImporter.Import(locEntries, LOCALIZATION_TABLE_NAME,
-                    LOCALIZATION_TABLES_FOLDER, LOCALIZATION_LOCALES_FOLDER);
-
-                AssetDatabase.SaveAssets();
-                Debug.Log($"[SPJ] Theme localization imported: {locEntries.Count} entries.");
             }
             catch (Exception e)
             {
