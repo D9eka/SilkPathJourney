@@ -22,5 +22,10 @@ MonoBehaviour:
   <DefaultCityDetailZoomSize>k__BackingField: 75
   <PreloadCityScene>k__BackingField: 1
   <MoveSensitivity>k__BackingField: 1
+  <MaxMoveSpeedHeight>k__BackingField: 100
   <StrategicTiltAngle>k__BackingField: 90
   <DetailTiltAngle>k__BackingField: 45
+  <FollowTransitionDuration>k__BackingField: 0.3
+  <TargetSelectionZoomSize>k__BackingField: 225
+  <FollowZoomSize>k__BackingField: 75
+  <PreviewMoveSpeed>k__BackingField: 150
