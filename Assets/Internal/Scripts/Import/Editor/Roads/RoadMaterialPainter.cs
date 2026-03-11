@@ -11,7 +11,7 @@ namespace Internal.Scripts.Import.Editor.Roads
         private const string MaterialsFolder = ImportHelpers.GENERATED_DATA_FOLDER + "/Materials";
         private static readonly Color RoadColor = new(0.15f, 0.12f, 0.10f);
 
-        [MenuItem("SPJ/Import/Roads/Paint Road Materials")]
+        [MenuItem("SPJ/Import/Roads")]
         public static void PaintRoadMaterials()
         {
             Material mat = GetOrCreateRoadMaterial();

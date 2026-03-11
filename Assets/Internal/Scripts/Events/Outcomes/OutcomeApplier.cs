@@ -18,7 +18,14 @@ namespace Internal.Scripts.Events.Outcomes
             SkillXpApplier skill,
             RoadUnlockApplier roadUnlock,
             LanguageProficiencyApplier language,
-            SkipDaysApplier skipDays)
+            SkipDaysApplier skipDays,
+            MoraleApplier morale,
+            ReputationApplier reputation,
+            ExtraCartDurabilityApplier extraCartDurability,
+            MainCartDurabilityApplier mainCartDurability,
+            RemoveItemApplier removeItem,
+            BlockMovementApplier blockMovement,
+            CompanionInjuredApplier companionInjured)
         {
             Register(resource);
             Register(item);
@@ -28,6 +35,13 @@ namespace Internal.Scripts.Events.Outcomes
             Register(roadUnlock);
             Register(language);
             Register(skipDays);
+            Register(morale);
+            Register(reputation);
+            Register(extraCartDurability);
+            Register(mainCartDurability);
+            Register(removeItem);
+            Register(blockMovement);
+            Register(companionInjured);
         }
 
         public ResourceType? GetAffectedResource(EventOutcomeType type)

@@ -827,12 +827,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cbdbd4b23115f14781d554d50e36f9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Screens.Event.EventScreen
+  _animationRoots:
+  - {fileID: 2113873418141811601}
+  _canvasGroup: {fileID: 7209361360938212709}
   _mainHeader: {fileID: 1033174394196858954}
   _mainHeaderLocalizedString:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: GUID:43598c3e97d7d9a439a074f7627fe021
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 2184196805091328
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -900,7 +903,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 920153621790064630, guid: b2552674d8eb96847bc68f513878fc1a, type: 3}
       propertyPath: m_Name
-      value: Overlay
+      value: PopupScreen
       objectReference: {fileID: 0}
     - target: {fileID: 1865986617691072775, guid: b2552674d8eb96847bc68f513878fc1a, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1004,7 +1007,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4377118672759155942, guid: b2552674d8eb96847bc68f513878fc1a, type: 3}
       propertyPath: m_text
-      value: "\u0413\u0440\u0443\u0437"
+      value: "\u0421\u043E\u0431\u044B\u0442\u0438\u0435"
       objectReference: {fileID: 0}
     - target: {fileID: 5488169530723491871, guid: b2552674d8eb96847bc68f513878fc1a, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1151,6 +1154,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d919d659504ae6c44b2d0089f557e493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Components.HeaderElement
+--- !u!224 &2113873418141811601 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2268240748140936967, guid: b2552674d8eb96847bc68f513878fc1a, type: 3}
+  m_PrefabInstance: {fileID: 157507642732477590}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &3576611516163936844 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3714688372514467546, guid: b2552674d8eb96847bc68f513878fc1a, type: 3}
@@ -1159,6 +1167,11 @@ RectTransform:
 --- !u!224 &6898569101298178956 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6742786195633694490, guid: b2552674d8eb96847bc68f513878fc1a, type: 3}
+  m_PrefabInstance: {fileID: 157507642732477590}
+  m_PrefabAsset: {fileID: 0}
+--- !u!225 &7209361360938212709 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 7359831407693947379, guid: b2552674d8eb96847bc68f513878fc1a, type: 3}
   m_PrefabInstance: {fileID: 157507642732477590}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &624357018663371297
@@ -1756,7 +1769,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.LayoutElement
   m_IgnoreLayout: 0
   m_MinWidth: -1
-  m_MinHeight: -1
+  m_MinHeight: 128
   m_PreferredWidth: -1
   m_PreferredHeight: -1
   m_FlexibleWidth: -1

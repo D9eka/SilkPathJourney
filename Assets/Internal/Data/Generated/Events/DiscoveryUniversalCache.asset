@@ -95,10 +95,10 @@ MonoBehaviour:
       <Param>k__BackingField: 
       <Value>k__BackingField: 10
     - <Type>k__BackingField: 4
-      <Param>k__BackingField: Saffron
+      <Param>k__BackingField: saffron
       <Value>k__BackingField: 1
     - <Type>k__BackingField: 4
-      <Param>k__BackingField: Blades
+      <Param>k__BackingField: blades
       <Value>k__BackingField: 1
     - <Type>k__BackingField: 7
       <Param>k__BackingField: Trade
@@ -133,10 +133,10 @@ MonoBehaviour:
       <Param>k__BackingField: 
       <Value>k__BackingField: 12
     - <Type>k__BackingField: 4
-      <Param>k__BackingField: Saffron
+      <Param>k__BackingField: saffron
       <Value>k__BackingField: 1
     - <Type>k__BackingField: 4
-      <Param>k__BackingField: Blades
+      <Param>k__BackingField: blades
       <Value>k__BackingField: 1
     - <Type>k__BackingField: 3
       <Param>k__BackingField: 

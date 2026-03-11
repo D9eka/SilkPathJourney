@@ -235,9 +235,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 407c46e34b04e374eba4b9d6fef7bf75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Screens.EnterCity.EnterCityScreen
+  _animationRoots:
+  - {fileID: 8792551946116411893}
+  _canvasGroup: {fileID: 242169851755228929}
   _mainHeader: {fileID: 7567742164858956334}
   _closeButton: {fileID: 6007035805796684546}
-  _overlayScreen: {fileID: 2543421011403765976}
   _mainHeaderLocalizedString:
     m_TableReference:
       m_TableCollectionName: 
@@ -265,7 +267,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 920153621790064630, guid: b2552674d8eb96847bc68f513878fc1a, type: 3}
       propertyPath: m_Name
-      value: Overlay
+      value: PopupScreen
       objectReference: {fileID: 0}
     - target: {fileID: 2268240748140936967, guid: b2552674d8eb96847bc68f513878fc1a, type: 3}
       propertyPath: m_SizeDelta.x
@@ -329,7 +331,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4377118672759155942, guid: b2552674d8eb96847bc68f513878fc1a, type: 3}
       propertyPath: m_text
-      value: "\u0428\u043A\u043E\u043B\u0430 \u044F\u0437\u044B\u043A\u043E\u0432"
+      value: "\u0413\u043E\u0440\u043E\u0434"
       objectReference: {fileID: 0}
     - target: {fileID: 4377118672759155942, guid: b2552674d8eb96847bc68f513878fc1a, type: 3}
       propertyPath: m_fontStyle
@@ -453,7 +455,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8776477108901258530, guid: b2552674d8eb96847bc68f513878fc1a, type: 3}
       propertyPath: m_Name
-      value: EnterCityScreen
+      value: Screen
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -469,17 +471,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 908131050115478228}
   m_SourcePrefab: {fileID: 100100000, guid: b2552674d8eb96847bc68f513878fc1a, type: 3}
---- !u!114 &2543421011403765976 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5058396111674144298, guid: b2552674d8eb96847bc68f513878fc1a, type: 3}
+--- !u!225 &242169851755228929 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 7359831407693947379, guid: b2552674d8eb96847bc68f513878fc1a, type: 3}
   m_PrefabInstance: {fileID: 7313568278279982834}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95645af8e60142078d8b7ccca1779cac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Screens.OverlayScreen
 --- !u!1 &2968703621278275484 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5498323052536306030, guid: b2552674d8eb96847bc68f513878fc1a, type: 3}
@@ -543,3 +539,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d919d659504ae6c44b2d0089f557e493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Components.HeaderElement
+--- !u!224 &8792551946116411893 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2268240748140936967, guid: b2552674d8eb96847bc68f513878fc1a, type: 3}
+  m_PrefabInstance: {fileID: 7313568278279982834}
+  m_PrefabAsset: {fileID: 0}

@@ -17,7 +17,12 @@ namespace Internal.Scripts.Events.Conditions
             LocationEvaluator location,
             CompanionEvaluator companion,
             MinSkillEvaluator skill,
-            MinLanguageProficiencyEvaluator language)
+            MinLanguageProficiencyEvaluator language,
+            InCampEvaluator inCamp,
+            MinCompanionsEvaluator minCompanions,
+            CityEvaluator city,
+            ReputationConditionEvaluator reputation,
+            MoraleConditionEvaluator morale)
         {
             Register(resource);
             Register(inventory);
@@ -26,6 +31,11 @@ namespace Internal.Scripts.Events.Conditions
             Register(companion);
             Register(skill);
             Register(language);
+            Register(inCamp);
+            Register(minCompanions);
+            Register(city);
+            Register(reputation);
+            Register(morale);
         }
 
         public bool Evaluate(EventCondition condition, PlayerResourceState resources)
@@ -34,7 +44,7 @@ namespace Internal.Scripts.Events.Conditions
                 return evaluator.Evaluate(condition, resources);
 
             Debug.LogWarning($"[SPJ Events] No condition evaluator for {condition.Type}");
-            return true;
+            return false;
         }
 
         private void Register(IConditionEvaluator evaluator)

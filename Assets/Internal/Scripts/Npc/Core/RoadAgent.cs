@@ -23,6 +23,8 @@ namespace Internal.Scripts.Npc.Core
         public string DestinationNodeId => _destinationNodeId;
         public bool HasPath => !_cursor.IsEmpty;
         public RoadPose CurrentPose => _cursor.CurrentPose;
+        public string CurrentFromNodeId => _cursor.CurrentFromNodeId;
+        public string CurrentToNodeId => _cursor.CurrentToNodeId;
         public float SpeedMetersPerDay { get; set; }
         public float Weight { get; set; }
 

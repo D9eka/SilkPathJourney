@@ -37,10 +37,10 @@ namespace Internal.Scripts.Npc.Trading
                 return -1;
 
             RoadPath path = _pathFinder.FindPath(fromNodeId, toNodeId);
-            if (!path.IsValid)
+            int days = path.EstimateDays(speed);
+            if (days < 0)
                 return -1;
 
-            int days = Mathf.CeilToInt(path.TotalLengthMeters / speed);
             return (days + _settings.ExtraSuppliesDays) * _settings.SuppliesPerDay;
         }
 

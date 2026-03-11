@@ -54,6 +54,9 @@ namespace Internal.Scripts.UI.Screens.Hud
         [SerializeField] private Button _openQuestsButton;
         [SerializeField] private Button _openTraderButton;
         [SerializeField] private Button _openCompanionsButton;
+        [Header("CameraControls")]
+        [SerializeField] private Button _lockCameraButton;
+        [SerializeField] private TextMeshProUGUI _lockCameraButtonText;
         [Header("LocalizedStrings")]
         [SerializeField] private LocalizedString _dayTextLocalizedString;
         [SerializeField] private LocalizedString _enterCityLocalizedString;
@@ -61,6 +64,7 @@ namespace Internal.Scripts.UI.Screens.Hud
         [SerializeField] private LocalizedString _moveLocalizedString;
         [SerializeField] private LocalizedString _fastMoveLocalizedString;
         [SerializeField] private LocalizedString _leaveCityLocalizedString;
+        [SerializeField] private LocalizedString _lockCameraLocalizedString;
 
         private HudScreenViewModel _viewModel;
         private IDisposable _stateSubscription;
@@ -68,6 +72,7 @@ namespace Internal.Scripts.UI.Screens.Hud
         private IDisposable _timeSpeedSubscription;
         private LocalizationService.LocalizedTextGroup _buttonHandles;
         private LocalizationService.LocalizedTextHandle _cityHandle;
+        private LocalizationService.LocalizedTextHandle _lockCameraHandle;
 
         private void OnEnable()
         {
@@ -115,6 +120,9 @@ namespace Internal.Scripts.UI.Screens.Hud
             _openInventoryButton.onClick.AddListener(OnOpenInventory);
             _openPauseButton.onClick.AddListener(OnOpenPause);
             _openTraderButton.onClick.AddListener(OnOpenTrader);
+            if (_lockCameraButton != null) _lockCameraButton.onClick.AddListener(OnLockCamera);
+            if (_lockCameraButtonText != null)
+                _lockCameraHandle = Localization.BindText(_lockCameraButtonText, _lockCameraLocalizedString, "Hud.LockCamera");
 
             _timeSpeedSubscription = _viewModel.TimeSpeedState.Subscribe(ApplyTimeSpeedBorder);
             if (_pauseTimeButton != null) _pauseTimeButton.onClick.AddListener(OnPauseTime);
@@ -142,6 +150,8 @@ namespace Internal.Scripts.UI.Screens.Hud
             _buttonHandles = null;
             _cityHandle?.Dispose();
             _cityHandle = null;
+            _lockCameraHandle?.Dispose();
+            _lockCameraHandle = null;
 
             _startActionButton.onClick.RemoveListener(OnStartAction);
             _actionButton.onClick.RemoveListener(OnAction);
@@ -149,6 +159,7 @@ namespace Internal.Scripts.UI.Screens.Hud
             _openInventoryButton.onClick.RemoveListener(OnOpenInventory);
             _openPauseButton.onClick.RemoveListener(OnOpenPause);
             _openTraderButton.onClick.RemoveListener(OnOpenTrader);
+            if (_lockCameraButton != null) _lockCameraButton.onClick.RemoveListener(OnLockCamera);
 
             if (_pauseTimeButton != null) _pauseTimeButton.onClick.RemoveListener(OnPauseTime);
             if (_normalTimeButton != null) _normalTimeButton.onClick.RemoveListener(OnNormalTime);
@@ -167,6 +178,9 @@ namespace Internal.Scripts.UI.Screens.Hud
                     ApplyCityMode(state.City);
                     break;
             }
+
+            if (_lockCameraButton != null)
+                _lockCameraButton.gameObject.SetActive(state.ShowLockCameraButton);
         }
 
         private void ApplyTravelMode(int activeActionIndex)
@@ -228,31 +242,25 @@ namespace Internal.Scripts.UI.Screens.Hud
 
         private void ApplyResources(HudResourceViewState res)
         {
-            _foodIndicator.SetValue($"{res.Food.Value:0}");
-            if (res.Food.Animate)
-                _foodIndicator.ShowTemporaryChange(res.Food.Change, res.Food.IncreaseIsPositive);
-
-            ApplySlider(_playerCaretDurabilitySlider, res.PlayerCart);
-
-            _otherCaretsDurabilitySlider.gameObject.SetActive(res.OtherCarts.Visible);
-            if (res.OtherCarts.Visible)
-                _otherCaretsDurabilitySlider.SetValue(res.OtherCarts.Value, res.OtherCarts.MaxValue);
-
-            ApplySlider(_dangerSlider, res.Danger);
+            ApplyIndicator(_foodIndicator, res.Food);
+            ApplyIndicator(_playerCaretDurabilitySlider, res.PlayerCart);
+            ApplyIndicator(_otherCaretsDurabilitySlider, res.OtherCarts);
+            ApplyIndicator(_dangerSlider, res.Danger);
         }
 
-        private void ApplySlider(SliderResourceIndicator slider, ResourceIndicatorState s)
+        private void ApplyIndicator(ResourceIndicator indicator, ResourceIndicatorState s)
         {
+            indicator.gameObject.SetActive(s.Visible);
+            if (!s.Visible) return;
+
             if (s.Animate)
-            {
-                slider.AnimateValue(s.Value, s.MaxValue);
-                slider.ShowTemporaryChange(s.Change, s.IncreaseIsPositive);
-            }
+                indicator.ApplyAnimated(s.Value, s.MaxValue, s.Change, s.IncreaseIsPositive, ScaledDuration(3f));
             else
-            {
-                slider.SetValue(s.Value, s.MaxValue);
-            }
+                indicator.ApplyImmediate(s.Value, s.MaxValue);
         }
+
+        private float ScaledDuration(float baseDuration)
+            => baseDuration / Mathf.Max(_viewModel.TimeScale, 1f);
 
         private void ApplyDay(int day)
         {
@@ -290,10 +298,12 @@ namespace Internal.Scripts.UI.Screens.Hud
             gameObject.SetActive(visible);
         }
 
-        private void OnDestroy()
+        protected override void OnDestroy()
         {
             if (_viewModel != null)
                 _viewModel.VisibilityChanged -= SetVisible;
+
+            base.OnDestroy();
         }
 
         private void ApplyTimeSpeedBorder(TimeSpeed speed)
@@ -310,6 +320,7 @@ namespace Internal.Scripts.UI.Screens.Hud
         private void OnOpenInventory() => _viewModel?.OpenInventory();
         private void OnOpenPause() => _viewModel?.OpenPause();
         private void OnOpenTrader() => _viewModel?.OpenTrader();
+        private void OnLockCamera() => _viewModel?.LockCameraToPlayer();
         private void OnPauseTime() => _viewModel?.OnTimeSpeedSelected(TimeSpeed.Paused);
         private void OnNormalTime() => _viewModel?.OnTimeSpeedSelected(TimeSpeed.Normal);
         private void OnFastTime() => _viewModel?.OnTimeSpeedSelected(TimeSpeed.Fast);

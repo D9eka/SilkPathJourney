@@ -31,6 +31,7 @@ namespace Internal.Scripts.UI.Components
         {
             yield return null;
 
+            LayoutRebuilder.ForceRebuildLayoutImmediate(_trackedContent);
             float contentHeight = LayoutUtility.GetPreferredHeight(_trackedContent);
             float available = GetAvailableHeight();
 

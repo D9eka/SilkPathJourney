@@ -89,7 +89,7 @@ MonoBehaviour:
       <Param>k__BackingField: Charisma
       <Value>k__BackingField: 2
     - <Type>k__BackingField: 4
-      <Param>k__BackingField: Frankincense
+      <Param>k__BackingField: frankincense
       <Value>k__BackingField: 1
   - <Text>k__BackingField:
       m_TableReference:
@@ -127,7 +127,7 @@ MonoBehaviour:
       <Param>k__BackingField: Tibetan
       <Value>k__BackingField: 1
     - <Type>k__BackingField: 4
-      <Param>k__BackingField: Frankincense
+      <Param>k__BackingField: frankincense
       <Value>k__BackingField: 1
   <IsMinor>k__BackingField: 0
   <AutoOutcomes>k__BackingField: []

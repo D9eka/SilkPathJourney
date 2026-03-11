@@ -164,8 +164,7 @@ namespace Internal.Scripts.UI.Screens.LanguageSchool
 
         private static string ResolveProficiencyName(LanguageProficiency level)
         {
-            var localized = new LocalizedString("UI", $"UI.Language.Proficiency.{level}");
-            return LocalizationService.ResolveString(localized, level.ToString(), "Proficiency");
+            return TraderUICatalog.GetProficiencyName(level);
         }
 
         private static string ResolveLoc(string key, string fallback)
@@ -180,13 +179,7 @@ namespace Internal.Scripts.UI.Screens.LanguageSchool
             return pct >= 0 ? $"+{pct}%" : $"{pct}%";
         }
 
-        private float GetTotalFoodPerDay()
-        {
-            var state = _resourceRepository.Current;
-            float total = state.PlayerCart.FoodConsumptionPerDay;
-            total += state.Carts.Sum(c => c.FoodConsumptionPerDay);
-            return total;
-        }
+        private float GetTotalFoodPerDay() => _resourceRepository.Current.TotalFoodPerDay;
 
         private static LanguageProficiency NextLevel(LanguageProficiency current)
         {

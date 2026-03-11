@@ -515,6 +515,34 @@ MonoBehaviour:
     m_Key: UI.LanguageSchool.Main.Text.Attention
     m_Metadata:
       m_Items: []
+  - m_Id: 12936485635350528
+    m_Key: UI.TargetSelection.Main.Label.TravelTo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12936485698265088
+    m_Key: UI.TargetSelection.Main.Button.Confirm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12936485698265089
+    m_Key: UI.TargetSelection.Main.Button.Cancel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12936485698265090
+    m_Key: UI.TargetSelection.Main.Label.TravelDays
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12936485698265091
+    m_Key: UI.TargetSelection.Main.Label.SuppliesSufficient
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12936485698265092
+    m_Key: UI.TargetSelection.Main.Label.SuppliesInsufficient
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12965159294197760
+    m_Key: UI.Hud.Main.Button.LockCamera
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

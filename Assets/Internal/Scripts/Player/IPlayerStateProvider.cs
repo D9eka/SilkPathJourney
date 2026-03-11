@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Internal.Scripts.Player
 {
     public interface IPlayerStateProvider
@@ -5,5 +7,8 @@ namespace Internal.Scripts.Player
         PlayerState State { get; }
         string CurrentNodeId { get; }
         string DestinationNodeId { get; }
+        string CurrentFromNodeId { get; }
+        string CurrentToNodeId { get; }
+        Vector3 CurrentPosition { get; }
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using Internal.Scripts.Camera;
 using Internal.Scripts.Camera.AutoFit;
+using Internal.Scripts.Camera.Follow;
 using Internal.Scripts.Camera.Move;
 using Internal.Scripts.Camera.Tilt;
 using Internal.Scripts.Camera.Zoom;
@@ -107,6 +108,7 @@ namespace Internal.Scripts.Installers
             Container.BindInterfacesTo<CameraTilter>().AsSingle();
             Container.BindInterfacesTo<CameraMover>().AsSingle();
             Container.BindInterfacesTo<CameraAutoFitter>().AsSingle();
+            Container.BindInterfacesTo<CameraFollowService>().AsSingle();
             Container.Bind<MainSceneVisibilityController>().AsSingle();
             Container.Bind<DetailSceneLoader>().AsSingle();
             Container.BindInterfacesAndSelfTo<CameraSceneLoader>().AsSingle();
@@ -160,8 +162,7 @@ namespace Internal.Scripts.Installers
             InstallArrows();
             Container.BindInterfacesTo<PlayerChoiceInputView>().AsSingle();
             Container.Bind<PathHintsCreator>().AsSingle();
-            Container.Bind<RoadAgentView>().FromComponentInNewPrefab(_playerViewPrefab).AsSingle()
-                .WhenInjectedInto<PlayerInitializer>();
+            Container.Bind<RoadAgentView>().FromComponentInNewPrefab(_playerViewPrefab).AsSingle();
             Container.BindInterfacesAndSelfTo<SegmentMover>().AsSingle().WhenInjectedInto<PlayerInitializer>();
             Container.BindInterfacesAndSelfTo<PlayerNextSegmentsProvider>().AsSingle();
             Container.BindInterfacesTo<PlayerStartMovement>().AsSingle();
@@ -170,8 +171,10 @@ namespace Internal.Scripts.Installers
             Container.Bind<OverloadCalculator>().AsSingle();
             Container.Bind<CaravanSpeedService>().AsSingle();
             Container.Bind<DailyTravelCosts>().AsSingle();
+            Container.Bind<TravelEstimator>().AsSingle();
             Container.BindInterfacesTo<PlayerInitializer>().AsSingle();
             Container.BindInterfacesTo<CityNodeResolver>().AsSingle();
+            Container.BindInterfacesTo<RoadNodeProximityScaler>().AsSingle();
         }
 
         private void InstallEconomy()
@@ -244,6 +247,11 @@ namespace Internal.Scripts.Installers
             Container.Bind<Events.Conditions.CompanionEvaluator>().AsSingle();
             Container.Bind<Events.Conditions.MinSkillEvaluator>().AsSingle();
             Container.Bind<Events.Conditions.MinLanguageProficiencyEvaluator>().AsSingle();
+            Container.Bind<Events.Conditions.InCampEvaluator>().AsSingle();
+            Container.Bind<Events.Conditions.MinCompanionsEvaluator>().AsSingle();
+            Container.Bind<Events.Conditions.CityEvaluator>().AsSingle();
+            Container.Bind<Events.Conditions.ReputationConditionEvaluator>().AsSingle();
+            Container.Bind<Events.Conditions.MoraleConditionEvaluator>().AsSingle();
             Container.Bind<Events.Conditions.ConditionEvaluator>().AsSingle();
 
             Container.Bind<Events.Outcomes.ResourceApplier>().AsSingle();
@@ -254,6 +262,13 @@ namespace Internal.Scripts.Installers
             Container.Bind<Events.Outcomes.RoadUnlockApplier>().AsSingle();
             Container.Bind<Events.Outcomes.LanguageProficiencyApplier>().AsSingle();
             Container.Bind<Events.Outcomes.SkipDaysApplier>().AsSingle();
+            Container.Bind<Events.Outcomes.MoraleApplier>().AsSingle();
+            Container.Bind<Events.Outcomes.ReputationApplier>().AsSingle();
+            Container.Bind<Events.Outcomes.ExtraCartDurabilityApplier>().AsSingle();
+            Container.Bind<Events.Outcomes.MainCartDurabilityApplier>().AsSingle();
+            Container.Bind<Events.Outcomes.RemoveItemApplier>().AsSingle();
+            Container.Bind<Events.Outcomes.BlockMovementApplier>().AsSingle();
+            Container.Bind<Events.Outcomes.CompanionInjuredApplier>().AsSingle();
             Container.Bind<Events.Outcomes.OutcomeApplier>().AsSingle();
 
             Container.Bind<SkillCheckService>().AsSingle();

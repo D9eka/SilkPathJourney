@@ -518,6 +518,50 @@ MonoBehaviour:
     m_Localized: Training requires spending days in the city
     m_Metadata:
       m_Items: []
+  - m_Id: 12698047979970560
+    m_Localized: Travel to {0}?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12698048038690816
+    m_Localized: Route Confirmation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12698048038690817
+    m_Localized: Yes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12698048038690818
+    m_Localized: No
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12936485635350528
+    m_Localized: Travel to {0}?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12936485698265088
+    m_Localized: Yes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12936485698265089
+    m_Localized: No
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12936485698265090
+    m_Localized: '{0} days at normal speed'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12936485698265091
+    m_Localized: Supplies sufficient
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12936485698265092
+    m_Localized: Supplies insufficient
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12965159294197760
+    m_Localized: Follow
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

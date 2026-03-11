@@ -92,7 +92,7 @@ MonoBehaviour:
     <Conditions>k__BackingField: []
     <Outcomes>k__BackingField:
     - <Type>k__BackingField: 4
-      <Param>k__BackingField: Paper
+      <Param>k__BackingField: paper
       <Value>k__BackingField: 1
     - <Type>k__BackingField: 10
       <Param>k__BackingField: 

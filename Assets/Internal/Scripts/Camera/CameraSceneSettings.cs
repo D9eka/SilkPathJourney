@@ -36,5 +36,18 @@ namespace Internal.Scripts.Camera
 
         [Tooltip("Camera X rotation for detailed (isometric) view")]
         [field: SerializeField] public float DetailTiltAngle { get; private set; } = 45f;
+
+        [Header("Camera Follow")]
+        [Tooltip("Duration of camera transition when following or selecting target")]
+        [field: SerializeField] public float FollowTransitionDuration { get; private set; } = 0.3f;
+
+        [Tooltip("Camera zoom size when selecting a target city")]
+        [field: SerializeField] public float TargetSelectionZoomSize { get; private set; } = 30f;
+
+        [Tooltip("Camera zoom size when following the player")]
+        [field: SerializeField] public float FollowZoomSize { get; private set; } = 15f;
+
+        [Tooltip("Camera move speed (units/sec) when previewing a target city")]
+        [field: SerializeField] public float PreviewMoveSpeed { get; private set; } = 200f;
     }
 }

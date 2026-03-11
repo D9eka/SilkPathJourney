@@ -12,9 +12,6 @@ namespace Internal.Scripts.UI.Screens
         [SerializeField] protected HeaderElement _mainHeader;
         [SerializeField] protected CloseButton _closeButton;
 
-        [Header("Content")]
-        [SerializeField] protected OverlayScreen _overlayScreen;
-
         [Header("Header Localization")]
         [SerializeField] protected LocalizedString _mainHeaderLocalizedString;
 

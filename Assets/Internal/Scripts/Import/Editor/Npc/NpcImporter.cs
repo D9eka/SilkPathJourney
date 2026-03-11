@@ -11,9 +11,8 @@ namespace Internal.Scripts.Import.Editor.Npc
     public static class NpcImporter
     {
         private const string NAME_DATABASE_PATH = DATABASES_FOLDER + "/NameDatabase.asset";
-        private const string NPC_LOC_TABLE = "Npc";
 
-        [MenuItem("SPJ/Import/Npc/Import Names")]
+        [MenuItem("SPJ/Import/Npc")]
         public static void ImportNames()
         {
             if (IsCompiling()) return;
@@ -21,19 +20,11 @@ namespace Internal.Scripts.Import.Editor.Npc
             try
             {
                 EnsureAssetFolder(DATABASES_FOLDER);
-                EnsureAssetFolder(LOCALIZATION_TABLES_FOLDER);
-                EnsureAssetFolder(LOCALIZATION_LOCALES_FOLDER);
 
                 Dictionary<string, CultureId> cultureMap =
                     BuildEnumMap<CultureId>("cultures.csv", "culture_id", "enum_name");
 
                 List<NameEntry> entries = ReadNames(cultureMap);
-
-                var locEntries = new Dictionary<string, LocalizationImporter.LocalizationEntry>();
-                LocalizationImporter.CollectFromCsvPlainLocales(
-                    CsvPath("localization.csv"), "key", "npc.name.", locEntries);
-                LocalizationImporter.Import(
-                    locEntries, NPC_LOC_TABLE, LOCALIZATION_TABLES_FOLDER, LOCALIZATION_LOCALES_FOLDER);
 
                 NameDatabase db = LoadOrCreateAsset<NameDatabase>(NAME_DATABASE_PATH);
 
@@ -41,7 +32,7 @@ namespace Internal.Scripts.Import.Editor.Npc
                 EditorUtility.SetDirty(db);
                 AssetDatabase.SaveAssets();
 
-                Debug.Log($"[SPJ] Imported {entries.Count} names + localization into NameDatabase.");
+                Debug.Log($"[SPJ] Imported {entries.Count} names into NameDatabase.");
             }
             catch (System.Exception ex)
             {

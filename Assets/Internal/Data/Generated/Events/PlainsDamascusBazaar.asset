@@ -66,7 +66,7 @@ MonoBehaviour:
       <Param>k__BackingField: 
       <Value>k__BackingField: -15
     - <Type>k__BackingField: 4
-      <Param>k__BackingField: Glass
+      <Param>k__BackingField: glass
       <Value>k__BackingField: 1
     - <Type>k__BackingField: 7
       <Param>k__BackingField: Trade
@@ -127,7 +127,7 @@ MonoBehaviour:
       <Param>k__BackingField: 
       <Value>k__BackingField: -10
     - <Type>k__BackingField: 4
-      <Param>k__BackingField: Glass
+      <Param>k__BackingField: glass
       <Value>k__BackingField: 1
     - <Type>k__BackingField: 2
       <Param>k__BackingField: 
@@ -155,7 +155,7 @@ MonoBehaviour:
       <Param>k__BackingField: 
       <Value>k__BackingField: -25
     - <Type>k__BackingField: 4
-      <Param>k__BackingField: Glass
+      <Param>k__BackingField: glass
       <Value>k__BackingField: 1
   <Conditions>k__BackingField: []
   <Weight>k__BackingField: 0.5
