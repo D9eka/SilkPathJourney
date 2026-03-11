@@ -92,7 +92,7 @@ MonoBehaviour:
       <Param>k__BackingField: Trade
       <Value>k__BackingField: 2
     - <Type>k__BackingField: 4
-      <Param>k__BackingField: Indigo
+      <Param>k__BackingField: indigo
       <Value>k__BackingField: 1
   - <Text>k__BackingField:
       m_TableReference:
@@ -130,7 +130,7 @@ MonoBehaviour:
       <Param>k__BackingField: Chinese
       <Value>k__BackingField: 1
     - <Type>k__BackingField: 4
-      <Param>k__BackingField: Indigo
+      <Param>k__BackingField: indigo
       <Value>k__BackingField: 1
   <IsMinor>k__BackingField: 0
   <AutoOutcomes>k__BackingField: []

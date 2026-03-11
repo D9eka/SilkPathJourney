@@ -95,7 +95,7 @@ MonoBehaviour:
       <Param>k__BackingField: Survival
       <Value>k__BackingField: 2
     - <Type>k__BackingField: 4
-      <Param>k__BackingField: DriedMeat
+      <Param>k__BackingField: dried_meat
       <Value>k__BackingField: 1
   - <Text>k__BackingField:
       m_TableReference:
@@ -133,7 +133,7 @@ MonoBehaviour:
       <Param>k__BackingField: Survival
       <Value>k__BackingField: 3
     - <Type>k__BackingField: 4
-      <Param>k__BackingField: DriedMeat
+      <Param>k__BackingField: dried_meat
       <Value>k__BackingField: 1
   <IsMinor>k__BackingField: 0
   <AutoOutcomes>k__BackingField: []
@@ -160,7 +160,10 @@ MonoBehaviour:
     - <Type>k__BackingField: 10
       <Param>k__BackingField: 
       <Value>k__BackingField: -3
-  <Conditions>k__BackingField: []
+  <Conditions>k__BackingField:
+  - <Type>k__BackingField: 18
+    <Param>k__BackingField: 
+    <Value>k__BackingField: 25
   <Weight>k__BackingField: 0.4
   references:
     version: 2
