@@ -1,4 +1,5 @@
 using System;
+using Internal.Scripts.Camera.Follow;
 using Internal.Scripts.Config;
 using Internal.Scripts.Economy;
 using Internal.Scripts.Economy.Cities;
@@ -28,6 +29,7 @@ namespace Internal.Scripts.UI.Screens.Hud
         private readonly InventoryRepository _inventoryRepository;
         private readonly GameBalanceConfig _balanceConfig;
         private readonly ResourceIconCatalog _iconCatalog;
+        private readonly ICameraFollowService _cameraFollowService;
         private readonly GameClock _gameClock;
         private readonly ReactiveProperty<HudViewState> _state;
         private readonly ReactiveProperty<HudResourceViewState> _resourceState = new();
@@ -53,7 +55,8 @@ namespace Internal.Scripts.UI.Screens.Hud
             GameBalanceConfig balanceConfig,
             ResourceIconCatalog iconCatalog,
             GameClock gameClock,
-            CaravanSpeedService caravanSpeedService)
+            CaravanSpeedService caravanSpeedService,
+            ICameraFollowService cameraFollowService)
         {
             _playerStateProvider = playerStateProvider;
             _playerStateEvents = playerStateEvents;
@@ -67,6 +70,7 @@ namespace Internal.Scripts.UI.Screens.Hud
             _iconCatalog = iconCatalog;
             _gameClock = gameClock;
             _caravanSpeedService = caravanSpeedService;
+            _cameraFollowService = cameraFollowService;
             _state = new ReactiveProperty<HudViewState>(
                 new HudViewState(HudMode.Travel, _activeActionIndex, null));
         }
@@ -74,6 +78,7 @@ namespace Internal.Scripts.UI.Screens.Hud
         public Observable<HudViewState> State => _state;
         public Observable<HudResourceViewState> ResourceState => _resourceState;
         public Observable<TimeSpeed> TimeSpeedState => _gameClock.SelectedSpeed;
+        public float TimeScale => _gameClock.TimeScale;
 
         public HudMode CurrentMode => _state.Value.Mode;
 
@@ -89,6 +94,7 @@ namespace Internal.Scripts.UI.Screens.Hud
             _turnChoiceState.OnTurnChoiceStateChanged += HandleTurnChoiceChanged;
             _cityEntryService.OnCityEntered += HandleCityEntered;
             _cityEntryService.OnCityExited += HandleCityExited;
+            _cameraFollowService.OnFollowStateChanged += HandleFollowStateChanged;
             _resourceSubscription = _resourceRepository.StateStream.Subscribe(ComputeResourceState);
             _inventorySubscription = _inventoryRepository.PlayerInventoryStream.Subscribe(_ =>
             {
@@ -107,6 +113,7 @@ namespace Internal.Scripts.UI.Screens.Hud
             _turnChoiceState.OnTurnChoiceStateChanged -= HandleTurnChoiceChanged;
             _cityEntryService.OnCityEntered -= HandleCityEntered;
             _cityEntryService.OnCityExited -= HandleCityExited;
+            _cameraFollowService.OnFollowStateChanged -= HandleFollowStateChanged;
             _resourceSubscription?.Dispose();
             _resourceSubscription = null;
             _inventorySubscription?.Dispose();
@@ -196,6 +203,8 @@ namespace Internal.Scripts.UI.Screens.Hud
 
         private void HandleCityExited() => UpdateState();
 
+        private void HandleFollowStateChanged(bool _) => UpdateState();
+
         private void UpdateState()
         {
             HudMode mode = DetermineMode();
@@ -203,13 +212,16 @@ namespace Internal.Scripts.UI.Screens.Hud
             if (mode == HudMode.City && _cityEntryService.IsInCityView)
                 TryGetEnterCity(out city);
 
-            _state.Value = new HudViewState(mode, _activeActionIndex, city);
+            bool showLockCamera = _playerStateProvider.State == PlayerState.Moving
+                                  && !_cameraFollowService.IsFollowing;
+
+            _state.Value = new HudViewState(mode, _activeActionIndex, city, showLockCamera);
         }
 
         private HudMode DetermineMode()
         {
             PlayerState playerState = _playerStateProvider.State;
-            if (playerState == PlayerState.Moving)
+            if (playerState == PlayerState.Moving && !_turnChoiceState.IsChoosingTurn)
                 return HudMode.Travel;
 
             string nodeId = ResolveNodeIdForCity();

@@ -539,6 +539,10 @@ MonoBehaviour:
     m_Key: UI.TargetSelection.Main.Label.SuppliesInsufficient
     m_Metadata:
       m_Items: []
+  - m_Id: 12965159294197760
+    m_Key: UI.Hud.Main.Button.LockCamera
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

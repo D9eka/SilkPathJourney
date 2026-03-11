@@ -13,11 +13,17 @@ namespace Internal.Scripts.UI.Components
                 _fillBar.SetFill(max > 0 ? current / max : 0);
         }
 
-        public void AnimateValue(float current, float max, float duration = 0.5f)
+        public override void ApplyAnimated(float value, float maxValue, int change,
+            bool increaseIsPositive, float duration)
         {
-            SetValue($"{current:0}");
-            if (_fillBar != null)
-                _fillBar.AnimateFill(max > 0 ? current / max : 0, duration);
+            base.ApplyAnimated(value, maxValue, change, increaseIsPositive, duration);
+            if (_fillBar != null && maxValue > 0f)
+                _fillBar.AnimateFill(value / maxValue, duration);
+        }
+
+        public override void ApplyImmediate(float value, float maxValue)
+        {
+            SetValue(value, maxValue);
         }
     }
 }

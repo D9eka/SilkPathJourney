@@ -1,4 +1,5 @@
 using System;
+using Internal.Scripts.Camera;
 using Internal.Scripts.Config;
 using Internal.Scripts.Economy;
 using Internal.Scripts.Economy.Cities;
@@ -33,6 +34,7 @@ namespace Internal.Scripts.UI.Screens.Hud
         private readonly GameBalanceConfig _balanceConfig;
         private readonly ResourceIconCatalog _iconCatalog;
         private readonly EventOutcomeFormatter _outcomeFormatter;
+        private readonly CameraController _cameraController;
 
         public event Action<bool> InteractableChanged;
         public event Action<bool> VisibilityChanged;
@@ -51,7 +53,8 @@ namespace Internal.Scripts.UI.Screens.Hud
             DayTracker dayTracker,
             GameBalanceConfig balanceConfig,
             ResourceIconCatalog iconCatalog,
-            EventOutcomeFormatter outcomeFormatter)
+            EventOutcomeFormatter outcomeFormatter,
+            CameraController cameraController)
         {
             _model = model;
             _screenStackService = screenStackService;
@@ -66,6 +69,7 @@ namespace Internal.Scripts.UI.Screens.Hud
             _balanceConfig = balanceConfig;
             _iconCatalog = iconCatalog;
             _outcomeFormatter = outcomeFormatter;
+            _cameraController = cameraController;
         }
 
         public void RegisterToastView(IEventToastView view)
@@ -79,6 +83,7 @@ namespace Internal.Scripts.UI.Screens.Hud
         public Observable<HudViewState> State => _model.State;
         public Observable<HudResourceViewState> Resources => _model.ResourceState;
         public Observable<TimeSpeed> TimeSpeedState => _model.TimeSpeedState;
+        public float TimeScale => _model.TimeScale;
         public int CurrentDay => _dayTracker.CurrentDay;
         public ResourceIconCatalog ResourceIcons => _iconCatalog;
         public EventOutcomeFormatter OutcomeFormatter => _outcomeFormatter;
@@ -165,6 +170,8 @@ namespace Internal.Scripts.UI.Screens.Hud
             if (!_screenStackService.TryOpen(ScreenId.Trader, out ScreenOpenResult result))
                 Debug.LogWarning($"[SPJ] Cannot open trader screen: {result}");
         }
+
+        public void LockCameraToPlayer() => _cameraController.FollowPlayer();
 
         private void EnterCity()
         {

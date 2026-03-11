@@ -30,6 +30,7 @@ namespace Internal.Scripts.UI.Components
         private Color _normalValueColor;
         private bool _cachedColor;
         private Sequence _autoHideSequence;
+        private Tween _valueTween;
 
         protected virtual void Awake()
         {
@@ -133,6 +134,53 @@ namespace Internal.Scripts.UI.Components
                 .SetUpdate(true);
         }
 
+        public void AnimateValueChange(int change, bool increaseIsPositive,
+            float from, float to, float duration = 3f)
+        {
+            KillAutoHide();
+            if (change == 0)
+            {
+                SetValue($"{to:0}");
+                HideChange();
+                return;
+            }
+
+            Color changeColor = GetChangeColor(change > 0, increaseIsPositive);
+            string sign = change > 0 ? "+" : "";
+            if (_changeText != null) _changeText.color = changeColor;
+            _changeAnimator?.Show();
+
+            _valueTween = DOTween.To(() => 0f, t =>
+            {
+                float currentValue = Mathf.Lerp(from, to, t);
+                SetValue($"{currentValue:0}");
+
+                int remainingChange = Mathf.RoundToInt(Mathf.Lerp(change, 0, t));
+                if (_changeText != null)
+                    _changeText.text = remainingChange == 0 ? "" : $"{sign}{remainingChange}";
+            }, 1f, duration)
+                .SetEase(Ease.OutCubic)
+                .SetLink(gameObject)
+                .SetUpdate(true)
+                .OnComplete(() =>
+                {
+                    SetValue($"{to:0}");
+                    HideChange();
+                });
+        }
+
+        public virtual void ApplyAnimated(float value, float maxValue, int change,
+            bool increaseIsPositive, float duration)
+        {
+            float oldValue = value - change;
+            AnimateValueChange(change, increaseIsPositive, oldValue, value, duration);
+        }
+
+        public virtual void ApplyImmediate(float value, float maxValue)
+        {
+            SetValue($"{value:0}");
+        }
+
         public void SetResource(Sprite icon, int value)
         {
             SetIcon(icon);
@@ -151,6 +199,8 @@ namespace Internal.Scripts.UI.Components
             if (_autoHideSequence != null && _autoHideSequence.IsActive())
                 _autoHideSequence.Kill();
             _autoHideSequence = null;
+            _valueTween?.Kill();
+            _valueTween = null;
         }
 
         private void OnDestroy()
