@@ -14,6 +14,7 @@ namespace Internal.Scripts.UI.Screens.Core.Config
         LoadGame = 9,
         Trader = 10,
         LanguageSchool = 11,
-        EnterCity = 12
+        EnterCity = 12,
+        Quests = 13
     }
 }
