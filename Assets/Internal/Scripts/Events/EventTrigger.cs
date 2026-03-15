@@ -103,8 +103,10 @@ namespace Internal.Scripts.Events
             TriggerMinorEvent(eventData, currentDay);
         }
 
-        private void TriggerMajorEvent(EventData eventData, int currentDay)
+        public bool TriggerEvent(EventData eventData)
         {
+            if (_screenStackService.IsOpen(ScreenId.Event)) return false;
+
             string nearestNodeId = _nodeLookup.FindNearestNodeId(_playerController.CurrentPosition);
             bool isAtCity = _playerController.CurrentNodeId == nearestNodeId;
             _cityNodeResolver.TryGetCityByNodeId(nearestNodeId, out var city);
@@ -113,12 +115,18 @@ namespace Internal.Scripts.Events
             if (!_screenStackService.TryOpen(ScreenId.Event, args, out ScreenOpenResult result))
             {
                 Debug.LogWarning($"[SPJ Events] Cannot open event screen: {result}");
-                return;
+                return false;
             }
 
+            _gameClock.Pause();
+            return true;
+        }
+
+        private void TriggerMajorEvent(EventData eventData, int currentDay)
+        {
+            if (!TriggerEvent(eventData)) return;
             _saveRepository.Data.Player.LastEventDay = currentDay;
             _saveRepository.Save();
-            _gameClock.Pause();
         }
 
         private void TriggerMinorEvent(EventData eventData, int currentDay)

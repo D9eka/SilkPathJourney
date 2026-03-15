@@ -25,7 +25,12 @@ namespace Internal.Scripts.Events.Outcomes
             MainCartDurabilityApplier mainCartDurability,
             RemoveItemApplier removeItem,
             BlockMovementApplier blockMovement,
-            CompanionInjuredApplier companionInjured)
+            CompanionInjuredApplier companionInjured,
+            StartQuestApplier startQuest,
+            AdvanceQuestApplier advanceQuest,
+            CompleteQuestApplier completeQuest,
+            FailQuestApplier failQuest,
+            SetQuestFlagApplier setQuestFlag)
         {
             Register(resource);
             Register(item);
@@ -42,6 +47,11 @@ namespace Internal.Scripts.Events.Outcomes
             Register(removeItem);
             Register(blockMovement);
             Register(companionInjured);
+            Register(startQuest);
+            Register(advanceQuest);
+            Register(completeQuest);
+            Register(failQuest);
+            Register(setQuestFlag);
         }
 
         public ResourceType? GetAffectedResource(EventOutcomeType type)

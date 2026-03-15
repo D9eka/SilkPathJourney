@@ -11,6 +11,9 @@ namespace Internal.Scripts.Events
 {
     public class EventSelector
     {
+#if UNITY_EDITOR
+        public static string DebugEventPrefix { get; set; }
+#endif
         private readonly EventDatabase _eventDatabase;
         private readonly ConditionEvaluator _conditionEvaluator;
         private readonly PlayerResourceRepository _resourceRepository;
@@ -62,6 +65,10 @@ namespace Internal.Scripts.Events
 
         private bool IsEligible(EventData evt, bool minor)
         {
+#if UNITY_EDITOR
+            if (!string.IsNullOrEmpty(DebugEventPrefix) && !evt.Id.StartsWith(DebugEventPrefix))
+                return false;
+#endif
             return evt.IsMinor == minor && evt.Weight > 0f &&
                    CheckConditions(evt.Conditions) && HasAvailableChoices(evt);
         }
