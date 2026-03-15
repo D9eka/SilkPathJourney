@@ -7,6 +7,7 @@ using Internal.Scripts.Inventory;
 using Internal.Scripts.Items;
 using Internal.Scripts.Npc.Save;
 using Internal.Scripts.Player.Skills;
+using Internal.Scripts.Quests.Save;
 
 namespace Internal.Scripts.Save
 {
@@ -18,6 +19,7 @@ namespace Internal.Scripts.Save
         private SaveData _data;
         private bool _isLoaded;
         private string _loadedSlotId;
+        private bool _activeSlotIsAutoSave;
 
         public SaveRepository(ISaveService saveService, ActiveSaveSlot activeSaveSlot, GameBalanceConfig balanceConfig)
         {
@@ -35,7 +37,12 @@ namespace Internal.Scripts.Save
             }
         }
 
-        public void Save(bool isAutoSave = true)
+        public void MarkAsManual()
+        {
+            _activeSlotIsAutoSave = false;
+        }
+
+        public void Save()
         {
             if (_data == null)
                 return;
@@ -43,6 +50,21 @@ namespace Internal.Scripts.Save
             string currentSlot = _activeSaveSlot.SlotId;
             _loadedSlotId = currentSlot;
 
+            var metadata = BuildMetadata(currentSlot, _activeSlotIsAutoSave);
+            _saveService.Save(currentSlot, _data, metadata);
+        }
+
+        public void SaveToSlot(string slotId, bool isAutoSave)
+        {
+            if (_data == null)
+                return;
+
+            var metadata = BuildMetadata(slotId, isAutoSave);
+            _saveService.Save(slotId, _data, metadata);
+        }
+
+        private SaveMetadata BuildMetadata(string slotId, bool isAutoSave)
+        {
             var resources = _data.Economy?.PlayerResources;
             var carts = resources?.Carts;
             int cartCount = carts?.Count ?? 0;
@@ -61,9 +83,9 @@ namespace Internal.Scripts.Save
                 otherDurMax = (int)(totalMax / cartCount);
             }
 
-            var metadata = new SaveMetadata
+            return new SaveMetadata
             {
-                SlotId = currentSlot,
+                SlotId = slotId,
                 LastSavedTimestamp = DateTimeOffset.UtcNow.ToUnixTimeSeconds(),
                 CurrentDay = _data.Player?.CurrentDay ?? 1,
                 DisplayName = $"День {_data.Player?.CurrentDay ?? 1}",
@@ -80,8 +102,6 @@ namespace Internal.Scripts.Save
                 OtherCartsDurability = otherDur,
                 OtherCartsDurabilityMax = otherDurMax
             };
-
-            _saveService.Save(currentSlot, _data, metadata);
         }
 
         private void EnsureLoaded()
@@ -99,6 +119,10 @@ namespace Internal.Scripts.Save
             Normalize(_data);
             _isLoaded = true;
             _loadedSlotId = currentSlot;
+
+            var allSaves = _saveService.GetAllSaves();
+            var existing = allSaves.Find(s => s.SlotId == currentSlot);
+            _activeSlotIsAutoSave = existing?.IsAutoSave ?? false;
         }
 
         private static void Normalize(SaveData data)
@@ -109,6 +133,7 @@ namespace Internal.Scripts.Save
             data.Roads ??= new RoadSaveData();
             data.Npcs ??= new NpcSaveData();
             data.Economy.PlayerInventory ??= new InventoryState();
+            data.Quests ??= new QuestSaveData();
             data.Economy.CityInventories ??= new List<CityInventoryState>();
 
             if (!data.Economy.IsInitialized && data.Economy.CityInventories.Count > 0)

@@ -562,6 +562,54 @@ MonoBehaviour:
     m_Localized: Follow
     m_Metadata:
       m_Items: []
+  - m_Id: 14080020359143424
+    m_Localized: 'New quest: {quest_name}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14080020401086464
+    m_Localized: 'Quest updated: {quest_name}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14080020401086465
+    m_Localized: 'Quest completed: {quest_name}!'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14080020401086466
+    m_Localized: 'Quest failed: {quest_name}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14092915277029376
+    m_Localized: Quests
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14092915323166720
+    m_Localized: You have no active quests yet
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14113063530651648
+    m_Localized: Track
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14113063555817472
+    m_Localized: Stop tracking
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14113063555817473
+    m_Localized: Refuse
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14113063555817474
+    m_Localized: 'Reward:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14113063555817475
+    m_Localized: 'Fail conditions:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14113063555817476
+    m_Localized: 'Branch:'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

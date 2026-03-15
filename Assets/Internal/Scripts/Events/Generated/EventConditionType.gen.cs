@@ -23,5 +23,14 @@
         MinReputation = 18,
         MaxReputation = 19,
         MaxMorale = 20,
+        ActiveQuest = 21,
+        NoActiveQuest = 22,
+        CompletedQuest = 23,
+        QuestStage = 24,
+        QuestFlag = 25,
+        InTravel = 26,
+        NoItem = 27,
+        DangerAbove = 28,
+        NotCompletedQuest = 29,
     }
 }

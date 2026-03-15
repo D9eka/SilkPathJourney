@@ -1,0 +1,6 @@
+branch_id,enum_name,name_key,description_key
+empire_of_trade,EmpireOfTrade,quest_branch.empire_of_trade.name,quest_branch.empire_of_trade.description
+path_of_mystic,PathOfMystic,quest_branch.path_of_mystic.name,quest_branch.path_of_mystic.description
+path_of_caravaneer,PathOfCaravaneer,quest_branch.path_of_caravaneer.name,quest_branch.path_of_caravaneer.description
+secrets_of_silk,SecretsOfSilk,quest_branch.secrets_of_silk.name,quest_branch.secrets_of_silk.description
+legend_of_artifacts,LegendOfArtifacts,quest_branch.legend_of_artifacts.name,quest_branch.legend_of_artifacts.description

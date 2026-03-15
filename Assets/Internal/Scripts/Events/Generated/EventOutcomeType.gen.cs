@@ -20,5 +20,10 @@
         BlockMovement = 15,
         CompanionInjured = 16,
         SkipDays = 17,
+        StartQuest = 18,
+        AdvanceQuest = 19,
+        CompleteQuest = 20,
+        FailQuest = 21,
+        SetQuestFlag = 22,
     }
 }

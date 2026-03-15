@@ -17,6 +17,7 @@ MonoBehaviour:
   _economyDatabase: {fileID: 11400000, guid: 470634ec055f63546815d93a3084b67b, type: 2}
   _economySimulationSettings: {fileID: 11400000, guid: 2277e62de1065a347b8861eaa8774f36, type: 2}
   _eventDatabase: {fileID: 11400000, guid: 8573b1faa3d1a1b4797c85b1c9579688, type: 2}
+  _questDatabase: {fileID: 11400000, guid: 6b44833f326147340bbbb4d14d47250c, type: 2}
   _playerProfile: {fileID: 11400000, guid: 031379dad52073149ab163bf31de2bda, type: 2}
   _npcSimulationSettings: {fileID: 11400000, guid: 7cc4547f4ffaef74e9c15f5e09b93473, type: 2}
   _nameDatabase: {fileID: 11400000, guid: ddd26a7df1b99f64881d8b4f7391c1da, type: 2}

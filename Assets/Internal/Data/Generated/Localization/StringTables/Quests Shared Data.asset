@@ -1,0 +1,588 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Quests Shared Data
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
+  m_TableCollectionName: Quests
+  m_TableCollectionNameGuidString: 7d18d3653117c5040b5c306db3e375dc
+  m_Entries:
+  - m_Id: 456122368
+    m_Key: quest.quest_empire_1.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288192
+    m_Key: quest.quest_empire_1.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288193
+    m_Key: quest.quest_empire_2.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288194
+    m_Key: quest.quest_empire_2.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288195
+    m_Key: quest.quest_empire_3.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288196
+    m_Key: quest.quest_empire_3.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288197
+    m_Key: quest.quest_empire_4.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288198
+    m_Key: quest.quest_empire_4.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288199
+    m_Key: quest.quest_empire_5.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288200
+    m_Key: quest.quest_empire_5.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288201
+    m_Key: quest.quest_mystic_1.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288202
+    m_Key: quest.quest_mystic_1.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288203
+    m_Key: quest.quest_mystic_2.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288204
+    m_Key: quest.quest_mystic_2.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288205
+    m_Key: quest.quest_mystic_3.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288206
+    m_Key: quest.quest_mystic_3.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288207
+    m_Key: quest.quest_mystic_4.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288208
+    m_Key: quest.quest_mystic_4.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288209
+    m_Key: quest.quest_mystic_5.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288210
+    m_Key: quest.quest_mystic_5.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288211
+    m_Key: quest.quest_caravaneer_1.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288212
+    m_Key: quest.quest_caravaneer_1.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288213
+    m_Key: quest.quest_caravaneer_2.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288214
+    m_Key: quest.quest_caravaneer_2.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288215
+    m_Key: quest.quest_caravaneer_3.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288216
+    m_Key: quest.quest_caravaneer_3.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288217
+    m_Key: quest.quest_caravaneer_4.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288218
+    m_Key: quest.quest_caravaneer_4.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288219
+    m_Key: quest.quest_caravaneer_5.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288220
+    m_Key: quest.quest_caravaneer_5.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288221
+    m_Key: quest.quest_silk_1.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288222
+    m_Key: quest.quest_silk_1.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288223
+    m_Key: quest.quest_silk_2.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288224
+    m_Key: quest.quest_silk_2.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288225
+    m_Key: quest.quest_silk_3.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288226
+    m_Key: quest.quest_silk_3.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288227
+    m_Key: quest.quest_silk_4.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288228
+    m_Key: quest.quest_silk_4.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288229
+    m_Key: quest.quest_silk_5.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288230
+    m_Key: quest.quest_silk_5.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288231
+    m_Key: quest.quest_artifact_1.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288232
+    m_Key: quest.quest_artifact_1.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288233
+    m_Key: quest.quest_artifact_2.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288234
+    m_Key: quest.quest_artifact_2.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288235
+    m_Key: quest.quest_artifact_3.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288236
+    m_Key: quest.quest_artifact_3.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288237
+    m_Key: quest.quest_artifact_4.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288238
+    m_Key: quest.quest_artifact_4.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288239
+    m_Key: quest.quest_artifact_5.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288240
+    m_Key: quest.quest_artifact_5.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288241
+    m_Key: quest.quest_empire_1.stage_accept
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288242
+    m_Key: quest.quest_empire_1.stage_buy_silk
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288243
+    m_Key: quest.quest_empire_1.stage_deliver
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288244
+    m_Key: quest.quest_empire_1.stage_complete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288245
+    m_Key: quest.quest_empire_2.stage_accept
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288246
+    m_Key: quest.quest_empire_2.stage_travel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288247
+    m_Key: quest.quest_empire_2.stage_negotiate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288248
+    m_Key: quest.quest_empire_2.stage_return
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288249
+    m_Key: quest.quest_empire_2.stage_complete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288250
+    m_Key: quest.quest_empire_3.stage_accept
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288251
+    m_Key: quest.quest_empire_3.stage_escort
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288252
+    m_Key: quest.quest_empire_3.stage_complete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288253
+    m_Key: quest.quest_empire_4.stage_accept
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288254
+    m_Key: quest.quest_empire_4.stage_transport
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288255
+    m_Key: quest.quest_empire_4.stage_complete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288256
+    m_Key: quest.quest_empire_5.stage_accept
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288257
+    m_Key: quest.quest_empire_5.stage_journey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288258
+    m_Key: quest.quest_empire_5.stage_complete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288259
+    m_Key: quest.quest_mystic_1.stage_accept
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288260
+    m_Key: quest.quest_mystic_1.stage_deliver
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288261
+    m_Key: quest.quest_mystic_1.stage_complete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288262
+    m_Key: quest.quest_mystic_2.stage_accept
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288263
+    m_Key: quest.quest_mystic_2.stage_mogao
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288264
+    m_Key: quest.quest_mystic_2.stage_bibi_khanym
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288265
+    m_Key: quest.quest_mystic_2.stage_fire_temple
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288266
+    m_Key: quest.quest_mystic_2.stage_complete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288267
+    m_Key: quest.quest_mystic_3.stage_accept
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288268
+    m_Key: quest.quest_mystic_3.stage_find
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288269
+    m_Key: quest.quest_mystic_3.stage_complete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288270
+    m_Key: quest.quest_mystic_4.stage_accept
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288271
+    m_Key: quest.quest_mystic_4.stage_trials
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288272
+    m_Key: quest.quest_mystic_4.stage_complete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288273
+    m_Key: quest.quest_mystic_5.stage_accept
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288274
+    m_Key: quest.quest_mystic_5.stage_deliver
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288275
+    m_Key: quest.quest_mystic_5.stage_complete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288276
+    m_Key: quest.quest_caravaneer_1.stage_accept
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482496
+    m_Key: quest.quest_caravaneer_1.stage_escort
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482497
+    m_Key: quest.quest_caravaneer_1.stage_complete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482498
+    m_Key: quest.quest_caravaneer_2.stage_accept
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482499
+    m_Key: quest.quest_caravaneer_2.stage_transport
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482500
+    m_Key: quest.quest_caravaneer_2.stage_complete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482501
+    m_Key: quest.quest_caravaneer_3.stage_accept
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482502
+    m_Key: quest.quest_caravaneer_3.stage_find
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482503
+    m_Key: quest.quest_caravaneer_3.stage_complete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482504
+    m_Key: quest.quest_caravaneer_4.stage_accept
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482505
+    m_Key: quest.quest_caravaneer_4.stage_defend
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482506
+    m_Key: quest.quest_caravaneer_4.stage_complete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482507
+    m_Key: quest.quest_caravaneer_5.stage_accept
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482508
+    m_Key: quest.quest_caravaneer_5.stage_journey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482509
+    m_Key: quest.quest_caravaneer_5.stage_complete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482510
+    m_Key: quest.quest_silk_1.stage_accept
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482511
+    m_Key: quest.quest_silk_1.stage_deliver
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482512
+    m_Key: quest.quest_silk_1.stage_complete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482513
+    m_Key: quest.quest_silk_2.stage_accept
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482514
+    m_Key: quest.quest_silk_2.stage_find
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482515
+    m_Key: quest.quest_silk_2.stage_complete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482516
+    m_Key: quest.quest_silk_3.stage_accept
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482517
+    m_Key: quest.quest_silk_3.stage_infiltrate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482518
+    m_Key: quest.quest_silk_3.stage_complete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482519
+    m_Key: quest.quest_silk_4.stage_accept
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482520
+    m_Key: quest.quest_silk_4.stage_build
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482521
+    m_Key: quest.quest_silk_4.stage_complete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482522
+    m_Key: quest.quest_silk_5.stage_accept
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482523
+    m_Key: quest.quest_silk_5.stage_deliver
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482524
+    m_Key: quest.quest_silk_5.stage_complete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482525
+    m_Key: quest.quest_artifact_1.stage_accept
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482526
+    m_Key: quest.quest_artifact_1.stage_decipher
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482527
+    m_Key: quest.quest_artifact_1.stage_complete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482528
+    m_Key: quest.quest_artifact_2.stage_accept
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482529
+    m_Key: quest.quest_artifact_2.stage_collect
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482530
+    m_Key: quest.quest_artifact_2.stage_complete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482531
+    m_Key: quest.quest_artifact_3.stage_accept
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482532
+    m_Key: quest.quest_artifact_3.stage_expose
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482533
+    m_Key: quest.quest_artifact_3.stage_complete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482534
+    m_Key: quest.quest_artifact_4.stage_accept
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482535
+    m_Key: quest.quest_artifact_4.stage_search
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482536
+    m_Key: quest.quest_artifact_4.stage_complete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482537
+    m_Key: quest.quest_artifact_5.stage_accept
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482538
+    m_Key: quest.quest_artifact_5.stage_deliver
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482539
+    m_Key: quest.quest_artifact_5.stage_complete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482540
+    m_Key: quest_branch.empire_of_trade.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482541
+    m_Key: quest_branch.empire_of_trade.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482542
+    m_Key: quest_branch.path_of_mystic.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482543
+    m_Key: quest_branch.path_of_mystic.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482544
+    m_Key: quest_branch.path_of_caravaneer.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482545
+    m_Key: quest_branch.path_of_caravaneer.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482546
+    m_Key: quest_branch.secrets_of_silk.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482547
+    m_Key: quest_branch.secrets_of_silk.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482548
+    m_Key: quest_branch.legend_of_artifacts.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482549
+    m_Key: quest_branch.legend_of_artifacts.description
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 2230888529247076420
+  references:
+    version: 2
+    RefIds:
+    - rid: 2230888529247076420
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1773488811333

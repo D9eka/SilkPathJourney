@@ -1,0 +1,6 @@
+condition_id,enum_name
+has_item,HasItem
+in_city,InCity
+quest_flag,QuestFlag
+in_any_city,InAnyCity
+on_route,OnRoute

@@ -100,3 +100,7 @@ ostrich,item.ostrich.name,animals,12,80,0.5,перевод,Страус,Ostrich
 white_horse,item.white_horse.name,animals,15,85,0.6,перевод,Белый конь,White Horse
 purebred_yak,item.purebred_yak.name,animals,15,50,0.7,перевод,Породистый як,Purebred Yak
 songbird,item.songbird.name,animals,1,25,0.9,перевод,Певчая птица,Songbird
+monk_scroll,item.monk_scroll.name,quest,0.1,0,0,перевод,Свиток Лобсанга,Lobsang's Scroll
+guild_cargo,item.guild_cargo.name,quest,5,0,0,перевод,Груз гильдии,Guild Cargo
+greek_fire,item.greek_fire.name,quest,2,0,0,перевод,Греческий огонь,Greek Fire
+ancient_map,item.ancient_map.name,quest,0.1,0,0,перевод,Древняя карта,Ancient Map

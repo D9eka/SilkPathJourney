@@ -613,3 +613,9 @@ template_quest_1,1,template.quest.1.choice1,template.quest.1.choice1.result
 template_quest_1,2,template.quest.1.choice2,template.quest.1.choice2.result
 template_quest_2,1,template.quest.2.choice1,template.quest.2.choice1.result
 template_quest_2,2,template.quest.2.choice2,template.quest.2.choice2.result
+event_empire1_complete,1,event.event_empire1_complete.choice1,event.event_empire1_complete.choice1.result
+event_mystic1_complete,1,event.event_mystic1_complete.choice1,event.event_mystic1_complete.choice1.result
+event_caravaneer1_complete,1,event.event_caravaneer1_complete.choice1,event.event_caravaneer1_complete.choice1.result
+event_silk1_complete,1,event.event_silk1_complete.choice1,event.event_silk1_complete.choice1.result
+event_artifact1_decipher,1,event.event_artifact1_decipher.choice1,event.event_artifact1_decipher.choice1.result
+event_artifact1_complete,1,event.event_artifact1_complete.choice1,event.event_artifact1_complete.choice1.result

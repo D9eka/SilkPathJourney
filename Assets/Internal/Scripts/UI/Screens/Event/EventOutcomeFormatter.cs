@@ -7,8 +7,10 @@ using Internal.Scripts.Items;
 using Internal.Scripts.Player.Languages;
 using Internal.Scripts.Player.Languages.Generated;
 using Internal.Scripts.Player.Skills;
+using Internal.Scripts.Quests.Data;
 using Internal.Scripts.UI.Localization;
 using Internal.Scripts.UI.Localization.Args;
+using Internal.Scripts.UI.Screens.Quests;
 using Internal.Scripts.UI.Screens.Trader;
 using UnityEngine;
 using UnityEngine.Localization;
@@ -21,20 +23,22 @@ namespace Internal.Scripts.UI.Screens.Event
         private const string SkillCheckFailKey = "UI.Event.Outcome.Text.SkillCheckFail";
         private const string GainKey = "UI.Event.Outcome.Text.Gain";
         private const string LossKey = "UI.Event.Outcome.Text.Loss";
-        private const string MoneyKey = "UI.Event.Outcome.Resource.Money";
-        private const string FoodKey = "UI.Event.Outcome.Resource.Food";
-        private const string DangerKey = "UI.Event.Outcome.Resource.Danger";
-        private const string DurabilityKey = "UI.Event.Outcome.Resource.Durability";
-        private const string MoraleKey = "UI.Event.Outcome.Resource.Morale";
-        private const string ReputationKey = "UI.Event.Outcome.Resource.Reputation";
+        private const string MoneyKey = "UI.Global.Resource.Money";
+        private const string FoodKey = "UI.Global.Resource.Food";
+        private const string DangerKey = "UI.Global.Resource.Danger";
+        private const string DurabilityKey = "UI.Global.Resource.Durability";
+        private const string MoraleKey = "UI.Global.Resource.Morale";
+        private const string ReputationKey = "UI.Global.Resource.Reputation";
 
         private readonly ItemCatalog _itemCatalog;
         private readonly TraderUICatalog _catalog;
+        private readonly QuestDatabase _questDatabase;
 
-        public EventOutcomeFormatter(ItemCatalog itemCatalog, TraderUICatalog catalog)
+        public EventOutcomeFormatter(ItemCatalog itemCatalog, TraderUICatalog catalog, QuestDatabase questDatabase)
         {
             _itemCatalog = itemCatalog;
             _catalog = catalog;
+            _questDatabase = questDatabase;
         }
 
         public string BuildSkillCheckLine(SkillCheckData skillCheck, bool succeeded)
@@ -59,17 +63,23 @@ namespace Internal.Scripts.UI.Screens.Event
             var sb = new StringBuilder();
             var gains = new List<string>();
             var losses = new List<string>();
+            var questLines = new List<string>();
 
             foreach (EventOutcomeEntry entry in outcomes)
             {
                 string detail = FormatOutcomeDetail(entry);
                 if (detail == null) continue;
 
-                if (entry.Value >= 0)
-                    gains.Add(detail);
-                else
+                if (IsQuestOutcome(entry.Type))
+                    questLines.Add(detail);
+                else if (entry.Type == EventOutcomeType.RemoveItem || entry.Value < 0)
                     losses.Add(detail);
+                else
+                    gains.Add(detail);
             }
+
+            foreach (string line in questLines)
+                sb.AppendLine(line);
 
             if (gains.Count > 0)
             {
@@ -118,6 +128,9 @@ namespace Internal.Scripts.UI.Screens.Event
                 case EventOutcomeType.AddItem:
                     string itemName = _itemCatalog.ResolveItemName(entry.Param);
                     return $"{itemName} ×{rounded}";
+                case EventOutcomeType.RemoveItem:
+                    string removedName = _itemCatalog.ResolveItemName(entry.Param);
+                    return $"{removedName} ×{rounded}";
                 case EventOutcomeType.AddSkillXp:
                     if (Enum.TryParse(entry.Param, out SkillType skillType))
                         return $"{_catalog.GetSkillName(skillType)} +{rounded} XP";
@@ -129,9 +142,35 @@ namespace Internal.Scripts.UI.Screens.Event
                         return $"{_catalog.GetLanguageName(langType)}: {profName}";
                     }
                     return $"{entry.Param}: {TraderUICatalog.GetProficiencyName((LanguageProficiency)rounded)}";
+                case EventOutcomeType.StartQuest:
+                    return FormatQuestOutcome("UI.Event.Outcome.QuestStarted", "New quest: {quest_name}", entry.Param);
+                case EventOutcomeType.AdvanceQuest:
+                    return FormatQuestOutcome("UI.Event.Outcome.QuestAdvanced", "Quest updated: {quest_name}", entry.Param);
+                case EventOutcomeType.CompleteQuest:
+                    return FormatQuestOutcome("UI.Event.Outcome.QuestCompleted", "Quest completed: {quest_name}!", entry.Param);
+                case EventOutcomeType.FailQuest:
+                    return FormatQuestOutcome("UI.Event.Outcome.QuestFailed", "Quest failed: {quest_name}", entry.Param);
                 default:
                     return null;
             }
+        }
+
+        private string FormatQuestOutcome(string key, string fallback, string questId)
+        {
+            var quest = _questDatabase?.GetById(questId);
+            string questName = quest != null
+                ? LocalizationService.ResolveString(quest.Name, questId, QuestLocContext.QuestName(questId))
+                : questId;
+            string format = ResolveResourceName(key, fallback);
+            return format.Replace("{quest_name}", questName);
+        }
+
+        private static bool IsQuestOutcome(EventOutcomeType type)
+        {
+            return type == EventOutcomeType.StartQuest ||
+                   type == EventOutcomeType.AdvanceQuest ||
+                   type == EventOutcomeType.CompleteQuest ||
+                   type == EventOutcomeType.FailQuest;
         }
 
         private static string ResolveResourceName(string key, string fallback)

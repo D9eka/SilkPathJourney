@@ -7,6 +7,7 @@ using Internal.Scripts.Events.Data;
 using Internal.Scripts.Npc.Lifecycle;
 using Internal.Scripts.Npc.Names;
 using Internal.Scripts.Player;
+using Internal.Scripts.Quests.Data;
 using Internal.Scripts.Save;
 using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Localization;
@@ -30,6 +31,9 @@ namespace Internal.Scripts.Installers
 
         [Header("Events")]
         [SerializeField] private EventDatabase _eventDatabase;
+
+        [Header("Quests")]
+        [SerializeField] private QuestDatabase _questDatabase;
 
         [Header("Player")]
         [SerializeField] private PlayerConfig _playerProfile;
@@ -58,6 +62,7 @@ namespace Internal.Scripts.Installers
             Container.BindInstance(_economyDatabase).AsSingle();
             Container.BindInstance(_economySimulationSettings).AsSingle();
             Container.BindInstance(_eventDatabase).AsSingle();
+            Container.BindInstance(_questDatabase).AsSingle();
             Container.BindInstance(_playerProfile).AsSingle();
             Container.BindInstance(_npcSimulationSettings).AsSingle();
             Container.BindInstance(_nameDatabase).AsSingle();

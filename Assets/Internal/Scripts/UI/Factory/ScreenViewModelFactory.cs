@@ -11,6 +11,7 @@ using Internal.Scripts.UI.Screens.TargetSelection;
 using Internal.Scripts.UI.Screens.Trade;
 using Internal.Scripts.UI.Screens.EnterCity;
 using Internal.Scripts.UI.Screens.LanguageSchool;
+using Internal.Scripts.UI.Screens.Quests;
 using Internal.Scripts.UI.Screens.Trader;
 using Plugins.Zenject.Source.Main;
 
@@ -41,6 +42,7 @@ namespace Internal.Scripts.UI.Factory
                 ScreenId.Trader => CreateTrader(view),
                 ScreenId.LanguageSchool => CreateLanguageSchool(view),
                 ScreenId.EnterCity => CreateEnterCity(view),
+                ScreenId.Quests => CreateQuests(view),
                 _ => null
             };
         }
@@ -139,6 +141,14 @@ namespace Internal.Scripts.UI.Factory
                 return null;
 
             return _container.Instantiate<EnterCityScreenViewModel>();
+        }
+
+        private ScreenViewModelBase CreateQuests(IScreenView view)
+        {
+            if (view is not QuestsScreen)
+                return null;
+
+            return _container.Instantiate<QuestsScreenViewModel>();
         }
     }
 }

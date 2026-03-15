@@ -1,0 +1,608 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Quests_en
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 7d18d3653117c5040b5c306db3e375dc, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 456122368
+    m_Localized: The Silk Contract
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288192
+    m_Localized: Guildmaster Vahu-Man has tasked you with delivering ten bales of
+      silk to Chang'an. The first test for a future guild partner
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288193
+    m_Localized: Bukhara Negotiations
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288194
+    m_Localized: The trade guild sends you to Bukhara to negotiate a new contract.
+      Return with results to Samarkand
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288195
+    m_Localized: Convoy to Mashhad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288196
+    m_Localized: The guild master in Samarkand has tasked you with establishing trade
+      ties with Mashhad. Deliver the contract and obtain the guild seal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288197
+    m_Localized: Caravan to Baghdad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288198
+    m_Localized: "The guild entrusts you with precious cargo for Baghdad. Loss is
+      unacceptable \u2014 the guild's reputation is at stake"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288199
+    m_Localized: Road to Constantinople
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288200
+    m_Localized: "The final leg of the great route \u2014 from Chang'an to Constantinople.
+      Complete what Vahu-Man began"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288201
+    m_Localized: Lobsang's Scroll
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288202
+    m_Localized: Monk Lobsang has entrusted you with a scroll wrapped in saffron
+      cloth. Deliver it to monk Tinley at the Mogao caves near Anxi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288203
+    m_Localized: The Three Sanctuaries
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288204
+    m_Localized: 'Visit three sacred sites of the Silk Road: the Mogao caves, the
+      Bibi-Khanym mosque, and the Fire Temple'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288205
+    m_Localized: Voice of the Mountains
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288206
+    m_Localized: A temple hidden in the mountains, the one Lobsang spoke of. Find
+      it
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288207
+    m_Localized: Trials of Spirit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288208
+    m_Localized: The mountain temple demands you pass its trials to prove your readiness
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288209
+    m_Localized: Message of Destiny
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288210
+    m_Localized: Deliver the message from the mountain temple to Samarkand. The spiritual
+      journey's end
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288211
+    m_Localized: The First Convoy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288212
+    m_Localized: Old Dariush has tasked you with leading a convoy of newcomers to
+      Anxi. Prove you are worthy of his legacy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288213
+    m_Localized: Cargo of Fire
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288214
+    m_Localized: Dariush entrusts you with dangerous cargo for delivery to Mashhad.
+      Do not lose it
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288215
+    m_Localized: The Lost Caravan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288216
+    m_Localized: A caravan has vanished on the desert crossing. Find it and lead
+      it to safety
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288217
+    m_Localized: Ambush on the Road
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288218
+    m_Localized: Bandits are intercepting caravans on the road. Repel the attack
+      and protect the merchants
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288219
+    m_Localized: Legend of the Roads
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288220
+    m_Localized: Walk Dariush's route to Baghdad and become a legend of the caravan
+      roads
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288221
+    m_Localized: Dye from Anxi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288222
+    m_Localized: Master Chen Wei asks you to deliver rare dye materials from Anxi
+      to Chang'an
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288223
+    m_Localized: The Lost Recipe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288224
+    m_Localized: Chen Wei remembers part of the recipe, but the key ingredient is
+      lost. Find it
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288225
+    m_Localized: The Workshop Secret
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288226
+    m_Localized: Competitors are stealing dyers' secrets. Infiltrate their workshop
+      and discover the truth
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288227
+    m_Localized: The Purple Workshop
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288228
+    m_Localized: Build a workshop for producing the legendary purple dye
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288229
+    m_Localized: The Imperial Commission
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288230
+    m_Localized: The imperial court has commissioned cloth of an unprecedented hue.
+      Deliver it to Chang'an
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288231
+    m_Localized: The Ancient Map
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288232
+    m_Localized: You have found a fragment of an ancient map with markings in an
+      unknown tongue. Decipher it
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288233
+    m_Localized: The Relic Collector
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288234
+    m_Localized: The map points to three artifacts scattered along the Silk Road.
+      Collect them
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288235
+    m_Localized: The Exposure
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288236
+    m_Localized: Counterfeit ancient relics are circulating among traders. Expose
+      the forgers
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288237
+    m_Localized: The Lost Vault
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288238
+    m_Localized: The ancient map points to a vault hidden in the mountains. Find
+      it
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288239
+    m_Localized: Treasures of the Silk Road
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288240
+    m_Localized: Gather all the relics and deliver them to Chang'an. The grand hunt's
+      finale
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288241
+    m_Localized: Accept the guild contract
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288242
+    m_Localized: Buy 10 bales of silk
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288243
+    m_Localized: Deliver silk to Chang'an
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288244
+    m_Localized: Collect payment from the guild
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288245
+    m_Localized: Accept the guild assignment
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288246
+    m_Localized: Reach Bukhara
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288247
+    m_Localized: Conduct negotiations
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288248
+    m_Localized: Return to Samarkand with the contract
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288249
+    m_Localized: Report results to the guild
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288250
+    m_Localized: Accept the guild commission
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288251
+    m_Localized: Deliver the contract to Mashhad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288252
+    m_Localized: Obtain the guild seal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288253
+    m_Localized: Accept the precious cargo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288254
+    m_Localized: Deliver cargo to Baghdad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288255
+    m_Localized: Complete the delivery
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288256
+    m_Localized: Accept Vahu-Man's final assignment
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288257
+    m_Localized: Lead the caravan to Constantinople
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288258
+    m_Localized: Complete the great route
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288259
+    m_Localized: Accept the scroll from Lobsang
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288260
+    m_Localized: Deliver the scroll to Anxi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288261
+    m_Localized: Hand the scroll to monk Tinley
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288262
+    m_Localized: Accept the task from Tinley
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288263
+    m_Localized: Visit the Mogao caves
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288264
+    m_Localized: Visit the Bibi-Khanym mosque
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288265
+    m_Localized: Visit the Fire Temple
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288266
+    m_Localized: Return to Tinley
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288267
+    m_Localized: Learn about the hidden temple
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288268
+    m_Localized: Find the hidden temple in the mountains
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288269
+    m_Localized: Enter the temple
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288270
+    m_Localized: Accept the temple's trials
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288271
+    m_Localized: Pass the trials of spirit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288272
+    m_Localized: Receive the temple's blessing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288273
+    m_Localized: Accept the temple's message
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288274
+    m_Localized: Deliver the message to Samarkand
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288275
+    m_Localized: Complete the spiritual journey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 481288276
+    m_Localized: Accept Dariush's task
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482496
+    m_Localized: Lead the newcomers' convoy to Anxi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482497
+    m_Localized: Report back to Dariush
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482498
+    m_Localized: Accept the dangerous cargo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482499
+    m_Localized: Deliver cargo to Mashhad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482500
+    m_Localized: Complete the delivery
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482501
+    m_Localized: Learn about the missing caravan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482502
+    m_Localized: Find the missing caravan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482503
+    m_Localized: Lead the caravan to safety
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482504
+    m_Localized: Learn about the ambush on the road
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482505
+    m_Localized: Repel the bandit attack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482506
+    m_Localized: Secure the route
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482507
+    m_Localized: Accept Dariush's final challenge
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482508
+    m_Localized: Lead the caravan to Baghdad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482509
+    m_Localized: Become a legend of the roads
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482510
+    m_Localized: Agree to help Master Chen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482511
+    m_Localized: Deliver raw materials to Chang'an
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482512
+    m_Localized: Hand the materials to Master Chen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482513
+    m_Localized: Learn about the lost recipe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482514
+    m_Localized: Find the key ingredient
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482515
+    m_Localized: Return the ingredient to Master Chen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482516
+    m_Localized: Learn about the stolen secrets
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482517
+    m_Localized: Infiltrate the competitors' workshop
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482518
+    m_Localized: Reveal the truth about the theft
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482519
+    m_Localized: Begin workshop construction
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482520
+    m_Localized: Gather materials and craftsmen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482521
+    m_Localized: Open the purple workshop
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482522
+    m_Localized: Accept the imperial commission
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482523
+    m_Localized: Deliver the cloth to Chang'an
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482524
+    m_Localized: Present the cloth to the imperial court
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482525
+    m_Localized: Find a fragment of the ancient map
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482526
+    m_Localized: Decipher the map's inscriptions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482527
+    m_Localized: Learn the first artifact's location
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482528
+    m_Localized: Begin the search for three artifacts
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482529
+    m_Localized: Collect three artifacts
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482530
+    m_Localized: Bring all artifacts together
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482531
+    m_Localized: Learn about the counterfeit relics
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482532
+    m_Localized: Expose the forgers
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482533
+    m_Localized: Recover the genuine relics
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482534
+    m_Localized: Study the vault map
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482535
+    m_Localized: Find the lost vault
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482536
+    m_Localized: Open the vault
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482537
+    m_Localized: Prepare the relics for delivery
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482538
+    m_Localized: Deliver the relics to Chang'an
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482539
+    m_Localized: Complete the grand hunt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482540
+    m_Localized: Empire of Trade
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482541
+    m_Localized: "Career in the trade guild \u2014 from simple deliveries to the
+      empire's grand contract. Unlocks access to Constantinople"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482542
+    m_Localized: Path of the Mystic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482543
+    m_Localized: Spiritual journey through the Silk Road's sacred sites. Unlocks
+      the mountain pass
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482544
+    m_Localized: Path of the Caravaneer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482545
+    m_Localized: "Old Dariush's trials \u2014 become a legend of the roads"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482546
+    m_Localized: Secrets of Silk
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482547
+    m_Localized: Secrets of Master Chen Wei's dyeing craft. Unlocks imperial silk
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482548
+    m_Localized: Legend of Artifacts
+    m_Metadata:
+      m_Items: []
+  - m_Id: 485482549
+    m_Localized: Search for the ancient relics of the Silk Road
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

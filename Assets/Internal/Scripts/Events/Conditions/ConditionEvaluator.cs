@@ -22,7 +22,13 @@ namespace Internal.Scripts.Events.Conditions
             MinCompanionsEvaluator minCompanions,
             CityEvaluator city,
             ReputationConditionEvaluator reputation,
-            MoraleConditionEvaluator morale)
+            MoraleConditionEvaluator morale,
+            QuestConditionEvaluator questCondition,
+            QuestStageEvaluator questStage,
+            QuestFlagEvaluator questFlag,
+            TravelEvaluator travel,
+            NoItemEvaluator noItem,
+            DangerAboveEvaluator dangerAbove)
         {
             Register(resource);
             Register(inventory);
@@ -36,6 +42,12 @@ namespace Internal.Scripts.Events.Conditions
             Register(city);
             Register(reputation);
             Register(morale);
+            Register(questCondition);
+            Register(questStage);
+            Register(questFlag);
+            Register(travel);
+            Register(noItem);
+            Register(dangerAbove);
         }
 
         public bool Evaluate(EventCondition condition, PlayerResourceState resources)

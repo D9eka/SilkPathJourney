@@ -97,7 +97,8 @@ namespace Internal.Scripts.UI.Screens.Save
             if (Mode == SaveLoadMode.Save)
             {
                 _activeSaveSlot.Set(slotId);
-                _saveRepository.Save(isAutoSave: false);
+                _saveRepository.MarkAsManual();
+                _saveRepository.Save();
                 _screenStackService.CloseAllAbove(ScreenId.Hud);
             }
             else
@@ -110,7 +111,8 @@ namespace Internal.Scripts.UI.Screens.Save
         public void SaveToNewSlot()
         {
             _activeSaveSlot.CreateNew();
-            _saveRepository.Save(isAutoSave: false);
+            _saveRepository.MarkAsManual();
+            _saveRepository.Save();
             _screenStackService.CloseAllAbove(ScreenId.Hud);
         }
 

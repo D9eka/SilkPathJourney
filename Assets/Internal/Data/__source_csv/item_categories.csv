@@ -5,3 +5,4 @@ luxury,Luxury,item_category.luxury.name,40,перевод,Роскошь,Luxury 
 exotic,Exotic,item_category.exotic.name,50,перевод,Экзотика,Exotic goods
 raw,Raw,item_category.raw.name,20,перевод,Сырьё,Raw goods
 animals,Animals,item_category.animals.name,60,перевод,Животные,Animals
+quest,Quest,item_category.quest.name,70,перевод,Квестовые,Quest items

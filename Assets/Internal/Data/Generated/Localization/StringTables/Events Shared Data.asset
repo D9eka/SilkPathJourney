@@ -9883,6 +9883,142 @@ MonoBehaviour:
     m_Key: event_type.minor_omen.name
     m_Metadata:
       m_Items: []
+  - m_Id: 12957013737725952
+    m_Key: event_type.quest.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643201191936
+    m_Key: event.quest_artifact_start.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643234746368
+    m_Key: event.quest_artifact_start.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940672
+    m_Key: event.quest_artifact_start.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940673
+    m_Key: event.quest_artifact_start.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940674
+    m_Key: event.quest_artifact_start.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940675
+    m_Key: event.quest_artifact_start.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940676
+    m_Key: event.quest_artifact_start.choice2.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940677
+    m_Key: event.quest_artifact_start.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940678
+    m_Key: event.quest_artifact_start.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940679
+    m_Key: event.event_empire1_complete.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940680
+    m_Key: event.event_empire1_complete.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940681
+    m_Key: event.event_empire1_complete.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940682
+    m_Key: event.event_empire1_complete.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940683
+    m_Key: event.event_mystic1_complete.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940684
+    m_Key: event.event_mystic1_complete.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940685
+    m_Key: event.event_mystic1_complete.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940686
+    m_Key: event.event_mystic1_complete.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940687
+    m_Key: event.event_caravaneer1_complete.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940688
+    m_Key: event.event_caravaneer1_complete.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940689
+    m_Key: event.event_caravaneer1_complete.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940690
+    m_Key: event.event_caravaneer1_complete.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940691
+    m_Key: event.event_silk1_complete.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940692
+    m_Key: event.event_silk1_complete.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940693
+    m_Key: event.event_silk1_complete.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940694
+    m_Key: event.event_silk1_complete.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940695
+    m_Key: event.event_artifact1_decipher.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940696
+    m_Key: event.event_artifact1_decipher.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940697
+    m_Key: event.event_artifact1_decipher.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940698
+    m_Key: event.event_artifact1_decipher.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940699
+    m_Key: event.event_artifact1_complete.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940700
+    m_Key: event.event_artifact1_complete.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940701
+    m_Key: event.event_artifact1_complete.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940702
+    m_Key: event.event_artifact1_complete.choice1.result
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -16,3 +16,8 @@ remove_item,RemoveItem
 block_movement,BlockMovement
 companion_injured,CompanionInjured
 skip_days,SkipDays
+start_quest,StartQuest
+advance_quest,AdvanceQuest
+complete_quest,CompleteQuest
+fail_quest,FailQuest
+set_quest_flag,SetQuestFlag

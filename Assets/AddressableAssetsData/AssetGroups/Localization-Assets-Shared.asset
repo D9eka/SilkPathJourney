@@ -21,6 +21,12 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7d18d3653117c5040b5c306db3e375dc
+    m_Address: Assets/Internal/Data/Generated/Localization/StringTables/Quests Shared
+      Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ab65eb4bd4dc0a44cbc63c3222417f46
     m_Address: Assets/Internal/Data/Generated/Localization/StringTables/Npc Shared
       Data.asset

@@ -1,0 +1,10 @@
+quest_id,type,param,value
+quest_empire_1,days_since_start,,774
+quest_empire_3,danger_above,,80
+quest_empire_4,days_since_start,,25
+quest_mystic_1,days_since_start,,30
+quest_caravaneer_1,danger_above,,70
+quest_caravaneer_2,days_since_start,,25
+quest_caravaneer_4,danger_above,,90
+quest_silk_1,days_since_start,,30
+quest_artifact_1,days_since_start,,30

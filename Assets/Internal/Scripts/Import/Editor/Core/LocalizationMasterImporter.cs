@@ -19,6 +19,7 @@ namespace Internal.Scripts.Import.Editor.Core
             ("Events", new[] { "event.", "event_type." }, true),
             ("Theme", new[] { "biome." }, true),
             ("Npc", new[] { "npc.name." }, true),
+            ("Quests", new[] { "quest.", "quest_branch." }, true),
         };
 
         [MenuItem("SPJ/Import/Localization")]
