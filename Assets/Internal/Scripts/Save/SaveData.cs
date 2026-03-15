@@ -3,6 +3,7 @@ using Internal.Scripts.Economy.Save;
 using Internal.Scripts.Npc.Save;
 using Internal.Scripts.Player.Languages;
 using Internal.Scripts.Player.Skills;
+using Internal.Scripts.Quests.Save;
 
 namespace Internal.Scripts.Save
 {
@@ -17,5 +18,6 @@ namespace Internal.Scripts.Save
         public NpcSaveData Npcs;
         public PlayerSkillState Skills;
         public PlayerLanguageState Languages;
+        public QuestSaveData Quests;
     }
 }

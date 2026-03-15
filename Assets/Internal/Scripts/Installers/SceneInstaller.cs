@@ -11,6 +11,7 @@ using Internal.Scripts.Economy.Cities.UI;
 using Internal.Scripts.Economy.Save;
 using Internal.Scripts.Economy.Simulation;
 using Internal.Scripts.Events;
+using Internal.Scripts.Quests;
 using Internal.Scripts.Input;
 using Internal.Scripts.Inventory;
 using Internal.Scripts.Items;
@@ -94,8 +95,10 @@ namespace Internal.Scripts.Installers
             InstallPlayer();
             InstallScreens();
             InstallEvents();
+            InstallQuests();
             InstallPathVisualization();
 
+            Container.BindInterfacesTo<AutoSaveController>().AsSingle();
             Container.BindInterfacesTo<CameraSaveController>().AsSingle();
         }
 
@@ -252,6 +255,12 @@ namespace Internal.Scripts.Installers
             Container.Bind<Events.Conditions.CityEvaluator>().AsSingle();
             Container.Bind<Events.Conditions.ReputationConditionEvaluator>().AsSingle();
             Container.Bind<Events.Conditions.MoraleConditionEvaluator>().AsSingle();
+            Container.Bind<Events.Conditions.QuestConditionEvaluator>().AsSingle();
+            Container.Bind<Events.Conditions.QuestStageEvaluator>().AsSingle();
+            Container.Bind<Events.Conditions.QuestFlagEvaluator>().AsSingle();
+            Container.Bind<Events.Conditions.TravelEvaluator>().AsSingle();
+            Container.Bind<Events.Conditions.NoItemEvaluator>().AsSingle();
+            Container.Bind<Events.Conditions.DangerAboveEvaluator>().AsSingle();
             Container.Bind<Events.Conditions.ConditionEvaluator>().AsSingle();
 
             Container.Bind<Events.Outcomes.ResourceApplier>().AsSingle();
@@ -269,6 +278,11 @@ namespace Internal.Scripts.Installers
             Container.Bind<Events.Outcomes.RemoveItemApplier>().AsSingle();
             Container.Bind<Events.Outcomes.BlockMovementApplier>().AsSingle();
             Container.Bind<Events.Outcomes.CompanionInjuredApplier>().AsSingle();
+            Container.Bind<Events.Outcomes.StartQuestApplier>().AsSingle();
+            Container.Bind<Events.Outcomes.AdvanceQuestApplier>().AsSingle();
+            Container.Bind<Events.Outcomes.CompleteQuestApplier>().AsSingle();
+            Container.Bind<Events.Outcomes.FailQuestApplier>().AsSingle();
+            Container.Bind<Events.Outcomes.SetQuestFlagApplier>().AsSingle();
             Container.Bind<Events.Outcomes.OutcomeApplier>().AsSingle();
 
             Container.Bind<SkillCheckService>().AsSingle();
@@ -281,6 +295,13 @@ namespace Internal.Scripts.Installers
 
             Container.Bind<EventToastController>().AsSingle();
             Container.BindInterfacesAndSelfTo<EventTrigger>().AsSingle().NonLazy();
+        }
+
+        private void InstallQuests()
+        {
+            Container.BindInterfacesAndSelfTo<QuestRepository>().AsSingle().NonLazy();
+            Container.Bind<QuestRewardApplier>().AsSingle();
+            Container.BindInterfacesTo<QuestStageChecker>().AsSingle();
         }
 
         private void InstallWorldLabels()

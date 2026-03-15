@@ -54,6 +54,8 @@ namespace Internal.Scripts.UI.Screens.Hud
         [SerializeField] private Button _openQuestsButton;
         [SerializeField] private Button _openTraderButton;
         [SerializeField] private Button _openCompanionsButton;
+        [Header("QuestTracker")]
+        [SerializeField] private QuestTrackerView _questTracker;
         [Header("CameraControls")]
         [SerializeField] private Button _lockCameraButton;
         [SerializeField] private TextMeshProUGUI _lockCameraButtonText;
@@ -70,6 +72,7 @@ namespace Internal.Scripts.UI.Screens.Hud
         private IDisposable _stateSubscription;
         private IDisposable _resourceSubscription;
         private IDisposable _timeSpeedSubscription;
+        private IDisposable _trackerSubscription;
         private LocalizationService.LocalizedTextGroup _buttonHandles;
         private LocalizationService.LocalizedTextHandle _cityHandle;
         private LocalizationService.LocalizedTextHandle _lockCameraHandle;
@@ -120,11 +123,15 @@ namespace Internal.Scripts.UI.Screens.Hud
             _openInventoryButton.onClick.AddListener(OnOpenInventory);
             _openPauseButton.onClick.AddListener(OnOpenPause);
             _openTraderButton.onClick.AddListener(OnOpenTrader);
+            if (_openQuestsButton != null) _openQuestsButton.onClick.AddListener(OnOpenQuests);
             if (_lockCameraButton != null) _lockCameraButton.onClick.AddListener(OnLockCamera);
             if (_lockCameraButtonText != null)
                 _lockCameraHandle = Localization.BindText(_lockCameraButtonText, _lockCameraLocalizedString, "Hud.LockCamera");
 
             _timeSpeedSubscription = _viewModel.TimeSpeedState.Subscribe(ApplyTimeSpeedBorder);
+            _trackerSubscription = _viewModel.TrackerState.Subscribe(ApplyTrackerState);
+            if (_questTracker != null && _questTracker.OpenQuestsButton != null)
+                _questTracker.OpenQuestsButton.onClick.AddListener(OnOpenQuests);
             if (_pauseTimeButton != null) _pauseTimeButton.onClick.AddListener(OnPauseTime);
             if (_normalTimeButton != null) _normalTimeButton.onClick.AddListener(OnNormalTime);
             if (_fastTimeButton != null) _fastTimeButton.onClick.AddListener(OnFastTime);
@@ -142,6 +149,8 @@ namespace Internal.Scripts.UI.Screens.Hud
             _resourceSubscription = null;
             _timeSpeedSubscription?.Dispose();
             _timeSpeedSubscription = null;
+            _trackerSubscription?.Dispose();
+            _trackerSubscription = null;
 
             _viewModel.InteractableChanged -= SetInteractable;
             _viewModel.DayChanged -= ApplyDay;
@@ -159,8 +168,11 @@ namespace Internal.Scripts.UI.Screens.Hud
             _openInventoryButton.onClick.RemoveListener(OnOpenInventory);
             _openPauseButton.onClick.RemoveListener(OnOpenPause);
             _openTraderButton.onClick.RemoveListener(OnOpenTrader);
+            if (_openQuestsButton != null) _openQuestsButton.onClick.RemoveListener(OnOpenQuests);
             if (_lockCameraButton != null) _lockCameraButton.onClick.RemoveListener(OnLockCamera);
 
+            if (_questTracker != null && _questTracker.OpenQuestsButton != null)
+                _questTracker.OpenQuestsButton.onClick.RemoveListener(OnOpenQuests);
             if (_pauseTimeButton != null) _pauseTimeButton.onClick.RemoveListener(OnPauseTime);
             if (_normalTimeButton != null) _normalTimeButton.onClick.RemoveListener(OnNormalTime);
             if (_fastTimeButton != null) _fastTimeButton.onClick.RemoveListener(OnFastTime);
@@ -314,12 +326,28 @@ namespace Internal.Scripts.UI.Screens.Hud
             if (_veryFastTimeBorder != null) _veryFastTimeBorder.SetActive(speed == TimeSpeed.VeryFast);
         }
 
+        private void ApplyTrackerState(QuestTrackerState state)
+        {
+            if (_questTracker == null) return;
+
+            if (state.Quest == null &&
+                state.ChangeType != TrackerChangeType.QuestCompleted &&
+                state.ChangeType != TrackerChangeType.QuestFailed)
+            {
+                _questTracker.Hide();
+                return;
+            }
+
+            _questTracker.ApplyState(state);
+        }
+
         private void OnStartAction() => _viewModel?.OnStartAction();
         private void OnAction() => _viewModel?.OnAction();
         private void OnEndAction() => _viewModel?.OnEndAction();
         private void OnOpenInventory() => _viewModel?.OpenInventory();
         private void OnOpenPause() => _viewModel?.OpenPause();
         private void OnOpenTrader() => _viewModel?.OpenTrader();
+        private void OnOpenQuests() => _viewModel?.OpenQuests();
         private void OnLockCamera() => _viewModel?.LockCameraToPlayer();
         private void OnPauseTime() => _viewModel?.OnTimeSpeedSelected(TimeSpeed.Paused);
         private void OnNormalTime() => _viewModel?.OnTimeSpeedSelected(TimeSpeed.Normal);
