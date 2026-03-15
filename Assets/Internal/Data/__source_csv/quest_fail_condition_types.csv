@@ -1,0 +1,4 @@
+condition_id,enum_name
+no_item,NoItem
+danger_above,DangerAbove
+days_since_start,DaysSinceStart

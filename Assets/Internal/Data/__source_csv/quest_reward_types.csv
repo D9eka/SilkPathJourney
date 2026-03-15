@@ -1,0 +1,7 @@
+type_id,enum_name
+money,Money
+reputation,Reputation
+item,Item
+status,Status
+unlock_route,UnlockRoute
+unlock_item,UnlockItem

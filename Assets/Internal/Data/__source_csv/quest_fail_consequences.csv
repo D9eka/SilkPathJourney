@@ -1,0 +1,12 @@
+quest_id,type,param,value
+quest_empire_1,reputation,,-5
+quest_empire_2,reputation,,-10
+quest_empire_3,reputation,,-10
+quest_empire_4,reputation,,-15
+quest_empire_5,reputation,,-20
+quest_mystic_1,reputation,,-5
+quest_caravaneer_1,reputation,,-5
+quest_caravaneer_2,reputation,,-10
+quest_caravaneer_4,reputation,,-15
+quest_silk_3,reputation,,-30
+quest_artifact_3,reputation,,-15

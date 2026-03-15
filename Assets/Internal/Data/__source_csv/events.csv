@@ -295,3 +295,10 @@ template_encounter_2,encounter,template.encounter.2.name,template.encounter.2.de
 template_quest_0,discovery,template.quest.0.name,template.quest.0.desc,,,0,0
 template_quest_1,discovery,template.quest.1.name,template.quest.1.desc,,,0,0
 template_quest_2,discovery,template.quest.2.name,template.quest.2.desc,,,0,0
+quest_artifact_start,quest,event.quest_artifact_start.name,event.quest_artifact_start.description,quest_artifact_start,,0.4,0
+event_empire1_complete,quest,event.event_empire1_complete.name,event.event_empire1_complete.description,event_empire1_complete,,0,0
+event_mystic1_complete,quest,event.event_mystic1_complete.name,event.event_mystic1_complete.description,event_mystic1_complete,,0,0
+event_caravaneer1_complete,quest,event.event_caravaneer1_complete.name,event.event_caravaneer1_complete.description,event_caravaneer1_complete,,0,0
+event_silk1_complete,quest,event.event_silk1_complete.name,event.event_silk1_complete.description,event_silk1_complete,,0,0
+event_artifact1_decipher,quest,event.event_artifact1_decipher.name,event.event_artifact1_decipher.description,event_artifact1_decipher,,0,0
+event_artifact1_complete,quest,event.event_artifact1_complete.name,event.event_artifact1_complete.description,event_artifact1_complete,,0,0

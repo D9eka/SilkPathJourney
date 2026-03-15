@@ -19,3 +19,12 @@ city_modifier,CityModifier
 min_reputation,MinReputation
 max_reputation,MaxReputation
 max_morale,MaxMorale
+active_quest,ActiveQuest
+no_active_quest,NoActiveQuest
+completed_quest,CompletedQuest
+quest_stage,QuestStage
+quest_flag,QuestFlag
+in_travel,InTravel
+no_item,NoItem
+danger_above,DangerAbove
+not_completed_quest,NotCompletedQuest
