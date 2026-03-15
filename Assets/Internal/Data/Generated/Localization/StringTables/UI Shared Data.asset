@@ -543,6 +543,54 @@ MonoBehaviour:
     m_Key: UI.Hud.Main.Button.LockCamera
     m_Metadata:
       m_Items: []
+  - m_Id: 14080020359143424
+    m_Key: UI.Event.Outcome.QuestStarted
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14080020401086464
+    m_Key: UI.Event.Outcome.QuestAdvanced
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14080020401086465
+    m_Key: UI.Event.Outcome.QuestCompleted
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14080020401086466
+    m_Key: UI.Event.Outcome.QuestFailed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14092915277029376
+    m_Key: UI.Quests.Header.Main
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14092915323166720
+    m_Key: UI.Quests.EmptyState
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14113063530651648
+    m_Key: UI.Quests.Button.Track
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14113063555817472
+    m_Key: UI.Quests.Button.Untrack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14113063555817473
+    m_Key: UI.Quests.Button.Refuse
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14113063555817474
+    m_Key: UI.Quests.Label.Reward
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14113063555817475
+    m_Key: UI.Quests.Label.FailConditions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14113063555817476
+    m_Key: UI.Quests.Label.Branch
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

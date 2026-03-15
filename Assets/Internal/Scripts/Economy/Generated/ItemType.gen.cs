@@ -9,5 +9,6 @@
         Exotic = 4,
         Raw = 5,
         Animals = 6,
+        Quest = 7,
     }
 }

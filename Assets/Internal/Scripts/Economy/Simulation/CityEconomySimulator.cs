@@ -113,7 +113,7 @@ namespace Internal.Scripts.Economy.Simulation
 
             foreach (ItemData item in _economyDatabase.Items)
             {
-                if (item == null || item.Type == ItemType.Unknown)
+                if (item == null || item.Type == ItemType.Unknown || item.Type == ItemType.Quest)
                     continue;
 
                 if (!_itemsByCategory.TryGetValue(item.Type, out List<ItemData> list))

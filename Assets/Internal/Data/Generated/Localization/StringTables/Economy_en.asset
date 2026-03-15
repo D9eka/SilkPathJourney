@@ -1118,6 +1118,26 @@ MonoBehaviour:
     m_Localized: Learn regional languages
     m_Metadata:
       m_Items: []
+  - m_Id: 15974156217606144
+    m_Localized: Lobsang's Scroll
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15974156263743488
+    m_Localized: Guild Cargo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15974156263743489
+    m_Localized: Greek Fire
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15974156263743490
+    m_Localized: Ancient Map
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15974156263743491
+    m_Localized: Quest items
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

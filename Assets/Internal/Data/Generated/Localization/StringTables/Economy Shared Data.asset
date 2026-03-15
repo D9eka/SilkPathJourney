@@ -1063,6 +1063,26 @@ MonoBehaviour:
     m_Key: building.language_school.description
     m_Metadata:
       m_Items: []
+  - m_Id: 15974156217606144
+    m_Key: item.monk_scroll.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15974156263743488
+    m_Key: item.guild_cargo.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15974156263743489
+    m_Key: item.greek_fire.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15974156263743490
+    m_Key: item.ancient_map.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15974156263743491
+    m_Key: item_category.quest.name
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

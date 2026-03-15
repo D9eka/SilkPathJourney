@@ -3022,9 +3022,10 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10424707516981255
-    m_Localized: "The translator addressed the officer in flawless Chinese, presenting
-      papers and seals. The soldiers stepped aside, and the officer handed over a
-      travel pass \u2014 it will prove useful at the next checkpoint."
+    m_Localized: "The translator addressed the officer in flawless Chinese: <npc_speech
+      lang=\"Chinese\">Sir, here are our papers and seals. The caravan travels with
+      authorization.</npc_speech> The soldiers stepped aside, and the officer handed
+      over a travel pass \u2014 it will prove useful at the next checkpoint."
     m_Metadata:
       m_Items: []
   - m_Id: 10424707516981256
@@ -3112,9 +3113,12 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10424707516981272
-    m_Localized: Your merchant companion exchanged greetings with the Sogdian in
-      his native tongue and bargained professionally. The brocade was bought at a
-      handsome discount, and the Sogdian invited everyone to share pilaf.
+    m_Localized: "Your merchant companion exchanged greetings with the Sogdian in
+      his native tongue: <npc_speech lang=\"Sogdian\">Greetings, countryman! How
+      long since Bukhara? Show us the brocade \u2014 for our own kind the price is
+      different, yes?</npc_speech> The bargaining went on professionally. The brocade
+      was bought at a handsome discount, and the Sogdian invited everyone to share
+      pilaf."
     m_Metadata:
       m_Items: []
   - m_Id: 10424707516981273
@@ -4126,9 +4130,10 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10424707525369862
-    m_Localized: The translator addressed the official in literary Chinese, quoting
-      Li Bo's verse. The official beamed, invited them for tea, and issued a travel
-      pass for all of Hedong.
+    m_Localized: "The translator addressed the official in literary Chinese, quoting
+      Li Bo's verse: <npc_speech lang=\"Chinese\">A distant traveler knocks at the
+      gate \u2014 so we beg your grace, honored one.</npc_speech> The official beamed,
+      invited them for tea, and issued a travel pass for all of Hedong."
     m_Metadata:
       m_Items: []
   - m_Id: 10424707525369863
@@ -4312,8 +4317,10 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10424707525369899
-    m_Localized: The guard rode out and displayed his weapon, speaking the warriors'
-      tongue. The Turks respected his bravery and agreed to a token tribute.
+    m_Localized: "The guard rode out and displayed his weapon, speaking the warriors'
+      tongue: <npc_speech lang=\"Turkic\">Halt! This caravan is under my protection.
+      If you want blood \u2014 start with mine.</npc_speech> The Turks respected
+      his bravery and agreed to a token tribute."
     m_Metadata:
       m_Items: []
   - m_Id: 10424707525369900
@@ -4356,8 +4363,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10424707525369908
-    m_Localized: Your merchant companion addressed the Sogdians in their own tongue.
-      The deal turned out better, and the caravan-bashi invited you to dinner.
+    m_Localized: "Your merchant companion addressed the Sogdians in their own tongue:
+      <npc_speech lang=\"Sogdian\">Peace to your house, caravan-bashi! We too know
+      the worth of fine brocade. Show us your best \u2014 and we shall bargain as
+      kinsmen.</npc_speech> The deal turned out better, and the caravan-bashi invited
+      you to dinner."
     m_Metadata:
       m_Items: []
   - m_Id: 10424707525369909
@@ -4731,8 +4741,10 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10424707529564167
-    m_Localized: The translator got the herdsman talking. He told of a Turkic camp
-      with a clean well half a day away and warned of quicksand to the south.
+    m_Localized: 'The translator spoke to the herdsman: <npc_speech lang="Turkic">Be
+      well, brother! We seek water. Where is the nearest well? Show us the way.</npc_speech>
+      The herdsman perked up and told of a Turkic camp with a clean well half a day
+      away and warned of quicksand to the south.'
     m_Metadata:
       m_Items: []
   - m_Id: 10424707529564168
@@ -4989,8 +5001,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10424707529564220
-    m_Localized: The translator established full communication. The captain shared
-      a map of wells and told of safe camping spots. The joint crossing went smoothly.
+    m_Localized: "The translator addressed the captain: <npc_speech lang=\"Arabic\">Peace
+      be upon you, honored one. Our caravan seeks companions \u2014 together the
+      road is safer. Would you share your knowledge of the wells?</npc_speech> The
+      captain broke into a smile and shared a map of wells and told of safe camping
+      spots. The joint crossing went smoothly."
     m_Metadata:
       m_Items: []
   - m_Id: 10424707529564221
@@ -6200,9 +6215,11 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 10424707542147086
     m_Localized: "The translator stepped forward and addressed the merchants in fluent
-      Sogdian. Their faces lit up \u2014 finally, a real conversation about business.
-      The deal was excellent: besides coins, the Sogdians gifted a bolt of brocade
-      as a sign of respect for someone who speaks their tongue."
+      Sogdian: <npc_speech lang=\"Sogdian\">Greetings, traders! We are glad to meet.
+      Show us your wares \u2014 let us discuss an exchange.</npc_speech> Their faces
+      lit up \u2014 finally, a real conversation about business. The deal was excellent:
+      besides coins, the Sogdians gifted a bolt of brocade as a sign of respect for
+      someone who speaks their tongue."
     m_Metadata:
       m_Items: []
   - m_Id: 10424707542147087
@@ -6870,9 +6887,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10424707546341399
-    m_Localized: Your merchant companion entered negotiations in Persian, and after
-      half an hour of fierce haggling the price dropped by half. The peddler left
-      shaking his head, but smiling.
+    m_Localized: "Your merchant companion entered negotiations in Persian: <npc_speech
+      lang=\"Persian\">Friend, this saffron is fine, but not at that price. Name
+      the real one \u2014 or we move on.</npc_speech> After half an hour of fierce
+      haggling the price dropped by half. The peddler left shaking his head, but
+      smiling."
     m_Metadata:
       m_Items: []
   - m_Id: 10424707546341400
@@ -6948,9 +6967,10 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10424707546341414
-    m_Localized: The translator addressed the officer in flawless Chinese, dropping
-      the right names and titles. The inspection turned into a friendly chat. The
-      patrol departed, wishing you a safe journey.
+    m_Localized: 'The translator addressed the officer in flawless Chinese: <npc_speech
+      lang="Chinese">Honored sir, we travel on the prefecture''s business. Allow
+      us to pay our respects.</npc_speech> The inspection turned into a friendly
+      chat. The patrol departed, wishing you a safe journey.'
     m_Metadata:
       m_Items: []
   - m_Id: 10424707546341415
@@ -8327,9 +8347,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10424707554730027
-    m_Localized: 'The translator spoke to the Arabs in their tongue, and the deal
-      went smoothly. Fair prices, excellent goods. The Arab merchant patted the translator
-      on the shoulder: "You have a good man, caravan master."'
+    m_Localized: 'The translator spoke to the Arabs in their tongue: <npc_speech
+      lang="Arabic">Peace be upon you! We wish to trade fairly. What will you offer
+      for our silk?</npc_speech> The deal went smoothly. Fair prices, excellent goods.
+      The Arab merchant patted the translator on the shoulder: <npc_speech lang="Arabic">You
+      have a good man, caravan master.</npc_speech>'
     m_Metadata:
       m_Items: []
   - m_Id: 10424707554730028
@@ -9213,8 +9235,9 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 10857774496866352
     m_Localized: "The translator took a sip of tea, cleared his throat, and began
-      a tale in Sogdian \u2014 about a merchant who led a caravan through seven sandstorms
-      and arrived in Bukhara with full bales and a grey beard."
+      a tale in Sogdian: <npc_speech lang=\"Sogdian\">Listen! There once was a merchant
+      \u2014 stubborn as an old camel. He crossed seven storms and arrived in Bukhara
+      with full bales and a grey beard.</npc_speech>"
     m_Metadata:
       m_Items: []
   - m_Id: 10857774496866353
@@ -9443,7 +9466,9 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10857774496866388
-    m_Localized: "The translator sat beside the old man and spoke in Turkic \u2014
+    m_Localized: "The translator sat beside the old man and spoke in Turkic: <npc_speech
+      lang=\"Turkic\">Elder, you know the stars well. But what of the trails? Is
+      there a shortcut past the salt flat?</npc_speech> The conversation flowed \u2014
       first about stars, then roads, then caravans that had traveled this route for
       generations. The old man came alive, produced a second scroll \u2014 worn through
       in places, margins covered in notes \u2014 and began tracing lines in the sand:
@@ -9706,11 +9731,12 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 10857774501060631
     m_Localized: "The translator sat down beside the old cameleer and spoke in Arabic
-      \u2014 calmly, quietly, the way one tells children a bedtime story. He explained
-      that scholars in Baghdad call this \"earth fire\" \u2014 gas from the depths
-      seeps through the sand and ignites from the heat. The Bedouin driver nodded,
-      adding that his grandfather saw the same thing near Hadhramaut \u2014 and was
-      not afraid."
+      \u2014 calmly, quietly: <npc_speech lang=\"Arabic\">Do not fear, father. Scholars
+      in Baghdad know \u2014 this is earth fire, gas from the depths. Not djinn.</npc_speech>
+      He explained that scholars in Baghdad call this \"earth fire\" \u2014 gas from
+      the depths seeps through the sand and ignites from the heat. The Bedouin driver
+      nodded, adding that his grandfather saw the same thing near Hadhramaut \u2014
+      and was not afraid."
     m_Metadata:
       m_Items: []
   - m_Id: 10857774501060632
@@ -10348,10 +10374,12 @@ MonoBehaviour:
       the notches with a finger. \"These aren't just marks \u2014 it's a full route
       sheet. Sogdian base, but Arabic annotations: 'well in half a day,' 'Ibn Hisham's
       caravanserai \u2014 fair prices,' 'left gap \u2014 quicksand, do not enter.'\"
-      He spoke with the old man, who lit up at hearing his own tongue and added:
-      the well is indeed there, he drank from it this morning. The caravan set off
-      along the right trail with the confidence of a map in hand. By evening \u2014
-      water, shade, and solid walls."
+      He spoke with the old man in Sogdian: <npc_speech lang=\"Sogdian\">Father,
+      are these marks from Bukhara? Is the well still there? We take the right trail.</npc_speech>
+      The old man lit up at hearing his own tongue and added: the well is indeed
+      there, he drank from it this morning. The caravan set off along the right trail
+      with the confidence of a map in hand. By evening \u2014 water, shade, and solid
+      walls."
     m_Metadata:
       m_Items: []
   - m_Id: 10857774501060722
@@ -10458,8 +10486,8 @@ MonoBehaviour:
       merchant squinted, then burst out laughing and clapped you on the shoulder.
       The bargaining quickened after that: he dropped his price, you added a smile,
       and within a quarter-hour the brocade from Chang'an had moved into your bale
-      for a pittance. The Sogdian winked: \"A man who tries to speak is already half
-      one of us.\""
+      for a pittance. The Sogdian winked: <npc_speech lang=\"Sogdian\">A man who
+      tries to speak is already half one of us.</npc_speech>"
     m_Metadata:
       m_Items: []
   - m_Id: 10857774501060737
@@ -10477,8 +10505,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 10857774501060739
     m_Localized: "The translator stepped forward and spoke fluent Sogdian \u2014
-      crisp, with a Bukharan accent, lacing his words with traders' proverbs. The
-      merchant's eyebrows shot up and his face split into a grin: a countryman!"
+      crisp, with a Bukharan accent: <npc_speech lang=\"Sogdian\">Greetings, merchant!
+      I am from Bukhara, as are you. Show me the brocade \u2014 let us haggle in
+      our way, without wasted words.</npc_speech> The merchant's eyebrows shot up
+      and his face split into a grin: a countryman!"
     m_Metadata:
       m_Items: []
   - m_Id: 10857774501060740
@@ -10541,7 +10571,9 @@ MonoBehaviour:
   - m_Id: 10857774505254919
     m_Localized: "The translator raised open palms \u2014 a gesture of peace \u2014
       and addressed the rider in Arabic. The man flinched with relief, dismounted,
-      and spoke in a torrent of words."
+      and spoke in a torrent of words: <npc_speech lang=\"Arabic\">They are camped
+      at the well \u2014 ten, maybe twelve! Yesterday they plundered a caravan from
+      Merv, spared no one! Turn into the northern wadi, there is a trail to the pass!</npc_speech>"
     m_Metadata:
       m_Items: []
   - m_Id: 10857774505254920
@@ -10603,7 +10635,8 @@ MonoBehaviour:
   - m_Id: 10857774505254928
     m_Localized: "The guide touched your sleeve: \"Do not bow \u2014 cup your hands
       palms up. It means 'I receive with gratitude.'\" He addressed the monk in halting
-      Tibetan, choosing words slowly:"
+      Tibetan, choosing words slowly: <npc_speech lang=\"Tibetan\">Honored one...
+      we are caravan. Storm comes. We ask shelter... food. We are grateful.</npc_speech>"
     m_Metadata:
       m_Items: []
   - m_Id: 10857774505254929
@@ -10668,7 +10701,9 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 10857774505254937
     m_Localized: "The merchant sat down opposite the scholar and addressed him in
-      Persian \u2014 unhurried, with a trader's thoroughness:"
+      Persian \u2014 unhurried, with a trader's thoroughness: <npc_speech lang=\"Persian\">Esteemed
+      Farhad, your map is splendid. But eight coins is the price for a stranger.
+      We both know the roads from Rey, so name the price for a man of understanding.</npc_speech>"
     m_Metadata:
       m_Items: []
   - m_Id: 10857774505254938
@@ -10994,7 +11029,10 @@ MonoBehaviour:
   - m_Id: 10857774509449218
     m_Localized: "The translator stepped forward, folded his hands in a formal court
       greeting, and spoke in flawless bureaucratic Chinese \u2014 with turns of phrase
-      one might hear only in a Chang'an chancellery."
+      one might hear only in a Chang'an chancellery: <npc_speech lang=\"Chinese\">Illustrious
+      protector-general, we are a trade caravan bearing the prefecture of Liangzhou's
+      authorization. Please accept our papers and manifest. May the order of the
+      Celestial Kingdom endure.</npc_speech>"
     m_Metadata:
       m_Items: []
   - m_Id: 10857774509449219
@@ -11247,12 +11285,14 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 10857774509449254
     m_Localized: "Your merchant companion approached first, speaking to the Arab
-      in his own tongue \u2014 about prices in Mashhad, about the saffron crop failure
-      in Khorasan, about how Persian middlemen inflate the cost. The Arab listened
-      closely, nodding, then turned to you and laid out two pouches instead of one.
-      \"Your man knows the trade. Five coins for both \u2014 and send word when you
-      reach Rey.\" The caravan left with a double portion of saffron, and you \u2014
-      with a handful of new Arabic words picked up from the conversation."
+      in his own tongue: <npc_speech lang=\"Arabic\">Peace be upon you, brother trader.
+      We hear saffron in Khorasan is worth its weight in gold these days. Is it true?</npc_speech>
+      The conversation flowed \u2014 about prices in Mashhad, about the saffron crop
+      failure in Khorasan, about how Persian middlemen inflate the cost. The Arab
+      listened closely, nodding, then turned to you and laid out two pouches instead
+      of one. \"Your man knows the trade. Five coins for both \u2014 and send word
+      when you reach Rey.\" The caravan left with a double portion of saffron, and
+      you \u2014 with a handful of new Arabic words picked up from the conversation."
     m_Metadata:
       m_Items: []
   - m_Id: 10857774509449255
@@ -11345,9 +11385,9 @@ MonoBehaviour:
   - m_Id: 10857774509449267
     m_Localized: "You shook your head \u2014 no spare coin, and a stranger's blade
       in the caravan is not always a blessing. The Turk nodded without offense, stepped
-      off the trail, and slapped his horse's neck. \"Tengri yolingni qollasyn,\"
-      he called after you. The drivers watched him go. Solid man. A shame about the
-      coin."
+      off the trail, and slapped his horse's neck. <npc_speech lang=\"Turkic\">May
+      Tengri guard your road</npc_speech> he called after you. The drivers watched
+      him go. Solid man. A shame about the coin."
     m_Metadata:
       m_Items: []
   - m_Id: 10857774509449268
@@ -11379,13 +11419,14 @@ MonoBehaviour:
   - m_Id: 10857774509449272
     m_Localized: "Your guard suddenly rode forward and barked something in Turkic
       \u2014 sharp, a command voice. Arslan flinched, squinted, then burst out laughing
-      and slapped his thigh. \"Temir! You son of a dog, you are alive!\" It turned
-      out they had served together \u2014 guarding caravans out of Ferghana for three
-      seasons running. Half an hour of reminiscence, a bowl of kumiss from Arslan's
-      own stock, and the deal was done: \"Five coins \u2014 for Temir's friend. And
-      my horse joins the common string.\" Two guards are better than one, and their
-      shared experience is worth a whole detachment. You caught a few Turkic phrases
-      from their exchange \u2014 they will come in useful."
+      and slapped his thigh. <npc_speech lang=\"Turkic\">Temir! You son of a dog,
+      you are alive!</npc_speech> It turned out they had served together \u2014 guarding
+      caravans out of Ferghana for three seasons running. Half an hour of reminiscence,
+      a bowl of kumiss from Arslan's own stock, and the deal was done: <npc_speech
+      lang=\"Turkic\">Five coins \u2014 for Temir's friend. And my horse joins the
+      common string.</npc_speech> Two guards are better than one, and their shared
+      experience is worth a whole detachment. You caught a few Turkic phrases from
+      their exchange \u2014 they will come in useful."
     m_Metadata:
       m_Items: []
   - m_Id: 10857774509449273
@@ -11586,12 +11627,14 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10857774509449299
-    m_Localized: "The translator addressed the Greek in his own tongue \u2014 haltingly
-      at first, then fluently, and the monk lit up like a man who had not heard his
-      native speech in months. They spent half a day over the maps \u2014 your translator
-      dictated pass names, distances, descriptions of dangerous stretches, and Theodore
-      marked them on paper with the precision of a military engineer. In return the
-      Greek handed over a copy of his route map from Trebizond to Balkh \u2014 annotated
+    m_Localized: "The translator addressed the Greek in his own tongue: <npc_speech
+      lang=\"Greek\">Greetings, traveler. We have seen your maps \u2014 they are
+      splendid. Shall we exchange knowledge?</npc_speech> Haltingly at first, then
+      fluently, and the monk lit up like a man who had not heard his native speech
+      in months. They spent half a day over the maps \u2014 your translator dictated
+      pass names, distances, descriptions of dangerous stretches, and Theodore marked
+      them on paper with the precision of a military engineer. In return the Greek
+      handed over a copy of his route map from Trebizond to Balkh \u2014 annotated
       with springs, checkpoints, and places where bandits set ambushes. \"Tell your
       master: this map is worth more than a sack of silver.\" The translator nodded.
       He was right. To the maps the monk added sheets of blank paper \u2014 the finest
@@ -11624,9 +11667,10 @@ MonoBehaviour:
   - m_Id: 10857774509449303
     m_Localized: "You shook your head \u2014 no spare coin, and the caravan has been
       on the road long enough. The guide nodded without offense, sat back on the
-      boulder, and pulled at his grass stem. \"Tengri yolingni qollasyn,\" he muttered
-      after you in Turkic picked up from some bazaar. The drivers watched him go.
-      Solid man, knows the mountains. A pity the purse is empty."
+      boulder, and pulled at his grass stem. <npc_speech lang=\"Turkic\">May Tengri
+      guard your road</npc_speech> he muttered after you in Turkic picked up from
+      some bazaar. The drivers watched him go. Solid man, knows the mountains. A
+      pity the purse is empty."
     m_Metadata:
       m_Items: []
   - m_Id: 10857774509449304
@@ -11659,14 +11703,14 @@ MonoBehaviour:
   - m_Id: 10857774509449308
     m_Localized: "Your guide suddenly reined in his yak and shouted something in
       Tibetan \u2014 sharp, with a tone of recognition. Dorje sprang off the boulder,
-      squinted \u2014 and burst out laughing, slapping his thighs. \"Pemba! You old
-      goat, you are alive!\" They had guided caravans together over the Karakoram
-      four seasons back, shared a rope on an icy slope, and once hauled each other
-      out of a crevasse. Pemba turned to you: \"Dorje is the best on this pass. Four
-      coins \u2014 the price of friendship. And his yak joins our string.\" Two guides
-      means not just double safety but knowledge of every stone for two hundred li
-      around. You picked up a few Tibetan words from their exchange worth remembering:
-      \"crevasse,\" \"ice,\" \"hold the rope.\""
+      squinted \u2014 and burst out laughing, slapping his thighs. <npc_speech lang=\"Tibetan\">Pemba!
+      You old goat, you are alive!</npc_speech> They had guided caravans together
+      over the Karakoram four seasons back, shared a rope on an icy slope, and once
+      hauled each other out of a crevasse. Pemba turned to you: \"Dorje is the best
+      on this pass. Four coins \u2014 the price of friendship. And his yak joins
+      our string.\" Two guides means not just double safety but knowledge of every
+      stone for two hundred li around. You picked up a few Tibetan words from their
+      exchange worth remembering: \"crevasse,\" \"ice,\" \"hold the rope.\""
     m_Metadata:
       m_Items: []
   - m_Id: 10857774509449309
@@ -11912,14 +11956,15 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10857774509449344
-    m_Localized: "The translator addressed the seller in Sogdian \u2014 the man flinched,
-      then broke into a grin. Names, cities, caravanserai names poured out. Within
-      ten minutes the translator knew everything: the map is genuine, drawn by a
-      Bukharan caravanner who traveled the route three times. The seller is his nephew,
-      hawking copies to pay his uncle's debt. \"Three silver \u2014 and I will show
-      where uncle hid a spare waterskin by the second well,\" he added confidentially.
-      The map was bought for a pittance, and with it \u2014 intelligence no competitor
-      possesses."
+    m_Localized: "The translator addressed the seller in Sogdian: <npc_speech lang=\"Sogdian\">Greetings,
+      friend. Whose work is this map? Tell me where the route comes from.</npc_speech>
+      The man flinched, then broke into a grin. Names, cities, caravanserai names
+      poured out. Within ten minutes the translator knew everything: the map is genuine,
+      drawn by a Bukharan caravanner who traveled the route three times. The seller
+      is his nephew, hawking copies to pay his uncle's debt. \"Three silver \u2014
+      and I will show where uncle hid a spare waterskin by the second well,\" he
+      added confidentially. The map was bought for a pittance, and with it \u2014
+      intelligence no competitor possesses."
     m_Metadata:
       m_Items: []
   - m_Id: 10857774509449345
@@ -12349,14 +12394,15 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 10857774513643578
     m_Localized: "The translator stepped forward and addressed the moneylender in
-      fluent Sogdian \u2014 fast, confident, with turns of phrase that revealed knowledge
-      of trade law. The moneylender stiffened: before him stood not an illiterate
-      caravan hand but someone who knew how Sogdian courts worked. The conversation
-      lasted a quarter of an hour. The translator pointed to three clauses in the
-      note, cited Bukharan usury law, and proposed an honest settlement \u2014 a
-      third of the demand. The moneylender grimaced but took the money. As he left,
-      the translator turned back: \"He will not come again. I mentioned the guild
-      judge in Samarkand \u2014 they know each other, and not in a good way.\""
+      fluent Sogdian: <npc_speech lang=\"Sogdian\">This note was drawn in violation
+      of Bukharan law. You know it, and I know it. Let us settle this fairly.</npc_speech>
+      The moneylender stiffened: before him stood not an illiterate caravan hand
+      but someone who knew how Sogdian courts worked. The conversation lasted a quarter
+      of an hour. The translator pointed to three clauses in the note, cited Bukharan
+      usury law, and proposed an honest settlement \u2014 a third of the demand.
+      The moneylender grimaced but took the money. As he left, the translator turned
+      back: \"He will not come again. I mentioned the guild judge in Samarkand \u2014
+      they know each other, and not in a good way.\""
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643579
@@ -12471,11 +12517,12 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643596
-    m_Localized: "The translator sits beside the old man and speaks Farsi \u2014
-      fluently, with a Balkh accent. The Persian lights up: a countryman! Within
-      half an hour the conversation shifts from cautious hints to a detailed map
-      traced with a finger on the dusty floor. The translator memorizes every turn.
-      The old man claps him on the shoulder and produces a copper amulet from inside
+    m_Localized: "The translator sits beside the old man and speaks Farsi: <npc_speech
+      lang=\"Persian\">Peace be upon you, sir. I heard your story \u2014 please,
+      tell me more.</npc_speech> The Persian lights up: a countryman! Within half
+      an hour the conversation shifts from cautious hints to a detailed map traced
+      with a finger on the dusty floor. The translator memorizes every turn. The
+      old man claps him on the shoulder and produces a copper amulet from inside
       his robe \u2014 \"for luck, if you dare.\" The entire caravanserai watches
       with envy: these people have their own man on the inside."
     m_Metadata:
@@ -12647,10 +12694,14 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643621
-    m_Localized: "You try to negotiate terms, but Vahu-Man shakes his head \u2014
-      your proposals betray inexperience. \"Trading is not about counting coins,
-      s\u0101rtb\u0101w. It is about sensing the market.\" He departs, leaving you
-      with coin spent on hospitality and a lesson worth more than silver."
+    m_Localized: "You try to discuss terms, but Vahu-Man winces \u2014 your proposals
+      betray inexperience. \"Trading is not about counting coins, sartbaw.\" He falls
+      silent, turning his signet ring, then sighs. \"But the road teaches better
+      than the bazaar. Here is the charter \u2014 the first shipment from Chang'an
+      to Samarkand. I will raise the deposit and cut your share. Don't like it \u2014
+      return the paper.\" He presses the rolled parchment into your hand, but his
+      tone is clear: you are starting on worse terms, and every misstep will cost
+      dearly."
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643622
@@ -12659,12 +12710,13 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 10857774513643623
     m_Localized: "Your merchant companion steps forward and clasps hands with Vahu-Man
-      \u2014 they know each other, it turns out, from the Bukhara bazaar. A few words
-      in Sogdian, laughter, a clap on the shoulder \u2014 and Vahu-Man produces the
-      guild parchment without a single round of haggling. \"If Rakhsh vouches for
-      you, you are one of ours.\" The merchant winks at you: \"Don't thank me. Just
-      don't let me down.\" The guild opens the road to Constantinople before you
-      \u2014 the start of a great game."
+      \u2014 they know each other, it turns out, from the Bukhara bazaar. <npc_speech
+      lang=\"Sogdian\">Rakhsh, you old fox! How many years, how many roads!</npc_speech>
+      Laughter, a clap on the shoulder \u2014 and Vahu-Man produces the guild parchment
+      without a single round of haggling. \"If Rakhsh vouches for you, you are one
+      of ours.\" The merchant winks at you: \"Don't thank me. Just don't let me down.\"
+      The guild opens the road to Constantinople before you \u2014 the start of a
+      great game."
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643624
@@ -12715,8 +12767,14 @@ MonoBehaviour:
   - m_Id: 10857774513643630
     m_Localized: "You sit across from Lobsang, but under his gaze you grow uneasy.
       Words tangle, thoughts scatter \u2014 the altitude, perhaps, or something else.
-      The monk shakes his head: \"Not yet. The road must prepare you.\" You leave
-      empty-handed, supplies spent on the halt by the monastery."
+      The monk is silent for a long time. Then he draws out a scroll wrapped in saffron
+      cloth and sets it on the ground between you. \"I see you are not ready. But
+      the scroll cannot wait, and caravans heading south grow ever rarer.\" He does
+      not place the scroll into your hand \u2014 he simply leaves it on the stone.
+      He offers no frankincense. \"Frankincense is for those who carry light. For
+      now, you only carry weight. Deliver the scroll to Anxi, to the Mogao caves
+      \u2014 to a monk named Tinley. If the road does not break you, perhaps on the
+      way back you will be someone else.\""
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643631
@@ -12725,13 +12783,15 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 10857774513643632
     m_Localized: "Your translator addresses Lobsang in Tibetan \u2014 fluently, with
-      respect. The old man's face brightens, and he invites you both inside the monastery.
-      Over a cup of salted butter tea he speaks of the mountain temple, the scroll,
-      and the path that lies ahead. The translator relays every word, and you feel
-      Tibetan phrases beginning to arrange themselves in your mind. Lobsang presents
-      you with the scroll and a stick of frankincense with a slight bow. \"Your companion
-      is a bridge between worlds. Guard him well.\" You leave the monastery with
-      a new task and the sense that the mountains have accepted you."
+      respect: <npc_speech lang=\"Tibetan\">Honored Lobsang, we come in peace. My
+      master is ready to hear your message.</npc_speech> The old man's face brightens,
+      and he invites you both inside the monastery. Over a cup of salted butter tea
+      he speaks of the mountain temple, the scroll, and the path that lies ahead.
+      The translator relays every word, and you feel Tibetan phrases beginning to
+      arrange themselves in your mind. Lobsang presents you with the scroll and a
+      stick of frankincense with a slight bow. \"Your companion is a bridge between
+      worlds. Guard him well.\" You leave the monastery with a new task and the sense
+      that the mountains have accepted you."
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643633
@@ -12777,10 +12837,13 @@ MonoBehaviour:
   - m_Id: 10857774513643639
     m_Localized: "You agree, and Dariush begins to question you \u2014 about roads,
       tracks, how to pitch camp on a slope. Your answers do not convince him. He
-      frowns, shakes his head, and stands. \"You are brave, but the road does not
-      forgive bravery without skill. Learn first.\" Leaving, he takes his pack. The
-      night was wasted \u2014 supplies spent on the prolonged halt, and the sting
-      of rejection rings in your head."
+      frowns and stares into the fire for a long time. \"You cannot read the road.
+      But someone has to lead the newcomers to Anxi, and my knee no longer bends
+      for the saddle.\" He stands and takes his sack of meat. He draws a map \u2014
+      but a rough one, lacking detail: \"You will learn the rest yourself, if you
+      live that long.\" There is no proper route, he left no supplies, and in his
+      voice instead of respect there is only weary resignation. You have the assignment,
+      but without Dariush's map the road has grown more dangerous."
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643640
@@ -12842,10 +12905,16 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643648
-    m_Localized: You try to negotiate, but Master Chen quickly realizes you cannot
-      tell indigo from soot. He bows politely, hides his dishes, and leaves. You
-      spent money on market treats and learned nothing except that you have much
-      to learn.
+    m_Localized: "You try to negotiate, but Master Chen quickly realizes you cannot
+      tell indigo from soot. He shakes his head and begins gathering his dishes.
+      Then he pauses, studying you appraisingly. \"You know nothing of dyes. But
+      you have a caravan, and I need a courier, not a scholar.\" He tucks the indigo
+      back into his bag \u2014 there will be no down payment. \"Five units of raw
+      material, delivered to Chang'an. I will front barely enough for the purchase
+      \u2014 the rest comes from your own purse. If you deliver on time and do not
+      spoil the goods, then we will talk about dyes.\" He hands you a note with the
+      address, but no lesson, no advance \u2014 only an errand and sparingly measured
+      trust."
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643649
@@ -12853,15 +12922,16 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643650
-    m_Localized: "Your translator addressed Master Chen in his native tongue \u2014
-      and the old man transformed. He spoke rapidly, gesticulating with blue-stained
-      fingers, pointing at fabrics, at the sky, at the earth. The translator could
-      barely keep up \u2014 the talk was of a rare plant near Anxi, the secret of
-      purple, how the imperial court once commissioned cloth from his family alone.
-      Master Chen places a dish of indigo into your hand and bows. \"A man who travels
-      with an interpreter who speaks our language is no ordinary merchant. I trust
-      you.\" You leave the market with a task, a dye sample, and a few Chinese words
-      lodged in your memory."
+    m_Localized: "Your translator addressed Master Chen in his native tongue: <npc_speech
+      lang=\"Chinese\">Master Chen, my lord is a silk merchant. Please, tell him
+      of your craft.</npc_speech> The old man transformed. He spoke rapidly, gesticulating
+      with blue-stained fingers, pointing at fabrics, at the sky, at the earth. The
+      translator could barely keep up \u2014 the talk was of a rare plant near Anxi,
+      the secret of purple, how the imperial court once commissioned cloth from his
+      family alone. Master Chen places a dish of indigo into your hand and bows.
+      \"A man who travels with an interpreter who speaks our language is no ordinary
+      merchant. I trust you.\" You leave the market with a task, a dye sample, and
+      a few Chinese words lodged in your memory."
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643651
@@ -13194,6 +13264,227 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 10857774513643700
     m_Localized: Omen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12957013737725952
+    m_Localized: Quest
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643201191936
+    m_Localized: The Wanderer with the Map
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643234746368
+    m_Localized: "At the bazaar, between stalls of spices and copper ware, you notice
+      a man who is neither selling nor buying \u2014 he stands by a wall, studying
+      a worn scroll. His clothes are travel-worn, but the fabric was once expensive.
+      Noticing your gaze, he approaches and introduces himself as Farukh, a wandering
+      archaeologist. In his hands is a map \u2014 ancient, on yellowed parchment,
+      marked in a language he cannot read. The map, he says, points to lost relics
+      of the Silk Road \u2014 objects for which collectors in Chang'an would pay
+      a fortune. But he needs a caravan and someone capable of walking this path.\r\n\r\n<npc_speech
+      lang=\"Persian\">Greetings, merchant! I am Farukh \u2014 I dig old ruins and
+      seek the forgotten. This map is genuine, I swear on my father's dust. But I
+      need a caravan. You need money. Perhaps we can come to terms?</npc_speech>"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940672
+    m_Localized: Politely decline
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940673
+    m_Localized: "You shake your head and thank Farukh for the story. He takes no
+      offense \u2014 he tucks the map inside his robe and nods. \"The road is long,
+      perhaps we shall meet again.\" You continue on your way with a light heart."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940674
+    m_Localized: Take the map
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940675
+    m_Localized: "You study the map together with Farukh \u2014 the signs are old,
+      but the route is legible: through deserts and passes to places marked with
+      dots and crescents. Farukh presses the scroll into your hand. \"Guard it well.
+      The first mark is somewhere between Kashgar and Anxi. Decipher the signs and
+      you will know what to seek.\" He claps your shoulder and melts into the bazaar
+      crowd, leaving you with the map and the feeling of a great journey beginning."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940676
+    m_Localized: You take the map, but Farukh sees you cannot read a single sign.
+      He sighs and takes the scroll back, then reluctantly returns it. "Fine. The
+      map is yours, but without hints. The first mark is somewhere to the east. Figure
+      it out yourself." He leaves without looking back. The map is in your hands,
+      but without Farukh's guidance the road will be harder.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940677
+    m_Localized: The translator deciphers the inscriptions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940678
+    m_Localized: "Your translator leans over the map and begins to read \u2014 the
+      inscriptions turn out to be in Old Persian, mixed with Sogdian. Farukh clicks
+      his tongue in admiration. The translator explains the route, points out key
+      markers, and translates warnings written in fine script in the margins. Farukh
+      ceremonially presses the map into your hand. \"With such an interpreter you
+      will manage. The first mark is between Kashgar and Anxi, and beyond that the
+      map will guide you.\" You leave the market with a clear purpose and a few Persian
+      words lodged in your memory."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940679
+    m_Localized: The Samarkand Delivery
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940680
+    m_Localized: "The gates of Samarkand swing open before your caravan, and in the
+      square by the caravanserai Vahu-Man is already waiting. He inspects the silk
+      bales \u2014 fastidiously, unrolling each one, checking the threads against
+      the light. Then he straightens up and smiles genuinely for the first time.
+      \"Ten bales, not a single moth, no trace of water. You are not just a caravan
+      master \u2014 you are a craftsman.\" He draws a leather purse of silver and
+      a new parchment bearing the guild seal from inside his caftan. \"The next contract
+      is more serious. Ready?\""
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940681
+    m_Localized: Continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940682
+    m_Localized: "You accept the silver and the new charter. Vahu-Man shakes your
+      hand firmly, in the merchant fashion. \"The road to Constantinople is long,
+      but you have proven yourself capable.\" The caravan is unloaded, silver jingles
+      in the purse, and ahead waits a new contract \u2014 harder and more profitable."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940683
+    m_Localized: The Scroll for Tinley
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940684
+    m_Localized: "The Mogao caves greet you with coolness and the scent of incense.
+      In the half-dark of a stone hall, a monk in a crimson kasaya rises to meet
+      you \u2014 thin, shaven-headed, with calm eyes. \"I am Tinley. Lobsang said
+      you would come.\" You hand over the scroll, and the monk carefully unrolls
+      it, reading by the light of an oil lamp. His face brightens. \"This message
+      is more ancient than I thought. You have done a good deed, caravan master.\"
+      He places the scroll in a stone niche and turns to you. \"Lobsang asked me
+      to tell you: the path is not over. There are more places that await you.\""
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940685
+    m_Localized: Continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940686
+    m_Localized: "Tinley bows and hands you a small pouch of silver \u2014 \"from
+      the grateful congregation.\" The scroll is delivered, but the monk is right:
+      the path of the spirit has only begun. Ahead lie new temples, new secrets,
+      and a new journey laid out by Lobsang."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940687
+    m_Localized: The Convoy to Anxi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940688
+    m_Localized: "The gates of Anxi appear around the last bend of the road, and
+      your charges \u2014 a group of young merchants on their first Silk Road journey
+      \u2014 burst into joyful shouts. Dariush was right: they are inexperienced,
+      but alive and with their goods intact. In the square by the caravanserai, the
+      local headman meets you. He inspects the caravan, counts heads, and nods with
+      respect. \"Dariush chose well. For the convoy \u2014 a reward.\" He extends
+      a leather case with a clay vessel inside. \"Greek fire \u2014 a rarity on these
+      roads. Dariush asked me to tell you: you are ready for real routes.\""
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940689
+    m_Localized: Continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940690
+    m_Localized: 'You accept the reward and the new assignment. The young merchants
+      thank you, and the headman relays Dariush''s words: the next route will pass
+      through Mashhad. The convoy is complete, but the caravan master''s path is
+      only gaining momentum.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940691
+    m_Localized: The Dye from Chang'an
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940692
+    m_Localized: "Chang'an greets you with the roar of the world's greatest market.
+      Master Chen Wei waits at the door of his workshop \u2014 narrow, reeking of
+      indigo, with rows of clay vats lining the walls. He receives the raw materials,
+      unwraps each bundle, sniffs, rubs between his fingers. Then he looks up and
+      nods. \"The real thing. You did not disappoint.\" He leads you to a back room
+      where fabric samples of an incredible purple hue lie on a wooden table. \"This
+      is what can be made from this material. If you want to learn more, come again.
+      I have a new task for you.\""
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940693
+    m_Localized: Continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940694
+    m_Localized: Master Chen hands you a purse of silver and explains the next task.
+      The secret of purple unfolds step by step, and each step brings new knowledge
+      and new connections in the world of silk.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940695
+    m_Localized: Deciphering the Map
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940696
+    m_Localized: "A halt by the campfire. You take out Farukh's map and spread it
+      on a flat stone. By firelight the signs on the parchment grow clearer \u2014
+      curls of Old Persian script resolve into place names, arrows indicate directions,
+      and small notes in the margins describe landmarks. You compare the map with
+      what you know of the terrain, and gradually the route emerges \u2014 the first
+      point leads to the ruins of an ancient temple marked with a crescent. The map
+      begins to speak."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940697
+    m_Localized: Decipher
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940698
+    m_Localized: "You spend half the night over the map, but the result is worth
+      the lost sleep. The route is clear: the first relic is hidden in temple ruins,
+      a few days' travel away. Knowledge of old trade routes helped \u2014 you read
+      the map with growing confidence."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940699
+    m_Localized: The First Relic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940700
+    m_Localized: "Temple ruins rise above the sands \u2014 broken columns, remnants
+      of stone walls, steps buried in sand. You consult the map and find the right
+      place \u2014 a niche in a surviving wall, hidden behind fallen stone. Inside,
+      wrapped in decayed cloth, is a bronze figurine: an ancient deity of the trade
+      routes, face worn smooth by centuries. The map did not lie. Farukh knew his
+      craft. On the back of the figurine, an inscription is scratched \u2014 coordinates
+      of the next cache. The hunt for the relics of the Silk Road is only beginning."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940701
+    m_Localized: Continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 12985643238940702
+    m_Localized: "You carefully wrap the figurine and stow it among the cargo. Silver
+      from the cache will cover expenses, and the inscription on the relic points
+      the way to the next find. The first stage is complete \u2014 ahead lie new
+      ruins, new riddles, and ever more valuable relics."
     m_Metadata:
       m_Items: []
   references:

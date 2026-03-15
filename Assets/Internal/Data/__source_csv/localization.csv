@@ -278,12 +278,12 @@ modifier.speed_bonus.name,road_modifiers,2,Ускорение,Speed Bonus
 UI.Event.Main.Button.Continue,interface_names,28,Продолжить,Continue
 UI.Event.Main.Header.Main,interface_names,27,Событие,Event
 UI.Event.Main.Prefix.NearCity,interface_names,29,Рядом с {0},Near {0}
-UI.Event.Outcome.Resource.Danger,interface_names,74,опасности,danger
-UI.Event.Outcome.Resource.Durability,interface_names,75,прочности,durability
-UI.Event.Outcome.Resource.Food,interface_names,73,провизии,supplies
-UI.Event.Outcome.Resource.Money,interface_names,72,монет,gold
-UI.Event.Outcome.Resource.Morale,interface_names,76,морали,morale
-UI.Event.Outcome.Resource.Reputation,interface_names,77,репутации,reputation
+UI.Global.Resource.Danger,interface_names,74,опасности,danger
+UI.Global.Resource.Durability,interface_names,75,прочности,durability
+UI.Global.Resource.Food,interface_names,73,провизии,supplies
+UI.Global.Resource.Money,interface_names,72,монет,gold
+UI.Global.Resource.Morale,interface_names,76,морали,morale
+UI.Global.Resource.Reputation,interface_names,77,репутации,reputation
 UI.Event.Outcome.QuestStarted,interface_names,78,Новое задание: {quest_name},New quest: {quest_name}
 UI.Event.Outcome.QuestAdvanced,interface_names,79,Задание обновлено: {quest_name},Quest updated: {quest_name}
 UI.Event.Outcome.QuestCompleted,interface_names,80,Задание выполнено: {quest_name}!,Quest completed: {quest_name}!
@@ -2893,3 +2893,16 @@ event.road_quest_R_N_Urumqi__N_Kucha.choice2,road_events,,Вежливо отк�
 event.road_quest_R_N_Urumqi__N_Kucha.choice2.result,road_events,,"Караванщик кланяется и уходит, унося свой секрет.","The caravan master bows and departs, taking his secret with him."
 event.road_quest_R_N_Urumqi__N_Kucha.name,road_events,,Долг караванщика,Caravan Master's Debt
 event.road_quest_R_N_Urumqi__N_Kucha.description,road_events,,"Бывалый караванщик догоняет ваш отряд. Он говорит, что обязан вам жизнью — в прошлый раз вы помогли его людям на переправе. В благодарность он готов открыть секретный маршрут, которым пользуются только избранные торговцы.","A seasoned caravan master catches up with your party. He says he owes you his life — you helped his people at a crossing once before. In gratitude, he offers to reveal a secret route used only by select merchants."
+UI.Quest.Reward.Route,UI,,Маршрут: {target},Route: {target}
+UI.Quest.Reward.UnlockItem,UI,,Предмет: {target},Item: {target}
+UI.Quest.Detail.RewardHeader,UI,,Награда:,Reward:
+UI.Quest.Detail.FailHeader,UI,,Условия провала:,Fail conditions:
+UI.Quest.Fail.DaysSinceStart,UI,,Выполнить за {value} дней,Complete within {value} days
+UI.Quest.Fail.DangerAbove,UI,,Опасность выше {value},Danger above {value}
+UI.Quest.Fail.NoItem,UI,,Потерять {param},Lose {param}
+UI.Quest.Track,UI,,Отслеживать,Track
+UI.Quest.Untrack,UI,,Перестать отслеживать,Untrack
+UI.Quest.Decline,UI,,Отказаться,Decline
+UI.Quest.Failed,UI,,Задание провалено,Quest failed
+UI.Quest.Completed,UI,,Задание выполнено,Quest completed
+UI.Quest.Detail.CurrentObjective,UI,,Текущая цель:,Current objective:
