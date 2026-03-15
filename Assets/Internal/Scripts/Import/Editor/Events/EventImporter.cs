@@ -18,7 +18,7 @@ namespace Internal.Scripts.Import.Editor.Events
         private const string LOCALIZATION_TABLE_NAME = "Events";
         private const string EVENTS_FOLDER = GENERATED_DATA_FOLDER + "/Events";
 
-        [MenuItem("SPJ/Import/Events/Import All")]
+        [MenuItem("SPJ/Import/Events/Import")]
         public static void ImportAll()
         {
             if (IsCompiling()) return;

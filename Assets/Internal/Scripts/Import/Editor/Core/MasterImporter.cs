@@ -3,6 +3,7 @@ using Internal.Scripts.Import.Editor.Economy;
 using Internal.Scripts.Import.Editor.Events;
 using Internal.Scripts.Import.Editor.Languages;
 using Internal.Scripts.Import.Editor.Npc;
+using Internal.Scripts.Import.Editor.Quests;
 using Internal.Scripts.Import.Editor.Theme;
 using Internal.Scripts.Import.Editor.Trader;
 using UnityEditor;
@@ -21,6 +22,7 @@ namespace Internal.Scripts.Import.Editor.Core
             {
                 EconomyImporter.ImportAll();
                 EventImporter.ImportAll();
+                QuestImporter.ImportAll();
                 ThemeImporter.ImportColors();
                 NpcImporter.ImportNames();
                 TraderImporter.Import();
