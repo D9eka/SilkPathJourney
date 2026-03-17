@@ -20,6 +20,12 @@ namespace Internal.Scripts.Import.Editor.Core
             ("Theme", new[] { "biome." }, true),
             ("Npc", new[] { "npc.name." }, true),
             ("Quests", new[] { "quest.", "quest_branch." }, true),
+            ("Caravan", new[]
+            {
+                "cart_class.", "cart_upgrade.", "extra_cart.",
+                "companion.", "companion_type.", "companion_quality.", "companion_bonus.",
+                "caravan_upgrade.", "draft_animal."
+            }, true),
         };
 
         [MenuItem("SPJ/Import/Localization")]
