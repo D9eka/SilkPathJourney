@@ -111,14 +111,12 @@ namespace Internal.Scripts.Events.Data
         [field: SerializeField] public string Param { get; private set; }
         [field: SerializeField] public float Value { get; private set; }
 
-#if UNITY_EDITOR
         public EventOutcomeEntry(EventOutcomeType type, string param, float value)
         {
             Type = type;
             Param = param;
             Value = value;
         }
-#endif
     }
 
 }
