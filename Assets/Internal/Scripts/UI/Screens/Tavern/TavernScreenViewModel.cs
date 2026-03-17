@@ -83,7 +83,8 @@ namespace Internal.Scripts.UI.Screens.Tavern
                 return;
 
             var (type, quality) = _availableSlots[index];
-            if (!_companionService.HireCompanion(type, quality, _cityCulture))
+            int cost = _companionService.GetHireCost(type, quality);
+            if (!_companionService.HireCompanion(type, quality, cost, _cityCulture))
                 return;
 
             BuildState();
@@ -116,7 +117,7 @@ namespace Internal.Scripts.UI.Screens.Tavern
             {
                 foreach (var qualityEntry in _caravanDb.CompanionQualities)
                 {
-                    int hireCost = Mathf.RoundToInt(typeData.HireCostBase * qualityEntry.PriceMultiplier);
+                    int hireCost = _companionService.GetHireCost(typeData.Type, qualityEntry.Quality);
                     int dailyCost = Mathf.RoundToInt(typeData.DailyCostBase * qualityEntry.DailyCostMultiplier);
 
                     string typeName = LocalizationService.ResolveString(
