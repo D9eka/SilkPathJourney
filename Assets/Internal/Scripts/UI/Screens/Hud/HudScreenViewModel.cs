@@ -199,6 +199,12 @@ namespace Internal.Scripts.UI.Screens.Hud
                 Debug.LogWarning($"[SPJ] Cannot open quests screen: {result}");
         }
 
+        public void OpenCaravan()
+        {
+            if (!_screenStackService.TryOpen(ScreenId.Caravan, out ScreenOpenResult result))
+                Debug.LogWarning($"[SPJ] Cannot open caravan screen: {result}");
+        }
+
         public void LockCameraToPlayer() => _cameraController.FollowPlayer();
 
         private void EnterCity()

@@ -8,6 +8,7 @@ using Internal.Scripts.Items;
 using Internal.Scripts.Npc.Core;
 using Internal.Scripts.Utils;
 using Internal.Scripts.Npc.Names;
+using Internal.Scripts.UI.Localization;
 using Internal.Scripts.Npc.Save;
 using Internal.Scripts.Npc.Trading;
 using Internal.Scripts.Road.Core;
@@ -199,7 +200,9 @@ namespace Internal.Scripts.Npc.Lifecycle
             RoadAgentConfig config = BuildRandomConfig();
 
             NameEntry nameEntry = _nameDatabase != null ? _nameDatabase.GetRandom() : null;
-            string agentName = nameEntry?.Name ?? $"Trader_{_agents.Count}";
+            string agentName = nameEntry?.Name != null
+                ? LocalizationService.ResolveString(nameEntry.Name, nameEntry.Id, "NpcLife.Name")
+                : $"Trader_{_agents.Count}";
 
             int money = UnityEngine.Random.Range(_settings.MoneyRange.x, _settings.MoneyRange.y + 1);
             float capacity = UnityEngine.Random.Range(_settings.CapacityRange.x, _settings.CapacityRange.y);

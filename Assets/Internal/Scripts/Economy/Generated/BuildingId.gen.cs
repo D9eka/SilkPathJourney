@@ -10,5 +10,7 @@
         Workshop = 5,
         Warehouse = 6,
         LanguageSchool = 7,
+        Caravansary = 8,
+        Barracks = 9,
     }
 }

@@ -7,6 +7,8 @@ using Internal.Scripts.UI.Screens.Core.ViewModel;
 using Internal.Scripts.UI.StackService;
 using Internal.Scripts.UI.Theme;
 using R3;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
 
 namespace Internal.Scripts.UI.Screens.EnterCity
 {
@@ -35,12 +37,16 @@ namespace Internal.Scripts.UI.Screens.EnterCity
         {
             _cityId = args as string;
             BuildState();
+            LocalizationSettings.SelectedLocaleChanged += OnLocaleChanged;
         }
 
         protected override void OnClose()
         {
+            LocalizationSettings.SelectedLocaleChanged -= OnLocaleChanged;
             _state.Value = null;
         }
+
+        private void OnLocaleChanged(Locale _) => BuildState();
 
         public void OpenBuilding(BuildingEntry entry)
         {

@@ -3,6 +3,7 @@ using Internal.Scripts.Npc.Core;
 using Internal.Scripts.Npc.Encounter;
 using Internal.Scripts.Road.Core;
 using Internal.Scripts.UI.Screens.Trader;
+using Internal.Scripts.Player;
 using Internal.Scripts.UI.Theme;
 using Internal.Scripts.UI.WorldLabel;
 using Plugins.Zenject.Source.Install;
@@ -25,6 +26,9 @@ namespace Internal.Scripts.Installers
         [Header("World")]
         [SerializeField] private WorldCanvasSettings _worldCanvasSettings;
 
+        [Header("Convoy")]
+        [SerializeField] private ConvoyPrefabCatalog _convoyPrefabCatalog;
+
         [Header("Theme")]
         [SerializeField] private BiomePaletteMap _biomePaletteMap;
 
@@ -38,6 +42,9 @@ namespace Internal.Scripts.Installers
             Container.BindInstance(_traderUICatalog).AsSingle();
             Container.BindInstance(_worldCanvasSettings).AsSingle();
             Container.BindInstance(_biomePaletteMap).AsSingle();
+
+            if (_convoyPrefabCatalog != null)
+                Container.BindInstance(_convoyPrefabCatalog).AsSingle();
 
             InstallTheme();
         }

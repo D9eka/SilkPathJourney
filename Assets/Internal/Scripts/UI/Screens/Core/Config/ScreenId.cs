@@ -15,6 +15,10 @@ namespace Internal.Scripts.UI.Screens.Core.Config
         Trader = 10,
         LanguageSchool = 11,
         EnterCity = 12,
-        Quests = 13
+        Quests = 13,
+        Caravan = 14,
+        Caravansary = 15,
+        Tavern = 16,
+        Workshop = 17
     }
 }
