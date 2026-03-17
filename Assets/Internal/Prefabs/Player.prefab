@@ -65,7 +65,9 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2210488831552245303, guid: 8b026b95b0faef84183b8aa430f6c81e, type: 3}
+    - {fileID: 6835908549233101305, guid: 8b026b95b0faef84183b8aa430f6c81e, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8b026b95b0faef84183b8aa430f6c81e, type: 3}
@@ -90,6 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Npc.Core.RoadAgentView
   _visualRoot: {fileID: 4202776975001571423}
+  _rotationSpeed: 10
 --- !u!4 &4202776975001571423 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8b026b95b0faef84183b8aa430f6c81e, type: 3}

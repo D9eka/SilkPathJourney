@@ -13,12 +13,16 @@ namespace Internal.Scripts.Npc.Core
         {
             Transform t = VisualRoot;
             t.position = position;
+            SmoothRotate(t, forward, _rotationSpeed);
+        }
 
+        public static void SmoothRotate(Transform t, Vector3 forward, float rotationSpeed)
+        {
             Vector3 flatForward = new Vector3(forward.x, 0f, forward.z);
             if (flatForward.sqrMagnitude > 1e-6f)
             {
                 Quaternion target = Quaternion.LookRotation(flatForward.normalized, Vector3.up);
-                float smoothFactor = 1f - Mathf.Exp(-_rotationSpeed * Time.deltaTime);
+                float smoothFactor = 1f - Mathf.Exp(-rotationSpeed * Time.deltaTime);
                 t.rotation = Quaternion.Slerp(t.rotation, target, smoothFactor);
             }
         }
