@@ -11,6 +11,7 @@ namespace Internal.Scripts.Import.Editor.Npc
     public static class NpcImporter
     {
         private const string NAME_DATABASE_PATH = DATABASES_FOLDER + "/NameDatabase.asset";
+        private const string LOC_TABLE = "Npc";
 
         [MenuItem("SPJ/Import/Npc")]
         public static void ImportNames()
@@ -55,11 +56,11 @@ namespace Internal.Scripts.Import.Editor.Npc
             string[] header = rows[0];
             int idIndex = FindColumnIndex(header, "name_id");
             int cultureIndex = FindColumnIndex(header, "culture_id");
-            int nameIndex = FindColumnIndex(header, "name");
+            int locIndex = FindColumnIndex(header, "loc_link");
 
-            if (idIndex < 0 || cultureIndex < 0 || nameIndex < 0)
+            if (idIndex < 0 || cultureIndex < 0 || locIndex < 0)
             {
-                Debug.LogError("[SPJ] Missing required columns in names.csv (need: name_id, culture_id, name).");
+                Debug.LogError("[SPJ] Missing required columns in names.csv (need: name_id, culture_id, loc_link).");
                 return entries;
             }
 
@@ -78,8 +79,12 @@ namespace Internal.Scripts.Import.Editor.Npc
                 if (culture == CultureId.None)
                     Debug.LogWarning($"[SPJ] Unknown culture_id '{cultureKey}' for name '{id}' at row {i + 1}.");
 
-                string name = GetField(row, nameIndex).Trim();
-                entries.Add(new NameEntry(id, culture, name));
+                string locLink = locIndex >= 0 ? GetField(row, locIndex).Trim() : "";
+                if (string.IsNullOrEmpty(locLink))
+                    locLink = id;
+
+                var localizedName = MakeLocalizedString(locLink, LOC_TABLE);
+                entries.Add(new NameEntry(id, culture, localizedName));
             }
 
             return entries;

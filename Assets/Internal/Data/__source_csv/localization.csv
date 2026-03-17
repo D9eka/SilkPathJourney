@@ -2874,6 +2874,196 @@ item.monk_scroll.name,items,,Свиток Лобсанга,Lobsang's Scroll
 item.guild_cargo.name,items,,Груз гильдии,Guild Cargo
 item.greek_fire.name,items,,Греческий огонь,Greek Fire
 item.ancient_map.name,items,,Древняя карта,Ancient Map
+UI.Quest.Reward.Route,UI,,Маршрут: {target},Route: {target}
+UI.Quest.Reward.UnlockItem,UI,,Предмет: {target},Item: {target}
+UI.Quest.Detail.RewardHeader,UI,,Награда:,Reward:
+UI.Quest.Detail.FailHeader,UI,,Условия провала:,Fail conditions:
+UI.Quest.Fail.DaysSinceStart,UI,,Выполнить за {value} дней,Complete within {value} days
+UI.Quest.Fail.DangerAbove,UI,,Опасность выше {value},Danger above {value}
+UI.Quest.Fail.NoItem,UI,,Потерять {param},Lose {param}
+UI.Quest.Track,UI,,Отслеживать,Track
+UI.Quest.Untrack,UI,,Перестать отслеживать,Untrack
+UI.Quest.Decline,UI,,Отказаться,Decline
+UI.Quest.Failed,UI,,Задание провалено,Quest failed
+UI.Quest.Completed,UI,,Задание выполнено,Quest completed
+UI.Quest.Detail.CurrentObjective,UI,,Текущая цель:,Current objective:
+UI.Caravan.Main.Header.Main,interface_names,79,Караван,Caravan
+UI.Caravan.Companions.Header.Main,interface_names,80,Спутники,Companions
+UI.Caravan.Carts.Header.Main,interface_names,81,Телеги,Carts
+UI.Caravan.Companion.Button.Heal,interface_names,82,Лечить,Heal
+UI.Caravan.Companion.Button.Fire,interface_names,83,Уволить,Dismiss
+UI.Caravan.Cart.Button.Repair,interface_names,84,Починить,Repair
+UI.Caravan.Cart.Button.Discard,interface_names,85,Бросить,Discard
+UI.Caravan.Animal.Button.Heal,interface_names,86,Вылечить,Heal
+UI.Caravansary.Main.Header.Main,interface_names,87,Караван-сарай,Caravansary
+UI.Caravansary.Services.Header.Main,interface_names,88,Услуги,Services
+UI.Caravansary.Animals.Header.Main,interface_names,89,Смена животных,Switch Animals
+UI.Caravansary.Animals.Header.Current,interface_names,90,Сейчас на караване,Current animal
+UI.Caravansary.Animals.Header.Available,interface_names,91,Доступные замены,Available replacements
+UI.Tavern.Main.Header.Main,interface_names,92,Таверна,Tavern
+UI.Tavern.Rumors.Header.Main,interface_names,93,Слухи,Rumors
+UI.Tavern.RoadInfo.Header.Main,interface_names,94,Купить точную информацию,Buy exact information
+UI.Tavern.Companions.Header.Main,interface_names,95,Найм спутников,Hire Companions
+UI.Tavern.Companion.Button.Hire,interface_names,96,Нанять,Hire
+UI.Tavern.Quest.Header.Main,interface_names,97,Задание,Quest
+UI.Tavern.Quest.Button.Talk,interface_names,98,Поговорить,Talk
+UI.Global.Status.Prefix,interface_names,,Состояние:,Status:
+UI.Global.Effect.Prefix,interface_names,,Эффект:,Effect:
+UI.Global.CurrentEffect,interface_names,,Текущий эффект: {0},Current effect: {0}
+UI.Global.Durability.Prefix,interface_names,,Прочность:,Durability:
+UI.Global.Price.Prefix,interface_names,,Цена:,Price:
+UI.Global.DailyCost.Prefix,interface_names,,Плата:,Pay:
+UI.Global.HireCost.Prefix,interface_names,,Найм:,Hire:
+UI.Global.Level.Prefix,interface_names,,Уровень:,Level:
+UI.Global.Consumption.Prefix,interface_names,,Потребление:,Consumption:
+UI.Global.Animals.Prefix,interface_names,,Животные:,Animals:
+UI.Caravan.CompanionStatus.Healthy,interface_names,,здоров,healthy
+UI.Caravan.CompanionStatus.Injured,interface_names,,"ранен, можно вылечить за {0}","injured, can heal for {0}"
+UI.Caravan.DailyCost,interface_names,,{0}/день,{0}/day
+UI.Caravan.AnimalStatus.Healthy,interface_names,,здоровы,healthy
+UI.Caravan.AnimalStatus.Sick,interface_names,,"больны, можно вылечить за {0} припасов","sick, can heal for {0} supplies"
+UI.Caravan.AnimalEffect.Base,interface_names,,{0} скор. {1} вместимость,{0} speed {1} capacity
+UI.Caravan.AnimalEffect.Sick,interface_names,,-50% скорость,-50% speed
+UI.Caravan.CartEffect,interface_names,,"скорость {0}, вместимость {1}","speed {0}, capacity {1}"
+UI.Caravan.Consumption,interface_names,,{0}/день,{0}/day
+UI.Caravan.ExtraCartEffect,interface_names,,"вместимость {0}, штраф скорости {1}%","capacity {0}, speed penalty {1}%"
+UI.Caravan.BelongsTo,interface_names,,Принадлежит: {0},Belongs to: {0}
+UI.Caravansary.Rest.Title,interface_names,,Отдохнуть,Rest
+UI.Caravansary.Rest.Description,interface_names,,"Эффект: +20 мораль, +10 прочность осн. телеги","+20 morale, +10 main cart durability"
+UI.Caravansary.Rest.Button,interface_names,,Купить за {0},Buy for {0}
+UI.Caravansary.MainCart.Title,interface_names,,Ремонт основной телеги,Main cart repair
+UI.Caravansary.ExtraCarts.Title,interface_names,,Ремонт доп. телег,Extra carts repair
+UI.Caravansary.Repair.Full,interface_names,,Исправно,Fully repaired
+UI.Caravansary.SwitchAnimal,interface_names,,Заменить за {0},Switch for {0}
+draft_animal.camel.name,draft_animals,,Верблюды,Camels
+draft_animal.horse.name,draft_animals,,Лошади,Horses
+draft_animal.donkey.name,draft_animals,,Ослы,Donkeys
+draft_animal.ox.name,draft_animals,,Быки,Oxen
+draft_animal.yak.name,draft_animals,,Яки,Yaks
+cart_class.light.name,cart_classes,,Лёгкая,Light
+cart_class.balanced.name,cart_classes,,Сбалансированная,Balanced
+cart_class.heavy.name,cart_classes,,Тяжёлая,Heavy
+cart_class.light.desc,cart_classes,,Быстрая и манёвренная. Идеальна для коротких торговых рейсов и разведки новых маршрутов.,Fast and maneuverable. Ideal for short trade runs and scouting new routes.
+cart_class.balanced.desc,cart_classes,,Универсальный выбор. Достаточно быстрая для большинства маршрутов и достаточно вместительная для разнообразной торговли.,Universal choice. Fast enough for most routes and spacious enough for diverse trade.
+cart_class.heavy.desc,cart_classes,,Массивная и прочная. Огромная грузоподъёмность позволяет перевозить большие объёмы товаров.,Massive and sturdy. Huge capacity allows transporting large volumes of goods.
+extra_cart.light.name,extra_carts,,Лёгкая,Light
+extra_cart.trade.name,extra_carts,,Торговая,Trade
+extra_cart.reinforced.name,extra_carts,,Укреплённая,Reinforced
+extra_cart.heavy.name,extra_carts,,Тяжёлая,Heavy
+companion_type.guard.name,companion_types,,Охранник,Guard
+companion_type.translator.name,companion_types,,Переводчик,Translator
+companion_type.guide.name,companion_types,,Проводник,Guide
+companion_type.healer.name,companion_types,,Лекарь,Healer
+companion_type.merchant.name,companion_types,,Торговец,Merchant
+companion_quality.novice.name,companion_quality,,Новичок,Novice
+companion_quality.experienced.name,companion_quality,,Опытный,Experienced
+companion_quality.master.name,companion_quality,,Мастер,Master
+UI.Caravan.MainCart.Prefix,interface_names,,Основная телега:,Main cart:
+UI.Caravan.ExtraCart.Prefix,interface_names,,Дополнительная телега:,Extra cart:
+UI.Caravan.Params.Prefix,interface_names,,Параметры:,Parameters:
+UI.Global.NoEffect,interface_names,,Нет эффектов,No effects
+UI.Caravan.EmptyCompanions,interface_names,,Нет спутников в караване,No companions in caravan
+UI.Caravan.Stats.Speed,interface_names,,{0}км/день,{0}km/day
+UI.Caravan.Stats.DailyCost,interface_names,,-{0}/день,-{0}/day
+UI.Caravan.Health.Healthy,interface_names,,Здоровы,Healthy
+UI.Caravan.Health.Sick,interface_names,,Больны,Sick
+companion_bonus.guard.novice,companion_bonuses,,Шанс защиты 60%,60% protection chance
+companion_bonus.guard.experienced,companion_bonuses,,Шанс защиты 80%,80% protection chance
+companion_bonus.guard.master,companion_bonuses,,Шанс защиты 95%,95% protection chance
+companion_bonus.translator.novice,companion_bonuses,,+5% к ценам,+5% to prices
+companion_bonus.translator.experienced,companion_bonuses,,Без модификатора цен,No price modifier
+companion_bonus.translator.master,companion_bonuses,,−5% к ценам,−5% to prices
+companion_bonus.guide.novice,companion_bonuses,,−5% негативных событий,−5% negative events
+companion_bonus.guide.experienced,companion_bonuses,,−10% негативных событий,−10% negative events
+companion_bonus.guide.master,companion_bonuses,,−15% негативных событий,−15% negative events
+companion_bonus.healer.novice,companion_bonuses,,Лечение за 5 дней,Healing in 5 days
+companion_bonus.healer.experienced,companion_bonuses,,Лечение за 3 дня,Healing in 3 days
+companion_bonus.healer.master,companion_bonuses,,Лечение за 1 день,Healing in 1 day
+companion_bonus.merchant.novice,companion_bonuses,,+5 к Торговле,+5 Trading skill
+companion_bonus.merchant.experienced,companion_bonuses,,+10 к Торговле,+10 Trading skill
+companion_bonus.merchant.master,companion_bonuses,,+15 к Торговле,+15 Trading skill
+UI.Tavern.HireCost,interface_names,,Найм: {0} монет,Hire: {0} coins
+UI.Tavern.DailyCost,interface_names,,Плата: {0} монет/день,Pay: {0} coins/day
+UI.Tavern.SlotsAvailable,interface_names,,Доступно мест: {0}/{1},Available slots: {0}/{1}
+UI.Translator.LanguageEffect,interface_names,,Знание {0}: {1},Knowledge of {0}: {1}
+UI.Translator.LanguageNote,interface_names,,(переводчик),(translator)
+npc.name.li_wei,names,,Ли Вэй,Li Wei
+npc.name.zhang_hao,names,,Чжан Хао,Zhang Hao
+npc.name.chen_ming,names,,Чэнь Мин,Chen Ming
+npc.name.wang_jun,names,,Ван Цзюнь,Wang Jun
+npc.name.batuhan,names,,Батухан,Batuhan
+npc.name.timur,names,,Тимур,Timur
+npc.name.altai,names,,Алтай,Altai
+npc.name.rashid,names,,Рашид,Rashid
+npc.name.farid,names,,Фарид,Farid
+npc.name.karim,names,,Карим,Karim
+npc.name.darius,names,,Дарий,Darius
+npc.name.farhad,names,,Фархад,Farhad
+npc.name.cyrus,names,,Кир,Cyrus
+npc.name.ahmad,names,,Ахмад,Ahmad
+npc.name.yusuf,names,,Юсуф,Yusuf
+npc.name.alexios,names,,Алексий,Alexios
+npc.name.konstantinos,names,,Константин,Konstantinos
+npc.name.arjun,names,,Арджун,Arjun
+npc.name.ravi,names,,Рави,Ravi
+npc.name.omar,names,,Омар,Omar
+UI.Tavern.RoadInfo.Empty,interface_names,,Нет доступной информации,No information available
+
+UI.Biome.HighAltitude,interface_names,,Высокогорье,Highland
+UI.Biome.Plains,interface_names,,Равнины,Plains
+UI.Biome.Desert,interface_names,,Пустыня,Desert
+UI.Biome.Coast,interface_names,,Побережье,Coast
+UI.Biome.Steppe,interface_names,,Степь,Steppe
+UI.Biome.NotSuitable,interface_names,,Не подходит:,Not suitable:
+UI.Caravansary.AnimalPrice,interface_names,,Цена: {0} за 1 животное,Price: {0} per 1 animal
+UI.Caravansary.AnimalConsumption,interface_names,,Потребление: {0}/день для 1,Consumption: {0}/day per 1
+UI.Caravansary.RepairPrice,interface_names,,Цена: {0} монет / 1%,Price: {0} coins / 1%
+UI.Caravansary.RepairButton,interface_names,,Починить на {0}% за {1},Repair {0}% for {1}
+UI.Caravansary.RepairMaxButton,interface_names,,Починить на макс. ({0}%) за {1},Repair to max ({0}%) for {1}
+building.caravansary.name,buildings,,Караван-сарай,Caravansary
+building.caravansary.description,buildings,,"Покупка телег, животных, улучшений","Buy carts, animals, upgrades"
+building.barracks.name,buildings,,Казармы,Barracks
+building.barracks.description,buildings,,"Военные улучшения, наём охраны","Military upgrades, hire guards"
+UI.Trader.CartType,interface_names,,Тип телеги: {0},Cart type: {0}
+UI.Workshop.Header.MainCart,interface_names,,Основная телега,Main Cart
+UI.Workshop.Header.ExtraCarts,interface_names,,Дополнительные телеги,Extra Carts
+UI.Workshop.Slots,interface_names,,Доступно телег: {0}/{1},Cart slots: {0}/{1}
+UI.Workshop.Speed,interface_names,,Скорость: {0} км/день,Speed: {0} km/day
+UI.Workshop.Capacity,interface_names,,Вместимость: {0}ед,Capacity: {0}u
+UI.Workshop.Durability,interface_names,,Прочность: {0},Durability: {0}
+UI.Workshop.Animals,interface_names,,Животных: {0},Animals: {0}
+UI.Workshop.Consumption,interface_names,,Потребление: {0}/день,Consumption: {0}/day
+UI.Workshop.SpeedPenalty,interface_names,,Скорость: {0}%,Speed: {0}%
+UI.Workshop.OwnedCount,interface_names,,У вас: {0},Owned: {0}
+UI.Workshop.Buy,interface_names,,Купить за {0},Buy for {0}
+UI.Workshop.Sell,interface_names,,Продать за {0},Sell for {0}
+UI.Workshop.Upgrade,interface_names,,Улучшить за {0},Upgrade for {0}
+UI.Workshop.UpgradeEffect,interface_names,,При улучшении: {0},On upgrade: {0}
+UI.Workshop.MaxUpgrade,interface_names,,Максимальный уровень,Max level
+UI.Workshop.Header.Upgrades,interface_names,,Модификаторы,Upgrades
+UI.Workshop.Owned,interface_names,,Куплено,Owned
+UI.Caravan.Main.Header.Main,interface_names,,Караван,Caravan
+UI.Workshop.Main.Header.Main,interface_names,,Мастерская,Workshop
+
+caravan_upgrade.sturdy_wheels.name,caravan_upgrades,,Прочные колёса,Sturdy Wheels
+caravan_upgrade.sealed_containers.name,caravan_upgrades,,Герметичные контейнеры,Sealed Containers
+caravan_upgrade.sun_canopy.name,caravan_upgrades,,Навес от солнца,Sun Canopy
+caravan_upgrade.elite_guard.name,caravan_upgrades,,Элитная охрана,Elite Guard
+caravan_upgrade.hidden_compartment.name,caravan_upgrades,,Тайник,Hidden Compartment
+caravan_upgrade.repair_kit.name,caravan_upgrades,,Ремонтный набор,Repair Kit
+caravan_upgrade.reinforced_harness.name,caravan_upgrades,,Усиленная упряжь,Reinforced Harness
+caravan_upgrade.road_lanterns.name,caravan_upgrades,,Дорожные фонари,Road Lanterns
+cart_upgrade.base.name,cart_upgrade_levels,,Базовый,Base
+cart_upgrade.improved.name,cart_upgrade_levels,,Улучшенный,Improved
+cart_upgrade.master.name,cart_upgrade_levels,,Мастерский,Master
+caravan_upgrade.sturdy_wheels.desc,caravan_upgrades,,-30% шанс события «Сломанное колесо»,-30% chance of "Broken Wheel" event
+caravan_upgrade.sealed_containers.desc,caravan_upgrades,,+100% срок хранения товаров,+100% goods shelf life
+caravan_upgrade.sun_canopy.desc,caravan_upgrades,,-20% расход припасов в пустынном биоме,-20% supply consumption in desert biome
+caravan_upgrade.elite_guard.desc,caravan_upgrades,,-10% шанс события «Бандиты»,-10% chance of "Bandits" event
+caravan_upgrade.hidden_compartment.desc,caravan_upgrades,,20 ед. скрытого хранилища (без пошлины),20u hidden storage (no customs duty)
+caravan_upgrade.repair_kit.desc,caravan_upgrades,,+1 прочности основной телеги за каждый день в пути,+1 main cart durability per travel day
+caravan_upgrade.reinforced_harness.desc,caravan_upgrades,,Штраф скорости от каждой доп. телеги уменьшается на 2%,Extra cart speed penalty reduced by 2%
+caravan_upgrade.road_lanterns.desc,caravan_upgrades,,-30% негативный эффект тумана на дорогах,-30% fog negative effect on roads
 event.road_discover_R_N_Urumqi__N_Kucha.choice1,road_events,,Расчистить путь,Clear the path
 event.road_discover_R_N_Urumqi__N_Kucha.choice1.result,road_events,,Караван прокладывает дорогу сквозь заросли. За поворотом открывается пригодный для движения тракт — новый маршрут найден!,"The caravan cuts through the overgrowth. Around the bend, a passable road opens up — a new route discovered!"
 event.road_discover_R_N_Urumqi__N_Kucha.choice2,road_events,,Не рисковать,Don't risk it
@@ -2893,16 +3083,3 @@ event.road_quest_R_N_Urumqi__N_Kucha.choice2,road_events,,Вежливо отк�
 event.road_quest_R_N_Urumqi__N_Kucha.choice2.result,road_events,,"Караванщик кланяется и уходит, унося свой секрет.","The caravan master bows and departs, taking his secret with him."
 event.road_quest_R_N_Urumqi__N_Kucha.name,road_events,,Долг караванщика,Caravan Master's Debt
 event.road_quest_R_N_Urumqi__N_Kucha.description,road_events,,"Бывалый караванщик догоняет ваш отряд. Он говорит, что обязан вам жизнью — в прошлый раз вы помогли его людям на переправе. В благодарность он готов открыть секретный маршрут, которым пользуются только избранные торговцы.","A seasoned caravan master catches up with your party. He says he owes you his life — you helped his people at a crossing once before. In gratitude, he offers to reveal a secret route used only by select merchants."
-UI.Quest.Reward.Route,UI,,Маршрут: {target},Route: {target}
-UI.Quest.Reward.UnlockItem,UI,,Предмет: {target},Item: {target}
-UI.Quest.Detail.RewardHeader,UI,,Награда:,Reward:
-UI.Quest.Detail.FailHeader,UI,,Условия провала:,Fail conditions:
-UI.Quest.Fail.DaysSinceStart,UI,,Выполнить за {value} дней,Complete within {value} days
-UI.Quest.Fail.DangerAbove,UI,,Опасность выше {value},Danger above {value}
-UI.Quest.Fail.NoItem,UI,,Потерять {param},Lose {param}
-UI.Quest.Track,UI,,Отслеживать,Track
-UI.Quest.Untrack,UI,,Перестать отслеживать,Untrack
-UI.Quest.Decline,UI,,Отказаться,Decline
-UI.Quest.Failed,UI,,Задание провалено,Quest failed
-UI.Quest.Completed,UI,,Задание выполнено,Quest completed
-UI.Quest.Detail.CurrentObjective,UI,,Текущая цель:,Current objective:

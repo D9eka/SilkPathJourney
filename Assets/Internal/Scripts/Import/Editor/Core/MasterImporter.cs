@@ -5,6 +5,7 @@ using Internal.Scripts.Import.Editor.Languages;
 using Internal.Scripts.Import.Editor.Npc;
 using Internal.Scripts.Import.Editor.Quests;
 using Internal.Scripts.Import.Editor.Theme;
+using Internal.Scripts.Import.Editor.Caravan;
 using Internal.Scripts.Import.Editor.Trader;
 using UnityEditor;
 using UnityEngine;
@@ -23,6 +24,7 @@ namespace Internal.Scripts.Import.Editor.Core
                 EconomyImporter.ImportAll();
                 EventImporter.ImportAll();
                 QuestImporter.ImportAll();
+                CaravanImporter.ImportAll();
                 ThemeImporter.ImportColors();
                 NpcImporter.ImportNames();
                 TraderImporter.Import();

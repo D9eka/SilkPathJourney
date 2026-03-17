@@ -1,9 +1,12 @@
 using System;
 using System.Collections.Generic;
+using Internal.Scripts.UI.Localization;
 using Internal.Scripts.UI.Screens.Core.ViewModel;
 using Internal.Scripts.UI.Theme;
 using R3;
+using TMPro;
 using UnityEngine;
+using UnityEngine.Localization;
 
 namespace Internal.Scripts.UI.Screens.Trader
 {
@@ -19,11 +22,22 @@ namespace Internal.Scripts.UI.Screens.Trader
         [SerializeField] private RectTransform _skillsContent;
         [SerializeField] private RectTransform _languagesContent;
 
+        [Header("Section Headers")]
+        [SerializeField] private TextMeshProUGUI _profileHeaderText;
+        [SerializeField] private LocalizedString _profileHeaderLocalized;
+        [SerializeField] private TextMeshProUGUI _skillsHeaderText;
+        [SerializeField] private LocalizedString _skillsHeaderLocalized;
+        [SerializeField] private TextMeshProUGUI _languagesHeaderText;
+        [SerializeField] private LocalizedString _languagesHeaderLocalized;
+
         private TraderScreenViewModel _viewModel;
         private IDisposable _stateSubscription;
         private readonly List<ProfileItem> _spawnedProfiles = new();
         private readonly List<SkillView> _spawnedSkills = new();
         private readonly List<LanguageView> _spawnedLanguages = new();
+        private LocalizationService.LocalizedTextHandle _profileHeaderHandle;
+        private LocalizationService.LocalizedTextHandle _skillsHeaderHandle;
+        private LocalizationService.LocalizedTextHandle _languagesHeaderHandle;
 
         protected override void OnEnable()
         {
@@ -34,7 +48,31 @@ namespace Internal.Scripts.UI.Screens.Trader
         protected override void OnDisable()
         {
             UnsubscribeViewModel();
+            _profileHeaderHandle?.Dispose();
+            _skillsHeaderHandle?.Dispose();
+            _languagesHeaderHandle?.Dispose();
             base.OnDisable();
+        }
+
+        protected override void OnLocalizationReady()
+        {
+            base.OnLocalizationReady();
+            BindSectionHeaders();
+        }
+
+        private void BindSectionHeaders()
+        {
+            _profileHeaderHandle?.Dispose();
+            if (_profileHeaderText != null && _profileHeaderLocalized != null && Localization != null)
+                _profileHeaderHandle = Localization.BindText(_profileHeaderText, _profileHeaderLocalized, "Trader.ProfileHeader");
+
+            _skillsHeaderHandle?.Dispose();
+            if (_skillsHeaderText != null && _skillsHeaderLocalized != null && Localization != null)
+                _skillsHeaderHandle = Localization.BindText(_skillsHeaderText, _skillsHeaderLocalized, "Trader.SkillsHeader");
+
+            _languagesHeaderHandle?.Dispose();
+            if (_languagesHeaderText != null && _languagesHeaderLocalized != null && Localization != null)
+                _languagesHeaderHandle = Localization.BindText(_languagesHeaderText, _languagesHeaderLocalized, "Trader.LanguagesHeader");
         }
 
         public override void BindViewModel(IScreenViewModel viewModel)

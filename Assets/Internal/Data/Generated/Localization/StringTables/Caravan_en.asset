@@ -1,0 +1,254 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Caravan_en
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 27d219e68fef07b4caf14c0c1b290c48, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 418373632
+    m_Localized: Light
+    m_Metadata:
+      m_Items: []
+  - m_Id: 456122368
+    m_Localized: Balanced
+    m_Metadata:
+      m_Items: []
+  - m_Id: 456122369
+    m_Localized: Heavy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 456122370
+    m_Localized: Fast and maneuverable. Ideal for short trade runs and scouting new
+      routes.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 460316672
+    m_Localized: Universal choice. Fast enough for most routes and spacious enough
+      for diverse trade.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 460316673
+    m_Localized: Massive and sturdy. Huge capacity allows transporting large volumes
+      of goods.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 93437629030400
+    m_Localized: Light
+    m_Metadata:
+      m_Items: []
+  - m_Id: 93437650001920
+    m_Localized: Trade
+    m_Metadata:
+      m_Items: []
+  - m_Id: 93437650001921
+    m_Localized: Reinforced
+    m_Metadata:
+      m_Items: []
+  - m_Id: 93437650001922
+    m_Localized: Heavy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 93437650001923
+    m_Localized: Novice
+    m_Metadata:
+      m_Items: []
+  - m_Id: 93437650001924
+    m_Localized: Experienced
+    m_Metadata:
+      m_Items: []
+  - m_Id: 93437650001925
+    m_Localized: Master
+    m_Metadata:
+      m_Items: []
+  - m_Id: 95106815221760
+    m_Localized: Camels
+    m_Metadata:
+      m_Items: []
+  - m_Id: 95106852970496
+    m_Localized: Horses
+    m_Metadata:
+      m_Items: []
+  - m_Id: 95106852970497
+    m_Localized: Donkeys
+    m_Metadata:
+      m_Items: []
+  - m_Id: 95106852970498
+    m_Localized: Oxen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 95106852970499
+    m_Localized: Yaks
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100039891345408
+    m_Localized: Guard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100039916511232
+    m_Localized: Translator
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100039916511233
+    m_Localized: Guide
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100039916511234
+    m_Localized: Healer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100039916511235
+    m_Localized: Merchant
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100039916511236
+    m_Localized: 60% protection chance
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100039916511237
+    m_Localized: 80% protection chance
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100039916511238
+    m_Localized: 95% protection chance
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100039916511239
+    m_Localized: +5% to prices
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100039916511240
+    m_Localized: No price modifier
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100039916511241
+    m_Localized: "\u22125% to prices"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100039916511242
+    m_Localized: "\u22125% negative events"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100039916511243
+    m_Localized: "\u221210% negative events"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100039916511244
+    m_Localized: "\u221215% negative events"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100039916511245
+    m_Localized: Healing in 5 days
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100039916511246
+    m_Localized: Healing in 3 days
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100039916511247
+    m_Localized: Healing in 1 day
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100039916511248
+    m_Localized: +5 Trading skill
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100039916511249
+    m_Localized: +10 Trading skill
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100039916511250
+    m_Localized: +15 Trading skill
+    m_Metadata:
+      m_Items: []
+  - m_Id: 318295138885632
+    m_Localized: Base
+    m_Metadata:
+      m_Items: []
+  - m_Id: 318295176634368
+    m_Localized: Improved
+    m_Metadata:
+      m_Items: []
+  - m_Id: 318295176634369
+    m_Localized: Master
+    m_Metadata:
+      m_Items: []
+  - m_Id: 318295176634370
+    m_Localized: Sturdy Wheels
+    m_Metadata:
+      m_Items: []
+  - m_Id: 318295176634371
+    m_Localized: Sealed Containers
+    m_Metadata:
+      m_Items: []
+  - m_Id: 318295176634372
+    m_Localized: Sun Canopy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 318295176634373
+    m_Localized: Elite Guard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 318295176634374
+    m_Localized: Hidden Compartment
+    m_Metadata:
+      m_Items: []
+  - m_Id: 318295176634375
+    m_Localized: Repair Kit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 318295176634376
+    m_Localized: Reinforced Harness
+    m_Metadata:
+      m_Items: []
+  - m_Id: 318295176634377
+    m_Localized: Road Lanterns
+    m_Metadata:
+      m_Items: []
+  - m_Id: 322791487299584
+    m_Localized: -30% chance of "Broken Wheel" event
+    m_Metadata:
+      m_Items: []
+  - m_Id: 322791525048320
+    m_Localized: +100% goods shelf life
+    m_Metadata:
+      m_Items: []
+  - m_Id: 322791525048321
+    m_Localized: -20% supply consumption in desert biome
+    m_Metadata:
+      m_Items: []
+  - m_Id: 322791525048322
+    m_Localized: -10% chance of "Bandits" event
+    m_Metadata:
+      m_Items: []
+  - m_Id: 322791525048323
+    m_Localized: 20u hidden storage (no customs duty)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 322791525048324
+    m_Localized: +1 main cart durability per travel day
+    m_Metadata:
+      m_Items: []
+  - m_Id: 322791525048325
+    m_Localized: Extra cart speed penalty reduced by 2%
+    m_Metadata:
+      m_Items: []
+  - m_Id: 322791525048326
+    m_Localized: -30% fog negative effect on roads
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

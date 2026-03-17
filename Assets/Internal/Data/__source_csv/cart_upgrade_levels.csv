@@ -1,0 +1,4 @@
+level_id,enum_name,sort_order,speed_mult,capacity_mult,durability_mult,price,loc_link,loc_ru,loc_en
+base,Base,0,1.0,1.0,1.0,0,cart_upgrade.base.name,Базовый,Base
+improved,Improved,1,1.1,1.15,1.15,80,cart_upgrade.improved.name,Улучшенный,Improved
+master,Master,2,1.2,1.3,1.3,200,cart_upgrade.master.name,Мастерский,Master

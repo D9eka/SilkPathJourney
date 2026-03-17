@@ -1,5 +1,4 @@
 using System;
-using Internal.Scripts.Economy;
 using Internal.Scripts.Npc.Core;
 using Internal.Scripts.Npc.Movement;
 using Internal.Scripts.Npc.NextSegment;
@@ -25,7 +24,6 @@ namespace Internal.Scripts.Player
         private readonly PlayerConfig _playerConfig;
         private readonly SaveRepository _saveRepository;
         private readonly IGameDayDeltaProvider _gameDayDeltaProvider;
-        private readonly PlayerResourceRepository _resourceRepository;
         private readonly CaravanSpeedService _caravanSpeedService;
         private readonly DailyTravelCosts _dailyTravelCosts;
 
@@ -33,7 +31,7 @@ namespace Internal.Scripts.Player
             IRoadNetwork roadNetwork, SegmentMover segmentMover,
             INextSegmentProvider nextSegmentProvider, IArrowJunctionBalancer arrowJunctionBalancer,
             PlayerController playerController, PlayerConfig playerConfig, SaveRepository saveRepository,
-            IGameDayDeltaProvider gameDayDeltaProvider, PlayerResourceRepository resourceRepository,
+            IGameDayDeltaProvider gameDayDeltaProvider,
             CaravanSpeedService caravanSpeedService, DailyTravelCosts dailyTravelCosts)
         {
             _view = view;
@@ -46,7 +44,6 @@ namespace Internal.Scripts.Player
             _playerConfig = playerConfig;
             _saveRepository = saveRepository;
             _gameDayDeltaProvider = gameDayDeltaProvider;
-            _resourceRepository = resourceRepository;
             _caravanSpeedService = caravanSpeedService;
             _dailyTravelCosts = dailyTravelCosts;
         }
@@ -57,10 +54,6 @@ namespace Internal.Scripts.Player
 
             RoadAgent agent = new RoadAgent(_view, _config,
                 new RoadPathCursor(_roadNetwork, _segmentMover, _nextSegmentProvider), _gameDayDeltaProvider, startNodeId);
-
-            var resources = _resourceRepository.Current;
-            agent.SpeedMetersPerDay = resources.PlayerCart.Speed;
-            agent.Weight = resources.TotalCapacity;
 
             agent.Initialize();
             _arrowJunctionBalancer.Initialize(agent);

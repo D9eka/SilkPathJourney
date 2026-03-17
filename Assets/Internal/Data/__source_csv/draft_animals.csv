@@ -1,0 +1,6 @@
+animal_id,enum_name,speed_mod_pct,capacity_mod_pct,feed_per_day,price,buy_region,suitable_biome_bonus,loc_link,loc_ru,loc_en
+camel,Camel,0,0,2,25,desert,"-30% расход припасов",draft_animal.camel.name,Верблюды,Camels
+horse,Horse,20,-10,3,30,plains,"+10% скорость",draft_animal.horse.name,Лошади,Horses
+donkey,Donkey,-10,10,1,15,everywhere,"-20% износ телег",draft_animal.donkey.name,Ослы,Donkeys
+ox,Ox,-20,30,3,20,plains_river,"+15% грузоподъёмность",draft_animal.ox.name,Быки,Oxen
+yak,Yak,-10,25,1,20,high_altitude,"-30% расход припасов",draft_animal.yak.name,Яки,Yaks

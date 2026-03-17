@@ -13,6 +13,10 @@ using Internal.Scripts.UI.Screens.EnterCity;
 using Internal.Scripts.UI.Screens.LanguageSchool;
 using Internal.Scripts.UI.Screens.Quests;
 using Internal.Scripts.UI.Screens.Trader;
+using Internal.Scripts.UI.Screens.Caravan;
+using Internal.Scripts.UI.Screens.Caravansary;
+using Internal.Scripts.UI.Screens.Tavern;
+using Internal.Scripts.UI.Screens.Workshop;
 using Plugins.Zenject.Source.Main;
 
 namespace Internal.Scripts.UI.Factory
@@ -43,6 +47,10 @@ namespace Internal.Scripts.UI.Factory
                 ScreenId.LanguageSchool => CreateLanguageSchool(view),
                 ScreenId.EnterCity => CreateEnterCity(view),
                 ScreenId.Quests => CreateQuests(view),
+                ScreenId.Caravan => CreateCaravan(view),
+                ScreenId.Caravansary => CreateCaravansary(view),
+                ScreenId.Tavern => CreateTavern(view),
+                ScreenId.Workshop => CreateWorkshop(view),
                 _ => null
             };
         }
@@ -149,6 +157,38 @@ namespace Internal.Scripts.UI.Factory
                 return null;
 
             return _container.Instantiate<QuestsScreenViewModel>();
+        }
+
+        private ScreenViewModelBase CreateCaravan(IScreenView view)
+        {
+            if (view is not CaravanScreen)
+                return null;
+
+            return _container.Instantiate<CaravanScreenViewModel>();
+        }
+
+        private ScreenViewModelBase CreateCaravansary(IScreenView view)
+        {
+            if (view is not CaravansaryScreen)
+                return null;
+
+            return _container.Instantiate<CaravansaryScreenViewModel>();
+        }
+
+        private ScreenViewModelBase CreateTavern(IScreenView view)
+        {
+            if (view is not TavernScreen)
+                return null;
+
+            return _container.Instantiate<TavernScreenViewModel>();
+        }
+
+        private ScreenViewModelBase CreateWorkshop(IScreenView view)
+        {
+            if (view is not WorkshopScreen)
+                return null;
+
+            return _container.Instantiate<WorkshopScreenViewModel>();
         }
     }
 }

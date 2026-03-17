@@ -9,6 +9,8 @@ namespace Internal.Scripts.Economy.Buildings
         Temple = 4,
         Workshop = 5,
         Warehouse = 6,
-        LanguageSchool = 7
+        LanguageSchool = 7,
+        Caravansary = 8,
+        Barracks = 9
     }
 }

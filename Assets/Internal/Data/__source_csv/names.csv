@@ -1,21 +1,21 @@
-name_id,culture_id,name
-npc.name.li_wei,china,Li Wei
-npc.name.zhang_hao,china,Zhang Hao
-npc.name.chen_ming,china,Chen Ming
-npc.name.wang_jun,china,Wang Jun
-npc.name.batuhan,steppe,Batuhan
-npc.name.timur,steppe,Timur
-npc.name.altai,steppe,Altai
-npc.name.rashid,central_asia,Rashid
-npc.name.farid,central_asia,Farid
-npc.name.karim,central_asia,Karim
-npc.name.darius,persia,Darius
-npc.name.farhad,persia,Farhad
-npc.name.cyrus,persia,Cyrus
-npc.name.ahmad,mesopotamia,Ahmad
-npc.name.yusuf,mesopotamia,Yusuf
-npc.name.alexios,byzantine,Alexios
-npc.name.konstantinos,byzantine,Konstantinos
-npc.name.arjun,india,Arjun
-npc.name.ravi,india,Ravi
-npc.name.omar,arabia,Omar
+name_id,culture_id,loc_link,loc_ru,loc_en
+npc.name.li_wei,china,npc.name.li_wei,Ли Вэй,Li Wei
+npc.name.zhang_hao,china,npc.name.zhang_hao,Чжан Хао,Zhang Hao
+npc.name.chen_ming,china,npc.name.chen_ming,Чэнь Мин,Chen Ming
+npc.name.wang_jun,china,npc.name.wang_jun,Ван Цзюнь,Wang Jun
+npc.name.batuhan,steppe,npc.name.batuhan,Батухан,Batuhan
+npc.name.timur,steppe,npc.name.timur,Тимур,Timur
+npc.name.altai,steppe,npc.name.altai,Алтай,Altai
+npc.name.rashid,central_asia,npc.name.rashid,Рашид,Rashid
+npc.name.farid,central_asia,npc.name.farid,Фарид,Farid
+npc.name.karim,central_asia,npc.name.karim,Карим,Karim
+npc.name.darius,persia,npc.name.darius,Дарий,Darius
+npc.name.farhad,persia,npc.name.farhad,Фархад,Farhad
+npc.name.cyrus,persia,npc.name.cyrus,Кир,Cyrus
+npc.name.ahmad,mesopotamia,npc.name.ahmad,Ахмад,Ahmad
+npc.name.yusuf,mesopotamia,npc.name.yusuf,Юсуф,Yusuf
+npc.name.alexios,byzantine,npc.name.alexios,Алексий,Alexios
+npc.name.konstantinos,byzantine,npc.name.konstantinos,Константин,Konstantinos
+npc.name.arjun,india,npc.name.arjun,Арджун,Arjun
+npc.name.ravi,india,npc.name.ravi,Рави,Ravi
+npc.name.omar,arabia,npc.name.omar,Омар,Omar

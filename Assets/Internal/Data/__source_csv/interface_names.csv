@@ -75,3 +75,51 @@ Event,Outcome,Resource,Danger,UI.Event.Outcome.Resource.Danger,,,опаснос�
 Event,Outcome,Resource,Durability,UI.Event.Outcome.Resource.Durability,,,прочности,durability,перевод
 Event,Outcome,Resource,Morale,UI.Event.Outcome.Resource.Morale,,,морали,morale,перевод
 Event,Outcome,Resource,Reputation,UI.Event.Outcome.Resource.Reputation,,,репутации,reputation,перевод
+Caravan,Main,Header,Main,UI.Caravan.Main.Header.Main,,,Караван,Caravan,перевод
+Caravan,Companions,Header,Main,UI.Caravan.Companions.Header.Main,,,Спутники,Companions,перевод
+Caravan,Carts,Header,Main,UI.Caravan.Carts.Header.Main,,,Телеги,Carts,перевод
+Caravan,Companion,Button,Heal,UI.Caravan.Companion.Button.Heal,,,Лечить,Heal,перевод
+Caravan,Companion,Button,Fire,UI.Caravan.Companion.Button.Fire,,,Уволить,Dismiss,перевод
+Caravan,Cart,Button,Repair,UI.Caravan.Cart.Button.Repair,,,Починить,Repair,перевод
+Caravan,Cart,Button,Discard,UI.Caravan.Cart.Button.Discard,,,Бросить,Discard,перевод
+Caravan,Animal,Button,Heal,UI.Caravan.Animal.Button.Heal,,,Вылечить,Heal,перевод
+Caravansary,Main,Header,Main,UI.Caravansary.Main.Header.Main,,,Караван-сарай,Caravansary,перевод
+Caravansary,Services,Header,Main,UI.Caravansary.Services.Header.Main,,,Услуги,Services,перевод
+Caravansary,Animals,Header,Main,UI.Caravansary.Animals.Header.Main,,,Смена животных,Switch Animals,перевод
+Caravansary,Animals,Header,Current,UI.Caravansary.Animals.Header.Current,,,Сейчас на караване,Current animal,перевод
+Caravansary,Animals,Header,Available,UI.Caravansary.Animals.Header.Available,,,Доступные замены,Available replacements,перевод
+Tavern,Main,Header,Main,UI.Tavern.Main.Header.Main,,,Таверна,Tavern,перевод
+Tavern,Rumors,Header,Main,UI.Tavern.Rumors.Header.Main,,,Слухи,Rumors,перевод
+Tavern,RoadInfo,Header,Main,UI.Tavern.RoadInfo.Header.Main,,,Купить точную информацию,Buy exact information,перевод
+Tavern,Companions,Header,Main,UI.Tavern.Companions.Header.Main,,,Найм спутников,Hire Companions,перевод
+Tavern,Companion,Button,Hire,UI.Tavern.Companion.Button.Hire,,,Нанять,Hire,перевод
+Tavern,Quest,Header,Main,UI.Tavern.Quest.Header.Main,,,Задание,Quest,перевод
+Tavern,Quest,Button,Talk,UI.Tavern.Quest.Button.Talk,,,Поговорить,Talk,перевод
+Global,Status,Prefix,Main,UI.Global.Status.Prefix,,,Состояние:,Status:,перевод
+Global,Effect,Prefix,Main,UI.Global.Effect.Prefix,,,Эффект:,Effect:,перевод
+Global,Effect,Text,CurrentEffect,UI.Global.CurrentEffect,Формат: Текущий эффект: {0},,Текущий эффект: {0},Current effect: {0},перевод
+Global,Durability,Prefix,Main,UI.Global.Durability.Prefix,,,Прочность:,Durability:,перевод
+Global,Price,Prefix,Main,UI.Global.Price.Prefix,,,Цена:,Price:,перевод
+Global,DailyCost,Prefix,Main,UI.Global.DailyCost.Prefix,,,Плата:,Pay:,перевод
+Global,HireCost,Prefix,Main,UI.Global.HireCost.Prefix,,,Найм:,Hire:,перевод
+Global,Level,Prefix,Main,UI.Global.Level.Prefix,,,Уровень:,Level:,перевод
+Global,Consumption,Prefix,Main,UI.Global.Consumption.Prefix,,,Потребление:,Consumption:,перевод
+Global,Animals,Prefix,Main,UI.Global.Animals.Prefix,,,Животные:,Animals:,перевод
+Caravan,Companion,Status,Healthy,UI.Caravan.CompanionStatus.Healthy,,,здоров,healthy,перевод
+Caravan,Companion,Status,Injured,UI.Caravan.CompanionStatus.Injured,Формат: {0}=предмет,,"ранен, можно вылечить за {0}","injured, can heal for {0}",перевод
+Caravan,Companion,Text,DailyCost,UI.Caravan.DailyCost,Формат: {0}=стоимость,,{0}/день,{0}/day,перевод
+Caravan,Animal,Status,Healthy,UI.Caravan.AnimalStatus.Healthy,,,здоровы,healthy,перевод
+Caravan,Animal,Status,Sick,UI.Caravan.AnimalStatus.Sick,Формат: {0}=стоимость,,"больны, можно вылечить за {0} припасов","sick, can heal for {0} supplies",перевод
+Caravan,Animal,Effect,Base,UI.Caravan.AnimalEffect.Base,Формат: {0}=скорость {1}=вместимость,,{0} скор. {1} вместимость,{0} speed {1} capacity,перевод
+Caravan,Animal,Effect,Sick,UI.Caravan.AnimalEffect.Sick,,,-50% скорость,-50% speed,перевод
+Caravan,Cart,Effect,Main,UI.Caravan.CartEffect,Формат: {0}=скорость {1}=вместимость,,"скорость {0}, вместимость {1}","speed {0}, capacity {1}",перевод
+Caravan,Cart,Text,Consumption,UI.Caravan.Consumption,Формат: {0}=потребление,,{0}/день,{0}/day,перевод
+Caravan,Cart,Effect,Extra,UI.Caravan.ExtraCartEffect,Формат: {0}=вместимость {1}=штраф,,"вместимость {0}, штраф скорости {1}%","capacity {0}, speed penalty {1}%",перевод
+Caravan,Cart,Text,BelongsTo,UI.Caravan.BelongsTo,Формат: {0}=имя,,Принадлежит: {0},Belongs to: {0},перевод
+Caravansary,Rest,Text,Title,UI.Caravansary.Rest.Title,,,Отдохнуть,Rest,перевод
+Caravansary,Rest,Text,Description,UI.Caravansary.Rest.Description,,,"Эффект: +20 мораль, +10 прочность осн. телеги","+20 morale, +10 main cart durability",перевод
+Caravansary,Rest,Button,Buy,UI.Caravansary.Rest.Button,Формат: {0}=цена,,Купить за {0},Buy for {0},перевод
+Caravansary,Repair,Text,MainTitle,UI.Caravansary.MainCart.Title,,,Ремонт основной телеги,Main cart repair,перевод
+Caravansary,Repair,Text,ExtraTitle,UI.Caravansary.ExtraCarts.Title,,,Ремонт доп. телег,Extra carts repair,перевод
+Caravansary,Repair,Text,Full,UI.Caravansary.Repair.Full,,,Исправно,Fully repaired,перевод
+Caravansary,Animal,Button,Switch,UI.Caravansary.SwitchAnimal,Формат: {0}=цена,,Заменить за {0},Switch for {0},перевод

@@ -48,6 +48,8 @@ using Internal.Scripts.UI.Screens.Event.ConditionLines;
 using Internal.Scripts.UI.Screens.Hud;
 using Internal.Scripts.UI.StackService;
 using Internal.Scripts.UI.Theme;
+using Internal.Scripts.UI.Screens.Caravansary.Services;
+using Internal.Scripts.UI.Screens.Shared;
 using Internal.Scripts.UI.Tooltip;
 using Internal.Scripts.UI.WorldLabel;
 using Internal.Scripts.Utils;
@@ -72,6 +74,7 @@ namespace Internal.Scripts.Installers
         [SerializeField] private ArrowView _arrowPrefab;
         [Header("UI")]
         [SerializeField] private UIScreenRoots _uiScreenRoots;
+        [Header("Convoy")]
         [Header("Path Visualization")]
         [SerializeField] private Shader _pathShader;
 
@@ -172,10 +175,16 @@ namespace Internal.Scripts.Installers
             Container.BindInterfacesAndSelfTo<PlayerController>().AsSingle();
             Container.BindInterfacesAndSelfTo<PlayerSaveController>().AsSingle();
             Container.Bind<OverloadCalculator>().AsSingle();
-            Container.Bind<CaravanSpeedService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<CaravanSpeedService>().AsSingle();
             Container.Bind<DailyTravelCosts>().AsSingle();
             Container.Bind<TravelEstimator>().AsSingle();
+            Container.Bind<CompanionService>().AsSingle();
+            Container.Bind<CompanionCosts>().AsSingle();
+            Container.Bind<CompanionBonuses>().AsSingle();
+            Container.Bind<DraftAnimalService>().AsSingle();
+            Container.Bind<CaravanUpgradeService>().AsSingle();
             Container.BindInterfacesTo<PlayerInitializer>().AsSingle();
+            Container.BindInterfacesTo<ConvoyVisualizer>().AsSingle();
             Container.BindInterfacesTo<CityNodeResolver>().AsSingle();
             Container.BindInterfacesTo<RoadNodeProximityScaler>().AsSingle();
         }
@@ -213,6 +222,10 @@ namespace Internal.Scripts.Installers
             Container.BindInterfacesTo<ScreenBackNavigator>().AsSingle();
             Container.BindInterfacesTo<Input.GameSpeedController>().AsSingle();
             Container.BindInterfacesTo<TooltipThemeSetup>().AsSingle();
+
+            Container.Bind<ICityOffering>().To<RestService>().AsSingle();
+            Container.Bind<ICityOffering>().To<MainCartRepairService>().AsSingle();
+            Container.Bind<ICityOffering>().To<ExtraCartsRepairService>().AsSingle();
         }
 
         private void InstallArrows()

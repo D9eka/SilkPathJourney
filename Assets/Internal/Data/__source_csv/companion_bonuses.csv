@@ -1,0 +1,16 @@
+type_id,quality_id,bonus_key,bonus_value,loc_link,loc_ru,loc_en
+guard,novice,success_chance,60,companion_bonus.guard.novice,Шанс защиты 60%,60% protection chance
+guard,experienced,success_chance,80,companion_bonus.guard.experienced,Шанс защиты 80%,80% protection chance
+guard,master,success_chance,95,companion_bonus.guard.master,Шанс защиты 95%,95% protection chance
+translator,novice,language_proficiency,1,companion_bonus.translator.novice,Знание языка: базовый уровень,Language knowledge: basic level
+translator,experienced,language_proficiency,2,companion_bonus.translator.experienced,Знание языка: разговорный уровень,Language knowledge: conversational level
+translator,master,language_proficiency,3,companion_bonus.translator.master,Знание языка: свободный уровень,Language knowledge: fluent level
+guide,novice,negative_event_reduction,5,companion_bonus.guide.novice,−5% негативных событий,−5% negative events
+guide,experienced,negative_event_reduction,10,companion_bonus.guide.experienced,−10% негативных событий,−10% negative events
+guide,master,negative_event_reduction,15,companion_bonus.guide.master,−15% негативных событий,−15% negative events
+healer,novice,healing_days,5,companion_bonus.healer.novice,Лечение за 5 дней,Healing in 5 days
+healer,experienced,healing_days,3,companion_bonus.healer.experienced,Лечение за 3 дня,Healing in 3 days
+healer,master,healing_days,1,companion_bonus.healer.master,Лечение за 1 день,Healing in 1 day
+merchant,novice,trading_skill,5,companion_bonus.merchant.novice,+5 к Торговле,+5 Trading skill
+merchant,experienced,trading_skill,10,companion_bonus.merchant.experienced,+10 к Торговле,+10 Trading skill
+merchant,master,trading_skill,15,companion_bonus.merchant.master,+15 к Торговле,+15 Trading skill

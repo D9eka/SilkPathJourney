@@ -1,5 +1,6 @@
 using Internal.Scripts.Camera;
 using Internal.Scripts.Camera.Zoom;
+using Internal.Scripts.Caravan;
 using Internal.Scripts.Config;
 using Internal.Scripts.Economy;
 using Internal.Scripts.Economy.Simulation;
@@ -35,6 +36,9 @@ namespace Internal.Scripts.Installers
         [Header("Quests")]
         [SerializeField] private QuestDatabase _questDatabase;
 
+        [Header("Caravan")]
+        [SerializeField] private CaravanDatabase _caravanDatabase;
+
         [Header("Player")]
         [SerializeField] private PlayerConfig _playerProfile;
 
@@ -63,6 +67,7 @@ namespace Internal.Scripts.Installers
             Container.BindInstance(_economySimulationSettings).AsSingle();
             Container.BindInstance(_eventDatabase).AsSingle();
             Container.BindInstance(_questDatabase).AsSingle();
+            Container.BindInstance(_caravanDatabase).AsSingle();
             Container.BindInstance(_playerProfile).AsSingle();
             Container.BindInstance(_npcSimulationSettings).AsSingle();
             Container.BindInstance(_nameDatabase).AsSingle();

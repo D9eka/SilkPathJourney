@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b1937924f50d76418779ae625eb1815, type: 3}
+  m_Name: Horse
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Caravan.DraftAnimalData
+  <Id>k__BackingField: horse
+  <AnimalType>k__BackingField: 2
+  <SpeedModPct>k__BackingField: 20
+  <CapacityModPct>k__BackingField: -10
+  <FeedPerDay>k__BackingField: 3
+  <Price>k__BackingField: 30
+  <BuyRegion>k__BackingField: plains
+  <SuitableBiomeBonus>k__BackingField: "+10% \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u044C"
+  <Name>k__BackingField:
+    m_TableReference:
+      m_TableCollectionName: Caravan
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: draft_animal.horse.name
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []

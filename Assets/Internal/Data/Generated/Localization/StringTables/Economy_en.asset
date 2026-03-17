@@ -1138,6 +1138,22 @@ MonoBehaviour:
     m_Localized: Quest items
     m_Metadata:
       m_Items: []
+  - m_Id: 16793704390975488
+    m_Localized: Caravansary
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16793704428724224
+    m_Localized: Buy carts, animals, upgrades
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16793704428724225
+    m_Localized: Barracks
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16793704428724226
+    m_Localized: Military upgrades, hire guards
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

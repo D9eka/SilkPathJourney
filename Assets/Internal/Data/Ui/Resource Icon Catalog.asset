@@ -31,3 +31,18 @@ MonoBehaviour:
   - Type: 5
     Icon: {fileID: 21300000, guid: 193c6c737e362dd43a23ca103db86812, type: 3}
     IncreaseIsPositive: 0
+  - Type: 6
+    Icon: {fileID: 21300000, guid: bc19e25243bb80348ad84a8c93adae97, type: 3}
+    IncreaseIsPositive: 0
+  - Type: 7
+    Icon: {fileID: 21300000, guid: c96ea78a4cce708428b032364da616bd, type: 3}
+    IncreaseIsPositive: 0
+  - Type: 8
+    Icon: {fileID: 21300000, guid: 46339337edcbc9a4b8deb1a56789fb0d, type: 3}
+    IncreaseIsPositive: 0
+  - Type: 9
+    Icon: {fileID: 21300000, guid: bb00b5c131ada4847b485922ba7460b4, type: 3}
+    IncreaseIsPositive: 0
+  - Type: 10
+    Icon: {fileID: 21300000, guid: bc19e25243bb80348ad84a8c93adae97, type: 3}
+    IncreaseIsPositive: 0

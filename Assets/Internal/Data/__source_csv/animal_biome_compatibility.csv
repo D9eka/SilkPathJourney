@@ -1,0 +1,16 @@
+animal_id,biome_id,compatibility
+camel,plains,neutral
+camel,desert,suitable
+camel,high_altitude,unsuitable
+horse,plains,suitable
+horse,desert,unsuitable
+horse,high_altitude,unsuitable
+donkey,plains,neutral
+donkey,desert,neutral
+donkey,high_altitude,neutral
+ox,plains,suitable
+ox,desert,unsuitable
+ox,high_altitude,unsuitable
+yak,plains,unsuitable
+yak,desert,unsuitable
+yak,high_altitude,suitable

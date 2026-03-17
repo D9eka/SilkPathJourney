@@ -76,6 +76,7 @@ namespace Internal.Scripts.UI.Screens.Hud
         private LocalizationService.LocalizedTextGroup _buttonHandles;
         private LocalizationService.LocalizedTextHandle _cityHandle;
         private LocalizationService.LocalizedTextHandle _lockCameraHandle;
+        private LocalizationService.LocalizedTextHandle _dayHandle;
 
         private void OnEnable()
         {
@@ -124,6 +125,7 @@ namespace Internal.Scripts.UI.Screens.Hud
             _openPauseButton.onClick.AddListener(OnOpenPause);
             _openTraderButton.onClick.AddListener(OnOpenTrader);
             if (_openQuestsButton != null) _openQuestsButton.onClick.AddListener(OnOpenQuests);
+            if (_openCompanionsButton != null) _openCompanionsButton.onClick.AddListener(OnOpenCaravan);
             if (_lockCameraButton != null) _lockCameraButton.onClick.AddListener(OnLockCamera);
             if (_lockCameraButtonText != null)
                 _lockCameraHandle = Localization.BindText(_lockCameraButtonText, _lockCameraLocalizedString, "Hud.LockCamera");
@@ -169,6 +171,7 @@ namespace Internal.Scripts.UI.Screens.Hud
             _openPauseButton.onClick.RemoveListener(OnOpenPause);
             _openTraderButton.onClick.RemoveListener(OnOpenTrader);
             if (_openQuestsButton != null) _openQuestsButton.onClick.RemoveListener(OnOpenQuests);
+            if (_openCompanionsButton != null) _openCompanionsButton.onClick.RemoveListener(OnOpenCaravan);
             if (_lockCameraButton != null) _lockCameraButton.onClick.RemoveListener(OnLockCamera);
 
             if (_questTracker != null && _questTracker.OpenQuestsButton != null)
@@ -277,8 +280,12 @@ namespace Internal.Scripts.UI.Screens.Hud
         private void ApplyDay(int day)
         {
             if (_dayText == null) return;
-            _dayText.text = LocalizationService.ResolveString(
-                _dayTextLocalizedString, $"Day {day}", "Hud.Day", day);
+            _dayHandle?.Dispose();
+            if (_dayTextLocalizedString != null && Localization != null)
+                _dayHandle = Localization.BindText(_dayText, _dayTextLocalizedString,
+                    "Hud.Day", $"Day {day}", null, day);
+            else
+                _dayText.text = $"Day {day}";
         }
 
         private void SetupIcons()
@@ -348,6 +355,7 @@ namespace Internal.Scripts.UI.Screens.Hud
         private void OnOpenPause() => _viewModel?.OpenPause();
         private void OnOpenTrader() => _viewModel?.OpenTrader();
         private void OnOpenQuests() => _viewModel?.OpenQuests();
+        private void OnOpenCaravan() => _viewModel?.OpenCaravan();
         private void OnLockCamera() => _viewModel?.LockCameraToPlayer();
         private void OnPauseTime() => _viewModel?.OnTimeSpeedSelected(TimeSpeed.Paused);
         private void OnNormalTime() => _viewModel?.OnTimeSpeedSelected(TimeSpeed.Normal);

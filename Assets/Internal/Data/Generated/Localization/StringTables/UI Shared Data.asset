@@ -591,6 +591,454 @@ MonoBehaviour:
     m_Key: UI.Quests.Label.Branch
     m_Metadata:
       m_Items: []
+  - m_Id: 14755038529314816
+    m_Key: UI.Global.Resource.Danger
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14755038575452160
+    m_Key: UI.Global.Resource.Durability
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14755038575452161
+    m_Key: UI.Global.Resource.Food
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14755038575452162
+    m_Key: UI.Global.Resource.Money
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14755038575452163
+    m_Key: UI.Global.Resource.Morale
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14755038575452164
+    m_Key: UI.Global.Resource.Reputation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14755038579646464
+    m_Key: UI.Quest.Reward.Route
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14755038579646465
+    m_Key: UI.Quest.Reward.UnlockItem
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14755038579646466
+    m_Key: UI.Quest.Detail.RewardHeader
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14755038579646467
+    m_Key: UI.Quest.Detail.FailHeader
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14755038579646468
+    m_Key: UI.Quest.Fail.DaysSinceStart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14755038579646469
+    m_Key: UI.Quest.Fail.DangerAbove
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14755038579646470
+    m_Key: UI.Quest.Fail.NoItem
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14755038579646471
+    m_Key: UI.Quest.Track
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14755038579646472
+    m_Key: UI.Quest.Untrack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14755038579646473
+    m_Key: UI.Quest.Decline
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14755038579646474
+    m_Key: UI.Quest.Failed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14755038579646475
+    m_Key: UI.Quest.Completed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14755038579646476
+    m_Key: UI.Quest.Detail.CurrentObjective
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14799282082144256
+    m_Key: UI.Caravan.Main.Header.Main
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14799282128281600
+    m_Key: UI.Caravan.Companions.Header.Main
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14799282128281601
+    m_Key: UI.Caravan.Carts.Header.Main
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14799282128281602
+    m_Key: UI.Caravan.Companion.Button.Heal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14799282128281603
+    m_Key: UI.Caravan.Companion.Button.Fire
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14799282128281604
+    m_Key: UI.Caravan.Cart.Button.Repair
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14799282128281605
+    m_Key: UI.Caravan.Cart.Button.Discard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14799282128281606
+    m_Key: UI.Caravan.Animal.Button.Heal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14799282128281607
+    m_Key: UI.Caravansary.Main.Header.Main
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14799282128281608
+    m_Key: UI.Caravansary.Services.Header.Main
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14799282128281609
+    m_Key: UI.Caravansary.Animals.Header.Main
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14799282128281610
+    m_Key: UI.Caravansary.Animals.Header.Current
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14799282128281611
+    m_Key: UI.Caravansary.Animals.Header.Available
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14799282128281612
+    m_Key: UI.Tavern.Main.Header.Main
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14799282128281613
+    m_Key: UI.Tavern.Rumors.Header.Main
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14799282128281614
+    m_Key: UI.Tavern.RoadInfo.Header.Main
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14799282128281615
+    m_Key: UI.Tavern.Companions.Header.Main
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14799282128281616
+    m_Key: UI.Tavern.Companion.Button.Hire
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14799282128281617
+    m_Key: UI.Tavern.Quest.Header.Main
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14799282128281618
+    m_Key: UI.Tavern.Quest.Button.Talk
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816185466880
+    m_Key: UI.Global.Status.Prefix
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798528
+    m_Key: UI.Global.Effect.Prefix
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798529
+    m_Key: UI.Global.CurrentEffect
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798530
+    m_Key: UI.Global.Durability.Prefix
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798531
+    m_Key: UI.Global.Price.Prefix
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798532
+    m_Key: UI.Global.DailyCost.Prefix
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798533
+    m_Key: UI.Global.HireCost.Prefix
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798534
+    m_Key: UI.Global.Level.Prefix
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798535
+    m_Key: UI.Global.Consumption.Prefix
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798536
+    m_Key: UI.Global.Animals.Prefix
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798537
+    m_Key: UI.Caravan.CompanionStatus.Healthy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798538
+    m_Key: UI.Caravan.CompanionStatus.Injured
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798539
+    m_Key: UI.Caravan.DailyCost
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798540
+    m_Key: UI.Caravan.AnimalStatus.Healthy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798541
+    m_Key: UI.Caravan.AnimalStatus.Sick
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798542
+    m_Key: UI.Caravan.AnimalEffect.Base
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798543
+    m_Key: UI.Caravan.AnimalEffect.Sick
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798544
+    m_Key: UI.Caravan.CartEffect
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798545
+    m_Key: UI.Caravan.Consumption
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798546
+    m_Key: UI.Caravan.ExtraCartEffect
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798547
+    m_Key: UI.Caravan.BelongsTo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798548
+    m_Key: UI.Caravansary.Rest.Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798549
+    m_Key: UI.Caravansary.Rest.Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798550
+    m_Key: UI.Caravansary.Rest.Button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798551
+    m_Key: UI.Caravansary.MainCart.Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798552
+    m_Key: UI.Caravansary.ExtraCarts.Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798553
+    m_Key: UI.Caravansary.Repair.Full
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798554
+    m_Key: UI.Caravansary.SwitchAnimal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14911419148394496
+    m_Key: UI.Caravan.MainCart.Prefix
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14911419198726144
+    m_Key: UI.Caravan.ExtraCart.Prefix
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14911419198726145
+    m_Key: UI.Caravan.Params.Prefix
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14911419198726146
+    m_Key: UI.Global.NoEffect
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14911419198726147
+    m_Key: UI.Caravan.EmptyCompanions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14914193147813888
+    m_Key: UI.Caravan.Stats.Speed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14914193185562624
+    m_Key: UI.Caravan.Stats.DailyCost
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14914193185562625
+    m_Key: UI.Caravan.Health.Healthy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14914193185562626
+    m_Key: UI.Caravan.Health.Sick
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14918021393932288
+    m_Key: UI.Tavern.HireCost
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14918021440069632
+    m_Key: UI.Tavern.DailyCost
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14918021440069633
+    m_Key: UI.Tavern.SlotsAvailable
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14924190749548544
+    m_Key: UI.Tavern.RoadInfo.Empty
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14932107519320064
+    m_Key: UI.Biome.HighAltitude
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14932107561263104
+    m_Key: UI.Biome.Plains
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14932107561263105
+    m_Key: UI.Biome.Desert
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14932107561263106
+    m_Key: UI.Biome.Coast
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14932107561263107
+    m_Key: UI.Biome.Steppe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14932107561263108
+    m_Key: UI.Biome.NotSuitable
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14932107561263109
+    m_Key: UI.Caravansary.AnimalPrice
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14932107561263110
+    m_Key: UI.Caravansary.AnimalConsumption
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14932107561263111
+    m_Key: UI.Caravansary.RepairPrice
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14932107561263112
+    m_Key: UI.Caravansary.RepairButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14932107561263113
+    m_Key: UI.Caravansary.RepairMaxButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15110925345349632
+    m_Key: UI.Translator.LanguageEffect
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15110925387292672
+    m_Key: UI.Translator.LanguageNote
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15111697151811584
+    m_Key: UI.Trader.CartType
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15128253332185088
+    m_Key: UI.Workshop.Header.MainCart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15128253378322432
+    m_Key: UI.Workshop.Header.ExtraCarts
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15128253378322433
+    m_Key: UI.Workshop.Slots
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15128253378322434
+    m_Key: UI.Workshop.Speed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15128253378322435
+    m_Key: UI.Workshop.Capacity
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15128253378322436
+    m_Key: UI.Workshop.Durability
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15128253378322437
+    m_Key: UI.Workshop.Animals
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15128253378322438
+    m_Key: UI.Workshop.Consumption
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15128253378322439
+    m_Key: UI.Workshop.SpeedPenalty
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15128253378322440
+    m_Key: UI.Workshop.OwnedCount
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15128253378322441
+    m_Key: UI.Workshop.Buy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15128253378322442
+    m_Key: UI.Workshop.Sell
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15128253378322443
+    m_Key: UI.Workshop.Upgrade
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15128253378322444
+    m_Key: UI.Workshop.UpgradeEffect
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15128253378322445
+    m_Key: UI.Workshop.MaxUpgrade
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15133278720745472
+    m_Key: UI.Workshop.Header.Upgrades
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15133278729134080
+    m_Key: UI.Workshop.Owned
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15133278729134081
+    m_Key: UI.Workshop.Main.Header.Main
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

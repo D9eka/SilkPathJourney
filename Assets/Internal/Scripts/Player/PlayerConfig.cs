@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Internal.Scripts.Config;
+using Internal.Scripts.Caravan.Generated;
 using UnityEngine;
 
 namespace Internal.Scripts.Player
@@ -22,7 +22,7 @@ namespace Internal.Scripts.Player
             [field: SerializeField] public float Durability { get; private set; }
         }
 
-        [field: SerializeField] public CartConfig StartCartConfig { get; private set; }
+        [field: SerializeField] public CartClass StartCartClass { get; private set; }
         [field: SerializeField] public string StartNodeId { get; private set; } = "N_Quanzhou";
         [field: SerializeField] public int StartMoney { get; private set; } = 200;
         [field: SerializeField] public float StartFood { get; private set; } = 50f;

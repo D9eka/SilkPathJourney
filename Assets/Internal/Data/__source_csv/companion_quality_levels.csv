@@ -1,0 +1,4 @@
+quality_id,enum_name,sort_order,success_pct,price_multiplier,daily_cost_multiplier,availability,loc_link,loc_ru,loc_en
+novice,Novice,0,60,0.6,1.0,everywhere,companion_quality.novice.name,Новичок,Novice
+experienced,Experienced,1,80,1.0,1.0,everywhere,companion_quality.experienced.name,Опытный,Experienced
+master,Master,2,95,1.5,1.5,capitals_trade_hubs,companion_quality.master.name,Мастер,Master

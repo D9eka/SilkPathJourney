@@ -1,0 +1,6 @@
+type_id,enum_name,hire_cost_base,daily_cost_base,loc_link,loc_ru,loc_en
+guard,Guard,30,1,companion_type.guard.name,Охранник,Guard
+translator,Translator,20,1,companion_type.translator.name,Переводчик,Translator
+guide,Guide,25,1,companion_type.guide.name,Проводник,Guide
+healer,Healer,40,1,companion_type.healer.name,Лекарь,Healer
+merchant,Merchant,35,1,companion_type.merchant.name,Торговец,Merchant

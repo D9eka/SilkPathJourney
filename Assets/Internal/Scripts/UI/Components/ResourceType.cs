@@ -8,6 +8,10 @@ namespace Internal.Scripts.UI.Components
         PlayerCartDurability,
         OtherCartsDurability,
         Weight,
-        Partners
+        Partners,
+        Morale,
+        Speed,
+        CompanionPay,
+        Health
     }
 }

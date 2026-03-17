@@ -1,0 +1,5 @@
+extra_cart_id,enum_name,capacity,durability,speed_penalty_pct,supplies_per_day,price,sell_price,loc_link,loc_ru,loc_en
+light_extra,LightExtra,50,60,3,1,30,15,extra_cart.light.name,Лёгкая,Light
+trade_extra,TradeExtra,100,80,7,1,60,30,extra_cart.trade.name,Торговая,Trade
+reinforced_extra,ReinforcedExtra,80,120,10,1,90,45,extra_cart.reinforced.name,Укреплённая,Reinforced
+heavy_extra,HeavyExtra,150,80,15,2,100,50,extra_cart.heavy.name,Тяжёлая,Heavy

@@ -183,6 +183,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a23f3f16c3485e6449f8672e6343eb54, type: 2}
   - {fileID: 11400000, guid: 95e3ae4b5262d654b8c1a8f3bbec7fd0, type: 2}
   - {fileID: 11400000, guid: 0878f6db5d2c25a40966e7b2172bd5a9, type: 2}
+  - {fileID: 11400000, guid: c35ff70469041b047b7471a058ef0d4a, type: 2}
+  - {fileID: 11400000, guid: aae9c2363789e664ebf2dd8832c88348, type: 2}
   <RoadModifiers>k__BackingField:
   - {fileID: 11400000, guid: fc00ef3abe94fc641ba1a518a3a14ca6, type: 2}
   - {fileID: 11400000, guid: 33d55eee591b7d74e837de5800b204f4, type: 2}
