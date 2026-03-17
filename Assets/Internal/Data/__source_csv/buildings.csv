@@ -1,8 +1,10 @@
 building_id,enum_name,name_key,description_key,interaction_screen,loc_ru,loc_en,desc_ru,desc_en
 shop,Shop,building.shop.name,building.shop.description,Trade,Лавка,Shop,Торговля товарами,Trade goods
 guild,Guild,building.guild.name,building.guild.description,None,Гильдия,Guild,"Торговые лицензии, задания гильдии","Trade licenses, guild quests"
-tavern,Tavern,building.tavern.name,building.tavern.description,None,Таверна,Tavern,"Слухи о дорогах, события","Road rumors, events"
+tavern,Tavern,building.tavern.name,building.tavern.description,Tavern,Таверна,Tavern,"Слухи о дорогах, события","Road rumors, events"
 temple,Temple,building.temple.name,building.temple.description,None,Храм,Temple,"Молитва, пожертвования","Prayer, donations"
-workshop,Workshop,building.workshop.name,building.workshop.description,None,Мастерская,Workshop,"Крафт товаров, улучшения телег","Craft goods, cart upgrades"
+workshop,Workshop,building.workshop.name,building.workshop.description,Workshop,Мастерская,Workshop,"Крафт товаров, улучшения телег","Craft goods, cart upgrades"
 warehouse,Warehouse,building.warehouse.name,building.warehouse.description,None,Склад,Warehouse,Хранение товаров,Goods storage
 language_school,LanguageSchool,building.language_school.name,building.language_school.description,LanguageSchool,Школа языков,Language School,Изучение языков региона,Learn regional languages
+caravansary,Caravansary,building.caravansary.name,building.caravansary.description,Caravansary,Караван-сарай,Caravansary,"Покупка телег, животных, улучшений","Buy carts, animals, upgrades"
+barracks,Barracks,building.barracks.name,building.barracks.description,None,Казармы,Barracks,"Военные улучшения, наём охраны","Military upgrades, hire guards"
