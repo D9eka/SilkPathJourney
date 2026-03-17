@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Internal.Scripts.Caravan;
 using Internal.Scripts.Economy.Cities;
 using Internal.Scripts.Economy.Generated;
 using Internal.Scripts.Economy.Items;
@@ -15,6 +16,7 @@ namespace Internal.Scripts.Economy.Save
     {
         private readonly EconomyDatabase _economyDatabase;
         private readonly PlayerConfig _playerConfig;
+        private readonly CaravanDatabase _caravanDatabase;
         private readonly EconomySimulationSettings _simulationSettings;
 
         private Dictionary<CityType, CityTypeData> _cityTypeByEnum;
@@ -25,10 +27,12 @@ namespace Internal.Scripts.Economy.Save
         public EconomySaveBuilder(
             EconomyDatabase economyDatabase,
             PlayerConfig playerConfig,
+            CaravanDatabase caravanDatabase,
             EconomySimulationSettings simulationSettings)
         {
             _economyDatabase = economyDatabase;
             _playerConfig = playerConfig;
+            _caravanDatabase = caravanDatabase;
             _simulationSettings = simulationSettings;
         }
 
@@ -94,13 +98,21 @@ namespace Internal.Scripts.Economy.Save
 
         private PlayerResourceState CreatePlayerResources()
         {
+            CartClassData classData = _caravanDatabase.GetCartClass(_playerConfig.StartCartClass);
+            string classId = classData != null ? classData.Id : PlayerResourceState.DEFAULT_CART_CLASS;
+
             PlayerResourceState resources = new PlayerResourceState
             {
                 Money = _playerConfig.StartMoney,
                 Food = 0f,
                 AccumulatedDanger = 0f,
-                PlayerCart = CreatePlayerCart(),
-                Carts = new List<CartState>()
+                PlayerCart = CreatePlayerCart(classData),
+                Carts = new List<CartState>(),
+                CartClassId = classId,
+                CartUpgradeLevelId = PlayerResourceState.DEFAULT_UPGRADE_LEVEL,
+                DraftAnimalId = PlayerResourceState.DEFAULT_DRAFT_ANIMAL,
+                Companions = new List<CompanionState>(),
+                ActiveUpgrades = new List<string>()
             };
 
             if (_playerConfig.StartCarts != null)
@@ -119,16 +131,27 @@ namespace Internal.Scripts.Economy.Save
             return resources;
         }
 
-        private CartState CreatePlayerCart()
+        private CartState CreatePlayerCart(CartClassData classData)
         {
-            Config.CartConfig cartConfig = _playerConfig.StartCartConfig;
+            if (classData == null)
+            {
+                return new CartState
+                {
+                    Capacity = 250f,
+                    Durability = 100f,
+                    MaxDurability = 100f,
+                    Speed = 30f,
+                    FoodConsumptionPerDay = 3f
+                };
+            }
+
             return new CartState
             {
-                Capacity = cartConfig.BaseCapacity,
-                Durability = cartConfig.BaseMaxDurability,
-                MaxDurability = cartConfig.BaseMaxDurability,
-                Speed = cartConfig.BaseSpeed,
-                FoodConsumptionPerDay = cartConfig.FoodConsumptionPerDay
+                Capacity = classData.Capacity,
+                Durability = classData.Durability,
+                MaxDurability = classData.Durability,
+                Speed = classData.SpeedKmDay,
+                FoodConsumptionPerDay = classData.AnimalCount
             };
         }
 

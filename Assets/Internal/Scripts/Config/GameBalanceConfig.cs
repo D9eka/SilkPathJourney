@@ -25,6 +25,16 @@ namespace Internal.Scripts.Config
         [field: SerializeField] public int SchoolCostFluent { get; private set; } = 150;
         [field: SerializeField] public int SchoolDaysFluent { get; private set; } = 20;
 
+        [Header("Caravan Speed")]
+        [field: SerializeField] public float WorldUnitsPerKm { get; private set; } = 0.167f;
+
+        [Header("Caravan Repair")]
+        [field: SerializeField] public int DefaultRepairPercent { get; private set; } = 5;
+        [field: SerializeField] public int RepairCostPerPercent { get; private set; } = 2;
+
+        [Header("Caravansary Services")]
+        [field: SerializeField] public int RestCost { get; private set; } = 20;
+
         [Header("Skills")]
         [field: SerializeField] public int MaxSkill { get; private set; } = 100;
         [field: SerializeField] public float TradePriceDivisor { get; private set; } = 500f;

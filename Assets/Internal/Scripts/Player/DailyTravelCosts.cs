@@ -1,4 +1,5 @@
 using System;
+using Internal.Scripts.Caravan;
 using Internal.Scripts.Config;
 using Internal.Scripts.Economy;
 using Internal.Scripts.Economy.Save;
@@ -11,6 +12,9 @@ namespace Internal.Scripts.Player
 {
     public sealed class DailyTravelCosts : IDisposable
     {
+        private const string REPAIR_KIT_UPGRADE = "repair_kit";
+        private const float REPAIR_KIT_DAILY_AMOUNT = 1f;
+
         private readonly DayTracker _dayTracker;
         private readonly CaravanSpeedService _speedService;
         private readonly CaravanSpeedConfig _config;
@@ -18,6 +22,8 @@ namespace Internal.Scripts.Player
         private readonly PlayerResourceRepository _resourceRepo;
         private readonly InventoryRepository _inventoryRepository;
         private readonly GameBalanceConfig _balanceConfig;
+        private readonly CaravanDatabase _caravanDatabase;
+        private readonly CompanionCosts _companionCosts;
 
         public DailyTravelCosts(
             DayTracker dayTracker,
@@ -26,7 +32,9 @@ namespace Internal.Scripts.Player
             OverloadCalculator overload,
             PlayerResourceRepository resourceRepo,
             InventoryRepository inventoryRepository,
-            GameBalanceConfig balanceConfig)
+            GameBalanceConfig balanceConfig,
+            CaravanDatabase caravanDatabase,
+            CompanionCosts companionCosts)
         {
             _dayTracker = dayTracker;
             _speedService = speedService;
@@ -35,6 +43,8 @@ namespace Internal.Scripts.Player
             _resourceRepo = resourceRepo;
             _inventoryRepository = inventoryRepository;
             _balanceConfig = balanceConfig;
+            _caravanDatabase = caravanDatabase;
+            _companionCosts = companionCosts;
         }
 
         public void Activate()
@@ -60,6 +70,8 @@ namespace Internal.Scripts.Player
                 ApplyDurabilityWear(state, modeData, overloadWear);
                 suppliesToConsume = AccumulateFoodConsumption(state, modeData, overloadFood);
                 ApplyDangerIncrease(state, modeData);
+                _companionCosts.ProcessDailyPay(state);
+                ApplyRepairKitUpgrade(state);
             });
 
             if (suppliesToConsume > 0)
@@ -82,11 +94,25 @@ namespace Internal.Scripts.Player
 
         private int AccumulateFoodConsumption(PlayerResourceState state, SpeedModeData data, float overloadMod)
         {
-            state.Food += state.TotalFoodPerDay * data.FoodMultiplier * overloadMod;
+            float baseFoodPerDay = state.TotalFoodPerDay;
+            baseFoodPerDay += CalculateAnimalFeed(state);
+            baseFoodPerDay += state.Companions?.Count ?? 0;
+
+            state.Food += baseFoodPerDay * data.FoodMultiplier * overloadMod;
 
             int toConsume = (int)state.Food;
             state.Food -= toConsume;
             return toConsume;
+        }
+
+        private float CalculateAnimalFeed(PlayerResourceState state)
+        {
+            CartClassData classData = _caravanDatabase.GetCartClassById(state.CartClassId);
+            DraftAnimalData animal = _caravanDatabase.GetDraftAnimalById(state.DraftAnimalId);
+            if (classData == null || animal == null)
+                return 0f;
+
+            return classData.AnimalCount * animal.FeedPerDay;
         }
 
         private void ApplyDangerIncrease(PlayerResourceState state, SpeedModeData data)
@@ -94,6 +120,15 @@ namespace Internal.Scripts.Player
             if (data.DangerPerDay > 0f)
                 state.AccumulatedDanger = Mathf.Min(
                     _balanceConfig.MaxDanger, state.AccumulatedDanger + data.DangerPerDay);
+        }
+
+        private void ApplyRepairKitUpgrade(PlayerResourceState state)
+        {
+            if (state.ActiveUpgrades != null && state.ActiveUpgrades.Contains(REPAIR_KIT_UPGRADE))
+            {
+                state.PlayerCart.Durability = Mathf.Min(
+                    state.PlayerCart.MaxDurability, state.PlayerCart.Durability + REPAIR_KIT_DAILY_AMOUNT);
+            }
         }
     }
 }
