@@ -21,8 +21,8 @@ MonoBehaviour:
   <HudElementBackground>k__BackingField: {r: 0.89411765, g: 0.9098039, b: 0.9411765, a: 0.8509804}
   <HudElementText>k__BackingField: {r: 0.09411765, g: 0.10980392, b: 0.15686275, a: 1}
   <OverlayColor>k__BackingField: {r: 0, g: 0.03137255, b: 0.09411765, a: 0.5019608}
-  <IconPrimary>k__BackingField: {r: 0.28235295, g: 0.34509805, b: 0.47058824, a: 1}
-  <IconSecondary>k__BackingField: {r: 0.47058824, g: 0.54901963, b: 0.627451, a: 1}
+  <IconPrimary>k__BackingField: {r: 0.11764706, g: 0.15686275, b: 0.2509804, a: 1}
+  <IconSecondary>k__BackingField: {r: 0.3529412, g: 0.4392157, b: 0.5647059, a: 1}
   <TimeButtonBackground>k__BackingField: {r: 0.5647059, g: 0.627451, b: 0.72156864, a: 1}
   <SliderBackground>k__BackingField: {r: 0.65882355, g: 0.6901961, b: 0.78431374, a: 1}
   <SliderFillPositive>k__BackingField: {r: 0.28235295, g: 0.5647059, b: 0.627451, a: 1}

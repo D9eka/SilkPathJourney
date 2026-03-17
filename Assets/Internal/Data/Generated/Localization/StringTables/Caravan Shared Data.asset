@@ -1,0 +1,256 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Caravan Shared Data
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
+  m_TableCollectionName: Caravan
+  m_TableCollectionNameGuidString: 27d219e68fef07b4caf14c0c1b290c48
+  m_Entries:
+  - m_Id: 418373632
+    m_Key: cart_class.light.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 456122368
+    m_Key: cart_class.balanced.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 456122369
+    m_Key: cart_class.heavy.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 456122370
+    m_Key: cart_class.light.desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 460316672
+    m_Key: cart_class.balanced.desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 460316673
+    m_Key: cart_class.heavy.desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 93437629030400
+    m_Key: extra_cart.light.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 93437650001920
+    m_Key: extra_cart.trade.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 93437650001921
+    m_Key: extra_cart.reinforced.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 93437650001922
+    m_Key: extra_cart.heavy.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 93437650001923
+    m_Key: companion_quality.novice.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 93437650001924
+    m_Key: companion_quality.experienced.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 93437650001925
+    m_Key: companion_quality.master.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 95106815221760
+    m_Key: draft_animal.camel.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 95106852970496
+    m_Key: draft_animal.horse.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 95106852970497
+    m_Key: draft_animal.donkey.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 95106852970498
+    m_Key: draft_animal.ox.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 95106852970499
+    m_Key: draft_animal.yak.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100039891345408
+    m_Key: companion_type.guard.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100039916511232
+    m_Key: companion_type.translator.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100039916511233
+    m_Key: companion_type.guide.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100039916511234
+    m_Key: companion_type.healer.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100039916511235
+    m_Key: companion_type.merchant.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100039916511236
+    m_Key: companion_bonus.guard.novice
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100039916511237
+    m_Key: companion_bonus.guard.experienced
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100039916511238
+    m_Key: companion_bonus.guard.master
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100039916511239
+    m_Key: companion_bonus.translator.novice
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100039916511240
+    m_Key: companion_bonus.translator.experienced
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100039916511241
+    m_Key: companion_bonus.translator.master
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100039916511242
+    m_Key: companion_bonus.guide.novice
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100039916511243
+    m_Key: companion_bonus.guide.experienced
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100039916511244
+    m_Key: companion_bonus.guide.master
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100039916511245
+    m_Key: companion_bonus.healer.novice
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100039916511246
+    m_Key: companion_bonus.healer.experienced
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100039916511247
+    m_Key: companion_bonus.healer.master
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100039916511248
+    m_Key: companion_bonus.merchant.novice
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100039916511249
+    m_Key: companion_bonus.merchant.experienced
+    m_Metadata:
+      m_Items: []
+  - m_Id: 100039916511250
+    m_Key: companion_bonus.merchant.master
+    m_Metadata:
+      m_Items: []
+  - m_Id: 318295138885632
+    m_Key: cart_upgrade.base.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 318295176634368
+    m_Key: cart_upgrade.improved.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 318295176634369
+    m_Key: cart_upgrade.master.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 318295176634370
+    m_Key: caravan_upgrade.sturdy_wheels.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 318295176634371
+    m_Key: caravan_upgrade.sealed_containers.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 318295176634372
+    m_Key: caravan_upgrade.sun_canopy.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 318295176634373
+    m_Key: caravan_upgrade.elite_guard.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 318295176634374
+    m_Key: caravan_upgrade.hidden_compartment.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 318295176634375
+    m_Key: caravan_upgrade.repair_kit.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 318295176634376
+    m_Key: caravan_upgrade.reinforced_harness.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 318295176634377
+    m_Key: caravan_upgrade.road_lanterns.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 322791487299584
+    m_Key: caravan_upgrade.sturdy_wheels.desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 322791525048320
+    m_Key: caravan_upgrade.sealed_containers.desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 322791525048321
+    m_Key: caravan_upgrade.sun_canopy.desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 322791525048322
+    m_Key: caravan_upgrade.elite_guard.desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 322791525048323
+    m_Key: caravan_upgrade.hidden_compartment.desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 322791525048324
+    m_Key: caravan_upgrade.repair_kit.desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 322791525048325
+    m_Key: caravan_upgrade.reinforced_harness.desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 322791525048326
+    m_Key: caravan_upgrade.road_lanterns.desc
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 2230888574505189444
+  references:
+    version: 2
+    RefIds:
+    - rid: 2230888574505189444
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1773661680750

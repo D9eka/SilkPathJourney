@@ -27,6 +27,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-en
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 658ef07fbf1b9e24a8cf6abc7250e666
+    m_Address: Caravan_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b25d9611328f1cf488287c0565f62997
     m_Address: Theme_en
     m_ReadOnly: 1

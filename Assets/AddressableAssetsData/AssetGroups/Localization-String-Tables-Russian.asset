@@ -21,6 +21,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-ru
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4d1976d2e423d0a468e0777a65d119fa
+    m_Address: Caravan_ru
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-ru
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 56642545125669c4e9639fdf36380933
     m_Address: Quests_ru
     m_ReadOnly: 1

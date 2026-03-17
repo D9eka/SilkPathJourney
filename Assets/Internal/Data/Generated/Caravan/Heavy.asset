@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 909986ee44ccfe345a27be6b3523e244, type: 3}
+  m_Name: Heavy
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Caravan.CartClassData
+  <Id>k__BackingField: heavy
+  <ClassType>k__BackingField: 3
+  <SpeedKmDay>k__BackingField: 22
+  <Capacity>k__BackingField: 400
+  <Durability>k__BackingField: 120
+  <AnimalCount>k__BackingField: 4
+  <Name>k__BackingField:
+    m_TableReference:
+      m_TableCollectionName: Caravan
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: cart_class.heavy.name
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  <Description>k__BackingField:
+    m_TableReference:
+      m_TableCollectionName: Caravan
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: cart_class.heavy.desc
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []

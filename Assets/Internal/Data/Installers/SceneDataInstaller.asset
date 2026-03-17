@@ -19,4 +19,5 @@ MonoBehaviour:
     LateralOffsetMeters: 0
   _traderUICatalog: {fileID: 11400000, guid: d537a0f7f3d611e45865b968a7601647, type: 2}
   _worldCanvasSettings: {fileID: 11400000, guid: 465b4a30c55110640a5902bffcb3c689, type: 2}
+  _convoyPrefabCatalog: {fileID: 11400000, guid: 9406b3f0b2ccef545b567d72ff7a1356, type: 2}
   _biomePaletteMap: {fileID: 11400000, guid: 75b7332186ed57648b17dcece8f410f0, type: 2}

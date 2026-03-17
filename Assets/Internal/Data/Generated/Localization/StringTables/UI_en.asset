@@ -610,6 +610,454 @@ MonoBehaviour:
     m_Localized: 'Branch:'
     m_Metadata:
       m_Items: []
+  - m_Id: 14755038529314816
+    m_Localized: danger
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14755038575452160
+    m_Localized: durability
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14755038575452161
+    m_Localized: supplies
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14755038575452162
+    m_Localized: gold
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14755038575452163
+    m_Localized: morale
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14755038575452164
+    m_Localized: reputation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14755038579646464
+    m_Localized: 'Route: {target}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14755038579646465
+    m_Localized: 'Item: {target}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14755038579646466
+    m_Localized: 'Reward:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14755038579646467
+    m_Localized: 'Fail conditions:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14755038579646468
+    m_Localized: Complete within {value} days
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14755038579646469
+    m_Localized: Danger above {value}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14755038579646470
+    m_Localized: Lose {param}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14755038579646471
+    m_Localized: Track
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14755038579646472
+    m_Localized: Untrack
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14755038579646473
+    m_Localized: Decline
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14755038579646474
+    m_Localized: Quest failed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14755038579646475
+    m_Localized: Quest completed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14755038579646476
+    m_Localized: 'Current objective:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14799282082144256
+    m_Localized: Caravan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14799282128281600
+    m_Localized: Companions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14799282128281601
+    m_Localized: Carts
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14799282128281602
+    m_Localized: Heal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14799282128281603
+    m_Localized: Dismiss
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14799282128281604
+    m_Localized: Repair
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14799282128281605
+    m_Localized: Discard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14799282128281606
+    m_Localized: Heal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14799282128281607
+    m_Localized: Caravansary
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14799282128281608
+    m_Localized: Services
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14799282128281609
+    m_Localized: Switch Animals
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14799282128281610
+    m_Localized: Current animal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14799282128281611
+    m_Localized: Available replacements
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14799282128281612
+    m_Localized: Tavern
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14799282128281613
+    m_Localized: Rumors
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14799282128281614
+    m_Localized: Buy exact information
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14799282128281615
+    m_Localized: Hire Companions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14799282128281616
+    m_Localized: Hire
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14799282128281617
+    m_Localized: Quest
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14799282128281618
+    m_Localized: Talk
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816185466880
+    m_Localized: 'Status:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798528
+    m_Localized: 'Effect:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798529
+    m_Localized: 'Current effect: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798530
+    m_Localized: 'Durability:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798531
+    m_Localized: 'Price:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798532
+    m_Localized: 'Pay:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798533
+    m_Localized: 'Hire:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798534
+    m_Localized: 'Level:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798535
+    m_Localized: 'Consumption:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798536
+    m_Localized: 'Animals:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798537
+    m_Localized: healthy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798538
+    m_Localized: injured, can heal for {0}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798539
+    m_Localized: '{0}/day'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798540
+    m_Localized: healthy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798541
+    m_Localized: sick, can heal for {0} supplies
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798542
+    m_Localized: '{0} speed {1} capacity'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798543
+    m_Localized: -50% speed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798544
+    m_Localized: speed {0}, capacity {1}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798545
+    m_Localized: '{0}/day'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798546
+    m_Localized: capacity {0}, speed penalty {1}%
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798547
+    m_Localized: 'Belongs to: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798548
+    m_Localized: Rest
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798549
+    m_Localized: +20 morale, +10 main cart durability
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798550
+    m_Localized: Buy for {0}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798551
+    m_Localized: Main cart repair
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798552
+    m_Localized: Extra carts repair
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798553
+    m_Localized: Fully repaired
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14816816235798554
+    m_Localized: Switch for {0}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14911419148394496
+    m_Localized: 'Main cart:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14911419198726144
+    m_Localized: 'Extra cart:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14911419198726145
+    m_Localized: 'Parameters:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14911419198726146
+    m_Localized: No effects
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14911419198726147
+    m_Localized: No companions in caravan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14914193147813888
+    m_Localized: '{0}km/day'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14914193185562624
+    m_Localized: -{0}/day
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14914193185562625
+    m_Localized: Healthy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14914193185562626
+    m_Localized: Sick
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14918021393932288
+    m_Localized: 'Hire: {0} coins'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14918021440069632
+    m_Localized: 'Pay: {0} coins/day'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14918021440069633
+    m_Localized: 'Available slots: {0}/{1}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14924190749548544
+    m_Localized: No information available
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14932107519320064
+    m_Localized: Highland
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14932107561263104
+    m_Localized: Plains
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14932107561263105
+    m_Localized: Desert
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14932107561263106
+    m_Localized: Coast
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14932107561263107
+    m_Localized: Steppe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14932107561263108
+    m_Localized: 'Not suitable:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14932107561263109
+    m_Localized: 'Price: {0} per 1 animal'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14932107561263110
+    m_Localized: 'Consumption: {0}/day per 1'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14932107561263111
+    m_Localized: 'Price: {0} coins / 1%'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14932107561263112
+    m_Localized: Repair {0}% for {1}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 14932107561263113
+    m_Localized: Repair to max ({0}%) for {1}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15110925345349632
+    m_Localized: 'Knowledge of {0}: {1}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15110925387292672
+    m_Localized: (translator)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15111697151811584
+    m_Localized: 'Cart type: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15128253332185088
+    m_Localized: Main Cart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15128253378322432
+    m_Localized: Extra Carts
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15128253378322433
+    m_Localized: 'Cart slots: {0}/{1}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15128253378322434
+    m_Localized: 'Speed: {0} km/day'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15128253378322435
+    m_Localized: 'Capacity: {0}u'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15128253378322436
+    m_Localized: 'Durability: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15128253378322437
+    m_Localized: 'Animals: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15128253378322438
+    m_Localized: 'Consumption: {0}/day'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15128253378322439
+    m_Localized: 'Speed: {0}%'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15128253378322440
+    m_Localized: 'Owned: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15128253378322441
+    m_Localized: Buy for {0}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15128253378322442
+    m_Localized: Sell for {0}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15128253378322443
+    m_Localized: Upgrade for {0}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15128253378322444
+    m_Localized: 'On upgrade: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15128253378322445
+    m_Localized: Max level
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15133278720745472
+    m_Localized: Upgrades
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15133278729134080
+    m_Localized: Owned
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15133278729134081
+    m_Localized: Workshop
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

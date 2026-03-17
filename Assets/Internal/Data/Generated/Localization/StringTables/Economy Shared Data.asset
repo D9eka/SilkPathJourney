@@ -1083,6 +1083,22 @@ MonoBehaviour:
     m_Key: item_category.quest.name
     m_Metadata:
       m_Items: []
+  - m_Id: 16793704390975488
+    m_Key: building.caravansary.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16793704428724224
+    m_Key: building.caravansary.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16793704428724225
+    m_Key: building.barracks.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16793704428724226
+    m_Key: building.barracks.description
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

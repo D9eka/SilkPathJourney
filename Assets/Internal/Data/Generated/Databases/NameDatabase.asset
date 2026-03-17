@@ -15,61 +15,224 @@ MonoBehaviour:
   _entries:
   - <Id>k__BackingField: npc.name.li_wei
     <Culture>k__BackingField: 1
-    <Name>k__BackingField: Li Wei
+    <Name>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Npc
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: npc.name.li_wei
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
   - <Id>k__BackingField: npc.name.zhang_hao
     <Culture>k__BackingField: 1
-    <Name>k__BackingField: Zhang Hao
+    <Name>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Npc
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: npc.name.zhang_hao
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
   - <Id>k__BackingField: npc.name.chen_ming
     <Culture>k__BackingField: 1
-    <Name>k__BackingField: Chen Ming
+    <Name>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Npc
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: npc.name.chen_ming
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
   - <Id>k__BackingField: npc.name.wang_jun
     <Culture>k__BackingField: 1
-    <Name>k__BackingField: Wang Jun
+    <Name>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Npc
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: npc.name.wang_jun
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
   - <Id>k__BackingField: npc.name.batuhan
     <Culture>k__BackingField: 2
-    <Name>k__BackingField: Batuhan
+    <Name>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Npc
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: npc.name.batuhan
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
   - <Id>k__BackingField: npc.name.timur
     <Culture>k__BackingField: 2
-    <Name>k__BackingField: Timur
+    <Name>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Npc
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: npc.name.timur
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
   - <Id>k__BackingField: npc.name.altai
     <Culture>k__BackingField: 2
-    <Name>k__BackingField: Altai
+    <Name>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Npc
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: npc.name.altai
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
   - <Id>k__BackingField: npc.name.rashid
     <Culture>k__BackingField: 3
-    <Name>k__BackingField: Rashid
+    <Name>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Npc
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: npc.name.rashid
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
   - <Id>k__BackingField: npc.name.farid
     <Culture>k__BackingField: 3
-    <Name>k__BackingField: Farid
+    <Name>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Npc
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: npc.name.farid
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
   - <Id>k__BackingField: npc.name.karim
     <Culture>k__BackingField: 3
-    <Name>k__BackingField: Karim
+    <Name>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Npc
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: npc.name.karim
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
   - <Id>k__BackingField: npc.name.darius
     <Culture>k__BackingField: 4
-    <Name>k__BackingField: Darius
+    <Name>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Npc
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: npc.name.darius
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
   - <Id>k__BackingField: npc.name.farhad
     <Culture>k__BackingField: 4
-    <Name>k__BackingField: Farhad
+    <Name>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Npc
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: npc.name.farhad
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
   - <Id>k__BackingField: npc.name.cyrus
     <Culture>k__BackingField: 4
-    <Name>k__BackingField: Cyrus
+    <Name>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Npc
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: npc.name.cyrus
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
   - <Id>k__BackingField: npc.name.ahmad
     <Culture>k__BackingField: 5
-    <Name>k__BackingField: Ahmad
+    <Name>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Npc
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: npc.name.ahmad
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
   - <Id>k__BackingField: npc.name.yusuf
     <Culture>k__BackingField: 5
-    <Name>k__BackingField: Yusuf
+    <Name>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Npc
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: npc.name.yusuf
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
   - <Id>k__BackingField: npc.name.alexios
     <Culture>k__BackingField: 8
-    <Name>k__BackingField: Alexios
+    <Name>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Npc
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: npc.name.alexios
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
   - <Id>k__BackingField: npc.name.konstantinos
     <Culture>k__BackingField: 8
-    <Name>k__BackingField: Konstantinos
+    <Name>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Npc
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: npc.name.konstantinos
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
   - <Id>k__BackingField: npc.name.arjun
     <Culture>k__BackingField: 9
-    <Name>k__BackingField: Arjun
+    <Name>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Npc
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: npc.name.arjun
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
   - <Id>k__BackingField: npc.name.ravi
     <Culture>k__BackingField: 9
-    <Name>k__BackingField: Ravi
+    <Name>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Npc
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: npc.name.ravi
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
   - <Id>k__BackingField: npc.name.omar
     <Culture>k__BackingField: 10
-    <Name>k__BackingField: Omar
+    <Name>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Npc
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: npc.name.omar
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
