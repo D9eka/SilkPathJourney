@@ -11,17 +11,17 @@ namespace Internal.Scripts.Npc.Core
         [field: SerializeField] public string DefaultDestinationNodeId { get; private set; }
 
         private WorldCanvas _worldCanvas;
-        private WorldLabelViewHelper _labelHelper;
+        private NpcLabelFactory _labelHelper;
         private static readonly Vector3 LabelOffset = new(0f, 2f, 0f);
 
         public void InitLabel(WorldCanvas worldCanvas, string npcName, LocalizedString localizedName)
         {
             _worldCanvas = worldCanvas;
-            _labelHelper = new WorldLabelViewHelper(worldCanvas);
-            WorldLabelView label = localizedName != null
-                ? _labelHelper.CreateLabel(
+            _labelHelper = new NpcLabelFactory(worldCanvas);
+            NpcLabelView label = localizedName != null
+                ? _labelHelper.CreateNpcLabel(
                     transform.position, LabelOffset, $"NpcLabel_{npcName}", localizedName, npcName)
-                : _labelHelper.CreateLabel(
+                : _labelHelper.CreateNpcLabel(
                     transform.position, LabelOffset, $"NpcLabel_{npcName}", npcName);
             label?.HideIcon();
         }

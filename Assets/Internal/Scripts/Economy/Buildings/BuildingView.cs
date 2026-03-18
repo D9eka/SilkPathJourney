@@ -24,7 +24,7 @@ namespace Internal.Scripts.Economy.Buildings
         private ICityNodeResolver _cityNodeResolver;
         private IPlayerStateProvider _playerStateProvider;
         private EconomyDatabase _economyDatabase;
-        private WorldLabelViewHelper _labelHelper;
+        private NpcLabelFactory _labelHelper;
 
         private InteractableOutline _outline;
         private BuildingData _data;
@@ -38,7 +38,7 @@ namespace Internal.Scripts.Economy.Buildings
             ICityNodeResolver cityNodeResolver, IPlayerStateProvider playerStateProvider,
             EconomyDatabase economyDatabase)
         {
-            _labelHelper = new WorldLabelViewHelper(worldCanvas);
+            _labelHelper = new NpcLabelFactory(worldCanvas);
             _screenStackService = screenStackService;
             _cityNodeResolver = cityNodeResolver;
             _playerStateProvider = playerStateProvider;

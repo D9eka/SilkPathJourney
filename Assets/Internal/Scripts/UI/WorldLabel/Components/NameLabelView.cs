@@ -5,17 +5,14 @@ using Internal.Scripts.UI.Tooltip;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Localization;
-using UnityEngine.UI;
 
-namespace Internal.Scripts.UI.WorldLabel
+namespace Internal.Scripts.UI.WorldLabel.Components
 {
-    public class WorldLabelView : MonoBehaviour
+    public class NameLabelView : MonoBehaviour
     {
-        [SerializeField] private GameObject _cityNameContainer;
+        [SerializeField] private GameObject _nameContainer;
         [SerializeField] private TextMeshProUGUI _nameText;
-        [SerializeField] private Image _icon;
-        [SerializeField] private RectTransform _iconsContainer;
-        [SerializeField] private Image _iconTemplate;
+        [SerializeField] private WorldLabelIcon _icon;
 
         private TooltipService _tooltipService;
         private LocalizationService _localization;
@@ -36,16 +33,14 @@ namespace Internal.Scripts.UI.WorldLabel
 
         public void SetTooltipProvider(ITooltipDataProvider provider)
         {
-            if (provider == null || _tooltipService == null) return;
-            var icon = _nameText.gameObject.AddComponent<WorldLabelIcon>();
-            icon.Initialize(_tooltipService, provider.GetTooltipTitle(), provider.GetTooltipDescription());
+            if (provider == null || _tooltipService == null || _icon == null) return;
+            _icon.Initialize(_tooltipService, provider.GetTooltipTitle(), provider.GetTooltipDescription());
         }
 
         public void SetIconTooltip(string title, string description)
         {
             if (_icon == null || _tooltipService == null) return;
-            var iconComp = _icon.gameObject.AddComponent<WorldLabelIcon>();
-            iconComp.Initialize(_tooltipService, title, description);
+            _icon.Initialize(_tooltipService, title, description);
         }
 
         public void SetText(string text)
@@ -73,7 +68,7 @@ namespace Internal.Scripts.UI.WorldLabel
         public void SetIcon(Sprite sprite)
         {
             if (_icon == null) return;
-            _icon.sprite = sprite;
+            _icon.SetIcon(sprite);
             _icon.gameObject.SetActive(true);
         }
 
@@ -83,29 +78,14 @@ namespace Internal.Scripts.UI.WorldLabel
                 _icon.gameObject.SetActive(false);
         }
 
-        public void AddIcon(Sprite icon, string name, string description)
-        {
-            if (_iconTemplate == null || _iconsContainer == null) return;
-
-            GameObject iconGo = Instantiate(_iconTemplate.gameObject, _iconsContainer);
-            iconGo.SetActive(true);
-
-            Image image = iconGo.GetComponent<Image>();
-            if (image != null)
-                image.sprite = icon;
-
-            WorldLabelIcon labelIcon = iconGo.AddComponent<WorldLabelIcon>();
-            labelIcon.Initialize(_tooltipService, name, description);
-        }
-
         public void Show()
         {
-            gameObject.SetActive(true);
+            _nameContainer.SetActive(true);
         }
 
         public void Hide()
         {
-            gameObject.SetActive(false);
+            _nameContainer.SetActive(false);
         }
 
         private void OnDestroy()

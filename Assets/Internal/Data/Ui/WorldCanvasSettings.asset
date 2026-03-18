@@ -16,5 +16,6 @@ MonoBehaviour:
   <OffsetAboveGround>k__BackingField: 10
   <MinLabelScale>k__BackingField: 0.01
   <MaxLabelScale>k__BackingField: 0.06
-  <LabelPrefab>k__BackingField: {fileID: 6528900538058473052, guid: 3c4c268c851d0e046a9da51812e3a87e, type: 3}
-  <RoadLabelPrefab>k__BackingField: {fileID: 1230087835981815234, guid: a0f8aacfda3c8b140b849104d064a891, type: 3}
+  <LabelPrefab>k__BackingField: {fileID: 3244611437414605031, guid: 3c4c268c851d0e046a9da51812e3a87e, type: 3}
+  <NpcLabelPrefab>k__BackingField: {fileID: 3105363379873258302, guid: e6ad355cef088fe48963e2904197a645, type: 3}
+  <RoadLabelPrefab>k__BackingField: {fileID: -2492048874987045028, guid: 26de67b4b0b62744c810b37dfe443191, type: 3}
