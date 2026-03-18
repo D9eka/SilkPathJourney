@@ -1,3 +1,8 @@
-modifier_id,name_key,description_key,icon_name,loc_ru,loc_en
-trade_hub,city_modifier.trade_hub.name,city_modifier.trade_hub.description,trade_hub,Торговый узел,Trade Hub
-port_access,city_modifier.port_access.name,city_modifier.port_access.description,port_access,Доступ к порту,Port Access
+modifier_id,name_key,description_key,icon_name,price_pct,danger_pct,conflict_group,biome_restriction,min_duration,max_duration,cascade_road_id,cascade_chance
+war,city_modifier.war.name,city_modifier.war.description,war,30,30,military,,15,40,fog,0.03
+bandits,city_modifier.bandits.name,city_modifier.bandits.description,bandits,15,20,military,,10,30,fog,0.02
+epidemic,city_modifier.epidemic.name,city_modifier.epidemic.description,epidemic,30,15,health,,20,45,mud,0.015
+festival,city_modifier.festival.name,city_modifier.festival.description,festival,-20,-10,prosperity,,5,15,clear_weather,0.04
+caravan_arrival,city_modifier.caravan_arrival.name,city_modifier.caravan_arrival.description,caravan_arrival,-15,0,prosperity,,5,10,clear_weather,0.025
+high_taxes,city_modifier.high_taxes.name,city_modifier.high_taxes.description,high_taxes,20,0,economy,,15,35,,
+drought,city_modifier.drought.name,city_modifier.drought.description,drought,25,10,climate,Desert,20,40,heat,0.05

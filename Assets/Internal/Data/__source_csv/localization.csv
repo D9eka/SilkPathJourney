@@ -18,10 +18,20 @@ building.tavern.description,buildings,4,"Слухи о дорогах, собы�
 building.temple.description,buildings,5,"Молитва, пожертвования","Prayer, donations"
 building.warehouse.description,buildings,7,Хранение товаров,Goods storage
 building.workshop.description,buildings,6,"Крафт товаров, улучшения телег","Craft goods, cart upgrades"
-city_modifier.port_access.description,city_modifiers,3,Морские торговые маршруты открывают доступ к заморским товарам,Maritime trade routes provide access to overseas goods
-city_modifier.port_access.name,city_modifiers,3,Доступ к порту,Port Access
-city_modifier.trade_hub.description,city_modifiers,2,Улучшенные торговые условия — больше товаров и выгодные цены,Improved trade conditions — more goods and better prices
-city_modifier.trade_hub.name,city_modifiers,2,Торговый узел,Trade Hub
+city_modifier.bandits.description,city_modifiers,3,Бандиты грабят торговцев — цены растут из-за рисков,Bandits rob merchants — prices rise due to risks
+city_modifier.bandits.name,city_modifiers,3,Бандиты,Bandits
+city_modifier.caravan_arrival.description,city_modifiers,6,Прибытие крупного каравана насытило рынок товарами,A large caravan arrival has flooded the market with goods
+city_modifier.caravan_arrival.name,city_modifiers,6,Прибытие каравана,Caravan Arrival
+city_modifier.drought.description,city_modifiers,8,Засуха уничтожила урожай — цены на еду и воду взлетели,Drought destroyed crops — food and water prices soared
+city_modifier.drought.name,city_modifiers,8,Засуха,Drought
+city_modifier.epidemic.description,city_modifiers,4,Эпидемия парализовала торговлю — цены резко выросли,Epidemic has paralyzed trade — prices have surged
+city_modifier.epidemic.name,city_modifiers,4,Эпидемия,Epidemic
+city_modifier.festival.description,city_modifiers,5,Праздник привлёк торговцев — цены снижены,Festival attracted merchants — prices are lower
+city_modifier.festival.name,city_modifiers,5,Фестиваль,Festival
+city_modifier.high_taxes.description,city_modifiers,7,Местный правитель повысил пошлины на торговлю,Local ruler has raised trade tariffs
+city_modifier.high_taxes.name,city_modifiers,7,Высокие налоги,High Taxes
+city_modifier.war.description,city_modifiers,2,Военные действия нарушили торговые пути — цены и опасность резко выросли,Military conflict has disrupted trade routes — prices and danger have surged
+city_modifier.war.name,city_modifiers,2,Война,War
 city_type.border_city.description,city_types,4,"Сильные перекосы, потенциал выгодных сделок","Strong imbalances, potential for profitable deals"
 city_type.border_city.name,city_types,4,Пограничный город,Border City
 city_type.capital.description,city_types,2,"Большой рынок, высокий спрос, чаще дороже","Large market, high demand, often more expensive"
@@ -271,10 +281,18 @@ item.wax.name,items,35,Воск,Wax
 item.white_horse.name,items,99,Белый конь,White Horse
 item.wine.name,items,8,Вино,Wine
 item.wool.name,items,20,Шерсть,Wool
-modifier.danger_zone.description,road_modifiers,3,Возможны нападения бандитов,Bandit attacks possible
-modifier.danger_zone.name,road_modifiers,3,Опасная зона,Danger Zone
-modifier.speed_bonus.description,road_modifiers,2,Скорость каравана +20%,Caravan speed +20%
-modifier.speed_bonus.name,road_modifiers,2,Ускорение,Speed Bonus
+modifier.clear_weather.description,road_modifiers,2,Ясная погода ускоряет продвижение каравана,Clear weather speeds up caravan travel
+modifier.clear_weather.name,road_modifiers,2,Ясная погода,Clear Weather
+modifier.fog.description,road_modifiers,6,Густой туман скрывает опасности на дороге,Dense fog conceals dangers on the road
+modifier.fog.name,road_modifiers,6,Туман,Fog
+modifier.heat.description,road_modifiers,7,Жара увеличивает расход припасов,Heat increases supply consumption
+modifier.heat.name,road_modifiers,7,Жара,Heat
+modifier.mud.description,road_modifiers,4,Грязь замедляет караван и увеличивает расход припасов,Mud slows the caravan and increases supply consumption
+modifier.mud.name,road_modifiers,4,Грязь,Mud
+modifier.rain.description,road_modifiers,3,Дождь замедляет движение и увеличивает расход припасов,Rain slows movement and increases supply consumption
+modifier.rain.name,road_modifiers,3,Дождь,Rain
+modifier.storm.description,road_modifiers,5,Буря резко замедляет караван и повышает опасность,Storm severely slows the caravan and increases danger
+modifier.storm.name,road_modifiers,5,Буря,Storm
 UI.Event.Main.Button.Continue,interface_names,28,Продолжить,Continue
 UI.Event.Main.Header.Main,interface_names,27,Событие,Event
 UI.Event.Main.Prefix.NearCity,interface_names,29,Рядом с {0},Near {0}
@@ -2676,6 +2694,7 @@ UI.Tooltip.BasePrice,,,Базовая цена,Base Price
 UI.Tooltip.Market,,,Рынок,Market
 UI.Tooltip.NpcMarkup,,,Наценка,Markup
 UI.Tooltip.Bonus,,,Бонусы,Bonuses
+UI.Tooltip.Modifiers,,,Модификаторы,Modifiers
 UI.Tooltip.Total,,,Итого,Total
 UI.Tooltip.UnknownLanguage,,,Вы не знаете этот язык,You don't know this language
 UI.TargetSelection.Main.Label.TravelTo,,,Отправиться в {0}?,Travel to {0}?

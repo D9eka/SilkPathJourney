@@ -1,3 +1,7 @@
-modifier_id,name_key,description_key,icon_name,loc_ru,loc_en
-speed_bonus,modifier.speed_bonus.name,modifier.speed_bonus.description,speed_bonus,Ускорение,Speed Bonus
-danger_zone,modifier.danger_zone.name,modifier.danger_zone.description,danger_zone,Опасная зона,Danger Zone
+modifier_id,name_key,description_key,icon_name,speed_pct,supplies_pct,danger_pct,biome_restriction,min_duration,max_duration
+clear_weather,modifier.clear_weather.name,modifier.clear_weather.description,clear_weather,5,0,0,,3,8
+rain,modifier.rain.name,modifier.rain.description,rain,-10,10,0,,3,7
+mud,modifier.mud.name,modifier.mud.description,mud,-20,15,0,,5,12
+storm,modifier.storm.name,modifier.storm.description,storm,-30,30,15,,2,5
+fog,modifier.fog.name,modifier.fog.description,fog,-15,0,5,,3,8
+heat,modifier.heat.name,modifier.heat.description,heat,-10,20,0,Desert,5,15

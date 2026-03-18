@@ -1099,6 +1099,110 @@ MonoBehaviour:
     m_Key: building.barracks.description
     m_Metadata:
       m_Items: []
+  - m_Id: 17330261669699584
+    m_Key: modifier.clear_weather.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17330261711642624
+    m_Key: modifier.clear_weather.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17330261711642625
+    m_Key: modifier.fog.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17330261711642626
+    m_Key: modifier.fog.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17330261711642627
+    m_Key: modifier.heat.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17330261711642628
+    m_Key: modifier.heat.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17330261711642629
+    m_Key: modifier.mud.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17330261711642630
+    m_Key: modifier.mud.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17330261711642631
+    m_Key: modifier.rain.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17330261711642632
+    m_Key: modifier.rain.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17330261711642633
+    m_Key: modifier.storm.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17330261711642634
+    m_Key: modifier.storm.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17330261711642635
+    m_Key: city_modifier.bandits.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17330261711642636
+    m_Key: city_modifier.bandits.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17330261711642637
+    m_Key: city_modifier.caravan_arrival.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17330261711642638
+    m_Key: city_modifier.caravan_arrival.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17330261711642639
+    m_Key: city_modifier.drought.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17330261711642640
+    m_Key: city_modifier.drought.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17330261711642641
+    m_Key: city_modifier.epidemic.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17330261711642642
+    m_Key: city_modifier.epidemic.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17330261711642643
+    m_Key: city_modifier.festival.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17330261711642644
+    m_Key: city_modifier.festival.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17330261711642645
+    m_Key: city_modifier.high_taxes.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17330261711642646
+    m_Key: city_modifier.high_taxes.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17330261711642647
+    m_Key: city_modifier.war.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17330261711642648
+    m_Key: city_modifier.war.name
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

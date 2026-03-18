@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6a572e6bc56d84bbd305b2f36a16b9, type: 3}
+  m_Name: HighTaxes
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Economy.Cities.CityModifierData
+  <Id>k__BackingField: high_taxes
+  <Name>k__BackingField:
+    m_TableReference:
+      m_TableCollectionName: Economy
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: city_modifier.high_taxes.name
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  <Description>k__BackingField:
+    m_TableReference:
+      m_TableCollectionName: Economy
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: city_modifier.high_taxes.description
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  <Icon>k__BackingField: {fileID: 0}
+  <PricePct>k__BackingField: 20
+  <DangerPct>k__BackingField: 0
+  <ConflictGroup>k__BackingField: economy
+  <BiomeRestriction>k__BackingField: 
+  <MinDuration>k__BackingField: 15
+  <MaxDuration>k__BackingField: 35
+  <CascadeRoadId>k__BackingField: 
+  <CascadeChance>k__BackingField: 0
+  references:
+    version: 2
+    RefIds: []
