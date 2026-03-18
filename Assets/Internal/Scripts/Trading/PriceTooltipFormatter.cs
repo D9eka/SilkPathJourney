@@ -25,6 +25,9 @@ namespace Internal.Scripts.Trading
             if (!b.IsNpcTrade && !IsApproximatelyOne(b.BonusMult))
                 sb.AppendLine($"{Loc("UI.Tooltip.Bonus", "Бонусы")}: x{b.BonusMult:0.##}");
 
+            if (!b.IsNpcTrade && !IsApproximatelyOne(b.ModifierMult))
+                sb.AppendLine($"{Loc("UI.Tooltip.Modifiers", "Модификаторы")}: x{b.ModifierMult:0.##}");
+
             sb.Append($"{Loc("UI.Tooltip.Total", "Итого")}: {b.FinalPrice}");
 
             return (b.ItemName, sb.ToString());

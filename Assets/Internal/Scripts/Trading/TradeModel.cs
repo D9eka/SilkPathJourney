@@ -9,6 +9,8 @@ using Internal.Scripts.Items;
 using Internal.Scripts.Npc.Encounter;
 using R3;
 using UnityEngine;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
 
 namespace Internal.Scripts.Trading
 {
@@ -41,6 +43,7 @@ namespace Internal.Scripts.Trading
         private int _npcItemsHash;
         private int _buyItemsHash;
         private int _sellItemsHash;
+        private bool _forceRebuild;
         private IReadOnlyList<ItemRowData> _playerItems = Array.Empty<ItemRowData>();
         private IReadOnlyList<ItemRowData> _npcItems = Array.Empty<ItemRowData>();
         private IReadOnlyList<ItemRowData> _buyItems = Array.Empty<ItemRowData>();
@@ -115,12 +118,14 @@ namespace Internal.Scripts.Trading
             ResetCaches();
             _playerSubscription = _inventoryRepository.PlayerInventoryStream.Subscribe(HandlePlayerInventory);
             _resourceSubscription = _resourceRepository.StateStream.Subscribe(HandlePlayerResources);
+            LocalizationSettings.SelectedLocaleChanged += OnLocaleChanged;
             HandlePlayerInventory(_inventoryRepository.GetPlayerInventory());
             _playerResources = _resourceRepository.Current;
         }
 
         public void Deactivate()
         {
+            LocalizationSettings.SelectedLocaleChanged -= OnLocaleChanged;
             _playerSubscription?.Dispose();
             _playerSubscription = null;
             _citySubscription?.Dispose();
@@ -282,6 +287,14 @@ namespace Internal.Scripts.Trading
             RebuildState();
         }
 
+        private void OnLocaleChanged(Locale _)
+        {
+            _forceRebuild = true;
+            ResetCaches();
+            RebuildState();
+            _forceRebuild = false;
+        }
+
         private void RebuildState()
         {
             _session.ClampReserved();
@@ -313,33 +326,33 @@ namespace Internal.Scripts.Trading
         private void UpdateItemsIfChanged()
         {
             int playerHash = _rowsBuilder.ComputeRemainingHash(_session.PlayerBase, _session.ToSell);
-            if (playerHash != _playerItemsHash)
+            if (_forceRebuild || playerHash != _playerItemsHash)
             {
                 _playerItems = _rowsBuilder.BuildRemainingRows(_session.PlayerBase, _session.ToSell,
                     _pricing.GetSellPrice, _pricing.GetSellBreakdown);
-                _playerItemsHash = playerHash;
+                _playerItemsHash = _forceRebuild ? playerHash ^ int.MinValue : playerHash;
             }
 
             int npcHash = _rowsBuilder.ComputeRemainingHash(_session.NpcBase, _session.ToBuy);
-            if (npcHash != _npcItemsHash)
+            if (_forceRebuild || npcHash != _npcItemsHash)
             {
                 _npcItems = _rowsBuilder.BuildRemainingRows(_session.NpcBase, _session.ToBuy,
                     _pricing.GetBuyPrice, _pricing.GetBuyBreakdown);
-                _npcItemsHash = npcHash;
+                _npcItemsHash = _forceRebuild ? npcHash ^ int.MinValue : npcHash;
             }
 
             int buyHash = _rowsBuilder.ComputeCountsHash(_session.ToBuy);
-            if (buyHash != _buyItemsHash)
+            if (_forceRebuild || buyHash != _buyItemsHash)
             {
                 _buyItems = _rowsBuilder.BuildRows(_session.ToBuy, _pricing.GetBuyPrice, _pricing.GetBuyBreakdown);
-                _buyItemsHash = buyHash;
+                _buyItemsHash = _forceRebuild ? buyHash ^ int.MinValue : buyHash;
             }
 
             int sellHash = _rowsBuilder.ComputeCountsHash(_session.ToSell);
-            if (sellHash != _sellItemsHash)
+            if (_forceRebuild || sellHash != _sellItemsHash)
             {
                 _sellItems = _rowsBuilder.BuildRows(_session.ToSell, _pricing.GetSellPrice, _pricing.GetSellBreakdown);
-                _sellItemsHash = sellHash;
+                _sellItemsHash = _forceRebuild ? sellHash ^ int.MinValue : sellHash;
             }
         }
 
