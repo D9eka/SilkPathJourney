@@ -8,6 +8,7 @@ using Internal.Scripts.Items;
 using Internal.Scripts.Npc.Save;
 using Internal.Scripts.Player.Skills;
 using Internal.Scripts.Quests.Save;
+using Internal.Scripts.WorldModifiers;
 
 namespace Internal.Scripts.Save
 {
@@ -134,6 +135,7 @@ namespace Internal.Scripts.Save
             data.Npcs ??= new NpcSaveData();
             data.Economy.PlayerInventory ??= new InventoryState();
             data.Quests ??= new QuestSaveData();
+            data.WorldModifiers ??= new WorldModifierSaveData();
             data.Economy.CityInventories ??= new List<CityInventoryState>();
 
             if (!data.Economy.IsInitialized && data.Economy.CityInventories.Count > 0)

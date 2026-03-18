@@ -4,6 +4,7 @@ using Internal.Scripts.Npc.Save;
 using Internal.Scripts.Player.Languages;
 using Internal.Scripts.Player.Skills;
 using Internal.Scripts.Quests.Save;
+using Internal.Scripts.WorldModifiers;
 
 namespace Internal.Scripts.Save
 {
@@ -19,5 +20,6 @@ namespace Internal.Scripts.Save
         public PlayerSkillState Skills;
         public PlayerLanguageState Languages;
         public QuestSaveData Quests;
+        public WorldModifierSaveData WorldModifiers;
     }
 }

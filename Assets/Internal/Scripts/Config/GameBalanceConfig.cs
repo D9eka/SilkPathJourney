@@ -40,5 +40,10 @@ namespace Internal.Scripts.Config
         [field: SerializeField] public float TradePriceDivisor { get; private set; } = 500f;
         [field: SerializeField] public float SkillBonusPerPoint { get; private set; } = 0.0045f;
         [field: SerializeField] public float SkillChanceCap { get; private set; } = 0.95f;
+
+        [Header("World Modifiers")]
+        [field: SerializeField] public float ModifierDurationMultiplier { get; private set; } = 1f;
+        [field: SerializeField] public int StalenessActualDays { get; private set; } = 20;
+        [field: SerializeField] public int StalenessStaleDays { get; private set; } = 40;
     }
 }
