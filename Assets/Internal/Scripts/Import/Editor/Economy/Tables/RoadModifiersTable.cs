@@ -27,6 +27,12 @@ namespace Internal.Scripts.Import.Editor.Economy.Tables
             int nameIndex = FindColumnIndex(header, "name_key");
             int descIndex = FindColumnIndex(header, "description_key");
             int iconIndex = FindColumnIndex(header, "icon_name");
+            int speedPctIndex = FindColumnIndex(header, "speed_pct");
+            int suppliesPctIndex = FindColumnIndex(header, "supplies_pct");
+            int dangerPctIndex = FindColumnIndex(header, "danger_pct");
+            int biomeIndex = FindColumnIndex(header, "biome_restriction");
+            int minDurIndex = FindColumnIndex(header, "min_duration");
+            int maxDurIndex = FindColumnIndex(header, "max_duration");
             if (idIndex < 0 || nameIndex < 0)
             {
                 Debug.LogError("[SPJ] Missing required columns in road_modifiers.csv");
@@ -47,11 +53,23 @@ namespace Internal.Scripts.Import.Editor.Economy.Tables
 
                 RoadModifierData asset = LoadOrCreateAsset<RoadModifierData>(OUTPUT_FOLDER, id);
 
+                TryParseFloat(GetField(rows[i], speedPctIndex), out float speedPct);
+                TryParseFloat(GetField(rows[i], suppliesPctIndex), out float suppliesPct);
+                TryParseFloat(GetField(rows[i], dangerPctIndex), out float dangerPct);
+                TryParseInt(GetField(rows[i], minDurIndex), out int minDur);
+                TryParseInt(GetField(rows[i], maxDurIndex), out int maxDur);
+
                 asset.ApplyImport(
                     id,
                     MakeLocalizedString(nameKey, locTableName),
                     MakeLocalizedString(descKey, locTableName),
-                    icon);
+                    icon,
+                    speedPct,
+                    suppliesPct,
+                    dangerPct,
+                    GetField(rows[i], biomeIndex).Trim(),
+                    minDur,
+                    maxDur);
 
                 EditorUtility.SetDirty(asset);
                 modifiers.Add(asset);

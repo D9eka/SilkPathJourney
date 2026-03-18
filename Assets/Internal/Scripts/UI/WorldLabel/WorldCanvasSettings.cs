@@ -14,7 +14,8 @@ namespace Internal.Scripts.UI.WorldLabel
         [field: SerializeField] public float MaxLabelScale { get; private set; } = 0.06f;
 
         [Header("Prefabs")]
-        [field: SerializeField] public WorldLabelView LabelPrefab { get; private set; }
+        [field: SerializeField] public CityLabelView LabelPrefab { get; private set; }
+        [field: SerializeField] public NpcLabelView NpcLabelPrefab { get; private set; }
         [field: SerializeField] public RoadLabelView RoadLabelPrefab { get; private set; }
     }
 }

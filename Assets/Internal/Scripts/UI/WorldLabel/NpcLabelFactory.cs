@@ -1,23 +1,26 @@
 using System;
 using Internal.Scripts.UI.Tooltip;
+using Internal.Scripts.UI.WorldLabel.Components;
 using UnityEngine;
 using UnityEngine.Localization;
 
 namespace Internal.Scripts.UI.WorldLabel
 {
-    public class WorldLabelViewHelper : IDisposable
+    public class NpcLabelFactory : IDisposable
     {
         private readonly WorldCanvas _worldCanvas;
-        private WorldLabelView _label;
+        private NameLabelView _label;
+        private NpcLabelView _npcLabel;
 
-        public WorldLabelView Label => _label;
+        public NameLabelView Label => _label;
+        public NpcLabelView NpcLabel => _npcLabel;
 
-        public WorldLabelViewHelper(WorldCanvas worldCanvas)
+        public NpcLabelFactory(WorldCanvas worldCanvas)
         {
             _worldCanvas = worldCanvas;
         }
 
-        public WorldLabelView CreateLabel(
+        public NameLabelView CreateLabel(
             Vector3 worldPosition,
             string name,
             LocalizedString localizedText,
@@ -26,7 +29,8 @@ namespace Internal.Scripts.UI.WorldLabel
         {
             return CreateLabel(worldPosition, Vector3.zero, name, localizedText, fallbackText, tooltipProvider);
         }
-        public WorldLabelView CreateLabel(
+
+        public NameLabelView CreateLabel(
             Vector3 worldPosition,
             Vector3 offset,
             string name,
@@ -36,7 +40,8 @@ namespace Internal.Scripts.UI.WorldLabel
         {
             if (_worldCanvas == null) return null;
 
-            _label = _worldCanvas.CreateLabel(worldPosition, offset, name);
+            var cityLabel = _worldCanvas.CreateLabel(worldPosition, offset, name);
+            _label = cityLabel._nameLabel;
             _label.SetLocalizedText(localizedText, fallbackText);
             if (tooltipProvider != null)
                 _label.SetTooltipProvider(tooltipProvider);
@@ -44,7 +49,7 @@ namespace Internal.Scripts.UI.WorldLabel
             return _label;
         }
 
-        public WorldLabelView CreateLabel(
+        public NameLabelView CreateLabel(
             Vector3 worldPosition,
             string name,
             string text,
@@ -52,7 +57,8 @@ namespace Internal.Scripts.UI.WorldLabel
         {
             return CreateLabel(worldPosition, Vector3.zero, name, text, tooltipProvider);
         }
-        public WorldLabelView CreateLabel(
+
+        public NameLabelView CreateLabel(
             Vector3 worldPosition,
             Vector3 offset,
             string name,
@@ -61,12 +67,42 @@ namespace Internal.Scripts.UI.WorldLabel
         {
             if (_worldCanvas == null) return null;
 
-            _label = _worldCanvas.CreateLabel(worldPosition, offset, name);
+            var cityLabel = _worldCanvas.CreateLabel(worldPosition, offset, name);
+            _label = cityLabel._nameLabel;
             _label.SetText(text);
             if (tooltipProvider != null)
                 _label.SetTooltipProvider(tooltipProvider);
 
             return _label;
+        }
+
+        public NpcLabelView CreateNpcLabel(
+            Vector3 worldPosition,
+            Vector3 offset,
+            string name,
+            LocalizedString localizedText,
+            string fallbackText)
+        {
+            if (_worldCanvas == null) return null;
+
+            _npcLabel = _worldCanvas.CreateNpcLabel(worldPosition, offset, name);
+            _label = _npcLabel._nameLabel;
+            _label.SetLocalizedText(localizedText, fallbackText);
+            return _npcLabel;
+        }
+
+        public NpcLabelView CreateNpcLabel(
+            Vector3 worldPosition,
+            Vector3 offset,
+            string name,
+            string text)
+        {
+            if (_worldCanvas == null) return null;
+
+            _npcLabel = _worldCanvas.CreateNpcLabel(worldPosition, offset, name);
+            _label = _npcLabel._nameLabel;
+            _label.SetText(text);
+            return _npcLabel;
         }
 
         public void Dispose()
@@ -75,8 +111,8 @@ namespace Internal.Scripts.UI.WorldLabel
             {
                 UnityEngine.Object.Destroy(_label.gameObject);
                 _label = null;
+                _npcLabel = null;
             }
         }
     }
 }
-

@@ -1,35 +1,57 @@
+using System;
 using System.Collections.Generic;
+using Internal.Scripts.Config;
 using Internal.Scripts.Economy;
 using Internal.Scripts.Economy.Cities;
 using Internal.Scripts.Economy.Cities.UI;
+using Internal.Scripts.Events;
 using Internal.Scripts.UI.Theme;
+using Internal.Scripts.UI.WorldLabel.Components;
 using Internal.Scripts.World.State;
-using UnityEngine;
+using Internal.Scripts.WorldModifiers;
+using R3;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
 
 namespace Internal.Scripts.UI.WorldLabel
 {
     public class CityLabelSpawner : WorldLabelSpawnerBase
     {
-        private const int MODIFIERS_PER_CITY = 2;
-
         private readonly CityViewSpawner _cityViewSpawner;
         private readonly EconomyDatabase _economyDatabase;
         private readonly StaticColorController _colorController;
+        private readonly WorldModifierRepository _modifierRepo;
+        private readonly DayTracker _dayTracker;
+        private readonly GameBalanceConfig _balanceConfig;
+        private readonly Dictionary<string, CityLabelView> _cityLabels = new();
+        private IDisposable _modifierSubscription;
 
         public CityLabelSpawner(
             CityViewSpawner cityViewSpawner,
             WorldStateController worldStateController,
             WorldCanvas worldCanvas,
             EconomyDatabase economyDatabase,
-            StaticColorController colorController)
+            StaticColorController colorController,
+            WorldModifierRepository modifierRepo,
+            DayTracker dayTracker,
+            GameBalanceConfig balanceConfig)
             : base(worldStateController, worldCanvas)
         {
             _cityViewSpawner = cityViewSpawner;
             _economyDatabase = economyDatabase;
             _colorController = colorController;
+            _modifierRepo = modifierRepo;
+            _dayTracker = dayTracker;
+            _balanceConfig = balanceConfig;
         }
 
         protected override bool ShouldShowInViewMode(WorldViewMode viewMode) => true;
+
+        protected override void OnDispose()
+        {
+            _modifierSubscription?.Dispose();
+            LocalizationSettings.SelectedLocaleChanged -= OnLocaleChanged;
+        }
 
         protected override void SpawnLabels()
         {
@@ -41,52 +63,67 @@ namespace Internal.Scripts.UI.WorldLabel
                 total++;
 
                 CityData city = view.City;
-                Transform nodeTransform = view.transform.parent;
-                Vector3 position = nodeTransform != null ? nodeTransform.position : view.transform.position;
+                UnityEngine.Transform nodeTransform = view.transform.parent;
+                UnityEngine.Vector3 position = nodeTransform != null ? nodeTransform.position : view.transform.position;
 
-                WorldLabelView label = CreateAndConfigureLabel(
+                CityLabelView label = CreateAndConfigureLabel(
                     position,
                     $"CityLabel_{city.Id}");
-                label.SetColorController(_colorController, city.Biome);
-                label.SetLocalizedText(city.Name, city.Id);
-                label.SetTooltipProvider(city);
+                label._nameLabel.SetColorController(_colorController, city.Biome);
+                label._nameLabel.SetLocalizedText(city.Name, city.Id);
+                label._nameLabel.SetTooltipProvider(city);
 
                 CityTypeData cityType = _economyDatabase.GetCityType(city.Type);
                 if (cityType != null)
                 {
                     if (cityType.Icon != null)
-                        label.SetIcon(cityType.Icon);
-                    label.SetIconTooltip(cityType.GetTooltipTitle(), cityType.GetTooltipDescription());
+                        label._nameLabel.SetIcon(cityType.Icon);
+                    label._nameLabel.SetIconTooltip(cityType.GetTooltipTitle(), cityType.GetTooltipDescription());
                 }
 
-                AddRandomModifiers(label);
+                _cityLabels[city.Id] = label;
+                AddActiveModifiers(label.Modifiers, city.Id);
             }
 
-            Debug.Log($"[CityLabelSpawner] City labels created: {total}");
+            _modifierSubscription = _modifierRepo.Changed.Subscribe(_ => RefreshAllModifiers());
+            LocalizationSettings.SelectedLocaleChanged += OnLocaleChanged;
+
+            UnityEngine.Debug.Log($"[CityLabelSpawner] City labels created: {total}");
         }
 
-        private void AddRandomModifiers(WorldLabelView label)
+        private bool AddActiveModifiers(ModifierIconsView modifiers, string cityId)
         {
-            List<CityModifierData> all = _economyDatabase.CityModifiers;
-            if (all == null || all.Count == 0) return;
+            if (modifiers == null) return false;
 
-            int count = Mathf.Min(MODIFIERS_PER_CITY, all.Count);
-            List<int> indices = new(all.Count);
-            for (int i = 0; i < all.Count; i++)
-                indices.Add(i);
-
-            for (int i = 0; i < count; i++)
+            var active = _modifierRepo.GetCityModifiers(cityId);
+            bool added = false;
+            foreach (var entry in active)
             {
-                int pick = Random.Range(i, indices.Count);
-                (indices[i], indices[pick]) = (indices[pick], indices[i]);
-
-                CityModifierData mod = all[indices[i]];
+                CityModifierData mod = _economyDatabase.GetCityModifier(entry.ModifierId);
                 if (mod == null) continue;
 
-                label.AddIcon(
-                    mod.Icon,
-                    mod.GetTooltipTitle(),
-                    mod.GetTooltipDescription());
+                var staleness = ModifierStalenessHelper.GetStaleness(entry.LastSeenDay, _dayTracker.CurrentDay,
+                    _balanceConfig.StalenessActualDays, _balanceConfig.StalenessStaleDays);
+                float alpha = ModifierStalenessHelper.GetAlpha(staleness);
+                if (staleness == ModifierStaleness.Unknown)
+                    modifiers.AddIcon(mod.Icon, "???", ModifierStalenessHelper.GetUnknownDescription());
+                else
+                    modifiers.AddIcon(mod.Icon, mod.GetTooltipTitle(), mod.GetTooltipDescription(), alpha);
+                added = true;
+            }
+            modifiers.SetVisible(added);
+            UnityEngine.Debug.Log($"[CityLabelSpawner] {cityId}: modifiers={active.Count}, added={added}, visible={added}");
+            return added;
+        }
+
+        private void OnLocaleChanged(Locale _) => RefreshAllModifiers();
+
+        private void RefreshAllModifiers()
+        {
+            foreach (var kvp in _cityLabels)
+            {
+                kvp.Value.Modifiers?.ClearIcons();
+                AddActiveModifiers(kvp.Value.Modifiers, kvp.Key);
             }
         }
     }

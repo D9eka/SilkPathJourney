@@ -1,3 +1,4 @@
+using Internal.Scripts.Economy.Generated;
 using Internal.Scripts.Road.Nodes;
 
 namespace Internal.Scripts.Economy.Cities
@@ -5,6 +6,18 @@ namespace Internal.Scripts.Economy.Cities
     public interface ICityNodeResolver
     {
         bool TryGetCityByNodeId(string nodeId, out CityData city);
+    }
+
+    public static class CityNodeResolverExtensions
+    {
+        public static Biome ResolveRoadBiome(this ICityNodeResolver resolver, string startNodeId, string endNodeId)
+        {
+            if (resolver.TryGetCityByNodeId(startNodeId, out var city) && city.Biome != Biome.Unknown)
+                return city.Biome;
+            if (resolver.TryGetCityByNodeId(endNodeId, out city) && city.Biome != Biome.Unknown)
+                return city.Biome;
+            return Biome.Plains;
+        }
     }
 
     public sealed class CityNodeResolver : ICityNodeResolver

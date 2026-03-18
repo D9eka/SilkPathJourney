@@ -28,35 +28,41 @@ namespace Internal.Scripts.Player
             _nameDb = nameDb;
         }
 
-        public bool HireCompanion(CompanionType type, CompanionQuality quality,
-            CultureId culture = CultureId.None, float regionMultiplier = 1f)
+        public int GetHireCost(CompanionType type, CompanionQuality quality, float regionMultiplier = 1f)
+        {
+            CompanionTypeData typeData = _caravanDb.GetCompanionType(type);
+            CaravanDatabase.CompanionQualityEntry qualityData = _caravanDb.GetCompanionQuality(quality);
+            if (typeData == null) return 0;
+            return Mathf.RoundToInt(typeData.HireCostBase * qualityData.PriceMultiplier * regionMultiplier);
+        }
+
+        public bool HireCompanion(CompanionType type, CompanionQuality quality, int cost,
+            CultureId culture = CultureId.None)
         {
             LanguageType language = LanguageType.None;
             if (type == CompanionType.Translator && culture != CultureId.None)
                 language = GetLanguageForCulture(culture);
 
-            return HireCompanionInternal(type, quality, culture, language, regionMultiplier);
+            return HireCompanionInternal(type, quality, culture, language, cost);
         }
 
-        public bool HireCompanionWithLanguage(CompanionType type, CompanionQuality quality,
+        public bool HireCompanionWithLanguage(CompanionType type, CompanionQuality quality, int cost,
             LanguageType language)
         {
-            return HireCompanionInternal(type, quality, CultureId.None, language, 1f);
+            return HireCompanionInternal(type, quality, CultureId.None, language, cost);
         }
 
         private bool HireCompanionInternal(CompanionType type, CompanionQuality quality,
-            CultureId culture, LanguageType language, float regionMultiplier)
+            CultureId culture, LanguageType language, int cost)
         {
             var state = _resourceRepo.Current;
             if (state.Companions.Count >= state.MaxCompanions)
                 return false;
 
             CompanionTypeData typeData = _caravanDb.GetCompanionType(type);
-            CaravanDatabase.CompanionQualityEntry qualityData = _caravanDb.GetCompanionQuality(quality);
             if (typeData == null)
                 return false;
 
-            int cost = Mathf.RoundToInt(typeData.HireCostBase * qualityData.PriceMultiplier * regionMultiplier);
             if (state.Money < cost)
                 return false;
 

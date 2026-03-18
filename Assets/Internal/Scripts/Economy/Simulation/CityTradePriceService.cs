@@ -44,10 +44,10 @@ namespace Internal.Scripts.Economy.Simulation
             string itemName = _itemCatalog.ResolveItemName(itemId);
 
             if (item == null)
-                return new PriceBreakdown(itemName, 0, 1f, 1f, 0, false);
+                return new PriceBreakdown(itemName, 0, 1f, 1f, 1f, 0, false);
 
             if (!_profileService.TryGetProfile(cityId, itemId, out CityItemMarketProfile profile))
-                return new PriceBreakdown(itemName, item.BasePrice, 1f, 1f, item.BasePrice, false);
+                return new PriceBreakdown(itemName, item.BasePrice, 1f, 1f, 1f, item.BasePrice, false);
 
             float baseCoef = kind == TradePriceKind.BuyFromCity ? profile.BuyCoef : profile.SellCoef;
 
@@ -62,17 +62,19 @@ namespace Internal.Scripts.Economy.Simulation
                     _settings.PriceMultiplierMax);
             }
 
-            float modifierMult = 1f;
+            float bonusMult = 1f;
+            float worldModMult = 1f;
             if (applySkillBonus)
             {
-                modifierMult = kind == TradePriceKind.BuyFromCity
-                    ? _modifiers.GetBuyMultiplier(cityId)
-                    : _modifiers.GetSellMultiplier(cityId);
+                bonusMult = kind == TradePriceKind.BuyFromCity
+                    ? _modifiers.GetBuyBonusMultiplier(cityId)
+                    : _modifiers.GetSellBonusMultiplier(cityId);
+                worldModMult = _modifiers.GetWorldModifierMultiplier(cityId);
             }
 
             float marketMult = baseCoef * scarcityMult;
-            int finalPrice = Mathf.Max(1, Mathf.RoundToInt(item.BasePrice * marketMult * modifierMult));
-            return new PriceBreakdown(itemName, item.BasePrice, marketMult, modifierMult, finalPrice, false);
+            int finalPrice = Mathf.Max(1, Mathf.RoundToInt(item.BasePrice * marketMult * bonusMult * worldModMult));
+            return new PriceBreakdown(itemName, item.BasePrice, marketMult, bonusMult, worldModMult, finalPrice, false);
         }
 
         private int GetCurrentStock(string cityId, string itemId)

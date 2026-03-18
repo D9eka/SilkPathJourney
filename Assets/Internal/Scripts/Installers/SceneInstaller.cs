@@ -54,6 +54,7 @@ using Internal.Scripts.UI.Tooltip;
 using Internal.Scripts.UI.WorldLabel;
 using Internal.Scripts.Utils;
 using Internal.Scripts.World.State;
+using Internal.Scripts.WorldModifiers;
 using Plugins.Zenject.Source.Install;
 using UnityEngine;
 using Zenject;
@@ -93,6 +94,7 @@ namespace Internal.Scripts.Installers
             InstallRoad();
             InstallNpc();
             InstallEconomy();
+            InstallWorldModifiers();
             InstallWorldCanvas();
             InstallWorldLabels();
             InstallPlayer();
@@ -315,6 +317,15 @@ namespace Internal.Scripts.Installers
             Container.BindInterfacesAndSelfTo<QuestRepository>().AsSingle().NonLazy();
             Container.Bind<QuestRewardApplier>().AsSingle();
             Container.BindInterfacesTo<QuestStageChecker>().AsSingle();
+        }
+
+        private void InstallWorldModifiers()
+        {
+            Container.Bind<WorldModifierRepository>().AsSingle();
+            Container.Bind<ModifierEffectQuery>().AsSingle();
+            Container.Bind<CurrentRoadResolver>().AsSingle();
+            Container.BindInterfacesTo<WorldModifierSpawner>().AsSingle();
+            Container.BindInterfacesTo<ModifierVisibilityTracker>().AsSingle();
         }
 
         private void InstallWorldLabels()

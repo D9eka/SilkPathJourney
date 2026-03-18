@@ -10,22 +10,23 @@ namespace Internal.Scripts.Npc.City
         [SerializeField] private Sprite _questIconSprite;
 
         private WorldCanvas _worldCanvas;
-        private WorldLabelViewHelper _labelHelper;
+        private NpcLabelFactory _labelHelper;
 
-        public WorldLabelView Label => _labelHelper?.Label;
+        public NpcLabelView Label => _labelHelper?.NpcLabel;
         public Sprite QuestIconSprite => _questIconSprite;
 
         [Inject]
         public void Construct(WorldCanvas worldCanvas)
         {
             _worldCanvas = worldCanvas;
-            _labelHelper = new WorldLabelViewHelper(worldCanvas);
+            _labelHelper = new NpcLabelFactory(worldCanvas);
         }
 
         private void Start()
         {
-            var label = _labelHelper.CreateLabel(
+            NpcLabelView label = _labelHelper.CreateNpcLabel(
                 transform.position,
+                Vector3.zero,
                 $"NpcLabel_{_displayName}",
                 _displayName);
             label?.HideIcon();

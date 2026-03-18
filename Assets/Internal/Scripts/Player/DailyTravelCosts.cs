@@ -2,10 +2,12 @@ using System;
 using Internal.Scripts.Caravan;
 using Internal.Scripts.Config;
 using Internal.Scripts.Economy;
+using Internal.Scripts.Economy.Cities;
 using Internal.Scripts.Economy.Save;
 using Internal.Scripts.Events;
 using Internal.Scripts.Inventory;
 using Internal.Scripts.Items;
+using Internal.Scripts.WorldModifiers;
 using UnityEngine;
 
 namespace Internal.Scripts.Player
@@ -24,6 +26,10 @@ namespace Internal.Scripts.Player
         private readonly GameBalanceConfig _balanceConfig;
         private readonly CaravanDatabase _caravanDatabase;
         private readonly CompanionCosts _companionCosts;
+        private readonly ModifierEffectQuery _modifierQuery;
+        private readonly CurrentRoadResolver _roadResolver;
+        private readonly ICityNodeResolver _cityResolver;
+        private readonly IPlayerStateProvider _playerState;
 
         public DailyTravelCosts(
             DayTracker dayTracker,
@@ -34,7 +40,11 @@ namespace Internal.Scripts.Player
             InventoryRepository inventoryRepository,
             GameBalanceConfig balanceConfig,
             CaravanDatabase caravanDatabase,
-            CompanionCosts companionCosts)
+            CompanionCosts companionCosts,
+            ModifierEffectQuery modifierQuery,
+            CurrentRoadResolver roadResolver,
+            ICityNodeResolver cityResolver,
+            IPlayerStateProvider playerState)
         {
             _dayTracker = dayTracker;
             _speedService = speedService;
@@ -45,6 +55,10 @@ namespace Internal.Scripts.Player
             _balanceConfig = balanceConfig;
             _caravanDatabase = caravanDatabase;
             _companionCosts = companionCosts;
+            _modifierQuery = modifierQuery;
+            _roadResolver = roadResolver;
+            _cityResolver = cityResolver;
+            _playerState = playerState;
         }
 
         public void Activate()
@@ -63,13 +77,21 @@ namespace Internal.Scripts.Player
             float overloadWear = _overload.GetWearModifier();
             float overloadFood = _overload.GetFoodModifier();
 
+            string roadId = _roadResolver.GetCurrentRoadId();
+            float suppliesMult = roadId != null ? _modifierQuery.GetRoadSuppliesMultiplier(roadId) : 1f;
+            float dangerMult = roadId != null ? _modifierQuery.GetRoadDangerMultiplier(roadId) : 1f;
+
+            string nodeId = _playerState.CurrentNodeId;
+            if (!string.IsNullOrEmpty(nodeId) && _cityResolver.TryGetCityByNodeId(nodeId, out CityData city))
+                dangerMult *= _modifierQuery.GetCityDangerMultiplier(city.Id);
+
             int suppliesToConsume = 0;
 
             _resourceRepo.UpdateResources(state =>
             {
                 ApplyDurabilityWear(state, modeData, overloadWear);
-                suppliesToConsume = AccumulateFoodConsumption(state, modeData, overloadFood);
-                ApplyDangerIncrease(state, modeData);
+                suppliesToConsume = AccumulateFoodConsumption(state, modeData, overloadFood, suppliesMult);
+                ApplyDangerIncrease(state, modeData, dangerMult);
                 _companionCosts.ProcessDailyPay(state);
                 ApplyRepairKitUpgrade(state);
             });
@@ -92,13 +114,13 @@ namespace Internal.Scripts.Player
                 cart.Durability = Mathf.Max(0f, cart.Durability - cart.MaxDurability * wearRate);
         }
 
-        private int AccumulateFoodConsumption(PlayerResourceState state, SpeedModeData data, float overloadMod)
+        private int AccumulateFoodConsumption(PlayerResourceState state, SpeedModeData data, float overloadMod, float suppliesMult)
         {
             float baseFoodPerDay = state.TotalFoodPerDay;
             baseFoodPerDay += CalculateAnimalFeed(state);
             baseFoodPerDay += state.Companions?.Count ?? 0;
 
-            state.Food += baseFoodPerDay * data.FoodMultiplier * overloadMod;
+            state.Food += baseFoodPerDay * data.FoodMultiplier * overloadMod * suppliesMult;
 
             int toConsume = (int)state.Food;
             state.Food -= toConsume;
@@ -115,11 +137,11 @@ namespace Internal.Scripts.Player
             return classData.AnimalCount * animal.FeedPerDay;
         }
 
-        private void ApplyDangerIncrease(PlayerResourceState state, SpeedModeData data)
+        private void ApplyDangerIncrease(PlayerResourceState state, SpeedModeData data, float dangerMult)
         {
             if (data.DangerPerDay > 0f)
                 state.AccumulatedDanger = Mathf.Min(
-                    _balanceConfig.MaxDanger, state.AccumulatedDanger + data.DangerPerDay);
+                    _balanceConfig.MaxDanger, state.AccumulatedDanger + data.DangerPerDay * dangerMult);
         }
 
         private void ApplyRepairKitUpgrade(PlayerResourceState state)

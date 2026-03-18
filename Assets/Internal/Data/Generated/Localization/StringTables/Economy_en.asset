@@ -1154,6 +1154,111 @@ MonoBehaviour:
     m_Localized: Military upgrades, hire guards
     m_Metadata:
       m_Items: []
+  - m_Id: 17330261669699584
+    m_Localized: Clear weather speeds up caravan travel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17330261711642624
+    m_Localized: Clear Weather
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17330261711642625
+    m_Localized: Dense fog conceals dangers on the road
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17330261711642626
+    m_Localized: Fog
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17330261711642627
+    m_Localized: Heat increases supply consumption
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17330261711642628
+    m_Localized: Heat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17330261711642629
+    m_Localized: Mud slows the caravan and increases supply consumption
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17330261711642630
+    m_Localized: Mud
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17330261711642631
+    m_Localized: Rain slows movement and increases supply consumption
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17330261711642632
+    m_Localized: Rain
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17330261711642633
+    m_Localized: Storm severely slows the caravan and increases danger
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17330261711642634
+    m_Localized: Storm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17330261711642635
+    m_Localized: "Bandits rob merchants \u2014 prices rise due to risks"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17330261711642636
+    m_Localized: Bandits
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17330261711642637
+    m_Localized: A large caravan arrival has flooded the market with goods
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17330261711642638
+    m_Localized: Caravan Arrival
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17330261711642639
+    m_Localized: "Drought destroyed crops \u2014 food and water prices soared"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17330261711642640
+    m_Localized: Drought
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17330261711642641
+    m_Localized: "Epidemic has paralyzed trade \u2014 prices have surged"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17330261711642642
+    m_Localized: Epidemic
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17330261711642643
+    m_Localized: "Festival attracted merchants \u2014 prices are lower"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17330261711642644
+    m_Localized: Festival
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17330261711642645
+    m_Localized: Local ruler has raised trade tariffs
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17330261711642646
+    m_Localized: High Taxes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17330261711642647
+    m_Localized: "Military conflict has disrupted trade routes \u2014 prices and
+      danger have surged"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 17330261711642648
+    m_Localized: War
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

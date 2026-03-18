@@ -10,7 +10,7 @@ namespace Internal.Scripts.UI.WorldLabel
     {
         protected readonly WorldStateController _worldStateController;
         protected readonly WorldCanvas _worldCanvas;
-        protected readonly List<WorldLabelView> _labels = new();
+        protected readonly List<CityLabelView> _labels = new();
 
         protected WorldLabelSpawnerBase(
             WorldStateController worldStateController,
@@ -29,14 +29,17 @@ namespace Internal.Scripts.UI.WorldLabel
 
         public void Dispose()
         {
+            OnDispose();
             _worldStateController.OnStateChange -= OnStateChange;
-            foreach (WorldLabelView label in _labels)
+            foreach (CityLabelView label in _labels)
             {
                 if (label != null)
                     UnityEngine.Object.Destroy(label.gameObject);
             }
             _labels.Clear();
         }
+
+        protected virtual void OnDispose() { }
 
         protected abstract void SpawnLabels();
 
@@ -48,16 +51,16 @@ namespace Internal.Scripts.UI.WorldLabel
         private void OnStateChange(WorldViewMode viewMode)
         {
             bool show = ShouldShowInViewMode(viewMode);
-            foreach (WorldLabelView label in _labels)
+            foreach (CityLabelView label in _labels)
             {
-                if (show) label.Show();
-                else label.Hide();
+                if (show) label._nameLabel.Show();
+                else label._nameLabel.Hide();
             }
         }
 
-        protected WorldLabelView CreateAndConfigureLabel(Vector3 position, string name)
+        protected CityLabelView CreateAndConfigureLabel(Vector3 position, string name)
         {
-            WorldLabelView label = _worldCanvas.CreateLabel(position, name);
+            CityLabelView label = _worldCanvas.CreateLabel(position, name);
             _labels.Add(label);
             return label;
         }

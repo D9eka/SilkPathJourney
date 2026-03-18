@@ -4,6 +4,7 @@ using Internal.Scripts.Config;
 using Internal.Scripts.Economy;
 using Internal.Scripts.Economy.Save;
 using Internal.Scripts.Npc.Core;
+using Internal.Scripts.WorldModifiers;
 using R3;
 
 namespace Internal.Scripts.Player
@@ -15,6 +16,8 @@ namespace Internal.Scripts.Player
         private readonly OverloadCalculator _overload;
         private readonly CaravanDatabase _caravanDatabase;
         private readonly PlayerResourceRepository _resourceRepo;
+        private readonly ModifierEffectQuery _modifierQuery;
+        private readonly CurrentRoadResolver _roadResolver;
 
         private RoadAgent _agent;
         private IDisposable _subscription;
@@ -26,13 +29,17 @@ namespace Internal.Scripts.Player
             GameBalanceConfig balanceConfig,
             OverloadCalculator overload,
             CaravanDatabase caravanDatabase,
-            PlayerResourceRepository resourceRepo)
+            PlayerResourceRepository resourceRepo,
+            ModifierEffectQuery modifierQuery,
+            CurrentRoadResolver roadResolver)
         {
             _config = config;
             _balanceConfig = balanceConfig;
             _overload = overload;
             _caravanDatabase = caravanDatabase;
             _resourceRepo = resourceRepo;
+            _modifierQuery = modifierQuery;
+            _roadResolver = roadResolver;
 
             _subscription = _resourceRepo.StateStream.Subscribe(_ => ApplySpeed());
         }
@@ -83,7 +90,12 @@ namespace Internal.Scripts.Player
             baseSpeed *= 1f - extraCartPenalty / 100f;
 
             SpeedModeData modeData = _config.GetModeData(CurrentMode.Value);
-            _agent.SpeedMetersPerDay = baseSpeed * _balanceConfig.WorldUnitsPerKm * modeData.SpeedMultiplier * _overload.GetSpeedModifier();
+            float roadModifier = 1f;
+            string roadId = _roadResolver.GetCurrentRoadId();
+            if (roadId != null)
+                roadModifier = _modifierQuery.GetRoadSpeedMultiplier(roadId);
+
+            _agent.SpeedMetersPerDay = baseSpeed * _balanceConfig.WorldUnitsPerKm * modeData.SpeedMultiplier * _overload.GetSpeedModifier() * roadModifier;
         }
 
         public void Dispose()

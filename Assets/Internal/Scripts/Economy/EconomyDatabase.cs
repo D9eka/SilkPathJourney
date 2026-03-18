@@ -71,6 +71,16 @@ namespace Internal.Scripts.Economy
             return CityTypes.Find(ct => ct.Type == type);
         }
 
+        public CityModifierData GetCityModifier(string id)
+        {
+            return CityModifiers.Find(m => m.Id == id);
+        }
+
+        public RoadModifierData GetRoadModifier(string id)
+        {
+            return RoadModifiers.Find(m => m.Id == id);
+        }
+
 #if UNITY_EDITOR
         public void ApplyImport(
             List<ItemData> items,

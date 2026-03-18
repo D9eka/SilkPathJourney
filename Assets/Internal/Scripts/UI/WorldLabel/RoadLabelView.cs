@@ -3,6 +3,7 @@ using Internal.Scripts.Economy.Generated;
 using Internal.Scripts.Road.Core;
 using Internal.Scripts.UI.Theme;
 using Internal.Scripts.UI.Tooltip;
+using Internal.Scripts.UI.WorldLabel.Components;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -14,19 +15,18 @@ namespace Internal.Scripts.UI.WorldLabel
         private const float HIGHLIGHT_Y_OFFSET = 0.15f;
         private const float HIGHLIGHT_WIDTH = 2f;
 
-        [SerializeField] private Image _background;
-        [SerializeField] private RectTransform _iconsContainer;
-        [SerializeField] private Image _iconTemplate;
+        [SerializeField] private ModifierIconsView _modifiers;
 
         [Header("Highlight")]
         [SerializeField] private Color _highlightColor = Color.yellow;
 
         private StaticColorController _colorController;
         private Biome _biome = Biome.Plains;
-        private TooltipService _tooltipService;
 
         private RoadRuntime _road;
         private LineRenderer _highlightLine;
+
+        public ModifierIconsView Modifiers => _modifiers;
 
         public void SetColorController(StaticColorController controller, Biome biome)
         {
@@ -37,13 +37,8 @@ namespace Internal.Scripts.UI.WorldLabel
 
         public void Initialize(TooltipService tooltipService)
         {
-            _tooltipService = tooltipService;
-
-            if (_background != null)
-                _background.raycastTarget = true;
-
-            if (_iconTemplate != null)
-                _iconTemplate.gameObject.SetActive(false);
+            if (_modifiers != null)
+                _modifiers.Initialize(tooltipService);
         }
 
         public void SetRoad(RoadRuntime road)
@@ -80,19 +75,10 @@ namespace Internal.Scripts.UI.WorldLabel
             go.SetActive(false);
         }
 
-        public void AddIcon(Sprite icon, string name, string description)
+        public void SetHasModifiers(bool has)
         {
-            if (_iconTemplate == null || _iconsContainer == null) return;
-
-            GameObject iconGo = Instantiate(_iconTemplate.gameObject, _iconsContainer);
-            iconGo.SetActive(true);
-
-            Image image = iconGo.GetComponent<Image>();
-            if (image != null)
-                image.sprite = icon;
-
-            WorldLabelIcon labelIcon = iconGo.AddComponent<WorldLabelIcon>();
-            labelIcon.Initialize(_tooltipService, name, description);
+            if (_modifiers != null)
+                _modifiers.SetVisible(has);
         }
 
         public void Show() => gameObject.SetActive(true);

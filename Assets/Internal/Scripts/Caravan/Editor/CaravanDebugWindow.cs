@@ -204,12 +204,13 @@ namespace Internal.Scripts.Caravan.Editor
             EditorGUILayout.BeginHorizontal();
             if (GUILayout.Button("Hire"))
             {
+                int cost = _companionService?.GetHireCost(_selectedCompanionType, _selectedCompanionQuality) ?? 0;
                 if (_selectedCompanionType == CompanionType.Translator && _selectedLanguage != LanguageType.None)
                     _companionService?.HireCompanionWithLanguage(_selectedCompanionType, _selectedCompanionQuality,
-                        _selectedLanguage);
+                        cost, _selectedLanguage);
                 else
                     _companionService?.HireCompanion(_selectedCompanionType, _selectedCompanionQuality,
-                        Economy.Generated.CultureId.None);
+                        cost, Economy.Generated.CultureId.None);
             }
 
             GUI.enabled = companions != null && companions.Count > 0;

@@ -42,12 +42,14 @@ namespace Internal.Scripts.UI.WorldLabel
             _isInitialized = true;
         }
 
-        public WorldLabelView CreateLabel(Vector3 worldPosition, string goName = "Label")
+        public TooltipService TooltipService => _tooltipService;
+
+        public CityLabelView CreateLabel(Vector3 worldPosition, string goName = "Label")
         {
             return CreateLabel(worldPosition, Vector3.zero, goName);
         }
 
-        public WorldLabelView CreateLabel(Vector3 worldPosition, Vector3 offset, string goName = "Label")
+        public CityLabelView CreateLabel(Vector3 worldPosition, Vector3 offset, string goName = "Label")
         {
             if (!_isInitialized || _canvas == null)
             {
@@ -55,12 +57,40 @@ namespace Internal.Scripts.UI.WorldLabel
                 return null;
             }
 
-            WorldLabelView label = Instantiate(_settings.LabelPrefab, _canvas.transform);
+            CityLabelView label = Instantiate(_settings.LabelPrefab, _canvas.transform);
             label.gameObject.name = goName;
 
             PositionElement(label.GetComponent<RectTransform>(), worldPosition, offset);
             AddBillboard(label.gameObject);
-            label.Initialize(_tooltipService, _localizationService);
+            label._nameLabel.Initialize(_tooltipService, _localizationService);
+            label.Modifiers?.Initialize(_tooltipService);
+
+            return label;
+        }
+
+        public NpcLabelView CreateNpcLabel(Vector3 worldPosition, Vector3 offset, string goName = "NpcLabel")
+        {
+            if (!_isInitialized || _canvas == null)
+            {
+                Debug.LogError("[WorldCanvas] Not initialized before CreateNpcLabel call.");
+                return null;
+            }
+
+            NpcLabelView label;
+            if (_settings.NpcLabelPrefab != null)
+            {
+                label = Instantiate(_settings.NpcLabelPrefab, _canvas.transform);
+            }
+            else
+            {
+                var fallback = Instantiate(_settings.LabelPrefab, _canvas.transform);
+                label = fallback.gameObject.AddComponent<NpcLabelView>();
+            }
+            label.gameObject.name = goName;
+
+            PositionElement(label.GetComponent<RectTransform>(), worldPosition, offset);
+            AddBillboard(label.gameObject);
+            label._nameLabel.Initialize(_tooltipService, _localizationService);
 
             return label;
         }
