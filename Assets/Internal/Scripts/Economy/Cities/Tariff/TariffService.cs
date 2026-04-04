@@ -5,7 +5,7 @@ using Internal.Scripts.Economy.Guild;
 using Internal.Scripts.Economy.Save.Models;
 using Internal.Scripts.Inventory;
 using Internal.Scripts.Items;
-using Internal.Scripts.Npc.Trading;
+using Internal.Scripts.Npc.Data;
 using UnityEngine;
 
 namespace Internal.Scripts.Economy.Cities.Tariff

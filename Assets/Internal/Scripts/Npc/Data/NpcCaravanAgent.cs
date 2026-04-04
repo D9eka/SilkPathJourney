@@ -3,7 +3,7 @@ using Internal.Scripts.Npc.Core;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace Internal.Scripts.Npc.Trading
+namespace Internal.Scripts.Npc.Data
 {
     public sealed class NpcCaravanAgent : IDisposable
     {

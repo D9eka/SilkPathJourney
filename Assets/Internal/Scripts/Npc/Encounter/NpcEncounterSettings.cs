@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Internal.Scripts.Npc.Encounter
 {
-    [CreateAssetMenu(menuName = "SPJ/Npc Encounter Settings")]
+    [CreateAssetMenu(menuName = "SPJ/NPC/Encounter Settings")]
     public sealed class NpcEncounterSettings : ScriptableObject
     {
         [Min(0.1f)] public float EncounterDistance = 3f;
