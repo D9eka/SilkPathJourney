@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Internal.Scripts.Events;
 using Internal.Scripts.World.State;
 using Zenject;
 
@@ -9,10 +10,12 @@ namespace Internal.Scripts.Npc.Core
     {
         private readonly List<RoadAgent> _agents = new();
         private readonly IWorldSimulationState _worldState;
+        private readonly DayTracker _dayTracker;
 
-        public NpcSimulation(IWorldSimulationState worldState)
+        public NpcSimulation(IWorldSimulationState worldState, DayTracker dayTracker)
         {
             _worldState = worldState;
+            _dayTracker = dayTracker;
         }
 
         public void Register(RoadAgent agent)
@@ -35,7 +38,7 @@ namespace Internal.Scripts.Npc.Core
 
         public void Tick()
         {
-            if (!_worldState.IsActive)
+            if (!_worldState.IsActive && !_dayTracker.IsSkipping)
                 return;
 
             for (int i = 0; i < _agents.Count; i++)

@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93f9aded3c34ffa4bb32fde1cf063d7b, type: 3}
+  m_Name: ConvoyPrefabCatalog
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Player.ConvoyPrefabCatalog
+  _mainCarts:
+  - Class: 1
+    Prefab: {fileID: 142425230784767058, guid: 457c052e52be6c346b60a51dfbddf58c, type: 3}
+  - Class: 2
+    Prefab: {fileID: 1261609081418422904, guid: 4d5a43582aa4c38468acc46f4c4a218d, type: 3}
+  - Class: 3
+    Prefab: {fileID: 5131387893798292726, guid: 6c2f26b105b9c9c488ead14d13e3ffe3, type: 3}
+  _extraCarts:
+  - Type: 1
+    Prefab: {fileID: 3452989350098162061, guid: 8f671b8d7d3d23e4094bf6f946a037b8, type: 3}
+  - Type: 2
+    Prefab: {fileID: 5876011620091804491, guid: f675941641adee54b9948b8a15d33cce, type: 3}
+  - Type: 3
+    Prefab: {fileID: 4011578565301876103, guid: c161425858980a2408809c98804cfa4a, type: 3}
+  - Type: 4
+    Prefab: {fileID: 1025984575224979757, guid: 441331299daa7b04999c5fe27e435187, type: 3}
+  _animals:
+  - Type: 1
+    Prefab: {fileID: 4214710450086031695, guid: 84494d29bf1dfb64f9eeb030d4e10af0, type: 3}
+    Scale: 1
+    Offset: {x: 0, y: 0, z: 0}
+  - Type: 2
+    Prefab: {fileID: 4464638641084187758, guid: 1903bc8c080ef74409f041197ffe6719, type: 3}
+    Scale: 1
+    Offset: {x: 0, y: 0, z: 0}
+  - Type: 3
+    Prefab: {fileID: 1715052456282835205, guid: 260019e2df57bf147bdbeea875407d75, type: 3}
+    Scale: 1
+    Offset: {x: 0, y: 0, z: 0}
+  - Type: 4
+    Prefab: {fileID: 3864336704776924510, guid: b722d625b09055c4ea512bd091f28d72, type: 3}
+    Scale: 1
+    Offset: {x: 0, y: 0, z: 0}
+  - Type: 5
+    Prefab: {fileID: 2302588650321303969, guid: 54dcca3f03fdbcf4cabdc13cf0022fa6, type: 3}
+    Scale: 1
+    Offset: {x: 0, y: 0, z: 0}
+  _riderPrefab: {fileID: 3160724916067608790, guid: cae50619e6d525c41b16ab683af34c0b, type: 3}

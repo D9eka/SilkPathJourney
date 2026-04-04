@@ -1,4 +1,4 @@
-using Internal.Scripts.Npc.Trading;
+using Internal.Scripts.Npc.Data;
 
 namespace Internal.Scripts.Npc.Encounter
 {

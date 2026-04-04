@@ -4,6 +4,7 @@ using Internal.Scripts.Economy;
 using Internal.Scripts.Economy.Save;
 using Internal.Scripts.Economy.Save.Models;
 using Internal.Scripts.Economy.Simulation;
+using Internal.Scripts.Events;
 using Internal.Scripts.Inventory;
 using Internal.Scripts.Items;
 using Internal.Scripts.Npc.Encounter;
@@ -20,6 +21,7 @@ namespace Internal.Scripts.Trading
         private readonly PlayerResourceRepository _resourceRepository;
         private readonly CityTradePriceService _priceService;
         private readonly CityTransactionService _cityTransactionService;
+        private readonly DayTracker _dayTracker;
         private readonly TradeSession _session = new();
         private readonly TradeCityCatalog _cityCatalog;
         private readonly ItemRowsBuilder _rowsBuilder;
@@ -54,12 +56,14 @@ namespace Internal.Scripts.Trading
             PlayerResourceRepository resourceRepository,
             EconomyDatabase economyDatabase,
             CityTradePriceService priceService,
-            CityTransactionService cityTransactionService)
+            CityTransactionService cityTransactionService,
+            DayTracker dayTracker)
         {
             _inventoryRepository = inventoryRepository;
             _resourceRepository = resourceRepository;
             _priceService = priceService;
             _cityTransactionService = cityTransactionService;
+            _dayTracker = dayTracker;
             _itemCatalog = new ItemCatalog(economyDatabase);
             _cityCatalog = new TradeCityCatalog(economyDatabase);
             _rowsBuilder = new ItemRowsBuilder(_itemCatalog);
@@ -72,8 +76,23 @@ namespace Internal.Scripts.Trading
 
         public Observable<TradeViewState> State => _state;
 
+        public bool IsTradeBanned(string cityId)
+        {
+            var resources = _resourceRepository.Current;
+            if (resources.CityTradeBans == null) return false;
+            var ban = resources.CityTradeBans.Find(b => b.CityId == cityId);
+            return ban != null && _dayTracker.CurrentDay < ban.UntilDay;
+        }
+
         public void Activate(string cityId)
         {
+            if (IsTradeBanned(cityId))
+            {
+                var ban = _resourceRepository.Current.CityTradeBans.Find(b => b.CityId == cityId);
+                Debug.Log($"[Trade] Trading banned in {cityId} until day {ban.UntilDay}");
+                return;
+            }
+
             Deactivate();
             _cityId = cityId;
             _pricing = new CityTradePricing(_priceService, cityId);

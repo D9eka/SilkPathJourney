@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5878145cb390316428c5e5a77de57299, type: 3}
+  m_Name: Default
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Npc.Behavior.NpcBehaviorProfile
+  <Archetype>k__BackingField: 0
+  <DayPhases>k__BackingField: 00000000010000000200000003000000
+  <VisitActions>k__BackingField: 000000000100000002000000030000000400000005000000060000000700000008000000

@@ -22,9 +22,8 @@ namespace Internal.Scripts.Npc.NextSegment
             _roadPathFinder = roadPathFinder;
         }
         
-        public async UniTask<RoadPathSegment> ChooseNextAsync(List<RoadPathSegment> options, CancellationToken cancelToken = default)
+        public UniTask<RoadPathSegment> ChooseNextAsync(List<RoadPathSegment> options, CancellationToken cancelToken = default)
         {
-            await Task.Yield();
             if (CurrentPath != null)
             {
                 _segmentIndex++;
@@ -36,9 +35,9 @@ namespace Internal.Scripts.Npc.NextSegment
             }
             if (_segmentIndex < CurrentPath.Segments.Count && options.Contains(CurrentPath.Segments[_segmentIndex]))
             {
-                return CurrentPath.Segments[_segmentIndex];
+                return UniTask.FromResult(CurrentPath.Segments[_segmentIndex]);
             }
-            throw new OperationCanceledException(cancelToken);
+            return UniTask.FromException<RoadPathSegment>(new OperationCanceledException(cancelToken));
         }
         
         public void SetDestination(string destinationNodeId)

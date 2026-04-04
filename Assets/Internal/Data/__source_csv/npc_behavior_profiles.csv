@@ -1,0 +1,4 @@
+archetype_id,visit_actions,day_phases
+default,"LearnKnowledge,ChargeTariff,DebtRepayment,SellGoods,CompleteContract,TakeContract,ChooseRoute,BuyGoods,GuildCredit","ContractExpiration,Forage,Consumption,Starvation"
+adventurer,"LearnKnowledge,ChargeTariff,DebtRepayment,SellGoods,CompleteContract,ChooseRoute,BuyGoods,GuildCredit","ContractExpiration,Forage,Consumption,Starvation"
+steppe_herder,"LearnKnowledge,ChargeTariff,DebtRepayment,SellGoods,CompleteContract,TakeContract,ChooseRoute,BuyGoods","ContractExpiration,Forage,Consumption,Starvation"

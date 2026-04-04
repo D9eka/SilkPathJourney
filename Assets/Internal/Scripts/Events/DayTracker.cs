@@ -17,6 +17,8 @@ namespace Internal.Scripts.Events
         private readonly IWorldSimulationState _worldState;
 
         private float _accumulatedTime;
+        private int _targetDay = -1;
+        private float _savedTimeScale;
 
         public int CurrentDay => _saveRepository.Data.Player.CurrentDay;
         public bool IsSkipping { get; private set; }
@@ -42,9 +44,18 @@ namespace Internal.Scripts.Events
             _saveRepository.Save();
         }
 
+        public void AdvanceDaysAnimated(int count, float speedMultiplier = 30f)
+        {
+            if (IsSkipping) return;
+            _targetDay = CurrentDay + count;
+            _savedTimeScale = _gameClock.TimeScale;
+            _gameClock.SetTimeScale(speedMultiplier);
+            IsSkipping = true;
+        }
+
         public void FixedTick()
         {
-            if (!_worldState.IsActive) return;
+            if (!_worldState.IsActive && !IsSkipping) return;
 
             _accumulatedTime += Time.fixedDeltaTime * _gameClock.TimeScale;
 
@@ -54,6 +65,15 @@ namespace Internal.Scripts.Events
                 _saveRepository.Data.Player.CurrentDay++;
                 _saveRepository.Save();
                 OnDayChanged?.Invoke(CurrentDay);
+                if (IsSkipping && CurrentDay >= _targetDay)
+                {
+                    _gameClock.SetTimeScale(_savedTimeScale);
+                    IsSkipping = false;
+                    _targetDay = -1;
+                    _accumulatedTime = 0f;
+                    _saveRepository.Save();
+                    break;
+                }
             }
         }
     }

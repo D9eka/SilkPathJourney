@@ -1,5 +1,5 @@
 item_id,name_key,category_id,weight_kg,base_price,demand_weight,loc_link,loc_ru,loc_en
-supplies,item.supplies.name,food,0.5,5,5,перевод,Припасы,Supplies
+supplies,item.supplies.name,food,0.5,2,5,перевод,Припасы,Supplies
 grain,item.grain.name,food,10,10,3,перевод,Зерно,Grain
 rice,item.rice.name,food,10,11,2.5,перевод,Рис,Rice
 salt,item.salt.name,food,6,14,1.8,перевод,Соль,Salt

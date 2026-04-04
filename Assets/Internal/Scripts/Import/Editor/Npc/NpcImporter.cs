@@ -14,31 +14,37 @@ namespace Internal.Scripts.Import.Editor.Npc
         private const string LOC_TABLE = "Npc";
 
         [MenuItem("SPJ/Import/Npc")]
-        public static void ImportNames()
+        public static void ImportAll()
         {
             if (IsCompiling()) return;
 
             try
             {
-                EnsureAssetFolder(DATABASES_FOLDER);
-
-                Dictionary<string, CultureId> cultureMap =
-                    BuildEnumMap<CultureId>("cultures.csv", "culture_id", "enum_name");
-
-                List<NameEntry> entries = ReadNames(cultureMap);
-
-                NameDatabase db = LoadOrCreateAsset<NameDatabase>(NAME_DATABASE_PATH);
-
-                db.ApplyImport(entries);
-                EditorUtility.SetDirty(db);
+                ImportNames();
+                NpcBehaviorProfileTable.Import();
                 AssetDatabase.SaveAssets();
-
-                Debug.Log($"[SPJ] Imported {entries.Count} names into NameDatabase.");
             }
             catch (System.Exception ex)
             {
-                Debug.LogError($"[SPJ] Name import failed: {ex.Message}\n{ex.StackTrace}");
+                Debug.LogError($"[SPJ] Npc import failed: {ex.Message}\n{ex.StackTrace}");
             }
+        }
+
+        public static void ImportNames()
+        {
+            EnsureAssetFolder(DATABASES_FOLDER);
+
+            Dictionary<string, CultureId> cultureMap =
+                BuildEnumMap<CultureId>("cultures.csv", "culture_id", "enum_name");
+
+            List<NameEntry> entries = ReadNames(cultureMap);
+
+            NameDatabase db = LoadOrCreateAsset<NameDatabase>(NAME_DATABASE_PATH);
+
+            db.ApplyImport(entries);
+            EditorUtility.SetDirty(db);
+
+            Debug.Log($"[SPJ] Imported {entries.Count} names into NameDatabase.");
         }
 
         private static List<NameEntry> ReadNames(Dictionary<string, CultureId> cultureMap)

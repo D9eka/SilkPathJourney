@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Internal.Scripts.Economy.Cities;
 using Internal.Scripts.Economy.Generated;
+using Internal.Scripts.Economy.Guild;
 using Internal.Scripts.Economy.Items;
 using Internal.Scripts.Economy.Save.Models;
 using Internal.Scripts.Events;
@@ -19,21 +20,25 @@ namespace Internal.Scripts.Economy.Simulation
         private readonly CityMarketProfileService _profileService;
         private readonly EconomyDatabase _economyDatabase;
         private readonly ItemCatalog _itemCatalog;
+        private readonly GuildSettings _guildSettings;
 
         private Dictionary<ItemType, List<ItemData>> _itemsByCategory;
+        private Dictionary<string, (CityData city, CityTypeData type)> _cityLookup;
 
         public CityEconomySimulator(
             DayTracker dayTracker,
             InventoryRepository inventoryRepository,
             CityMarketProfileService profileService,
             EconomyDatabase economyDatabase,
-            ItemCatalog itemCatalog)
+            ItemCatalog itemCatalog,
+            GuildSettings guildSettings)
         {
             _dayTracker = dayTracker;
             _inventoryRepository = inventoryRepository;
             _profileService = profileService;
             _economyDatabase = economyDatabase;
             _itemCatalog = itemCatalog;
+            _guildSettings = guildSettings;
         }
 
         public void Initialize()
@@ -46,7 +51,7 @@ namespace Internal.Scripts.Economy.Simulation
             _dayTracker.OnDayChanged -= OnDayChanged;
         }
 
-        private void OnDayChanged(int day)
+        public void SimulateDay()
         {
             BuildItemsLookupIfNeeded();
 
@@ -58,9 +63,23 @@ namespace Internal.Scripts.Economy.Simulation
                         continue;
 
                     SimulateCity(cityState.CityId, cityState.Inventory);
+
+                    if (!_cityLookup.TryGetValue(cityState.CityId, out var entry))
+                        continue;
+                    int income = Mathf.RoundToInt(entry.type.CityMoneyIncomePerScale * entry.city.MarketScale);
+                    cityState.Inventory.Money += income;
+
+                    bool hasGuild = entry.city.HasBuilding(BuildingId.Guild);
+                    if (hasGuild && cityState.GuildMoney < _guildSettings.GuildRefillThreshold && cityState.Inventory.Money >= _guildSettings.GuildRefillAmount)
+                    {
+                        cityState.GuildMoney += _guildSettings.GuildRefillAmount;
+                        cityState.Inventory.Money -= _guildSettings.GuildRefillAmount;
+                    }
                 }
             });
         }
+
+        private void OnDayChanged(int day) => SimulateDay();
 
         private void SimulateCity(string cityId, InventoryState inventory)
         {
@@ -108,21 +127,33 @@ namespace Internal.Scripts.Economy.Simulation
 
             _itemsByCategory = new Dictionary<ItemType, List<ItemData>>();
 
-            if (_economyDatabase.Items == null)
-                return;
-
-            foreach (ItemData item in _economyDatabase.Items)
+            if (_economyDatabase.Items != null)
             {
-                if (item == null || item.Type == ItemType.Unknown || item.Type == ItemType.Quest)
-                    continue;
-
-                if (!_itemsByCategory.TryGetValue(item.Type, out List<ItemData> list))
+                foreach (ItemData item in _economyDatabase.Items)
                 {
-                    list = new List<ItemData>();
-                    _itemsByCategory[item.Type] = list;
-                }
+                    if (item == null || item.Type == ItemType.Unknown || item.Type == ItemType.Quest)
+                        continue;
 
-                list.Add(item);
+                    if (!_itemsByCategory.TryGetValue(item.Type, out List<ItemData> list))
+                    {
+                        list = new List<ItemData>();
+                        _itemsByCategory[item.Type] = list;
+                    }
+
+                    list.Add(item);
+                }
+            }
+
+            _cityLookup = new Dictionary<string, (CityData, CityTypeData)>();
+            if (_economyDatabase.Cities != null)
+            {
+                foreach (CityData city in _economyDatabase.Cities)
+                {
+                    if (city == null) continue;
+                    CityTypeData cityType = _economyDatabase.GetCityType(city.Type);
+                    if (cityType != null)
+                        _cityLookup[city.Id] = (city, cityType);
+                }
             }
         }
     }

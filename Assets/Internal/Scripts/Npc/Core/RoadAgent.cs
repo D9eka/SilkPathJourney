@@ -73,6 +73,21 @@ namespace Internal.Scripts.Npc.Core
             _cursor.CancelPath();
         }
 
+        public void AdvanceByDays(float days)
+        {
+            if (_cursor.IsEmpty) return;
+            _cursor.AdvanceByDaySpeed(SpeedMetersPerDay, days);
+            RoadPose pose = _cursor.CurrentPose;
+            _view.SetPose(pose.Position, pose.Forward);
+
+            if (_cursor.HasArrived && !string.IsNullOrEmpty(_destinationNodeId))
+            {
+                _currentNodeId = _destinationNodeId;
+                _destinationNodeId = null;
+                OnArrived?.Invoke(this);
+            }
+        }
+
         public void Tick()
         {
             if (_cursor.IsEmpty)

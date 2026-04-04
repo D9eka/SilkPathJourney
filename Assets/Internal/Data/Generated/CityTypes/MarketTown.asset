@@ -32,26 +32,27 @@ MonoBehaviour:
     m_WaitForCompletion: 0
     m_LocalVariables: []
   <Icon>k__BackingField: {fileID: 0}
-  <CityMoneyIncomePerScale>k__BackingField: 450
+  <CityMoneyIncomePerScale>k__BackingField: 45
+  <BaseTariffPct>k__BackingField: 3
   <CategoryCoefs>k__BackingField:
   - <Category>k__BackingField: 1
     <BuyCoef>k__BackingField: 1
-    <SellCoef>k__BackingField: 0.85
+    <SellCoef>k__BackingField: 0.92
   - <Category>k__BackingField: 5
     <BuyCoef>k__BackingField: 1
-    <SellCoef>k__BackingField: 0.85
+    <SellCoef>k__BackingField: 0.92
   - <Category>k__BackingField: 2
     <BuyCoef>k__BackingField: 1
-    <SellCoef>k__BackingField: 0.85
+    <SellCoef>k__BackingField: 0.92
   - <Category>k__BackingField: 3
     <BuyCoef>k__BackingField: 1.05
-    <SellCoef>k__BackingField: 0.85
+    <SellCoef>k__BackingField: 0.92
   - <Category>k__BackingField: 4
     <BuyCoef>k__BackingField: 1.1
-    <SellCoef>k__BackingField: 0.85
+    <SellCoef>k__BackingField: 0.92
   - <Category>k__BackingField: 6
     <BuyCoef>k__BackingField: 1.05
-    <SellCoef>k__BackingField: 0.85
+    <SellCoef>k__BackingField: 0.92
   <CategoryStockProfiles>k__BackingField:
   - <Category>k__BackingField: 1
     <DesiredPerScale>k__BackingField: 600

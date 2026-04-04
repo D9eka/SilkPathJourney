@@ -7,6 +7,7 @@ namespace Internal.Scripts.Trading
         public readonly float MarketMult;
         public readonly float BonusMult;
         public readonly float ModifierMult;
+        public readonly float ExoticityMult;
         public readonly int FinalPrice;
         public readonly bool IsNpcTrade;
 
@@ -17,6 +18,20 @@ namespace Internal.Scripts.Trading
             MarketMult = marketMult;
             BonusMult = bonusMult;
             ModifierMult = modifierMult;
+            ExoticityMult = 1f;
+            FinalPrice = finalPrice;
+            IsNpcTrade = isNpcTrade;
+        }
+
+        public PriceBreakdown(string itemName, int basePrice, float marketMult,
+            float bonusMult, float modifierMult, float exoticityMult, int finalPrice, bool isNpcTrade)
+        {
+            ItemName = itemName;
+            BasePrice = basePrice;
+            MarketMult = marketMult;
+            BonusMult = bonusMult;
+            ModifierMult = modifierMult;
+            ExoticityMult = exoticityMult;
             FinalPrice = finalPrice;
             IsNpcTrade = isNpcTrade;
         }

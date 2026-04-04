@@ -1,10 +1,10 @@
-city_type_id,enum_name,name_key,description_key,CityMoneyIncomePerScale,notes,loc_link,loc_ru,loc_en
-capital,Capital,city_type.capital.name,city_type.capital.description,1200,"большой рынок, высокий спрос, чаще дороже",перевод,Столица,Capital
-trade_hub,TradeHub,city_type.trade_hub.name,city_type.trade_hub.description,900,"перепродажа, баланс цен, "перевалка"",перевод,Торговый узел,Trade Hub
-border_city,BorderCity,city_type.border_city.name,city_type.border_city.description,550,"сильные перекосы, потенциал выгодных сделок/риска",перевод,Пограничный город,Border City
-craft_city,CraftCity,city_type.craft_city.name,city_type.craft_city.description,650,"дешёвые ремесленные, спрос на сырьё",перевод,Ремесленный центр,Craft City
-resource_city,ResourceCity,city_type.resource_city.name,city_type.resource_city.description,600,"дешёвое сырьё, дорогие готовые товары",перевод,Сырьевой город,Resource City
-market_town,MarketTown,city_type.market_town.name,city_type.market_town.description,450,"baseline, нужен для контраста",перевод,Обычный город,Market Town
-oasis_stop,OasisStop,city_type.oasis_stop.name,city_type.oasis_stop.description,250,"маленький рынок, но важная точка маршрута (вода/еда)",перевод,Караванная остановка,Caravan Stop
-port_city,PortCity,city_type.port_city.name,city_type.port_city.description,700,"расширенный импорт, экзотические товары",перевод,Порт,Port City
-holy_city,HolyCity,city_type.holy_city.name,city_type.holy_city.description,400,"паломничество, храмы, религиозные события",перевод,Святой город,Holy City
+city_type_id,enum_name,name_key,description_key,CityMoneyIncomePerScale,base_tariff_pct,notes,loc_link,loc_ru,loc_en
+capital,Capital,city_type.capital.name,city_type.capital.description,120,3,"большой рынок, высокий спрос, чаще дороже",перевод,Столица,Capital
+trade_hub,TradeHub,city_type.trade_hub.name,city_type.trade_hub.description,90,3,"перепродажа, баланс цен, "перевалка"",перевод,Торговый узел,Trade Hub
+border_city,BorderCity,city_type.border_city.name,city_type.border_city.description,55,4,"сильные перекосы, потенциал выгодных сделок/риска",перевод,Пограничный город,Border City
+craft_city,CraftCity,city_type.craft_city.name,city_type.craft_city.description,65,2,"дешёвые ремесленные, спрос на сырьё",перевод,Ремесленный центр,Craft City
+resource_city,ResourceCity,city_type.resource_city.name,city_type.resource_city.description,60,3,"дешёвое сырьё, дорогие готовые товары",перевод,Сырьевой город,Resource City
+market_town,MarketTown,city_type.market_town.name,city_type.market_town.description,45,3,"baseline, нужен для контраста",перевод,Обычный город,Market Town
+oasis_stop,OasisStop,city_type.oasis_stop.name,city_type.oasis_stop.description,25,1,"маленький рынок, но важная точка маршрута (вода/еда)",перевод,Караванная остановка,Caravan Stop
+port_city,PortCity,city_type.port_city.name,city_type.port_city.description,70,4,"расширенный импорт, экзотические товары",перевод,Порт,Port City
+holy_city,HolyCity,city_type.holy_city.name,city_type.holy_city.description,40,1,"паломничество, храмы, религиозные события",перевод,Святой город,Holy City

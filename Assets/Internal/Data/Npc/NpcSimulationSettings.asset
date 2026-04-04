@@ -1,0 +1,253 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca5c69f5701baa44f8bbd84e73005dc1, type: 3}
+  m_Name: NpcSimulationSettings
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Npc.Lifecycle.NpcSimulationSettings
+  AgentCount: 20
+  SpeedRangeMetersPerDay: {x: 2, y: 6}
+  Prefabs: []
+  AvailableColors: []
+  MoneyRange: {x: 300, y: 700}
+  CapacityRange: {x: 150, y: 350}
+  BuyBudgetFraction: 0.7
+  MaxBuyItemTypes: 3
+  SuppliesPerDay: 1
+  StartingSupplies: 5
+  ExtraSuppliesDays: 2
+  StarvationSurvivalChance: 0.5
+  RoadWindingFactor: 1.4
+  <DefaultBehaviorProfile>k__BackingField: {fileID: 11400000, guid: dab5e6750c2d9074e86aebe4b09d835e, type: 2}
+  <BehaviorProfiles>k__BackingField:
+  - {fileID: 11400000, guid: d3ed33f3ad743c644aa69d4382f99a2d, type: 2}
+  - {fileID: 11400000, guid: 43e8c847a1283154cb7a259abd6a125c, type: 2}
+  <Archetypes>k__BackingField:
+  - <Archetype>k__BackingField: 1
+    <SpawnCount>k__BackingField: 5
+    <PreferredCategories>k__BackingField: 0300000004000000
+    <MoneyRange>k__BackingField: {x: 500, y: 700}
+    <CapacityRange>k__BackingField: {x: 150, y: 200}
+    <MinProfitThreshold>k__BackingField: 1.15
+    <WarEntryChance>k__BackingField: 0.2
+    <MaxItemWeight>k__BackingField: 0
+    <MinItemPrice>k__BackingField: 0
+    <RouteDurationBias>k__BackingField: 0.1
+  - <Archetype>k__BackingField: 2
+    <SpawnCount>k__BackingField: 4
+    <PreferredCategories>k__BackingField: 0500000006000000
+    <MoneyRange>k__BackingField: {x: 400, y: 600}
+    <CapacityRange>k__BackingField: {x: 250, y: 350}
+    <MinProfitThreshold>k__BackingField: 1.08
+    <WarEntryChance>k__BackingField: 0
+    <MaxItemWeight>k__BackingField: 0
+    <MinItemPrice>k__BackingField: 0
+    <RouteDurationBias>k__BackingField: -0.1
+  - <Archetype>k__BackingField: 0
+    <SpawnCount>k__BackingField: 6
+    <PreferredCategories>k__BackingField: 0200000001000000
+    <MoneyRange>k__BackingField: {x: 300, y: 500}
+    <CapacityRange>k__BackingField: {x: 200, y: 300}
+    <MinProfitThreshold>k__BackingField: 1.1
+    <WarEntryChance>k__BackingField: 0
+    <MaxItemWeight>k__BackingField: 0
+    <MinItemPrice>k__BackingField: 0
+    <RouteDurationBias>k__BackingField: -0.35
+  - <Archetype>k__BackingField: 3
+    <SpawnCount>k__BackingField: 3
+    <PreferredCategories>k__BackingField: 0400000003000000
+    <MoneyRange>k__BackingField: {x: 400, y: 650}
+    <CapacityRange>k__BackingField: {x: 200, y: 250}
+    <MinProfitThreshold>k__BackingField: 1.12
+    <WarEntryChance>k__BackingField: 0
+    <MaxItemWeight>k__BackingField: 0
+    <MinItemPrice>k__BackingField: 0
+    <RouteDurationBias>k__BackingField: 0.15
+  - <Archetype>k__BackingField: 4
+    <SpawnCount>k__BackingField: 2
+    <PreferredCategories>k__BackingField: 0300000004000000
+    <MoneyRange>k__BackingField: {x: 450, y: 700}
+    <CapacityRange>k__BackingField: {x: 150, y: 200}
+    <MinProfitThreshold>k__BackingField: 1.2
+    <WarEntryChance>k__BackingField: 0.2
+    <MaxItemWeight>k__BackingField: 3
+    <MinItemPrice>k__BackingField: 40
+    <RouteDurationBias>k__BackingField: 0.2
+  <CityAffinityTable>k__BackingField:
+  - Archetype: 1
+    CityType: 1
+    Affinity: 1.4
+  - Archetype: 1
+    CityType: 2
+    Affinity: 1.3
+  - Archetype: 1
+    CityType: 3
+    Affinity: 0.9
+  - Archetype: 1
+    CityType: 4
+    Affinity: 0.8
+  - Archetype: 1
+    CityType: 5
+    Affinity: 0.8
+  - Archetype: 1
+    CityType: 6
+    Affinity: 0.7
+  - Archetype: 1
+    CityType: 7
+    Affinity: 0.6
+  - Archetype: 1
+    CityType: 8
+    Affinity: 1.2
+  - Archetype: 1
+    CityType: 9
+    Affinity: 1.1
+  - Archetype: 2
+    CityType: 1
+    Affinity: 0.8
+  - Archetype: 2
+    CityType: 2
+    Affinity: 1
+  - Archetype: 2
+    CityType: 3
+    Affinity: 1.2
+  - Archetype: 2
+    CityType: 4
+    Affinity: 1.1
+  - Archetype: 2
+    CityType: 5
+    Affinity: 1.4
+  - Archetype: 2
+    CityType: 6
+    Affinity: 1
+  - Archetype: 2
+    CityType: 7
+    Affinity: 0.8
+  - Archetype: 2
+    CityType: 8
+    Affinity: 0.7
+  - Archetype: 2
+    CityType: 9
+    Affinity: 0.6
+  - Archetype: 0
+    CityType: 1
+    Affinity: 1.1
+  - Archetype: 0
+    CityType: 2
+    Affinity: 1.5
+  - Archetype: 0
+    CityType: 3
+    Affinity: 0.9
+  - Archetype: 0
+    CityType: 4
+    Affinity: 1.3
+  - Archetype: 0
+    CityType: 5
+    Affinity: 1
+  - Archetype: 0
+    CityType: 6
+    Affinity: 1.2
+  - Archetype: 0
+    CityType: 7
+    Affinity: 0.8
+  - Archetype: 0
+    CityType: 8
+    Affinity: 0.9
+  - Archetype: 0
+    CityType: 9
+    Affinity: 1
+  - Archetype: 3
+    CityType: 1
+    Affinity: 0.7
+  - Archetype: 3
+    CityType: 2
+    Affinity: 1.1
+  - Archetype: 3
+    CityType: 3
+    Affinity: 0.8
+  - Archetype: 3
+    CityType: 4
+    Affinity: 0.7
+  - Archetype: 3
+    CityType: 5
+    Affinity: 0.7
+  - Archetype: 3
+    CityType: 6
+    Affinity: 0.6
+  - Archetype: 3
+    CityType: 7
+    Affinity: 0.6
+  - Archetype: 3
+    CityType: 8
+    Affinity: 1.5
+  - Archetype: 3
+    CityType: 9
+    Affinity: 0.6
+  - Archetype: 4
+    CityType: 1
+    Affinity: 1.2
+  - Archetype: 4
+    CityType: 2
+    Affinity: 0.9
+  - Archetype: 4
+    CityType: 3
+    Affinity: 1.3
+  - Archetype: 4
+    CityType: 4
+    Affinity: 0.8
+  - Archetype: 4
+    CityType: 5
+    Affinity: 0.8
+  - Archetype: 4
+    CityType: 6
+    Affinity: 0.7
+  - Archetype: 4
+    CityType: 7
+    Affinity: 1
+  - Archetype: 4
+    CityType: 8
+    Affinity: 1
+  - Archetype: 4
+    CityType: 9
+    Affinity: 1.4
+  <NoviceCount>k__BackingField: 6
+  <ExperiencedCount>k__BackingField: 10
+  <MasterCount>k__BackingField: 4
+  <MinBuyItemPrice>k__BackingField: 10
+  <ScarcityThreshold>k__BackingField: 1.28
+  <TransportCostPerDay>k__BackingField: 1.5
+  <ForceSellDays>k__BackingField: 15
+  <ForceSellMoneyThreshold>k__BackingField: 150
+  <ForceSellCapacityFraction>k__BackingField: 0.4
+  <HoldThresholdNovice>k__BackingField: 0.9
+  <HoldThresholdExperienced>k__BackingField: 0.85
+  <HoldThresholdMaster>k__BackingField: 0.8
+  <BudgetShares>k__BackingField:
+  - 0.6
+  - 0.25
+  - 0.15
+  <NoPathFallbackDays>k__BackingField: 5
+  <FestivalScoreBonus>k__BackingField: 0.4
+  <BazaarFestivalScoreBonus>k__BackingField: 0.6
+  <BanditsScorePenalty>k__BackingField: 0.7
+  <DroughtBazaarBonus>k__BackingField: 0.5
+  <HighTaxesPenalty>k__BackingField: 0.3
+  <CaravanArrivalBonus>k__BackingField: 0.2
+  <BaseKnowledgeDuration>k__BackingField: 30
+  <NoviceKnowledgeMult>k__BackingField: 1
+  <ExperiencedKnowledgeMult>k__BackingField: 1.5
+  <MasterKnowledgeMult>k__BackingField: 2
+  <ForageThreshold>k__BackingField: 3
+  <ForageAmount>k__BackingField: 7
+  <ForageCooldownDays>k__BackingField: 5
+  <SurvivalMoneyThreshold>k__BackingField: 100
+  <CreditMoneyThreshold>k__BackingField: 50
+  <CreditAmount>k__BackingField: 300
+  <DebtRepaymentFraction>k__BackingField: 0.3
+  <MaxDebtDays>k__BackingField: 30

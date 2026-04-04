@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Internal.Scripts.Caravan;
 using Internal.Scripts.Economy.Cities;
 using Internal.Scripts.Economy.Generated;
+using Internal.Scripts.Economy.Guild;
 using Internal.Scripts.Economy.Items;
 using Internal.Scripts.Economy.Save.Models;
 using Internal.Scripts.Economy.Simulation;
@@ -18,6 +19,7 @@ namespace Internal.Scripts.Economy.Save
         private readonly PlayerConfig _playerConfig;
         private readonly CaravanDatabase _caravanDatabase;
         private readonly EconomySimulationSettings _simulationSettings;
+        private readonly GuildSettings _guildSettings;
 
         private Dictionary<CityType, CityTypeData> _cityTypeByEnum;
         private Dictionary<ItemType, List<ItemData>> _itemsByCategory;
@@ -28,12 +30,14 @@ namespace Internal.Scripts.Economy.Save
             EconomyDatabase economyDatabase,
             PlayerConfig playerConfig,
             CaravanDatabase caravanDatabase,
-            EconomySimulationSettings simulationSettings)
+            EconomySimulationSettings simulationSettings,
+            GuildSettings guildSettings)
         {
             _economyDatabase = economyDatabase;
             _playerConfig = playerConfig;
             _caravanDatabase = caravanDatabase;
             _simulationSettings = simulationSettings;
+            _guildSettings = guildSettings;
         }
 
         public EconomySaveData Build()
@@ -52,7 +56,8 @@ namespace Internal.Scripts.Economy.Save
                     data.CityInventories.Add(new CityInventoryState
                     {
                         CityId = city.Id,
-                        Inventory = CreateCityInventory(city)
+                        Inventory = CreateCityInventory(city),
+                        GuildMoney = city.HasBuilding(BuildingId.Guild) ? _guildSettings.GuildStartingMoney : 0
                     });
                 }
             }

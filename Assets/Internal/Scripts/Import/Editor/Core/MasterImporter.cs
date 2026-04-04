@@ -26,10 +26,11 @@ namespace Internal.Scripts.Import.Editor.Core
                 QuestImporter.ImportAll();
                 CaravanImporter.ImportAll();
                 ThemeImporter.ImportColors();
-                NpcImporter.ImportNames();
+                NpcImporter.ImportAll();
                 TraderImporter.Import();
                 LanguageTypeGenerator.Generate();
                 LocalizationMasterImporter.ImportAll();
+                CultureAdjacencyBuilder.Build();
 
                 AssetDatabase.SaveAssets();
                 AssetDatabase.Refresh();

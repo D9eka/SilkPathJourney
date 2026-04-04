@@ -32,51 +32,52 @@ MonoBehaviour:
     m_WaitForCompletion: 0
     m_LocalVariables: []
   <Icon>k__BackingField: {fileID: 0}
-  <CityMoneyIncomePerScale>k__BackingField: 550
+  <CityMoneyIncomePerScale>k__BackingField: 55
+  <BaseTariffPct>k__BackingField: 4
   <CategoryCoefs>k__BackingField:
   - <Category>k__BackingField: 1
     <BuyCoef>k__BackingField: 1.1
-    <SellCoef>k__BackingField: 0.8
+    <SellCoef>k__BackingField: 0.87
   - <Category>k__BackingField: 5
     <BuyCoef>k__BackingField: 0.9
-    <SellCoef>k__BackingField: 0.95
+    <SellCoef>k__BackingField: 1.02
   - <Category>k__BackingField: 2
     <BuyCoef>k__BackingField: 1.05
-    <SellCoef>k__BackingField: 0.85
+    <SellCoef>k__BackingField: 0.92
   - <Category>k__BackingField: 3
     <BuyCoef>k__BackingField: 1.15
-    <SellCoef>k__BackingField: 0.9
+    <SellCoef>k__BackingField: 0.97
   - <Category>k__BackingField: 4
     <BuyCoef>k__BackingField: 1.2
-    <SellCoef>k__BackingField: 1
+    <SellCoef>k__BackingField: 1.07
   - <Category>k__BackingField: 6
     <BuyCoef>k__BackingField: 1.05
-    <SellCoef>k__BackingField: 0.88
+    <SellCoef>k__BackingField: 0.95
   <CategoryStockProfiles>k__BackingField:
   - <Category>k__BackingField: 1
     <DesiredPerScale>k__BackingField: 520
     <DailyNet>k__BackingField: -18
-    <EquilibriumPull>k__BackingField: 0.08
+    <EquilibriumPull>k__BackingField: 0.1
   - <Category>k__BackingField: 5
     <DesiredPerScale>k__BackingField: 520
     <DailyNet>k__BackingField: 10
-    <EquilibriumPull>k__BackingField: 0.08
+    <EquilibriumPull>k__BackingField: 0.1
   - <Category>k__BackingField: 2
     <DesiredPerScale>k__BackingField: 340
     <DailyNet>k__BackingField: -4
-    <EquilibriumPull>k__BackingField: 0.08
+    <EquilibriumPull>k__BackingField: 0.1
   - <Category>k__BackingField: 3
     <DesiredPerScale>k__BackingField: 150
     <DailyNet>k__BackingField: -1
-    <EquilibriumPull>k__BackingField: 0.08
+    <EquilibriumPull>k__BackingField: 0.1
   - <Category>k__BackingField: 4
     <DesiredPerScale>k__BackingField: 110
     <DailyNet>k__BackingField: 1
-    <EquilibriumPull>k__BackingField: 0.08
+    <EquilibriumPull>k__BackingField: 0.1
   - <Category>k__BackingField: 6
     <DesiredPerScale>k__BackingField: 95
     <DailyNet>k__BackingField: 0
-    <EquilibriumPull>k__BackingField: 0.08
+    <EquilibriumPull>k__BackingField: 0.1
   references:
     version: 2
     RefIds: []

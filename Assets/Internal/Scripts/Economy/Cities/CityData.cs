@@ -24,6 +24,9 @@ namespace Internal.Scripts.Economy.Cities
 
         [field: SerializeField] public BuildingId[] Buildings { get; private set; } = Array.Empty<BuildingId>();
 
+        public bool HasBuilding(BuildingId building) =>
+            Buildings != null && Array.IndexOf(Buildings, building) >= 0;
+
         [Header("Detail Scene")]
         [Tooltip("Detail scene for this city (optional)")]
         [field: SerializeField] public SceneReference DetailScene { get; private set; }

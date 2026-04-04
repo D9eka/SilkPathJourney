@@ -3,6 +3,8 @@ using Internal.Scripts.Camera.Zoom;
 using Internal.Scripts.Caravan;
 using Internal.Scripts.Config;
 using Internal.Scripts.Economy;
+using Internal.Scripts.Economy.Cities;
+using Internal.Scripts.Economy.Guild;
 using Internal.Scripts.Economy.Simulation;
 using Internal.Scripts.Events.Data;
 using Internal.Scripts.Npc.Lifecycle;
@@ -29,6 +31,7 @@ namespace Internal.Scripts.Installers
         [Header("Economy")]
         [SerializeField] private EconomyDatabase _economyDatabase;
         [SerializeField] private EconomySimulationSettings _economySimulationSettings;
+        [SerializeField] private CultureAdjacencyData _cultureAdjacencyData;
 
         [Header("Events")]
         [SerializeField] private EventDatabase _eventDatabase;
@@ -45,6 +48,9 @@ namespace Internal.Scripts.Installers
         [Header("NPC")]
         [SerializeField] private NpcSimulationSettings _npcSimulationSettings;
         [SerializeField] private NameDatabase _nameDatabase;
+
+        [Header("Guild")]
+        [SerializeField] private GuildSettings _guildSettings;
 
         [Header("UI")]
         [SerializeField] private ScreenCatalog _screenCatalog;
@@ -65,12 +71,14 @@ namespace Internal.Scripts.Installers
             Container.BindInstance(_cameraSceneSettings).AsSingle();
             Container.BindInstance(_economyDatabase).AsSingle();
             Container.BindInstance(_economySimulationSettings).AsSingle();
+            Container.BindInstance(_cultureAdjacencyData).AsSingle();
             Container.BindInstance(_eventDatabase).AsSingle();
             Container.BindInstance(_questDatabase).AsSingle();
             Container.BindInstance(_caravanDatabase).AsSingle();
             Container.BindInstance(_playerProfile).AsSingle();
             Container.BindInstance(_npcSimulationSettings).AsSingle();
             Container.BindInstance(_nameDatabase).AsSingle();
+            Container.BindInstance(_guildSettings).AsSingle();
             Container.BindInstance(_screenCatalog).AsSingle();
             Container.BindInstance(_resourceIconCatalog).AsSingle();
             Container.BindInstance(_gameBalanceConfig).AsSingle();

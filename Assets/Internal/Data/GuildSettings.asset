@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c83b933d0f5498f92f2af1ed33c442b, type: 3}
+  m_Name: GuildSettings
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Economy.Guild.GuildSettings
+  <ContractAcceptChance>k__BackingField: 0.9
+  <ContractRewardPerDay>k__BackingField: 8
+  <ContractBaseReward>k__BackingField: 20
+  <ContractExpirationMult>k__BackingField: 3
+  <ContractFallbackDays>k__BackingField: 10
+  <GuildRefillThreshold>k__BackingField: 100
+  <GuildRefillAmount>k__BackingField: 200
+  <GuildStartingMoney>k__BackingField: 500
+  <TitheCraftPct>k__BackingField: 0.1
+  <TitheLuxuryPct>k__BackingField: 0.1
+  <TitheExoticPct>k__BackingField: 0.05
+  <MemberTariffDiscount>k__BackingField: 0.3
+  <GuildTariffShare>k__BackingField: 0.3
+  <PlayerCreditAmount>k__BackingField: 200
+  <PlayerCreditRepayment>k__BackingField: 220
+  <JoinCost>k__BackingField: 50

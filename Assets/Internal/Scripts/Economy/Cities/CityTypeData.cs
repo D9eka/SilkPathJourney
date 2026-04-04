@@ -32,6 +32,7 @@ namespace Internal.Scripts.Economy.Cities
         [field: SerializeField] public LocalizedString Description { get; private set; } = new();
         [field: SerializeField] public Sprite Icon { get; private set; }
         [field: SerializeField] public int CityMoneyIncomePerScale { get; private set; }
+        [field: SerializeField] public float BaseTariffPct { get; private set; }
         [field: SerializeField] public List<CategoryCoef> CategoryCoefs { get; private set; } = new();
         [field: SerializeField] public List<CategoryStockProfile> CategoryStockProfiles { get; private set; } = new();
 
@@ -46,6 +47,7 @@ namespace Internal.Scripts.Economy.Cities
             LocalizedString name,
             LocalizedString description,
             int cityMoneyIncomePerScale,
+            float baseTariffPct,
             List<CategoryCoef> categoryCoefs,
             List<CategoryStockProfile> categoryStockProfiles)
         {
@@ -53,6 +55,7 @@ namespace Internal.Scripts.Economy.Cities
             Name = name;
             Description = description ?? new LocalizedString();
             CityMoneyIncomePerScale = cityMoneyIncomePerScale;
+            BaseTariffPct = baseTariffPct;
             CategoryCoefs = categoryCoefs ?? new List<CategoryCoef>();
             CategoryStockProfiles = categoryStockProfiles ?? new List<CategoryStockProfile>();
         }

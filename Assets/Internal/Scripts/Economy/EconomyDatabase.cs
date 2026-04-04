@@ -52,6 +52,14 @@ namespace Internal.Scripts.Economy
             return Buildings.Find(b => b.Type == type);
         }
 
+        public LanguageType GetLanguageForCulture(CultureId culture)
+        {
+            if (culture == CultureId.None) return LanguageType.None;
+            foreach (var mapping in CultureLanguages)
+                if (mapping.Culture == culture) return mapping.Language;
+            return LanguageType.None;
+        }
+
         public List<LanguageType> GetLanguagesForCity(string cityId)
         {
             var city = Cities.Find(c => string.Equals(c.Id, cityId, StringComparison.OrdinalIgnoreCase));

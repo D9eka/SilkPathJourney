@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83963331226dca241a4269e12809dd19, type: 3}
+  m_Name: CultureAdjacencyData
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Economy.Cities.CultureAdjacencyData
+  <Adjacencies>k__BackingField:
+  - A: 5
+    B: 6
+  - A: 1
+    B: 2
+  - A: 5
+    B: 10
+  - A: 6
+    B: 10
+  - A: 4
+    B: 10
+  - A: 2
+    B: 3
+  - A: 2
+    B: 9
+  - A: 1
+    B: 11
+  - A: 4
+    B: 5
+  - A: 4
+    B: 7
+  - A: 7
+    B: 8
