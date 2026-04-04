@@ -32,7 +32,11 @@ namespace Internal.Scripts.Npc.Save
             _dayTracker.OnDayChanged -= HandleDayChanged;
         }
 
-        private void HandleDayChanged(int day) => Save();
+        private void HandleDayChanged(int day)
+        {
+            if (_dayTracker.IsSkipping) return;
+            Save();
+        }
 
         private void Save()
         {

@@ -1,8 +1,10 @@
+using Internal.Scripts.Caravan.Generated;
+using Internal.Scripts.Npc.Data;
 using Internal.Scripts.Npc.Lifecycle;
 using Internal.Scripts.Npc.Movement;
 using Internal.Scripts.Npc.Names;
 using Internal.Scripts.Npc.NextSegment;
-using Internal.Scripts.Npc.Trading;
+using Internal.Scripts.Player;
 using Internal.Scripts.Road.Graph;
 using Internal.Scripts.Road.Path;
 using Internal.Scripts.UI.WorldLabel;
@@ -22,11 +24,13 @@ namespace Internal.Scripts.Npc.Core
         private readonly IGameDayDeltaProvider _gameDayDeltaProvider;
         private readonly NpcSimulationSettings _settings;
         private readonly WorldCanvas _worldCanvas;
+        private readonly ConvoyPrefabCatalog _catalog;
 
         public NpcFactory(IRoadPathFinder pathFinder, IRoadNetwork network,
             RoadSamplerCache samplerCache, NpcSimulation simulation, RoadPoseSampler poseSampler,
             IGameDayDeltaProvider gameDayDeltaProvider,
-            NpcSimulationSettings settings, WorldCanvas worldCanvas)
+            NpcSimulationSettings settings, WorldCanvas worldCanvas,
+            [Zenject.InjectOptional] ConvoyPrefabCatalog catalog)
         {
             _pathFinder = pathFinder;
             _network = network;
@@ -36,6 +40,7 @@ namespace Internal.Scripts.Npc.Core
             _gameDayDeltaProvider = gameDayDeltaProvider;
             _settings = settings;
             _worldCanvas = worldCanvas;
+            _catalog = catalog;
         }
 
         public RoadAgent Create(NpcView view, RoadAgentConfig config, string startNodeId)
@@ -60,19 +65,28 @@ namespace Internal.Scripts.Npc.Core
             NpcEconomyState economy, string nameId,
             int prefabIndex = -1, int colorIndex = -1)
         {
-            if (prefabIndex < 0)
-                prefabIndex = ChoosePrefabIndex();
-
-            NpcView prefab = GetPrefab(prefabIndex);
-            if (prefab == null)
-                return null;
-
             if (colorIndex < 0)
                 colorIndex = ChooseColorIndex();
 
             Color color = GetColor(colorIndex);
-            NpcView view = Object.Instantiate(prefab);
+
+            int chosenIndex = prefabIndex >= 0 ? prefabIndex : ChoosePrefabIndex();
+            NpcView prefab = GetPrefab(chosenIndex);
+            NpcView view;
+            if (prefab != null)
+            {
+                view = Object.Instantiate(prefab);
+                prefabIndex = chosenIndex;
+            }
+            else
+            {
+                var go = new GameObject($"NpcCaravan_{economy.Name}");
+                view = go.AddComponent<NpcView>();
+                prefabIndex = 0;
+            }
+
             view.ApplyColor(color);
+            SpawnCartVisual(view);
 
             LocalizedString localizedName = !string.IsNullOrEmpty(nameId)
                 ? new LocalizedString("Npc", nameId) : null;
@@ -80,6 +94,27 @@ namespace Internal.Scripts.Npc.Core
 
             RoadAgent roadAgent = Create(view, config, startNodeId);
             return new NpcCaravanAgent(roadAgent, view, economy, prefabIndex, colorIndex);
+        }
+
+        private void SpawnCartVisual(NpcView view)
+        {
+            if (_catalog == null) return;
+
+            var cartClasses = (CartClass[])System.Enum.GetValues(typeof(CartClass));
+            if (cartClasses.Length == 0) return;
+
+            CartClass randomCart = cartClasses[Random.Range(0, cartClasses.Length)];
+            GameObject cartPrefab = _catalog.GetMainCart(randomCart);
+            if (cartPrefab == null) return;
+
+            var meshRenderer = view.GetComponent<MeshRenderer>();
+            if (meshRenderer != null) meshRenderer.enabled = false;
+            var meshFilter = view.GetComponent<MeshFilter>();
+            if (meshFilter != null) meshFilter.mesh = null;
+
+            GameObject cart = Object.Instantiate(cartPrefab, view.VisualRoot);
+            cart.transform.localPosition = Vector3.zero;
+            cart.transform.localRotation = Quaternion.identity;
         }
 
         private int ChoosePrefabIndex()
