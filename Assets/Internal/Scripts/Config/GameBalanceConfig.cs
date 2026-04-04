@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using Internal.Scripts.Economy.Cities;
 using UnityEngine;
 
 namespace Internal.Scripts.Config
@@ -45,5 +47,25 @@ namespace Internal.Scripts.Config
         [field: SerializeField] public float ModifierDurationMultiplier { get; private set; } = 1f;
         [field: SerializeField] public int StalenessActualDays { get; private set; } = 20;
         [field: SerializeField] public int StalenessStaleDays { get; private set; } = 40;
+
+        [Header("Reputation")]
+        [field: SerializeField] public int StartingReputation { get; private set; } = 50;
+
+        [Header("Rumors")]
+        [field: SerializeField] public int RumorCost { get; private set; } = 10;
+        [field: SerializeField] public int RumorRadius { get; private set; } = 2;
+
+        [Header("Exoticity")]
+        [field: SerializeField] public float ExoticityPerStep { get; private set; } = 0.15f;
+
+        [Header("Tariff")]
+        [field: SerializeField] public List<ThresholdModifierRule> TariffReputationRules { get; private set; } = new()
+        {
+            new() { Threshold = 20, Modifier = 1.3f, Comparison = ComparisonType.Below },
+            new() { Threshold = 40, Modifier = 1.1f, Comparison = ComparisonType.Below },
+            new() { Threshold = 60, Modifier = 1.0f, Comparison = ComparisonType.Below },
+            new() { Threshold = 80, Modifier = 0.8f, Comparison = ComparisonType.Below },
+        };
+        [field: SerializeField] public float TariffDefaultReputationModifier { get; private set; } = 0.5f;
     }
 }

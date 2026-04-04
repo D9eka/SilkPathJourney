@@ -17,7 +17,12 @@ namespace Internal.Scripts.Events.Conditions
 
         public bool Evaluate(EventCondition condition, PlayerResourceState resources)
         {
-            return condition.Type == EventConditionType.MaxReputation;
+            return condition.Type switch
+            {
+                EventConditionType.MinReputation => resources.Reputation >= condition.Value,
+                EventConditionType.MaxReputation => resources.Reputation <= condition.Value,
+                _ => false
+            };
         }
     }
 }

@@ -12,6 +12,7 @@ namespace Internal.Scripts.UI.Components
         Morale,
         Speed,
         CompanionPay,
-        Health
+        Health,
+        Reputation
     }
 }
