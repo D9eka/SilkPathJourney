@@ -1,9 +1,13 @@
 using System.Collections.Generic;
+using Internal.Scripts.Economy;
+using Internal.Scripts.Economy.Generated;
+using Internal.Scripts.Economy.Guild;
+using Internal.Scripts.Economy.Items;
 using Internal.Scripts.Economy.Save.Models;
 using Internal.Scripts.Economy.Simulation;
 using Internal.Scripts.Inventory;
 using Internal.Scripts.Items;
-using Internal.Scripts.Npc.Trading;
+using Internal.Scripts.Npc.Data;
 using UnityEngine;
 
 namespace Internal.Scripts.Trading
@@ -12,13 +16,22 @@ namespace Internal.Scripts.Trading
     {
         private readonly InventoryRepository _inventoryRepository;
         private readonly CityTradePriceService _priceService;
+        private readonly EconomyDatabase _economyDatabase;
+        private readonly ItemCatalog _itemCatalog;
+        private readonly GuildSettings _guildSettings;
 
         public CityTransactionService(
             InventoryRepository inventoryRepository,
-            CityTradePriceService priceService)
+            CityTradePriceService priceService,
+            EconomyDatabase economyDatabase,
+            ItemCatalog itemCatalog,
+            GuildSettings guildSettings)
         {
             _inventoryRepository = inventoryRepository;
             _priceService = priceService;
+            _economyDatabase = economyDatabase;
+            _itemCatalog = itemCatalog;
+            _guildSettings = guildSettings;
         }
 
         public (int count, int cost) BuyFromCity(
@@ -55,21 +68,22 @@ namespace Internal.Scripts.Trading
             return (count, cost);
         }
 
-        public int SellToCity(NpcEconomyState seller, string cityId, List<ItemStackState> items)
+        public (int unitsSold, int moneyReceived) SellToCity(
+            NpcEconomyState seller, string cityId, List<ItemStackState> items)
         {
             if (items == null || items.Count == 0)
-                return 0;
+                return (0, 0);
 
             int sellTotal = PriceItems(cityId, items, out var priced);
             if (sellTotal <= 0)
-                return 0;
+                return (0, 0);
 
             CityInventoryState cityState = _inventoryRepository.GetCityInventory(cityId);
             int cityMoney = cityState?.Inventory?.Money ?? 0;
 
             int totalReceived = SelectAffordableItems(priced, cityMoney, sellTotal, out var soldItems);
             if (soldItems.Count == 0)
-                return 0;
+                return (0, 0);
 
             int capturedTotal = totalReceived;
             _inventoryRepository.UpdateCityInventory(cityId, cityInv =>
@@ -84,7 +98,62 @@ namespace Internal.Scripts.Trading
                 InventoryStateMutator.RemoveItems(seller.Inventory, itemId, count);
 
             seller.Money += totalReceived;
-            return totalReceived;
+
+            ApplyGuildTithe(seller, cityId, soldItems);
+
+            int unitsSold = 0;
+            foreach ((string _, int count) in soldItems)
+                unitsSold += count;
+
+            return (unitsSold, totalReceived);
+        }
+
+        private void ApplyGuildTithe(NpcEconomyState seller, string cityId, List<(string itemId, int count)> soldItems)
+        {
+            if (!HasGuildBuilding(cityId))
+                return;
+
+            int totalTithe = 0;
+            foreach ((string itemId, int count) in soldItems)
+            {
+                ItemData item = _itemCatalog.GetItem(itemId);
+                if (item == null) continue;
+
+                float tithePct = item.Type switch
+                {
+                    ItemType.Craft => _guildSettings.TitheCraftPct,
+                    ItemType.Luxury => _guildSettings.TitheLuxuryPct,
+                    ItemType.Exotic => _guildSettings.TitheExoticPct,
+                    _ => 0f
+                };
+
+                if (tithePct <= 0f) continue;
+
+                int unitPrice = _priceService.GetPrice(cityId, itemId, TradePriceKind.SellToCity, applySkillBonus: false);
+                int tithe = Mathf.RoundToInt(unitPrice * count * tithePct);
+                totalTithe += tithe;
+            }
+
+            if (totalTithe <= 0) return;
+
+            totalTithe = Mathf.Min(totalTithe, seller.Money);
+            seller.Money -= totalTithe;
+            int captured = totalTithe;
+            _inventoryRepository.UpdateCityInventoryState(cityId, s => s.GuildMoney += captured);
+        }
+
+        private bool HasGuildBuilding(string cityId)
+        {
+            if (_economyDatabase?.Cities == null) return false;
+            foreach (var city in _economyDatabase.Cities)
+            {
+                if (city == null || city.Id != cityId) continue;
+                if (city.Buildings == null) return false;
+                foreach (var b in city.Buildings)
+                    if (b == BuildingId.Guild) return true;
+                return false;
+            }
+            return false;
         }
 
         private int PriceItems(string cityId, List<ItemStackState> items,
@@ -125,6 +194,12 @@ namespace Internal.Scripts.Trading
         public int GetBuyPrice(string cityId, string itemId)
         {
             return _priceService.GetPrice(cityId, itemId, TradePriceKind.BuyFromCity,
+                applySkillBonus: false);
+        }
+
+        public int GetSellPrice(string cityId, string itemId)
+        {
+            return _priceService.GetPrice(cityId, itemId, TradePriceKind.SellToCity,
                 applySkillBonus: false);
         }
 

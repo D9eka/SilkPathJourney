@@ -2,6 +2,7 @@ using Internal.Scripts.Economy.Save.Models;
 using Internal.Scripts.Economy.Simulation;
 using Internal.Scripts.Inventory;
 using Internal.Scripts.Items;
+using Internal.Scripts.Npc.Data;
 using Internal.Scripts.Npc.Lifecycle;
 using Internal.Scripts.Road.Path;
 using Internal.Scripts.Trading;
@@ -37,6 +38,9 @@ namespace Internal.Scripts.Npc.Trading
                 return -1;
 
             RoadPath path = _pathFinder.FindPath(fromNodeId, toNodeId);
+            if (path == null)
+                return (_settings.ExtraSuppliesDays + _settings.NoPathFallbackDays) * _settings.SuppliesPerDay;
+
             int days = path.EstimateDays(speed);
             if (days < 0)
                 return -1;
@@ -44,16 +48,70 @@ namespace Internal.Scripts.Npc.Trading
             return (days + _settings.ExtraSuppliesDays) * _settings.SuppliesPerDay;
         }
 
-        public bool CanAffordTrip(NpcEconomyState agent, string cityId,
+        public float EstimateTransportDays(string fromNodeId, string toNodeId, float speed)
+        {
+            if (string.IsNullOrEmpty(toNodeId) || speed <= 0f)
+                return 0f;
+
+            int suppliesNeeded = EstimateSuppliesNeeded(fromNodeId, toNodeId, speed);
+            if (suppliesNeeded < 0)
+                return 0f;
+
+            return (float)suppliesNeeded / _settings.SuppliesPerDay;
+        }
+
+        public int CalculateSupplyDeficit(NpcEconomyState agent,
             string currentNodeId, string targetNodeId, float speedMetersPerDay)
         {
             int suppliesNeeded = EstimateSuppliesNeeded(currentNodeId, targetNodeId, speedMetersPerDay);
             if (suppliesNeeded < 0)
-                return false;
+                return -1;
 
             int currentSupplies = InventoryStateMutator.GetItemCount(agent.Inventory, SuppliesItemId.Value);
-            if (currentSupplies >= suppliesNeeded)
-                return true;
+            return Mathf.Max(0, suppliesNeeded - currentSupplies);
+        }
+
+        public int EstimateSupplyPurchaseCost(NpcEconomyState agent, string cityId,
+            string currentNodeId, string targetNodeId, float speedMetersPerDay)
+        {
+            int deficit = CalculateSupplyDeficit(agent, currentNodeId, targetNodeId, speedMetersPerDay);
+            if (deficit < 0)
+                return -1;
+            if (deficit == 0)
+                return 0;
+
+            int buyPrice = _priceService.GetPrice(cityId, SuppliesItemId.Value, TradePriceKind.BuyFromCity,
+                applySkillBonus: false);
+            if (buyPrice <= 0)
+                return -1;
+
+            return deficit * buyPrice;
+        }
+
+        public int CalculateTradeBudgetAfterSupplies(NpcEconomyState agent, string cityId,
+            string currentNodeId, string targetNodeId, float speedMetersPerDay)
+        {
+            int supplyCost = EstimateSupplyPurchaseCost(
+                agent, cityId, currentNodeId, targetNodeId, speedMetersPerDay);
+            if (supplyCost < 0)
+                return -1;
+
+            int budget = Mathf.RoundToInt(agent.Money * _settings.BuyBudgetFraction);
+            int reserveForSupplies = agent.Money - budget;
+            if (reserveForSupplies < supplyCost)
+                budget -= (supplyCost - reserveForSupplies);
+            return budget;
+        }
+
+        public bool CanAffordTrip(NpcEconomyState agent, string cityId,
+            string currentNodeId, string targetNodeId, float speedMetersPerDay)
+        {
+            int deficit = CalculateSupplyDeficit(agent, currentNodeId, targetNodeId, speedMetersPerDay);
+            if (deficit < 0)
+                return false;
+
+            if (deficit == 0)
+                return Mathf.RoundToInt(agent.Money * _settings.BuyBudgetFraction) > 0;
 
             CityInventoryState cityState = _inventoryRepository.GetCityInventory(cityId);
             ItemStackState cityStack = cityState?.Inventory?.Items?.Find(s => s.ItemId == SuppliesItemId.Value);
@@ -62,26 +120,34 @@ namespace Internal.Scripts.Npc.Trading
             int buyPrice = _priceService.GetPrice(cityId, SuppliesItemId.Value, TradePriceKind.BuyFromCity,
                 applySkillBonus: false);
             if (buyPrice <= 0)
-                return currentSupplies >= suppliesNeeded;
+                return false;
 
             int maxByBudget = agent.Money / buyPrice;
-            int canBuy = Mathf.Min(available, maxByBudget);
-            return currentSupplies + canBuy >= suppliesNeeded;
+            int canBuy = Mathf.Min(deficit, Mathf.Min(available, maxByBudget));
+            if (canBuy < deficit)
+                return false;
+
+            int supplyCost = canBuy * buyPrice;
+            int budget = Mathf.RoundToInt(agent.Money * _settings.BuyBudgetFraction);
+            int reserve = agent.Money - budget;
+            if (reserve < supplyCost)
+                budget -= (supplyCost - reserve);
+            return budget > 0;
         }
 
-        public void BuySupplies(NpcEconomyState agent, string cityId,
+        public (int count, int cost) BuySupplies(NpcEconomyState agent, string cityId,
             string currentNodeId, string nextDestNodeId, float speedMetersPerDay)
         {
             int suppliesNeeded = EstimateSuppliesNeeded(currentNodeId, nextDestNodeId, speedMetersPerDay);
             if (suppliesNeeded < 0)
-                return;
+                return (0, 0);
 
             int currentSupplies = InventoryStateMutator.GetItemCount(agent.Inventory, SuppliesItemId.Value);
             int deficit = suppliesNeeded - currentSupplies;
             if (deficit <= 0)
-                return;
+                return (0, 0);
 
-            _transactionService.BuyFromCity(agent, cityId, SuppliesItemId.Value, deficit);
+            return _transactionService.BuyFromCity(agent, cityId, SuppliesItemId.Value, deficit);
         }
     }
 }

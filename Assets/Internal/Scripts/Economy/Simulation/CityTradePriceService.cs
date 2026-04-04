@@ -1,4 +1,8 @@
 using System.Collections.Generic;
+using Internal.Scripts.Config;
+using Internal.Scripts.Economy;
+using Internal.Scripts.Economy.Cities;
+using Internal.Scripts.Economy.Generated;
 using Internal.Scripts.Economy.Items;
 using Internal.Scripts.Economy.Save.Models;
 using Internal.Scripts.Inventory;
@@ -15,6 +19,9 @@ namespace Internal.Scripts.Economy.Simulation
         private readonly InventoryRepository _inventoryRepository;
         private readonly ItemCatalog _itemCatalog;
         private readonly TradePriceModifiers _modifiers;
+        private readonly EconomyDatabase _economyDatabase;
+        private readonly CultureDistanceService _cultureDistance;
+        private readonly GameBalanceConfig _balanceConfig;
         private readonly HashSet<string> _warnedKeys = new();
 
         public CityTradePriceService(
@@ -22,18 +29,40 @@ namespace Internal.Scripts.Economy.Simulation
             EconomySimulationSettings settings,
             InventoryRepository inventoryRepository,
             ItemCatalog itemCatalog,
-            TradePriceModifiers modifiers)
+            TradePriceModifiers modifiers,
+            EconomyDatabase economyDatabase,
+            CultureDistanceService cultureDistance,
+            GameBalanceConfig balanceConfig)
         {
             _profileService = profileService;
             _settings = settings;
             _inventoryRepository = inventoryRepository;
             _itemCatalog = itemCatalog;
             _modifiers = modifiers;
+            _economyDatabase = economyDatabase;
+            _cultureDistance = cultureDistance;
+            _balanceConfig = balanceConfig;
         }
 
         public int GetPrice(string cityId, string itemId, TradePriceKind kind,
             bool applySkillBonus = true)
             => CalculatePrice(cityId, itemId, kind, applySkillBonus).FinalPrice;
+
+        public int GetPriceWithExoticity(string cityId, string itemId, TradePriceKind kind,
+            CultureId originCulture, bool applySkillBonus = true)
+        {
+            PriceBreakdown breakdown = CalculatePrice(cityId, itemId, kind, applySkillBonus);
+            if (kind != TradePriceKind.SellToCity || originCulture == CultureId.None)
+                return breakdown.FinalPrice;
+
+            CityData city = _economyDatabase.Cities.Find(c => c.Id == cityId);
+            if (city == null)
+                return breakdown.FinalPrice;
+
+            float mult = _cultureDistance.GetExoticityMultiplier(
+                originCulture, city.PrimaryCulture, _balanceConfig.ExoticityPerStep);
+            return Mathf.Max(1, Mathf.RoundToInt(breakdown.FinalPrice * mult));
+        }
 
         public PriceBreakdown GetPriceBreakdown(string cityId, string itemId, TradePriceKind kind)
             => CalculatePrice(cityId, itemId, kind, true);
