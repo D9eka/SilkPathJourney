@@ -22,5 +22,18 @@ namespace Internal.Scripts.Trading
             FinalPrice = finalPrice;
             IsNpcTrade = isNpcTrade;
         }
+
+        public PriceBreakdown(string itemName, int basePrice, float marketMult,
+            float bonusMult, float modifierMult, float exoticityMult, int finalPrice, bool isNpcTrade)
+        {
+            ItemName = itemName;
+            BasePrice = basePrice;
+            MarketMult = marketMult;
+            BonusMult = bonusMult;
+            ModifierMult = modifierMult;
+            ExoticityMult = exoticityMult;
+            FinalPrice = finalPrice;
+            IsNpcTrade = isNpcTrade;
+        }
     }
 }

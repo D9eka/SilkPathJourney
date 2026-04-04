@@ -4,16 +4,16 @@ namespace Internal.Scripts.Npc.Behavior.Actions
 {
     public sealed class DebtRepaymentAction : ICityVisitAction
     {
-        private readonly NpcTrader _trader;
+        private readonly NpcGuildTradeService _guildTradeService;
 
-        public DebtRepaymentAction(NpcTrader trader)
+        public DebtRepaymentAction(NpcGuildTradeService guildTradeService)
         {
-            _trader = trader;
+            _guildTradeService = guildTradeService;
         }
 
         public void Execute(NpcCityVisitContext ctx)
         {
-            _trader.HandleDebtRepayment(ctx.Economy, ctx.City.Id);
+            _guildTradeService.HandleDebtRepayment(ctx.Economy, ctx.City.Id);
         }
     }
 }

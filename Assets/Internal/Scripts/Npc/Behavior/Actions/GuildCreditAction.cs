@@ -4,13 +4,13 @@ namespace Internal.Scripts.Npc.Behavior.Actions
 {
     public sealed class GuildCreditAction : ICityVisitAction
     {
-        private readonly NpcTrader _trader;
+        private readonly NpcGuildTradeService _guildTradeService;
 
-        public GuildCreditAction(NpcTrader trader)
+        public GuildCreditAction(NpcGuildTradeService guildTradeService)
         {
-            _trader = trader;
+            _guildTradeService = guildTradeService;
         }
 
-        public void Execute(NpcCityVisitContext ctx) => _trader.EnsureGuildCreditIfNeeded(ctx.Economy, ctx.City.Id);
+        public void Execute(NpcCityVisitContext ctx) => _guildTradeService.HandleGuildCredit(ctx.Economy, ctx.City.Id);
     }
 }

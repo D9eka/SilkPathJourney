@@ -4,16 +4,16 @@ namespace Internal.Scripts.Npc.Behavior.Actions
 {
     public sealed class TakeContractAction : ICityVisitAction
     {
-        private readonly NpcTrader _trader;
+        private readonly NpcGuildTradeService _guildTradeService;
 
-        public TakeContractAction(NpcTrader trader)
+        public TakeContractAction(NpcGuildTradeService guildTradeService)
         {
-            _trader = trader;
+            _guildTradeService = guildTradeService;
         }
 
         public void Execute(NpcCityVisitContext ctx)
         {
-            _trader.TryTakeGuildContract(ctx.Economy, ctx.City.Id, ctx.CurrentNodeId,
+            _guildTradeService.TryTakeGuildContract(ctx.Economy, ctx.City.Id, ctx.CurrentNodeId,
                 ctx.SpeedMetersPerDay, ctx.NextRandom);
         }
     }

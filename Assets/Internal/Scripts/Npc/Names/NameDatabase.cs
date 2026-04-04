@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Internal.Scripts.Npc.Names
 {
-    [CreateAssetMenu(menuName = "SPJ/Name Database", fileName = "NameDatabase")]
+    [CreateAssetMenu(menuName = "SPJ/NPC/Name Database", fileName = "NameDatabase")]
     public sealed class NameDatabase : ScriptableObject
     {
         [SerializeField] private List<NameEntry> _entries = new();

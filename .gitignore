@@ -101,3 +101,6 @@ InitTestScene*.unity*
 # Game Design Documents
 GDD/
 /tools
+.dotnet_cli
+SimulationExports
+.vscode
