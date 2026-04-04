@@ -15,7 +15,7 @@ MonoBehaviour:
   <Id>k__BackingField: supplies
   <Type>k__BackingField: 1
   <WeightKg>k__BackingField: 0.5
-  <BasePrice>k__BackingField: 5
+  <BasePrice>k__BackingField: 2
   <DemandWeight>k__BackingField: 5
   <Name>k__BackingField:
     m_TableReference:

@@ -31,9 +31,10 @@ namespace Internal.Scripts.Import.Editor.Economy.Tables
             int nameIndex = FindColumnIndex(header, "name_key");
             int descIndex = FindColumnIndex(header, "description_key");
             int moneyIndex = FindColumnIndex(header, "CityMoneyIncomePerScale");
-            if (idIndex < 0 || nameIndex < 0 || moneyIndex < 0)
+            int tariffIndex = FindColumnIndex(header, "base_tariff_pct");
+            if (idIndex < 0 || nameIndex < 0 || moneyIndex < 0 || tariffIndex < 0)
             {
-                Debug.LogError("[SPJ] Missing required columns in city_types.csv (expected CityMoneyIncomePerScale)");
+                Debug.LogError("[SPJ] Missing required columns in city_types.csv (expected city_type_id, name_key, CityMoneyIncomePerScale, base_tariff_pct)");
                 return cityTypes;
             }
 
@@ -52,6 +53,7 @@ namespace Internal.Scripts.Import.Editor.Economy.Tables
                 CityTypeData asset = LoadOrCreateAsset<CityTypeData>(OUTPUT_FOLDER, id);
 
                 TryParseInt(GetField(rows[i], moneyIndex), out int moneyPerScale);
+                TryParseFloat(GetField(rows[i], tariffIndex), out float baseTariffPct);
 
                 List<CityTypeData.CategoryCoef> coefList =
                     coefs.TryGetValue(id, out List<CityTypeData.CategoryCoef> cl)
@@ -100,6 +102,7 @@ namespace Internal.Scripts.Import.Editor.Economy.Tables
                     MakeLocalizedString(GetField(rows[i], nameIndex).Trim(), locTableName),
                     MakeLocalizedString(descKey, locTableName),
                     moneyPerScale,
+                    baseTariffPct,
                     coefList,
                     profileList);
 

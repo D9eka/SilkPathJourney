@@ -1039,6 +1039,10 @@ MonoBehaviour:
     m_Key: UI.Workshop.Main.Header.Main
     m_Metadata:
       m_Items: []
+  - m_Id: 16361616642662400
+    m_Key: UI.Tooltip.Modifiers
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

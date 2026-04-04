@@ -3029,14 +3029,14 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10424707516981256
-    m_Localized: Dacoit Ambush
+    m_Localized: Bandit Ambush
     m_Metadata:
       m_Items: []
   - m_Id: 10424707516981257
-    m_Localized: "Armed men with painted faces burst from the tall elephant grass
-      with war cries. Dacoits \u2014 Indian bandits \u2014 encircle the caravan in
-      a half-ring. Their leader swings a curved talwar, and torches flicker behind
-      them. The air reeks of smoke and sesame oil from the soaked brands."
+    m_Localized: "Armed men burst from tamarisk thickets along a dry riverbed with
+      war cries \u2014 lutchi, steppe bandits who prey on Sogdian roads. They encircle
+      the caravan in a half-ring. Their leader swings a curved sabre, and torches
+      flicker behind them. The air reeks of smoke and bitter tamarisk."
     m_Metadata:
       m_Items: []
   - m_Id: 10424707516981258
@@ -3044,7 +3044,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10424707516981259
-    m_Localized: The fight was fierce and brief. The dacoits retreated, dragging
+    m_Localized: The fight was fierce and brief. The bandits retreated, dragging
       off several bales. The cart is damaged, the men shaken, but the caravan holds.
     m_Metadata:
       m_Items: []
@@ -3054,8 +3054,8 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 10424707516981261
     m_Localized: A handful of silver cooled the leader's ardour. He grinned, tucked
-      the coins into the folds of his dhoti, and whistled to his men. The dacoits
-      melted back into the grass.
+      the coins inside his khalat, and whistled to his men. The bandits melted back
+      into the thickets.
     m_Metadata:
       m_Items: []
   - m_Id: 10424707516981262
@@ -3165,15 +3165,16 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10424707516981282
-    m_Localized: Indian Festival
+    m_Localized: "Sogdian Mihrag\u0101n"
     m_Metadata:
       m_Items: []
   - m_Id: 10424707516981283
-    m_Localized: "The road passes through a village adorned with marigold garlands
-      and oil lamps. Villagers have gathered in the square: drums beat, and the air
-      is thick with the scent of spices and burning ghee. The headman in a white
-      dhoti invites the travelers:\r\n\r\n<npc_speech lang=\"Sanskrit\">Welcome,
-      travelers! Today is a festival \u2014 Surya-puja. Come, accept our food.</npc_speech>"
+    m_Localized: "The road passes through a Sogdian settlement where a great ritual
+      fire burns in the central square. Villagers in festive khalats have gathered
+      around the blaze: a priest fans the sacred flame, and the air is thick with
+      incense and toasted sesame. The headman with a silver belt steps forward and
+      speaks:\r\n\r\n<npc_speech lang=\"Sogdian\">Welcome, travelers! Today is Mihrag\u0101n
+      \u2014 the feast of Ahura Mazda and the autumn sun. Share our fire and bread.</npc_speech>"
     m_Metadata:
       m_Items: []
   - m_Id: 10424707516981284
@@ -3181,8 +3182,9 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10424707516981285
-    m_Localized: The caravan is treated to saffron rice, flatbread, and sweets. Music
-      and dance until sundown. The company is rested and cheerful.
+    m_Localized: The caravan is offered flatbread with honey, roasted nuts, and dates.
+      Ancient Sogdian hymns ring around the fire until sundown. The company is rested
+      and cheerful.
     m_Metadata:
       m_Items: []
   - m_Id: 10424707516981286
@@ -3195,7 +3197,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10424707516981288
-    m_Localized: The gift was accepted, but trading seemed unseemly during the festival.
+    m_Localized: The gift was accepted, but trading seemed unseemly on a feast day.
       Food was offered, but without particular warmth.
     m_Metadata:
       m_Items: []
@@ -3204,8 +3206,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10424707516981290
-    m_Localized: The caravan bowed to the villagers and moved on. The sound of drums
-      lingered long behind.
+    m_Localized: The caravan bowed to the villagers and moved on. The glow of the
+      festival fire lingered long behind.
     m_Metadata:
       m_Items: []
   - m_Id: 10424707516981291
@@ -3259,7 +3261,7 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 10424707516981300
     m_Localized: "Six warriors in torn chainmail block the road. Former Abbasid soldiers,
-      judging by the green patches on their sleeves. Their leader \u2014 a tall,
+      judging by the black patches on their sleeves. Their leader \u2014 a tall,
       scarred man \u2014 steps forward, hand on his sabre hilt:\r\n\r\n<npc_speech
       lang=\"Arabic\">Halt, merchant! We are former soldiers of the Caliph. Now we
       take what we need. Pay up or fight.</npc_speech>"
@@ -3849,8 +3851,8 @@ MonoBehaviour:
       
 
       <npc_speech lang="Chinese">By imperial decree!
-      Every trade caravan must provide two able-bodied men, or pay twenty-five wen
-      in lieu.</npc_speech>'
+      Every trade caravan must provide two able-bodied men, or pay three strings
+      of cash in lieu.</npc_speech>'
     m_Metadata:
       m_Items: []
   - m_Id: 10424707521175610
@@ -3887,19 +3889,16 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10424707521175617
-    m_Localized: Hindu Pilgrims
+    m_Localized: Hajj Pilgrims
     m_Metadata:
       m_Items: []
   - m_Id: 10424707521175618
-    m_Localized: 'A group of barefoot pilgrims in orange robes appears on the road,
-      tilaka marks on their foreheads. They carry clay jugs of Ganges water and sing
-      mantras. The eldest notices the caravan and speaks:
-
-      
-
-      <npc_speech
-      lang="Sanskrit">Greetings, traveler! We are bound for Kashi. One of our companions
-      is ill. Do you have any medicine?</npc_speech>'
+    m_Localized: "A group of weary pilgrims appears on the road in traveling cloaks
+      \u2014 prayer beads on their wrists, each carrying a staff of tamarisk wood.
+      They are bound for Mecca through the Sogdian steppes. The eldest notices the
+      caravan and speaks:\r\n\r\n<npc_speech lang=\"Arabic\">Peace upon you, merchants!
+      We are hajj pilgrims from Mawarannahr. One of our brothers has fallen ill.
+      Do you carry any medicine?</npc_speech>"
     m_Metadata:
       m_Items: []
   - m_Id: 10424707521175619
@@ -3907,8 +3906,9 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10424707521175620
-    m_Localized: Medicinal herbs and clean water were given from the caravan's stores.
-      The pilgrims blessed the caravan and gifted a pouch of sandalwood powder.
+    m_Localized: "Medicinal herbs and clean water were given from the caravan's stores.
+      The pilgrims blessed the caravan's road and gifted a bundle of tamarisk bark
+      \u2014 a good remedy for wounds."
     m_Metadata:
       m_Items: []
   - m_Id: 10424707521175621
@@ -3925,9 +3925,10 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10424707521175624
-    m_Localized: 'The healer examined the patient and had him on his feet within
-      the hour. The pilgrims were astonished. The elder drew a block of sandalwood
-      from his robe: "This is Shiva''s gift to the healer."'
+    m_Localized: "The healer examined the patient and had him on his feet within
+      the hour. The pilgrims were astonished. The elder drew a lump of white frankincense
+      from his cloak: \"I was carrying it to the Kaaba \u2014 but God sent you to
+      us. Take it, healer.\""
     m_Metadata:
       m_Items: []
   - m_Id: 10424707521175625
@@ -5617,13 +5618,14 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10424707533758584
-    m_Localized: Byzantine Monk
+    m_Localized: Nestorian Monk
     m_Metadata:
       m_Items: []
   - m_Id: 10424707533758585
-    m_Localized: By the ruins of a roadside chapel on the Anatolian plateau sits
-      a monk in a black cassock, an open book before him. Seeing the caravan, he
-      rises and addresses the travelers.
+    m_Localized: "By the ruins of a roadside chapel in a mountain gorge sits a monk
+      in a dark habit bearing a sewn cross \u2014 a mark of the Nestorian tradition
+      brought from Syria. Before him lies an open book in Syriac script. Seeing the
+      caravan, he rises and addresses the travelers."
     m_Metadata:
       m_Items: []
   - m_Id: 10424707533758586
@@ -5632,7 +5634,8 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 10424707533758587
     m_Localized: Half a day gathering herbs in the mountains. The monk teaches their
-      Greek names and speaks of Constantinople's markets. The knowledge is priceless.
+      Syriac names and speaks of the monasteries of Merv and the trade roads through
+      Khorasan. The knowledge is priceless.
     m_Metadata:
       m_Items: []
   - m_Id: 10424707533758588
@@ -5649,8 +5652,9 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10424707533758591
-    m_Localized: The caravan's healer and the monk exchanged knowledge. The monk
-      gifted a pouch of mountain herbs and sandalwood oil. Both are pleased.
+    m_Localized: The caravan's healer and the monk exchanged knowledge of herbs.
+      The monk gifted a pouch of mountain herbs and a lump of Merv frankincense.
+      Both are pleased.
     m_Metadata:
       m_Items: []
   - m_Id: 10424707533758592
@@ -9608,16 +9612,14 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 10857774501060615
     m_Localized: "Night. The camp huddles against a rock outcrop at the foot of a
-      pass. Snow has been falling for three hours \u2014 thick, heavy, clinging to
-      the wagons and the yaks' backs. The Tibetan driver on watch by the fire suddenly
-      froze and pressed his ear to the stone. His face went white. He turned and
-      spoke fast, clipped \u2014 words tumbling like rocks down a slope:\r\n\r\n<npc_speech
+      pass. Snow has been falling for three hours. The Tibetan driver on watch by
+      the fire suddenly froze and pressed his ear to the stone \u2014 his face went
+      white. Above the camp something shifted: a low rumble, and fine snow-dust sifted
+      from the rock overhang. He turned and spoke fast, clipped:\r\n\r\n<npc_speech
       lang=\"Tibetan\">Listen! Snow is coming down from the peak! Move the wagons
       \u2014 now! Do not wait!</npc_speech>\r\n\r\nEven without knowing Tibetan,
-      the terror is plain. Above the camp, in the darkness, something shifted \u2014
-      a deep rumble like distant thunder, and fine snow dust sifted down from the
-      rock overhang. The avalanche could come in a minute or in an hour. But if it
-      hits the camp, nothing of the caravan will remain."
+      the terror is plain. The avalanche could come in a minute or in an hour. But
+      if it hits the camp, nothing of the caravan will remain."
     m_Metadata:
       m_Items: []
   - m_Id: 10857774501060616
@@ -9999,15 +10001,13 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 10857774501060669
     m_Localized: "The horizon darkened in an hour \u2014 edge to edge, as if someone
-      had upended a cauldron of soot across the sky. Then came the wind. First in
-      gusts, hurling sand into eyes, then as a solid wall that swallowed dunes, road,
-      and sun alike. The camels dropped and tucked their muzzles between their legs.
-      The caravan hands pressed against the wagons, faces wrapped in rags. Sand fills
-      ears, nostrils, every crack between the bales. The roar of the storm drowns
-      out shouts \u2014 one of the drivers stepped ten paces away and vanished into
-      the yellow murk. The old Bedouin, the only one who has not lost his composure,
-      rasps through the cloth:\r\n\r\n<npc_speech lang=\"Arabic\">Do not move! Bury
-      the wheels in sand and hold on! This is a haboob \u2014 it will not pass quickly!</npc_speech>"
+      had upended a cauldron of soot across the sky. Then came the wind \u2014 first
+      in gusts, then as a solid wall that swallowed dunes, road, and sun. The camels
+      dropped and tucked their muzzles between their legs. One of the drivers stepped
+      ten paces away and vanished into the yellow murk. The old Bedouin \u2014 the
+      only one who has not lost his composure \u2014 rasps through the cloth:\r\n\r\n<npc_speech
+      lang=\"Arabic\">Do not move! Bury the wheels in sand and hold on! This is a
+      haboob \u2014 it will not pass quickly!</npc_speech>"
     m_Metadata:
       m_Items: []
   - m_Id: 10857774501060670
@@ -10322,15 +10322,13 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 10857774501060714
     m_Localized: "Three trails fan out from a stone pillar that once bore carved
-      waymarks. Now only chips and grooves remain, silted over with sand. The left
-      trail leads across open flats toward the horizon \u2014 long, but with clear
-      sightlines. The middle plunges into a dip between dunes \u2014 shorter, but
-      what lies beyond is unknown. The right is marked with faded cloth pennants
-      and half-erased signs on stones \u2014 trade markings, but in a foreign script.
-      An old man in a dusty burnous sits at the pillar's base, fingering prayer beads.
-      He looks up and speaks:\r\n\r\n<npc_speech lang=\"Arabic\">Ho, traveler, three
-      paths: one leads to water, one to sand, one to the market. But which is which?
-      That is the question.</npc_speech>"
+      waymarks \u2014 now only chips and grooves remain, silted over with sand. One
+      crosses an open plain, another dips between dunes, and the third is marked
+      with faded cloth pennants and half-erased signs on stones \u2014 trade markings,
+      but in a foreign script. An old man in a dusty burnous sits at the pillar's
+      base, fingering prayer beads. He looks up and speaks:\r\n\r\n<npc_speech lang=\"Arabic\">Ho,
+      traveler, three paths: one leads to water, one to sand, one to the market.
+      But which is which? That is the question.</npc_speech>"
     m_Metadata:
       m_Items: []
   - m_Id: 10857774501060715
@@ -10714,8 +10712,8 @@ MonoBehaviour:
     m_Localized: "The wind has stripped sand from a dune slope, revealing stonework
       \u2014 a low entrance, two-thirds buried, leading into darkness. Cold air seeps
       from the gap, carrying something sweet, like old frankincense. Worn symbols
-      are carved into the lintel \u2014 Nabataean, perhaps, or pre-Islamic. One of
-      the Bedouin drivers has gone pale and stepped back, muttering:\r\n\r\n<npc_speech
+      are carved into the lintel \u2014 Sogdian script, fluid yet sharp. One of the
+      Bedouin drivers has gone pale and stepped back, muttering:\r\n\r\n<npc_speech
       lang=\"Arabic\">This is a tomb of the ancients. Do not enter \u2014 the djinn
       guard their dead. Although... I have seen gold in ones like this before.</npc_speech>\r\n\r\nFrom
       deep inside comes a low hum \u2014 wind in stone corridors, perhaps, or something
@@ -10763,13 +10761,13 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 10857774505254946
     m_Localized: "The guide crouched at the entrance, traced the symbols on the lintel
-      with a finger, and nodded. \"Nabataean work. A merchant or a priest \u2014
-      no warrior, simple traps.\" He went in first, tapping walls and floor with
-      a stick. A quarter-hour later he emerged with a gold necklace, a handful of
-      coins, and a bronze mirror. \"The robbers took the large pieces but never checked
-      the drain channel. That is always where they hide the real treasure.\" The
-      Bedouin driver regards the guide with open respect. The tomb yielded its riches
-      \u2014 without blood, without collapse."
+      with a finger, and nodded. \"Sogdian work. A merchant or a priest \u2014 no
+      warrior, simple traps.\" He went in first, tapping walls and floor with a stick.
+      A quarter-hour later he emerged with a gold necklace, a handful of coins, and
+      a bronze mirror. \"The robbers took the large pieces but never checked the
+      drain channel. That is always where they hide the real treasure.\" The Bedouin
+      driver regards the guide with open respect. The tomb yielded its riches \u2014
+      without blood, without collapse."
     m_Metadata:
       m_Items: []
   - m_Id: 10857774505254947
@@ -10941,8 +10939,8 @@ MonoBehaviour:
     m_Localized: "You work through the stash methodically \u2014 sack by sack, crate
       by crate. Flour, dried fish, nothing remarkable. But a trader's eye is not
       easily fooled: one crate is heavier than it should be. A false bottom. Beneath
-      the fake lid, tightly rolled bundles of saffron in waxed paper and three Damascus
-      steel blades in oiled sheaths. Contraband, clearly bypassing city duties. You
+      the fake lid, tightly rolled bundles of saffron in waxed paper and three Khorasan
+      pulad blades in oiled sheaths. Contraband, clearly bypassing city duties. You
       take the valuables and cover your tracks. But hurry \u2014 the owners certainly
       know their own schedule."
     m_Metadata:
@@ -10984,8 +10982,8 @@ MonoBehaviour:
       halberds held upright. At the center \u2014 an official in a silk robe embroidered
       with a coiling dragon, a lacquered writing tablet in his hands. He raises a
       palm to halt the caravan and speaks in a sharp, commanding tone:\r\n\r\n<npc_speech
-      lang=\"Chinese\">Halt! I am Li Cheng, protector-general of Daizhou. Present
-      your travel papers and cargo manifest. No passage without authorization.</npc_speech>"
+      lang=\"Chinese\">Halt! I am Li Cheng, protector-general of Anxi. Present your
+      travel papers and cargo manifest. No passage without authorization.</npc_speech>"
     m_Metadata:
       m_Items: []
   - m_Id: 10857774505254976
@@ -11030,7 +11028,7 @@ MonoBehaviour:
     m_Localized: "The translator stepped forward, folded his hands in a formal court
       greeting, and spoke in flawless bureaucratic Chinese \u2014 with turns of phrase
       one might hear only in a Chang'an chancellery: <npc_speech lang=\"Chinese\">Illustrious
-      protector-general, we are a trade caravan bearing the prefecture of Liangzhou's
+      protector-general of Anxi, we are a trade caravan bearing the protectorate's
       authorization. Please accept our papers and manifest. May the order of the
       Celestial Kingdom endure.</npc_speech>"
     m_Metadata:
@@ -11232,16 +11230,13 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10857774509449247
-    m_Localized: "At the edge of an oasis, under a spreading date palm, a striped
-      rug lies spread on the sand. On it \u2014 clay pots sealed with wax, pouches
-      of dense cloth, brass scales with small weights. Behind the rug, a lean Arab
-      in a white turban and loose robes sits on his heels, picking through saffron
-      threads over a copper bowl. The scent hits ten paces out \u2014 bitter, spicy,
-      thick: frankincense, camphor, musk, saffron. The trader raises his head, smiles
-      a gap-toothed smile, and sizes up the caravan with an appraising glance. He
-      has traded here for years \u2014 camels rest under a shelter of dry palm fronds,
-      the marks of old campfires ring the clearing.\r\n\r\n<npc_speech lang=\"Arabic\">Peace
-      be upon you, merchant! I have saffron from Persia and frankincense from Hadramaut.
+    m_Localized: "At the edge of an oasis, under a date palm, a striped rug is spread
+      on the sand \u2014 pouches of spices and brass scales arrayed upon it. A lean
+      Arab in a white turban sits on his heels, picking through saffron threads over
+      a copper bowl. The scent hits ten paces out \u2014 bitter, spicy, thick: frankincense
+      and saffron, musk and camphor. The ring of old campfire marks says it all:
+      he has traded here for years.\r\n\r\n<npc_speech lang=\"Arabic\">Peace be upon
+      you, merchant! I have saffron from Persia and frankincense from Hadramaut.
       Will you buy? The price is fair \u2014 and finer goods you will not find!</npc_speech>"
     m_Metadata:
       m_Items: []
@@ -11301,13 +11296,13 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 10857774509449256
     m_Localized: "At the trail's edge, in the shade of a boulder, a man lies \u2014
-      thin, in a white ihram stained with dust and sweat. His bare feet are rubbed
-      raw, his lips cracked. Beside him \u2014 an empty waterskin and a walking staff
-      of dry tamarisk. A pilgrim bound for Mecca who fell behind his caravan, two
-      days ago by the look of it: sunken eyes, rapid shallow breathing. As the lead
-      wagon draws level, he rises on one elbow and croaks a few words \u2014 unintelligible
-      without Arabic. The drivers exchange glances \u2014 help means losing water
-      and time; leaving him means leaving a man to die."
+      thin, in a white turban and travel cloak stained with dust and sweat. His bare
+      feet are rubbed raw, his lips cracked. Beside him \u2014 an empty waterskin
+      and a walking staff of dry tamarisk. A pilgrim bound for Mecca who fell behind
+      his caravan, two days ago by the look of it: sunken eyes, rapid shallow breathing.
+      As the lead wagon draws level, he rises on one elbow and croaks a few words
+      \u2014 unintelligible without Arabic. The drivers exchange glances \u2014 help
+      means losing water and time; leaving him means leaving a man to die."
     m_Metadata:
       m_Items: []
   - m_Id: 10857774509449257
@@ -11330,10 +11325,11 @@ MonoBehaviour:
     m_Localized: "You said it plainly: \"A man is dying. We are neither bandits nor
       beasts.\" The drivers fell silent, then the eldest nodded. The pilgrim was
       lifted onto the rear wagon, given water, his feet washed. By evening he came
-      to and drew a small bundle from the folds of his ihram \u2014 a lump of frankincense.
-      \"I was carrying it to the Kaaba,\" he whispered. \"But God sent you. Take
-      it \u2014 you are more worthy.\" The caravan hands went quiet \u2014 even the
-      grumblers. A good deed on a desert road is worth more than silver."
+      to and drew a small bundle from the folds of his travel cloak \u2014 a lump
+      of frankincense. \"I was carrying it to the Kaaba,\" he whispered. \"But God
+      sent you. Take it \u2014 you are more worthy.\" The caravan hands went quiet
+      \u2014 even the grumblers. A good deed on a desert road is worth more than
+      silver."
     m_Metadata:
       m_Items: []
   - m_Id: 10857774509449261
@@ -11364,15 +11360,12 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10857774509449265
-    m_Localized: "By a half-ruined stone caravanserai, its walls sand-buried to the
-      lintel, a broad-shouldered man sits in a leather vest over a quilted robe.
-      On his head \u2014 a worn wolf-fur cap; a composite bow handle juts from behind
-      his back; a curved blade rests at his hip in plain wooden scabbard. His face
-      is windburned and high-cheekboned, a thin scar running from temple to chin.
-      A hobbled horse beside him \u2014 short, steppe-bred, mane braided \u2014 crops
-      thorns by the wall. Spotting the caravan, the man rises, takes the horse by
-      the bridle, and steps onto the trail. He calls to the lead wagon in Turkic
-      \u2014 voice hoarse but sure:\r\n\r\n<npc_speech lang=\"Turkic\">Be well, caravan
+    m_Localized: "By a half-ruined stone caravanserai, its walls buried to the lintel
+      in sand, a broad-shouldered Turkic man sits in a leather vest \u2014 composite
+      bow at his back, curved blade at his hip. His face is windburned, high-cheekboned,
+      with a thin scar from temple to chin. A hobbled steppe horse crops thorns by
+      the wall. Spotting the caravan, the man rises and calls to the lead wagon \u2014
+      voice hoarse but sure:\r\n\r\n<npc_speech lang=\"Turkic\">Be well, caravan
       master! I am Arslan, I used to guard caravans. There are dangerous men on the
       road. Do you need a guard? I have strength and skill \u2014 we can agree on
       a price!</npc_speech>"
@@ -11500,16 +11493,14 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10857774509449283
-    m_Localized: "On a stony ledge by the pass, beneath faded prayer flags, a trader
-      has set up shop. Before him \u2014 flat bricks of pressed tea laid in rows
-      on an oiled canvas, and leather sacks of yak butter cinched with yak-wool cord.
-      Two shaggy yaks with loaded packs stand nearby, chewing bunches of dry grass.
-      The trader \u2014 a stocky Tibetan in a sheepskin chuba belted with a red sash
-      \u2014 squats by a small fire, stirring a brew in a soot-blackened copper kettle:
-      tea, butter, a pinch of salt. Seeing the caravan, he raises a hand and calls
-      out in a deep voice:\r\n\r\n<npc_speech lang=\"Tibetan\">Greetings, guest!
-      This is black tea \u2014 the finest highland tea of Tibet! With butter and
-      salt \u2014 on the road you cannot do without it. Will you buy?</npc_speech>"
+    m_Localized: "On a stony ledge by the pass, beneath faded prayer flags, bricks
+      of pressed tea are laid out in rows. A stocky Tibetan in a sheepskin chuba
+      squats by a small fire, stirring a brew in a soot-blackened copper kettle \u2014
+      tea, butter, a pinch of salt. The bitter, smoky scent drifts toward the caravan.
+      Seeing you, he raises a hand and calls out in a deep voice:\r\n\r\n<npc_speech
+      lang=\"Tibetan\">Greetings, guest! This is black tea \u2014 the finest highland
+      tea of Tibet! With butter and salt \u2014 on the road you cannot do without
+      it. Will you buy?</npc_speech>"
     m_Metadata:
       m_Items: []
   - m_Id: 10857774509449284
@@ -11569,14 +11560,12 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 10857774509449292
     m_Localized: "By the side of a mountain trail, against a boulder the size of
-      a wagon, sits a man in a black woolen cassock belted with rope. A wooden cross
-      hangs at his chest, his tonsure overgrown with reddish fuzz \u2014 long unshaved.
-      Before him on a flat stone lies a sheet of yellowish paper, held at the corners
-      by pebbles. He draws with a reed pen, dipping it into a clay ink-pot: mountain
-      ridgelines, winding trails, pass markers. Beside him \u2014 a leather satchel
-      stuffed with scrolls, and a staff with a bronze finial. Spotting the caravan,
-      the Greek raises his head, squints nearsightedly, and addresses you in halting
-      Sogdian before switching to Greek:\r\n\r\n<npc_speech lang=\"Greek\">Rejoice,
+      a wagon, sits a man in a black woolen cassock with a wooden cross at his chest.
+      A sheet of yellowish paper lies on a flat stone before him, pinned down with
+      pebbles. He draws with a reed pen: mountain ridgelines, winding trails, pass
+      markers. A leather satchel stuffed with scrolls sits beside him. Spotting the
+      caravan, the Greek raises his head, squints nearsightedly, and addresses you
+      in halting Sogdian before switching to Greek:\r\n\r\n<npc_speech lang=\"Greek\">Rejoice,
       strangers! I am Theodoros, a monk and traveler. I chart the road from Trebizond
       to Serica. Do you know these paths? Let us exchange \u2014 my knowledge for
       yours!</npc_speech>"
@@ -11649,15 +11638,13 @@ MonoBehaviour:
   - m_Id: 10857774509449301
     m_Localized: "At a fork in the mountain trails \u2014 one climbing into the clouds,
       the other skirting the ridge along a narrow ledge \u2014 a man sits on a boulder
-      in a worn sheepskin chuba wound with cords. His legs are wrapped in leather
-      strips over woolen puttees, a short knife and a coil of strong hemp rope hang
-      from his belt. Beside him stands a yak with a light empty pack-frame \u2014
-      a guide without a client. His face is dark, weathered, creased from constant
-      squinting; his hands like roots of a mountain tree. He chews a dry grass stem
-      and studies the caravan with the lazy interest of a man who has seen it all.
-      As the lead wagon approaches, he rises, brushes off his knees, and speaks calmly:\r\n\r\n<npc_speech
-      lang=\"Tibetan\">Greetings. My name is Dorje. Twenty years I have crossed this
-      pass. Bad weather is coming \u2014 you need a guide. The price is fair.</npc_speech>"
+      in a worn sheepskin chuba. A knife and a coil of hemp rope hang at his belt.
+      Beside him stands a yak with an empty pack-frame: a guide without a client.
+      His face is dark and weathered, his hands like roots of a mountain tree. He
+      chews a dry grass stem and studies the caravan with the lazy interest of a
+      man who has seen it all.\r\n\r\n<npc_speech lang=\"Tibetan\">Greetings. My
+      name is Dorje. Twenty years I have crossed this pass. Bad weather is coming
+      \u2014 you need a guide. The price is fair.</npc_speech>"
     m_Metadata:
       m_Items: []
   - m_Id: 10857774509449302
@@ -12031,11 +12018,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643524
-    m_Localized: "The sun touches the horizon and the steppe blazes gold. Feathergrass
-      burns copper, wagon shadows stretch to the edge of the world. The drivers fall
-      silent mid-sentence \u2014 even the oxen slow their pace, as though watching
-      too. A minute of stillness, and the caravan moves on, but a trace of peace
-      lingers on every face."
+    m_Localized: "Feathergrass burns copper and wagon shadows stretch to the edge
+      of the world. The drivers fall silent \u2014 even the oxen slow their pace."
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643525
@@ -12043,10 +12027,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643526
-    m_Localized: "A brown dust cloud rises on the horizon \u2014 broad, low, crawling
-      slowly southward. A caravan? An army? A herd of saiga? Too far to tell. The
-      drivers squint in that direction for a while, then shrug and return to their
-      business. The cloud dissolves into the haze without ever revealing its secret."
+    m_Localized: "A brown dust cloud crawls across the horizon \u2014 an army, a
+      herd, another caravan? The haze swallows the answer."
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643527
@@ -12054,12 +12036,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643528
-    m_Localized: "Ahead on the road, a flock of fat-tailed sheep, russet and dusty.
-      An old shepherd in a sun-bleached robe whistles to his dogs, and the flock
-      parts reluctantly, clearing the ruts. As the caravan passes, the shepherd raises
-      a hand in silent greeting, and a boy peeks out from behind him with wide curious
-      eyes. A simple encounter, but it warms the heart \u2014 it means settlement
-      and water are near."
+    m_Localized: "The old shepherd whistles to his dogs and the flock parts. He raises
+      one hand in silent greeting \u2014 shelter and water must be close."
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643529
@@ -12067,11 +12045,9 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643530
-    m_Localized: "Night falls on the desert and the sky cracks open with stars. So
-      many that the Milky Way lies across the zenith like a pale river, casting faint
-      light on the dune crests. The silence is so deep you can hear the camels breathe.
-      The caravan hands tilt their heads back and for a moment forget the sand in
-      their boots and their cracked lips \u2014 there is only the sky, vast and close."
+    m_Localized: "The Milky Way lies across the zenith like a pale river. The silence
+      is deep enough to hear the camels breathe \u2014 there is only the sky, vast
+      and close."
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643531
@@ -12079,11 +12055,9 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643532
-    m_Localized: "In the trembling haze above the scorched plain, towers and domes
-      take shape \u2014 a shimmering city suspended between earth and sky. One of
-      the drivers cries out and points, but the experienced hands say nothing. The
-      vision quivers, blurs, and melts away, leaving only empty distance and a taste
-      of bitterness. The desert reminds you: what you see is not always what is."
+    m_Localized: "In the haze above the scorched plain, towers and domes take shape.
+      The vision melts away, leaving only bitterness \u2014 the desert reminds you:
+      what you see is not always real."
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643533
@@ -12091,11 +12065,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643534
-    m_Localized: "A golden eagle circles above the gorge, wings spread wider than
-      a man's height. It catches an updraft and hangs motionless, as if carved from
-      dark wood \u2014 only its head turns, tracking the caravan below. The drivers
-      tilt their heads back and fall silent. An old Tibetan murmurs: a good sign
-      \u2014 the lord of the sky blesses the road."
+    m_Localized: "A golden eagle hangs motionless above the gorge, as if carved from
+      dark wood \u2014 only its head turns to watch the travellers. A good omen."
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643535
@@ -12103,12 +12074,9 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643536
-    m_Localized: "Between two boulders on the pass, ropes strung with prayer flags
-      \u2014 blue, white, red, green, yellow, sun-bleached and wind-worn to translucence.
-      The wind catches them and they snap and flutter as if alive, cracking against
-      the air. No one around \u2014 only stone, sky, and these scraps of cloth printed
-      with mantras, hung by someone long before us. The caravan hands grow quiet,
-      and even the yaks tread more softly."
+    m_Localized: "On the pass, prayer flags snap in the wind like living things \u2014
+      sun-bleached, translucent, hung by someone long before us. Even the yaks tread
+      more softly."
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643537
@@ -12116,10 +12084,9 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643538
-    m_Localized: "An icy wind crashes down from the peaks \u2014 sharp, dry, cutting
-      to the bone. It drives fine snow crystals into faces and tears loose rags from
-      the carts. The drivers hunch their shoulders, the yaks turn their muzzles away.
-      The caravan quickens its pace \u2014 this is no place to rest."
+    m_Localized: "An icy wind from the peaks drives snow crystals into every face.
+      Drivers hunch their shoulders, yaks turn their muzzles away \u2014 this is
+      no place to linger."
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643539
@@ -12127,11 +12094,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643540
-    m_Localized: "By the evening fire one of the drivers starts a song \u2014 a simple
-      tune, words in a half-forgotten dialect. One by one the caravan hands join
-      in, some carrying the melody, some the rhythm, palms slapping their knees.
-      The fire crackles, sparks drift into the dark sky. A minute ago they were strangers;
-      now they are one caravan."
+    m_Localized: "A driver starts a song in a half-forgotten dialect. Sparks drift
+      into the dark sky \u2014 a minute ago they were strangers, now they are one."
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643541
@@ -12139,11 +12103,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643542
-    m_Localized: "The rear wheel of the lead cart starts to squeal \u2014 a grating,
-      drawn-out groan on every turn. The driver winces and glances at the axle, but
-      the cart rolls true, the wheel holds. The noise weaves into the road sounds,
-      and within half an hour you stop noticing. We will fix it at the next rest
-      stop \u2014 if we remember."
+    m_Localized: "The rear wheel squeals on every turn \u2014 dull, relentless. It
+      holds for now. We will fix it at the next stop, if we remember."
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643543
@@ -12534,15 +12495,12 @@ MonoBehaviour:
   - m_Id: 10857774513643598
     m_Localized: "A messenger in an embroidered robe found you at the bazaar \u2014
       the city's ruler summons you to an audience. Refusal is not an option. The
-      palace gates \u2014 carved cedar panels studded with bronze nails \u2014 swing
-      open into a mosaic courtyard with a marble fountain. Helmeted guards escort
-      you through a succession of halls to the throne dais. The ruler \u2014 a heavyset
-      man in a white turban pinned with an emerald clasp \u2014 sits among cushions,
-      regarding you with languid curiosity.\r\n\r\n<npc_speech lang=\"Arabic\">Peace
-      be upon you, merchant. I have been told your caravan is worth attention. I
-      wish to see your goods \u2014 and perhaps we shall come to an agreement.</npc_speech>\r\n\r\nHe
-      wants to see your goods. A successful audience means patronage and privileges.
-      A poor one \u2014 grounds for disfavor."
+      palace gates swing open into a mosaic courtyard with a fountain. Helmeted guards
+      escort you to the throne dais. The ruler \u2014 a heavyset man in a white turban
+      pinned with an emerald clasp \u2014 sits among cushions, regarding you with
+      languid curiosity.\r\n\r\n<npc_speech lang=\"Arabic\">Peace be upon you, merchant.
+      I have been told your caravan is worth attention. I wish to see your goods
+      \u2014 and perhaps we shall come to an agreement.</npc_speech>"
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643599
@@ -12658,12 +12616,10 @@ MonoBehaviour:
   - m_Id: 10857774513643616
     m_Localized: "At a caravan halt, a Sogdian in a dark-blue caftan with gold embroidery
       at the collar approaches you \u2014 no driver, no ordinary merchant. His fingers
-      are ringed, but his hands are sinewy, working hands. He introduces himself
-      as Vahu-Man, senior master of the merchants' guild in Samarkand, and speaks
-      plainly: he seeks a caravan leader capable of moving goods from Chang'an to
-      Constantinople itself \u2014 along a route that makes fortunes or destroys
-      those who attempt it. His eyes gleam \u2014 not with greed, but with the excitement
-      of an old player who has found a worthy partner.\r\n\r\n<npc_speech lang=\"Sogdian\">Greetings,
+      are ringed, but his hands are sinewy, working hands. He gives his name without
+      ceremony and watches you the way an old player watches a worthy partner he
+      has finally found. Samarkand, the guild, money \u2014 and a proposition no
+      one walks away from lightly.\r\n\r\n<npc_speech lang=\"Sogdian\">Greetings,
       caravan master! I am Vahu-Man, of the merchants' guild of Samarkand. I have
       seen your work \u2014 business thrives, your name is known. There is a road
       from China to Rome \u2014 full of gold, full of danger. Do you have the nerve?</npc_speech>"
@@ -12725,19 +12681,14 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 10857774513643625
     m_Localized: "The trail leads to a small mountain monastery \u2014 whitewashed
-      walls, a roof of stone slabs, prayer flags cracking in the wind between two
-      rocky outcrops. By the entrance sits an elderly monk in a crimson kasaya, working
-      prayer beads of polished bone. His face is calm as a mountain lake, but his
-      eyes are alive, piercing. He raises his gaze to the caravan and rises as though
-      he has been waiting for you specifically. The monk introduces himself as Lobsang
-      and says he saw your arrival in a dream \u2014 the road has brought you here
-      for a reason. In the mountains, he says, there is a temple hidden from the
-      world, where a message is kept that can change a traveler's fate. But the path
-      there begins with something small \u2014 a scroll that must be delivered to
-      Anxi.\r\n\r\n<npc_speech lang=\"Tibetan\">Greetings, guest! I am Lobsang. In
-      a dream I saw your coming. There is a temple \u2014 hidden in the mountains
-      \u2014 where a message is kept that can change a traveler's fate. You must
-      go!</npc_speech>"
+      walls, a roof of stone slabs, prayer flags snapping in the wind between rocky
+      outcrops. By the entrance sits an elderly monk in a crimson kasaya, working
+      beads of polished bone. His face is calm as a mountain lake, but his eyes are
+      alive, piercing. He raises his gaze to the caravan and rises as though he has
+      been waiting for you.\r\n\r\n<npc_speech lang=\"Tibetan\">Greetings, guest!
+      I am Lobsang. In a dream I saw your coming. There is a temple \u2014 hidden
+      in the mountains \u2014 where a message is kept that can change a traveler's
+      fate. You must go!</npc_speech>"
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643626
@@ -12866,18 +12817,14 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643643
-    m_Localized: "In the market of a border town, among stalls of flour and bundles
-      of dried fish, an elderly Chinese man in a patched silk robe calls out to you
-      \u2014 his fingers are blue with indigo, dried dye caked under his nails. He
-      introduces himself as Master Chen Wei, a dyer from Chang'an, and speaks quietly,
-      almost in a whisper, glancing around. He knows a dyeing technique that merchants
-      of every nation hunt for \u2014 the secret of a purple hue that fades neither
-      in sun nor water. But his workshop is ruined, the dye lost, and the only way
-      to restore the secret is to find the raw material in Anxi, where the needed
-      herb grows. He is ready to teach you everything, if you help.\r\n\r\n<npc_speech
-      lang=\"Chinese\">Good day, merchant. I am Chen Wei, a dyer from Chang'an. This
-      silk \u2014 is it yours? Superb quality. I know a certain color \u2014 purple,
-      that never fades. But I need help. Will you hear me out?</npc_speech>"
+    m_Localized: "In the market of a border town, an elderly Chinese man in a patched
+      silk robe calls out to you \u2014 his fingers blue with indigo, dried dye caked
+      under his nails. He speaks quietly, almost in a whisper, glancing around. His
+      voice carries the weariness of a man who has lost the work of his life, and
+      the stubbornness of one who refuses to give it up.\r\n\r\n<npc_speech lang=\"Chinese\">Good
+      day, merchant. I am Chen Wei, a dyer from Chang'an. This silk \u2014 is it
+      yours? Superb quality. I know a certain color \u2014 purple, that never fades.
+      But I need help. Will you hear me out?</npc_speech>"
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643644
@@ -13188,12 +13135,9 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643688
-    m_Localized: "In the scorched silence of the desert, a sound is born \u2014 a
-      thin, silvery chime of camel bells. From somewhere beyond the dunes, unseen,
-      another caravan moves. The ringing draws closer, then drowns in the whisper
-      of sand, as if the wind plays invisible strings. No one appears on the horizon,
-      but the sound itself is proof that the road lives, that people walk nearby.
-      The drivers exchange glances and smile: we are not alone."
+    m_Localized: "From beyond the dunes, a silvery chime of camel bells \u2014 somewhere
+      past the sand, another caravan is moving. The drivers exchange glances and
+      smile: we are not alone."
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643689
@@ -13201,13 +13145,9 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643690
-    m_Localized: "The trail rounds a cliff face and the caravan stops short: right
-      beside the road, a waterfall plunges from a black rock ledge. The water strikes
-      a granite basin below and shatters into fine spray that settles on faces, on
-      yak wool, on dusty cart canvas. The air smells of wet stone and moss. The drivers
-      cup their hands beneath the flow, drink, splash their faces \u2014 and laugh
-      like children. The mountains are harsh, but sometimes they give without being
-      asked."
+    m_Localized: A waterfall plunges from a black rock ledge, settling as cool spray
+      on faces and yak wool. The mountains are harsh, but sometimes they give without
+      being asked.
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643691
@@ -13215,12 +13155,9 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643692
-    m_Localized: "The steppe changes its face: grey-yellow grass parts and the track
-      dives into a sea of scarlet poppies tangled with purple irises. The flowers
-      stand waist-high, and the cart wheels cut wet green furrows through them. The
-      wind carries a sweet scent of pollen, bees drone overhead. The drivers pluck
-      poppies and tuck them behind belts, behind ears, into bale bindings \u2014
-      and for an hour the caravan becomes a flower procession."
+    m_Localized: The steppe parts and the track plunges into a sea of scarlet poppies
+      and purple irises. The drivers tuck flowers behind their ears, and for an hour
+      the journey becomes a celebration.
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643693
@@ -13228,13 +13165,9 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643694
-    m_Localized: "Night camp. Someone cries out and jabs a finger at the sky \u2014
-      a bright green-white streak cuts the darkness from zenith to horizon, for an
-      instant lighting the camp in sharp cold radiance. A shooting star. The caravan
-      hands freeze with open mouths, then whisper wishes over one another \u2014
-      some in their own tongue, some in borrowed words. The Persian wishes for wealth,
-      the Sogdian for a tailwind, the young driver boy simply to come home. The star
-      fades, but something lingers \u2014 a feeling that the sky is listening."
+    m_Localized: "A green-white streak cuts across the sky from zenith to horizon.
+      Everyone whispers their wish \u2014 the Persian wants wealth, the young driver
+      simply wants home. The sky is listening."
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643695
@@ -13242,12 +13175,9 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643696
-    m_Localized: "By the roadside, bleached bones jut from the sand \u2014 ribs,
-      vertebrae, a long curved neck. A camel. And beside it another, and another.
-      Splintered planks, scraps of cloth, a darkened leather satchel with its flap
-      torn away. An entire caravan lies here \u2014 a year ago perhaps, perhaps ten.
-      The sand has buried most of it, but not all. The drivers pass in silence, eyes
-      averted. No one asks what happened. No one wants to know."
+    m_Localized: "Camel bones, splintered planks, and a torn leather satchel jut
+      from the sand. The drivers pass in silence \u2014 no one wants to ask what
+      happened here."
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643697
@@ -13278,11 +13208,8 @@ MonoBehaviour:
     m_Localized: "At the bazaar, between stalls of spices and copper ware, you notice
       a man who is neither selling nor buying \u2014 he stands by a wall, studying
       a worn scroll. His clothes are travel-worn, but the fabric was once expensive.
-      Noticing your gaze, he approaches and introduces himself as Farukh, a wandering
-      archaeologist. In his hands is a map \u2014 ancient, on yellowed parchment,
-      marked in a language he cannot read. The map, he says, points to lost relics
-      of the Silk Road \u2014 objects for which collectors in Chang'an would pay
-      a fortune. But he needs a caravan and someone capable of walking this path.\r\n\r\n<npc_speech
+      Catching your glance, he approaches and unrolls the scroll: an ancient map
+      on yellowed parchment, covered in signs from an unfamiliar tongue.\r\n\r\n<npc_speech
       lang=\"Persian\">Greetings, merchant! I am Farukh \u2014 I dig old ruins and
       seek the forgotten. This map is genuine, I swear on my father's dust. But I
       need a caravan. You need money. Perhaps we can come to terms?</npc_speech>"

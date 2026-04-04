@@ -1058,6 +1058,10 @@ MonoBehaviour:
     m_Localized: Workshop
     m_Metadata:
       m_Items: []
+  - m_Id: 16361616642662400
+    m_Localized: Modifiers
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
