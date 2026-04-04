@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Internal.Scripts.Economy.Cities.Smuggling
 {
-    [CreateAssetMenu(menuName = "SPJ/Economy/Smuggling Penalty Settings")]
+    [CreateAssetMenu(menuName = "SPJ/NPC/Smuggling Penalty Settings")]
     public sealed class SmugglingPenaltySettings : ScriptableObject
     {
         [SerializeField] private int _minPenaltyAmount = 50;

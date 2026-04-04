@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Internal.Scripts.Economy.Cities.Smuggling
 {
-    [CreateAssetMenu(menuName = "SPJ/Economy/Smuggling Detection Settings")]
+    [CreateAssetMenu(menuName = "SPJ/NPC/Smuggling Detection Settings")]
     public sealed class SmugglingDetectionSettings : ScriptableObject
     {
         [SerializeField] private float _baseChance = 0.15f;

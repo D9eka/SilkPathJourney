@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Internal.Scripts.Economy.Cities
 {
-    [CreateAssetMenu(menuName = "SPJ/Culture Adjacency Data", fileName = "CultureAdjacencyData")]
+    [CreateAssetMenu(menuName = "SPJ/NPC/Culture Adjacency Data", fileName = "CultureAdjacencyData")]
     public sealed class CultureAdjacencyData : ScriptableObject
     {
         [Serializable]
