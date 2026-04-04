@@ -23,6 +23,9 @@ namespace Internal.Scripts.Economy.Save
         public string DraftAnimalId = DEFAULT_DRAFT_ANIMAL;
         public List<CompanionState> Companions = new();
         public List<string> ActiveUpgrades = new();
+        public int Reputation = 50;
+        public int SmugglingCaughtCount;
+        public List<CityTradeBan> CityTradeBans = new();
 
         public int MaxCompanions => Math.Min(Carts?.Count ?? 0, MAX_COMPANION_LIMIT);
         public float TotalCapacity => PlayerCart.Capacity + (Carts?.Sum(c => c.Capacity) ?? 0f);
@@ -37,7 +40,15 @@ namespace Internal.Scripts.Economy.Save
             ResourceType.OtherCartsDurability => Carts.Count > 0
                 ? Carts.Sum(c => c.Durability) / Carts.Count : 0f,
             ResourceType.Weight => TotalCapacity,
+            ResourceType.Reputation => Reputation,
             _ => 0f
         };
+    }
+
+    [Serializable]
+    public class CityTradeBan
+    {
+        public string CityId;
+        public int UntilDay;
     }
 }

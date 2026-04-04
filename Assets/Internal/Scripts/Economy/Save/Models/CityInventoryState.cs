@@ -7,5 +7,6 @@ namespace Internal.Scripts.Economy.Save.Models
     {
         public string CityId;
         public InventoryState Inventory = new();
+        public int GuildMoney;
     }
 }

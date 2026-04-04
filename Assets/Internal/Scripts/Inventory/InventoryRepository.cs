@@ -15,6 +15,7 @@ namespace Internal.Scripts.Inventory
         private EconomySaveData _saveData;
         private bool _isLoaded;
         private readonly ReactiveProperty<InventoryState> _playerInventoryStream = new(new InventoryState());
+        private readonly ReactiveProperty<InventoryState> _hiddenCompartmentStream = new(new InventoryState());
         private readonly Dictionary<string, ReactiveProperty<InventoryState>> _cityInventoryStreams = new();
 
         public InventoryRepository(
@@ -29,6 +30,7 @@ namespace Internal.Scripts.Inventory
         }
 
         public Observable<InventoryState> PlayerInventoryStream => _playerInventoryStream;
+        public Observable<InventoryState> HiddenCompartmentStream => _hiddenCompartmentStream;
 
         public Observable<InventoryState> ObserveCityInventory(string cityId)
         {
@@ -50,6 +52,24 @@ namespace Internal.Scripts.Inventory
         {
             EnsureLoaded();
             return _saveData.PlayerInventory;
+        }
+
+        public InventoryState GetHiddenCompartment()
+        {
+            EnsureLoaded();
+            return _saveData.HiddenCompartment;
+        }
+
+        public bool UpdateHiddenCompartment(Action<InventoryState> mutator)
+        {
+            if (mutator == null)
+                return false;
+
+            EnsureLoaded();
+            mutator(_saveData.HiddenCompartment);
+            _saveRepository.Save();
+            _hiddenCompartmentStream.Value = CloneInventory(_saveData.HiddenCompartment);
+            return true;
         }
 
         public CityInventoryState GetCityInventory(string cityId)
@@ -81,6 +101,22 @@ namespace Internal.Scripts.Inventory
                 return false;
 
             mutator(cityState.Inventory);
+            _saveRepository.Save();
+            UpdateCityStream(cityId, cityState.Inventory);
+            return true;
+        }
+
+        public bool UpdateCityInventoryState(string cityId, Action<CityInventoryState> mutator)
+        {
+            if (mutator == null || string.IsNullOrWhiteSpace(cityId))
+                return false;
+
+            EnsureLoaded();
+            CityInventoryState cityState = _saveData.CityInventories.Find(c => c.CityId == cityId);
+            if (cityState == null)
+                return false;
+
+            mutator(cityState);
             _saveRepository.Save();
             UpdateCityStream(cityId, cityState.Inventory);
             return true;
@@ -140,10 +176,14 @@ namespace Internal.Scripts.Inventory
             if (_saveData.PlayerInventory == null)
                 _saveData.PlayerInventory = new InventoryState();
 
+            if (_saveData.HiddenCompartment == null)
+                _saveData.HiddenCompartment = new InventoryState();
+
             if (_saveData.CityInventories == null)
                 _saveData.CityInventories = new List<CityInventoryState>();
 
             UpdatePlayerStream();
+            _hiddenCompartmentStream.Value = CloneInventory(_saveData.HiddenCompartment);
 
             _isLoaded = true;
         }
