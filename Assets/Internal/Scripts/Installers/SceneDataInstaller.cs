@@ -1,3 +1,5 @@
+using Internal.Scripts.Economy.Cities;
+using Internal.Scripts.Economy.Cities.Smuggling;
 using Internal.Scripts.Economy.Generated;
 using Internal.Scripts.Npc.Core;
 using Internal.Scripts.Npc.Encounter;
@@ -14,6 +16,10 @@ namespace Internal.Scripts.Installers
     [CreateAssetMenu(menuName = "SPJ/Installers/Scene Data Installer")]
     public class SceneDataInstaller : ScriptableObjectInstaller<SceneDataInstaller>
     {
+        [Header("Economy")]
+        [SerializeField] private SmugglingDetectionSettings _smuDetectionSettings;
+        [SerializeField] private SmugglingPenaltySettings _smuPenaltySettings;
+
         [Header("NPC")]
         [SerializeField] private NpcEncounterSettings _npcEncounterSettings;
 
@@ -34,8 +40,9 @@ namespace Internal.Scripts.Installers
 
         public override void InstallBindings()
         {
-            if (_npcEncounterSettings != null)
-                Container.BindInstance(_npcEncounterSettings).AsSingle();
+            Container.BindInstance(_smuDetectionSettings).AsSingle();
+            Container.BindInstance(_smuPenaltySettings).AsSingle();
+            Container.BindInstance(_npcEncounterSettings).AsSingle();
 
             Container.Bind<RoadAgentConfig>().FromInstance(_playerAgentConfig).AsSingle();
 

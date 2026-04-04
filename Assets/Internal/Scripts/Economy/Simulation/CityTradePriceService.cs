@@ -50,22 +50,29 @@ namespace Internal.Scripts.Economy.Simulation
 
         public int GetPriceWithExoticity(string cityId, string itemId, TradePriceKind kind,
             CultureId originCulture, bool applySkillBonus = true)
-        {
-            PriceBreakdown breakdown = CalculatePrice(cityId, itemId, kind, applySkillBonus);
-            if (kind != TradePriceKind.SellToCity || originCulture == CultureId.None)
-                return breakdown.FinalPrice;
-
-            CityData city = _economyDatabase.Cities.Find(c => c.Id == cityId);
-            if (city == null)
-                return breakdown.FinalPrice;
-
-            float mult = _cultureDistance.GetExoticityMultiplier(
-                originCulture, city.PrimaryCulture, _balanceConfig.ExoticityPerStep);
-            return Mathf.Max(1, Mathf.RoundToInt(breakdown.FinalPrice * mult));
-        }
+            => GetPriceBreakdownWithExoticity(cityId, itemId, kind, originCulture, applySkillBonus).FinalPrice;
 
         public PriceBreakdown GetPriceBreakdown(string cityId, string itemId, TradePriceKind kind)
             => CalculatePrice(cityId, itemId, kind, true);
+
+        public PriceBreakdown GetPriceBreakdownWithExoticity(
+            string cityId, string itemId, TradePriceKind kind, CultureId originCulture,
+            bool applySkillBonus = true)
+        {
+            PriceBreakdown breakdown = CalculatePrice(cityId, itemId, kind, applySkillBonus);
+            if (kind != TradePriceKind.SellToCity || originCulture == CultureId.None)
+                return breakdown;
+
+            CityData city = _economyDatabase.Cities.Find(c => c.Id == cityId);
+            if (city == null)
+                return breakdown;
+
+            float exoticityMult = _cultureDistance.GetExoticityMultiplier(
+                originCulture, city.PrimaryCulture, _balanceConfig.ExoticityPerStep);
+            int finalPrice = Mathf.Max(1, Mathf.RoundToInt(breakdown.FinalPrice * exoticityMult));
+            return new PriceBreakdown(breakdown.ItemName, breakdown.BasePrice, breakdown.MarketMult,
+                breakdown.BonusMult, breakdown.ModifierMult, exoticityMult, finalPrice, breakdown.IsNpcTrade);
+        }
 
         private PriceBreakdown CalculatePrice(string cityId, string itemId, TradePriceKind kind, bool applySkillBonus)
         {

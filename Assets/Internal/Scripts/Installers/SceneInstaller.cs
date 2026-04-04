@@ -7,6 +7,10 @@ using Internal.Scripts.Camera.Tilt;
 using Internal.Scripts.Camera.Zoom;
 using Internal.Scripts.Economy;
 using Internal.Scripts.Economy.Cities;
+using Internal.Scripts.Economy.Cities.Tariff;
+using Internal.Scripts.Economy.Cities.Smuggling;
+using Internal.Scripts.Economy.Cities.Rumors;
+using Internal.Scripts.Economy.Guild;
 using Internal.Scripts.Economy.Cities.UI;
 using Internal.Scripts.Economy.Save;
 using Internal.Scripts.Economy.Simulation;
@@ -15,9 +19,13 @@ using Internal.Scripts.Quests;
 using Internal.Scripts.Input;
 using Internal.Scripts.Inventory;
 using Internal.Scripts.Items;
+using Internal.Scripts.Npc.Behavior;
+using Internal.Scripts.Npc.Behavior.Actions;
+using Internal.Scripts.Npc.Behavior.Phases;
 using Internal.Scripts.Npc.Core;
 using Internal.Scripts.Npc.Encounter;
 using Internal.Scripts.Npc.Lifecycle;
+using Internal.Scripts.Npc.Routing;
 using Internal.Scripts.Npc.Save;
 using Internal.Scripts.Npc.Trading;
 using Internal.Scripts.Player;
@@ -146,6 +154,7 @@ namespace Internal.Scripts.Installers
             Container.BindInterfacesAndSelfTo<RoadNetwork>().AsSingle().NonLazy();
             Container.Bind<IRoadPathFinder>().To<RoadPathFinder>().AsSingle();
             Container.BindInterfacesTo<RoadSaveController>().AsSingle();
+            Container.Bind<CityRadiusService>().AsSingle();
         }
 
         private void InstallNpc()
@@ -159,10 +168,42 @@ namespace Internal.Scripts.Installers
             Container.BindInterfacesAndSelfTo<NpcLifeSimulator>().AsSingle().NonLazy();
             Container.Bind<CityTransactionService>().AsSingle();
             Container.Bind<NpcSupplyPlanner>().AsSingle();
+            Container.Bind<NpcSellEstimator>().AsSingle();
+            Container.Bind<NpcKnowledgeService>().AsSingle();
+            Container.Bind<NpcSellService>().AsSingle();
+            Container.Bind<NpcGuildTradeService>().AsSingle();
             Container.Bind<NpcTrader>().AsSingle();
+            Container.Bind<NpcRouteDecisionService>().AsSingle();
             Container.BindInterfacesTo<NpcSaveController>().AsSingle();
 
             Container.BindInterfacesTo<NpcEncounterTrigger>().AsSingle();
+
+            Container.Bind<LearnKnowledgeAction>().AsSingle();
+            Container.Bind<ChargeTariffAction>().AsSingle();
+            Container.Bind<DebtRepaymentAction>().AsSingle();
+            Container.Bind<SellGoodsAction>().AsSingle();
+            Container.Bind<CompleteContractAction>().AsSingle();
+            Container.Bind<TakeContractAction>().AsSingle();
+            Container.Bind<ChooseRouteAction>().AsSingle();
+            Container.Bind<BuyGoodsAction>().AsSingle();
+            Container.Bind<GuildCreditAction>().AsSingle();
+
+            Container.Bind<ContractExpirationPhase>().AsSingle();
+            Container.Bind<ForagePhase>().AsSingle();
+            Container.Bind<ConsumptionPhase>().AsSingle();
+            Container.Bind<StarvationPhase>().AsSingle();
+
+            Container.Bind<NpcVisitActionFactory>().AsSingle();
+            Container.Bind<NpcDayPhaseFactory>().AsSingle();
+
+            Container.Bind<NpcBehaviorProfileRegistry>().FromMethod(ctx =>
+            {
+                var settings = ctx.Container.Resolve<NpcSimulationSettings>();
+                return new NpcBehaviorProfileRegistry(settings.DefaultBehaviorProfile, settings.BehaviorProfiles);
+            }).AsSingle();
+
+            Container.Bind<NpcCityVisitProcessor>().AsSingle();
+            Container.Bind<NpcDayProcessor>().AsSingle();
         }
 
         private void InstallPlayer()
@@ -208,6 +249,14 @@ namespace Internal.Scripts.Installers
             Container.Bind<CityMarketProfileService>().AsSingle();
             Container.Bind<CityTradePriceService>().AsSingle();
             Container.BindInterfacesAndSelfTo<CityEconomySimulator>().AsSingle().NonLazy();
+
+            Container.Bind<GuildService>().AsSingle();
+            Container.Bind<CultureDistanceService>().AsSingle();
+            Container.Bind<TariffService>().AsSingle();
+            Container.Bind<SmugglingModifierCalculator>().AsSingle();
+            Container.Bind<SmugglingCheckService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<CityEntryTaxService>().AsSingle();
+            Container.Bind<RumorService>().AsSingle();
         }
 
         private void InstallScreens()

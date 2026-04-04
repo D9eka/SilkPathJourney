@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Internal.Scripts.Economy.Guild
 {
-    [CreateAssetMenu(menuName = "SPJ/Guild Settings", fileName = "GuildSettings")]
+    [CreateAssetMenu(menuName = "SPJ/NPC/Guild Settings", fileName = "GuildSettings")]
     public sealed class GuildSettings : ScriptableObject
     {
         [Header("Contracts")]

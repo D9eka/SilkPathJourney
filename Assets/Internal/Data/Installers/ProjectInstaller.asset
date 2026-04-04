@@ -22,6 +22,7 @@ MonoBehaviour:
   _playerProfile: {fileID: 11400000, guid: 031379dad52073149ab163bf31de2bda, type: 2}
   _npcSimulationSettings: {fileID: 11400000, guid: 7cc4547f4ffaef74e9c15f5e09b93473, type: 2}
   _nameDatabase: {fileID: 11400000, guid: ddd26a7df1b99f64881d8b4f7391c1da, type: 2}
+  _guildSettings: {fileID: 11400000, guid: 392c8adf438f4d35987b0192d5c57635, type: 2}
   _screenCatalog: {fileID: 11400000, guid: 666dbe6a588aa6e48900895fc40fcca8, type: 2}
   _resourceIconCatalog: {fileID: 11400000, guid: a42aa19a74ddc194c8d99e338c0cd34a, type: 2}
   _gameScene:
