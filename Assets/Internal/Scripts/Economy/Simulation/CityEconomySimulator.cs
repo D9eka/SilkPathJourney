@@ -55,6 +55,8 @@ namespace Internal.Scripts.Economy.Simulation
         {
             BuildItemsLookupIfNeeded();
 
+            bool isProductionDay = _dayTracker.CurrentDay % _guildSettings.ProductionIntervalDays == 0;
+
             _inventoryRepository.UpdateAllCityInventories(cityInventories =>
             {
                 foreach (CityInventoryState cityState in cityInventories)
@@ -74,6 +76,34 @@ namespace Internal.Scripts.Economy.Simulation
                     {
                         cityState.GuildMoney += _guildSettings.GuildRefillAmount;
                         cityState.Inventory.Money -= _guildSettings.GuildRefillAmount;
+                    }
+
+                    if (hasGuild)
+                    {
+                        int tax = Mathf.RoundToInt(income * _guildSettings.GuildCityTaxShare);
+                        if (tax > 0 && cityState.Inventory.Money >= tax)
+                        {
+                            cityState.Inventory.Money -= tax;
+                            cityState.GuildMoney += tax;
+                        }
+                    }
+
+                    if (hasGuild && isProductionDay && entry.city.HasBuilding(BuildingId.Workshop))
+                    {
+                        foreach (GuildProductionEntry production in _guildSettings.ProductionProfile)
+                        {
+                            if (production.CityId != cityState.CityId)
+                                continue;
+
+                            int basePrice = _itemCatalog.GetItemPrice(production.ItemId);
+                            int cost = Mathf.RoundToInt(production.CountPerTick * basePrice * _guildSettings.ProductionCostFactor);
+
+                            if (cityState.GuildMoney >= cost)
+                            {
+                                cityState.GuildMoney -= cost;
+                                InventoryStateMutator.AddItems(cityState.GuildInventory, production.ItemId, production.CountPerTick);
+                            }
+                        }
                     }
                 }
             });
