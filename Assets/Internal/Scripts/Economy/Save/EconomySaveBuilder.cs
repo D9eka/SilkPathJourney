@@ -57,7 +57,8 @@ namespace Internal.Scripts.Economy.Save
                     {
                         CityId = city.Id,
                         Inventory = CreateCityInventory(city),
-                        GuildMoney = city.HasBuilding(BuildingId.Guild) ? _guildSettings.GuildStartingMoney : 0
+                        GuildMoney = city.HasBuilding(BuildingId.Guild) ? _guildSettings.GuildStartingMoney : 0,
+                        GuildInventory = new InventoryState { Items = new List<ItemStackState>() }
                     });
                 }
             }
