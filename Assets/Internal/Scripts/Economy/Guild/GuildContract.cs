@@ -2,12 +2,6 @@ using System;
 
 namespace Internal.Scripts.Economy.Guild
 {
-    public enum GuildContractType
-    {
-        Courier,
-        Cargo
-    }
-
     [Serializable]
     public struct GuildContract
     {

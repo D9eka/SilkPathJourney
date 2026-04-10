@@ -6,6 +6,7 @@ using Internal.Scripts.Economy.Save;
 using Internal.Scripts.Economy.Save.Models;
 using Internal.Scripts.Events;
 using Internal.Scripts.Inventory;
+using Internal.Scripts.Items;
 using Internal.Scripts.Road.Path;
 using Internal.Scripts.Save;
 using UnityEngine;
@@ -21,6 +22,7 @@ namespace Internal.Scripts.Economy.Guild
         private readonly DayTracker _dayTracker;
         private readonly IRoadPathFinder _pathFinder;
         private readonly GuildSettings _guildSettings;
+        private readonly ItemCatalog _itemCatalog;
 
         public GuildService(
             SaveRepository saveRepository,
@@ -29,7 +31,8 @@ namespace Internal.Scripts.Economy.Guild
             EconomyDatabase economyDatabase,
             DayTracker dayTracker,
             IRoadPathFinder pathFinder,
-            GuildSettings guildSettings)
+            GuildSettings guildSettings,
+            ItemCatalog itemCatalog)
         {
             _saveRepository = saveRepository;
             _playerResources = playerResources;
@@ -38,6 +41,7 @@ namespace Internal.Scripts.Economy.Guild
             _dayTracker = dayTracker;
             _pathFinder = pathFinder;
             _guildSettings = guildSettings;
+            _itemCatalog = itemCatalog;
         }
 
         public bool IsMember => _saveRepository.Data.Economy.Guild.IsMember;
@@ -169,8 +173,65 @@ namespace Internal.Scripts.Economy.Guild
                     TargetCityId = city.Id,
                     RewardMoney = reward,
                     ExpirationDay = _dayTracker.CurrentDay + Mathf.RoundToInt(distanceDays * _guildSettings.ContractExpirationMult),
-                    GeneratedDay = _dayTracker.CurrentDay
+                    GeneratedDay = _dayTracker.CurrentDay,
+                    ContractType = GuildContractType.Courier
                 });
+            }
+
+            if (originInv.GuildInventory?.Items != null)
+            {
+                foreach (ItemStackState stack in originInv.GuildInventory.Items)
+                {
+                    if (stack == null || stack.Count <= 0) continue;
+
+                    float weightKg = _itemCatalog.GetItemWeight(stack.ItemId);
+                    if (weightKg <= 0f) continue;
+
+                    int cargoAmount = Mathf.Min(stack.Count, Mathf.FloorToInt(_guildSettings.CargoWeightBudget / weightKg));
+                    if (cargoAmount < 1) continue;
+
+                    foreach (CityData targetCity in _economyDatabase.Cities)
+                    {
+                        if (targetCity == null || targetCity.Id == cityId) continue;
+                        if (!targetCity.HasBuilding(BuildingId.Guild)) continue;
+
+                        CityInventoryState destInv = _inventoryRepository.GetCityInventory(targetCity.Id);
+                        int destStock = InventoryStateMutator.GetItemCount(destInv?.GuildInventory, stack.ItemId);
+                        if (destStock >= _guildSettings.CityOrderMaxStock) continue;
+
+                        RoadPath path = _pathFinder.FindPath(originCity.NodeId, targetCity.NodeId);
+                        if (!path.IsValid) continue;
+
+                        int distanceDays = path.EstimateDays(caravanSpeed);
+                        if (distanceDays <= 0) continue;
+
+                        int basePrice = _itemCatalog.GetItemPrice(stack.ItemId);
+                        float rewardFactor = _guildSettings.CargoRewardFactor;
+                        if (destStock < _guildSettings.CityOrderMinStock)
+                            rewardFactor *= _guildSettings.CargoContractBonusRewardFactor;
+
+                        int reward = Mathf.RoundToInt(cargoAmount * basePrice * rewardFactor)
+                                   + Mathf.RoundToInt(distanceDays * _guildSettings.ContractRewardPerDay)
+                                   + _guildSettings.ContractBaseReward;
+
+                        if (originInv.GuildMoney < reward) continue;
+
+                        result.Add(new GuildContract
+                        {
+                            Id = $"{cityId}_{targetCity.Id}_{_dayTracker.CurrentDay}_cargo",
+                            OriginCityId = cityId,
+                            TargetCityId = targetCity.Id,
+                            RewardMoney = reward,
+                            ExpirationDay = _dayTracker.CurrentDay + Mathf.RoundToInt(distanceDays * _guildSettings.ContractExpirationMult),
+                            GeneratedDay = _dayTracker.CurrentDay,
+                            ContractType = GuildContractType.Cargo,
+                            CargoItemId = stack.ItemId,
+                            CargoAmount = cargoAmount
+                        });
+
+                        break;
+                    }
+                }
             }
 
             result.Sort((a, b) => b.RewardMoney.CompareTo(a.RewardMoney));
@@ -188,6 +249,17 @@ namespace Internal.Scripts.Economy.Guild
             guild.HasActiveContract = true;
 
             _inventoryRepository.UpdateCityInventoryState(contract.OriginCityId, s => s.GuildMoney -= contract.RewardMoney);
+
+            if (contract.ContractType == GuildContractType.Cargo && !string.IsNullOrEmpty(contract.CargoItemId))
+            {
+                string cargoItem = contract.CargoItemId;
+                int cargoAmount = contract.CargoAmount;
+                _inventoryRepository.UpdateCityInventoryState(contract.OriginCityId,
+                    s => InventoryStateMutator.RemoveItems(s.GuildInventory, cargoItem, cargoAmount));
+                _inventoryRepository.UpdatePlayerInventory(
+                    inv => InventoryStateMutator.AddItems(inv, cargoItem, cargoAmount));
+            }
+
             _saveRepository.Save();
         }
 
@@ -203,6 +275,21 @@ namespace Internal.Scripts.Economy.Guild
 
             if (_dayTracker.CurrentDay > contract.ExpirationDay)
                 return false;
+
+            if (contract.ContractType == GuildContractType.Cargo && !string.IsNullOrEmpty(contract.CargoItemId))
+            {
+                int playerStock = InventoryStateMutator.GetItemCount(
+                    _inventoryRepository.GetPlayerInventory(), contract.CargoItemId);
+                if (playerStock < contract.CargoAmount)
+                    return false;
+
+                string cargoItem = contract.CargoItemId;
+                int cargoAmount = contract.CargoAmount;
+                _inventoryRepository.UpdatePlayerInventory(
+                    inv => InventoryStateMutator.RemoveItems(inv, cargoItem, cargoAmount));
+                _inventoryRepository.UpdateCityInventoryState(cityId,
+                    s => InventoryStateMutator.AddItems(s.GuildInventory, cargoItem, cargoAmount));
+            }
 
             _playerResources.UpdateResources(s => s.Money += contract.RewardMoney);
 
