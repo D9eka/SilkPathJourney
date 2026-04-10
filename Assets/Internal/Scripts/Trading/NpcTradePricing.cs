@@ -23,13 +23,13 @@ namespace Internal.Scripts.Trading
         public PriceBreakdown GetBuyBreakdown(string itemId)
         {
             var (basePrice, marketMult, finalPrice) = CalculateBuy(itemId);
-            return new PriceBreakdown(_catalog.ResolveItemName(itemId), basePrice, marketMult, 1f, 1f, finalPrice, true);
+            return new PriceBreakdown(_catalog.ResolveItemName(itemId), basePrice, marketMult, 1f, 1f, 1f, finalPrice, true);
         }
 
         public PriceBreakdown GetSellBreakdown(string itemId)
         {
             var (basePrice, marketMult, finalPrice) = CalculateSell(itemId);
-            return new PriceBreakdown(_catalog.ResolveItemName(itemId), basePrice, marketMult, 1f, 1f, finalPrice, true);
+            return new PriceBreakdown(_catalog.ResolveItemName(itemId), basePrice, marketMult, 1f, 1f, 1f, finalPrice, true);
         }
 
         private (int basePrice, float marketMult, int finalPrice) CalculateBuy(string itemId)

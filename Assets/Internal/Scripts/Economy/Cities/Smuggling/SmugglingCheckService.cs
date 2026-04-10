@@ -62,7 +62,7 @@ namespace Internal.Scripts.Economy.Cities.Smuggling
             return ApplyPenalties(city);
         }
 
-        private float CalculateDetectionChance()
+        public float CalculateDetectionChance()
         {
             PlayerResourceState resources = _resourceRepo.Current;
             float reputationMod = _modifierCalculator.GetReputationModifier(resources.Reputation);

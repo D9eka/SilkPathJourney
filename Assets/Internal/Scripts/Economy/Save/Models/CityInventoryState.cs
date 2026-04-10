@@ -6,7 +6,8 @@ namespace Internal.Scripts.Economy.Save.Models
     public class CityInventoryState
     {
         public string CityId;
-        public InventoryState Inventory = new();
+        public InventoryState Inventory;
         public int GuildMoney;
+        public InventoryState GuildInventory;
     }
 }

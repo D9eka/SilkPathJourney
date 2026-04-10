@@ -1,3 +1,4 @@
+using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Tooltip;
 using TMPro;
 using UnityEngine;
@@ -7,7 +8,7 @@ using UnityEngine.UI;
 
 namespace Internal.Scripts.UI.Screens.Inventory
 {
-    public class ItemView : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
+    public class ItemView : MonoBehaviour, IPointerClickHandler
     {
         [Header("Texts")]
         [SerializeField] private TextMeshProUGUI _nameText;
@@ -26,6 +27,23 @@ namespace Internal.Scripts.UI.Screens.Inventory
         private TooltipService _tooltipService;
         private string _tooltipTitle;
         private string _tooltipText;
+        private HoverReporter _hover;
+
+        private void Awake()
+        {
+            _hover = HoverReporter.GetOrAdd(gameObject);
+            _hover.Entered += OnHoverEnter;
+            _hover.Exited += OnHoverExit;
+        }
+
+        private void OnDestroy()
+        {
+            if (_hover != null)
+            {
+                _hover.Entered -= OnHoverEnter;
+                _hover.Exited -= OnHoverExit;
+            }
+        }
 
         public void Bind(ItemsView owner, int index)
         {
@@ -73,13 +91,13 @@ namespace Internal.Scripts.UI.Screens.Inventory
             _owner?.HandleItemClick(_index, isDoubleClick, shift);
         }
 
-        public void OnPointerEnter(PointerEventData eventData)
+        private void OnHoverEnter()
         {
             if (_tooltipService != null && _tooltipText != null)
                 _tooltipService.ShowTooltipDelayed(new SimpleTooltipData(_tooltipTitle, _tooltipText));
         }
 
-        public void OnPointerExit(PointerEventData eventData)
+        private void OnHoverExit()
         {
             _tooltipService?.HideTooltip();
         }

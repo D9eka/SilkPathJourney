@@ -28,6 +28,9 @@ namespace Internal.Scripts.Trading
             if (!b.IsNpcTrade && !IsApproximatelyOne(b.ModifierMult))
                 sb.AppendLine($"{Loc("UI.Tooltip.Modifiers", "Модификаторы")}: x{b.ModifierMult:0.##}");
 
+            if (!IsApproximatelyOne(b.TitheMult))
+                sb.AppendLine($"{Loc("UI.Tooltip.GuildTithe", "Сбор гильдии")}: x{b.TitheMult:0.##}");
+
             sb.Append($"{Loc("UI.Tooltip.Total", "Итого")}: {b.FinalPrice}");
 
             return (b.ItemName, sb.ToString());

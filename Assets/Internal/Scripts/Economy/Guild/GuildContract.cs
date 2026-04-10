@@ -11,5 +11,8 @@ namespace Internal.Scripts.Economy.Guild
         public int RewardMoney;
         public int ExpirationDay;
         public int GeneratedDay;
+        public GuildContractType ContractType;
+        public string CargoItemId;
+        public int CargoAmount;
     }
 }

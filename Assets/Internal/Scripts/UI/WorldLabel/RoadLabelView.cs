@@ -1,16 +1,16 @@
 using System.Collections.Generic;
 using Internal.Scripts.Economy.Generated;
 using Internal.Scripts.Road.Core;
+using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Theme;
 using Internal.Scripts.UI.Tooltip;
 using Internal.Scripts.UI.WorldLabel.Components;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Internal.Scripts.UI.WorldLabel
 {
-    public class RoadLabelView : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+    public class RoadLabelView : MonoBehaviour
     {
         private const float HIGHLIGHT_Y_OFFSET = 0.15f;
         private const float HIGHLIGHT_WIDTH = 2f;
@@ -25,6 +25,7 @@ namespace Internal.Scripts.UI.WorldLabel
 
         private RoadRuntime _road;
         private LineRenderer _highlightLine;
+        private HoverReporter _hover;
 
         public ModifierIconsView Modifiers => _modifiers;
 
@@ -84,15 +85,15 @@ namespace Internal.Scripts.UI.WorldLabel
         public void Show() => gameObject.SetActive(true);
         public void Hide() => gameObject.SetActive(false);
 
-        public void OnPointerEnter(PointerEventData eventData)
+        private void Awake()
         {
-            SetHighlight(true);
+            _hover = HoverReporter.GetOrAdd(gameObject);
+            _hover.Entered += OnHoverEnter;
+            _hover.Exited += OnHoverExit;
         }
 
-        public void OnPointerExit(PointerEventData eventData)
-        {
-            SetHighlight(false);
-        }
+        private void OnHoverEnter() => SetHighlight(true);
+        private void OnHoverExit() => SetHighlight(false);
 
         private void SetHighlight(bool enabled)
         {
@@ -102,6 +103,11 @@ namespace Internal.Scripts.UI.WorldLabel
 
         private void OnDestroy()
         {
+            if (_hover != null)
+            {
+                _hover.Entered -= OnHoverEnter;
+                _hover.Exited -= OnHoverExit;
+            }
             if (_highlightLine != null)
                 Destroy(_highlightLine.gameObject);
         }

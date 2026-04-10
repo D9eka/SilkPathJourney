@@ -6,6 +6,7 @@ using Internal.Scripts.Economy.Guild;
 using Internal.Scripts.Economy.Save.Models;
 using Internal.Scripts.Events;
 using Internal.Scripts.Inventory;
+using Internal.Scripts.Items;
 using Internal.Scripts.Npc.Data;
 using Internal.Scripts.Npc.Lifecycle;
 using UnityEngine;
@@ -16,6 +17,7 @@ namespace Internal.Scripts.Npc.Trading
     {
         private readonly EconomyDatabase _economyDatabase;
         private readonly InventoryRepository _inventoryRepository;
+        private readonly ItemCatalog _itemCatalog;
         private readonly NpcSimulationSettings _settings;
         private readonly GuildSettings _guildSettings;
         private readonly NpcSupplyPlanner _supplyPlanner;
@@ -24,6 +26,7 @@ namespace Internal.Scripts.Npc.Trading
         public NpcGuildTradeService(
             EconomyDatabase economyDatabase,
             InventoryRepository inventoryRepository,
+            ItemCatalog itemCatalog,
             NpcSimulationSettings settings,
             GuildSettings guildSettings,
             NpcSupplyPlanner supplyPlanner,
@@ -31,6 +34,7 @@ namespace Internal.Scripts.Npc.Trading
         {
             _economyDatabase = economyDatabase;
             _inventoryRepository = inventoryRepository;
+            _itemCatalog = itemCatalog;
             _settings = settings;
             _guildSettings = guildSettings;
             _supplyPlanner = supplyPlanner;
@@ -68,6 +72,64 @@ namespace Internal.Scripts.Npc.Trading
             CityInventoryState cityInv = _inventoryRepository.GetCityInventory(cityId);
             if (cityInv == null || cityInv.GuildMoney < reward) return;
 
+            float cargoRoll = nextRandom != null ? nextRandom() : UnityEngine.Random.value;
+            if (cargoRoll <= _guildSettings.NpcCargoContractChance)
+            {
+                var availableStacks = cityInv.GuildInventory?.Items?.FindAll(s => s.Count > 0);
+                if (availableStacks != null && availableStacks.Count > 0)
+                {
+                    float currentWeight = 0f;
+                    foreach (var stack in agent.Inventory.Items)
+                        currentWeight += _itemCatalog.GetItemWeight(stack.ItemId) * stack.Count;
+
+                    float freeCapacity = agent.CapacityKg - currentWeight;
+
+                    if (freeCapacity >= _guildSettings.CargoWeightBudget)
+                    {
+                        int stackIndex = nextRandom != null
+                            ? Mathf.Clamp((int)(nextRandom() * availableStacks.Count), 0, availableStacks.Count - 1)
+                            : UnityEngine.Random.Range(0, availableStacks.Count);
+
+                        var chosenStack = availableStacks[stackIndex];
+                        float weightKg = _itemCatalog.GetItemWeight(chosenStack.ItemId);
+                        int cargoAmount = weightKg > 0f
+                            ? Mathf.Min(chosenStack.Count, Mathf.FloorToInt(_guildSettings.CargoWeightBudget / weightKg))
+                            : chosenStack.Count;
+
+                        if (cargoAmount > 0)
+                        {
+                            int basePrice = _itemCatalog.GetItemPrice(chosenStack.ItemId);
+                            int totalReward = reward + Mathf.RoundToInt(cargoAmount * basePrice * _guildSettings.CargoRewardFactor);
+
+                            if (cityInv.GuildMoney < totalReward) totalReward = reward;
+
+                            string cargoItemId = chosenStack.ItemId;
+                            _inventoryRepository.UpdateCityInventoryState(cityId, s =>
+                            {
+                                s.GuildMoney -= totalReward;
+                                InventoryStateMutator.RemoveItems(s.GuildInventory, cargoItemId, cargoAmount);
+                            });
+
+                            agent.ActiveContract = new GuildContract
+                            {
+                                Id = Guid.NewGuid().ToString("N").Substring(0, 8),
+                                OriginCityId = cityId,
+                                TargetCityId = target.Id,
+                                RewardMoney = totalReward,
+                                GeneratedDay = _dayTracker.CurrentDay,
+                                ExpirationDay = _dayTracker.CurrentDay + Mathf.RoundToInt(estimatedDays * _guildSettings.ContractExpirationMult),
+                                ContractType = GuildContractType.Cargo,
+                                CargoItemId = cargoItemId,
+                                CargoAmount = cargoAmount
+                            };
+
+                            Debug.Log($"[NpcContract] {agent.Name} took cargo contract {cityId}→{target.Id}, item={cargoItemId} x{cargoAmount}, reward={totalReward}g");
+                            return;
+                        }
+                    }
+                }
+            }
+
             _inventoryRepository.UpdateCityInventoryState(cityId, s => s.GuildMoney -= reward);
 
             agent.ActiveContract = new GuildContract
@@ -77,10 +139,11 @@ namespace Internal.Scripts.Npc.Trading
                 TargetCityId = target.Id,
                 RewardMoney = reward,
                 GeneratedDay = _dayTracker.CurrentDay,
-                ExpirationDay = _dayTracker.CurrentDay + Mathf.RoundToInt(estimatedDays * _guildSettings.ContractExpirationMult)
+                ExpirationDay = _dayTracker.CurrentDay + Mathf.RoundToInt(estimatedDays * _guildSettings.ContractExpirationMult),
+                ContractType = GuildContractType.Courier
             };
 
-            Debug.Log($"[NpcContract] {agent.Name} took contract {cityId}→{target.Id} for {reward}g");
+            Debug.Log($"[NpcContract] {agent.Name} took courier contract {cityId}→{target.Id} for {reward}g");
         }
 
         public void HandleDebtRepayment(NpcEconomyState agent, string cityId)
@@ -126,11 +189,11 @@ namespace Internal.Scripts.Npc.Trading
                 return;
 
             CityInventoryState cityInv = _inventoryRepository.GetCityInventory(cityId);
-            if (cityInv == null || cityInv.Inventory.Money < _settings.CreditAmount)
+            if (cityInv == null || cityInv.GuildMoney < _settings.CreditAmount)
                 return;
 
             int amount = _settings.CreditAmount;
-            _inventoryRepository.UpdateCityInventory(cityId, inv => inv.Money -= amount);
+            _inventoryRepository.UpdateCityInventoryState(cityId, s => s.GuildMoney -= amount);
             agent.Money += amount;
             agent.Debt = amount;
             agent.InDebt = true;

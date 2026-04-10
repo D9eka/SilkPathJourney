@@ -110,7 +110,7 @@ namespace Internal.Scripts.Trading
 
         private void ApplyGuildTithe(NpcEconomyState seller, string cityId, List<(string itemId, int count)> soldItems)
         {
-            if (!HasGuildBuilding(cityId))
+            if (!CityHasGuild(cityId))
                 return;
 
             int totalTithe = 0;
@@ -119,19 +119,11 @@ namespace Internal.Scripts.Trading
                 ItemData item = _itemCatalog.GetItem(itemId);
                 if (item == null) continue;
 
-                float tithePct = item.Type switch
-                {
-                    ItemType.Craft => _guildSettings.TitheCraftPct,
-                    ItemType.Luxury => _guildSettings.TitheLuxuryPct,
-                    ItemType.Exotic => _guildSettings.TitheExoticPct,
-                    _ => 0f
-                };
-
+                float tithePct = _guildSettings.GetTithePct(item.Type);
                 if (tithePct <= 0f) continue;
 
                 int unitPrice = _priceService.GetPrice(cityId, itemId, TradePriceKind.SellToCity, applySkillBonus: false);
-                int tithe = Mathf.RoundToInt(unitPrice * count * tithePct);
-                totalTithe += tithe;
+                totalTithe += Mathf.RoundToInt(unitPrice * count * tithePct);
             }
 
             if (totalTithe <= 0) return;
@@ -142,19 +134,8 @@ namespace Internal.Scripts.Trading
             _inventoryRepository.UpdateCityInventoryState(cityId, s => s.GuildMoney += captured);
         }
 
-        private bool HasGuildBuilding(string cityId)
-        {
-            if (_economyDatabase?.Cities == null) return false;
-            foreach (var city in _economyDatabase.Cities)
-            {
-                if (city == null || city.Id != cityId) continue;
-                if (city.Buildings == null) return false;
-                foreach (var b in city.Buildings)
-                    if (b == BuildingId.Guild) return true;
-                return false;
-            }
-            return false;
-        }
+        private bool CityHasGuild(string cityId)
+            => _economyDatabase?.Cities?.Find(c => c.Id == cityId)?.HasBuilding(BuildingId.Guild) == true;
 
         private int PriceItems(string cityId, List<ItemStackState> items,
             out List<(ItemStackState stack, int price)> priced)
@@ -203,6 +184,27 @@ namespace Internal.Scripts.Trading
                 applySkillBonus: false);
         }
 
+        public int CalculatePlayerGuildTithe(string cityId, Dictionary<string, int> toSell)
+        {
+            if (toSell == null || toSell.Count == 0 || !CityHasGuild(cityId))
+                return 0;
+
+            int totalTithe = 0;
+            foreach (KeyValuePair<string, int> kvp in toSell)
+            {
+                ItemData item = _itemCatalog.GetItem(kvp.Key);
+                if (item == null) continue;
+
+                float tithePct = _guildSettings.GetTithePct(item.Type);
+                if (tithePct <= 0f) continue;
+
+                int unitPrice = _priceService.GetPrice(cityId, kvp.Key, TradePriceKind.SellToCity, applySkillBonus: false);
+                totalTithe += Mathf.RoundToInt(unitPrice * kvp.Value * tithePct);
+            }
+
+            return totalTithe;
+        }
+
         public void ApplyBatchTrade(string cityId,
             Dictionary<string, int> toBuy, Dictionary<string, int> toSell, int npcMoney)
         {
@@ -216,6 +218,10 @@ namespace Internal.Scripts.Trading
 
                 cityInv.Money = Mathf.Max(0, npcMoney);
             });
+
+            int tithe = CalculatePlayerGuildTithe(cityId, toSell);
+            if (tithe > 0)
+                _inventoryRepository.UpdateCityInventoryState(cityId, s => s.GuildMoney += tithe);
         }
     }
 }

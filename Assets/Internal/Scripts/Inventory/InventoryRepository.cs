@@ -166,12 +166,13 @@ namespace Internal.Scripts.Inventory
                 return;
 
             SaveData root = _saveRepository.Data;
-            _saveData = root.Economy;
-            if (_saveData == null)
+            if (root?.Economy == null)
             {
                 UnityEngine.Debug.LogWarning("[SPJ] Economy save is missing. Ensure SaveBootstrapper ran.");
-                _saveData = new EconomySaveData();
+                return;
             }
+
+            _saveData = root.Economy;
 
             if (_saveData.PlayerInventory == null)
                 _saveData.PlayerInventory = new InventoryState();
@@ -181,6 +182,15 @@ namespace Internal.Scripts.Inventory
 
             if (_saveData.CityInventories == null)
                 _saveData.CityInventories = new List<CityInventoryState>();
+
+            foreach (CityInventoryState cityState in _saveData.CityInventories)
+            {
+                if (cityState == null) continue;
+                if (cityState.Inventory == null)
+                    cityState.Inventory = new InventoryState();
+                if (cityState.GuildInventory == null)
+                    cityState.GuildInventory = new InventoryState();
+            }
 
             UpdatePlayerStream();
             _hiddenCompartmentStream.Value = CloneInventory(_saveData.HiddenCompartment);

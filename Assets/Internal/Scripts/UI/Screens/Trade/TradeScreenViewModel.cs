@@ -45,6 +45,8 @@ namespace Internal.Scripts.UI.Screens.Trade
         {
             if (args is NpcTradeArgs npcArgs)
                 _model.ActivateWithNpc(npcArgs);
+            else if (args is GuildTradeArgs guildArgs)
+                _model.ActivateWithGuild(guildArgs.CityId);
             else
                 _model.Activate(args as string);
             _inputManager.OnUiNavigate += HandleNavigate;

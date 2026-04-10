@@ -3079,6 +3079,37 @@ caravan_upgrade.hidden_compartment.desc,caravan_upgrades,,20 ед. скрыто�
 caravan_upgrade.repair_kit.desc,caravan_upgrades,,+1 прочности основной телеги за каждый день в пути,+1 main cart durability per travel day
 caravan_upgrade.reinforced_harness.desc,caravan_upgrades,,Штраф скорости от каждой доп. телеги уменьшается на 2%,Extra cart speed penalty reduced by 2%
 caravan_upgrade.road_lanterns.desc,caravan_upgrades,,-30% негативный эффект тумана на дорогах,-30% fog negative effect on roads
+
+UI.Guild.Join.Title,ui,,Вступить в гильдию,Join the Guild
+UI.Guild.Join.Button,ui,,Вступить,Join
+UI.Guild.TakeCredit.Title,ui,,Взять кредит,Take Credit
+UI.Guild.TakeCredit.Button,ui,,Взять,Take
+UI.Guild.RepayCredit.Title,ui,,Погасить кредит,Repay Credit
+UI.Guild.RepayCredit.Button,ui,,Погасить,Repay
+UI.Guild.ActiveContract.Text,ui,,"{0} · {1} · {2} дн.","{0} · {1} · {2} d."
+UI.Guild.Contract.Title,ui,,Доставка в {0},Delivery to {0}
+UI.Guild.Contract.Accept.Button,ui,,Принять,Accept
+UI.Guild.Contract.Courier.Desc,ui,,"Награда: {0} · За {1} дн.","Reward: {0} · In {1} days"
+UI.Guild.Contract.Cargo.Desc,ui,,"Вес: {0:F0}кг · Награда: {2} · За {1} дн.","Weight: {0:F0}kg · Reward: {2} · In {1} days"
+UI.CityEntry.Duty,interface_names,99,"Для входа вам нужно заплатить пошлину: {0}","Entry duty to pay: {0}"
+UI.CityEntry.GuildDiscount,interface_names,100,"С учётом скидки гильдии {0}%","Incl. guild discount {0}%"
+UI.CityEntry.HiddenItems,interface_names,101,"В скрытом отсеке: {0} предм.","Hidden compartment: {0} items"
+UI.CityEntry.DetectionChance,interface_names,102,"Шанс обнаружения: {0}%","Detection chance: {0}%"
+UI.CityEntry.EnterButton,interface_names,103,"Войти за {0}","Enter for {0}"
+UI.CityEntry.LeaveButton,interface_names,104,"Уйти","Leave"
+UI.CityEntry.DutyPaid,interface_names,105,"Пошлина уплачена: {0}","Duty paid: {0}"
+UI.CityEntry.Caught,interface_names,106,"Контрабанда обнаружена!","Contraband detected!"
+UI.CityEntry.Passed,interface_names,107,"Контрабанда не обнаружена","No contraband found"
+UI.CityEntry.Confiscated,interface_names,108,"Конфисковано на {0}","Confiscated for {0}"
+UI.CityEntry.Fine,interface_names,109,"Штраф: {0}","Fine: {0}"
+UI.CityEntry.ContinueButton,interface_names,110,"Продолжить","Continue"
+UI.CityEntry.CityTypeLabel,interface_names,111,"Тип города:","City type:"
+UI.CityEntry.BuildingsLabel,interface_names,112,"Здания в городе:","Buildings in city:"
+UI.Guild.OfferingsHeader,ui,,Услуги,Services
+UI.Guild.ContractsHeader,ui,,Контракты,Contracts
+UI.Guild.ActiveContract.Desc,ui,,"Доставка в {0} · Награда: {1} · Осталось {2} дн.","Delivery to {0} · Reward: {1} · {2} days left"
+UI.Guild.ActiveContract.Title,ui,,"Активный: Доставка в {0}","Active: Delivery to {0}"
+UI.Guild.ActiveContract.Complete.Button,ui,,Сдать,Complete
 event.road_discover_R_N_Urumqi__N_Kucha.choice1,road_events,,Расчистить путь,Clear the path
 event.road_discover_R_N_Urumqi__N_Kucha.choice1.result,road_events,,Караван прокладывает дорогу сквозь заросли. За поворотом открывается пригодный для движения тракт — новый маршрут найден!,"The caravan cuts through the overgrowth. Around the bend, a passable road opens up — a new route discovered!"
 event.road_discover_R_N_Urumqi__N_Kucha.choice2,road_events,,Не рисковать,Don't risk it
@@ -3098,3 +3129,12 @@ event.road_quest_R_N_Urumqi__N_Kucha.choice2,road_events,,Вежливо отк�
 event.road_quest_R_N_Urumqi__N_Kucha.choice2.result,road_events,,"Караванщик кланяется и уходит, унося свой секрет.","The caravan master bows and departs, taking his secret with him."
 event.road_quest_R_N_Urumqi__N_Kucha.name,road_events,,Долг караванщика,Caravan Master's Debt
 event.road_quest_R_N_Urumqi__N_Kucha.description,road_events,,"Бывалый караванщик догоняет ваш отряд. Он говорит, что обязан вам жизнью — в прошлый раз вы помогли его людям на переправе. В благодарность он готов открыть секретный маршрут, которым пользуются только избранные торговцы.","A seasoned caravan master catches up with your party. He says he owes you his life — you helped his people at a crossing once before. In gratitude, he offers to reveal a secret route used only by select merchants."
+UI.Guild.Main.Header.Main,ui,,Гильдия,Guild
+UI.Guild.Contracts.Empty.NoContracts,ui,,Нет доступных контрактов,No available contracts
+UI.Guild.Contracts.Empty.NotMember,ui,,"Вступите в гильдию, чтобы получить доступ к контрактам","Join the guild to access contracts"
+UI.Guild.Contract.Courier.Title,ui,,Курьерская доставка в {0},Courier delivery to {0}
+UI.Guild.Contract.Cargo.Title,ui,,Грузоперевозка в {0},Cargo delivery to {0}
+UI.Guild.Trade.Title,ui,,Торговать с гильдией,Trade with Guild
+UI.Guild.Trade.Description,ui,,"Покупка и продажа товаров гильдии","Buy and sell guild goods"
+UI.Guild.Trade.Description.Empty,ui,,"Склад гильдии пуст — нечего продавать","Guild warehouse is empty — nothing to trade"
+UI.Guild.Trade.Button,ui,,Торговать,Trade

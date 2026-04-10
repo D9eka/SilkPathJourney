@@ -3,6 +3,7 @@ using Internal.Scripts.Config;
 using Internal.Scripts.Economy;
 using Internal.Scripts.Economy.Cities;
 using Internal.Scripts.Economy.Generated;
+using Internal.Scripts.Economy.Guild;
 using Internal.Scripts.Economy.Items;
 using Internal.Scripts.Economy.Save.Models;
 using Internal.Scripts.Inventory;
@@ -22,6 +23,7 @@ namespace Internal.Scripts.Economy.Simulation
         private readonly EconomyDatabase _economyDatabase;
         private readonly CultureDistanceService _cultureDistance;
         private readonly GameBalanceConfig _balanceConfig;
+        private readonly GuildSettings _guildSettings;
         private readonly HashSet<string> _warnedKeys = new();
 
         public CityTradePriceService(
@@ -32,7 +34,8 @@ namespace Internal.Scripts.Economy.Simulation
             TradePriceModifiers modifiers,
             EconomyDatabase economyDatabase,
             CultureDistanceService cultureDistance,
-            GameBalanceConfig balanceConfig)
+            GameBalanceConfig balanceConfig,
+            GuildSettings guildSettings)
         {
             _profileService = profileService;
             _settings = settings;
@@ -42,6 +45,7 @@ namespace Internal.Scripts.Economy.Simulation
             _economyDatabase = economyDatabase;
             _cultureDistance = cultureDistance;
             _balanceConfig = balanceConfig;
+            _guildSettings = guildSettings;
         }
 
         public int GetPrice(string cityId, string itemId, TradePriceKind kind,
@@ -71,7 +75,7 @@ namespace Internal.Scripts.Economy.Simulation
                 originCulture, city.PrimaryCulture, _balanceConfig.ExoticityPerStep);
             int finalPrice = Mathf.Max(1, Mathf.RoundToInt(breakdown.FinalPrice * exoticityMult));
             return new PriceBreakdown(breakdown.ItemName, breakdown.BasePrice, breakdown.MarketMult,
-                breakdown.BonusMult, breakdown.ModifierMult, exoticityMult, finalPrice, breakdown.IsNpcTrade);
+                breakdown.BonusMult, breakdown.ModifierMult, exoticityMult, breakdown.TitheMult, finalPrice, breakdown.IsNpcTrade);
         }
 
         private PriceBreakdown CalculatePrice(string cityId, string itemId, TradePriceKind kind, bool applySkillBonus)
@@ -80,10 +84,10 @@ namespace Internal.Scripts.Economy.Simulation
             string itemName = _itemCatalog.ResolveItemName(itemId);
 
             if (item == null)
-                return new PriceBreakdown(itemName, 0, 1f, 1f, 1f, 0, false);
+                return new PriceBreakdown(itemName, 0, 1f, 1f, 1f, 1f, 0, false);
 
             if (!_profileService.TryGetProfile(cityId, itemId, out CityItemMarketProfile profile))
-                return new PriceBreakdown(itemName, item.BasePrice, 1f, 1f, 1f, item.BasePrice, false);
+                return new PriceBreakdown(itemName, item.BasePrice, 1f, 1f, 1f, 1f, item.BasePrice, false);
 
             float baseCoef = kind == TradePriceKind.BuyFromCity ? profile.BuyCoef : profile.SellCoef;
 
@@ -100,18 +104,33 @@ namespace Internal.Scripts.Economy.Simulation
 
             float bonusMult = 1f;
             float worldModMult = 1f;
+            float titheMult = 1f;
             if (applySkillBonus)
             {
                 bonusMult = kind == TradePriceKind.BuyFromCity
                     ? _modifiers.GetBuyBonusMultiplier(cityId)
                     : _modifiers.GetSellBonusMultiplier(cityId);
                 worldModMult = _modifiers.GetWorldModifierMultiplier(cityId);
+
+                if (kind == TradePriceKind.SellToCity && HasGuildBuilding(cityId))
+                {
+                    titheMult = item.Type switch
+                    {
+                        ItemType.Craft => 1f - _guildSettings.TitheCraftPct,
+                        ItemType.Luxury => 1f - _guildSettings.TitheLuxuryPct,
+                        ItemType.Exotic => 1f - _guildSettings.TitheExoticPct,
+                        _ => 1f
+                    };
+                }
             }
 
             float marketMult = baseCoef * scarcityMult;
-            int finalPrice = Mathf.Max(1, Mathf.RoundToInt(item.BasePrice * marketMult * bonusMult * worldModMult));
-            return new PriceBreakdown(itemName, item.BasePrice, marketMult, bonusMult, worldModMult, finalPrice, false);
+            int finalPrice = Mathf.Max(1, Mathf.RoundToInt(item.BasePrice * marketMult * bonusMult * worldModMult * titheMult));
+            return new PriceBreakdown(itemName, item.BasePrice, marketMult, bonusMult, worldModMult, titheMult, finalPrice, false);
         }
+
+        private bool HasGuildBuilding(string cityId)
+            => _economyDatabase?.Cities?.Find(c => c.Id == cityId)?.HasBuilding(BuildingId.Guild) == true;
 
         private int GetCurrentStock(string cityId, string itemId)
         {

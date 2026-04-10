@@ -1,15 +1,15 @@
 using System;
+using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Localization;
 using Internal.Scripts.UI.Localization.Args;
 using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.Localization;
 using UnityEngine.UI;
 
 namespace Internal.Scripts.UI.Screens.Event
 {
-    public class EventChoiceButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+    public class EventChoiceButton : MonoBehaviour
     {
         [SerializeField] private Button _button;
         [SerializeField] private TextMeshProUGUI _text;
@@ -18,7 +18,15 @@ namespace Internal.Scripts.UI.Screens.Event
         private Action _onClickCallback;
         private Action _onHoverEnter;
         private Action _onHoverExit;
+        private HoverReporter _hover;
         private LocalizationService.LocalizedTextHandle _textHandle;
+
+        private void Awake()
+        {
+            _hover = HoverReporter.GetOrAdd(gameObject);
+            _hover.Entered += OnHoverEnter;
+            _hover.Exited += OnHoverExit;
+        }
 
         public void Initialize(
             LocalizationService localization,
@@ -49,6 +57,11 @@ namespace Internal.Scripts.UI.Screens.Event
 
         private void OnDestroy()
         {
+            if (_hover != null)
+            {
+                _hover.Entered -= OnHoverEnter;
+                _hover.Exited -= OnHoverExit;
+            }
             _textHandle?.Dispose();
             if (_button != null)
                 _button.onClick.RemoveListener(HandleClick);
@@ -65,14 +78,7 @@ namespace Internal.Scripts.UI.Screens.Event
                 _button.interactable = interactable;
         }
 
-        public void OnPointerEnter(PointerEventData eventData)
-        {
-            _onHoverEnter?.Invoke();
-        }
-
-        public void OnPointerExit(PointerEventData eventData)
-        {
-            _onHoverExit?.Invoke();
-        }
+        private void OnHoverEnter() => _onHoverEnter?.Invoke();
+        private void OnHoverExit() => _onHoverExit?.Invoke();
     }
 }

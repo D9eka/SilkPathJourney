@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Internal.Scripts.Economy;
+using Internal.Scripts.Economy.Guild;
 using Internal.Scripts.Economy.Save;
 using Internal.Scripts.Economy.Save.Models;
 using Internal.Scripts.Economy.Simulation;
@@ -28,6 +29,8 @@ namespace Internal.Scripts.Trading
         private readonly TradeTotalsCalculator _totalsCalculator;
         private readonly ItemWeightCalculator _weightCalculator;
         private readonly ItemCatalog _itemCatalog;
+        private readonly GuildSettings _guildSettings;
+        private readonly GuildService _guildService;
         private readonly ReactiveProperty<TradeViewState> _state;
 
         private IDisposable _playerSubscription;
@@ -38,6 +41,7 @@ namespace Internal.Scripts.Trading
         private InventoryState _npcInventory;
         private PlayerResourceState _playerResources;
         private bool _isNpcTrade;
+        private bool _isGuildTrade;
         private InventoryState _npcLocalInventory;
         private string _npcDisplayName;
         private ITradePricing _pricing;
@@ -57,13 +61,17 @@ namespace Internal.Scripts.Trading
             EconomyDatabase economyDatabase,
             CityTradePriceService priceService,
             CityTransactionService cityTransactionService,
-            DayTracker dayTracker)
+            DayTracker dayTracker,
+            GuildSettings guildSettings,
+            GuildService guildService)
         {
             _inventoryRepository = inventoryRepository;
             _resourceRepository = resourceRepository;
             _priceService = priceService;
             _cityTransactionService = cityTransactionService;
             _dayTracker = dayTracker;
+            _guildSettings = guildSettings;
+            _guildService = guildService;
             _itemCatalog = new ItemCatalog(economyDatabase);
             _cityCatalog = new TradeCityCatalog(economyDatabase);
             _rowsBuilder = new ItemRowsBuilder(_itemCatalog);
@@ -112,6 +120,18 @@ namespace Internal.Scripts.Trading
             }
         }
 
+        public void ActivateWithGuild(string cityId)
+        {
+            Deactivate();
+            _cityId = cityId;
+            _isGuildTrade = true;
+            _pricing = new GuildTradePricing(_itemCatalog, _guildSettings, _guildService);
+            ActivateCore();
+
+            CityInventoryState cityInventory = _inventoryRepository.GetCityInventory(_cityId);
+            HandleCityInventory(MakeGuildSnapshot(cityInventory));
+        }
+
         public void ActivateWithNpc(NpcTradeArgs args)
         {
             Deactivate();
@@ -156,6 +176,7 @@ namespace Internal.Scripts.Trading
             _npcInventory = null;
             _playerResources = null;
             _isNpcTrade = false;
+            _isGuildTrade = false;
             _pricing = null;
             _npcLocalInventory = null;
             _npcDisplayName = null;
@@ -230,7 +251,15 @@ namespace Internal.Scripts.Trading
 
             if (string.IsNullOrWhiteSpace(_cityId)) return false;
             CityInventoryState citySnapshot = _inventoryRepository.GetCityInventory(_cityId);
-            InventoryState npcSnapshot = citySnapshot != null ? citySnapshot.Inventory : null;
+            if (citySnapshot == null) return false;
+
+            if (_isGuildTrade)
+            {
+                npcMoney = citySnapshot.GuildMoney;
+                return true;
+            }
+
+            InventoryState npcSnapshot = citySnapshot.Inventory;
             if (npcSnapshot == null) return false;
             npcMoney = npcSnapshot.Money;
             return true;
@@ -267,6 +296,16 @@ namespace Internal.Scripts.Trading
                 _npcLocalInventory.Money = Mathf.Max(0, npcMoney);
                 HandleCityInventory(_npcLocalInventory);
             }
+            else if (_isGuildTrade)
+            {
+                _inventoryRepository.UpdateCityInventoryState(_cityId, state =>
+                {
+                    InventoryStateMutator.ApplyTrade(state.GuildInventory, toSell, toBuy);
+                    state.GuildMoney = Mathf.Max(0, npcMoney);
+                });
+                CityInventoryState cityInventory = _inventoryRepository.GetCityInventory(_cityId);
+                HandleCityInventory(MakeGuildSnapshot(cityInventory));
+            }
             else
             {
                 _cityTransactionService.ApplyBatchTrade(_cityId, toBuy, toSell, npcMoney);
@@ -278,6 +317,17 @@ namespace Internal.Scripts.Trading
             if (!_isNpcTrade || _npcLocalInventory == null)
                 return null;
             return (_npcLocalInventory, _npcLocalInventory.Money);
+        }
+
+        private static InventoryState MakeGuildSnapshot(CityInventoryState cityState)
+        {
+            if (cityState == null)
+                return new InventoryState();
+            var snapshot = new InventoryState { Money = cityState.GuildMoney };
+            if (cityState.GuildInventory?.Items != null)
+                foreach (ItemStackState stack in cityState.GuildInventory.Items)
+                    snapshot.Items.Add(new ItemStackState { ItemId = stack.ItemId, Count = stack.Count });
+            return snapshot;
         }
 
         private void HandlePlayerInventory(InventoryState inventory)
