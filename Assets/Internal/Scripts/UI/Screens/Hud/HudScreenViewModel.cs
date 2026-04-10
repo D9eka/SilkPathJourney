@@ -220,14 +220,7 @@ namespace Internal.Scripts.UI.Screens.Hud
             if (!_model.TryGetEnterCity(out CityData city))
                 return;
 
-            if (_cityEntryService.CanEnterCity(city))
-            {
-                _cityEntryService.EnterCity(city);
-            }
-            else
-            {
-                _screenStackService.TryOpen(ScreenId.EnterCity, city.Id, out _);
-            }
+            _screenStackService.TryOpen(ScreenId.CityEntryConfirm, city, out _);
         }
 
         private void RebuildTrackerState()

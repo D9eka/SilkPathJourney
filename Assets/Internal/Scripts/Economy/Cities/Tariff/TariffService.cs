@@ -38,6 +38,12 @@ namespace Internal.Scripts.Economy.Cities.Tariff
             _balanceConfig = balanceConfig;
         }
 
+        public int EstimateTariffWithGuild(InventoryState inventory, CityData city, int reputation)
+        {
+            int raw = EstimateTariff(inventory, city, reputation);
+            return (int)(raw * _guildService.GetTariffMultiplier());
+        }
+
         public int EstimateTariff(InventoryState inventory, CityData city, int reputation)
         {
             if (inventory?.Items == null || inventory.Items.Count == 0)
