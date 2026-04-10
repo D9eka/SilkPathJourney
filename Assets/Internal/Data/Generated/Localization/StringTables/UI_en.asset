@@ -1062,6 +1062,162 @@ MonoBehaviour:
     m_Localized: Modifiers
     m_Metadata:
       m_Items: []
+  - m_Id: 23494540571697152
+    m_Localized: 'Entry duty to pay: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23494540622028800
+    m_Localized: Incl. guild discount {0}%
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23494540622028801
+    m_Localized: 'Hidden compartment: {0} items'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23494540622028802
+    m_Localized: 'Detection chance: {0}%'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23494540622028803
+    m_Localized: Enter for {0}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23494540622028804
+    m_Localized: Leave
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23494540622028805
+    m_Localized: 'Duty paid: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23494540622028806
+    m_Localized: Contraband detected!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23494540622028807
+    m_Localized: No contraband found
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23494540622028808
+    m_Localized: Confiscated for {0}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23494540622028809
+    m_Localized: 'Fine: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23494540622028810
+    m_Localized: Continue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23513265924464640
+    m_Localized: 'City type:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23513265962213376
+    m_Localized: 'Buildings in city:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23523678422556672
+    m_Localized: Join the Guild
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23523678430945280
+    m_Localized: Join
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23523678430945281
+    m_Localized: Take Credit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23523678430945282
+    m_Localized: Take
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23523678430945283
+    m_Localized: Repay Credit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23523678430945284
+    m_Localized: Repay
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23523678430945285
+    m_Localized: "{0} \xB7 {1} \xB7 {2} d."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23523678430945286
+    m_Localized: Delivery to {0}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23523678430945287
+    m_Localized: Accept
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23523678430945288
+    m_Localized: "Reward: {0} \xB7 In {1} days"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23523678430945289
+    m_Localized: "Weight: {0:F0}kg \xB7 Reward: {2} \xB7 In {1} days"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23523678430945290
+    m_Localized: Services
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23523678430945291
+    m_Localized: Contracts
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23523678430945292
+    m_Localized: "Delivery to {0} \xB7 Reward: {1} \xB7 {2} days left"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23523678430945293
+    m_Localized: 'Active: Delivery to {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23523678430945294
+    m_Localized: Complete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23524739052986368
+    m_Localized: Guild
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23534690781618176
+    m_Localized: No available contracts
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23534690785812480
+    m_Localized: Join the guild to access contracts
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23542649196634112
+    m_Localized: Courier delivery to {0}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23542649205022720
+    m_Localized: Cargo delivery to {0}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23588334969282560
+    m_Localized: Trade with Guild
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23588335015419904
+    m_Localized: Buy and sell guild goods
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23588335015419905
+    m_Localized: "Guild warehouse is empty \u2014 nothing to trade"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23588335015419906
+    m_Localized: Trade
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

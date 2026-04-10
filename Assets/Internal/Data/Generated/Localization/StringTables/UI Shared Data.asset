@@ -1043,6 +1043,162 @@ MonoBehaviour:
     m_Key: UI.Tooltip.Modifiers
     m_Metadata:
       m_Items: []
+  - m_Id: 23494540571697152
+    m_Key: UI.CityEntry.Duty
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23494540622028800
+    m_Key: UI.CityEntry.GuildDiscount
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23494540622028801
+    m_Key: UI.CityEntry.HiddenItems
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23494540622028802
+    m_Key: UI.CityEntry.DetectionChance
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23494540622028803
+    m_Key: UI.CityEntry.EnterButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23494540622028804
+    m_Key: UI.CityEntry.LeaveButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23494540622028805
+    m_Key: UI.CityEntry.DutyPaid
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23494540622028806
+    m_Key: UI.CityEntry.Caught
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23494540622028807
+    m_Key: UI.CityEntry.Passed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23494540622028808
+    m_Key: UI.CityEntry.Confiscated
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23494540622028809
+    m_Key: UI.CityEntry.Fine
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23494540622028810
+    m_Key: UI.CityEntry.ContinueButton
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23513265924464640
+    m_Key: UI.CityEntry.CityTypeLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23513265962213376
+    m_Key: UI.CityEntry.BuildingsLabel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23523678422556672
+    m_Key: UI.Guild.Join.Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23523678430945280
+    m_Key: UI.Guild.Join.Button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23523678430945281
+    m_Key: UI.Guild.TakeCredit.Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23523678430945282
+    m_Key: UI.Guild.TakeCredit.Button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23523678430945283
+    m_Key: UI.Guild.RepayCredit.Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23523678430945284
+    m_Key: UI.Guild.RepayCredit.Button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23523678430945285
+    m_Key: UI.Guild.ActiveContract.Text
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23523678430945286
+    m_Key: UI.Guild.Contract.Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23523678430945287
+    m_Key: UI.Guild.Contract.Accept.Button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23523678430945288
+    m_Key: UI.Guild.Contract.Courier.Desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23523678430945289
+    m_Key: UI.Guild.Contract.Cargo.Desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23523678430945290
+    m_Key: UI.Guild.OfferingsHeader
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23523678430945291
+    m_Key: UI.Guild.ContractsHeader
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23523678430945292
+    m_Key: UI.Guild.ActiveContract.Desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23523678430945293
+    m_Key: UI.Guild.ActiveContract.Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23523678430945294
+    m_Key: UI.Guild.ActiveContract.Complete.Button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23524739052986368
+    m_Key: UI.Guild.Main.Header.Main
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23534690781618176
+    m_Key: UI.Guild.Contracts.Empty.NoContracts
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23534690785812480
+    m_Key: UI.Guild.Contracts.Empty.NotMember
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23542649196634112
+    m_Key: UI.Guild.Contract.Courier.Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23542649205022720
+    m_Key: UI.Guild.Contract.Cargo.Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23588334969282560
+    m_Key: UI.Guild.Trade.Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23588335015419904
+    m_Key: UI.Guild.Trade.Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23588335015419905
+    m_Key: UI.Guild.Trade.Description.Empty
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23588335015419906
+    m_Key: UI.Guild.Trade.Button
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
