@@ -1,22 +1,26 @@
+using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Tooltip;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Internal.Scripts.UI.WorldLabel.Components
 {
     [RequireComponent(typeof(Image))]
-    public class WorldLabelIcon : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+    public class WorldLabelIcon : MonoBehaviour
     {
         private string _tooltipTitle;
         private string _tooltipDescription;
 
         private Image _icon;
         private TooltipService _tooltipService;
+        private HoverReporter _hover;
 
         private void Awake()
         {
             _icon = GetComponent<Image>();
+            _hover = HoverReporter.GetOrAdd(gameObject);
+            _hover.Entered += OnHoverEnter;
+            _hover.Exited += OnHoverExit;
         }
 
         public void Initialize(TooltipService tooltipService)
@@ -51,16 +55,25 @@ namespace Internal.Scripts.UI.WorldLabel.Components
             }
         }
 
-        public void OnPointerEnter(PointerEventData eventData)
+        private void OnHoverEnter()
         {
             if (_tooltipService == null) return;
             var data = new SimpleTooltipData(_tooltipTitle, _tooltipDescription);
             _tooltipService.ShowTooltipDelayed(data, transform.position);
         }
 
-        public void OnPointerExit(PointerEventData eventData)
+        private void OnHoverExit()
         {
             _tooltipService?.HideTooltip();
+        }
+
+        private void OnDestroy()
+        {
+            if (_hover != null)
+            {
+                _hover.Entered -= OnHoverEnter;
+                _hover.Exited -= OnHoverExit;
+            }
         }
     }
 }
