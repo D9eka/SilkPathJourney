@@ -58,7 +58,7 @@ namespace Internal.Scripts.Economy.Save
                         CityId = city.Id,
                         Inventory = CreateCityInventory(city),
                         GuildMoney = city.HasBuilding(BuildingId.Guild) ? _guildSettings.GuildStartingMoney : 0,
-                        GuildInventory = new InventoryState { Items = new List<ItemStackState>() }
+                        GuildInventory = CreateGuildInventory(city)
                     });
                 }
             }
@@ -215,6 +215,53 @@ namespace Internal.Scripts.Economy.Save
                     {
                         ItemId = item.Id,
                         Count = stock
+                    });
+                }
+            }
+
+            return inv;
+        }
+
+        private InventoryState CreateGuildInventory(CityData city)
+        {
+            var inv = new InventoryState { Items = new List<ItemStackState>() };
+
+            if (!city.HasBuilding(BuildingId.Guild))
+                return inv;
+
+            BuildLookupsIfNeeded();
+
+            if (!_cityTypeByEnum.TryGetValue(city.Type, out CityTypeData typeData) || typeData == null)
+                return inv;
+
+            foreach (CityTypeData.CategoryStockProfile profile in typeData.CategoryStockProfiles)
+            {
+                if (profile.Category != ItemType.Craft
+                    && profile.Category != ItemType.Luxury
+                    && profile.Category != ItemType.Exotic)
+                    continue;
+
+                if (!_itemsByCategory.TryGetValue(profile.Category, out List<ItemData> items) || items.Count == 0)
+                    continue;
+
+                var ranked = new List<(ItemData item, float weight)>();
+                foreach (ItemData item in items)
+                {
+                    float w = CalculateEffectiveWeight(city, profile.Category, item);
+                    if (w > 0f)
+                        ranked.Add((item, w));
+                }
+                ranked.Sort((a, b) => b.weight.CompareTo(a.weight));
+
+                int take = Mathf.Min(2, ranked.Count);
+                for (int i = 0; i < take; i++)
+                {
+                    float noise = Hash01($"guild_{city.Id}_{ranked[i].item.Id}");
+                    int count = Mathf.RoundToInt(3f + noise * 5f);
+                    inv.Items.Add(new ItemStackState
+                    {
+                        ItemId = ranked[i].item.Id,
+                        Count = count
                     });
                 }
             }
