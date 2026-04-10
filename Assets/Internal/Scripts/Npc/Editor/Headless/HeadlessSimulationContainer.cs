@@ -122,7 +122,7 @@ namespace Internal.Scripts.Npc.Editor.Headless
             var profileService = new CityMarketProfileService(economyDb, itemCatalog);
 
             var cultureDistance = new CultureDistanceService(cultureAdjacency);
-            var priceService = new CityTradePriceService(profileService, econSimSettings, inventoryRepo, itemCatalog, modifiers, economyDb, cultureDistance, balanceConfig);
+            var priceService = new CityTradePriceService(profileService, econSimSettings, inventoryRepo, itemCatalog, modifiers, economyDb, cultureDistance, balanceConfig, guildSettings);
 
             var economySimulator = new CityEconomySimulator(dayTracker, inventoryRepo, profileService, economyDb, itemCatalog, guildSettings);
             economySimulator.Initialize();
@@ -143,11 +143,11 @@ namespace Internal.Scripts.Npc.Editor.Headless
 
             var knowledgeService = new NpcKnowledgeService(worldModRepo, radiusResolver, headlessCityResolver, dayTracker, npcSettings);
 
-            var guildService = new GuildService(saveRepo, playerResRepo, inventoryRepo, economyDb, dayTracker, headlessPathFinder, guildSettings);
+            var guildService = new GuildService(saveRepo, playerResRepo, inventoryRepo, economyDb, dayTracker, headlessPathFinder, guildSettings, itemCatalog);
             var tariffService = new TariffService(economyDb, playerResRepo, itemCatalog, inventoryRepo, guildService, guildSettings, balanceConfig);
 
             var sellService = new NpcSellService(transService, npcSettings, itemCatalog, economyDb, dayTracker);
-            var guildTradeService = new NpcGuildTradeService(economyDb, inventoryRepo, npcSettings, guildSettings, supplyPlanner, dayTracker);
+            var guildTradeService = new NpcGuildTradeService(economyDb, inventoryRepo, itemCatalog, npcSettings, guildSettings, supplyPlanner, dayTracker);
             var trader = new NpcTrader(transService, supplyPlanner, inventoryRepo, itemCatalog, weightCalc, npcSettings, sellEstimator, economyDb, dayTracker, headlessCityResolver, cultureDistance, sellService, balanceConfig, guildTradeService);
             var routeDecisionService = new NpcRouteDecisionService(npcSettings, supplyPlanner, knowledgeService, trader);
 
