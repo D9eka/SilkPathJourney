@@ -17,6 +17,8 @@ using Internal.Scripts.UI.Screens.Caravan;
 using Internal.Scripts.UI.Screens.Caravansary;
 using Internal.Scripts.UI.Screens.Tavern;
 using Internal.Scripts.UI.Screens.Workshop;
+using Internal.Scripts.UI.Screens.Guild;
+using Internal.Scripts.UI.Screens.CityEntryConfirm;
 using Plugins.Zenject.Source.Main;
 
 namespace Internal.Scripts.UI.Factory
@@ -51,6 +53,8 @@ namespace Internal.Scripts.UI.Factory
                 ScreenId.Caravansary => CreateCaravansary(view),
                 ScreenId.Tavern => CreateTavern(view),
                 ScreenId.Workshop => CreateWorkshop(view),
+                ScreenId.Guild => CreateGuild(view),
+                ScreenId.CityEntryConfirm => CreateCityEntryConfirm(view),
                 _ => null
             };
         }
@@ -189,6 +193,22 @@ namespace Internal.Scripts.UI.Factory
                 return null;
 
             return _container.Instantiate<WorkshopScreenViewModel>();
+        }
+
+        private ScreenViewModelBase CreateGuild(IScreenView view)
+        {
+            if (view is not GuildScreen)
+                return null;
+
+            return _container.Instantiate<GuildScreenViewModel>();
+        }
+
+        private ScreenViewModelBase CreateCityEntryConfirm(IScreenView view)
+        {
+            if (view is not CityEntryConfirmScreen)
+                return null;
+
+            return _container.Instantiate<CityEntryConfirmScreenViewModel>();
         }
     }
 }

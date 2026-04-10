@@ -16,6 +16,7 @@ MonoBehaviour:
   _cameraSceneSettings: {fileID: 11400000, guid: 45b20864a335ce54ab15b9a632a61834, type: 2}
   _economyDatabase: {fileID: 11400000, guid: 470634ec055f63546815d93a3084b67b, type: 2}
   _economySimulationSettings: {fileID: 11400000, guid: 2277e62de1065a347b8861eaa8774f36, type: 2}
+  _cultureAdjacencyData: {fileID: 11400000, guid: a884572023ec165428931e44a9906abd, type: 2}
   _eventDatabase: {fileID: 11400000, guid: 8573b1faa3d1a1b4797c85b1c9579688, type: 2}
   _questDatabase: {fileID: 11400000, guid: 6b44833f326147340bbbb4d14d47250c, type: 2}
   _caravanDatabase: {fileID: 11400000, guid: e9febe3d356477b418297aa618add05b, type: 2}

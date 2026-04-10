@@ -19,6 +19,8 @@ namespace Internal.Scripts.UI.Screens.Core.Config
         Caravan = 14,
         Caravansary = 15,
         Tavern = 16,
-        Workshop = 17
+        Workshop = 17,
+        CityEntryConfirm = 18,
+        Guild = 19
     }
 }

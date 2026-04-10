@@ -100,8 +100,8 @@ namespace Internal.Scripts.Installers
             InstallCamera();
             InstallWorld();
             InstallRoad();
-            InstallNpc();
             InstallEconomy();
+            InstallNpc();
             InstallWorldModifiers();
             InstallWorldCanvas();
             InstallWorldLabels();
@@ -255,7 +255,6 @@ namespace Internal.Scripts.Installers
             Container.Bind<TariffService>().AsSingle();
             Container.Bind<SmugglingModifierCalculator>().AsSingle();
             Container.Bind<SmugglingCheckService>().AsSingle();
-            Container.BindInterfacesAndSelfTo<CityEntryTaxService>().AsSingle();
             Container.Bind<RumorService>().AsSingle();
         }
 
