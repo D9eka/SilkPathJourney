@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0268d39a952a07c4ca5954dcbfd34cee, type: 3}
+  m_Name: CampActionDatabase
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Camp.CampActionDatabase
+  <Actions>k__BackingField:
+  - {fileID: 11400000, guid: 1e947936c3b706f41b728643dfc8edad, type: 2}
+  - {fileID: 11400000, guid: 1939d14b9c83b4a4d95c9b5c34bbe5e4, type: 2}
+  - {fileID: 11400000, guid: 39be5b8f3e37b514e9009a6745bffc86, type: 2}
+  - {fileID: 11400000, guid: 0dde182eb09d86649b59a2db41f0a796, type: 2}
+  <BiomeModifiers>k__BackingField:
+  - Biome: 2
+    ActionType: 0
+    Modifier: -50
+  - Biome: 3
+    ActionType: 0
+    Modifier: -30
+  - Biome: 3
+    ActionType: 1
+    Modifier: -30

@@ -67,5 +67,7 @@ namespace Internal.Scripts.Config
             new() { Threshold = 80, Modifier = 0.8f, Comparison = ComparisonType.Below },
         };
         [field: SerializeField] public float TariffDefaultReputationModifier { get; private set; } = 0.5f;
+        [Header("Camp")]
+        [field: SerializeField] public float CampSkillEffectPerPoint { get; private set; } = 0.001f;
     }
 }

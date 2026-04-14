@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 514d9c157cf1687439d383b6556df503, type: 3}
+  m_Name: CampAction_Repair
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Camp.CampActionData
+  <Type>k__BackingField: 2
+  <CostSupplies>k__BackingField: 5
+  <AffectedResource>k__BackingField: 13
+  <BaseEffect>k__BackingField: 10
+  <RelatedSkill>k__BackingField: 0
+  <MaxRepeatPerSegment>k__BackingField: 3
+  <DiminishingCurve>k__BackingField:
+  - 1
+  - 0.6
+  - 0.35
+  <SideEffects>k__BackingField: []
