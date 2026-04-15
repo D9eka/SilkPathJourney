@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Internal.Scripts.Economy;
 using Internal.Scripts.Economy.Cities;
 using Internal.Scripts.Economy.Generated;
@@ -41,16 +40,26 @@ namespace Internal.Scripts.Npc.Lifecycle
         private readonly NpcCityVisitProcessor _visitProcessor;
         private readonly NpcDayProcessor _dayProcessor;
         private readonly NpcSpawnRoller _spawnRoller;
+        private readonly NpcGuildTradeService _guildTradeService;
 
-        private const int TradeLogCapacity = 100;
+        private const int ActivityLogCapacity = 100;
 
         private readonly List<NpcCaravanAgent> _agents = new();
-        private readonly List<string> _tradeLog = new();
+        private readonly List<string> _activityLog = new();
         private List<string> _nodeIds;
         private List<string> _cityNodeIds;
 
+        private readonly Dictionary<NpcArchetype, int> _archetypeCounts = new();
+        private readonly List<NpcCaravanAgent> _daySnapshot = new();
+        private readonly List<NpcEconomyState> _dayEconomies = new();
+        private readonly List<string> _dayDestinations = new();
+        private int[] _daySupplies = new int[16];
+        private readonly NpcDayContext _dayContext = new();
+        private Func<int, float> _estimateDaysToCityDelegate;
+        private Func<double> _nextRandomDelegate;
+
         public IReadOnlyList<NpcCaravanAgent> Agents => _agents;
-        public IReadOnlyList<string> TradeLog => _tradeLog;
+        public IReadOnlyList<string> ActivityLog => _activityLog;
 
         public event Action OnTradeCompleted;
 
@@ -67,7 +76,8 @@ namespace Internal.Scripts.Npc.Lifecycle
             DayTracker dayTracker,
             NpcSimulation simulation,
             NpcCityVisitProcessor visitProcessor,
-            NpcDayProcessor dayProcessor)
+            NpcDayProcessor dayProcessor,
+            NpcGuildTradeService guildTradeService)
         {
             _settings = settings;
             _factory = factory;
@@ -83,10 +93,13 @@ namespace Internal.Scripts.Npc.Lifecycle
             _visitProcessor = visitProcessor;
             _dayProcessor = dayProcessor;
             _spawnRoller = new NpcSpawnRoller(settings);
+            _guildTradeService = guildTradeService;
         }
 
         public void Initialize()
         {
+            _guildTradeService?.SetActivityLog(AppendActivityLog);
+
             _nodeIds = new List<string>();
             foreach (string nodeId in _nodeLookup.Nodes.Keys)
             {
@@ -105,6 +118,9 @@ namespace Internal.Scripts.Npc.Lifecycle
                 Debug.LogWarning("[NpcLifeSimulator] Not enough city nodes to simulate NPCs.");
                 return;
             }
+
+            _estimateDaysToCityDelegate = i => EstimateDaysToNearestCity(_daySnapshot[i]);
+            _nextRandomDelegate = () => UnityEngine.Random.value;
 
             NpcSaveData savedNpcs = _saveRepository.Data.Npcs;
             if (savedNpcs != null && savedNpcs.Agents.Count > 0)
@@ -246,8 +262,7 @@ namespace Internal.Scripts.Npc.Lifecycle
                 ? LocalizationService.ResolveString(nameEntry.Name, nameEntry.Id, "NpcLife.Name")
                 : $"Trader_{_agents.Count}";
 
-            NpcArchetype archetype = _spawnRoller.ChooseArchetypeToSpawn(
-                arch => _agents.Count(a => a.EconomyState.Archetype == arch));
+            NpcArchetype archetype = RollArchetype();
             NpcExperienceLevel experience = _spawnRoller.RollExperience(
                 (min, max) => UnityEngine.Random.Range(min, max));
 
@@ -297,7 +312,7 @@ namespace Internal.Scripts.Npc.Lifecycle
             _agents.Add(agent);
             agent.SetDestination(target);
 
-            Debug.Log($"[NpcLifeSimulator] Spawned '{agentName}' archetype={archetype} exp={experience} money={money} cap={capacity:F0} from {start} to {target}");
+            AppendActivityLog($"Day {_dayTracker.CurrentDay}: Spawned '{agentName}' [{archetype}] from {start} to {target}");
         }
 
         private void HandleArrival(NpcCaravanAgent agent)
@@ -329,15 +344,9 @@ namespace Internal.Scripts.Npc.Lifecycle
             {
                 agent.SetDestination(context.NextTargetNodeId);
 
-                NpcTrader.TradeExecutionStats total = context.SellStats + context.BuyStats;
-                _tradeLog.Add($"Day {_dayTracker.CurrentDay}: {agent.EconomyState.Name} traded at {city.Id}, money={agent.EconomyState.Money}");
-                if (_tradeLog.Count > TradeLogCapacity) _tradeLog.RemoveAt(0);
+                AppendActivityLog($"Day {_dayTracker.CurrentDay}: {agent.EconomyState.Name} traded at {city.Id}, money={agent.EconomyState.Money}");
 
-                Debug.Log($"[NpcLifeSimulator] '{agent.EconomyState.Name}' traded at {city.Id}. " +
-                          $"Sold={total.GoodsSoldUnits}, BoughtGoods={total.GoodsBoughtUnits}, " +
-                          $"BoughtSupplies={total.SuppliesBoughtUnits}, Money={agent.EconomyState.Money}, heading to {context.NextTargetNodeId}");
-
-                if (total.BoughtUnits > 0 || total.SoldUnits > 0)
+                if (context.BuyStats.BoughtUnits > 0 || context.SellStats.SoldUnits > 0)
                     OnTradeCompleted?.Invoke();
             }
             else
@@ -349,41 +358,49 @@ namespace Internal.Scripts.Npc.Lifecycle
 
         private void HandleDayChanged(int day)
         {
-            var snapshot = new List<NpcCaravanAgent>(_agents);
+            _daySnapshot.Clear();
+            _daySnapshot.AddRange(_agents);
 
-            var economies = new List<NpcEconomyState>(snapshot.Count);
-            var destinations = new List<string>(snapshot.Count);
-            foreach (NpcCaravanAgent a in snapshot)
+            _dayEconomies.Clear();
+            _dayDestinations.Clear();
+            for (int i = 0; i < _daySnapshot.Count; i++)
             {
-                economies.Add(a?.EconomyState);
-                destinations.Add(a?.DestinationNodeId ?? string.Empty);
+                var a = _daySnapshot[i];
+                _dayEconomies.Add(a?.EconomyState);
+                _dayDestinations.Add(a?.DestinationNodeId ?? string.Empty);
             }
 
-            var context = new NpcDayContext
-            {
-                Economies = economies,
-                DestinationNodeIds = destinations,
-                CurrentDay = day,
-                SuppliesSnapshot = new int[snapshot.Count],
-                EstimateDaysToCity = i => EstimateDaysToNearestCity(snapshot[i]),
-                NextRandom = () => UnityEngine.Random.value
-            };
+            if (_daySupplies.Length < _daySnapshot.Count)
+                Array.Resize(ref _daySupplies, _daySnapshot.Count);
 
-            _dayProcessor.ProcessDay(context);
+            _dayContext.Economies = _dayEconomies;
+            _dayContext.DestinationNodeIds = _dayDestinations;
+            _dayContext.CurrentDay = day;
+            _dayContext.SuppliesSnapshot = _daySupplies;
+            _dayContext.EstimateDaysToCity = _estimateDaysToCityDelegate;
+            _dayContext.NextRandom = _nextRandomDelegate;
+            _dayContext.DeadIndices.Clear();
+            _dayContext.ForagedIndices.Clear();
 
-            for (int i = 0; i < snapshot.Count; i++)
+            for (int i = 0; i < _daySnapshot.Count; i++)
+                _daySupplies[i] = InventoryStateMutator.GetItemCount(
+                    _dayEconomies[i]?.Inventory, SuppliesItemId.Value);
+
+            _dayProcessor.ProcessDay(_dayContext);
+
+            for (int i = 0; i < _daySnapshot.Count; i++)
             {
-                NpcCaravanAgent agent = snapshot[i];
+                NpcCaravanAgent agent = _daySnapshot[i];
                 if (agent?.RoadAgent == null || string.IsNullOrEmpty(agent.DestinationNodeId))
                     continue;
-                if (!context.ForagedIndices.Contains(i))
+                if (!_dayContext.ForagedIndices.Contains(i))
                     agent.RoadAgent.AdvanceByDays(1f);
             }
 
-            foreach (int deadIdx in context.DeadIndices)
+            foreach (int deadIdx in _dayContext.DeadIndices)
             {
-                NpcCaravanAgent agent = snapshot[deadIdx];
-                Debug.Log($"[NpcLifeSimulator] '{agent.EconomyState.Name}' died (no supplies).");
+                NpcCaravanAgent agent = _daySnapshot[deadIdx];
+                AppendActivityLog($"Day {_dayTracker.CurrentDay}: '{agent.EconomyState.Name}' died (no supplies)");
                 KillAgent(agent);
                 TrySpawnAgent();
             }
@@ -391,6 +408,28 @@ namespace Internal.Scripts.Npc.Lifecycle
 
         public void DebugKillAgent(NpcCaravanAgent agent) => KillAgent(agent);
         public void DebugSpawnAgent() => TrySpawnAgent();
+
+        private NpcArchetype RollArchetype()
+        {
+            _archetypeCounts.Clear();
+            for (int i = 0; i < _agents.Count; i++)
+            {
+                var a = _agents[i];
+                if (a == null) continue;
+                var arch = a.EconomyState.Archetype;
+                _archetypeCounts.TryGetValue(arch, out int c);
+                _archetypeCounts[arch] = c + 1;
+            }
+            return _spawnRoller.ChooseArchetypeToSpawn(
+                arch => _archetypeCounts.TryGetValue(arch, out int c) ? c : 0);
+        }
+
+        private void AppendActivityLog(string line)
+        {
+            _activityLog.Add(line);
+            if (_activityLog.Count > ActivityLogCapacity)
+                _activityLog.RemoveAt(0);
+        }
 
         private void KillAgent(NpcCaravanAgent agent)
         {

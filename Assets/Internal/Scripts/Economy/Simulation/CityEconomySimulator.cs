@@ -24,6 +24,7 @@ namespace Internal.Scripts.Economy.Simulation
 
         private Dictionary<ItemType, List<ItemData>> _itemsByCategory;
         private Dictionary<string, (CityData city, CityTypeData type)> _cityLookup;
+        private readonly Dictionary<string, ItemStackState> _stackLookup = new();
 
         public CityEconomySimulator(
             DayTracker dayTracker,
@@ -113,17 +114,23 @@ namespace Internal.Scripts.Economy.Simulation
 
         private void SimulateCity(string cityId, InventoryState inventory)
         {
+            _stackLookup.Clear();
+            for (int i = 0; i < inventory.Items.Count; i++)
+                _stackLookup[inventory.Items[i].ItemId] = inventory.Items[i];
+
             foreach (KeyValuePair<ItemType, List<ItemData>> categoryGroup in _itemsByCategory)
             {
-                foreach (ItemData item in categoryGroup.Value)
+                var items = categoryGroup.Value;
+                for (int k = 0; k < items.Count; k++)
                 {
+                    var item = items[k];
                     if (!_profileService.TryGetProfile(cityId, item.Id, out CityItemMarketProfile profile))
                         continue;
 
                     if (!profile.HasDynamicMarket)
                         continue;
 
-                    ItemStackState stack = inventory.Items.Find(s => s.ItemId == item.Id);
+                    _stackLookup.TryGetValue(item.Id, out ItemStackState stack);
                     int current = stack?.Count ?? 0;
 
                     float next = current + profile.DailyNet
@@ -132,15 +139,14 @@ namespace Internal.Scripts.Economy.Simulation
 
                     if (nextInt > 0 && stack == null)
                     {
-                        inventory.Items.Add(new ItemStackState
-                        {
-                            ItemId = item.Id,
-                            Count = nextInt
-                        });
+                        var newStack = new ItemStackState { ItemId = item.Id, Count = nextInt };
+                        inventory.Items.Add(newStack);
+                        _stackLookup[item.Id] = newStack;
                     }
                     else if (nextInt <= 0 && stack != null)
                     {
                         inventory.Items.Remove(stack);
+                        _stackLookup.Remove(item.Id);
                     }
                     else if (stack != null)
                     {

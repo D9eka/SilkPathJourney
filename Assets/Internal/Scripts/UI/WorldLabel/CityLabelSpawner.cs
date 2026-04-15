@@ -112,7 +112,6 @@ namespace Internal.Scripts.UI.WorldLabel
                 added = true;
             }
             modifiers.SetVisible(added);
-            UnityEngine.Debug.Log($"[CityLabelSpawner] {cityId}: modifiers={active.Count}, added={added}, visible={added}");
             return added;
         }
 

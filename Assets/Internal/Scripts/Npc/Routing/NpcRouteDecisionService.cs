@@ -15,6 +15,7 @@ namespace Internal.Scripts.Npc.Routing
         private readonly NpcSupplyPlanner _supplyPlanner;
         private readonly NpcKnowledgeService _knowledgeService;
         private readonly NpcTrader _trader;
+        private readonly List<(string nodeId, float score)> _candidates = new();
 
         public NpcRouteDecisionService(
             NpcSimulationSettings settings,
@@ -47,7 +48,8 @@ namespace Internal.Scripts.Npc.Routing
                 return new NpcRouteDecisionResult(forced, NpcRouteFallbackKind.None);
 
             bool hasTradeCargo = _trader.HasTradeCargo(context.EconomyState);
-            var candidates = new List<(string nodeId, float score)>();
+            _candidates.Clear();
+            int knowledgeDuration = _knowledgeService.GetKnowledgeDuration(context.EconomyState.Experience);
 
             foreach (string nodeId in environment.CityNodeIds)
             {
@@ -59,20 +61,20 @@ namespace Internal.Scripts.Npc.Routing
                         context.CurrentNodeId, nodeId, context.SpeedMetersPerDay))
                     continue;
 
-                List<KnownCityModifier> knownMods = _knowledgeService.GetKnownModifiers(
-                    context.EconomyState, targetCity.Id, context.CurrentDay);
-                var (excluded, modBonus) = EvaluateModifiers(knownMods, archDef, context.EconomyState.Archetype, nextRandomValue);
+                var (excluded, modBonus) = EvaluateModifiers(
+                    context.EconomyState.Knowledge, knowledgeDuration, targetCity.Id, context.CurrentDay,
+                    archDef, context.EconomyState.Archetype, nextRandomValue);
                 if (excluded)
                     continue;
 
                 float score = CalculateCityScore(context, environment, targetCity, nodeId, archDef, hasTradeCargo, modBonus);
                 if (score > 0f)
-                    candidates.Add((nodeId, score));
+                    _candidates.Add((nodeId, score));
             }
 
-            if (candidates.Count > 0)
+            if (_candidates.Count > 0)
                 return new NpcRouteDecisionResult(
-                    WeightedRandomSelect(candidates, nextRandomValue),
+                    WeightedRandomSelect(_candidates, nextRandomValue),
                     NpcRouteFallbackKind.None);
 
             return WrapFallback(nearestFallback, context, environment);
@@ -102,7 +104,7 @@ namespace Internal.Scripts.Npc.Routing
         }
 
         private (bool excluded, float bonus) EvaluateModifiers(
-            List<KnownCityModifier> knownMods,
+            NpcKnowledgeState knowledge, int duration, string cityId, int currentDay,
             NpcArchetypeDefinition archDef,
             NpcArchetype archetype,
             Func<float> nextRandomValue)
@@ -110,8 +112,10 @@ namespace Internal.Scripts.Npc.Routing
             bool excluded = false;
             float modifierBonus = 0f;
 
-            foreach (KnownCityModifier mod in knownMods)
+            foreach (KnownCityModifier mod in knowledge.Entries)
             {
+                if (mod.CityId != cityId || mod.LearnedDay + duration <= currentDay)
+                    continue;
                 if (IsExclusionModifier(mod.ModifierId))
                 {
                     if (NextRandomValue(nextRandomValue) > archDef.WarEntryChance)

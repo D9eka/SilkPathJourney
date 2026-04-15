@@ -94,6 +94,10 @@ namespace Internal.Scripts.Npc.Trading
         private readonly NpcSellService _sellService;
         private readonly GameBalanceConfig _balanceConfig;
         private readonly NpcGuildTradeService _guildTradeService;
+        private Dictionary<string, CityData> _citiesById;
+        private readonly List<BuyCandidate> _estimateBuffer = new();
+        private readonly List<BuyCandidate> _executeBuffer = new();
+        private Dictionary<string, CityData> CitiesById => _citiesById ??= BuildCitiesById();
 
         public NpcTrader(
             CityTransactionService transactionService,
@@ -125,6 +129,14 @@ namespace Internal.Scripts.Npc.Trading
             _sellService = sellService;
             _balanceConfig = balanceConfig;
             _guildTradeService = guildTradeService;
+        }
+
+        private Dictionary<string, CityData> BuildCitiesById()
+        {
+            var dict = new Dictionary<string, CityData>(_economyDatabase.Cities.Count);
+            foreach (CityData city in _economyDatabase.Cities)
+                dict[city.Id] = city;
+            return dict;
         }
 
         private TradeExecutionStats ExecuteTrade(NpcEconomyState agent, string cityId,
@@ -206,14 +218,14 @@ namespace Internal.Scripts.Npc.Trading
             string currentNodeId, string nextDestNodeId, float speedMetersPerDay)
         {
             if (!TryBuildBuyCandidates(agent, cityId, currentNodeId, nextDestNodeId,
-                    speedMetersPerDay, out List<BuyCandidate> candidates,
-                    out int budget, out float remainingCapacity, out float routeTransportCost, out _))
+                    speedMetersPerDay, _estimateBuffer,
+                    out int budget, out float remainingCapacity, out float routeTransportCost))
             {
                 return 0f;
             }
 
             float plannedGrossProfit = EstimatePlannedGrossProfit(
-                candidates, budget, remainingCapacity, _settings.MaxBuyItemTypes, _settings.BudgetShares);
+                _estimateBuffer, budget, remainingCapacity, _settings.MaxBuyItemTypes, _settings.BudgetShares);
             return Mathf.Max(0f, plannedGrossProfit - routeTransportCost);
         }
 
@@ -221,29 +233,25 @@ namespace Internal.Scripts.Npc.Trading
             string currentNodeId, string nextDestNodeId, float speedMetersPerDay)
         {
             if (!TryBuildBuyCandidates(agent, cityId, currentNodeId, nextDestNodeId,
-                    speedMetersPerDay, out List<BuyCandidate> candidates,
-                    out int budget, out float remainingCapacity, out float routeTransportCost, out string debugInfo))
+                    speedMetersPerDay, _executeBuffer,
+                    out int budget, out float remainingCapacity, out float routeTransportCost))
             {
-                if (!string.IsNullOrEmpty(debugInfo))
-                    Debug.Log(debugInfo);
                 return (0, 0);
             }
 
             float plannedGrossProfit = EstimatePlannedGrossProfit(
-                candidates, budget, remainingCapacity, _settings.MaxBuyItemTypes, _settings.BudgetShares);
+                _executeBuffer, budget, remainingCapacity, _settings.MaxBuyItemTypes, _settings.BudgetShares);
             if (plannedGrossProfit <= routeTransportCost)
             {
-                if (!string.IsNullOrEmpty(debugInfo))
-                    Debug.Log(debugInfo);
                 return (0, 0);
             }
 
             int currentDay = _dayTracker.CurrentDay;
-            CityData currentCityForPurchase = _economyDatabase.Cities.Find(c => c.Id == cityId);
+            CitiesById.TryGetValue(cityId, out CityData currentCityForPurchase);
             CultureId originCultureForPurchase = currentCityForPurchase?.PrimaryCulture ?? CultureId.None;
 
             var (boughtUnits, moneySpent) = ExecuteBuyOrders(
-                agent, cityId, candidates, budget, remainingCapacity, currentDay, originCultureForPurchase);
+                agent, cityId, _executeBuffer, budget, remainingCapacity, currentDay, originCultureForPurchase);
 
             return (boughtUnits, moneySpent);
         }
@@ -270,7 +278,15 @@ namespace Internal.Scripts.Npc.Trading
                     ? Mathf.FloorToInt(remainingCapacity / candidate.WeightKg)
                     : int.MaxValue;
 
-                ItemStackState cityStack = cityStateNow?.Inventory?.Items?.Find(s => s.ItemId == candidate.ItemId);
+                ItemStackState cityStack = null;
+                var cityItems = cityStateNow?.Inventory?.Items;
+                if (cityItems != null)
+                {
+                    for (int k = 0; k < cityItems.Count; k++)
+                    {
+                        if (cityItems[k] != null && cityItems[k].ItemId == candidate.ItemId) { cityStack = cityItems[k]; break; }
+                    }
+                }
                 int maxByStock = cityStack?.Count ?? 0;
 
                 int desired = Mathf.Min(maxByBudget, Mathf.Min(maxByCapacity, maxByStock));
@@ -281,7 +297,11 @@ namespace Internal.Scripts.Npc.Trading
                 if (count <= 0)
                     continue;
 
-                agent.Purchases.RemoveAll(p => p.ItemId == candidate.ItemId);
+                for (int j = agent.Purchases.Count - 1; j >= 0; j--)
+                {
+                    if (agent.Purchases[j].ItemId == candidate.ItemId)
+                        agent.Purchases.RemoveAt(j);
+                }
                 agent.Purchases.Add(new PurchaseRecord
                 {
                     ItemId = candidate.ItemId,
@@ -294,8 +314,6 @@ namespace Internal.Scripts.Npc.Trading
                 remainingCapacity -= candidate.WeightKg * count;
                 totalBoughtUnits += count;
                 totalSpent += cost;
-
-                Debug.Log($"[NpcTrader] {agent.Name} bought {count}x{candidate.ItemId} for {cost}g (totalProfit={candidate.TotalExpectedProfit:F0})");
             }
 
             return (totalBoughtUnits, totalSpent);
@@ -303,16 +321,15 @@ namespace Internal.Scripts.Npc.Trading
 
         private bool TryBuildBuyCandidates(NpcEconomyState agent, string cityId,
             string currentNodeId, string nextDestNodeId, float speedMetersPerDay,
-            out List<BuyCandidate> candidates, out int budget, out float remainingCapacity,
-            out float routeTransportCost, out string debugInfo)
+            List<BuyCandidate> candidates, out int budget, out float remainingCapacity,
+            out float routeTransportCost)
         {
-            candidates = new List<BuyCandidate>();
+            candidates.Clear();
             budget = _supplyPlanner.CalculateTradeBudgetAfterSupplies(
                 agent, cityId, currentNodeId, nextDestNodeId, speedMetersPerDay);
             remainingCapacity = agent.CapacityKg -
                 _itemWeightCalculator.CalculateInventoryWeight(agent.Inventory);
             routeTransportCost = 0f;
-            debugInfo = null;
 
             if (budget <= 0 || remainingCapacity <= 0f)
                 return false;
@@ -328,12 +345,9 @@ namespace Internal.Scripts.Npc.Trading
                 ? destCity.Id
                 : nextDestNodeId;
 
-            CityData currentCity = _economyDatabase.Cities.Find(c => c.Id == cityId);
+            CitiesById.TryGetValue(cityId, out CityData currentCity);
             CultureId currentCulture = currentCity?.PrimaryCulture ?? CultureId.None;
             CultureId destCulture = destCity?.PrimaryCulture ?? CultureId.None;
-
-            int debugSkipped = 0;
-            var debugSb = new System.Text.StringBuilder();
 
             foreach (ItemStackState stock in cityState.Inventory.Items)
             {
@@ -349,15 +363,11 @@ namespace Internal.Scripts.Npc.Trading
 
                 BuyCandidate? scored = ScoreCandidateItem(
                     stock, item, cityId, destCityId, currentCulture, destCulture,
-                    agent, budget, remainingCapacity, routeTransportCost, archetype,
-                    ref debugSkipped, debugSb);
+                    agent, budget, remainingCapacity, routeTransportCost, archetype);
 
                 if (scored.HasValue)
                     candidates.Add(scored.Value);
             }
-
-            if (candidates.Count == 0 && debugSkipped > 0)
-                debugInfo = $"[SmartBuy] {agent.Name} at {cityId}->{destCityId}: 0 candidates, {debugSkipped} unprofitable.{debugSb}";
 
             return candidates.Count > 0;
         }
@@ -393,7 +403,7 @@ namespace Internal.Scripts.Npc.Trading
             ItemStackState stock, ItemData item, string cityId, string destCityId,
             CultureId currentCulture, CultureId destCulture,
             NpcEconomyState agent, int budget, float remainingCapacity, float routeTransportCost,
-            NpcArchetypeDefinition archetype, ref int debugSkipped, System.Text.StringBuilder debugSb)
+            NpcArchetypeDefinition archetype)
         {
             int buyPrice = _transactionService.GetBuyPrice(cityId, stock.ItemId);
             if (buyPrice <= 0 || item.WeightKg <= 0f)
@@ -413,20 +423,10 @@ namespace Internal.Scripts.Npc.Trading
             float expectedProfitRatio = buyPrice > 0 ? sellEstimate / (float)buyPrice : 0f;
 
             if (expectedProfitRatio < archetype.MinProfitThreshold)
-            {
-                debugSkipped++;
-                if (debugSkipped <= 3)
-                    debugSb.Append($" {stock.ItemId}(buy={buyPrice},sell={sellEstimate},ratio={expectedProfitRatio:F2},need={archetype.MinProfitThreshold:F2})");
                 return null;
-            }
 
             if (grossProfitPerUnit <= 0f)
-            {
-                debugSkipped++;
-                if (debugSkipped <= 3)
-                    debugSb.Append($" {stock.ItemId}(buy={buyPrice},sell={sellEstimate},tripCost={routeTransportCost:F0},gross={grossProfitPerUnit:F0})");
                 return null;
-            }
 
             int maxAffordable = Mathf.Min(budget / buyPrice, Mathf.FloorToInt(remainingCapacity / item.WeightKg));
             maxAffordable = Mathf.Min(maxAffordable, stock.Count);

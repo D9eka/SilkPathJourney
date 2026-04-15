@@ -29,8 +29,6 @@ namespace Internal.Scripts.Player.Path
             
             List<RoadPathSegment> leadingToTargetSegments = GetReachableOutgoingSegments(fromNodeId, toNodeId, fastestPath);
 
-            Debug.Log($"[PathHints] Fastest: {fastestSegment.SegmentId}, Good segments: {leadingToTargetSegments.Count}");
-
             return new PathHints(fastestSegment, leadingToTargetSegments);
         }
         

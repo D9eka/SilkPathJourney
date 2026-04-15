@@ -12,6 +12,7 @@ namespace Internal.Scripts.Npc.Core
 
         private WorldCanvas _worldCanvas;
         private NpcLabelFactory _labelHelper;
+        private RectTransform _labelRt;
         private static readonly Vector3 LabelOffset = new(0f, 2f, 0f);
 
         public void InitLabel(WorldCanvas worldCanvas, string npcName, LocalizedString localizedName)
@@ -24,15 +25,13 @@ namespace Internal.Scripts.Npc.Core
                 : _labelHelper.CreateNpcLabel(
                     transform.position, LabelOffset, $"NpcLabel_{npcName}", npcName);
             label?.HideIcon();
+            _labelRt = label != null ? label.GetComponent<RectTransform>() : null;
         }
 
         private void LateUpdate()
         {
-            if (_worldCanvas != null && _labelHelper?.Label != null)
-            {
-                RectTransform rt = _labelHelper.Label.GetComponent<RectTransform>();
-                _worldCanvas.UpdateLabelPosition(rt, transform.position, LabelOffset);
-            }
+            if (_worldCanvas != null && _labelRt != null)
+                _worldCanvas.UpdateLabelPosition(_labelRt, transform.position, LabelOffset);
         }
 
         private void OnDestroy()

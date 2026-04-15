@@ -50,7 +50,7 @@ namespace Internal.Scripts.UI.Arrow.Controller
 
             foreach (RoadPathSegment segment in allOptions)
             {
-                (PathGroup group, float angle) = _balancer.GetPathClassification(segment);
+                (PathGroup group, float _) = _balancer.GetPathClassification(segment);
                 Vector3 basePos = _positionCalculator.CalculateWorldPosition(segment, RoadLane.Center);
                 Vector3 worldPos = _balancer.GetBalancedPosition(basePos, group, segment);
                 Vector3 worldDir = _directionCalculator.CalculateWorldDirection(segment, 0f);
@@ -62,7 +62,6 @@ namespace Internal.Scripts.UI.Arrow.Controller
                     Type = GetArrowType(segment, pathHints)
                 };
                 arrowDataList.Add(arrowData);
-                Debug.Log($"Arrow: Segment={segment.SegmentId}, Group={group}, Angle={angle:F1}°");
             }
 
             _placementService.PlaceArrows(arrowDataList);
