@@ -81,13 +81,14 @@ MonoBehaviour:
       <Param>k__BackingField: 
       <Value>k__BackingField: 5
   <IsMinor>k__BackingField: 0
+  <Biome>k__BackingField: 0
   <AutoOutcomes>k__BackingField: []
   <SkillChecks>k__BackingField: []
   <Conditions>k__BackingField:
-  - <Type>k__BackingField: 21
+  - <Type>k__BackingField: 22
     <Param>k__BackingField: quest_mystic_1
     <Value>k__BackingField: 1
-  - <Type>k__BackingField: 24
+  - <Type>k__BackingField: 25
     <Param>k__BackingField: quest_mystic_1
     <Value>k__BackingField: 2
   - <Type>k__BackingField: 16

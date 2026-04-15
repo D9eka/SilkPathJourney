@@ -130,6 +130,7 @@ MonoBehaviour:
       <Param>k__BackingField: 
       <Value>k__BackingField: -3
   <IsMinor>k__BackingField: 0
+  <Biome>k__BackingField: 1
   <AutoOutcomes>k__BackingField: []
   <SkillChecks>k__BackingField: []
   <Conditions>k__BackingField: []

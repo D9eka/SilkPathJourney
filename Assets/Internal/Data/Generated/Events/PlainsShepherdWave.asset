@@ -43,6 +43,7 @@ MonoBehaviour:
   <Image>k__BackingField: {fileID: 0}
   <Choices>k__BackingField: []
   <IsMinor>k__BackingField: 1
+  <Biome>k__BackingField: 1
   <AutoOutcomes>k__BackingField:
   - <Type>k__BackingField: 7
     <Param>k__BackingField: Survival

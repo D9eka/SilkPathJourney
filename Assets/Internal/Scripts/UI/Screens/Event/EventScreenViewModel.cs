@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using Internal.Scripts.Economy;
 using Internal.Scripts.Economy.Cities;
 using Internal.Scripts.Economy.Save;
@@ -156,13 +155,9 @@ namespace Internal.Scripts.UI.Screens.Event
         public List<EventChoice> GetAvailableChoices()
         {
             EventData eventData = _state.Value;
-            if (eventData?.Choices == null)
+            if (eventData == null)
                 return new List<EventChoice>();
-
-            return eventData.Choices.Where(c =>
-                (c.Conditions == null || c.Conditions.Count == 0 ||
-                 _eventSelector.CheckConditions(c.Conditions))
-                && _eventTrigger.CanAffordOutcomes(c.Outcomes)).ToList();
+            return _eventSelector.GetAvailableChoices(eventData);
         }
 
         public List<EventResourceInfo> GetAffectedResources(List<EventChoice> choices)

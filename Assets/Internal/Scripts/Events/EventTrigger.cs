@@ -107,6 +107,18 @@ namespace Internal.Scripts.Events
         {
             if (_screenStackService.IsOpen(ScreenId.Event)) return false;
 
+            if (eventData.Weight > 0f)
+            {
+                List<EventChoice> available = _eventSelector.GetAvailableChoices(eventData);
+                if (available.Count < 2)
+                {
+                    Debug.LogWarning(
+                        $"[SPJ Events] Random-pool event '{eventData.Id}' has only {available.Count} " +
+                        "available choice(s) at trigger time. Skipping.");
+                    return false;
+                }
+            }
+
             string nearestNodeId = _nodeLookup.FindNearestNodeId(_playerController.CurrentPosition);
             bool isAtCity = _playerController.CurrentNodeId == nearestNodeId;
             _cityNodeResolver.TryGetCityByNodeId(nearestNodeId, out var city);

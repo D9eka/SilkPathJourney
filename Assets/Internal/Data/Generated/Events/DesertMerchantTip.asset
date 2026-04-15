@@ -95,6 +95,7 @@ MonoBehaviour:
     <Conditions>k__BackingField: []
     <Outcomes>k__BackingField: []
   <IsMinor>k__BackingField: 0
+  <Biome>k__BackingField: 2
   <AutoOutcomes>k__BackingField: []
   <SkillChecks>k__BackingField: []
   <Conditions>k__BackingField:

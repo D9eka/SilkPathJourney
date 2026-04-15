@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Internal.Scripts.Economy.Generated;
 using Internal.Scripts.Events.Generated;
 using UnityEngine;
 using UnityEngine.Localization;
@@ -19,8 +20,9 @@ namespace Internal.Scripts.Events.Data
         [Header("Choices")]
         [field: SerializeField] public List<EventChoice> Choices { get; private set; }
 
-        [Header("Minor Event")]
+        [Header("Selection")]
         [field: SerializeField] public bool IsMinor { get; private set; }
+        [field: SerializeField] public Biome Biome { get; private set; }
         [field: SerializeField] public List<EventOutcomeEntry> AutoOutcomes { get; private set; }
 
         [Header("Skill Checks")]
@@ -47,6 +49,7 @@ namespace Internal.Scripts.Events.Data
             LocalizedString description,
             Sprite image,
             bool isMinor,
+            Biome biome,
             List<EventChoice> choices,
             List<EventOutcomeEntry> autoOutcomes,
             List<EventCondition> conditions,
@@ -59,6 +62,7 @@ namespace Internal.Scripts.Events.Data
             Description = description;
             Image = image;
             IsMinor = isMinor;
+            Biome = biome;
             Choices = choices ?? new List<EventChoice>();
             AutoOutcomes = autoOutcomes ?? new List<EventOutcomeEntry>();
             SkillChecks = skillChecks ?? new List<SkillCheckData>();

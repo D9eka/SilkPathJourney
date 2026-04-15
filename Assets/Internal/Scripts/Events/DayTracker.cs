@@ -63,15 +63,14 @@ namespace Internal.Scripts.Events
             {
                 _accumulatedTime -= _balanceConfig.SecondsPerDay;
                 _saveRepository.Data.Player.CurrentDay++;
-                _saveRepository.Save();
                 OnDayChanged?.Invoke(CurrentDay);
+                _saveRepository.Save();
                 if (IsSkipping && CurrentDay >= _targetDay)
                 {
                     _gameClock.SetTimeScale(_savedTimeScale);
                     IsSkipping = false;
                     _targetDay = -1;
                     _accumulatedTime = 0f;
-                    _saveRepository.Save();
                     break;
                 }
             }
