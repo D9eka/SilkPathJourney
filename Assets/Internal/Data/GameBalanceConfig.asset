@@ -18,3 +18,8 @@ MonoBehaviour:
   <ToastDisplayDuration>k__BackingField: 4
   <MaxFood>k__BackingField: 100
   <MaxDanger>k__BackingField: 100
+  <PickupSpawnIntervalMeters>k__BackingField: 1
+  <PickupVisibleRadius>k__BackingField: 15
+  <PickupDespawnRadius>k__BackingField: 25
+  <PickupLifetimeSeconds>k__BackingField: 30
+  <MaxActivePickups>k__BackingField: 3

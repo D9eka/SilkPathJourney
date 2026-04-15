@@ -12,6 +12,7 @@ using Internal.Scripts.Npc.Names;
 using Internal.Scripts.Player;
 using Internal.Scripts.Quests.Data;
 using Internal.Scripts.Save;
+using Internal.Scripts.Travel.Pickups;
 using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Localization;
 using Internal.Scripts.UI.Screens.Config;
@@ -65,8 +66,14 @@ namespace Internal.Scripts.Installers
         [SerializeField] private TimeSpeedConfig _timeSpeedConfig;
         [SerializeField] private CaravanSpeedConfig _caravanSpeedConfig;
 
+        [Header("Pickups")]
+        [SerializeField] private PickupDatabase _pickupDatabase;
+
         public override void InstallBindings()
         {
+            Application.SetStackTraceLogType(LogType.Log, StackTraceLogType.None);
+            Application.SetStackTraceLogType(LogType.Warning, StackTraceLogType.ScriptOnly);
+
             Container.BindInstance(_cameraZoomerData).AsSingle();
             Container.BindInstance(_cameraSceneSettings).AsSingle();
             Container.BindInstance(_economyDatabase).AsSingle();

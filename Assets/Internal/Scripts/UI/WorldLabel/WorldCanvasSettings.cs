@@ -17,5 +17,6 @@ namespace Internal.Scripts.UI.WorldLabel
         [field: SerializeField] public CityLabelView LabelPrefab { get; private set; }
         [field: SerializeField] public NpcLabelView NpcLabelPrefab { get; private set; }
         [field: SerializeField] public RoadLabelView RoadLabelPrefab { get; private set; }
+        [field: SerializeField] public FloatingRewardLabel FloatingRewardLabelPrefab { get; private set; }
     }
 }

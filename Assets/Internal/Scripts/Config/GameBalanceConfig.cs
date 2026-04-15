@@ -67,6 +67,13 @@ namespace Internal.Scripts.Config
             new() { Threshold = 80, Modifier = 0.8f, Comparison = ComparisonType.Below },
         };
         [field: SerializeField] public float TariffDefaultReputationModifier { get; private set; } = 0.5f;
+        [Header("Road Pickups")]
+        [field: SerializeField] public float PickupSpawnIntervalMeters { get; private set; } = 1f;
+        [field: SerializeField] public float PickupVisibleRadius { get; private set; } = 15f;
+        [field: SerializeField] public float PickupDespawnRadius { get; private set; } = 25f;
+        [field: SerializeField] public float PickupLifetimeSeconds { get; private set; } = 30f;
+        [field: SerializeField] public int MaxActivePickups { get; private set; } = 3;
+
         [Header("Camp")]
         [field: SerializeField] public float CampSkillEffectPerPoint { get; private set; } = 0.001f;
     }

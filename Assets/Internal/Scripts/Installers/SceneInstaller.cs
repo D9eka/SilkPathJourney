@@ -56,6 +56,7 @@ using Internal.Scripts.UI.Screens.Event.ConditionLines;
 using Internal.Scripts.UI.Screens.Hud;
 using Internal.Scripts.UI.StackService;
 using Internal.Scripts.UI.Theme;
+using Internal.Scripts.Travel.Pickups;
 using Internal.Scripts.UI.Screens.Caravansary.Services;
 using Internal.Scripts.UI.Screens.Shared;
 using Internal.Scripts.UI.Tooltip;
@@ -109,6 +110,7 @@ namespace Internal.Scripts.Installers
             InstallScreens();
             InstallEvents();
             InstallQuests();
+            InstallPickups();
             InstallPathVisualization();
 
             Container.BindInterfacesTo<AutoSaveController>().AsSingle();
@@ -360,6 +362,11 @@ namespace Internal.Scripts.Installers
             Container.BindInterfacesAndSelfTo<EventTrigger>().AsSingle().NonLazy();
         }
 
+        private void InstallPickups()
+        {
+            Container.BindInterfacesAndSelfTo<PickupCollector>().AsSingle();
+            Container.BindInterfacesTo<PickupSpawner>().AsSingle();
+        }
         private void InstallQuests()
         {
             Container.BindInterfacesAndSelfTo<QuestRepository>().AsSingle().NonLazy();
@@ -391,6 +398,7 @@ namespace Internal.Scripts.Installers
                 .FromMethod(ctx => ctx.Container.Resolve<WorldCanvasFactory>().Create())
                 .AsSingle()
                 .NonLazy();
+            Container.Bind<FloatingRewardSpawner>().AsSingle();
         }
 
         private void InstallPathVisualization()
