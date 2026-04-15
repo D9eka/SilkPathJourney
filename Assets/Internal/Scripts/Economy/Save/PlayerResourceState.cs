@@ -12,6 +12,8 @@ namespace Internal.Scripts.Economy.Save
         public const string DEFAULT_UPGRADE_LEVEL = "base";
         public const string DEFAULT_DRAFT_ANIMAL = "camel";
         public const int MAX_COMPANION_LIMIT = 3;
+        public const float MORALE_MIN = 0f;
+        public const float MORALE_MAX = 100f;
 
         public int Money;
         public float Food = 50f;
@@ -24,6 +26,7 @@ namespace Internal.Scripts.Economy.Save
         public List<CompanionState> Companions = new();
         public List<string> ActiveUpgrades = new();
         public int Reputation = 50;
+        public float Morale = 50f;
         public int SmugglingCaughtCount;
         public List<CityTradeBan> CityTradeBans = new();
 
@@ -41,6 +44,7 @@ namespace Internal.Scripts.Economy.Save
                 ? Carts.Sum(c => c.Durability) / Carts.Count : 0f,
             ResourceType.Weight => TotalCapacity,
             ResourceType.Reputation => Reputation,
+            ResourceType.Morale => Morale,
             _ => 0f
         };
     }

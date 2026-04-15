@@ -9,6 +9,7 @@ namespace Internal.Scripts.Events.Conditions
     {
         private static readonly EventConditionType[] Types =
         {
+            EventConditionType.MinMorale,
             EventConditionType.MaxMorale
         };
 
@@ -16,7 +17,12 @@ namespace Internal.Scripts.Events.Conditions
 
         public bool Evaluate(EventCondition condition, PlayerResourceState resources)
         {
-            return true;
+            return condition.Type switch
+            {
+                EventConditionType.MinMorale => resources.Morale >= condition.Value,
+                EventConditionType.MaxMorale => resources.Morale <= condition.Value,
+                _ => false
+            };
         }
     }
 }
