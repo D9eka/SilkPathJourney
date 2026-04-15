@@ -3,8 +3,8 @@ using Internal.Scripts.Config;
 using Internal.Scripts.Economy;
 using Internal.Scripts.Economy.Save;
 using Internal.Scripts.UI.Localization;
+using Internal.Scripts.UI.Localization.Generated;
 using Internal.Scripts.UI.Screens.Shared;
-using UnityEngine.Localization;
 
 namespace Internal.Scripts.UI.Screens.Caravansary.Services
 {
@@ -21,11 +21,9 @@ namespace Internal.Scripts.UI.Screens.Caravansary.Services
 
         public OfferingItem Build(PlayerResourceState state, int money)
         {
-            string title = ResolveLoc("UI.Caravansary.Rest.Title", "Rest");
-            string description = ResolveLoc("UI.Caravansary.Rest.Description",
-                $"+{DURABILITY_BONUS} main cart durability");
-            string buttonText = ResolveLoc("UI.Caravansary.Rest.Button",
-                "UI.Caravansary.Rest.Button", _config.RestCost);
+            string title = LocalizationService.Resolve(LocUI.Table, LocUI.UI_Caravansary_Rest_Title);
+            string description = LocalizationService.Resolve(LocUI.Table, LocUI.UI_Caravansary_Rest_Description);
+            string buttonText = LocalizationService.Resolve(LocUI.Table, LocUI.UI_Caravansary_Rest_Button, null, _config.RestCost);
             bool canAction = money >= _config.RestCost;
 
             return new OfferingItem(title, description, buttonText, canAction, 0);
@@ -43,12 +41,6 @@ namespace Internal.Scripts.UI.Screens.Caravansary.Services
                     s.PlayerCart.Durability + DURABILITY_BONUS,
                     s.PlayerCart.MaxDurability);
             });
-        }
-
-        private static string ResolveLoc(string key, string fallback, params object[] args)
-        {
-            var localized = new LocalizedString("UI", key);
-            return LocalizationService.ResolveString(localized, fallback, key, args);
         }
     }
 }

@@ -6,9 +6,9 @@ using Internal.Scripts.Player.Languages;
 using Internal.Scripts.Player.Languages.Generated;
 using Internal.Scripts.UI.Localization;
 using Internal.Scripts.UI.Localization.Args;
+using Internal.Scripts.UI.Localization.Generated;
 using Internal.Scripts.UI.Screens.Trader;
 using UnityEngine;
-using UnityEngine.Localization;
 
 namespace Internal.Scripts.UI.Screens.Event.ConditionLines
 {
@@ -36,9 +36,7 @@ namespace Internal.Scripts.UI.Screens.Event.ConditionLines
                 if (!Enum.TryParse(cond.Param, true, out LanguageType languageType) || languageType == LanguageType.None)
                     continue;
 
-                format ??= LocalizationService.ResolveString(
-                    new LocalizedString("Events", "event.language_condition_info"),
-                    "{language_name}: {proficiency}", "LanguageConditionInfo");
+                format ??= LocalizationService.Resolve(LocEvents.Table, LocEvents.Event_LanguageConditionInfo);
 
                 string languageName = _catalog.GetLanguageName(languageType);
                 string proficiencyName = ((LanguageProficiency)Mathf.RoundToInt(cond.Value)).ToString();

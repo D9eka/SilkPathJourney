@@ -3,7 +3,7 @@ using System.Text;
 using Internal.Scripts.Quests.Data;
 using Internal.Scripts.Quests.Generated;
 using Internal.Scripts.UI.Localization;
-using UnityEngine.Localization;
+using Internal.Scripts.UI.Localization.Generated;
 
 namespace Internal.Scripts.UI.Screens.Quests
 {
@@ -46,10 +46,10 @@ namespace Internal.Scripts.UI.Screens.Quests
             switch (reward.Type)
             {
                 case QuestRewardType.Money:
-                    text = $"{reward.Value} {LocalizationService.ResolveString(new LocalizedString("UI", "UI.Global.Resource.Money"), "gold", "QuestReward")}";
+                    text = $"{reward.Value} {LocalizationService.Resolve(LocUI.Table, LocUI.UI_Global_Resource_Money)}";
                     break;
                 case QuestRewardType.Reputation:
-                    text = $"+{reward.Value} {LocalizationService.ResolveString(new LocalizedString("UI", "UI.Global.Resource.Reputation"), "reputation", "QuestReward")}";
+                    text = $"+{reward.Value} {LocalizationService.Resolve(LocUI.Table, LocUI.UI_Global_Resource_Reputation)}";
                     break;
                 case QuestRewardType.Item:
                     text = $"{reward.Target} ×{reward.Value}";
@@ -58,10 +58,10 @@ namespace Internal.Scripts.UI.Screens.Quests
                     text = reward.Target;
                     break;
                 case QuestRewardType.UnlockRoute:
-                    text = LocalizationService.ResolveString(new LocalizedString("UI", "UI.Quest.Reward.Route"), "Route: {target}", "QuestReward").Replace("{target}", reward.Target);
+                    text = LocalizationService.Resolve(LocUI.Table, LocUI.UI_Quest_Reward_Route).Replace("{target}", reward.Target);
                     break;
                 case QuestRewardType.UnlockItem:
-                    text = LocalizationService.ResolveString(new LocalizedString("UI", "UI.Quest.Reward.UnlockItem"), "Item: {target}", "QuestReward").Replace("{target}", reward.Target);
+                    text = LocalizationService.Resolve(LocUI.Table, LocUI.UI_Quest_Reward_UnlockItem).Replace("{target}", reward.Target);
                     break;
                 default:
                     text = reward.Value != 0

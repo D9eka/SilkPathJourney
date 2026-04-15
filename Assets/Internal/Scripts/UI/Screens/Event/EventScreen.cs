@@ -6,6 +6,7 @@ using Internal.Scripts.Events.Generated;
 using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Localization;
 using Internal.Scripts.UI.Localization.Args;
+using Internal.Scripts.UI.Localization.Generated;
 using Internal.Scripts.UI.Screens.Core.View;
 using Internal.Scripts.UI.Screens.Core.ViewModel;
 using Internal.Scripts.UI.Theme;
@@ -107,9 +108,7 @@ namespace Internal.Scripts.UI.Screens.Event
             if (linkIndex >= 0 &&
                 _eventDescriptionText.textInfo.linkInfo[linkIndex].GetLinkID() == NpcSpeechLocArg.UnknownLinkId)
             {
-                _unknownLanguageTooltip ??= LocalizationService.ResolveString(
-                    new LocalizedString("UI", "UI.Tooltip.UnknownLanguage"),
-                    "You don't know this language", "UI.Tooltip.UnknownLanguage");
+                _unknownLanguageTooltip ??= LocalizationService.Resolve(LocUI.Table, LocUI.UI_Tooltip_UnknownLanguage);
                 _viewModel.TooltipService.ShowTooltipDelayed(
                     new SimpleTooltipData("", _unknownLanguageTooltip));
             }
@@ -155,6 +154,12 @@ namespace Internal.Scripts.UI.Screens.Event
             _resultSubscription = null;
         }
 
+        private void RequestLayoutRefresh()
+        {
+            _scrollViewLayout?.Refresh();
+            _scrollRect?.Refresh();
+        }
+
         private void UpdateContent(EventData eventData)
         {
             if (eventData == null) return;
@@ -166,6 +171,10 @@ namespace Internal.Scripts.UI.Screens.Event
             BindLocalizedTextWithArgs(ref _descriptionHandle, _eventDescriptionText,
                 eventData.Description, "EventDescription", formatArgs,
                 raw => LocArgRenderer.ProcessNpcSpeech(raw, _viewModel?.LanguageRepo));
+
+            if (_nameHandle != null) _nameHandle.TextChanged += RequestLayoutRefresh;
+            if (_typeHandle != null) _typeHandle.TextChanged += RequestLayoutRefresh;
+            if (_descriptionHandle != null) _descriptionHandle.TextChanged += RequestLayoutRefresh;
 
             if (eventData.Image != null)
                 _eventImage.sprite = eventData.Image;
@@ -323,13 +332,15 @@ namespace Internal.Scripts.UI.Screens.Event
                 if (!string.IsNullOrEmpty(skillCheck)) parts.Add(skillCheck);
                 parts.Add(resolved);
                 if (!string.IsNullOrEmpty(summary)) parts.Add(summary);
-                _eventDescriptionText.text = string.Join("\n\n", parts);
+                if (_eventDescriptionText != null)
+                    _eventDescriptionText.text = string.Join("\n\n", parts);
             }
 
             ClearChoiceButtons();
             SpawnContinueButton();
 
             AnimateOutcomeResults();
+            _eventDescriptionText?.ForceMeshUpdate();
             _scrollViewLayout?.Refresh();
             _scrollRect?.Refresh();
         }
@@ -371,6 +382,7 @@ namespace Internal.Scripts.UI.Screens.Event
             _eventLocationText.text = isAtCity
                 ? cityName
                 : LocalizationService.ResolveString(_nearCityFormat, $"Near {cityName}", "NearCity", cityName);
+            RequestLayoutRefresh();
         }
     }
 }

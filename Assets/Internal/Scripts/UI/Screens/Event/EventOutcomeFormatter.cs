@@ -10,26 +10,15 @@ using Internal.Scripts.Player.Skills;
 using Internal.Scripts.Quests.Data;
 using Internal.Scripts.UI.Localization;
 using Internal.Scripts.UI.Localization.Args;
+using Internal.Scripts.UI.Localization.Generated;
 using Internal.Scripts.UI.Screens.Quests;
 using Internal.Scripts.UI.Screens.Trader;
 using UnityEngine;
-using UnityEngine.Localization;
 
 namespace Internal.Scripts.UI.Screens.Event
 {
     public class EventOutcomeFormatter
     {
-        private const string SkillCheckSuccessKey = "UI.Event.Outcome.Text.SkillCheckSuccess";
-        private const string SkillCheckFailKey = "UI.Event.Outcome.Text.SkillCheckFail";
-        private const string GainKey = "UI.Event.Outcome.Text.Gain";
-        private const string LossKey = "UI.Event.Outcome.Text.Loss";
-        private const string MoneyKey = "UI.Global.Resource.Money";
-        private const string FoodKey = "UI.Global.Resource.Food";
-        private const string DangerKey = "UI.Global.Resource.Danger";
-        private const string DurabilityKey = "UI.Global.Resource.Durability";
-        private const string MoraleKey = "UI.Global.Resource.Morale";
-        private const string ReputationKey = "UI.Global.Resource.Reputation";
-
         private readonly ItemCatalog _itemCatalog;
         private readonly TraderUICatalog _catalog;
         private readonly QuestDatabase _questDatabase;
@@ -44,11 +33,8 @@ namespace Internal.Scripts.UI.Screens.Event
         public string BuildSkillCheckLine(SkillCheckData skillCheck, bool succeeded)
         {
             string skillName = _catalog.GetSkillName(skillCheck.SkillType);
-            string key = succeeded ? SkillCheckSuccessKey : SkillCheckFailKey;
-            string format = LocalizationService.ResolveString(
-                new LocalizedString("UI", key),
-                succeeded ? "Skill check {skill_name}: Success!" : "Skill check {skill_name}: Failure!",
-                "SkillCheckResult");
+            string key = succeeded ? LocUI.UI_Event_Outcome_Text_SkillCheckSuccess : LocUI.UI_Event_Outcome_Text_SkillCheckFail;
+            string format = LocalizationService.Resolve(LocUI.Table, key);
             return LocArgRenderer.Format(format, new List<ILocArg>
             {
                 new TextLocArg("skill_name", skillName)
@@ -83,9 +69,7 @@ namespace Internal.Scripts.UI.Screens.Event
 
             if (gains.Count > 0)
             {
-                string format = LocalizationService.ResolveString(
-                    new LocalizedString("UI", GainKey),
-                    "You received: {details}", "OutcomeGain");
+                string format = LocalizationService.Resolve(LocUI.Table, LocUI.UI_Event_Outcome_Text_Gain);
                 sb.AppendLine(LocArgRenderer.Format(format, new List<ILocArg>
                 {
                     new TextLocArg("details", string.Join(", ", gains))
@@ -94,9 +78,7 @@ namespace Internal.Scripts.UI.Screens.Event
 
             if (losses.Count > 0)
             {
-                string format = LocalizationService.ResolveString(
-                    new LocalizedString("UI", LossKey),
-                    "You lost: {details}", "OutcomeLoss");
+                string format = LocalizationService.Resolve(LocUI.Table, LocUI.UI_Event_Outcome_Text_Loss);
                 sb.AppendLine(LocArgRenderer.Format(format, new List<ILocArg>
                 {
                     new TextLocArg("details", string.Join(", ", losses))
@@ -114,17 +96,17 @@ namespace Internal.Scripts.UI.Screens.Event
             switch (entry.Type)
             {
                 case EventOutcomeType.Money:
-                    return $"{rounded} {ResolveResourceName(MoneyKey, "gold")}";
+                    return $"{rounded} {LocalizationService.Resolve(LocUI.Table, LocUI.UI_Global_Resource_Money)}";
                 case EventOutcomeType.Food:
-                    return $"{rounded} {ResolveResourceName(FoodKey, "supplies")}";
+                    return $"{rounded} {LocalizationService.Resolve(LocUI.Table, LocUI.UI_Global_Resource_Food)}";
                 case EventOutcomeType.Danger:
-                    return $"{rounded} {ResolveResourceName(DangerKey, "danger")}";
+                    return $"{rounded} {LocalizationService.Resolve(LocUI.Table, LocUI.UI_Global_Resource_Danger)}";
                 case EventOutcomeType.CartDurability:
-                    return $"{rounded} {ResolveResourceName(DurabilityKey, "durability")}";
+                    return $"{rounded} {LocalizationService.Resolve(LocUI.Table, LocUI.UI_Global_Resource_Durability)}";
                 case EventOutcomeType.Morale:
-                    return $"{rounded} {ResolveResourceName(MoraleKey, "morale")}";
+                    return $"{rounded} {LocalizationService.Resolve(LocUI.Table, LocUI.UI_Global_Resource_Morale)}";
                 case EventOutcomeType.Reputation:
-                    return $"{rounded} {ResolveResourceName(ReputationKey, "reputation")}";
+                    return $"{rounded} {LocalizationService.Resolve(LocUI.Table, LocUI.UI_Global_Resource_Reputation)}";
                 case EventOutcomeType.AddItem:
                     string itemName = _itemCatalog.ResolveItemName(entry.Param);
                     return $"{itemName} ×{rounded}";
@@ -143,25 +125,25 @@ namespace Internal.Scripts.UI.Screens.Event
                     }
                     return $"{entry.Param}: {TraderUICatalog.GetProficiencyName((LanguageProficiency)rounded)}";
                 case EventOutcomeType.StartQuest:
-                    return FormatQuestOutcome("UI.Event.Outcome.QuestStarted", "New quest: {quest_name}", entry.Param);
+                    return FormatQuestOutcome(LocUI.UI_Event_Outcome_QuestStarted, entry.Param);
                 case EventOutcomeType.AdvanceQuest:
-                    return FormatQuestOutcome("UI.Event.Outcome.QuestAdvanced", "Quest updated: {quest_name}", entry.Param);
+                    return FormatQuestOutcome(LocUI.UI_Event_Outcome_QuestAdvanced, entry.Param);
                 case EventOutcomeType.CompleteQuest:
-                    return FormatQuestOutcome("UI.Event.Outcome.QuestCompleted", "Quest completed: {quest_name}!", entry.Param);
+                    return FormatQuestOutcome(LocUI.UI_Event_Outcome_QuestCompleted, entry.Param);
                 case EventOutcomeType.FailQuest:
-                    return FormatQuestOutcome("UI.Event.Outcome.QuestFailed", "Quest failed: {quest_name}", entry.Param);
+                    return FormatQuestOutcome(LocUI.UI_Event_Outcome_QuestFailed, entry.Param);
                 default:
                     return null;
             }
         }
 
-        private string FormatQuestOutcome(string key, string fallback, string questId)
+        private string FormatQuestOutcome(string locKey, string questId)
         {
             var quest = _questDatabase?.GetById(questId);
             string questName = quest != null
                 ? LocalizationService.ResolveString(quest.Name, questId, QuestLocContext.QuestName(questId))
                 : questId;
-            string format = ResolveResourceName(key, fallback);
+            string format = LocalizationService.Resolve(LocUI.Table, locKey);
             return format.Replace("{quest_name}", questName);
         }
 
@@ -171,12 +153,6 @@ namespace Internal.Scripts.UI.Screens.Event
                    type == EventOutcomeType.AdvanceQuest ||
                    type == EventOutcomeType.CompleteQuest ||
                    type == EventOutcomeType.FailQuest;
-        }
-
-        private static string ResolveResourceName(string key, string fallback)
-        {
-            return LocalizationService.ResolveString(
-                new LocalizedString("UI", key), fallback, "ResourceName");
         }
     }
 }

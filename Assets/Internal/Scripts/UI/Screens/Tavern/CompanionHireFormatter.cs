@@ -8,6 +8,7 @@ using Internal.Scripts.Player;
 using Internal.Scripts.Player.Languages;
 using Internal.Scripts.Player.Languages.Generated;
 using Internal.Scripts.UI.Localization;
+using Internal.Scripts.UI.Localization.Generated;
 using UnityEngine;
 using UnityEngine.Localization;
 
@@ -42,8 +43,8 @@ namespace Internal.Scripts.UI.Screens.Tavern
             slotsOut.Clear();
             var hireList = new List<CompanionHireData>();
             int index = 0;
-            string effectPrefix = ResolveLoc("UI.Global.Effect.Prefix", "UI.Global.Effect.Prefix");
-            string levelPrefix = ResolveLoc("UI.Global.Level.Prefix", "UI.Global.Level.Prefix");
+            string effectPrefix = LocalizationService.Resolve(LocUI.Table, LocUI.UI_Global_Effect_Prefix);
+            string levelPrefix = LocalizationService.Resolve(LocUI.Table, LocUI.UI_Global_Level_Prefix);
 
             foreach (var typeData in _caravanDb.CompanionTypes)
             {
@@ -77,8 +78,8 @@ namespace Internal.Scripts.UI.Screens.Tavern
 
             return new CompanionHireData(
                 displayName, qualityName, effectText,
-                ResolveLoc("UI.Tavern.HireCost", "UI.Tavern.HireCost", hireCost),
-                ResolveLoc("UI.Tavern.DailyCost", "UI.Tavern.DailyCost", dailyCost),
+                LocalizationService.Resolve(LocUI.Table, LocUI.UI_Tavern_HireCost, null, hireCost),
+                LocalizationService.Resolve(LocUI.Table, LocUI.UI_Tavern_DailyCost, null, dailyCost),
                 canHire, index, typeData.Type, qualityEntry.Quality);
         }
 
@@ -120,8 +121,7 @@ namespace Internal.Scripts.UI.Screens.Tavern
             string langName = ResolveLanguageName(cityLang);
             int profValue = Mathf.RoundToInt(bonus.BonusValue);
             string profName = ResolveProficiencyName((LanguageProficiency)profValue);
-            return ResolveLoc("UI.Translator.LanguageEffect",
-                "UI.Translator.LanguageEffect", langName, profName);
+            return LocalizationService.Resolve(LocUI.Table, LocUI.UI_Translator_LanguageEffect, null, langName, profName);
         }
 
         private static string ResolveLanguageName(LanguageType lang)
@@ -137,12 +137,6 @@ namespace Internal.Scripts.UI.Screens.Tavern
         {
             var localized = new LocalizedString("UI", $"UI.Language.Proficiency.{proficiency}");
             return LocalizationService.ResolveString(localized, proficiency.ToString(), $"Proficiency.{proficiency}");
-        }
-
-        private static string ResolveLoc(string key, string fallback, params object[] args)
-        {
-            var localized = new LocalizedString("UI", key);
-            return LocalizationService.ResolveString(localized, fallback, key, args);
         }
     }
 }

@@ -1199,6 +1199,110 @@ MonoBehaviour:
     m_Key: UI.Guild.Trade.Button
     m_Metadata:
       m_Items: []
+  - m_Id: 24175509310005248
+    m_Key: UI.Camp.Action.Forage.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24175509360336896
+    m_Key: UI.Camp.Action.Rest.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24175509360336897
+    m_Key: UI.Camp.Action.Repair.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24175509360336898
+    m_Key: UI.Camp.Action.Order.Name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24175509360336899
+    m_Key: UI.Camp.Cooldown
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24175509360336900
+    m_Key: UI.Camp.Free
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24175509360336901
+    m_Key: UI.Camp.Resource.Food
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24175509360336902
+    m_Key: UI.Camp.Resource.Morale
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24175509360336903
+    m_Key: UI.Camp.Resource.CartDurability
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24175509360336904
+    m_Key: UI.Camp.Resource.Danger
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24553238299664384
+    m_Key: UI.Camp.Forage.Hint.1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24553238349996032
+    m_Key: UI.Camp.Forage.Hint.2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24553238349996033
+    m_Key: UI.Camp.Forage.Hint.3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24553238349996034
+    m_Key: UI.Camp.Rest.Hint.1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24553238349996035
+    m_Key: UI.Camp.Rest.Hint.2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24553238349996036
+    m_Key: UI.Camp.Rest.Hint.3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24553238349996037
+    m_Key: UI.Camp.Repair.Hint.1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24553238349996038
+    m_Key: UI.Camp.Repair.Hint.2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24553238349996039
+    m_Key: UI.Camp.Repair.Hint.3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24553238349996040
+    m_Key: UI.Camp.Order.Hint.1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24553238349996041
+    m_Key: UI.Camp.Order.Hint.2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24553238349996042
+    m_Key: UI.Camp.Order.Hint.3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25634713153560576
+    m_Key: UI.Tavern.Rumors.Empty
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25634713195503616
+    m_Key: UI.Tavern.Rumors.Entry
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25634713195503617
+    m_Key: UI.Tavern.Rumors.Buy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25634713195503618
+    m_Key: UI.Tavern.Rumors.Days
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -1,19 +1,18 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Internal.Scripts.Config;
 using Internal.Scripts.Economy;
 using Internal.Scripts.Events;
 using Internal.Scripts.Player.Languages;
 using Internal.Scripts.Player.Languages.Generated;
 using Internal.Scripts.UI.Localization;
+using Internal.Scripts.UI.Localization.Generated;
 using Internal.Scripts.UI.Screens.Core.Config;
 using Internal.Scripts.UI.Screens.Core.ViewModel;
 using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Screens.Trader;
 using Internal.Scripts.UI.Theme;
 using R3;
-using UnityEngine.Localization;
 
 namespace Internal.Scripts.UI.Screens.LanguageSchool
 {
@@ -99,8 +98,8 @@ namespace Internal.Scripts.UI.Screens.LanguageSchool
                 bool canLearn = cost > 0 && money >= cost;
                 var nextLevel = cost > 0 ? NextLevel(current) : current;
 
-                string currentFormatted = FormatLevel("UI.LanguageSchool.Item.Text.CurrentLevel", current);
-                string nextFormatted = FormatLevel("UI.LanguageSchool.Item.Text.NextLevel", nextLevel);
+                string currentFormatted = FormatLevel(LocUI.UI_LanguageSchool_Item_Text_CurrentLevel, current);
+                string nextFormatted = FormatLevel(LocUI.UI_LanguageSchool_Item_Text_NextLevel, nextLevel);
                 string daysFormatted = FormatDays(days, totalFoodPerDay, cost);
                 string learnText = FormatLearnButton(cost);
 
@@ -117,60 +116,38 @@ namespace Internal.Scripts.UI.Screens.LanguageSchool
         {
             string levelName = ResolveProficiencyName(level);
             string effect = FormatEffect(level);
-
-            var localized = new LocalizedString("UI", locKey);
-            return LocalizationService.ResolveString(localized,
-                $"{levelName}, {effect}", "LanguageSchool",
-                levelName, effect);
+            return LocalizationService.Resolve(LocUI.Table, locKey, null, levelName, effect);
         }
 
         private string FormatEffect(LanguageProficiency level)
         {
             float buy = LanguagePriceModifier.GetBuyMod(level);
             float sell = LanguagePriceModifier.GetSellMod(level);
-
             string buyStr = FormatPercent(buy);
             string sellStr = FormatPercent(sell);
-
-            var localized = new LocalizedString("UI", "UI.LanguageSchool.Item.Text.BuySellEffect");
-            return LocalizationService.ResolveString(localized,
-                $"Buy {buyStr}, Sell {sellStr}", "LanguageSchool.Effect",
-                buyStr, sellStr);
+            return LocalizationService.Resolve(LocUI.Table, LocUI.UI_LanguageSchool_Item_Text_BuySellEffect, null, buyStr, sellStr);
         }
 
         private string FormatDays(int days, float foodPerDay, int cost)
         {
             if (days <= 0)
-                return ResolveLoc("UI.LanguageSchool.Main.Text.MaxLevel", "Maximum level");
+                return LocalizationService.Resolve(LocUI.Table, LocUI.UI_LanguageSchool_Main_Text_MaxLevel);
 
             int supplyCost = (int)(days * foodPerDay);
-
-            var localized = new LocalizedString("UI", "UI.LanguageSchool.Item.Text.DaysToLearn");
-            return LocalizationService.ResolveString(localized,
-                $"Days: {days} (supplies: {supplyCost}, gold: {cost})", "LanguageSchool.Days",
-                days, supplyCost, cost);
+            return LocalizationService.Resolve(LocUI.Table, LocUI.UI_LanguageSchool_Item_Text_DaysToLearn, null, days, supplyCost, cost);
         }
 
         private string FormatLearnButton(int cost)
         {
             if (cost <= 0)
-                return ResolveLoc("UI.LanguageSchool.Main.Text.MaxLevel", "Maximum level");
+                return LocalizationService.Resolve(LocUI.Table, LocUI.UI_LanguageSchool_Main_Text_MaxLevel);
 
-            var localized = new LocalizedString("UI", "UI.LanguageSchool.Item.Button.LearnFor");
-            return LocalizationService.ResolveString(localized,
-                $"Learn for {cost}", "LanguageSchool.Learn",
-                cost);
+            return LocalizationService.Resolve(LocUI.Table, LocUI.UI_LanguageSchool_Item_Button_LearnFor, null, cost);
         }
 
         private static string ResolveProficiencyName(LanguageProficiency level)
         {
             return TraderUICatalog.GetProficiencyName(level);
-        }
-
-        private static string ResolveLoc(string key, string fallback)
-        {
-            var localized = new LocalizedString("UI", key);
-            return LocalizationService.ResolveString(localized, fallback, key);
         }
 
         private static string FormatPercent(float value)

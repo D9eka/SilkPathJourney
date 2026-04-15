@@ -1,5 +1,6 @@
 using System.Text;
 using Internal.Scripts.UI.Localization;
+using Internal.Scripts.UI.Localization.Generated;
 using UnityEngine.Localization;
 
 namespace Internal.Scripts.Trading
@@ -7,37 +8,33 @@ namespace Internal.Scripts.Trading
     public static class PriceTooltipFormatter
     {
         private const float EPSILON = 0.005f;
-        private const string TABLE = "UI";
 
         public static (string title, string description) Format(PriceBreakdown b)
         {
             var sb = new StringBuilder();
-            sb.AppendLine($"{Loc("UI.Tooltip.BasePrice", "Базовая цена")}: {b.BasePrice}");
+            sb.AppendLine($"{LocalizationService.Resolve(LocUI.Table, LocUI.UI_Tooltip_BasePrice)}: {b.BasePrice}");
 
             if (!IsApproximatelyOne(b.MarketMult))
             {
                 string label = b.IsNpcTrade
-                    ? Loc("UI.Tooltip.NpcMarkup", "Наценка")
-                    : Loc("UI.Tooltip.Market", "Рынок");
+                    ? LocalizationService.Resolve(LocUI.Table, LocUI.UI_Tooltip_NpcMarkup)
+                    : LocalizationService.Resolve(LocUI.Table, LocUI.UI_Tooltip_Market);
                 sb.AppendLine($"{label}: x{b.MarketMult:0.##}");
             }
 
             if (!b.IsNpcTrade && !IsApproximatelyOne(b.BonusMult))
-                sb.AppendLine($"{Loc("UI.Tooltip.Bonus", "Бонусы")}: x{b.BonusMult:0.##}");
+                sb.AppendLine($"{LocalizationService.Resolve(LocUI.Table, LocUI.UI_Tooltip_Bonus)}: x{b.BonusMult:0.##}");
 
             if (!b.IsNpcTrade && !IsApproximatelyOne(b.ModifierMult))
-                sb.AppendLine($"{Loc("UI.Tooltip.Modifiers", "Модификаторы")}: x{b.ModifierMult:0.##}");
+                sb.AppendLine($"{LocalizationService.Resolve(LocUI.Table, LocUI.UI_Tooltip_Modifiers)}: x{b.ModifierMult:0.##}");
 
             if (!IsApproximatelyOne(b.TitheMult))
-                sb.AppendLine($"{Loc("UI.Tooltip.GuildTithe", "Сбор гильдии")}: x{b.TitheMult:0.##}");
+                sb.AppendLine($"{LocalizationService.ResolveString(new LocalizedString(LocUI.Table, "UI.Tooltip.GuildTithe"), "UI.Tooltip.GuildTithe", "UI.Tooltip.GuildTithe")}: x{b.TitheMult:0.##}");
 
-            sb.Append($"{Loc("UI.Tooltip.Total", "Итого")}: {b.FinalPrice}");
+            sb.Append($"{LocalizationService.Resolve(LocUI.Table, LocUI.UI_Tooltip_Total)}: {b.FinalPrice}");
 
             return (b.ItemName, sb.ToString());
         }
-
-        private static string Loc(string key, string fallback)
-            => LocalizationService.ResolveString(new LocalizedString(TABLE, key), fallback, key);
 
         private static bool IsApproximatelyOne(float value)
             => value >= 1f - EPSILON && value <= 1f + EPSILON;

@@ -10,6 +10,7 @@ using Internal.Scripts.Save;
 using Internal.Scripts.Trading;
 using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Localization;
+using Internal.Scripts.UI.Localization.Generated;
 using Internal.Scripts.UI.Screens.Core.Config;
 using Internal.Scripts.UI.Screens.Core.ViewModel;
 using Internal.Scripts.UI.Screens.Shared;
@@ -190,13 +191,13 @@ namespace Internal.Scripts.UI.Screens.Guild
                               && cityInv.GuildInventory.Items.Count > 0;
 
             string tradeDescription = guildHasGoods
-                ? Loc("UI.Guild.Trade.Description", "Покупка и продажа товаров гильдии")
-                : Loc("UI.Guild.Trade.Description.Empty", "Склад гильдии пуст — нечего продавать");
+                ? LocalizationService.Resolve(LocUI.Table, LocUI.UI_Guild_Trade_Description)
+                : LocalizationService.Resolve(LocUI.Table, LocUI.UI_Guild_Trade_Description_Empty);
 
             list.Add(new OfferingItem(
-                Loc("UI.Guild.Trade.Title", "Торговать с гильдией"),
+                LocalizationService.Resolve(LocUI.Table, LocUI.UI_Guild_Trade_Title),
                 tradeDescription,
-                Loc("UI.Guild.Trade.Button", "Торговать"),
+                LocalizationService.Resolve(LocUI.Table, LocUI.UI_Guild_Trade_Button),
                 guildHasGoods,
                 _offeringActions.Count));
             _offeringActions.Add(GuildOfferingAction.OpenTrade);
@@ -204,9 +205,9 @@ namespace Internal.Scripts.UI.Screens.Guild
             if (!isMember)
             {
                 list.Add(new OfferingItem(
-                    Loc("UI.Guild.Join.Title", "Вступить в гильдию"),
+                    LocalizationService.Resolve(LocUI.Table, LocUI.UI_Guild_Join_Title),
                     $"{_guildSettings.JoinCost} · -{Mathf.RoundToInt(_guildSettings.MemberTariffDiscount * 100)}% пошлина",
-                    Loc("UI.Guild.Join.Button", "Вступить"),
+                    LocalizationService.Resolve(LocUI.Table, LocUI.UI_Guild_Join_Button),
                     _guildService.CanJoin(_cityId),
                     _offeringActions.Count));
                 _offeringActions.Add(GuildOfferingAction.Join);
@@ -214,9 +215,9 @@ namespace Internal.Scripts.UI.Screens.Guild
             else
             {
                 list.Add(new OfferingItem(
-                    Loc("UI.Guild.TakeCredit.Title", "Взять кредит"),
+                    LocalizationService.Resolve(LocUI.Table, LocUI.UI_Guild_TakeCredit_Title),
                     $"{_guildSettings.PlayerCreditAmount} → вернуть {_guildSettings.PlayerCreditRepayment}",
-                    Loc("UI.Guild.TakeCredit.Button", "Взять"),
+                    LocalizationService.Resolve(LocUI.Table, LocUI.UI_Guild_TakeCredit_Button),
                     _guildService.CanTakeCredit(_cityId),
                     _offeringActions.Count));
                 _offeringActions.Add(GuildOfferingAction.TakeCredit);
@@ -224,9 +225,9 @@ namespace Internal.Scripts.UI.Screens.Guild
                 if (guildSave.CreditAmount > 0)
                 {
                     list.Add(new OfferingItem(
-                        Loc("UI.Guild.RepayCredit.Title", "Погасить кредит"),
+                        LocalizationService.Resolve(LocUI.Table, LocUI.UI_Guild_RepayCredit_Title),
                         $"{guildSave.CreditAmount}",
-                        Loc("UI.Guild.RepayCredit.Button", "Погасить"),
+                        LocalizationService.Resolve(LocUI.Table, LocUI.UI_Guild_RepayCredit_Button),
                         _guildService.CanRepayCredit(_cityId),
                         _offeringActions.Count));
                     _offeringActions.Add(GuildOfferingAction.RepayCredit);
@@ -234,18 +235,6 @@ namespace Internal.Scripts.UI.Screens.Guild
             }
 
             return list.ToArray();
-        }
-
-        private static readonly Dictionary<string, LocalizedString> _locCache = new();
-
-        private static string Loc(string key, string fallback)
-        {
-            if (!_locCache.TryGetValue(key, out LocalizedString ls))
-            {
-                ls = new LocalizedString("UI", key);
-                _locCache[key] = ls;
-            }
-            return LocalizationService.ResolveString(ls, fallback, key);
         }
 
         private GuildContractEntry[] BuildContractEntries(List<GuildContract> contracts)

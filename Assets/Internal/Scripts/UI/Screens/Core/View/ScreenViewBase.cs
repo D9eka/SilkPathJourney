@@ -16,6 +16,7 @@ namespace Internal.Scripts.UI.Screens.Core.View
         [SerializeField] private CanvasGroup _canvasGroup;
 
         public event Action CloseRequested;
+        public event Action HideCompleted;
 
         private Vector3[] _originalScales;
         private Sequence _sequence;
@@ -73,6 +74,7 @@ namespace Internal.Scripts.UI.Screens.Core.View
             if (_animationRoots == null || _animationRoots.Length == 0)
             {
                 gameObject.SetActive(false);
+                HideCompleted?.Invoke();
                 return;
             }
 
@@ -91,7 +93,11 @@ namespace Internal.Scripts.UI.Screens.Core.View
             _sequence
                 .SetLink(gameObject)
                 .SetUpdate(true)
-                .OnComplete(() => gameObject.SetActive(false));
+                .OnComplete(() =>
+                {
+                    gameObject.SetActive(false);
+                    HideCompleted?.Invoke();
+                });
         }
 
         protected void RaiseCloseRequested()

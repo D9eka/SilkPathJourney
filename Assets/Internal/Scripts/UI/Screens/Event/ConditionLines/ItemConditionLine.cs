@@ -4,8 +4,8 @@ using Internal.Scripts.Events.Generated;
 using Internal.Scripts.Items;
 using Internal.Scripts.UI.Localization;
 using Internal.Scripts.UI.Localization.Args;
+using Internal.Scripts.UI.Localization.Generated;
 using UnityEngine;
-using UnityEngine.Localization;
 
 namespace Internal.Scripts.UI.Screens.Event.ConditionLines
 {
@@ -30,9 +30,7 @@ namespace Internal.Scripts.UI.Screens.Event.ConditionLines
             {
                 if (cond.Type != EventConditionType.HasItem) continue;
 
-                format ??= LocalizationService.ResolveString(
-                    new LocalizedString("Events", "event.item_condition_info"),
-                    "{item_name} x{count}", "ItemConditionInfo");
+                format ??= LocalizationService.Resolve(LocEvents.Table, LocEvents.Event_ItemConditionInfo);
 
                 string itemName = _itemCatalog.ResolveItemName(cond.Param);
                 int count = Mathf.RoundToInt(cond.Value);

@@ -2917,6 +2917,10 @@ UI.Caravansary.Animals.Header.Current,interface_names,90,Сейчас на ка�
 UI.Caravansary.Animals.Header.Available,interface_names,91,Доступные замены,Available replacements
 UI.Tavern.Main.Header.Main,interface_names,92,Таверна,Tavern
 UI.Tavern.Rumors.Header.Main,interface_names,93,Слухи,Rumors
+UI.Tavern.Rumors.Empty,interface_names,,Сейчас никто ничего не рассказывает.,No one has anything to share right now.
+UI.Tavern.Rumors.Entry,interface_names,,"{0}: {1}","{0}: {1}"
+UI.Tavern.Rumors.Buy,interface_names,,Купить за {0},Buy for {0}
+UI.Tavern.Rumors.Days,interface_names,,"{0}, осталось {1} дн.","{0}, {1} days left"
 UI.Tavern.RoadInfo.Header.Main,interface_names,94,Купить точную информацию,Buy exact information
 UI.Tavern.Companions.Header.Main,interface_names,95,Найм спутников,Hire Companions
 UI.Tavern.Companion.Button.Hire,interface_names,96,Нанять,Hire
@@ -3110,6 +3114,52 @@ UI.Guild.ContractsHeader,ui,,Контракты,Contracts
 UI.Guild.ActiveContract.Desc,ui,,"Доставка в {0} · Награда: {1} · Осталось {2} дн.","Delivery to {0} · Reward: {1} · {2} days left"
 UI.Guild.ActiveContract.Title,ui,,"Активный: Доставка в {0}","Active: Delivery to {0}"
 UI.Guild.ActiveContract.Complete.Button,ui,,Сдать,Complete
+UI.Guild.Main.Header.Main,ui,,Гильдия,Guild
+UI.Guild.Contracts.Empty.NoContracts,ui,,Нет доступных контрактов,No available contracts
+UI.Guild.Contracts.Empty.NotMember,ui,,"Вступите в гильдию, чтобы получить доступ к контрактам","Join the guild to access contracts"
+UI.Guild.Contract.Courier.Title,ui,,Курьерская доставка в {0},Courier delivery to {0}
+UI.Guild.Contract.Cargo.Title,ui,,Грузоперевозка в {0},Cargo delivery to {0}
+UI.Guild.Trade.Title,ui,,Торговать с гильдией,Trade with Guild
+UI.Guild.Trade.Description,ui,,"Покупка и продажа товаров гильдии","Buy and sell guild goods"
+UI.Guild.Trade.Description.Empty,ui,,"Склад гильдии пуст — нечего продавать","Guild warehouse is empty — nothing to trade"
+UI.Guild.Trade.Button,ui,,Торговать,Trade
+UI.Camp.Action.Forage.Name,ui,,Фуражировка,Forage
+UI.Camp.Action.Rest.Name,ui,,Отдых,Rest
+UI.Camp.Action.Repair.Name,ui,,Ремонт,Repair
+UI.Camp.Action.Order.Name,ui,,Порядок,Order
+UI.Camp.Free,ui,,Бесплатно,Free
+UI.Camp.Resource.Food,ui,,Еды,Food
+UI.Camp.Resource.Morale,ui,,Морали,Morale
+UI.Camp.Resource.CartDurability,ui,,Прочности,Durability
+UI.Camp.Resource.Danger,ui,,Опасности,Danger
+UI.Camp.Forage.Hint.1,ui,,Здесь уже охотились,Already foraged here
+UI.Camp.Forage.Hint.2,ui,,Ресурсы истощаются,Resources running low
+UI.Camp.Forage.Hint.3,ui,,Ресурсы почти исчерпаны,Resources nearly depleted
+UI.Camp.Rest.Hint.1,ui,,Дым видно издалека,Smoke visible from afar
+UI.Camp.Rest.Hint.2,ui,,О нас уже говорят,Word is spreading
+UI.Camp.Rest.Hint.3,ui,,Нас давно заметили,We've been spotted
+UI.Camp.Repair.Hint.1,ui,,Запчасти на исходе,Spare parts running low
+UI.Camp.Repair.Hint.2,ui,,Латаем чем придётся,Patching with scraps
+UI.Camp.Repair.Hint.3,ui,,Телеги уже не починить,Carts beyond repair
+UI.Camp.Order.Hint.1,ui,,Люди устали,People are tired
+UI.Camp.Order.Hint.2,ui,,Люди начинают бунтовать,People starting to rebel
+UI.Camp.Order.Hint.3,ui,,Люди отказываются подчиняться,People refuse to obey
+hazard.rockfall.warning,hazards,,Камнепад!,Rockfall!
+hazard.pothole.warning,hazards,,Яма!,Pothole!
+hazard.wolf.warning,hazards,,Волки!,Wolves!
+hazard.bandit.warning,hazards,,Засада!,Ambush!
+hazard.sandstorm.warning,hazards,,Песчаная буря!,Sandstorm!
+hazard.river.warning,hazards,,Переправа!,River crossing!
+hazard.mountain.warning,hazards,,Горный перевал!,Mountain pass!
+hazard.hint.click,hazards,,Нажмите кнопку чтобы перепрыгнуть яму,Press the button to jump over the pit
+hazard.hint.leftright,hazards,,Уклонитесь с помощью кнопок!,Dodge using the buttons!
+hazard.hint.down,hazards,,Нажмите кнопку чтобы объехать,Press the button to drive around
+hazard.hint.multiclick,hazards,,"Нажмите, чтобы отбиваться!","Click to fight back!"
+hazard.hint.hold,hazards,,Держите колёса!,Hold the wheels!
+hazard.hint.timing,hazards,,Переезжайте когда волны стихнут!,Cross when the waves calm down!
+hazard.hint.wind,hazards,,Удерживайте повозку на дороге!,Keep the cart on the road!
+hazard.result.success,hazards,,Успех!,Success!
+hazard.result.fail,hazards,,Поражение!,Defeat!
 event.road_discover_R_N_Urumqi__N_Kucha.choice1,road_events,,Расчистить путь,Clear the path
 event.road_discover_R_N_Urumqi__N_Kucha.choice1.result,road_events,,Караван прокладывает дорогу сквозь заросли. За поворотом открывается пригодный для движения тракт — новый маршрут найден!,"The caravan cuts through the overgrowth. Around the bend, a passable road opens up — a new route discovered!"
 event.road_discover_R_N_Urumqi__N_Kucha.choice2,road_events,,Не рисковать,Don't risk it
@@ -3129,12 +3179,3 @@ event.road_quest_R_N_Urumqi__N_Kucha.choice2,road_events,,Вежливо отк�
 event.road_quest_R_N_Urumqi__N_Kucha.choice2.result,road_events,,"Караванщик кланяется и уходит, унося свой секрет.","The caravan master bows and departs, taking his secret with him."
 event.road_quest_R_N_Urumqi__N_Kucha.name,road_events,,Долг караванщика,Caravan Master's Debt
 event.road_quest_R_N_Urumqi__N_Kucha.description,road_events,,"Бывалый караванщик догоняет ваш отряд. Он говорит, что обязан вам жизнью — в прошлый раз вы помогли его людям на переправе. В благодарность он готов открыть секретный маршрут, которым пользуются только избранные торговцы.","A seasoned caravan master catches up with your party. He says he owes you his life — you helped his people at a crossing once before. In gratitude, he offers to reveal a secret route used only by select merchants."
-UI.Guild.Main.Header.Main,ui,,Гильдия,Guild
-UI.Guild.Contracts.Empty.NoContracts,ui,,Нет доступных контрактов,No available contracts
-UI.Guild.Contracts.Empty.NotMember,ui,,"Вступите в гильдию, чтобы получить доступ к контрактам","Join the guild to access contracts"
-UI.Guild.Contract.Courier.Title,ui,,Курьерская доставка в {0},Courier delivery to {0}
-UI.Guild.Contract.Cargo.Title,ui,,Грузоперевозка в {0},Cargo delivery to {0}
-UI.Guild.Trade.Title,ui,,Торговать с гильдией,Trade with Guild
-UI.Guild.Trade.Description,ui,,"Покупка и продажа товаров гильдии","Buy and sell guild goods"
-UI.Guild.Trade.Description.Empty,ui,,"Склад гильдии пуст — нечего продавать","Guild warehouse is empty — nothing to trade"
-UI.Guild.Trade.Button,ui,,Торговать,Trade

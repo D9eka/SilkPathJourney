@@ -4,9 +4,9 @@ using Internal.Scripts.Economy;
 using Internal.Scripts.Quests.Data;
 using Internal.Scripts.Quests.Generated;
 using Internal.Scripts.UI.Localization;
+using Internal.Scripts.UI.Localization.Generated;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Localization;
 using UnityEngine.UI;
 
 using static Internal.Scripts.UI.Screens.Quests.QuestLocContext;
@@ -52,17 +52,15 @@ namespace Internal.Scripts.UI.Screens.Quests
             if (_currentObjectiveText != null)
             {
                 if (isFailed)
-                    _currentObjectiveText.text = $"<b>{LocalizationService.ResolveString(new LocalizedString("UI", "UI.Quest.Failed"), "Quest failed", "QuestDetail")}</b>";
+                    _currentObjectiveText.text = $"<b>{LocalizationService.Resolve(LocUI.Table, LocUI.UI_Quest_Failed)}</b>";
                 else if (isCompleted)
-                    _currentObjectiveText.text = $"<b>{LocalizationService.ResolveString(new LocalizedString("UI", "UI.Quest.Completed"), "Quest completed", "QuestDetail")}</b>";
+                    _currentObjectiveText.text = $"<b>{LocalizationService.Resolve(LocUI.Table, LocUI.UI_Quest_Completed)}</b>";
                 else if (quest.Stages != null && currentStageIndex < quest.Stages.Count)
                 {
                     var stage = quest.Stages[currentStageIndex];
                     string desc = LocalizationService.ResolveString(
                         stage.Description, stage.Id, StageDesc(quest.Id, stage.Id));
-                    string objectiveLabel = LocalizationService.ResolveString(
-                        new LocalizedString("UI", "UI.Quest.Detail.CurrentObjective"),
-                        "Current objective:", "QuestDetail");
+                    string objectiveLabel = LocalizationService.Resolve(LocUI.Table, LocUI.UI_Quest_Detail_CurrentObjective);
                     _currentObjectiveText.text = $"<b>{objectiveLabel} {desc}</b>";
                 }
             }
@@ -106,7 +104,7 @@ namespace Internal.Scripts.UI.Screens.Quests
             var items = new List<string>(rewards.Count);
             for (int i = 0; i < rewards.Count; i++)
                 items.Add(QuestRewardFormatter.FormatReward(rewards[i]));
-            _rewardsList.SetHeader(LocalizationService.ResolveString(new LocalizedString("UI", "UI.Quest.Detail.RewardHeader"), "Reward:", "QuestDetail"));
+            _rewardsList.SetHeader(LocalizationService.Resolve(LocUI.Table, LocUI.UI_Quest_Detail_RewardHeader));
             _rewardsList.SetItems(items);
         }
 
@@ -124,7 +122,7 @@ namespace Internal.Scripts.UI.Screens.Quests
             var items = new List<string>(conditions.Count);
             for (int i = 0; i < conditions.Count; i++)
                 items.Add(FormatFailCondition(conditions[i]));
-            _failList.SetHeader(LocalizationService.ResolveString(new LocalizedString("UI", "UI.Quest.Detail.FailHeader"), "Fail conditions:", "QuestDetail"));
+            _failList.SetHeader(LocalizationService.Resolve(LocUI.Table, LocUI.UI_Quest_Detail_FailHeader));
             _failList.SetItems(items);
         }
 
@@ -133,11 +131,11 @@ namespace Internal.Scripts.UI.Screens.Quests
             switch (c.Type)
             {
                 case QuestFailConditionType.DaysSinceStart:
-                    return LocalizationService.ResolveString(new LocalizedString("UI", "UI.Quest.Fail.DaysSinceStart"), "Complete within {value} days", "QuestFail").Replace("{value}", c.Value.ToString());
+                    return LocalizationService.Resolve(LocUI.Table, LocUI.UI_Quest_Fail_DaysSinceStart).Replace("{value}", c.Value.ToString());
                 case QuestFailConditionType.DangerAbove:
-                    return LocalizationService.ResolveString(new LocalizedString("UI", "UI.Quest.Fail.DangerAbove"), "Danger above {value}", "QuestFail").Replace("{value}", c.Value.ToString());
+                    return LocalizationService.Resolve(LocUI.Table, LocUI.UI_Quest_Fail_DangerAbove).Replace("{value}", c.Value.ToString());
                 case QuestFailConditionType.NoItem:
-                    return LocalizationService.ResolveString(new LocalizedString("UI", "UI.Quest.Fail.NoItem"), "Lose {param}", "QuestFail").Replace("{param}", c.Param);
+                    return LocalizationService.Resolve(LocUI.Table, LocUI.UI_Quest_Fail_NoItem).Replace("{param}", c.Param);
                 default:
                     return c.Type.ToString();
             }

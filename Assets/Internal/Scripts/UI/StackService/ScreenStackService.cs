@@ -204,9 +204,6 @@ namespace Internal.Scripts.UI.StackService
             bool wasTop = index == _stack.Count - 1;
             ScreenId closedId = instance.Id;
 
-            instance.ViewModel?.Close();
-            instance.View?.Hide();
-
             _stack.RemoveAt(index);
 
             if (wasTop && _stack.Count > 0)
@@ -219,6 +216,22 @@ namespace Internal.Scripts.UI.StackService
             UpdateSortingOrders();
             UpdateOverlays();
             OnScreenClosed?.Invoke(closedId);
+
+            if (instance.View != null)
+            {
+                Action onHideComplete = null;
+                onHideComplete = () =>
+                {
+                    instance.View.HideCompleted -= onHideComplete;
+                    instance.ViewModel?.Close();
+                };
+                instance.View.HideCompleted += onHideComplete;
+                instance.View.Hide();
+            }
+            else
+            {
+                instance.ViewModel?.Close();
+            }
         }
 
         private bool IsBlockedByExclusive(ScreenId openingId)

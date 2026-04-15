@@ -3,9 +3,9 @@ using Internal.Scripts.Events;
 using Internal.Scripts.Events.Data;
 using Internal.Scripts.UI.Localization;
 using Internal.Scripts.UI.Localization.Args;
+using Internal.Scripts.UI.Localization.Generated;
 using Internal.Scripts.UI.Screens.Trader;
 using UnityEngine;
-using UnityEngine.Localization;
 
 namespace Internal.Scripts.UI.Screens.Event.ConditionLines
 {
@@ -29,9 +29,7 @@ namespace Internal.Scripts.UI.Screens.Event.ConditionLines
             int pct = Mathf.RoundToInt(
                 _skillCheckService.CalculateSkillChance(sc.Value.SkillType, sc.Value.BaseChance) * 100);
 
-            string format = LocalizationService.ResolveString(
-                new LocalizedString("Events", "event.skill_check_info"),
-                "{skill_name}: {chance}%", "SkillCheckInfo");
+            string format = LocalizationService.Resolve(LocEvents.Table, LocEvents.Event_SkillCheckInfo);
 
             return LocArgRenderer.Format(format, new List<ILocArg>
             {

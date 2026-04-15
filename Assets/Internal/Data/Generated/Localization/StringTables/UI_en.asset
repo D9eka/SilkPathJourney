@@ -1218,6 +1218,110 @@ MonoBehaviour:
     m_Localized: Trade
     m_Metadata:
       m_Items: []
+  - m_Id: 24175509310005248
+    m_Localized: Forage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24175509360336896
+    m_Localized: Rest
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24175509360336897
+    m_Localized: Repair
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24175509360336898
+    m_Localized: Order
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24175509360336899
+    m_Localized: Available in {0} days
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24175509360336900
+    m_Localized: Free
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24175509360336901
+    m_Localized: Food
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24175509360336902
+    m_Localized: Morale
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24175509360336903
+    m_Localized: Durability
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24175509360336904
+    m_Localized: Danger
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24553238299664384
+    m_Localized: Already foraged here
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24553238349996032
+    m_Localized: Resources running low
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24553238349996033
+    m_Localized: Resources nearly depleted
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24553238349996034
+    m_Localized: Smoke visible from afar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24553238349996035
+    m_Localized: Word is spreading
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24553238349996036
+    m_Localized: We've been spotted
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24553238349996037
+    m_Localized: Spare parts running low
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24553238349996038
+    m_Localized: Patching with scraps
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24553238349996039
+    m_Localized: Carts beyond repair
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24553238349996040
+    m_Localized: People are tired
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24553238349996041
+    m_Localized: People starting to rebel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24553238349996042
+    m_Localized: People refuse to obey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25634713153560576
+    m_Localized: No one has anything to share right now.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25634713195503616
+    m_Localized: '{0}: {1}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25634713195503617
+    m_Localized: Buy for {0}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25634713195503618
+    m_Localized: '{0}, {1} days left'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

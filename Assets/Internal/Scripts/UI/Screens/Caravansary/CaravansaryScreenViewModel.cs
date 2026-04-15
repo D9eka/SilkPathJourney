@@ -6,6 +6,7 @@ using Internal.Scripts.Economy.Save;
 using Internal.Scripts.Player;
 using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Localization;
+using Internal.Scripts.UI.Localization.Generated;
 using Internal.Scripts.UI.Screens.Core.Config;
 using Internal.Scripts.UI.Screens.Core.ViewModel;
 using Internal.Scripts.UI.Screens.Shared;
@@ -136,19 +137,18 @@ namespace Internal.Scripts.UI.Screens.Caravansary
             string effectText;
             if (animal.SpeedModPct == 0 && animal.CapacityModPct == 0)
             {
-                effectText = ResolveLoc("UI.Global.NoEffect", "UI.Global.NoEffect");
+                effectText = LocalizationService.Resolve(LocUI.Table, LocUI.UI_Global_NoEffect);
             }
             else
             {
                 string speedMod = FormatSignedPercent(animal.SpeedModPct);
                 string capMod = FormatSignedPercent(animal.CapacityModPct);
-                string combined = ResolveLoc("UI.Caravan.AnimalEffect.Base",
-                    "UI.Caravan.AnimalEffect.Base", speedMod, capMod);
-                effectText = ResolveLoc("UI.Global.CurrentEffect", "UI.Global.CurrentEffect", combined);
+                string combined = LocalizationService.Resolve(LocUI.Table, LocUI.UI_Caravan_AnimalEffect_Base, null, speedMod, capMod);
+                effectText = LocalizationService.Resolve(LocUI.Table, LocUI.UI_Global_CurrentEffect, null, combined);
             }
 
-            string priceText = ResolveLoc("UI.Caravansary.AnimalPrice", "UI.Caravansary.AnimalPrice", animal.Price);
-            string consumptionText = ResolveLoc("UI.Caravansary.AnimalConsumption", "UI.Caravansary.AnimalConsumption", $"{animal.FeedPerDay:F0}");
+            string priceText = LocalizationService.Resolve(LocUI.Table, LocUI.UI_Caravansary_AnimalPrice, null, animal.Price);
+            string consumptionText = LocalizationService.Resolve(LocUI.Table, LocUI.UI_Caravansary_AnimalConsumption, null, $"{animal.FeedPerDay:F0}");
 
             bool isCurrent = animal.AnimalType == currentType;
             bool canSwitch = !isCurrent && money >= animal.Price;
@@ -166,7 +166,7 @@ namespace Internal.Scripts.UI.Screens.Caravansary
 
             string buttonText = isCurrent
                 ? ""
-                : ResolveLoc("UI.Caravansary.SwitchAnimal", "UI.Caravansary.SwitchAnimal", animal.Price);
+                : LocalizationService.Resolve(LocUI.Table, LocUI.UI_Caravansary_SwitchAnimal, null, animal.Price);
 
             return new AnimalSwitchData(name, effectText, priceText, consumptionText,
                 incompatible, neutral, compatible, isCurrent, canSwitch, buttonText, index, animal.AnimalType);
@@ -181,7 +181,8 @@ namespace Internal.Scripts.UI.Screens.Caravansary
                 if (!map.ContainsKey(entry.Animal))
                     map[entry.Animal] = (new List<string>(), new List<string>(), new List<string>());
 
-                string biomeName = ResolveLoc($"UI.Biome.{entry.Biome}", $"UI.Biome.{entry.Biome}");
+                string biomeName = LocalizationService.ResolveString(
+                    new LocalizedString("UI", $"UI.Biome.{entry.Biome}"), $"UI.Biome.{entry.Biome}", $"UI.Biome.{entry.Biome}");
                 var lists = map[entry.Animal];
 
                 switch (entry.Compatibility?.ToLowerInvariant())
@@ -204,12 +205,6 @@ namespace Internal.Scripts.UI.Screens.Caravansary
         private static string FormatSignedPercent(float value)
         {
             return value >= 0 ? $"+{value:F0}%" : $"{value:F0}%";
-        }
-
-        private static string ResolveLoc(string key, string fallback, params object[] args)
-        {
-            var localized = new LocalizedString("UI", key);
-            return LocalizationService.ResolveString(localized, fallback, key, args);
         }
     }
 }
