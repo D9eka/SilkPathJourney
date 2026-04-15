@@ -14,7 +14,7 @@ namespace Internal.Scripts.Import.Editor.Economy
     {
         private const string ASSET_PATH = DATABASES_FOLDER + "/CultureAdjacencyData.asset";
 
-        [MenuItem("SPJ/Import/Build Culture Adjacency")]
+        [MenuItem("SPJ/Generate/Culture Adjacency")]
         public static void Build()
         {
             if (IsCompiling()) return;

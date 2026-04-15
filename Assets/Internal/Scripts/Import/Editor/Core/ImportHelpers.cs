@@ -226,5 +226,54 @@ namespace Internal.Scripts.Import.Editor.Core
 
             return map;
         }
+
+        public static bool WriteIfChanged(string path, string content)
+        {
+            if (File.Exists(path))
+            {
+                string existing = File.ReadAllText(path, Encoding.UTF8);
+                if (string.Equals(existing, content, StringComparison.Ordinal))
+                    return false;
+            }
+
+            File.WriteAllText(path, content, Encoding.UTF8);
+            return true;
+        }
+
+        public static void EnsureDirectory(string filePath)
+        {
+            string dir = Path.GetDirectoryName(filePath);
+            if (!string.IsNullOrWhiteSpace(dir))
+                Directory.CreateDirectory(dir);
+        }
+
+        public static bool IsValidIdentifier(string value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+                return false;
+            if (CSharpKeywords.Contains(value))
+                return false;
+            if (!(char.IsLetter(value[0]) || value[0] == '_'))
+                return false;
+            for (int i = 1; i < value.Length; i++)
+            {
+                char c = value[i];
+                if (!(char.IsLetterOrDigit(c) || c == '_'))
+                    return false;
+            }
+            return true;
+        }
+
+        public static readonly HashSet<string> CSharpKeywords = new(StringComparer.Ordinal)
+        {
+            "abstract","as","base","bool","break","byte","case","catch","char","checked","class",
+            "const","continue","decimal","default","delegate","do","double","else","enum","event",
+            "explicit","extern","false","finally","fixed","float","for","foreach","goto","if",
+            "implicit","in","int","interface","internal","is","lock","long","namespace","new",
+            "null","object","operator","out","override","params","private","protected","public",
+            "readonly","ref","return","sbyte","sealed","short","sizeof","stackalloc","static",
+            "string","struct","switch","this","throw","true","try","typeof","uint","ulong",
+            "unchecked","unsafe","ushort","using","virtual","void","volatile","while"
+        };
     }
 }
