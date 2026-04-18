@@ -121,7 +121,9 @@ namespace Internal.Scripts.UI.Screens.Caravan
             string weightFormatted = $"{(int)weight}/{(int)capacity}";
 
             string dangerFormatted = $"{(int)res.AccumulatedDanger}";
-            string foodFormatted = $"{(int)res.Food}";
+            int foodCount = InventoryStateMutator.GetItemCount(
+                _inventoryRepo.GetPlayerInventory(), SuppliesItemId.Value);
+            string foodFormatted = $"{foodCount}";
             string moraleFormatted = $"{(int)res.Morale}";
 
             bool isAnimalSick = false;
