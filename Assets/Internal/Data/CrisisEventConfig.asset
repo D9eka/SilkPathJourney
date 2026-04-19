@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6, type: 3}
+  m_Name: CrisisEventConfig
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.CrisisEventConfig
+  <OnDangerMaxed>k__BackingField:
+  - {fileID: 11400000, guid: 3e59ff3f6e9eab446bba775538cc0874, type: 2}
+  <OnMoraleDepleted>k__BackingField:
+  - {fileID: 11400000, guid: 463f2b4613eb23344ac5c5f2169502f3, type: 2}
+  - {fileID: 11400000, guid: a9e38f351bd5b734da8b2d79be51c76f, type: 2}
+  - {fileID: 11400000, guid: fa2771aae52277649b6f4b7cd35c8ce6, type: 2}
+  <OnCartBroken>k__BackingField:
+  - {fileID: 11400000, guid: 6b357ff6dbd2343408142e5e999a7943, type: 2}
+  - {fileID: 11400000, guid: 036366effb6d1494fa70b9a5e0f56f3e, type: 2}
