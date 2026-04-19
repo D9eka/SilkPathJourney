@@ -21,6 +21,7 @@ namespace Internal.Scripts.Player
         public Vector3 CurrentPosition => _roadAgent?.CurrentPose.Position ?? Vector3.zero;
         public string CurrentFromNodeId => _roadAgent?.CurrentFromNodeId;
         public string CurrentToNodeId => _roadAgent?.CurrentToNodeId;
+        public float DistanceOnSegment => _roadAgent?.DistanceOnSegment ?? 0f;
 
         public event Action<string> OnCurrentNodeChanged;
         public event Action<string> OnDestinationChanged;

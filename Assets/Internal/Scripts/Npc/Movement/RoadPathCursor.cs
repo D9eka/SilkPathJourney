@@ -38,6 +38,7 @@ namespace Internal.Scripts.Npc.Movement
         public RoadPose CurrentPose => _segmentMover.CurrentPose;
         public string CurrentFromNodeId => _segmentMover.CurrentFromNodeId;
         public string CurrentToNodeId => _segmentMover.CurrentToNodeId;
+        public float DistanceOnSegment => _segmentMover.DistanceOnSegment;
 
         public void Initialize(string currentNodeId)
         {
