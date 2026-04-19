@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Internal.Scripts.Economy;
@@ -24,6 +25,10 @@ namespace Internal.Scripts.Events
         private readonly ICityNodeResolver _cityNodeResolver;
         private readonly IPlayerStateProvider _playerState;
 
+        private readonly Queue<string> _recentEventIds = new();
+        private const int RECENT_HISTORY_SIZE = 5;
+        private const int MIN_AVAILABLE_CHOICES = 2;
+
         public EventSelector(
             EventDatabase eventDatabase,
             ConditionEvaluator conditionEvaluator,
@@ -40,28 +45,31 @@ namespace Internal.Scripts.Events
             _playerState = playerState;
         }
 
-        public EventData SelectEvent(bool minor)
+        public List<EventData> GetEligibleEvents(bool minor, Predicate<EventData> filter = null)
         {
-            if (_eventDatabase == null || _eventDatabase.Events == null || _eventDatabase.Events.Count == 0)
-                return null;
+            if (_eventDatabase?.Events == null) return new List<EventData>();
 
             Biome currentBiome = _cityNodeResolver.ResolveRoadBiome(
                 _playerState.CurrentFromNodeId, _playerState.CurrentToNodeId);
 
-            List<EventData> eligible = new();
-            float totalWeight = 0f;
-
+            var eligible = new List<EventData>();
             foreach (var evt in _eventDatabase.Events)
             {
-                if (!IsEligible(evt, minor, currentBiome))
-                    continue;
-
-                eligible.Add(evt);
-                totalWeight += evt.Weight;
+                if (IsEligible(evt, minor, currentBiome, filter))
+                    eligible.Add(evt);
             }
+            return eligible;
+        }
 
+        public EventData SelectEvent(bool minor, Predicate<EventData> filter = null)
+        {
+            var eligible = GetEligibleEvents(minor, filter);
             if (eligible.Count == 0)
                 return null;
+
+            float totalWeight = 0f;
+            foreach (var evt in eligible)
+                totalWeight += evt.Weight;
 
             float roll = Random.Range(0f, totalWeight);
             float cumulative = 0f;
@@ -75,7 +83,7 @@ namespace Internal.Scripts.Events
             return eligible[eligible.Count - 1];
         }
 
-        private bool IsEligible(EventData evt, bool minor, Biome currentBiome)
+        private bool IsEligible(EventData evt, bool minor, Biome currentBiome, Predicate<EventData> filter = null)
         {
 #if UNITY_EDITOR
             if (!string.IsNullOrEmpty(DebugEventPrefix) && !evt.Id.StartsWith(DebugEventPrefix))
@@ -86,8 +94,18 @@ namespace Internal.Scripts.Events
             Biome eventBiome = evt.Biome;
             if (eventBiome != Biome.Unknown && eventBiome != currentBiome) return false;
             if (!CheckConditions(evt.Conditions)) return false;
+            if (filter != null && !filter(evt)) return false;
+            if (_recentEventIds.Contains(evt.Id)) return false;
             if (!HasAvailableChoices(evt)) return false;
             return true;
+        }
+
+        public void RegisterRecentEvent(string eventId)
+        {
+            if (string.IsNullOrEmpty(eventId)) return;
+            _recentEventIds.Enqueue(eventId);
+            while (_recentEventIds.Count > RECENT_HISTORY_SIZE)
+                _recentEventIds.Dequeue();
         }
 
         public List<EventChoice> GetAvailableChoices(EventData eventData)
@@ -102,7 +120,7 @@ namespace Internal.Scripts.Events
 
         public bool HasAvailableChoices(EventData eventData)
         {
-            if (eventData?.Choices == null || eventData.Choices.Count < 2)
+            if (eventData?.Choices == null || eventData.Choices.Count < MIN_AVAILABLE_CHOICES)
                 return false;
             int available = 0;
             foreach (var c in eventData.Choices)
@@ -110,7 +128,7 @@ namespace Internal.Scripts.Events
                 if ((c.Conditions == null || c.Conditions.Count == 0 || CheckConditions(c.Conditions))
                     && _outcomeApplier.CanAffordAll(c.Outcomes))
                 {
-                    if (++available >= 2) return true;
+                    if (++available >= MIN_AVAILABLE_CHOICES) return true;
                 }
             }
             return false;
