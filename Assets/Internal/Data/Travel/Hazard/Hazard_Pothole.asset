@@ -40,4 +40,13 @@ MonoBehaviour:
     RefIds:
     - rid: 5481561599466799178
       type: {class: ClickInputConfig, ns: Internal.Scripts.Travel.Hazards.Input, asm: Assembly-CSharp}
-      data: 
+      data:
+        <Hint>k__BackingField:
+          m_TableReference:
+            m_TableCollectionName: GUID:b2e541a37c4586c4f92b1d797521ddc1
+          m_TableEntryReference:
+            m_KeyId: 23055637800804357
+            m_Key:
+          m_FallbackState: 0
+          m_WaitForCompletion: 0
+          m_LocalVariables: []
