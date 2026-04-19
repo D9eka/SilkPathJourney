@@ -20,6 +20,7 @@ using Internal.Scripts.UI.Screens.Workshop;
 using Internal.Scripts.UI.Screens.Guild;
 using Internal.Scripts.UI.Screens.CityEntryConfirm;
 using Internal.Scripts.UI.Screens.Camp;
+using Internal.Scripts.UI.Screens.HazardQte;
 using Plugins.Zenject.Source.Main;
 
 namespace Internal.Scripts.UI.Factory
@@ -57,6 +58,7 @@ namespace Internal.Scripts.UI.Factory
                 ScreenId.Guild => CreateGuild(view),
                 ScreenId.CityEntryConfirm => CreateCityEntryConfirm(view),
                 ScreenId.Camp => CreateCamp(view),
+                ScreenId.HazardQte => CreateHazardQte(view),
                 _ => null
             };
         }
@@ -219,6 +221,14 @@ namespace Internal.Scripts.UI.Factory
                 return null;
 
             return _container.Instantiate<CampScreenViewModel>();
+        }
+
+        private ScreenViewModelBase CreateHazardQte(IScreenView view)
+        {
+            if (view is not HazardQteScreen)
+                return null;
+
+            return _container.Instantiate<HazardQteViewModel>();
         }
     }
 }

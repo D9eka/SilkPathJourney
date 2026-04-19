@@ -11,6 +11,7 @@ using Internal.Scripts.UI.Screens.Core.Config;
 using Internal.Scripts.UI.Screens.Core.ViewModel;
 using Internal.Scripts.UI.Screens.Shared;
 using Internal.Scripts.UI.Theme;
+using Internal.Scripts.UI.Utils;
 using R3;
 using UnityEngine.Localization;
 
@@ -141,8 +142,8 @@ namespace Internal.Scripts.UI.Screens.Caravansary
             }
             else
             {
-                string speedMod = FormatSignedPercent(animal.SpeedModPct);
-                string capMod = FormatSignedPercent(animal.CapacityModPct);
+                string speedMod = NumberFormatter.SignedPercent(animal.SpeedModPct);
+                string capMod = NumberFormatter.SignedPercent(animal.CapacityModPct);
                 string combined = LocalizationService.Resolve(LocUI.Table, LocUI.UI_Caravan_AnimalEffect_Base, null, speedMod, capMod);
                 effectText = LocalizationService.Resolve(LocUI.Table, LocUI.UI_Global_CurrentEffect, null, combined);
             }
@@ -202,9 +203,5 @@ namespace Internal.Scripts.UI.Screens.Caravansary
             return map;
         }
 
-        private static string FormatSignedPercent(float value)
-        {
-            return value >= 0 ? $"+{value:F0}%" : $"{value:F0}%";
-        }
     }
 }

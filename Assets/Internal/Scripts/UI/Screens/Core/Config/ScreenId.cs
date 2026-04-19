@@ -23,5 +23,6 @@ namespace Internal.Scripts.UI.Screens.Core.Config
         CityEntryConfirm = 18,
         Guild = 19,
         Camp = 20,
+        HazardQte = 21
     }
 }

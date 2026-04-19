@@ -13,6 +13,7 @@ using Internal.Scripts.Npc.Names;
 using Internal.Scripts.Player;
 using Internal.Scripts.Quests.Data;
 using Internal.Scripts.Save;
+using Internal.Scripts.Travel.Hazards;
 using Internal.Scripts.Travel.Pickups;
 using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Localization;
@@ -74,6 +75,10 @@ namespace Internal.Scripts.Installers
         [Header("Pickups")]
         [SerializeField] private PickupDatabase _pickupDatabase;
 
+        [Header("Hazards")]
+        [SerializeField] private HazardDatabase _hazardDatabase;
+        [SerializeField] private QteMinigameCatalog _qteMinigameCatalog;
+
         public override void InstallBindings()
         {
             Application.SetStackTraceLogType(LogType.Log, StackTraceLogType.None);
@@ -98,6 +103,9 @@ namespace Internal.Scripts.Installers
             Container.BindInstance(_gameBalanceConfig).AsSingle();
             Container.BindInstance(_timeSpeedConfig).AsSingle();
             Container.BindInstance(_caravanSpeedConfig).AsSingle();
+            Container.BindInstance(_pickupDatabase).AsSingle();
+            Container.BindInstance(_hazardDatabase).AsSingle();
+            Container.BindInstance(_qteMinigameCatalog).AsSingle();
 
             Container.Bind<ISaveService>().To<JsonSaveService>().AsSingle();
             Container.Bind<ActiveSaveSlot>().AsSingle();

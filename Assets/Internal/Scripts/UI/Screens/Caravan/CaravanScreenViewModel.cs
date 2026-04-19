@@ -15,6 +15,7 @@ using Internal.Scripts.UI.Localization.Generated;
 using Internal.Scripts.UI.Screens.Core.Config;
 using Internal.Scripts.UI.Screens.Core.ViewModel;
 using Internal.Scripts.UI.Theme;
+using Internal.Scripts.UI.Utils;
 using R3;
 using UnityEngine;
 using UnityEngine.Localization;
@@ -263,8 +264,8 @@ namespace Internal.Scripts.UI.Screens.Caravan
             string animalEffect;
             if (animal != null && (animal.SpeedModPct != 0 || animal.CapacityModPct != 0))
             {
-                string speedMod = FormatSignedPercent(animal.SpeedModPct);
-                string capMod = FormatSignedPercent(animal.CapacityModPct);
+                string speedMod = NumberFormatter.SignedPercent(animal.SpeedModPct);
+                string capMod = NumberFormatter.SignedPercent(animal.CapacityModPct);
                 animalEffect = LocalizationService.Resolve(LocUI.Table, LocUI.UI_Caravan_AnimalEffect_Base, null, speedMod, capMod);
             }
             else
@@ -358,11 +359,6 @@ namespace Internal.Scripts.UI.Screens.Caravan
             }
 
             return list;
-        }
-
-        private static string FormatSignedPercent(float value)
-        {
-            return value >= 0 ? $"+{value:F0}%" : $"{value:F0}%";
         }
 
         private static string ResolveLanguageName(LanguageType lang)

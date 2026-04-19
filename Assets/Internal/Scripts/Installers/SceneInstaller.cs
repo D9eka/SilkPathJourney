@@ -58,6 +58,7 @@ using Internal.Scripts.UI.Screens.Hud;
 using Internal.Scripts.UI.StackService;
 using Internal.Scripts.UI.Theme;
 using Internal.Scripts.Camp;
+using Internal.Scripts.Travel.Hazards;
 using Internal.Scripts.Travel.Pickups;
 using Internal.Scripts.UI.Screens.Caravansary.Services;
 using Internal.Scripts.UI.Screens.Shared;
@@ -114,6 +115,7 @@ namespace Internal.Scripts.Installers
             InstallQuests();
             InstallCamp();
             InstallPickups();
+            InstallHazards();
             InstallPathVisualization();
 
             Container.BindInterfacesTo<AutoSaveController>().AsSingle();
@@ -370,6 +372,13 @@ namespace Internal.Scripts.Installers
         {
             Container.BindInterfacesAndSelfTo<PickupCollector>().AsSingle();
             Container.BindInterfacesTo<PickupSpawner>().AsSingle();
+        }
+
+        private void InstallHazards()
+        {
+            Container.Bind<HazardSelector>().AsSingle();
+            Container.Bind<HazardController>().AsSingle();
+            Container.BindInterfacesAndSelfTo<HazardTrigger>().AsSingle();
         }
 
         private void InstallCamp()
