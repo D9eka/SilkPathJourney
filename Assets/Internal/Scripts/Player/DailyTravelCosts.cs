@@ -1,4 +1,5 @@
 using System;
+using Internal.Scripts.Camp;
 using Internal.Scripts.Caravan;
 using Internal.Scripts.Config;
 using Internal.Scripts.Economy;
@@ -30,6 +31,8 @@ namespace Internal.Scripts.Player
         private readonly CurrentRoadResolver _roadResolver;
         private readonly ICityNodeResolver _cityResolver;
         private readonly IPlayerStateProvider _playerState;
+        private readonly CampActionService _campActionService;
+        private readonly CampActionDatabase _campActionDatabase;
 
         public DailyTravelCosts(
             DayTracker dayTracker,
@@ -44,7 +47,9 @@ namespace Internal.Scripts.Player
             ModifierEffectQuery modifierQuery,
             CurrentRoadResolver roadResolver,
             ICityNodeResolver cityResolver,
-            IPlayerStateProvider playerState)
+            IPlayerStateProvider playerState,
+            CampActionService campActionService,
+            CampActionDatabase campActionDatabase)
         {
             _dayTracker = dayTracker;
             _speedService = speedService;
@@ -59,6 +64,8 @@ namespace Internal.Scripts.Player
             _roadResolver = roadResolver;
             _cityResolver = cityResolver;
             _playerState = playerState;
+            _campActionService = campActionService;
+            _campActionDatabase = campActionDatabase;
         }
 
         public void Activate()
@@ -85,12 +92,14 @@ namespace Internal.Scripts.Player
             if (!string.IsNullOrEmpty(nodeId) && _cityResolver.TryGetCityByNodeId(nodeId, out CityData city))
                 dangerMult *= _modifierQuery.GetCityDangerMultiplier(city.Id);
 
+            bool skipFood = ResolveSkipFoodConsumption();
             int suppliesToConsume = 0;
 
             _resourceRepo.UpdateResources(state =>
             {
                 ApplyDurabilityWear(state, modeData, overloadWear);
-                suppliesToConsume = AccumulateFoodConsumption(state, modeData, overloadFood, suppliesMult);
+                if (!skipFood)
+                    suppliesToConsume = AccumulateFoodConsumption(state, modeData, overloadFood, suppliesMult);
                 ApplyDangerIncrease(state, modeData, dangerMult);
                 _companionCosts.ProcessDailyPay(state);
                 ApplyRepairKitUpgrade(state);
@@ -101,6 +110,14 @@ namespace Internal.Scripts.Player
                 _inventoryRepository.UpdatePlayerInventory(inv =>
                     InventoryStateMutator.RemoveItems(inv, SuppliesItemId.Value, suppliesToConsume));
             }
+        }
+
+        private bool ResolveSkipFoodConsumption()
+        {
+            CampActionType? action = _campActionService.CurrentAction;
+            if (!action.HasValue) return false;
+            var data = _campActionDatabase.GetAction(action.Value);
+            return data != null && data.SkipDailyFoodConsumption;
         }
 
         private void ApplyDurabilityWear(PlayerResourceState state, SpeedModeData data, float overloadMod)
