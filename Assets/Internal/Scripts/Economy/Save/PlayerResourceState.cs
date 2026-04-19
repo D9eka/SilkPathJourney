@@ -14,6 +14,8 @@ namespace Internal.Scripts.Economy.Save
         public const int MAX_COMPANION_LIMIT = 3;
         public const float MORALE_MIN = 0f;
         public const float MORALE_MAX = 100f;
+        public const int REPUTATION_MIN = 0;
+        public const int REPUTATION_MAX = 100;
 
         public int Money;
         public float Food = 50f;
