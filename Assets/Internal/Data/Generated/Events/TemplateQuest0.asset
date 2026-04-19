@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: TemplateQuest0
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
   <Id>k__BackingField: template_quest_0
+  <Category>k__BackingField: 7
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Events

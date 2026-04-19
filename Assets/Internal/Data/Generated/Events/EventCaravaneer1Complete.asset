@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: EventCaravaneer1Complete
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
   <Id>k__BackingField: event_caravaneer1_complete
+  <Category>k__BackingField: 29
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Events

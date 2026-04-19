@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: CrisisUnrest
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
   <Id>k__BackingField: crisis_unrest
+  <Category>k__BackingField: 11
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Events

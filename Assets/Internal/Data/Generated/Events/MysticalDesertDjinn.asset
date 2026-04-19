@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: MysticalDesertDjinn
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
   <Id>k__BackingField: mystical_desert_djinn
+  <Category>k__BackingField: 21
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Events

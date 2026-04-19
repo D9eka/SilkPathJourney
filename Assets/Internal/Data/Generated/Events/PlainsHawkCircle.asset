@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: PlainsHawkCircle
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
   <Id>k__BackingField: plains_hawk_circle
+  <Category>k__BackingField: 28
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Events

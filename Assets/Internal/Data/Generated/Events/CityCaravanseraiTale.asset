@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: CityCaravanseraiTale
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
   <Id>k__BackingField: city_caravanserai_tale
+  <Category>k__BackingField: 5
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Events

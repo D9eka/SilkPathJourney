@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: CoastRustSalt
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
   <Id>k__BackingField: coast_rust_salt
+  <Category>k__BackingField: 26
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Events

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: RoadQuestRNUrumqiNKucha
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
   <Id>k__BackingField: road_quest_R_N_Urumqi__N_Kucha
+  <Category>k__BackingField: 29
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Events

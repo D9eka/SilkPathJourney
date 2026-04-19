@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: CampPlainsHunt
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
   <Id>k__BackingField: camp_plains_hunt
+  <Category>k__BackingField: 13
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Events
@@ -130,7 +131,7 @@ MonoBehaviour:
       <Param>k__BackingField: dried_meat
       <Value>k__BackingField: 1
   <IsMinor>k__BackingField: 0
-  <Biome>k__BackingField: 0
+  <Biome>k__BackingField: 1
   <AutoOutcomes>k__BackingField: []
   <SkillChecks>k__BackingField:
   - <ChoiceIndex>k__BackingField: 2

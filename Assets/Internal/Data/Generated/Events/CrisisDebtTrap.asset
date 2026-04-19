@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: CrisisDebtTrap
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
   <Id>k__BackingField: crisis_debt_trap
+  <Category>k__BackingField: 9
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Events

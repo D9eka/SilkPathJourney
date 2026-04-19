@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: ScholarEncounter
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
   <Id>k__BackingField: scholar_encounter
+  <Category>k__BackingField: 5
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Events

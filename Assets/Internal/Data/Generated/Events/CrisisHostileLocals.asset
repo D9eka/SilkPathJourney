@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: CrisisHostileLocals
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
   <Id>k__BackingField: crisis_hostile_locals
+  <Category>k__BackingField: 9
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Events

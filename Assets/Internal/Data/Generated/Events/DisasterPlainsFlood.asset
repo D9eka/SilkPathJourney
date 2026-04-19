@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: DisasterPlainsFlood
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
   <Id>k__BackingField: disaster_plains_flood
+  <Category>k__BackingField: 3
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Events

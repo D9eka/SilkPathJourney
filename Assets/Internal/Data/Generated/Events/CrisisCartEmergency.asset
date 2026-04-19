@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: CrisisCartEmergency
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
   <Id>k__BackingField: crisis_cart_emergency
+  <Category>k__BackingField: 12
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Events

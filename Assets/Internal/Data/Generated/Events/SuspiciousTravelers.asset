@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: SuspiciousTravelers
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
   <Id>k__BackingField: suspicious_travelers
+  <Category>k__BackingField: 1
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Events

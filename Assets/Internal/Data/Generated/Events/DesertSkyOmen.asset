@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: DesertSkyOmen
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
   <Id>k__BackingField: desert_sky_omen
+  <Category>k__BackingField: 21
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Events

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: LangPlainsSogdianMerchant
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
   <Id>k__BackingField: lang_plains_sogdian_merchant
+  <Category>k__BackingField: 19
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Events
