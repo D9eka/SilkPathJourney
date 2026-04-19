@@ -21,7 +21,6 @@ namespace Internal.Scripts.Camp
         [field: SerializeField] public CampActionType Type { get; private set; }
         [field: SerializeField] public float CostSupplies { get; private set; }
         [field: SerializeField] public EventOutcomeType AffectedResource { get; private set; }
-        [field: SerializeField] public float BaseEffect { get; private set; }
 
         [Header("Skill")]
         [field: SerializeField] public SkillType RelatedSkill { get; private set; } = SkillType.None;
@@ -31,6 +30,10 @@ namespace Internal.Scripts.Camp
         [field: SerializeField] public int MaxRepeatPerSegment { get; private set; }
         [Tooltip("Multiplier per repeat index. Out-of-range repeats clamp to last entry. Empty = no diminishing.")]
         [field: SerializeField] public float[] DiminishingCurve { get; private set; } = Array.Empty<float>();
+
+        [Header("Daily Costs")]
+        [Tooltip("Если true — DailyTravelCosts пропустит дневной расход еды в день этого действия.")]
+        [field: SerializeField] public bool SkipDailyFoodConsumption { get; private set; }
 
         [Header("Repeat Side Effects")]
         [field: SerializeField] public List<RepeatSideEffect> SideEffects { get; private set; } = new();

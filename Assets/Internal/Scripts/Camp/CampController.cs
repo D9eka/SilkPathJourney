@@ -1,6 +1,7 @@
 using System;
 using Internal.Scripts.Events;
 using Internal.Scripts.Events.Data;
+using Internal.Scripts.Events.Generated;
 using Internal.Scripts.Player;
 using Internal.Scripts.UI.Screens.Core.Config;
 using Internal.Scripts.UI.StackService;
@@ -36,11 +37,13 @@ namespace Internal.Scripts.Camp
         public void Initialize()
         {
             _playerStateEvents.OnCurrentNodeChanged += HandleNodeChanged;
+            _eventTrigger.OnEventClosed += HandleEventClosed;
         }
 
         public void Dispose()
         {
             _playerStateEvents.OnCurrentNodeChanged -= HandleNodeChanged;
+            _eventTrigger.OnEventClosed -= HandleEventClosed;
         }
 
         public bool ExecuteActionAndAdvance(CampActionType type)
@@ -49,31 +52,36 @@ namespace Internal.Scripts.Camp
             if (!success)
                 return false;
 
-            var sideEffect = _campActionService.GetSideEffectForRepeat(type);
-            if (sideEffect.HasValue && sideEffect.Value.EventChance > 0)
+            bool opened = TryTriggerCampEvent(type);
+            if (!opened)
             {
-                if (UnityEngine.Random.value < sideEffect.Value.EventChance)
-                    TryTriggerCampEvent();
+                _dayTracker.AdvanceDays(1);
+                _campActionService.ClearCurrentAction();
             }
-            else
-            {
-                TryTriggerCampEvent();
-            }
-
-            _dayTracker.AdvanceDays(1);
             return true;
         }
 
-        private void TryTriggerCampEvent()
+        private bool TryTriggerCampEvent(CampActionType actionType)
         {
-            if (_screenStackService.IsOpen(ScreenId.Event))
-                return;
+            if (_screenStackService.IsOpen(ScreenId.Event)) return false;
 
-            EventData eventData = _eventSelector.SelectEvent(minor: false);
-            if (eventData == null)
-                return;
+            EventData eventData = _eventSelector.SelectEvent(
+                minor: false,
+                filter: evt => CampEventOutcomeScaler.ParseCampAction(evt) == actionType
+                             || evt.Category == EventCategory.CampAny);
 
-            _eventTrigger.TriggerEvent(eventData);
+            if (eventData == null) return false;
+
+            return _eventTrigger.TriggerEvent(eventData);
+        }
+
+        private void HandleEventClosed()
+        {
+            if (_campActionService.CurrentAction.HasValue)
+            {
+                _dayTracker.AdvanceDays(1);
+                _campActionService.ClearCurrentAction();
+            }
         }
 
         private void HandleNodeChanged(string nodeId) => _campActionService.OnSegmentChanged();
