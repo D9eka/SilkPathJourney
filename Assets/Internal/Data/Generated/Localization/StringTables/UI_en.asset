@@ -1218,6 +1218,10 @@ MonoBehaviour:
     m_Localized: Trade
     m_Metadata:
       m_Items: []
+  - m_Id: 25634713195503619
+    m_Localized: Camp
+    m_Metadata:
+      m_Items: []
   - m_Id: 24175509310005248
     m_Localized: Forage
     m_Metadata:
@@ -1304,6 +1308,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 24553238349996042
     m_Localized: People refuse to obey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24553238349996043
+    m_Localized: Event risk
     m_Metadata:
       m_Items: []
   - m_Id: 25634713153560576

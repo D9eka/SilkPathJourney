@@ -13478,6 +13478,1759 @@ MonoBehaviour:
     m_Localized: Defeat!
     m_Metadata:
       m_Items: []
+  - m_Id: 25356240325435392
+    m_Localized: Snares on the Steppe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378432
+    m_Localized: "Dew still clings to the tall grass when one of the drivers returns
+      from checking the night snares. Two hares hang from his belt \u2014 russet
+      fur, long ears. He explains he set the traps at dusk while the others slept.
+      There is meat, but the rest of the men are sullen \u2014 the work was done
+      alone, without a word."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378433
+    m_Localized: Praise him and divide the meat equally
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378434
+    m_Localized: You praised his initiative before the group and personally divided
+      the carcasses into equal shares. The resentment dissolved in the pot's steam.
+      Meat in the belly, respect in their eyes.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378435
+    m_Localized: Set snares together for the next night
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378436
+    m_Localized: By evening the drivers were fashioning loops together from rope
+      and horsehair. The work went faster, the catch was better. One man knew the
+      technique; the others knew new ground.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378437
+    m_Localized: "Arguments over who goes where lasted until dark. The snares were
+      set hastily, carelessly. By morning \u2014 nothing. But the quarrel was quite
+      real."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378438
+    m_Localized: Send the experienced tracker alone
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378439
+    m_Localized: The tracker worked quietly and fast. By midday he returned with
+      four hares and a brace of partridges. The camp is fed; the quarrel is forgotten.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378440
+    m_Localized: Berries by the Stream
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378441
+    m_Localized: "The guards found a thicket of blackthorn by a dry streambed \u2014
+      thorny bushes heavy with blue-black berries. Tart but juicy. One man is already
+      chewing, lips stained with juice. Another frowns: who knows what grows on the
+      steppe \u2014 best not to risk poisoning."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378442
+    m_Localized: "Gather the berries \u2014 every bit helps"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378443
+    m_Localized: "The baskets filled quickly \u2014 hands scratched by thorns, but
+      supplies are richer for it. The tart berries will stand in for vinegar when
+      curing meat. The drivers are satisfied."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378444
+    m_Localized: Have the guide confirm they are safe to eat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378445
+    m_Localized: "The guide crushed a berry, sniffed it, touched it to his tongue.
+      \"Blackthorn. Not poison, but too many will cramp your belly.\" They gathered
+      a modest amount \u2014 for a tonic brew, not for eating raw."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378446
+    m_Localized: The guide was unsure. They chanced it. By night several men were
+      clutching their stomachs, though everyone survived until morning. A lesson
+      for the future.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378447
+    m_Localized: "Pass them by \u2014 no time to waste"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378448
+    m_Localized: "You gave the order to move on. The guards cast one last glance
+      at the bushes and followed. Time saved, stomachs intact \u2014 and that too
+      is a choice."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378449
+    m_Localized: Shepherd Offers a Trade
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378450
+    m_Localized: "A lone shepherd appears from behind a rise \u2014 felt cap, apple-wood
+      staff, a dozen sheep at his heels. He approaches without haste, eyes the camels
+      with interest, then jabs a finger at one of the pack baskets and speaks a few
+      words. The interpreter translates: the shepherd will trade a lamb for a handful
+      of salt and a length of cloth."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378451
+    m_Localized: Accept the trade
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378452
+    m_Localized: "The lamb went to the cooks, the salt and cloth to the shepherd.
+      Both sides content. That evening the camp smells of roasting meat \u2014 a
+      rare luxury."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378453
+    m_Localized: "Bargain \u2014 the lamb is worth more"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378454
+    m_Localized: "You pointed to the quality of the salt and the fineness of the
+      cloth \u2014 a fair price. The shepherd considered, nodded, and threw in a
+      skin of kumiss. A good deal."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378455
+    m_Localized: The bargaining reached an impasse. The shepherd took offence, called
+      the lamb back, and walked away. No trade; spirits in camp fell.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378456
+    m_Localized: Buy the lamb outright for silver
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378457
+    m_Localized: A coin passed into the shepherd's calloused palm. He studied it
+      at length, then tucked it away. The lamb is yours. No haggling, no risk.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378458
+    m_Localized: Date Palm at the Oasis
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378459
+    m_Localized: "The midday heat is crushing when the scout waves from the dune
+      crest: an oasis ahead, and in it \u2014 palms heavy with clusters of dates.
+      The amber-reddish fruit hangs high, just beneath the frond plumes. The smell
+      is sweet, almost cloying. The local keeper of the oasis steps out to meet you
+      with a scowl."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378460
+    m_Localized: Ask the keeper's permission to harvest
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378461
+    m_Localized: "The keeper was silent a moment, then named a price \u2014 one copper
+      coin per basket. Fair. The dates were picked, the keeper paid, and you left
+      the oasis without dispute."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378462
+    m_Localized: Knock down dates without asking
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378463
+    m_Localized: The dates were gathered quickly. But the keeper raised a cry, and
+      by midday two armed kinsmen appeared on the trail. You paid triple and left
+      to mocking laughter.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378464
+    m_Localized: The attempt to gather dates secretly was spotted too quickly. The
+      confrontation was loud and costly. Your reputation in these parts has suffered.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378465
+    m_Localized: Offer goods in exchange
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378466
+    m_Localized: "You unrolled a length of Persian cloth before the keeper. He stroked
+      the fabric and smiled for the first time. Dates, well water, and a place to
+      sleep \u2014 all for one bolt. The best deal of the day."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378467
+    m_Localized: Fox at the Stores
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378468
+    m_Localized: "A commotion in the night: the guard shouts, the camels groan. A
+      desert fox has reached the bags of dried meat and torn one open. The tawny
+      animal crouches in the corner amid scattered stores, teeth bared but not fleeing
+      \u2014 too hungry to run."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378469
+    m_Localized: Chase the fox off and repair the bag
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378470
+    m_Localized: A few swings of the torch and the fox vanished into the dark. The
+      torn bag was stitched with a leather lace, the spilled meat gathered up. Losses
+      are modest; the night watch has been doubled.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378471
+    m_Localized: "Catch the fox \u2014 the pelt is useful"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378472
+    m_Localized: The hunters threw a net. The fox fought hard but was caught and
+      killed. The pelt will fetch a price; the meat goes to the drivers. Nothing
+      wasted.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378473
+    m_Localized: The fox slipped away, knocking over another bag. Two drivers were
+      bitten on the hands. A small thing, but the mood soured.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378474
+    m_Localized: "Leave the beast \u2014 do not anger the desert"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378475
+    m_Localized: 'The old driver shook his head: "The fox is a sign. Leave it be."
+      They tossed it a bone and drove it from the stores. Superstition or not, the
+      night passed quietly.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378476
+    m_Localized: Old Tracks in the Sand
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378477
+    m_Localized: "At dawn one of the drivers calls the others over: in the hardened
+      sand between the dunes \u2014 wheel ruts and hoofprints, half-buried. By the
+      depth, weeks ago \u2014 a month, perhaps more. The tracks lead away from the
+      known route. Where they go, no one knows."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378478
+    m_Localized: Follow the tracks a short distance
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378479
+    m_Localized: "Half an hour along, the tracks led to an abandoned camp: ash from
+      a fire, a broken wheel, no bones, no coins. But beside it \u2014 a buried jar
+      of oil, untouched."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378480
+    m_Localized: Record the direction of the tracks
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378481
+    m_Localized: 'You sketched the bearings onto a scrap of hide: the angle of the
+      tracks against the sun, the shape of the dune on the horizon. Knowledge of
+      hidden paths is a valuable commodity. It will be useful one day.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378482
+    m_Localized: "The sketch turned out confused \u2014 the sand looks the same everywhere.
+      It was concluded the tracks simply looped back to the road. An hour lost."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378483
+    m_Localized: "Ignore them \u2014 other men's tracks are not our concern"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378484
+    m_Localized: The drivers grumbled but agreed. The desert holds enough secrets
+      best left alone. You kept your pace and covered an extra eight li by evening.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378485
+    m_Localized: Pine Grove by the Trail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378486
+    m_Localized: "The trail opens onto a ledge overlooking thick pines \u2014 the
+      resin smell is so sharp it stings the nose. Snow lingers in patches between
+      the roots, but there is fuel here: standing deadwood, fallen branches. One
+      of the porters is already calculating how much can be carried without overloading
+      the mules."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378487
+    m_Localized: Cut firewood for the road ahead
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378488
+    m_Localized: The axes worked for an hour. Bundles of dry pine were lashed above
+      the loads. Three mountain camps are now guaranteed warmth. The mules are heavier,
+      but no one will freeze.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378489
+    m_Localized: Collect resin for repairs
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378490
+    m_Localized: Cuts in the bark, and amber resin ran slow as honey. By midday a
+      small pot was filled. The resin will stand in for tar on the harness and seal
+      the seams of the water bags.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378491
+    m_Localized: "The resin proved too watery \u2014 summer was long past. Time spent,
+      little gained. A pot of half-met hopes."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378492
+    m_Localized: Rest in the shade of the grove
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378493
+    m_Localized: The pines broke the mountain wind. The men stretched out on the
+      needle-carpet, the mules nibbled moss. Two hours of quiet and pine-scent restored
+      more strength than many a night fire.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378494
+    m_Localized: Mountain Goats on the Crags
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378495
+    m_Localized: "Above the trail, on a sheer scree, three ibex stand \u2014 bearded
+      faces looking down without fear. One of the Turkic guards whispers: the meat
+      is tough, but the fat is medicinal \u2014 local healers pay well for it. And
+      the hide makes sturdy mittens. Shooting upward at an angle is no easy task."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378496
+    m_Localized: Attempt a shot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378497
+    m_Localized: "The archer took a long aim. The arrow flew a touch wide \u2014
+      the ibex flinched and vanished over the crest. A miss, but the other two froze
+      and gave a second chance. The second shot found its mark."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378498
+    m_Localized: Flank and stalk closer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378499
+    m_Localized: "The tracker spent half an hour circling by the upper ledge. The
+      ibex heard him before he reached position. But one lingered at the edge \u2014
+      that was enough. Quarry in camp by evening."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378500
+    m_Localized: Loose stones shifted underfoot too soon. The ibex bounded up the
+      scree with astonishing ease. The hunt failed; an hour lost.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378501
+    m_Localized: Leave the ibex undisturbed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378502
+    m_Localized: 'One of the Buddhist guides quietly pressed his palms together:
+      to kill on the mountain is a bad omen before a pass. No one argued. The ibex
+      stood a while, then disappeared over the crest. The march continued.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378503
+    m_Localized: Ice Spring in the Rock
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378504
+    m_Localized: "From a crack in the grey rock springs water \u2014 clear, so cold
+      it locks the jaw. No smell at all, only cold. Beside it, ice curtains hang
+      in an overhang, and beneath them moss of emerald green. The drivers eye the
+      water bags: a day's supply remained, no more."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378505
+    m_Localized: Fill every water bag
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378506
+    m_Localized: "The work took an hour \u2014 the flow was thin. But every bag is
+      full. Three days' water supply lifted some of the dread before the high pass."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378507
+    m_Localized: Collect water and examine the rock
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378508
+    m_Localized: "While the men filled the bags, you examined the crack. Deep inside
+      \u2014 an overgrown channel: someone had dressed this stone long ago, perhaps
+      laid a pipe. You sketched the location \u2014 an old aqueduct higher in the
+      mountains might still hold."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378509
+    m_Localized: "The examination dragged on. Several bags went unfilled \u2014 the
+      others were pressing to move on. Less water taken than planned."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378510
+    m_Localized: Make camp beside the spring
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378511
+    m_Localized: "The spot was sheltered: rock at your back, water close, a clear
+      view of the trail. The night passed quietly. By morning the bags were filled
+      and the men had washed \u2014 a rarity in the mountains. The day began well."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378512
+    m_Localized: Yurt for the Night
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378513
+    m_Localized: "The smell of boiled millet and mutton fat drifts toward you before
+      the yurt appears from behind the hill. The felt walls are whitened; a bundle
+      of brushwood and children's footprints in the clay lie by the entrance. The
+      nomad host stands in the doorway watching your train \u2014 silent, neither
+      welcoming nor refusing."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378514
+    m_Localized: Ask to spend the night
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378515
+    m_Localized: "The host nodded and stepped aside. Inside \u2014 warmth, the smoke
+      of dung-fuel, a carpet underfoot. In the morning they fed you tea with dried
+      kurut. The men rested properly."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378516
+    m_Localized: Offer a gift for lodging
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378517
+    m_Localized: "A lump of sugar and a handful of raisins \u2014 the host accepted
+      them with dignity, unhurried. Children peered from behind the curtain. The
+      night passed in warmth, and in the morning the host showed you where to ford
+      the river."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378518
+    m_Localized: 'The gift seemed too meagre to the host. He politely pointed out
+      toward the steppe: no room in the yurt. You spent the night in the open.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378519
+    m_Localized: Make your own camp nearby
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378520
+    m_Localized: "You did not trouble the host. Tents were pitched a little apart,
+      near his pen. During the night the nomad himself brought a skin of warm kumiss
+      \u2014 set it silently by the fire and left. Steppe courtesy in action."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378521
+    m_Localized: Shepherd's Song at Sunset
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378522
+    m_Localized: "The sun touches the horizon, turning the grass to copper, when
+      a voice carries from the neighbouring hill. A shepherd sings \u2014 drawn out,
+      on one pitch, then rising and falling. The words are impossible to make out,
+      but the camp has gone quiet. Even the camels prick their ears."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378523
+    m_Localized: " \u043D\u0435 \u043C\u0435\u0448\u0430\u044F"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378524
+    m_Localized: The song lasted until full dark. The men sat by the fire, thoughtful.
+      Homesickness is a familiar thing on the road. Tomorrow they will walk more
+      freely.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378525
+    m_Localized: Answer with a song of your own
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378526
+    m_Localized: "One of the Sogdian drivers struck up a trader's song \u2014 of
+      the bazaar in Merv and a deal well made. The shepherd on the hill fell silent,
+      listened, then laughed and sang again. Two foreign voices called back and forth
+      across the steppe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378527
+    m_Localized: No one wanted to sing. An attempt to start something yourself turned
+      awkward. The shepherd went quiet early. The evening did not come together.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378528
+    m_Localized: Invite the shepherd to your fire
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378529
+    m_Localized: The shepherd hesitated, then came down. He accepted a bowl of broth
+      and told you where good water lay two days ahead. Mutual courtesy is the best
+      currency of the steppe.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572736
+    m_Localized: Night Rain on the Steppe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572737
+    m_Localized: "Rain came without warning \u2014 sharp, warm, smelling of dust
+      and wormwood. Water drums on the tent hides; streams run between the bales.
+      Part of the cargo is uncovered. The drivers scrambled to their feet at the
+      alarm, but in the dark it is hard to tell what is soaking and what is sheltered."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572738
+    m_Localized: Cover the cargo at once
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572739
+    m_Localized: 'Everyone rushed to the bales. Soaked to the skin, but the silk
+      and spices stayed dry. By morning the count was made: nothing serious. The
+      men were tired but pleased with themselves.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572740
+    m_Localized: " \u0447\u0442\u043E \u0432\u0430\u0436\u043D\u0435\u0435 \u0432\u0441\u0435\u0433\u043E"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572741
+    m_Localized: You directed the men to the most valuable bales. The silk was saved.
+      The salt meat got wet but will dry. Right priorities preserved the profit.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572742
+    m_Localized: In the confusion the bales got mixed up. The spices got wet while
+      men fumbled with grain sacks. The losses are small but stinging.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572743
+    m_Localized: Collect the rainwater for later
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572744
+    m_Localized: While some covered the cargo, others held pots and bags under the
+      runoff from the awning. By morning they had collected an extra day's water
+      supply. The rain turned out to be a gift.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572745
+    m_Localized: The Desert's Cool Night
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572746
+    m_Localized: "After the day's furnace heat, the night strikes cold without warning.
+      Stars large and bluish, the sky bottomless \u2014 nothing like this is visible
+      in cities. The fire burns low: little wood, camel dung giving more smoke than
+      warmth. Some drivers crowd closer, wrapped in their blankets."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572747
+    m_Localized: " \u0431\u0435\u0440\u0435\u0447\u044C \u0442\u0435\u043F\u043B\u043E"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572748
+    m_Localized: The men lay in a circle, back to back. Cramped, but warm. By morning
+      no one had frozen. In the desert, those who do not mind closeness survive.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572749
+    m_Localized: Issue extra cloaks from the cargo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572750
+    m_Localized: "You opened a bale of woollen cloaks \u2014 Persian work, bound
+      for sale. Several were issued to the drivers. The night passed in warmth. The
+      cloaks sold for slightly less afterwards, but the men are well."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572751
+    m_Localized: The bale was difficult to open, and there were fewer cloaks than
+      expected. Some men went without. By morning two were unwell.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572752
+    m_Localized: "Set extra watch \u2014 the cold will keep men awake anyway"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572753
+    m_Localized: "Four men went on watch; the rest wrapped up. The night passed quietly
+      \u2014 no strangers about. The sentries returned at dawn, stiff with cold,
+      but the camp was safe."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572754
+    m_Localized: Prayer Beneath the Stars
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572755
+    m_Localized: "The night is clear. Two Persian guards unroll their prayer mats
+      on the sand and face toward Mecca. Their voices are quiet and steady, the Arabic
+      words drifting over the camp. The rest have fallen silent \u2014 some from
+      respect, some from curiosity."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572756
+    m_Localized: Wait respectfully at a distance
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572757
+    m_Localized: "The prayer was brief. When the Persians rose, one gave you a short
+      nod \u2014 wordless thanks. Respect for another man's god costs nothing and
+      is valued greatly."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572758
+    m_Localized: Ask about the meaning of the prayer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572759
+    m_Localized: 'After the salat one of the Persians was glad to explain: five pillars,
+      the daily rhythm, the bond with the faithful community stretching from Samarkand
+      to Arabia. The conversation ran past midnight. Knowledge is a bridge between
+      peoples.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572760
+    m_Localized: "The question came out clumsy \u2014 the Persian thought you were
+      mocking him. He explained nothing. A chill between you until morning."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572761
+    m_Localized: Offer your own prayer alongside theirs
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572762
+    m_Localized: "You lit a small oil lamp \u2014 your own rite, your own tradition.
+      The Persians were not surprised. In the desert every man speaks to the sky
+      in his own tongue, and the sky hears all."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572763
+    m_Localized: Legend by the Night Fire
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572764
+    m_Localized: "Smoke lies low over the ground \u2014 the dung burns slowly, without
+      leaping flames. The old Persian driver takes out a pipe and begins to talk:
+      of a cursed city under the sand, of a jinn that guards the gold there, of a
+      merchant who found the entrance and never returned. His voice is even, as though
+      speaking of the weather."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572765
+    m_Localized: " \u043D\u0435 \u043F\u0435\u0440\u0435\u0431\u0438\u0432\u0430\u044F"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572766
+    m_Localized: "The tale lasted an hour. At the end the old man went quiet, knocked
+      his pipe against a stone, and lay down to sleep without explanation. Sleep
+      that night came strangely \u2014 with golden light from beneath the ground."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572767
+    m_Localized: Ask where this city lies
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572768
+    m_Localized: "The old man squinted. \"East of Khwarezm, where the dunes are red.\"
+      He said no more. You made a mental note of the place \u2014 just in case."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572769
+    m_Localized: Questions met a wall of silence. "Those who seek find more than
+      they wished." He did not speak again.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572770
+    m_Localized: Share a story in return
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572771
+    m_Localized: "You told of a mountain river crossing \u2014 how the water rose
+      overnight and you had to lash a raft from the bales. The old man listened in
+      silence, then nodded: \"Good road.\" That is the highest compliment from a
+      desert man."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572772
+    m_Localized: Cup of Tea at the Pass
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572773
+    m_Localized: "The wind on the pass cuts at the cheeks. The Bactrian guide unpacks
+      a small bag, takes out a brick of pressed tea and a copper kettle. Water from
+      a pool of snowmelt comes slowly to the boil \u2014 the altitude is great. Steam
+      from the cup smells of smoke and something bitter. Men reach toward the warmth."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572774
+    m_Localized: Give everyone a cup
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572775
+    m_Localized: "The brick served everyone \u2014 one cup each, strong and hot.
+      The men moved with more life. The pass was taken an hour faster than expected."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572776
+    m_Localized: " \u0434\u0430\u0442\u044C \u0442\u043E\u043B\u044C\u043A\u043E
+      \u0443\u0441\u0442\u0430\u0432\u0448\u0438\u043C"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572777
+    m_Localized: "You picked out the four who were swaying as they walked. The hot
+      infusion put them back on their feet quickly. Supplies conserved \u2014 there
+      are more days in the mountains ahead."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572778
+    m_Localized: The choice caused offence. Those left out grumbled until evening.
+      The tea strengthened the body but not the spirit.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572779
+    m_Localized: Give the tea to the guide as payment
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572780
+    m_Localized: The guide accepted the brick with a bow. In return he led you by
+      a bypass trail where the wind was weaker and the slope more gentle. Saving
+      effort is worth more than a cup of tea.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572781
+    m_Localized: Monk at the Rest Stop
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572782
+    m_Localized: "On a flat stone beside the trail sits a Buddhist monk \u2014 orange
+      robe, shaved head, turning prayer beads without looking. He neither begs nor
+      intrudes. He simply sits. A young driver wants to speak to him; the others
+      hush the boy."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572783
+    m_Localized: Leave the monk undisturbed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572784
+    m_Localized: You led the whole train past quietly. The monk did not raise his
+      eyes. When you looked back from the bend, he was gone. Mountains know how to
+      keep their silence.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572785
+    m_Localized: Offer the monk a gift
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572786
+    m_Localized: The young driver placed a flatbread and a handful of nuts before
+      the monk. The monk opened his eyes, pressed his palms briefly together, and
+      closed them again. Gratitude is a gesture, not a word. The young man was pleased
+      all day.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572787
+    m_Localized: An attempt to address the monk caused him to rise and walk up the
+      trail without looking back. No conversation was had.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572788
+    m_Localized: Ask about the mountain road
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572789
+    m_Localized: "The monk slowly opened his eyes and said in Turkic: \"Three days
+      ahead to the monastery. You can wait out the snow there.\" Nothing more. Three
+      days \u2014 valuable knowledge."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572790
+    m_Localized: Waiting Out the Blizzard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572791
+    m_Localized: "The blizzard struck in the morning \u2014 wind driving snow horizontally,
+      the trail gone. Visibility: five paces. The mules refuse to move, and they
+      are right. You can shelter behind a rock spur, but supplies are not endless,
+      and men already have questions in their eyes."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572792
+    m_Localized: Take shelter and wait for the storm to end
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572793
+    m_Localized: Tents were pitched tight against the rock. Nearly a day and a half
+      passed. The storm relented by the following morning. A day lost, but everyone
+      alive and the cargo intact.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572794
+    m_Localized: Send a scout to find better shelter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572795
+    m_Localized: "The scout went into the blizzard and returned within the hour:
+      a quarter of a li away \u2014 an abandoned shepherd's hut. The whole train
+      moved there. They slept under a roof \u2014 astonishing luck."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572796
+    m_Localized: The scout got lost. He was found two hours later in the snow, alive
+      but frostbitten. No hut. The camp stays put, only now the men are frightened.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572797
+    m_Localized: Move slowly following the trail from memory
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572798
+    m_Localized: "The guide led from memory, feeling the stones with his foot. Three
+      li in four hours. They emerged from the storm zone at the pass \u2014 the wind
+      dropped there. Risky, but forward."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572799
+    m_Localized: Broken Axle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572800
+    m_Localized: "A creak becomes a crack \u2014 and the wagon sags to the right.
+      The axle snapped at the hub: the wood had rotted from within, unnoticed in
+      time. The cargo has shifted; the camel shied. There is a spare axle in the
+      loads, but fitting it will take time and skilled hands."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572801
+    m_Localized: Repair it ourselves
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572802
+    m_Localized: The caravan's carpenter worked for three hours. Hands black with
+      pitch, sweat running freely, but the axle was set. The wagon is moving again.
+      Half a day lost, but the cargo was not abandoned.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572803
+    m_Localized: Find a smith in the nearest settlement
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572804
+    m_Localized: 'The scout returned with news: a smith two li away, by the river.
+      The wagon was walked there; the master bound the axle with iron straps. Stronger
+      than before. A day and a coin, but done properly.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572805
+    m_Localized: "The smith was not home \u2014 gone to a fair. Returned empty-handed
+      and repaired it themselves. By evening the wagon moved, but not soundly."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572806
+    m_Localized: Redistribute the load among the pack animals
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572807
+    m_Localized: "The wagon was left \u2014 too long to repair. The cargo was spread
+      among the packs. The camels are more heavily laden but moving. The wagon was
+      left by a tree \u2014 perhaps someone will find and fix it."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572808
+    m_Localized: Torn Harness
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572809
+    m_Localized: "The leather breastband has split at the seam \u2014 the lead camel's
+      harness holds on two straps instead of six. Another hour of travel and it will
+      fall away entirely. The leather is old and dried out \u2014 there is no shade
+      on the steppe. A harness-maker is needed, or at least spare leather and an
+      awl."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572810
+    m_Localized: Stop and stitch it right away
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572811
+    m_Localized: 'The harness-maker sat down on the grass. Forty minutes of work:
+      waxed thread, an awl, pricked fingers. The harness will hold to the city. A
+      short stop is no catastrophe.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572812
+    m_Localized: Walk the camel without the breastband for now
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572813
+    m_Localized: The camel was freed of the torn harness; its load distributed to
+      the others. The animal walked unburdened; the repair was done unhurried in
+      camp that evening. Less fuss on the road.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572814
+    m_Localized: Without the breastband the pack shifted sideways on a rise. The
+      camel stumbled; part of the load fell in the mud. Small losses, but embarrassing.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572815
+    m_Localized: Use rope as a temporary replacement
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572816
+    m_Localized: Two hemp ropes were threaded through the rings and crossed tight.
+      Ugly, but it holds. They reached the next stop and made a proper repair there.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572817
+    m_Localized: Wheel Grease Runs Out
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572818
+    m_Localized: "The squeal of wheels can be heard far off \u2014 the hub grinding
+      against dry wood without grease. The tar ran out three days ago, and there
+      has been no chance to buy more. Without greasing now, the wheel will seize
+      solid within a day or two."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572819
+    m_Localized: Use animal fat from the supplies
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572820
+    m_Localized: A pot of old mutton fat was melted and poured into the hubs. The
+      squealing stopped. The fat supply shrank, but the journey continues. The meat
+      smells a little, but it is bearable.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572821
+    m_Localized: Seek pitch or tar along the road
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572822
+    m_Localized: 'The scout returned within the hour with a pot of tar: bought from
+      a passing courier for copper. Expensive, but the wheels are greased properly.
+      Saving on repairs costs more in the long run.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572823
+    m_Localized: No tar was found anywhere. Returned empty-handed. By evening one
+      wheel had begun to wobble.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572824
+    m_Localized: Take one wagon off the road until repaired
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572825
+    m_Localized: "The load from the problem wagon was transferred to others. The
+      wagon rolled unladen. By midday a settlement with a smith was found \u2014
+      the hubs were greased and reinforced properly."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572826
+    m_Localized: Warped Water Barrels
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572827
+    m_Localized: "The heat has done its work: the wooden hoops on the barrels have
+      slackened, the staves have parted. One is already seeping \u2014 a thin trickle
+      into the burning sand. The second is close to coming apart. Without this water
+      \u2014 two days of travel without a source."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572828
+    m_Localized: Transfer the water to skins immediately
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572829
+    m_Localized: "Every skin was filled to capacity \u2014 even the cooking pots.
+      Enough water for exactly two days. The empty barrels were abandoned: they had
+      become splinters. Water saved, containers lost."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572830
+    m_Localized: Bind the hoops with rope and wrap with cloth
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572831
+    m_Localized: "The carpenter wetted the rags and wrapped the staves tightly, then
+      bound them with rope. A makeshift repair. The barrels lasted to the next oasis
+      \u2014 where they were properly fixed."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572832
+    m_Localized: "The ropes slackened too much in the midday heat. The barrel came
+      apart anyway \u2014 part of the water was lost before it could be transferred."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572833
+    m_Localized: Pour out the excess and reinforce one barrel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572834
+    m_Localized: Water from the worse barrel was decanted into the better one, with
+      leather shims under the hoops. One barrel survived. Less water, but in a reliable
+      container. The calculation held.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572835
+    m_Localized: Tent Canvas Burned Through
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572836
+    m_Localized: "An ember from a driver's water-pipe fell on the stretched canvas
+      \u2014 a hole the size of a palm. At night the sandy wind will blow through
+      it, and if the rare desert rain comes \u2014 everything will be soaked. The
+      canvas is old: patch it too roughly and it will tear further."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572837
+    m_Localized: Stitch on a careful leather patch
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572838
+    m_Localized: The saddler worked by oil-lamp light. The patch lay flat, the stitches
+      small and tight. The canvas will hold for a few more weeks. Good work in poor
+      conditions.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572839
+    m_Localized: Seal the hole with pitch from the stores
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572840
+    m_Localized: Hot pitch was applied quickly. The smell is harsh, but there is
+      no hole. The canvas is stiff at that spot, but water will not pass. The pitch
+      supply is smaller.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572841
+    m_Localized: The pitch, still too hot, ran to the edges of the hole and burned
+      three small new ones. Now there are three instead of one.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572842
+    m_Localized: Retie the canvas at a different angle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572843
+    m_Localized: "The hole was shifted toward the ridge \u2014 there it is less draughty.
+      The ropes were retied. Ugly, but quick. The night passed tolerably."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572844
+    m_Localized: Sand in the Wagon Mechanism
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572845
+    m_Localized: "The wheel's squeal becomes a grinding \u2014 fine Taklamakan sand
+      has packed into the hub, cutting the wood like sandpaper. The axle heats during
+      travel. Without regular cleaning, the wheel will seize completely by week's
+      end."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572846
+    m_Localized: Clean all hubs now
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572847
+    m_Localized: Two hours of work covered all four wheels. The rags turned black
+      with a mix of sand and tar. But the wagon rolled smoothly, without grinding.
+      Prevention is cheaper than repair.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572848
+    m_Localized: Install felt seals
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572849
+    m_Localized: "The carpenter cut felt rings and packed them into the hub gaps.
+      A simple trick, but effective. The next three days the wagon ran without complaint.
+      The felt will wear in time, but for now \u2014 all is in order."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572850
+    m_Localized: "The felt proved too coarse \u2014 instead of sealing, it trapped
+      even more sand inside. The grinding grew worse."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572851
+    m_Localized: Slow the pace and clean every evening
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572852
+    m_Localized: "You made it a rule: every evening \u2014 check the hubs. Pace fell
+      only slightly, but the wagon reached the next city without breakdown. Discipline
+      matters more than haste."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572853
+    m_Localized: Lost Horseshoe
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572854
+    m_Localized: "On the stone trail one of the horses has begun to limp. The smith
+      examines the hoof: the shoe is lost, the hoof already scraped against the stones.
+      No spare shoes \u2014 they were lost at the river crossing. Three more days
+      of rocky road ahead."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572855
+    m_Localized: Wrap the hoof in leather
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572856
+    m_Localized: A piece of hardened ox-hide was wrapped around the hoof and secured
+      with cord. A temporary shoe. The horse still limps a little but moves. The
+      wrap is replaced once a day.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572857
+    m_Localized: Find a smith at the monastery ahead
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572858
+    m_Localized: "The monastery was a day's travel ahead. There was a craftsman there
+      \u2014 a monk who knew the smith's trade. A shoe was forged from scrap iron.
+      The horse is back in service. Candles were given as a gift to the monk."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572859
+    m_Localized: The monastery proved abandoned. Empty cells, leaning gates. No smith.
+      Back to leather and cord.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572860
+    m_Localized: Move the horse to the rear unladen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572861
+    m_Localized: "The horse's load was moved to the mules. Unladen, she walked more
+      easily and did not fall behind. She made it to the city under her own power
+      \u2014 where the local smith shod her."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572862
+    m_Localized: Rotted Pack Ropes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572863
+    m_Localized: "The damp of the mountain gorges has done its work: the ropes binding
+      the bales have darkened and feel slick to the touch. One has already snapped
+      \u2014 the bale nearly went over the edge. The rest are no better. Two more
+      days of mountain road, and under load on the climbs they will not hold."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572864
+    m_Localized: Rebind all bales with fresh rope
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572865
+    m_Localized: New rope was cut from the spare coil. An hour of work, but every
+      bale was bound securely. The mountain road passed without incident.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572866
+    m_Localized: Reinforce the weakest points with hemp cord
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572867
+    m_Localized: "Every bale was checked; the most suspect points were double-lashed.
+      Faster than a full rebind. One bale loosened on a descent \u2014 caught in
+      time."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572868
+    m_Localized: "Finding all the weak points proved impossible \u2014 the ropes
+      all looked alike. Two bales slipped on a sharp turn. The cargo was lightly
+      damaged."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572869
+    m_Localized: "Lighten the loads \u2014 carry some bales by hand"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572870
+    m_Localized: "The heaviest bales were carried by hand through the most dangerous
+      sections. Slow, but reliable. By the overnight stop \u2014 all intact, ropes
+      replaced in camp."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572871
+    m_Localized: Repairs in the Snow
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572872
+    m_Localized: "Snow began at midday and by evening had piled the camp knee-deep.
+      Under the weight, the centre-pole of the main tent snapped \u2014 the roof
+      has sagged. The carpenter's hands go numb within a minute of working in the
+      cold. The repair must be done now, or by morning the tent will collapse entirely."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572873
+    m_Localized: "Repair now \u2014 take turns warming your hands"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572874
+    m_Localized: "Three at a time went out to work; the rest waited by the fire.
+      Every five minutes \u2014 a change. The tent was repaired in an hour. Hands
+      intact, roof intact."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572875
+    m_Localized: Shore it up with a pole from the sledge
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572876
+    m_Localized: A spare runner was pulled from the sledge and propped under the
+      sagging roof. Not elegant, but it holds. They made it to morning, and at dawn
+      cut a new pole from dead wood.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572877
+    m_Localized: "The runner proved too short \u2014 it did not reach the ridge.
+      While a replacement was found, more snow piled on. The sag grew."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572878
+    m_Localized: Move everyone into one tent
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572879
+    m_Localized: "Everyone crammed into the smaller tent. Tight as herrings in a
+      barrel, but warm. The broken tent was repaired in the morning with fresh heads.
+      One night of closeness \u2014 no hardship."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572880
+    m_Localized: Dispute Over a Spot at the Fire
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572881
+    m_Localized: "Two drivers are already facing each other \u2014 fists clenched,
+      voices raised. One has taken the best spot at the fire; the other says it was
+      his by prior agreement. The rest are watching. Without intervention, there
+      will be a bruise by morning, or worse."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572882
+    m_Localized: Settle it fairly before everyone
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572883
+    m_Localized: 'You heard both men out without interrupting. The ruling was simple:
+      spots at the fire are shared equally; seniority plays no part. Both agreed,
+      reluctantly. The tension eased.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572884
+    m_Localized: Make both of them take extra watch duty
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572885
+    m_Localized: '''If you want to quarrel, quarrel on the outer perimeter with a
+      spear in hand.'' Both were given three hours of watch duty. By morning they
+      made peace without words, but firmly.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572886
+    m_Localized: "The punishment seemed too harsh \u2014 the other drivers muttered
+      in discontent. Discipline maintained, but goodwill lost."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572887
+    m_Localized: "Ignore it \u2014 let them sort it out"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572888
+    m_Localized: Within the hour one had a broken nose, the other a scratched arm.
+      Relations soured for a long time. The camp divided into two sides. Not intervening
+      cost more than a timely word.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572889
+    m_Localized: Sleeping Sentry
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572890
+    m_Localized: "Walking the camp before dawn, you find the sentry \u2014 asleep
+      sitting up, spear leaning against his hip. The steppe is quiet; no danger has
+      come. But a rule is a rule: sleeping on watch is a serious offence, and the
+      others have seen it or will hear of it."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572891
+    m_Localized: Wake him and warn him publicly
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572892
+    m_Localized: 'You nudged his foot. He jumped up, face flushed. Before everyone
+      it was announced: once more and he is dismissed from the guard. The other sentries
+      did not sleep the rest of the night.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572893
+    m_Localized: Wake him quietly and let it pass this once
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572894
+    m_Localized: You touched his shoulder without a word. He understood. He stood
+      rigid until morning, pale. The mistake noted; dignity preserved.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572895
+    m_Localized: "Word spread through the camp regardless. The other guards decided
+      the same was permitted for them \u2014 discipline quietly undermined by leniency."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572896
+    m_Localized: Dismiss him from the guard immediately
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572897
+    m_Localized: A hard decision, but an honest one. Everyone saw that the rule holds.
+      A replacement was found among the drivers by morning. The dismissed man walked
+      at the rear of the train all day in silence.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572898
+    m_Localized: Theft Within the Camp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572899
+    m_Localized: "In the morning one of the newer drivers discovers a loss: a pouch
+      of coppers has gone from under his cloak. Suspicion falls on a tent-mate. No
+      direct proof, but too many coincidences. The camp is tense \u2014 if nothing
+      is done, theft will become normal."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572900
+    m_Localized: Conduct an open search
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572901
+    m_Localized: 'The belongings of all were searched with consent. The pouch was
+      found in the suspect''s bedroll. He did not deny it long. Punishment: he carries
+      double load until the city. The others were reassured.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572902
+    m_Localized: Speak with the suspect privately
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572903
+    m_Localized: "The private conversation bore fruit: the guilty man returned the
+      coins and admitted it \u2014 need, not malice. Agreement: deducted from wages.
+      The matter closed without public airing."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572904
+    m_Localized: The conversation reached a dead end. He denied everything. Proof
+      was insufficient; no culprit found. The victim is angry; the rest are uneasy.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572905
+    m_Localized: "Declare a collective fine \u2014 all are responsible"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572906
+    m_Localized: '''Until the guilty man comes forward, everyone''s pay is docked.''
+      Within two hours the culprit came to confess: peer pressure did its work. The
+      method is harsh, but fast.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572907
+    m_Localized: "Water Shortage \u2014 Rationing Order"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572908
+    m_Localized: "Midday. The heat stands like a wall. One of the water bags leaked
+      in the night \u2014 the loss invisible but real. Water remaining: a day and
+      a half; to the oasis: two days. Men are already eyeing each other's bags. Without
+      a clear rationing order, something unpleasant will begin."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572909
+    m_Localized: Impose a strict ration for everyone equally
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572910
+    m_Localized: "Each person received exactly one bowl twice a day \u2014 merchant
+      and last driver alike. No exceptions. There was grumbling, but compliance.
+      Everyone reached the oasis."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572911
+    m_Localized: " \u043A\u0442\u043E \u043D\u0435\u0441\u0451\u0442 \u0433\u0440\u0443\u0437"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572912
+    m_Localized: "Porters and drivers received one and a half portions \u2014 the
+      work demands it. Guards and merchants received the standard ration. No serious
+      argument: the logic was plain. Hard labour needs more water."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572913
+    m_Localized: The decision seemed unfair to the guards. Two refused watch duty
+      in protest. The rations had to be revised on the move.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572914
+    m_Localized: Save water by pushing faster to the oasis
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572915
+    m_Localized: "Pace was pushed up. Rations cut to minimum. Men marched with gritted
+      teeth. On the evening of the second day \u2014 the oasis. Two were exhausted
+      but made it. Willpower lasted just enough."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572916
+    m_Localized: Secret Food Stores
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572917
+    m_Localized: "A smell of something roasting drifts from the corner where three
+      Sogdian traders hired as guards are sleeping. They are clearly eating their
+      own provisions while the rest chew dry flatbread. To say nothing \u2014 resentment
+      will eat away at the camp. To press the matter \u2014 you insult people who
+      have a right to their own stores."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572918
+    m_Localized: Speak about the rules of shared meals
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572919
+    m_Localized: "You explained quietly: in the desert there is one rule \u2014 if
+      you eat in plain sight of everyone, you share. Or you eat apart. The Sogdians
+      understood and were not offended \u2014 they shared what remained. The rule
+      established without scandal."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572920
+    m_Localized: Demand that personal stores be surrendered to the common pot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572921
+    m_Localized: "The demand was met, but with unconcealed resentment. The stores
+      turned out to be good \u2014 the common pot became more filling. But the three
+      ate in silence and looked away for two days."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767040
+    m_Localized: "The demand met open refusal. 'It's ours \u2014 we eat what we like.'
+      Authority was slightly dented; the Sogdians now keep apart."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767041
+    m_Localized: "Turn a blind eye \u2014 it is not your concern"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767042
+    m_Localized: You said nothing. The others noticed. By morning talk of 'favourites'
+      was circulating the camp. A small thing, but a stone in the wall of distrust.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767043
+    m_Localized: Assigning the Night Watches
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767044
+    m_Localized: "After a hard march in the heat men are falling on their feet. But
+      desert nights are dangerous \u2014 raiding bands, wild dogs, unwanted visitors.
+      A watch is needed, but no one volunteers. Each man thinks the other is more
+      exhausted."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767045
+    m_Localized: Set a strict roster by lot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767046
+    m_Localized: 'Everyone drew straws equally. Those who drew short kept watch without
+      argument: the lot is the lot. The night passed without incident; no one felt
+      treated unfairly.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767047
+    m_Localized: Offer double pay to volunteers for the watch
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767048
+    m_Localized: 'Money did its work: three volunteered at once. A willing watch
+      is better than a resentful one. The night passed quietly.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767049
+    m_Localized: "No one volunteered even for double pay \u2014 all were too spent.
+      Had to fall back on drawing lots, losing time and a little authority."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767050
+    m_Localized: "Take the first watch yourself \u2014 set the example"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767051
+    m_Localized: When the caravan leader takes a spear and stands first, there are
+      no arguments left. The remaining watches were taken up willingly. Personal
+      example is the oldest instrument of order.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767052
+    m_Localized: "Mountain Fatigue \u2014 Protest Against the Pace"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767053
+    m_Localized: "A steep climb for the third day running \u2014 men's legs are giving
+      way. Two drivers have sat down on rocks and announced they will not move further
+      without a long rest. The others are watching \u2014 who will win. The weather
+      is good, but it may change by evening."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767054
+    m_Localized: Grant an immediate one-hour rest
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767055
+    m_Localized: "An hour lying on the stones worked wonders. Men rose groaning,
+      but they rose. The second half of the climb went faster than the first \u2014
+      rested legs work differently."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767056
+    m_Localized: "Push one more li to the pass \u2014 rest there"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767057
+    m_Localized: "You explained: at the pass the wind is weaker and the ground level.
+      The reluctant were persuaded. One more li \u2014 and indeed: behind the pass
+      a sheltered ledge. The rest there was better than any on the slope."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767058
+    m_Localized: Persuasion failed. The two stayed seated. Had to organise assistance
+      and lose half an hour. The pass greeted them with bad weather.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767059
+    m_Localized: "Leave the obstinate ones \u2014 they will catch up"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767060
+    m_Localized: The train moved on. The two stragglers sat, watched, then rose and
+      hurried to catch up. Sometimes the best argument is a line of departing backs.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767061
+    m_Localized: "Mountain Checkpoint \u2014 Toll for Passage"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767062
+    m_Localized: "On the trail \u2014 a rough wall of stacked stones, and at it three
+      soldiers in fur caps. They demand a toll: one tenth of every bale. No papers,
+      no seal \u2014 just force. No way around: cliff to the right, snow slope to
+      the left."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767063
+    m_Localized: Pay and pass
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767064
+    m_Localized: "Negotiations took half an hour \u2014 reduced to one twentieth.
+      Paid, passed. The mountains hide many such posts, and not every one lets you
+      through without loss."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767065
+    m_Localized: Demand an official document of authority
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767066
+    m_Localized: "There was no document. You pointed this out before everyone \u2014
+      the soldiers looked uncomfortable. One stepped aside to confer. In the end
+      you were passed through for a token payment: they lost face, you gained the
+      pass."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767067
+    m_Localized: The challenge came out too sharp; the soldiers grew angry. Held
+      for two hours for 'inspection of bales'. Passed through, but furious and with
+      disordered cargo.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767068
+    m_Localized: Offer goods instead of coin
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767069
+    m_Localized: "A handful of pepper and a length of good cloth \u2014 the soldiers
+      exchanged a glance and nodded. Goods are worth more than coin in the mountains.
+      Passed through without argument; they even wished you a fair wind."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767070
+    m_Localized: Camp Rules in Bad Weather
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767071
+    m_Localized: "Fog has descended on the gorge; visibility ten paces. In these
+      conditions the camp turns to chaos: someone lights a fire where it is dangerous,
+      someone wanders past the camels and spooks the animals. Rules are needed right
+      now \u2014 otherwise panic becomes the most dangerous enemy."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767072
+    m_Localized: Announce zones and prohibitions loudly
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767073
+    m_Localized: "Three shouts into the fog \u2014 zones defined by voice. Each man
+      knew where to stand. Chaos contracted to managed disorder. The fog lifted by
+      midday."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767074
+    m_Localized: Post guides at each key point
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767075
+    m_Localized: Four experienced men were posted at the camels, the stores, the
+      trail down. Each was given a list of commands. The fog became a managed danger.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767076
+    m_Localized: One of the guides got lost in the fog himself and started shouting.
+      The commotion proved worse than the original.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767077
+    m_Localized: Order everyone to stay put until dawn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767078
+    m_Localized: The simplest solution. Everyone sat or lay where they stood. They
+      waited. The fog left with the dawn. Part of the day lost, but without casualties.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767079
+    m_Localized: The Caravan Law
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767080
+    m_Localized: "Before leaving the city one of the experienced merchants raised
+      a hand: the rules for the whole journey must be declared now, while everyone
+      is together and clear-headed. Not written law \u2014 living words that all
+      have heard. What is permitted, what is not, who is responsible for what. Without
+      this conversation the journey is a lottery."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767081
+    m_Localized: Declare the rules now
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767082
+    m_Localized: "Ten minutes of speaking. Each man nodded \u2014 or did not, which
+      was also noted. Words spoken before witnesses. The first conflict was resolved
+      easily: 'You heard it yourself'."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767083
+    m_Localized: Draw up a written list of rules
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767084
+    m_Localized: The scribe wrote it on hide. Each literate man made his mark. The
+      rest had it read aloud to them. Writing is weaker than the spoken word, but
+      a reminder works. By mid-journey no one claimed ignorance.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767085
+    m_Localized: While writing, they argued over the wording for an hour. The final
+      text was muddled. The first conflict on the road revealed holes in the rules.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767086
+    m_Localized: "Postpone it \u2014 we will sort things out as we go"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767087
+    m_Localized: "'We will sort it out' became the phrase of the first week. Every
+      dispute starting from scratch. By the tenth day three conflicts hung unresolved.
+      No rules \u2014 no foundation."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767088
+    m_Localized: A New Member Joins the Train
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767089
+    m_Localized: "At a caravanserai a stranger asks to join the train \u2014 young,
+      with a bundle on his shoulder. He says he knows the road ahead and is willing
+      to work for food and shelter. His gaze is direct, but his hands are unknown,
+      and there is no letter of recommendation. The caravan men look to you."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767090
+    m_Localized: "Take him on probation \u2014 under supervision"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767091
+    m_Localized: Three days' work under the supervision of the senior driver. The
+      lad proved diligent and knew the road well indeed. By the fourth day he was
+      accepted as one of their own.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767092
+    m_Localized: "Refuse \u2014 a stranger is a risk"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767093
+    m_Localized: Refused politely but firmly. The stranger shrugged and moved on.
+      Perhaps it was prudent; perhaps a good man was turned away. There is no knowing
+      now.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767094
+    m_Localized: The refusal came out rudely. The stranger took offence and said
+      a few words in public about tight-fisted merchants. The camp heard. Awkward.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767095
+    m_Localized: "Accept at once \u2014 extra hands are always needed"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767096
+    m_Localized: "Taken on without too many questions. He worked well. A week later
+      it emerged that he knew the way to a hidden water source \u2014 knowledge he
+      had not mentioned at first. Generosity returned with interest."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

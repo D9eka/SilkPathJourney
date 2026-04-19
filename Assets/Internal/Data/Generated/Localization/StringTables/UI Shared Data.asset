@@ -1199,6 +1199,10 @@ MonoBehaviour:
     m_Key: UI.Guild.Trade.Button
     m_Metadata:
       m_Items: []
+  - m_Id: 25634713195503619
+    m_Key: UI.Camp.Main.Header.Main
+    m_Metadata:
+      m_Items: []
   - m_Id: 24175509310005248
     m_Key: UI.Camp.Action.Forage.Name
     m_Metadata:
@@ -1285,6 +1289,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 24553238349996042
     m_Key: UI.Camp.Order.Hint.3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24553238349996043
+    m_Key: UI.Camp.EventChance.Label
     m_Metadata:
       m_Items: []
   - m_Id: 25634713153560576
