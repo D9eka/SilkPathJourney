@@ -144,6 +144,23 @@ namespace Internal.Scripts.Road.Graph
 
         public bool TryGetSegment(RoadSegmentId id, out RoadSegmentData data) => _segments.TryGetValue(id, out data);
 
+        public bool TryGetSegment(string fromNode, string toNode, out RoadPathSegment segment)
+        {
+            segment = null;
+            if (string.IsNullOrEmpty(fromNode))
+                return false;
+
+            foreach (RoadPathSegment seg in GetOutgoingSegments(fromNode))
+            {
+                if (seg.ToNodeId == toNode)
+                {
+                    segment = seg;
+                    return true;
+                }
+            }
+            return false;
+        }
+
         private void AddEdge(string from, string to, RoadSegmentId id, RoadRuntime runtime, RoadData data, float length, float speedMul, float cost)
         {
             var edge = new RoadGraphEdge(from, to, id, length, cost);

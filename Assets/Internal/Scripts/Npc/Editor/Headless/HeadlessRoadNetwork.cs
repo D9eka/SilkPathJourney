@@ -76,5 +76,22 @@ namespace Internal.Scripts.Npc.Editor.Headless
 
         public bool TryGetSegment(RoadSegmentId id, out RoadSegmentData data) =>
             _segments.TryGetValue(id, out data);
+
+        public bool TryGetSegment(string fromNode, string toNode, out RoadPathSegment segment)
+        {
+            segment = null;
+            if (string.IsNullOrEmpty(fromNode))
+                return false;
+
+            foreach (RoadPathSegment seg in GetOutgoingSegments(fromNode))
+            {
+                if (seg.ToNodeId == toNode)
+                {
+                    segment = seg;
+                    return true;
+                }
+            }
+            return false;
+        }
     }
 }
