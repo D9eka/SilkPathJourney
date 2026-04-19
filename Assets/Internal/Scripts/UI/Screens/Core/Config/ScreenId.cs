@@ -21,6 +21,7 @@ namespace Internal.Scripts.UI.Screens.Core.Config
         Tavern = 16,
         Workshop = 17,
         CityEntryConfirm = 18,
-        Guild = 19
+        Guild = 19,
+        Camp = 20,
     }
 }

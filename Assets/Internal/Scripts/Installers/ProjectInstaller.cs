@@ -1,3 +1,4 @@
+using Internal.Scripts.Camp;
 using Internal.Scripts.Camera;
 using Internal.Scripts.Camera.Zoom;
 using Internal.Scripts.Caravan;
@@ -36,6 +37,7 @@ namespace Internal.Scripts.Installers
 
         [Header("Events")]
         [SerializeField] private EventDatabase _eventDatabase;
+        [SerializeField] private CrisisEventConfig _crisisEventConfig;
 
         [Header("Quests")]
         [SerializeField] private QuestDatabase _questDatabase;
@@ -49,6 +51,9 @@ namespace Internal.Scripts.Installers
         [Header("NPC")]
         [SerializeField] private NpcSimulationSettings _npcSimulationSettings;
         [SerializeField] private NameDatabase _nameDatabase;
+
+        [Header("Camp")]
+        [SerializeField] private CampActionDatabase _campActionDatabase;
 
         [Header("Guild")]
         [SerializeField] private GuildSettings _guildSettings;
@@ -80,11 +85,13 @@ namespace Internal.Scripts.Installers
             Container.BindInstance(_economySimulationSettings).AsSingle();
             Container.BindInstance(_cultureAdjacencyData).AsSingle();
             Container.BindInstance(_eventDatabase).AsSingle();
+            Container.BindInstance(_crisisEventConfig).AsSingle();
             Container.BindInstance(_questDatabase).AsSingle();
             Container.BindInstance(_caravanDatabase).AsSingle();
             Container.BindInstance(_playerProfile).AsSingle();
             Container.BindInstance(_npcSimulationSettings).AsSingle();
             Container.BindInstance(_nameDatabase).AsSingle();
+            Container.BindInstance(_campActionDatabase).AsSingle();
             Container.BindInstance(_guildSettings).AsSingle();
             Container.BindInstance(_screenCatalog).AsSingle();
             Container.BindInstance(_resourceIconCatalog).AsSingle();

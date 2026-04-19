@@ -52,10 +52,12 @@ using Internal.Scripts.UI.Factory;
 using Internal.Scripts.UI.PathVisualization;
 using Internal.Scripts.UI.Screens.Core.Config;
 using Internal.Scripts.UI.Screens.Event;
+using Internal.Scripts.UI.Screens.Camp;
 using Internal.Scripts.UI.Screens.Event.ConditionLines;
 using Internal.Scripts.UI.Screens.Hud;
 using Internal.Scripts.UI.StackService;
 using Internal.Scripts.UI.Theme;
+using Internal.Scripts.Camp;
 using Internal.Scripts.Travel.Pickups;
 using Internal.Scripts.UI.Screens.Caravansary.Services;
 using Internal.Scripts.UI.Screens.Shared;
@@ -110,6 +112,7 @@ namespace Internal.Scripts.Installers
             InstallScreens();
             InstallEvents();
             InstallQuests();
+            InstallCamp();
             InstallPickups();
             InstallPathVisualization();
 
@@ -359,6 +362,7 @@ namespace Internal.Scripts.Installers
             Container.Bind<ConditionLineBuilder>().AsSingle();
 
             Container.Bind<EventToastController>().AsSingle();
+            Container.BindInterfacesTo<CrisisTrigger>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<EventTrigger>().AsSingle().NonLazy();
         }
 
@@ -367,6 +371,16 @@ namespace Internal.Scripts.Installers
             Container.BindInterfacesAndSelfTo<PickupCollector>().AsSingle();
             Container.BindInterfacesTo<PickupSpawner>().AsSingle();
         }
+
+        private void InstallCamp()
+        {
+            Container.Bind<CampActionService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<CampController>().AsSingle();
+            Container.Bind<Events.Outcomes.IEventOutcomeScaler>()
+                .To<Camp.CampEventOutcomeScaler>().AsSingle();
+            Container.Bind<CampActionButtonFactory>().AsSingle();
+        }
+
         private void InstallQuests()
         {
             Container.BindInterfacesAndSelfTo<QuestRepository>().AsSingle().NonLazy();
