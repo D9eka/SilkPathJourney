@@ -44,6 +44,7 @@ namespace Internal.Scripts.UI.Screens.Event
         [SerializeField] private LocalizedString _continueLocalizedString;
         [SerializeField] private LocalizedString _nearCityFormat;
 
+        private ComponentPool<EventChoiceButton> _buttonPool;
         private EventScreenViewModel _viewModel;
         private IDisposable _stateSubscription;
         private IDisposable _locationSubscription;
@@ -59,6 +60,12 @@ namespace Internal.Scripts.UI.Screens.Event
         private LocalizationService.LocalizedTextHandle _nameHandle;
         private LocalizationService.LocalizedTextHandle _typeHandle;
         private LocalizationService.LocalizedTextHandle _descriptionHandle;
+
+        protected override void Awake()
+        {
+            base.Awake();
+            _buttonPool = new ComponentPool<EventChoiceButton>(_choiceButtonPrefab, _choiceButtonsRoot);
+        }
 
         protected override void OnLocalizationReady()
         {
@@ -179,12 +186,14 @@ namespace Internal.Scripts.UI.Screens.Event
             if (eventData.Image != null)
                 _eventImage.sprite = eventData.Image;
 
-            _currentChoices = _viewModel.GetAvailableChoices();
+            _currentChoices = eventData.Choices != null
+                ? new List<EventChoice>(eventData.Choices)
+                : new List<EventChoice>();
             SpawnResourceIndicators();
 
             if (_currentChoices.Count == 0)
             {
-                _viewModel.ConfirmResult();
+                Debug.LogError($"[SPJ Events] Event '{eventData.Id}' has no choices. Data issue?");
                 return;
             }
 
@@ -278,7 +287,7 @@ namespace Internal.Scripts.UI.Screens.Event
                 int choiceIndex = i;
                 EventChoice choice = choices[i];
                 ConditionContent condition = _viewModel.GetChoiceConditionInfo(choiceIndex, choices);
-                EventChoiceButton button = Instantiate(_choiceButtonPrefab, _choiceButtonsRoot);
+                EventChoiceButton button = _buttonPool.Get();
                 button.gameObject.InitializeColorBinders(themeService: _viewModel?.ThemeService);
                 button.Initialize(
                     Localization,
@@ -294,14 +303,14 @@ namespace Internal.Scripts.UI.Screens.Event
 
         private void ClearChoiceButtons()
         {
-            foreach (EventChoiceButton button in _activeButtons)
-                Destroy(button.gameObject);
+            foreach (EventChoiceButton btn in _activeButtons)
+                _buttonPool.Release(btn);
             _activeButtons.Clear();
         }
 
         private void SpawnContinueButton()
         {
-            EventChoiceButton continueBtn = Instantiate(_choiceButtonPrefab, _choiceButtonsRoot);
+            EventChoiceButton continueBtn = _buttonPool.Get();
             continueBtn.gameObject.InitializeColorBinders(themeService: _viewModel?.ThemeService);
             continueBtn.Initialize(
                 Localization,
@@ -313,6 +322,20 @@ namespace Internal.Scripts.UI.Screens.Event
         private void OnSelectedChoiceChanged(EventChoice? choice)
         {
             if (choice == null)
+                return;
+
+            if (_currentChoices == null || _currentChoices.Count == 0)
+                return;
+            bool belongsToCurrentEvent = false;
+            foreach (var c in _currentChoices)
+            {
+                if (ReferenceEquals(c.Text, choice.Value.Text))
+                {
+                    belongsToCurrentEvent = true;
+                    break;
+                }
+            }
+            if (!belongsToCurrentEvent)
                 return;
 
             LocalizedString resultText = _viewModel.LastSkillCheckSucceeded

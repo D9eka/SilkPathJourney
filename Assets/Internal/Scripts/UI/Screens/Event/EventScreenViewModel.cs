@@ -6,6 +6,7 @@ using Internal.Scripts.Economy.Save.Models;
 using Internal.Scripts.Events;
 using Internal.Scripts.Events.Data;
 using Internal.Scripts.Events.Generated;
+using Internal.Scripts.Events.Outcomes;
 using Internal.Scripts.Inventory;
 using Internal.Scripts.Items;
 using Internal.Scripts.Player.Languages;
@@ -65,6 +66,7 @@ namespace Internal.Scripts.UI.Screens.Event
         private readonly EventOutcomeFormatter _formatter;
         private readonly PlayerLanguageRepository _languageRepo;
         private readonly TooltipService _tooltipService;
+        private readonly IEventOutcomeScaler _outcomeScaler;
         private List<EventOutcomeEntry> _lastAppliedOutcomes;
         public List<EventOutcomeEntry> LastAppliedOutcomes => _lastAppliedOutcomes;
         private readonly ReactiveProperty<EventData> _state = new(null);
@@ -89,7 +91,8 @@ namespace Internal.Scripts.UI.Screens.Event
             EventSelector eventSelector,
             EventOutcomeFormatter formatter,
             PlayerLanguageRepository languageRepo,
-            TooltipService tooltipService)
+            TooltipService tooltipService,
+            IEventOutcomeScaler outcomeScaler)
         {
             _eventTrigger = eventTrigger;
             _screenStackService = screenStackService;
@@ -103,6 +106,7 @@ namespace Internal.Scripts.UI.Screens.Event
             _formatter = formatter;
             _languageRepo = languageRepo;
             _tooltipService = tooltipService;
+            _outcomeScaler = outcomeScaler;
         }
 
         public override ScreenId Id => ScreenId.Event;
@@ -120,6 +124,8 @@ namespace Internal.Scripts.UI.Screens.Event
 
         protected override void OnOpen(object args)
         {
+            _selectedChoice.Value = null;
+
             if (args is EventTriggerArgs triggerArgs)
             {
                 _formatArgs = triggerArgs.FormatArgs;
@@ -150,14 +156,6 @@ namespace Internal.Scripts.UI.Screens.Event
             _selectedChoice.Value = null;
             _formatArgs = null;
             _eventTrigger.OnEventCompleted();
-        }
-
-        public List<EventChoice> GetAvailableChoices()
-        {
-            EventData eventData = _state.Value;
-            if (eventData == null)
-                return new List<EventChoice>();
-            return _eventSelector.GetAvailableChoices(eventData);
         }
 
         public List<EventResourceInfo> GetAffectedResources(List<EventChoice> choices)
@@ -225,14 +223,20 @@ namespace Internal.Scripts.UI.Screens.Event
 
         public void SelectChoice(int choiceIndex)
         {
-            List<EventChoice> available = GetAvailableChoices();
-            if (choiceIndex < 0 || choiceIndex >= available.Count)
+            EventData eventData = _state.Value;
+            if (eventData == null) return;
+
+            List<EventChoice> allChoices = eventData.Choices;
+            if (choiceIndex < 0 || allChoices == null || choiceIndex >= allChoices.Count)
                 return;
 
-            if (!CanAffordChoice(choiceIndex, available))
+            if (!CanAffordChoice(choiceIndex, allChoices))
                 return;
 
-            EventChoice choice = available[choiceIndex];
+            if (!_eventSelector.CheckConditions(allChoices[choiceIndex].Conditions))
+                return;
+
+            EventChoice choice = allChoices[choiceIndex];
             int originalIndex = GetOriginalChoiceIndex(choice);
             _eventTrigger.LastChoiceIndex = choiceIndex;
 
@@ -251,8 +255,21 @@ namespace Internal.Scripts.UI.Screens.Event
                 _lastAppliedOutcomes = choice.Outcomes;
             }
 
+            _lastAppliedOutcomes = ScaleOutcomes(_lastAppliedOutcomes, _state.Value);
             _eventTrigger.ApplyOutcome(_lastAppliedOutcomes);
             _selectedChoice.Value = choice;
+        }
+
+        private List<EventOutcomeEntry> ScaleOutcomes(List<EventOutcomeEntry> outcomes, EventData eventData)
+        {
+            if (outcomes == null || outcomes.Count == 0) return outcomes;
+            float mult = _outcomeScaler?.GetMultiplier(eventData) ?? 1f;
+            if (Mathf.Approximately(mult, 1f)) return outcomes;
+
+            var scaled = new List<EventOutcomeEntry>(outcomes.Count);
+            foreach (var o in outcomes)
+                scaled.Add(new EventOutcomeEntry(o.Type, o.Param, o.Value * mult));
+            return scaled;
         }
 
         public ConditionContent GetChoiceConditionInfo(int choiceIndex, List<EventChoice> choices)
