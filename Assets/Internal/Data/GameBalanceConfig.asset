@@ -12,14 +12,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de14abb496cae014e84217e4cc1a1e64, type: 3}
   m_Name: GameBalanceConfig
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Config.GameBalanceConfig
-  <SecondsPerDay>k__BackingField: 2.5
+  <SecondsPerDay>k__BackingField: 5
   <DaysBetweenMajorEvents>k__BackingField: 5
   <DaysBetweenMinorEvents>k__BackingField: 2
   <ToastDisplayDuration>k__BackingField: 4
   <MaxFood>k__BackingField: 100
   <MaxDanger>k__BackingField: 100
+  <SchoolCostBasic>k__BackingField: 40
+  <SchoolDaysBasic>k__BackingField: 5
+  <SchoolCostConversational>k__BackingField: 100
+  <SchoolDaysConversational>k__BackingField: 10
+  <SchoolCostFluent>k__BackingField: 150
+  <SchoolDaysFluent>k__BackingField: 20
+  <WorldUnitsPerKm>k__BackingField: 0.0167
+  <DefaultRepairPercent>k__BackingField: 5
+  <RepairCostPerPercent>k__BackingField: 2
+  <RestCost>k__BackingField: 20
+  <MaxSkill>k__BackingField: 100
+  <TradePriceDivisor>k__BackingField: 500
+  <SkillBonusPerPoint>k__BackingField: 0.0045
+  <SkillChanceCap>k__BackingField: 0.95
+  <ModifierDurationMultiplier>k__BackingField: 1
+  <StalenessActualDays>k__BackingField: 20
+  <StalenessStaleDays>k__BackingField: 40
+  <StartingReputation>k__BackingField: 50
+  <RumorCost>k__BackingField: 10
+  <RumorRadius>k__BackingField: 2
+  <ExoticityPerStep>k__BackingField: 0.15
+  <TariffReputationRules>k__BackingField:
+  - Threshold: 20
+    Modifier: 1.3
+    Comparison: 1
+  - Threshold: 40
+    Modifier: 1.1
+    Comparison: 1
+  - Threshold: 60
+    Modifier: 1
+    Comparison: 1
+  - Threshold: 80
+    Modifier: 0.8
+    Comparison: 1
+  <TariffDefaultReputationModifier>k__BackingField: 0.5
   <PickupSpawnIntervalMeters>k__BackingField: 1
   <PickupVisibleRadius>k__BackingField: 15
   <PickupDespawnRadius>k__BackingField: 25
   <PickupLifetimeSeconds>k__BackingField: 30
   <MaxActivePickups>k__BackingField: 3
+  <CampSkillEffectPerPoint>k__BackingField: 0.001

@@ -15,7 +15,6 @@ MonoBehaviour:
   <Type>k__BackingField: 3
   <CostSupplies>k__BackingField: 0
   <AffectedResource>k__BackingField: 3
-  <BaseEffect>k__BackingField: -15
   <RelatedSkill>k__BackingField: 1
   <MaxRepeatPerSegment>k__BackingField: 3
   <DiminishingCurve>k__BackingField:
