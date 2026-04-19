@@ -1,0 +1,36 @@
+﻿namespace Internal.Scripts.Events.Generated
+{
+    public enum EventCategory
+    {
+        None = 0,
+        BanditAttack = 1,
+        Wildlife = 2,
+        NaturalDisaster = 3,
+        Hazard = 4,
+        Encounter = 5,
+        CaravanTrouble = 6,
+        Discovery = 7,
+        Companion = 8,
+        Crisis = 9,
+        CrisisDanger = 10,
+        CrisisMorale = 11,
+        CrisisCart = 12,
+        CampForage = 13,
+        CampRest = 14,
+        CampRepair = 15,
+        CampOrder = 16,
+        CampAny = 17,
+        Combat = 18,
+        EncounterLanguage = 19,
+        Mystery = 20,
+        Mystical = 21,
+        Natural = 22,
+        Navigation = 23,
+        Trade = 24,
+        MinorRoad = 25,
+        MinorCaravan = 26,
+        MinorEncounter = 27,
+        MinorOmen = 28,
+        Quest = 29,
+    }
+}

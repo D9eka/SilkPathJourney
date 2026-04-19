@@ -55,6 +55,7 @@ namespace Internal.Scripts.Import.Editor.Events.Tables
                 if (string.IsNullOrWhiteSpace(id)) continue;
 
                 string typeId = GetField(rows[i], typeIdIndex).Trim();
+                Enum.TryParse(ToPascalCase(typeId), out EventCategory category);
                 string nameKey = GetField(rows[i], nameKeyIndex).Trim();
                 string descKey = GetField(rows[i], descKeyIndex).Trim();
                 string weightStr = GetField(rows[i], weightIndex);
@@ -92,7 +93,7 @@ namespace Internal.Scripts.Import.Editor.Events.Tables
                 eventConditions.TryGetValue(id, out List<EventCondition> conditions);
 
                 EventData asset = LoadOrCreateAsset<EventData>(EVENTS_FOLDER, id);
-                asset.ApplyImport(id, nameLS, eventTypeLS, descLS, image, isMinor, biome, builtChoices, autoOutcomes, conditions, weight, skillChecks);
+                asset.ApplyImport(id, nameLS, eventTypeLS, descLS, image, isMinor, biome, builtChoices, autoOutcomes, conditions, weight, skillChecks, category);
                 EditorUtility.SetDirty(asset);
                 events.Add(asset);
             }

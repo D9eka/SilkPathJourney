@@ -12,6 +12,7 @@ namespace Internal.Scripts.Events.Data
     {
         [Header("Event Info")]
         [field: SerializeField] public string Id { get; private set; }
+        [field: SerializeField] public EventCategory Category { get; private set; }
         [field: SerializeField] public LocalizedString Name { get; private set; }
         [field: SerializeField] public LocalizedString EventType { get; private set; }
         [field: SerializeField] public LocalizedString Description { get; private set; }
@@ -54,7 +55,8 @@ namespace Internal.Scripts.Events.Data
             List<EventOutcomeEntry> autoOutcomes,
             List<EventCondition> conditions,
             float weight,
-            List<SkillCheckData> skillChecks = null)
+            List<SkillCheckData> skillChecks = null,
+            EventCategory category = EventCategory.None)
         {
             Id = id;
             Name = name;
@@ -68,6 +70,7 @@ namespace Internal.Scripts.Events.Data
             SkillChecks = skillChecks ?? new List<SkillCheckData>();
             Conditions = conditions ?? new List<EventCondition>();
             Weight = weight;
+            Category = category;
         }
 #endif
     }

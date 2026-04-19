@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Internal.Scripts.Events.Data;
+using Internal.Scripts.Events.Generated;
 using Internal.Scripts.Import.Editor.Core;
 using Internal.Scripts.Import.Editor.Events.Generators;
 using Internal.Scripts.Import.Editor.Events.Tables;
@@ -28,6 +29,7 @@ namespace Internal.Scripts.Import.Editor.Events
                 // 1. Generate enums
                 EventConditionTypeGenerator.Generate();
                 EventOutcomeTypeGenerator.Generate();
+                EventCategoryGenerator.Generate();
 
                 // 1b. Generate road event CSVs from hidden roads
                 RoadEventGenerator.Generate();
@@ -73,6 +75,7 @@ namespace Internal.Scripts.Import.Editor.Events
 
                 UpdateEventDatabase(events);
                 UpdateNpcEncounterSettings(events);
+                UpdateCrisisEventConfig(events);
 
                 AssetDatabase.SaveAssets();
                 AssetDatabase.Refresh();
@@ -89,6 +92,19 @@ namespace Internal.Scripts.Import.Editor.Events
         {
             foreach (var kvp in source)
                 target[kvp.Key] = kvp.Value;
+        }
+
+        private const string CRISIS_CONFIG_PATH = "Assets/Internal/Data/CrisisEventConfig.asset";
+
+        private static void UpdateCrisisEventConfig(List<EventData> allEvents)
+        {
+            var danger = allEvents.Where(e => e.Category == EventCategory.CrisisDanger).ToList();
+            var morale = allEvents.Where(e => e.Category == EventCategory.CrisisMorale).ToList();
+            var cart   = allEvents.Where(e => e.Category == EventCategory.CrisisCart).ToList();
+
+            CrisisEventConfig config = LoadOrCreateAsset<CrisisEventConfig>(CRISIS_CONFIG_PATH);
+            config.ApplyImport(danger, morale, cart);
+            EditorUtility.SetDirty(config);
         }
 
         private const string NPC_ENCOUNTER_PREFIX = "npc_encounter_";
