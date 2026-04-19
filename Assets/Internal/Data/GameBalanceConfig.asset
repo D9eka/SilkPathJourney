@@ -53,6 +53,9 @@ MonoBehaviour:
     Modifier: 0.8
     Comparison: 1
   <TariffDefaultReputationModifier>k__BackingField: 0.5
+  <HazardBaseIntervalMeters>k__BackingField: 12
+  <HazardDangerMultiplier>k__BackingField: 0.5
+  <MinSegmentLengthForHazard>k__BackingField: 20
   <PickupSpawnIntervalMeters>k__BackingField: 1
   <PickupVisibleRadius>k__BackingField: 15
   <PickupDespawnRadius>k__BackingField: 25

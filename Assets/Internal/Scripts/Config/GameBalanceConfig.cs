@@ -67,6 +67,12 @@ namespace Internal.Scripts.Config
             new() { Threshold = 80, Modifier = 0.8f, Comparison = ComparisonType.Below },
         };
         [field: SerializeField] public float TariffDefaultReputationModifier { get; private set; } = 0.5f;
+
+        [Header("Road Hazards")]
+        [field: SerializeField] public float HazardBaseIntervalMeters { get; private set; } = 12f;
+        [field: SerializeField] public float HazardDangerMultiplier { get; private set; } = 0.5f;
+        [field: SerializeField] public int MinSegmentLengthForHazard { get; private set; } = 20;
+
         [Header("Road Pickups")]
         [field: SerializeField] public float PickupSpawnIntervalMeters { get; private set; } = 1f;
         [field: SerializeField] public float PickupVisibleRadius { get; private set; } = 15f;
