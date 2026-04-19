@@ -15,14 +15,52 @@ MonoBehaviour:
   <Type>k__BackingField: 0
   <CostSupplies>k__BackingField: 0
   <AffectedResource>k__BackingField: 2
+  <Name>k__BackingField:
+    m_TableReference:
+      m_TableCollectionName: UI
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: UI.Camp.Action.Forage.Name
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  <Hint1>k__BackingField:
+    m_TableReference:
+      m_TableCollectionName: UI
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: UI.Camp.Forage.Hint.1
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  <Hint2>k__BackingField:
+    m_TableReference:
+      m_TableCollectionName: UI
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: UI.Camp.Forage.Hint.2
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  <Hint3Plus>k__BackingField:
+    m_TableReference:
+      m_TableCollectionName: UI
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: UI.Camp.Forage.Hint.3
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   <RelatedSkill>k__BackingField: 1
   <MaxRepeatPerSegment>k__BackingField: 3
-  <SkipDailyFoodConsumption>k__BackingField: 1
   <DiminishingCurve>k__BackingField:
   - 1
   - 0.7
   - 0.5
   - 0.3
   - 0.15
+  <SkipDailyFoodConsumption>k__BackingField: 1
   <SideEffects>k__BackingField: []
-  <Cooldown>k__BackingField: 2
+  references:
+    version: 2
+    RefIds: []

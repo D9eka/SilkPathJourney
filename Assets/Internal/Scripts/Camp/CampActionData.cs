@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Internal.Scripts.Events.Generated;
 using Internal.Scripts.Player.Skills;
 using UnityEngine;
-
+using UnityEngine.Localization;
 namespace Internal.Scripts.Camp
 {
     [Serializable]
@@ -22,6 +22,12 @@ namespace Internal.Scripts.Camp
         [field: SerializeField] public float CostSupplies { get; private set; }
         [field: SerializeField] public EventOutcomeType AffectedResource { get; private set; }
 
+        [Header("Localization")]
+        [field: SerializeField] public LocalizedString Name { get; private set; }
+        [field: SerializeField] public LocalizedString Hint1 { get; private set; }
+        [field: SerializeField] public LocalizedString Hint2 { get; private set; }
+        [field: SerializeField] public LocalizedString Hint3Plus { get; private set; }
+
         [Header("Skill")]
         [field: SerializeField] public SkillType RelatedSkill { get; private set; } = SkillType.None;
 
@@ -37,5 +43,37 @@ namespace Internal.Scripts.Camp
 
         [Header("Repeat Side Effects")]
         [field: SerializeField] public List<RepeatSideEffect> SideEffects { get; private set; } = new();
+
+        public string GetName() => Name?.GetLocalizedString();
+
+        public string GetHint(int repeatDays) => repeatDays switch
+        {
+            <= 0 => null,
+            1    => Hint1?.GetLocalizedString(),
+            2    => Hint2?.GetLocalizedString(),
+            _    => Hint3Plus?.GetLocalizedString(),
+        };
+
+#if UNITY_EDITOR
+        public void ApplyImport(
+            CampActionType type, float costSupplies, EventOutcomeType affectedResource,
+            SkillType relatedSkill, int maxRepeat, float[] diminishingCurve,
+            bool skipFood, List<RepeatSideEffect> sideEffects,
+            LocalizedString name, LocalizedString hint1, LocalizedString hint2, LocalizedString hint3Plus)
+        {
+            Type = type;
+            CostSupplies = costSupplies;
+            AffectedResource = affectedResource;
+            RelatedSkill = relatedSkill;
+            MaxRepeatPerSegment = maxRepeat;
+            DiminishingCurve = diminishingCurve ?? Array.Empty<float>();
+            SkipDailyFoodConsumption = skipFood;
+            SideEffects = sideEffects ?? new List<RepeatSideEffect>();
+            Name = name;
+            Hint1 = hint1;
+            Hint2 = hint2;
+            Hint3Plus = hint3Plus;
+        }
+#endif
     }
 }

@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using Internal.Scripts.Economy.Generated;
 using UnityEngine;
-
 namespace Internal.Scripts.Camp
 {
     [Serializable]
@@ -38,5 +37,13 @@ namespace Internal.Scripts.Camp
 
             return 0f;
         }
+
+#if UNITY_EDITOR
+        public void ApplyImport(List<CampActionData> actions, List<BiomeModifier> modifiers)
+        {
+            Actions = actions ?? new List<CampActionData>();
+            BiomeModifiers = modifiers ?? new List<BiomeModifier>();
+        }
+#endif
     }
 }

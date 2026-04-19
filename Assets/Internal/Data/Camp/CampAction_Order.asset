@@ -15,12 +15,49 @@ MonoBehaviour:
   <Type>k__BackingField: 3
   <CostSupplies>k__BackingField: 0
   <AffectedResource>k__BackingField: 3
+  <Name>k__BackingField:
+    m_TableReference:
+      m_TableCollectionName: UI
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: UI.Camp.Action.Order.Name
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  <Hint1>k__BackingField:
+    m_TableReference:
+      m_TableCollectionName: UI
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: UI.Camp.Order.Hint.1
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  <Hint2>k__BackingField:
+    m_TableReference:
+      m_TableCollectionName: UI
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: UI.Camp.Order.Hint.2
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  <Hint3Plus>k__BackingField:
+    m_TableReference:
+      m_TableCollectionName: UI
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: UI.Camp.Order.Hint.3
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   <RelatedSkill>k__BackingField: 1
   <MaxRepeatPerSegment>k__BackingField: 3
   <DiminishingCurve>k__BackingField:
   - 1
   - 0.6
   - 0.35
+  <SkipDailyFoodConsumption>k__BackingField: 0
   <SideEffects>k__BackingField:
   - RepeatDay: 2
     Resource: 10
@@ -30,3 +67,6 @@ MonoBehaviour:
     Resource: 10
     Value: -5
     EventChance: 0
+  references:
+    version: 2
+    RefIds: []
