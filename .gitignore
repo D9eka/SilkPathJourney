@@ -104,3 +104,5 @@ GDD/
 .dotnet_cli
 SimulationExports
 .vscode
+Assets/_Recovery
+Assets/_Recovery.meta

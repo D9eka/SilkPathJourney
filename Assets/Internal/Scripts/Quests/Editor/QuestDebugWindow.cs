@@ -15,6 +15,73 @@ namespace Internal.Scripts.Quests.Editor
 {
     public class QuestDebugWindow : EditorWindow
     {
+        private const string MenuPath = "SPJ/Debug/Quest Debug Window";
+        private const string WindowTitle = "Quest Debug";
+
+        private const string MsgEnterPlayMode = "Enter Play Mode to use this window.";
+        private const string MsgCannotResolve = "Cannot resolve dependencies from Zenject.";
+        private const string MsgEmptyDatabase = "QuestDatabase is empty. Run SPJ/Import/Quests.";
+        private const string MsgAutoComplete = "Current stage has no trigger event (auto-complete).";
+
+        private const string SectionEventFilter = "Event Filter";
+        private const string SectionQuest = "Quest";
+        private const string SectionTriggerEvents = "Trigger Events";
+        private const string SectionDirectActions = "Direct (skip events)";
+        private const string SectionStatus = "Status";
+        private const string SectionSetFlag = "Set Flag";
+        private const string SectionDangerZone = "Danger Zone";
+
+        private const string LabelPrefix = "Prefix";
+        private const string LabelSelectQuest = "Select Quest";
+        private const string LabelState = "State";
+        private const string LabelTracked = "Tracked";
+        private const string LabelStage = "Stage";
+        private const string LabelStageId = "Stage ID";
+        private const string LabelTriggerEvent = "Trigger Event";
+        private const string LabelFlags = "Flags:";
+        private const string LabelFlagId = "Flag ID";
+        private const string LabelValue = "Value";
+
+        private const string BtnEnableFilter = "Enable Filter";
+        private const string BtnDisableFilter = "Disable Filter";
+        private const string BtnStart = "Start";
+        private const string BtnAdvance = "Advance";
+        private const string BtnComplete = "Complete";
+        private const string BtnFail = "Fail";
+        private const string BtnTrackThis = "Track This Quest";
+        private const string BtnSet = "Set";
+        private const string BtnClearAll = "Clear All Quest Data";
+
+        private const string StatusActive = " [ACTIVE]";
+        private const string StatusDone = " [DONE]";
+        private const string StatusFail = " [FAIL]";
+        private const string StateActive = "Active";
+        private const string StateCompleted = "Completed";
+        private const string StateFailed = "Failed";
+        private const string StateNotStarted = "Not Started";
+        private const string TrackedNone = "(none)";
+
+        private const string PrefixStartEvent = "Start Event: ";
+        private const string PrefixStageEvent = "Stage Event: ";
+        private const string SuffixNotFound = "(not found)";
+
+        private const string DialogClearTitle = "Clear Quest Data";
+        private const string DialogClearMsg = "This will remove all active, completed, and failed quests from save data. Continue?";
+        private const string DialogClearOk = "Clear";
+        private const string DialogClearCancel = "Cancel";
+
+        private const string LogQuestCleared = "[SPJ] Quest data cleared.";
+
+        private const string DefaultEventPrefix = "quest_";
+        private const int DefaultFlagValue = 1;
+
+        private const float FilterButtonWidth = 110f;
+        private const float SetButtonWidth = 50f;
+
+        private static readonly Color FilterActiveTint = new(1f, 0.6f, 0.6f);
+        private static readonly Color FilterInactiveTint = new(0.6f, 1f, 0.6f);
+        private static readonly Color DangerTint = new(1f, 0.4f, 0.4f);
+
         private QuestRepository _questRepository;
         private QuestDatabase _questDatabase;
         private SaveRepository _saveRepository;
@@ -25,14 +92,14 @@ namespace Internal.Scripts.Quests.Editor
         private string[] _questIds;
         private string[] _questLabels;
         private string _flagId = "";
-        private int _flagValue = 1;
+        private int _flagValue = DefaultFlagValue;
         private Vector2 _scrollPos;
-        private string _eventPrefix = "quest_";
+        private string _eventPrefix = DefaultEventPrefix;
 
-        [MenuItem("SPJ/Debug/Quest Debug Window")]
+        [MenuItem(MenuPath)]
         public static void ShowWindow()
         {
-            GetWindow<QuestDebugWindow>("Quest Debug");
+            GetWindow<QuestDebugWindow>(WindowTitle);
         }
 
         private void OnGUI()
@@ -41,14 +108,14 @@ namespace Internal.Scripts.Quests.Editor
 
             if (!Application.isPlaying)
             {
-                EditorGUILayout.HelpBox("Enter Play Mode to use this window.", MessageType.Info);
+                EditorGUILayout.HelpBox(MsgEnterPlayMode, MessageType.Info);
                 EditorGUILayout.EndScrollView();
                 return;
             }
 
             if (!TryResolve())
             {
-                EditorGUILayout.HelpBox("Cannot resolve dependencies from Zenject.", MessageType.Error);
+                EditorGUILayout.HelpBox(MsgCannotResolve, MessageType.Error);
                 EditorGUILayout.EndScrollView();
                 return;
             }
@@ -115,25 +182,25 @@ namespace Internal.Scripts.Quests.Editor
             _questLabels = quests.Select(q =>
             {
                 string status = "";
-                if (_questRepository.IsActive(q.Id)) status = " [ACTIVE]";
-                else if (_questRepository.IsCompleted(q.Id)) status = " [DONE]";
-                else if (_questRepository.IsFailed(q.Id)) status = " [FAIL]";
+                if (_questRepository.IsActive(q.Id)) status = StatusActive;
+                else if (_questRepository.IsCompleted(q.Id)) status = StatusDone;
+                else if (_questRepository.IsFailed(q.Id)) status = StatusFail;
                 return $"{q.Id}{status}";
             }).ToArray();
         }
 
         private void DrawEventFilter()
         {
-            EditorGUILayout.LabelField("Event Filter", EditorStyles.boldLabel);
+            EditorGUILayout.LabelField(SectionEventFilter, EditorStyles.boldLabel);
 
             EditorGUILayout.BeginHorizontal();
-            _eventPrefix = EditorGUILayout.TextField("Prefix", _eventPrefix);
+            _eventPrefix = EditorGUILayout.TextField(LabelPrefix, _eventPrefix);
 
             string current = EventSelector.DebugEventPrefix;
             bool isActive = !string.IsNullOrEmpty(current);
 
-            GUI.backgroundColor = isActive ? new Color(1f, 0.6f, 0.6f) : new Color(0.6f, 1f, 0.6f);
-            if (GUILayout.Button(isActive ? "Disable Filter" : "Enable Filter", GUILayout.Width(110)))
+            GUI.backgroundColor = isActive ? FilterActiveTint : FilterInactiveTint;
+            if (GUILayout.Button(isActive ? BtnDisableFilter : BtnEnableFilter, GUILayout.Width(FilterButtonWidth)))
             {
                 EventSelector.DebugEventPrefix = isActive ? null : _eventPrefix;
             }
@@ -146,30 +213,30 @@ namespace Internal.Scripts.Quests.Editor
 
         private void DrawQuestSelector()
         {
-            EditorGUILayout.LabelField("Quest", EditorStyles.boldLabel);
+            EditorGUILayout.LabelField(SectionQuest, EditorStyles.boldLabel);
 
             if (_questIds == null || _questIds.Length == 0)
             {
-                EditorGUILayout.HelpBox("QuestDatabase is empty. Run SPJ/Import/Quests.", MessageType.Warning);
+                EditorGUILayout.HelpBox(MsgEmptyDatabase, MessageType.Warning);
                 return;
             }
 
-            _selectedQuestIndex = EditorGUILayout.Popup("Select Quest", _selectedQuestIndex, _questLabels);
+            _selectedQuestIndex = EditorGUILayout.Popup(LabelSelectQuest, _selectedQuestIndex, _questLabels);
         }
 
         private void DrawEventActions(string questId, bool isActive, bool isCompleted, bool isFailed)
         {
             if (questId == null || _eventDatabase == null || _screenStackService == null) return;
 
-            EditorGUILayout.LabelField("Trigger Events", EditorStyles.boldLabel);
+            EditorGUILayout.LabelField(SectionTriggerEvents, EditorStyles.boldLabel);
 
             if (!isActive && !isCompleted && !isFailed)
             {
                 var startEvent = FindEventWithOutcome(EventOutcomeType.StartQuest, questId);
                 GUI.enabled = startEvent != null;
                 if (GUILayout.Button(startEvent != null
-                    ? $"Start Event: {startEvent.Id}"
-                    : "Start Event: (not found)"))
+                    ? $"{PrefixStartEvent}{startEvent.Id}"
+                    : $"{PrefixStartEvent}{SuffixNotFound}"))
                 {
                     TriggerEvent(startEvent);
                 }
@@ -189,8 +256,8 @@ namespace Internal.Scripts.Quests.Editor
                         var stageEvent = _eventDatabase.GetById(stage.TriggerEventId);
                         GUI.enabled = stageEvent != null;
                         if (GUILayout.Button(stageEvent != null
-                            ? $"Stage Event: {stage.TriggerEventId}"
-                            : $"Stage Event: {stage.TriggerEventId} (not found)"))
+                            ? $"{PrefixStageEvent}{stage.TriggerEventId}"
+                            : $"{PrefixStageEvent}{stage.TriggerEventId} {SuffixNotFound}"))
                         {
                             TriggerEvent(stageEvent);
                         }
@@ -198,8 +265,7 @@ namespace Internal.Scripts.Quests.Editor
                     }
                     else
                     {
-                        EditorGUILayout.LabelField("Current stage has no trigger event (auto-complete).",
-                            EditorStyles.miniLabel);
+                        EditorGUILayout.LabelField(MsgAutoComplete, EditorStyles.miniLabel);
                     }
                 }
             }
@@ -209,31 +275,31 @@ namespace Internal.Scripts.Quests.Editor
         {
             if (questId == null) return;
 
-            EditorGUILayout.LabelField("Direct (skip events)", EditorStyles.miniLabel);
+            EditorGUILayout.LabelField(SectionDirectActions, EditorStyles.miniLabel);
 
             EditorGUILayout.BeginHorizontal();
 
             GUI.enabled = !isActive && !isCompleted && !isFailed;
-            if (GUILayout.Button("Start"))
+            if (GUILayout.Button(BtnStart))
             {
                 _questRepository.StartQuest(questId);
                 RebuildQuestList();
             }
 
             GUI.enabled = isActive;
-            if (GUILayout.Button("Advance"))
+            if (GUILayout.Button(BtnAdvance))
             {
                 _questRepository.AdvanceQuest(questId);
                 RebuildQuestList();
             }
 
-            if (GUILayout.Button("Complete"))
+            if (GUILayout.Button(BtnComplete))
             {
                 _questRepository.CompleteQuest(questId);
                 RebuildQuestList();
             }
 
-            if (GUILayout.Button("Fail"))
+            if (GUILayout.Button(BtnFail))
             {
                 _questRepository.FailQuest(questId);
                 RebuildQuestList();
@@ -244,7 +310,7 @@ namespace Internal.Scripts.Quests.Editor
 
             EditorGUILayout.BeginHorizontal();
             GUI.enabled = isActive;
-            if (GUILayout.Button("Track This Quest"))
+            if (GUILayout.Button(BtnTrackThis))
             {
                 _questRepository.TrackQuest(questId);
             }
@@ -258,33 +324,33 @@ namespace Internal.Scripts.Quests.Editor
 
             var data = _questDatabase.GetById(questId);
 
-            EditorGUILayout.LabelField("Status", EditorStyles.boldLabel);
+            EditorGUILayout.LabelField(SectionStatus, EditorStyles.boldLabel);
 
-            string state = isActive ? "Active" :
-                isCompleted ? "Completed" :
-                isFailed ? "Failed" : "Not Started";
+            string state = isActive ? StateActive :
+                isCompleted ? StateCompleted :
+                isFailed ? StateFailed : StateNotStarted;
 
-            EditorGUILayout.LabelField("State", state);
-            EditorGUILayout.LabelField("Tracked", _questRepository.GetTrackedQuestId() ?? "(none)");
+            EditorGUILayout.LabelField(LabelState, state);
+            EditorGUILayout.LabelField(LabelTracked, _questRepository.GetTrackedQuestId() ?? TrackedNone);
 
             if (isActive)
             {
                 int stageIdx = _questRepository.GetCurrentStageIndex(questId);
                 int totalStages = data?.Stages?.Count ?? 0;
-                EditorGUILayout.LabelField("Stage", $"{stageIdx} / {totalStages}");
+                EditorGUILayout.LabelField(LabelStage, $"{stageIdx} / {totalStages}");
 
                 if (data?.Stages != null && stageIdx < data.Stages.Count)
                 {
                     var stage = data.Stages[stageIdx];
-                    EditorGUILayout.LabelField("Stage ID", stage.Id);
+                    EditorGUILayout.LabelField(LabelStageId, stage.Id);
                     if (!string.IsNullOrEmpty(stage.TriggerEventId))
-                        EditorGUILayout.LabelField("Trigger Event", stage.TriggerEventId);
+                        EditorGUILayout.LabelField(LabelTriggerEvent, stage.TriggerEventId);
                 }
 
                 var entry = _questRepository.GetActiveEntry(questId);
                 if (entry?.Flags != null && entry.Flags.Count > 0)
                 {
-                    EditorGUILayout.LabelField("Flags:");
+                    EditorGUILayout.LabelField(LabelFlags);
                     EditorGUI.indentLevel++;
                     foreach (var flag in entry.Flags)
                         EditorGUILayout.LabelField(flag.FlagId, flag.Value.ToString());
@@ -297,11 +363,11 @@ namespace Internal.Scripts.Quests.Editor
         {
             if (questId == null || !isActive) return;
 
-            EditorGUILayout.LabelField("Set Flag", EditorStyles.boldLabel);
+            EditorGUILayout.LabelField(SectionSetFlag, EditorStyles.boldLabel);
             EditorGUILayout.BeginHorizontal();
-            _flagId = EditorGUILayout.TextField("Flag ID", _flagId);
-            _flagValue = EditorGUILayout.IntField("Value", _flagValue);
-            if (GUILayout.Button("Set", GUILayout.Width(50)))
+            _flagId = EditorGUILayout.TextField(LabelFlagId, _flagId);
+            _flagValue = EditorGUILayout.IntField(LabelValue, _flagValue);
+            if (GUILayout.Button(BtnSet, GUILayout.Width(SetButtonWidth)))
             {
                 if (!string.IsNullOrWhiteSpace(_flagId))
                     _questRepository.SetFlag(questId, _flagId, _flagValue);
@@ -311,14 +377,12 @@ namespace Internal.Scripts.Quests.Editor
 
         private void DrawClearSection()
         {
-            EditorGUILayout.LabelField("Danger Zone", EditorStyles.boldLabel);
+            EditorGUILayout.LabelField(SectionDangerZone, EditorStyles.boldLabel);
 
-            GUI.backgroundColor = new Color(1f, 0.4f, 0.4f);
-            if (GUILayout.Button("Clear All Quest Data"))
+            GUI.backgroundColor = DangerTint;
+            if (GUILayout.Button(BtnClearAll))
             {
-                if (EditorUtility.DisplayDialog("Clear Quest Data",
-                    "This will remove all active, completed, and failed quests from save data. Continue?",
-                    "Clear", "Cancel"))
+                if (EditorUtility.DisplayDialog(DialogClearTitle, DialogClearMsg, DialogClearOk, DialogClearCancel))
                 {
                     var questData = _saveRepository?.Data?.Quests;
                     if (questData != null)
@@ -329,7 +393,7 @@ namespace Internal.Scripts.Quests.Editor
                         questData.TrackedQuestId = null;
                         _saveRepository.Save();
                         RebuildQuestList();
-                        Debug.Log("[SPJ] Quest data cleared.");
+                        Debug.Log(LogQuestCleared);
                     }
                 }
             }
