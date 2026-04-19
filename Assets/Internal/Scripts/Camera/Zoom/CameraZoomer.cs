@@ -14,7 +14,7 @@ namespace Internal.Scripts.Camera.Zoom
     public class CameraZoomer : ICameraZoomer, IInitializable, IDisposable
     {
         private readonly UnityEngine.Camera _camera;
-        private readonly InputRouter _inputManager;
+        private readonly ICameraInput _inputManager;
         private readonly CameraZoomerData _cameraZoomerData;
         private readonly CameraBounds _bounds;
         private readonly CameraSceneSettings _settings;
@@ -28,7 +28,7 @@ namespace Internal.Scripts.Camera.Zoom
 
         public CameraZoomer(
             UnityEngine.Camera camera,
-            InputRouter inputManager,
+            ICameraInput inputManager,
             CameraZoomerData cameraZoomerData,
             CameraBounds bounds,
             CameraSceneSettings settings,
@@ -48,12 +48,12 @@ namespace Internal.Scripts.Camera.Zoom
         
         public void Initialize()
         {
-            _inputManager.OnChangeCameraSize += ChangeSize;
+            _inputManager.OnChangeSize += ChangeSize;
         }
         public void Dispose()
         {
             _tweenY?.Kill();
-            _inputManager.OnChangeCameraSize -= ChangeSize;
+            _inputManager.OnChangeSize -= ChangeSize;
         }
 
         public void ZoomTo(float size, Action onComplete = null)

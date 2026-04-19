@@ -18,14 +18,14 @@ namespace Internal.Scripts.UI.Screens.HazardQte.Qte
         public event Action<bool> OnCompleted;
         public bool DidPlayerSucceed() => _clickCount >= _required;
 
-        private InputRouter _inputRouter;
+        private IQteInput _input;
         private int _clickCount;
         private int _required;
         private bool _active;
 
-        public void Show(IHazardInputConfig config, InputRouter inputRouter)
+        public void Show(IHazardInputConfig config, IQteInput input)
         {
-            _inputRouter = inputRouter;
+            _input = input;
             _active = true;
             _clickCount = 0;
 
@@ -34,16 +34,16 @@ namespace Internal.Scripts.UI.Screens.HazardQte.Qte
             foreach (var dot in _clickDots)
                 if (dot != null) dot.color = _activeColor;
 
-            _inputRouter.EnableQteInput();
-            _inputRouter.OnQteClick += OnClick;
+            _input.Enable();
+            _input.OnClick += OnClick;
         }
 
         public void Hide()
         {
-            if (_inputRouter == null) return;
-            _inputRouter.OnQteClick -= OnClick;
-            _inputRouter.DisableQteInput();
-            _inputRouter = null;
+            if (_input == null) return;
+            _input.OnClick -= OnClick;
+            _input.Disable();
+            _input = null;
         }
 
         private void OnClick()

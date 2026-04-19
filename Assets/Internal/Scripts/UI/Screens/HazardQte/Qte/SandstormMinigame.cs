@@ -16,15 +16,15 @@ namespace Internal.Scripts.UI.Screens.HazardQte.Qte
         public event Action<bool> OnCompleted;
         public bool DidPlayerSucceed() => _alive;
 
-        private InputRouter _inputRouter;
+        private IQteInput _input;
         private float _windSpeed;
         private float _pushAmount;
         private float _dangerLeft;
         private bool _alive;
 
-        public void Show(IHazardInputConfig config, InputRouter inputRouter)
+        public void Show(IHazardInputConfig config, IQteInput input)
         {
-            _inputRouter = inputRouter;
+            _input = input;
             _alive = true;
 
             if (config is WindResistInputConfig wr)
@@ -43,16 +43,16 @@ namespace Internal.Scripts.UI.Screens.HazardQte.Qte
             _dangerLeft = _dangerZone.rectTransform.anchoredPosition.x
                         + _dangerZone.rectTransform.rect.width * 0.5f;
 
-            _inputRouter.EnableQteInput();
-            _inputRouter.OnQteClick += OnClick;
+            _input.Enable();
+            _input.OnClick += OnClick;
         }
 
         public void Hide()
         {
-            if (_inputRouter == null) return;
-            _inputRouter.OnQteClick -= OnClick;
-            _inputRouter.DisableQteInput();
-            _inputRouter = null;
+            if (_input == null) return;
+            _input.OnClick -= OnClick;
+            _input.Disable();
+            _input = null;
         }
 
         private void Update()

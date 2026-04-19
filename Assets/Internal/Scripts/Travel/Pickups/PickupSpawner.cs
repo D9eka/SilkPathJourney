@@ -29,9 +29,6 @@ namespace Internal.Scripts.Travel.Pickups
         private readonly List<PickupEntry> _pool = new();
         private readonly List<PickupEntry> _pendingEntries = new();
 
-        private string _lastFromNode;
-        private string _lastToNode;
-
         public PickupSpawner(
             IPlayerStateProvider player,
             IPlayerStateEvents playerEvents,
@@ -52,12 +49,12 @@ namespace Internal.Scripts.Travel.Pickups
 
         public void Initialize()
         {
-            _playerEvents.OnCurrentNodeChanged += HandleNodeChanged;
+            _playerEvents.OnCurrentSegmentChanged += OnSegmentChanged;
         }
 
         public void Dispose()
         {
-            _playerEvents.OnCurrentNodeChanged -= HandleNodeChanged;
+            _playerEvents.OnCurrentSegmentChanged -= OnSegmentChanged;
             ClearAll();
         }
 
@@ -65,8 +62,6 @@ namespace Internal.Scripts.Travel.Pickups
         {
             if (_player.State != PlayerState.Moving)
                 return;
-
-            CheckSegmentChange();
 
             Vector3 playerPos = _player.CurrentPosition;
             int activeCount = 0;
@@ -111,19 +106,6 @@ namespace Internal.Scripts.Travel.Pickups
             }
         }
 
-        private void CheckSegmentChange()
-        {
-            string from = _player.CurrentFromNodeId;
-            string to = _player.CurrentToNodeId;
-
-            if (from == _lastFromNode && to == _lastToNode)
-                return;
-
-            _lastFromNode = from;
-            _lastToNode = to;
-            OnSegmentChanged(from, to);
-        }
-
         private void OnSegmentChanged(string fromNode, string toNode)
         {
             ClearPending();
@@ -134,8 +116,7 @@ namespace Internal.Scripts.Travel.Pickups
                 return;
             }
 
-            RoadPathSegment segment = FindSegment(fromNode, toNode);
-            if (segment == null)
+            if (!_roadNetwork.TryGetSegment(fromNode, toNode, out RoadPathSegment segment))
             {
                 LogWarning($"Segment not found: {fromNode} -> {toNode}");
                 return;
@@ -192,20 +173,6 @@ namespace Internal.Scripts.Travel.Pickups
             string prefixed = "[Pickup] " + msg;
             Debug.LogWarning(prefixed);
             PickupDebugLog.Push("WARN: " + msg);
-        }
-
-        private RoadPathSegment FindSegment(string fromNode, string toNode)
-        {
-            if (string.IsNullOrEmpty(fromNode))
-                return null;
-
-            List<RoadPathSegment> segments = _roadNetwork.GetOutgoingSegments(fromNode);
-            foreach (RoadPathSegment seg in segments)
-            {
-                if (seg.ToNodeId == toNode)
-                    return seg;
-            }
-            return null;
         }
 
         private PickupData PickRandom()
@@ -283,13 +250,6 @@ namespace Internal.Scripts.Travel.Pickups
                     Object.Destroy(entry.View.gameObject);
             }
             _pool.Clear();
-        }
-
-        private void HandleNodeChanged(string nodeId)
-        {
-            _lastFromNode = null;
-            _lastToNode = null;
-            ClearPending();
         }
 
         private sealed class PickupEntry

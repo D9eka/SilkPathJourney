@@ -24,7 +24,7 @@ namespace Internal.Scripts.UI.Screens.HazardQte.Qte
         public event Action<bool> OnCompleted;
         public bool DidPlayerSucceed() => _phase == PhaseReturn;
 
-        private InputRouter _inputRouter;
+        private IQteInput _input;
         private float _cartSpeed;
         private int _phase;
         private bool _alive;
@@ -37,9 +37,9 @@ namespace Internal.Scripts.UI.Screens.HazardQte.Qte
             _cartStartPosition = _cart.anchoredPosition;
         }
 
-        public void Show(IHazardInputConfig config, InputRouter inputRouter)
+        public void Show(IHazardInputConfig config, IQteInput input)
         {
-            _inputRouter = inputRouter;
+            _input = input;
             _alive = true;
             _phase = PhaseApproach;
 
@@ -50,16 +50,16 @@ namespace Internal.Scripts.UI.Screens.HazardQte.Qte
             _obstacleX = _obstacle.rectTransform.anchoredPosition.x;
             _screenRight = _mainRoad.rect.width * 0.5f + ScreenRightMargin;
 
-            _inputRouter.EnableQteInput();
-            _inputRouter.OnQteClick += OnClick;
+            _input.Enable();
+            _input.OnClick += OnClick;
         }
 
         public void Hide()
         {
-            if (_inputRouter == null) return;
-            _inputRouter.OnQteClick -= OnClick;
-            _inputRouter.DisableQteInput();
-            _inputRouter = null;
+            if (_input == null) return;
+            _input.OnClick -= OnClick;
+            _input.Disable();
+            _input = null;
         }
 
         private void Update()

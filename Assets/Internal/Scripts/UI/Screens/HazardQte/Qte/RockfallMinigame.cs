@@ -15,7 +15,7 @@ namespace Internal.Scripts.UI.Screens.HazardQte.Qte
         public event Action<bool> OnCompleted;
         public bool DidPlayerSucceed() => IsInSafeZone();
 
-        private InputRouter _inputRouter;
+        private IQteInput _input;
         private float _moveSpeed;
         private bool _active;
         private Vector2 _cartStartPosition;
@@ -32,9 +32,9 @@ namespace Internal.Scripts.UI.Screens.HazardQte.Qte
             }
         }
 
-        public void Show(IHazardInputConfig config, InputRouter inputRouter)
+        public void Show(IHazardInputConfig config, IQteInput input)
         {
-            _inputRouter = inputRouter;
+            _input = input;
             _active = true;
 
             _moveSpeed = config is LeftOrRightInputConfig lr ? lr.MoveSpeed : _defaultMoveSpeed;
@@ -42,24 +42,24 @@ namespace Internal.Scripts.UI.Screens.HazardQte.Qte
             if (_cart != null && _hasStartPosition)
                 _cart.anchoredPosition = _cartStartPosition;
 
-            _inputRouter.EnableQteInput();
+            _input.Enable();
         }
 
         public void Hide()
         {
-            if (_inputRouter == null) return;
-            _inputRouter.DisableQteInput();
-            _inputRouter = null;
+            if (_input == null) return;
+            _input.Disable();
+            _input = null;
         }
 
         private void Update()
         {
-            if (!_active || _cart == null || _inputRouter == null) return;
+            if (!_active || _cart == null || _input == null) return;
 
             float dir = 0f;
-            if (_inputRouter.QteLeftAction != null && _inputRouter.QteLeftAction.IsPressed())
+            if (_input.LeftAction != null && _input.LeftAction.IsPressed())
                 dir -= 1f;
-            if (_inputRouter.QteRightAction != null && _inputRouter.QteRightAction.IsPressed())
+            if (_input.RightAction != null && _input.RightAction.IsPressed())
                 dir += 1f;
 
             if (dir != 0f)
@@ -92,6 +92,5 @@ namespace Internal.Scripts.UI.Screens.HazardQte.Qte
             Vector2 max = CornerBuffer[2];
             return new Rect(min, max - min);
         }
-
     }
 }

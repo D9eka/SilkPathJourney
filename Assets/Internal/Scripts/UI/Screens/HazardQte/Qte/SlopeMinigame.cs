@@ -15,15 +15,15 @@ namespace Internal.Scripts.UI.Screens.HazardQte.Qte
         public event Action<bool> OnCompleted;
         public bool DidPlayerSucceed() => _alive;
 
-        private InputRouter _inputRouter;
+        private IQteInput _input;
         private float _slideSpeed;
         private float _cliffBottom;
         private bool _holding;
         private bool _alive;
 
-        public void Show(IHazardInputConfig config, InputRouter inputRouter)
+        public void Show(IHazardInputConfig config, IQteInput input)
         {
-            _inputRouter = inputRouter;
+            _input = input;
             _alive = true;
             _holding = false;
 
@@ -34,18 +34,18 @@ namespace Internal.Scripts.UI.Screens.HazardQte.Qte
             _cliffBottom = _cliff.rectTransform.anchoredPosition.y
                          + _cliff.rectTransform.rect.height * 0.5f;
 
-            _inputRouter.EnableQteInput();
-            _inputRouter.OnQteClick += OnHoldStart;
-            _inputRouter.OnQteClickCanceled += OnHoldStop;
+            _input.Enable();
+            _input.OnClick        += OnHoldStart;
+            _input.OnClickCanceled += OnHoldStop;
         }
 
         public void Hide()
         {
-            if (_inputRouter == null) return;
-            _inputRouter.OnQteClick -= OnHoldStart;
-            _inputRouter.OnQteClickCanceled -= OnHoldStop;
-            _inputRouter.DisableQteInput();
-            _inputRouter = null;
+            if (_input == null) return;
+            _input.OnClick        -= OnHoldStart;
+            _input.OnClickCanceled -= OnHoldStop;
+            _input.Disable();
+            _input = null;
         }
 
         private void Update()
@@ -61,7 +61,7 @@ namespace Internal.Scripts.UI.Screens.HazardQte.Qte
         }
 
         private void OnHoldStart() => _holding = true;
-        private void OnHoldStop() => _holding = false;
+        private void OnHoldStop()  => _holding = false;
 
         private void Complete()
         {

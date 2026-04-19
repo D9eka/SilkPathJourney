@@ -8,7 +8,7 @@ namespace Internal.Scripts.UI.Screens.HazardQte.Qte
     {
         event Action<bool> OnCompleted;
         bool DidPlayerSucceed();
-        void Show(IHazardInputConfig config, InputRouter inputRouter);
+        void Show(IHazardInputConfig config, IQteInput input);
         void Hide();
     }
 }

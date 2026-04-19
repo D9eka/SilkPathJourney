@@ -10,9 +10,9 @@ namespace Internal.Scripts.UI.StackService
     {
         private readonly ScreenStackService _stackService;
         private readonly ScreenCatalog _catalog;
-        private readonly InputRouter _inputManager;
+        private readonly IUiInput _inputManager;
 
-        public ScreenBackNavigator(ScreenStackService stackService, ScreenCatalog catalog, InputRouter inputManager)
+        public ScreenBackNavigator(ScreenStackService stackService, ScreenCatalog catalog, IUiInput inputManager)
         {
             _stackService = stackService;
             _catalog = catalog;
@@ -21,12 +21,12 @@ namespace Internal.Scripts.UI.StackService
 
         public void Initialize()
         {
-            _inputManager.OnUiBack += HandleBack;
+            _inputManager.OnBack += HandleBack;
         }
 
         public void Dispose()
         {
-            _inputManager.OnUiBack -= HandleBack;
+            _inputManager.OnBack -= HandleBack;
         }
 
         private void HandleBack()

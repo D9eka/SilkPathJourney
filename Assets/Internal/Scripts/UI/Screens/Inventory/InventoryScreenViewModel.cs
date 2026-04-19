@@ -12,7 +12,7 @@ namespace Internal.Scripts.UI.Screens.Inventory
     public sealed class InventoryScreenViewModel : ScreenViewModelBase
     {
         private readonly InventoryModel _model;
-        private readonly InputRouter _inputManager;
+        private readonly IUiInput _inputManager;
         private readonly ResourceIconCatalog _resourceIcons;
         private int _lastDropFrame = -1;
 
@@ -21,7 +21,7 @@ namespace Internal.Scripts.UI.Screens.Inventory
         public event Action SubmitAll;
         public event Action Action;
 
-        public InventoryScreenViewModel(InventoryModel model, InputRouter inputManager, ResourceIconCatalog resourceIcons)
+        public InventoryScreenViewModel(InventoryModel model, IUiInput inputManager, ResourceIconCatalog resourceIcons)
         {
             _model = model;
             _inputManager = inputManager;
@@ -36,18 +36,18 @@ namespace Internal.Scripts.UI.Screens.Inventory
         protected override void OnOpen(object args)
         {
             _model.Activate();
-            _inputManager.OnUiNavigate += HandleNavigate;
-            _inputManager.OnUiSubmit += HandleSubmit;
-            _inputManager.OnUiSubmitAll += HandleSubmitAll;
-            _inputManager.OnUiAction += HandleAction;
+            _inputManager.OnNavigate  += HandleNavigate;
+            _inputManager.OnSubmit    += HandleSubmit;
+            _inputManager.OnSubmitAll += HandleSubmitAll;
+            _inputManager.OnAction    += HandleAction;
         }
 
         protected override void OnClose()
         {
-            _inputManager.OnUiNavigate -= HandleNavigate;
-            _inputManager.OnUiSubmit -= HandleSubmit;
-            _inputManager.OnUiSubmitAll -= HandleSubmitAll;
-            _inputManager.OnUiAction -= HandleAction;
+            _inputManager.OnNavigate  -= HandleNavigate;
+            _inputManager.OnSubmit    -= HandleSubmit;
+            _inputManager.OnSubmitAll -= HandleSubmitAll;
+            _inputManager.OnAction    -= HandleAction;
             _model.Deactivate();
         }
 

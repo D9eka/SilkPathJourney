@@ -11,7 +11,7 @@ namespace Internal.Scripts.Camera.Move
         private const float AnimSpeedUnitsPerSec = 10f;
 
         private readonly UnityEngine.Camera _camera;
-        private readonly InputRouter _inputManager;
+        private readonly ICameraInput _inputManager;
         private readonly ICameraTilter _tilter;
         private readonly CameraBounds _bounds;
         private readonly CameraSceneSettings _settings;
@@ -26,7 +26,7 @@ namespace Internal.Scripts.Camera.Move
 
         public bool SuspendLateTick { get; set; }
 
-        public CameraMover(UnityEngine.Camera camera, InputRouter inputManager, ICameraTilter tilter,
+        public CameraMover(UnityEngine.Camera camera, ICameraInput inputManager, ICameraTilter tilter,
             CameraBounds bounds, CameraSceneSettings settings)
         {
             _camera = camera;
@@ -38,7 +38,7 @@ namespace Internal.Scripts.Camera.Move
 
         public void Initialize()
         {
-            _inputManager.OnChangeCameraPosition += ChangePosition;
+            _inputManager.OnChangePosition += ChangePosition;
             ApplyPosition(_bounds.Center);
         }
 
@@ -78,7 +78,7 @@ namespace Internal.Scripts.Camera.Move
 
         public void Dispose()
         {
-            _inputManager.OnChangeCameraPosition -= ChangePosition;
+            _inputManager.OnChangePosition -= ChangePosition;
         }
 
         public void MoveTo(Vector2 worldPosition, Action onComplete = null)
