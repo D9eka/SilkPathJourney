@@ -8,6 +8,7 @@ namespace Internal.Scripts.Travel.Hazards
         MultiClick,
         HoldClick,
         TimingClick,
-        WindResist
+        WindResist,
+        Dodge
     }
 }

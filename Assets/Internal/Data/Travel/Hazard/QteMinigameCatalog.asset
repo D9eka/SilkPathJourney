@@ -15,3 +15,5 @@ MonoBehaviour:
   _entries:
   - InputType: 1
     Prefab: {fileID: 8180872007469108925, guid: c739283dfb939d14398271d2ac429263, type: 3}
+  - InputType: 7
+    Prefab: {fileID: 1079975268637025778, guid: 3b94c40ddb2b2f44bbcc182d1eefd5b2, type: 3}
