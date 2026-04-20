@@ -77,8 +77,8 @@ namespace Internal.Scripts.UI.Screens.HazardQte
 
         public string ResolveResultTitle(bool success)
         {
-            string key = success ? LocEvents.Hazard_Result_Success : LocEvents.Hazard_Result_Fail;
-            return LocalizationService.Resolve(LocEvents.Table, key);
+            string key = success ? LocUI.UI_HazardQte_Result_Success : LocUI.UI_HazardQte_Result_Fail;
+            return LocalizationService.Resolve(LocUI.Table, key);
         }
 
         protected override void OnOpen(object args)

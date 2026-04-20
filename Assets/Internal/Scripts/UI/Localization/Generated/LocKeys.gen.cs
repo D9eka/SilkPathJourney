@@ -2868,22 +2868,6 @@ namespace Internal.Scripts.UI.Localization.Generated
         public const string Event_EventArtifact1Complete_Description = "event.event_artifact1_complete.description";
         public const string Event_EventArtifact1Complete_Choice1 = "event.event_artifact1_complete.choice1";
         public const string Event_EventArtifact1Complete_Choice1_Result = "event.event_artifact1_complete.choice1.result";
-        public const string Hazard_Rockfall_Warning = "hazard.rockfall.warning";
-        public const string Hazard_Pothole_Warning = "hazard.pothole.warning";
-        public const string Hazard_Wolf_Warning = "hazard.wolf.warning";
-        public const string Hazard_Bandit_Warning = "hazard.bandit.warning";
-        public const string Hazard_Sandstorm_Warning = "hazard.sandstorm.warning";
-        public const string Hazard_River_Warning = "hazard.river.warning";
-        public const string Hazard_Hint_Click = "hazard.hint.click";
-        public const string Hazard_Hint_Leftright = "hazard.hint.leftright";
-        public const string Hazard_Hint_Down = "hazard.hint.down";
-        public const string Hazard_Hint_Multiclick = "hazard.hint.multiclick";
-        public const string Hazard_Hint_Hold = "hazard.hint.hold";
-        public const string Hazard_Hint_Timing = "hazard.hint.timing";
-        public const string Hazard_Mountain_Warning = "hazard.mountain.warning";
-        public const string Hazard_Hint_Wind = "hazard.hint.wind";
-        public const string Hazard_Result_Success = "hazard.result.success";
-        public const string Hazard_Result_Fail = "hazard.result.fail";
         public const string Event_CampPlainsSnare_Name = "event.camp_plains_snare.name";
         public const string Event_CampPlainsSnare_Description = "event.camp_plains_snare.description";
         public const string Event_CampPlainsSnare_Choice1 = "event.camp_plains_snare.choice1";
@@ -3733,5 +3717,22 @@ namespace Internal.Scripts.UI.Localization.Generated
         public const string UI_Tavern_Rumors_Entry = "UI.Tavern.Rumors.Entry";
         public const string UI_Tavern_Rumors_Buy = "UI.Tavern.Rumors.Buy";
         public const string UI_Tavern_Rumors_Days = "UI.Tavern.Rumors.Days";
+        public const string UI_HazardQte_Header_Rockfall = "UI.HazardQte.Header.Rockfall";
+        public const string UI_HazardQte_Header_Pothole = "UI.HazardQte.Header.Pothole";
+        public const string UI_HazardQte_Header_Wolf = "UI.HazardQte.Header.Wolf";
+        public const string UI_HazardQte_Header_Jackal = "UI.HazardQte.Header.Jackal";
+        public const string UI_HazardQte_Header_Bandit = "UI.HazardQte.Header.Bandit";
+        public const string UI_HazardQte_Header_Sandstorm = "UI.HazardQte.Header.Sandstorm";
+        public const string UI_HazardQte_Header_River = "UI.HazardQte.Header.River";
+        public const string UI_HazardQte_Header_Mountain = "UI.HazardQte.Header.Mountain";
+        public const string UI_HazardQte_Hint_Click = "UI.HazardQte.Hint.Click";
+        public const string UI_HazardQte_Hint_LeftRight = "UI.HazardQte.Hint.LeftRight";
+        public const string UI_HazardQte_Hint_Down = "UI.HazardQte.Hint.Down";
+        public const string UI_HazardQte_Hint_MultiClick = "UI.HazardQte.Hint.MultiClick";
+        public const string UI_HazardQte_Hint_Hold = "UI.HazardQte.Hint.Hold";
+        public const string UI_HazardQte_Hint_Timing = "UI.HazardQte.Hint.Timing";
+        public const string UI_HazardQte_Hint_Wind = "UI.HazardQte.Hint.Wind";
+        public const string UI_HazardQte_Result_Success = "UI.HazardQte.Result.Success";
+        public const string UI_HazardQte_Result_Fail = "UI.HazardQte.Result.Fail";
     }
 }

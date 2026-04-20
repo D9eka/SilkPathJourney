@@ -8,6 +8,7 @@ namespace Internal.Scripts.Travel.Hazards
         BanditAmbush,
         Sandstorm,
         RiverCrossing,
-        MountainPass
+        MountainPass,
+        JackalPack
     }
 }

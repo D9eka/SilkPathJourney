@@ -5,3 +5,6 @@ Trade,Player,Prefix
 Event,Buy,Text
 Global,Sell,
 ,Npc,
+HazardQte,Header,
+HazardQte,Hint,
+HazardQte,Result,

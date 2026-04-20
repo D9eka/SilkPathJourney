@@ -16,10 +16,10 @@ MonoBehaviour:
   <Icon>k__BackingField: {fileID: 0}
   <WarningText>k__BackingField:
     m_TableReference:
-      m_TableCollectionName: GUID:b2e541a37c4586c4f92b1d797521ddc1
+      m_TableCollectionName: GUID:43598c3e97d7d9a439a074f7627fe021
     m_TableEntryReference:
-      m_KeyId: 23055637800804353
-      m_Key: 
+      m_KeyId: 0
+      m_Key: UI.HazardQte.Header.Wolf
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
@@ -44,13 +44,15 @@ MonoBehaviour:
     - rid: 5481561599466799179
       type: {class: MultiClickInputConfig, ns: Internal.Scripts.Travel.Hazards.Input, asm: Assembly-CSharp}
       data:
-        <RequiredClicks>k__BackingField: 3
+        <MinClicks>k__BackingField: 2
+        <MaxClicks>k__BackingField: 5
+        <EnemyPool>k__BackingField: {fileID: 11400000, guid: bae5f473502caa44489c81f6cef61687, type: 2}
         <Hint>k__BackingField:
           m_TableReference:
-            m_TableCollectionName: GUID:b2e541a37c4586c4f92b1d797521ddc1
+            m_TableCollectionName: GUID:43598c3e97d7d9a439a074f7627fe021
           m_TableEntryReference:
-            m_KeyId: 23055637804998657
-            m_Key:
+            m_KeyId: 0
+            m_Key: UI.HazardQte.Hint.MultiClick
           m_FallbackState: 0
           m_WaitForCompletion: 0
           m_LocalVariables: []

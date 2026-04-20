@@ -3144,22 +3144,23 @@ UI.Camp.Repair.Hint.3,ui,,Телеги уже не починить,Carts beyond
 UI.Camp.Order.Hint.1,ui,,Люди устали,People are tired
 UI.Camp.Order.Hint.2,ui,,Люди начинают бунтовать,People starting to rebel
 UI.Camp.Order.Hint.3,ui,,Люди отказываются подчиняться,People refuse to obey
-hazard.rockfall.warning,hazards,,Камнепад!,Rockfall!
-hazard.pothole.warning,hazards,,Яма!,Pothole!
-hazard.wolf.warning,hazards,,Волки!,Wolves!
-hazard.bandit.warning,hazards,,Засада!,Ambush!
-hazard.sandstorm.warning,hazards,,Песчаная буря!,Sandstorm!
-hazard.river.warning,hazards,,Переправа!,River crossing!
-hazard.mountain.warning,hazards,,Горный перевал!,Mountain pass!
-hazard.hint.click,hazards,,Нажмите кнопку чтобы перепрыгнуть яму,Press the button to jump over the pit
-hazard.hint.leftright,hazards,,Уклонитесь с помощью кнопок!,Dodge using the buttons!
-hazard.hint.down,hazards,,Нажмите кнопку чтобы объехать,Press the button to drive around
-hazard.hint.multiclick,hazards,,"Нажмите, чтобы отбиваться!","Click to fight back!"
-hazard.hint.hold,hazards,,Держите колёса!,Hold the wheels!
-hazard.hint.timing,hazards,,Переезжайте когда волны стихнут!,Cross when the waves calm down!
-hazard.hint.wind,hazards,,Удерживайте повозку на дороге!,Keep the cart on the road!
-hazard.result.success,hazards,,Успех!,Success!
-hazard.result.fail,hazards,,Поражение!,Defeat!
+UI.HazardQte.Header.Rockfall,interface_names,,Камнепад!,Rockfall!
+UI.HazardQte.Header.Pothole,interface_names,,Яма!,Pothole!
+UI.HazardQte.Header.Wolf,interface_names,,Волки!,Wolves!
+UI.HazardQte.Header.Jackal,interface_names,,Шакалы!,Jackals!
+UI.HazardQte.Header.Bandit,interface_names,,Засада!,Ambush!
+UI.HazardQte.Header.Sandstorm,interface_names,,Песчаная буря!,Sandstorm!
+UI.HazardQte.Header.River,interface_names,,Переправа!,River crossing!
+UI.HazardQte.Header.Mountain,interface_names,,Горный перевал!,Mountain pass!
+UI.HazardQte.Hint.Click,interface_names,,Нажмите кнопку чтобы перепрыгнуть яму,Press the button to jump over the pit
+UI.HazardQte.Hint.LeftRight,interface_names,,Уклонитесь с помощью кнопок!,Dodge using the buttons!
+UI.HazardQte.Hint.Down,interface_names,,Нажмите кнопку чтобы объехать,Press the button to drive around
+UI.HazardQte.Hint.MultiClick,interface_names,,"Нажмите, чтобы отбиваться!","Click to fight back!"
+UI.HazardQte.Hint.Hold,interface_names,,Держите колёса!,Hold the wheels!
+UI.HazardQte.Hint.Timing,interface_names,,Переезжайте когда волны стихнут!,Cross when the waves calm down!
+UI.HazardQte.Hint.Wind,interface_names,,Удерживайте повозку на дороге!,Keep the cart on the road!
+UI.HazardQte.Result.Success,interface_names,,Успех!,Success!
+UI.HazardQte.Result.Fail,interface_names,,Поражение!,Defeat!
 event.camp_plains_snare.name,events,,Ловушки в траве,Snares in the Grass
 event.camp_plains_snare.description,events,,"Ночью кто-то слышал возню у ближних кустов. На рассвете погонщик обнаружил примятую тропку: зайцы. Он показывает петлю из конского волоса и кивает в сторону степи. Запасы на три дня, не больше. Дичь рядом, но петля ненадёжна, а человек в траве виден тому, кто не спит.","Someone heard rustling near the bushes at night. At dawn a driver found a flattened trail: hares. He holds up a horsehair snare and nods toward the steppe. Three days of supplies, no more. Game is close, but a snare is uncertain and a man in tall grass is easy prey for whoever is still awake."
 event.camp_plains_snare.choice1,event_choices,,Поставить петли у лагеря,Set snares near camp

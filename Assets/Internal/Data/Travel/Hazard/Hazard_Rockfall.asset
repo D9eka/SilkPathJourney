@@ -16,10 +16,10 @@ MonoBehaviour:
   <Icon>k__BackingField: {fileID: 0}
   <WarningText>k__BackingField:
     m_TableReference:
-      m_TableCollectionName: GUID:b2e541a37c4586c4f92b1d797521ddc1
+      m_TableCollectionName: GUID:43598c3e97d7d9a439a074f7627fe021
     m_TableEntryReference:
-      m_KeyId: 23055637758861312
-      m_Key: 
+      m_KeyId: 0
+      m_Key: UI.HazardQte.Header.Rockfall
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
@@ -46,10 +46,10 @@ MonoBehaviour:
       data:
         <Hint>k__BackingField:
           m_TableReference:
-            m_TableCollectionName: GUID:b2e541a37c4586c4f92b1d797521ddc1
+            m_TableCollectionName: GUID:43598c3e97d7d9a439a074f7627fe021
           m_TableEntryReference:
-            m_KeyId: 23055637800804358
-            m_Key:
+            m_KeyId: 0
+            m_Key: UI.HazardQte.Hint.LeftRight
           m_FallbackState: 0
           m_WaitForCompletion: 0
           m_LocalVariables: []

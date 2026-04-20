@@ -1,4 +1,5 @@
 using System;
+using Internal.Scripts.Travel.Hazards.Data;
 using UnityEngine;
 
 namespace Internal.Scripts.Travel.Hazards.Input
@@ -8,6 +9,8 @@ namespace Internal.Scripts.Travel.Hazards.Input
     {
         public override HazardInputType InputType => HazardInputType.MultiClick;
 
-        [field: SerializeField] public int RequiredClicks { get; private set; } = 3;
+        [field: SerializeField] public int MinClicks { get; private set; } = 2;
+        [field: SerializeField] public int MaxClicks { get; private set; } = 5;
+        [field: SerializeField] public EnemyPool EnemyPool { get; private set; }
     }
 }

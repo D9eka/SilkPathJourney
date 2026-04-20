@@ -1311,6 +1311,74 @@ MonoBehaviour:
     m_Key: UI.Tavern.Rumors.Days
     m_Metadata:
       m_Items: []
+  - m_Id: 27598045288849408
+    m_Key: UI.HazardQte.Header.Rockfall
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27598045339181056
+    m_Key: UI.HazardQte.Header.Pothole
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27598045339181057
+    m_Key: UI.HazardQte.Header.Wolf
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27598045339181058
+    m_Key: UI.HazardQte.Header.Jackal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27598045339181059
+    m_Key: UI.HazardQte.Header.Bandit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27598045339181060
+    m_Key: UI.HazardQte.Header.Sandstorm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27598045339181061
+    m_Key: UI.HazardQte.Header.River
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27598045339181062
+    m_Key: UI.HazardQte.Header.Mountain
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27598045339181063
+    m_Key: UI.HazardQte.Hint.Click
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27598045339181064
+    m_Key: UI.HazardQte.Hint.LeftRight
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27598045339181065
+    m_Key: UI.HazardQte.Hint.Down
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27598045339181066
+    m_Key: UI.HazardQte.Hint.MultiClick
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27598045339181067
+    m_Key: UI.HazardQte.Hint.Hold
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27598045339181068
+    m_Key: UI.HazardQte.Hint.Timing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27598045339181069
+    m_Key: UI.HazardQte.Hint.Wind
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27598045339181070
+    m_Key: UI.HazardQte.Result.Success
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27598045339181071
+    m_Key: UI.HazardQte.Result.Fail
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
