@@ -24,7 +24,8 @@ MonoBehaviour:
     m_WaitForCompletion: 0
     m_LocalVariables: []
   <TimeLimit>k__BackingField: 4
-  InputConfig:
+  <MinigamePrefab>k__BackingField: {fileID: 8229889168656774137, guid: ab858e7651dccb94bb3c862261d71780, type: 3}
+  MinigameConfig:
     rid: 5481561599466799179
   <BiomeFilter>k__BackingField: 1
   <SuccessOutcomes>k__BackingField:
@@ -42,7 +43,7 @@ MonoBehaviour:
     version: 2
     RefIds:
     - rid: 5481561599466799179
-      type: {class: MultiClickInputConfig, ns: Internal.Scripts.Travel.Hazards.Input, asm: Assembly-CSharp}
+      type: {class: MultiClickMinigameConfig, ns: Internal.Scripts.Travel.Hazards.Minigames, asm: Assembly-CSharp}
       data:
         <MinClicks>k__BackingField: 2
         <MaxClicks>k__BackingField: 5

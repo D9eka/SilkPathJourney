@@ -1,6 +1,6 @@
 using System;
 using Internal.Scripts.Input;
-using Internal.Scripts.Travel.Hazards.Input;
+using Internal.Scripts.Travel.Hazards.Minigames;
 
 namespace Internal.Scripts.UI.Screens.HazardQte.Qte
 {
@@ -8,7 +8,7 @@ namespace Internal.Scripts.UI.Screens.HazardQte.Qte
     {
         event Action<bool> OnCompleted;
         bool DidPlayerSucceed();
-        void Show(IHazardInputConfig config, IQteInput input);
+        void Show(IMinigameConfig config, IQteInput input);
         void Hide();
     }
 }

@@ -1,27 +1,19 @@
-using System;
 using Internal.Scripts.Input;
-using Internal.Scripts.Travel.Hazards.Input;
+using Internal.Scripts.Travel.Hazards.Minigames;
 using UnityEngine;
 
 namespace Internal.Scripts.UI.Screens.HazardQte.Qte
 {
-    public sealed class RockfallMinigame : MonoBehaviour, IQteMinigameView
+    public sealed class RockfallMinigame : MinigameBase
     {
         [SerializeField] private RectTransform _cart;
         [SerializeField] private RectTransform _safeZoneLeft;
         [SerializeField] private RectTransform _safeZoneRight;
-        [SerializeField] private float _defaultMoveSpeed = 150f;
-
-        public event Action<bool> OnCompleted;
-        public bool DidPlayerSucceed() => IsInSafeZone();
 
         private IQteInput _input;
         private float _moveSpeed;
-        private bool _active;
         private Vector2 _cartStartPosition;
         private bool _hasStartPosition;
-
-        private static readonly Vector3[] CornerBuffer = new Vector3[4];
 
         private void Awake()
         {
@@ -32,12 +24,14 @@ namespace Internal.Scripts.UI.Screens.HazardQte.Qte
             }
         }
 
-        public void Show(IHazardInputConfig config, IQteInput input)
+        public override void Show(IMinigameConfig config, IQteInput input)
         {
             _input = input;
-            _active = true;
+            SetAlive(true);
 
-            _moveSpeed = config is LeftOrRightInputConfig lr ? lr.MoveSpeed : _defaultMoveSpeed;
+            var lr = config as RockfallMinigameConfig;
+            if (lr == null) { Debug.LogError($"[RockfallMinigame] bad config: {config?.GetType().Name}"); Complete(false); return; }
+            _moveSpeed = lr.MoveSpeed;
 
             if (_cart != null && _hasStartPosition)
                 _cart.anchoredPosition = _cartStartPosition;
@@ -45,7 +39,7 @@ namespace Internal.Scripts.UI.Screens.HazardQte.Qte
             _input.Enable();
         }
 
-        public void Hide()
+        public override void Hide()
         {
             if (_input == null) return;
             _input.Disable();
@@ -54,7 +48,7 @@ namespace Internal.Scripts.UI.Screens.HazardQte.Qte
 
         private void Update()
         {
-            if (!_active || _cart == null || _input == null) return;
+            if (!IsAlive || _cart == null || _input == null) return;
 
             float dir = 0f;
             if (_input.LeftAction != null && _input.LeftAction.IsPressed())
@@ -70,27 +64,14 @@ namespace Internal.Scripts.UI.Screens.HazardQte.Qte
             }
 
             if (IsInSafeZone())
-            {
-                _active = false;
-                Hide();
-                OnCompleted?.Invoke(true);
-            }
+                Complete(true);
         }
 
         private bool IsInSafeZone()
         {
-            Rect cartRect = GetWorldRect(_cart);
-            if (_safeZoneLeft != null && cartRect.Overlaps(GetWorldRect(_safeZoneLeft))) return true;
-            if (_safeZoneRight != null && cartRect.Overlaps(GetWorldRect(_safeZoneRight))) return true;
+            if (_safeZoneLeft != null && UiRectOverlap.Check(_cart, _safeZoneLeft)) return true;
+            if (_safeZoneRight != null && UiRectOverlap.Check(_cart, _safeZoneRight)) return true;
             return false;
-        }
-
-        private static Rect GetWorldRect(RectTransform rt)
-        {
-            rt.GetWorldCorners(CornerBuffer);
-            Vector2 min = CornerBuffer[0];
-            Vector2 max = CornerBuffer[2];
-            return new Rect(min, max - min);
         }
     }
 }

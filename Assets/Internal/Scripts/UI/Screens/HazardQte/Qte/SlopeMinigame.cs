@@ -1,6 +1,6 @@
 using System;
 using Internal.Scripts.Input;
-using Internal.Scripts.Travel.Hazards.Input;
+using Internal.Scripts.Travel.Hazards.Minigames;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,7 +10,6 @@ namespace Internal.Scripts.UI.Screens.HazardQte.Qte
     {
         [SerializeField] private RectTransform _cart;
         [SerializeField] private Image _cliff;
-        [SerializeField] private float _defaultSlideSpeed = 60f;
 
         public event Action<bool> OnCompleted;
         public bool DidPlayerSucceed() => _alive;
@@ -21,13 +20,15 @@ namespace Internal.Scripts.UI.Screens.HazardQte.Qte
         private bool _holding;
         private bool _alive;
 
-        public void Show(IHazardInputConfig config, IQteInput input)
+        public void Show(IMinigameConfig config, IQteInput input)
         {
             _input = input;
             _alive = true;
             _holding = false;
 
-            _slideSpeed = config is HoldClickInputConfig hc ? hc.SlideSpeed : _defaultSlideSpeed;
+            var hc = config as SlopeMinigameConfig;
+            if (hc == null) { Debug.LogError($"[SlopeMinigame] bad config: {config?.GetType().Name}"); OnCompleted?.Invoke(false); return; }
+            _slideSpeed = hc.SlideSpeed;
 
             _cart.anchoredPosition = Vector2.zero;
 

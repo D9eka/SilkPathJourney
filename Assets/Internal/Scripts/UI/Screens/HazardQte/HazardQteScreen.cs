@@ -59,6 +59,12 @@ namespace Internal.Scripts.UI.Screens.HazardQte
             _minigame?.Hide();
         }
 
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+            _timer?.Dispose();
+        }
+
         public override void BindViewModel(IScreenViewModel viewModel)
         {
             _vm = viewModel as HazardQteViewModel;
@@ -75,6 +81,7 @@ namespace Internal.Scripts.UI.Screens.HazardQte
             _subs.Add(_vm.WarningText.Subscribe(OnWarningTextChanged));
             _subs.Add(_vm.HintText.Subscribe(t => _hintText.text = t ?? string.Empty));
             _subs.Add(_vm.TimeRemaining.Subscribe(t => _timer.Render(t, _vm.TimeLimit)));
+            _subs.Add(_vm.ResultTitle.Subscribe(text => _resultTitleText.text = text));
             _vm.OnTimeout += HandleTimeout;
         }
 
@@ -119,7 +126,7 @@ namespace Internal.Scripts.UI.Screens.HazardQte
         private void OnMinigamePrefabChanged(GameObject prefab)
         {
             if (_currentData == null) return;
-            _minigame.Show(prefab, _currentData.InputConfig, _vm.QteInput, _vm.ThemeService,
+            _minigame.Show(prefab, _currentData.MinigameConfig, _vm.QteInput, _vm.ThemeService,
                 success => _vm.CompleteMinigame(success));
         }
 
@@ -132,7 +139,6 @@ namespace Internal.Scripts.UI.Screens.HazardQte
             _hintText.text = string.Empty;
 
             bool success = result.Value.Success;
-            _resultTitleText.text = _vm.ResolveResultTitle(success);
             _resultTitleText.color = success ? _successColor : _failColor;
 
             _outcomes.Set(result.Value.Outcomes, _vm.ResourceIcons, _vm.ThemeService);

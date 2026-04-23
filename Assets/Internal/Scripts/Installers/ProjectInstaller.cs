@@ -77,7 +77,6 @@ namespace Internal.Scripts.Installers
 
         [Header("Hazards")]
         [SerializeField] private HazardDatabase _hazardDatabase;
-        [SerializeField] private QteMinigameCatalog _qteMinigameCatalog;
 
         public override void InstallBindings()
         {
@@ -105,7 +104,6 @@ namespace Internal.Scripts.Installers
             Container.BindInstance(_caravanSpeedConfig).AsSingle();
             Container.BindInstance(_pickupDatabase).AsSingle();
             Container.BindInstance(_hazardDatabase).AsSingle();
-            Container.BindInstance(_qteMinigameCatalog).AsSingle();
 
             Container.Bind<ISaveService>().To<JsonSaveService>().AsSingle();
             Container.Bind<ActiveSaveSlot>().AsSingle();

@@ -1,6 +1,6 @@
 using System;
 using Internal.Scripts.Input;
-using Internal.Scripts.Travel.Hazards.Input;
+using Internal.Scripts.Travel.Hazards.Minigames;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,8 +12,6 @@ namespace Internal.Scripts.UI.Screens.HazardQte.Qte
         [SerializeField] private Image _riverImage;
         [SerializeField] private Color _calmColor = new Color(0.4f, 0.8f, 0.4f);
         [SerializeField] private Color _roughColor = new Color(0.2f, 0.3f, 0.8f);
-        [SerializeField] private float _defaultPulseSpeed = 2f;
-        [SerializeField] private float _calmThreshold = 0.45f;
         [SerializeField] private float _pulseMinScaleY = 0.5f;
         [SerializeField] private float _pulseMaxScaleY = 1.5f;
 
@@ -26,22 +24,16 @@ namespace Internal.Scripts.UI.Screens.HazardQte.Qte
         private float _elapsed;
         private bool _active;
 
-        public void Show(IHazardInputConfig config, IQteInput input)
+        public void Show(IMinigameConfig config, IQteInput input)
         {
             _input = input;
             _active = true;
             _elapsed = 0f;
 
-            if (config is TimingClickInputConfig tc)
-            {
-                _pulseSpeed = tc.PulseSpeed;
-                _threshold = tc.CalmThreshold;
-            }
-            else
-            {
-                _pulseSpeed = _defaultPulseSpeed;
-                _threshold = _calmThreshold;
-            }
+            var tc = config as RiverMinigameConfig;
+            if (tc == null) { Debug.LogError($"[RiverMinigame] bad config: {config?.GetType().Name}"); OnCompleted?.Invoke(false); return; }
+            _pulseSpeed = tc.PulseSpeed;
+            _threshold = tc.CalmThreshold;
 
             _input.Enable();
             _input.OnClick += OnClick;

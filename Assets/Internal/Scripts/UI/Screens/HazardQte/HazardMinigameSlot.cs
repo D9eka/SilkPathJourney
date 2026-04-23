@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Internal.Scripts.Input;
-using Internal.Scripts.Travel.Hazards.Input;
+using Internal.Scripts.Travel.Hazards.Minigames;
 using Internal.Scripts.UI.Screens.HazardQte.Qte;
 using Internal.Scripts.UI.Theme;
 using UnityEngine;
@@ -25,7 +25,7 @@ namespace Internal.Scripts.UI.Screens.HazardQte
             _layoutElement = layoutElement;
         }
 
-        public void Show(GameObject prefab, IHazardInputConfig config, IQteInput input, UiThemeService theme, Action<bool> onCompleted)
+        public void Show(GameObject prefab, IMinigameConfig config, IQteInput input, UiThemeService theme, Action<bool> onCompleted)
         {
             Hide();
             if (prefab == null) return;

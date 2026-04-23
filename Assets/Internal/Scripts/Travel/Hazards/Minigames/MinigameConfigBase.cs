@@ -2,12 +2,11 @@ using System;
 using UnityEngine;
 using UnityEngine.Localization;
 
-namespace Internal.Scripts.Travel.Hazards.Input
+namespace Internal.Scripts.Travel.Hazards.Minigames
 {
     [Serializable]
-    public abstract class HazardInputConfigBase : IHazardInputConfig
+    public abstract class MinigameConfigBase : IMinigameConfig
     {
-        public abstract HazardInputType InputType { get; }
         [field: SerializeField] public LocalizedString Hint { get; private set; }
     }
 }

@@ -25,7 +25,6 @@ namespace Internal.Scripts.UI.Screens.HazardQte
         private const float ResultCloseDelay = 1.5f;
 
         private readonly IQteInput _qteInput;
-        private readonly QteMinigameCatalog _minigameCatalog;
         private readonly OutcomeApplier _outcomeApplier;
         private readonly GameClock _gameClock;
         private readonly ScreenStackService _screenStackService;
@@ -38,6 +37,7 @@ namespace Internal.Scripts.UI.Screens.HazardQte
         private readonly ReactiveProperty<string> _warningText = new(string.Empty);
         private readonly ReactiveProperty<string> _hintText = new(string.Empty);
         private readonly ReactiveProperty<float> _timeRemaining = new(0f);
+        private readonly ReactiveProperty<string> _resultTitle = new(string.Empty);
 
         private Tween _closeTween;
         private bool _timerActive;
@@ -52,6 +52,7 @@ namespace Internal.Scripts.UI.Screens.HazardQte
         public Observable<string> WarningText => _warningText;
         public Observable<string> HintText => _hintText;
         public Observable<float> TimeRemaining => _timeRemaining;
+        public Observable<string> ResultTitle => _resultTitle;
         public float TimeLimit => _data.Value?.TimeLimit ?? 0f;
         public IQteInput QteInput => _qteInput;
         public UiThemeService ThemeService => _themeService;
@@ -59,7 +60,6 @@ namespace Internal.Scripts.UI.Screens.HazardQte
 
         public HazardQteViewModel(
             IQteInput qteInput,
-            QteMinigameCatalog minigameCatalog,
             OutcomeApplier outcomeApplier,
             GameClock gameClock,
             ScreenStackService screenStackService,
@@ -67,7 +67,6 @@ namespace Internal.Scripts.UI.Screens.HazardQte
             ResourceIconCatalog resourceIcons)
         {
             _qteInput = qteInput;
-            _minigameCatalog = minigameCatalog;
             _outcomeApplier = outcomeApplier;
             _gameClock = gameClock;
             _screenStackService = screenStackService;
@@ -75,10 +74,16 @@ namespace Internal.Scripts.UI.Screens.HazardQte
             _resourceIcons = resourceIcons;
         }
 
-        public string ResolveResultTitle(bool success)
+        private string ResolveResultTitle(bool success)
         {
             string key = success ? LocUI.UI_HazardQte_Result_Success : LocUI.UI_HazardQte_Result_Fail;
             return LocalizationService.Resolve(LocUI.Table, key);
+        }
+
+        private void UpdateResultTitle()
+        {
+            if (_result.Value.HasValue)
+                _resultTitle.Value = ResolveResultTitle(_result.Value.Value.Success);
         }
 
         protected override void OnOpen(object args)
@@ -92,7 +97,13 @@ namespace Internal.Scripts.UI.Screens.HazardQte
 
             _result.Value = null;
             _data.Value = hazard;
-            _minigamePrefab.Value = _minigameCatalog.Get(hazard.InputConfig.InputType);
+            if (hazard.MinigamePrefab == null)
+            {
+                Debug.LogError($"[HazardQteViewModel] MinigamePrefab not set on {hazard.name}");
+                _screenStackService.Close(ScreenId.HazardQte);
+                return;
+            }
+            _minigamePrefab.Value = hazard.MinigamePrefab;
             _timeRemaining.Value = hazard.TimeLimit;
             _timerActive = true;
             _gameClock.Pause();
@@ -114,6 +125,7 @@ namespace Internal.Scripts.UI.Screens.HazardQte
             _result.Value = null;
             _warningText.Value = string.Empty;
             _hintText.Value = string.Empty;
+            _resultTitle.Value = string.Empty;
         }
 
         private void OnLocaleChanged(Locale _) => RefreshLocalizedText();
@@ -131,7 +143,8 @@ namespace Internal.Scripts.UI.Screens.HazardQte
             _warningText.Value = LocalizationService.ResolveString(
                 hazard.WarningText, hazard.Type.ToString(), "HazardWarning");
 
-            _hintText.Value = hazard.InputConfig?.Hint?.GetLocalizedString() ?? string.Empty;
+            _hintText.Value = hazard.MinigameConfig?.Hint?.GetLocalizedString() ?? string.Empty;
+            UpdateResultTitle();
         }
 
         public void TickTimer(float dt)
@@ -164,6 +177,7 @@ namespace Internal.Scripts.UI.Screens.HazardQte
             }
 
             _result.Value = new HazardResultState(success, outcomes);
+            UpdateResultTitle();
 
             _closeTween = DOVirtual.DelayedCall(ResultCloseDelay, () =>
             {

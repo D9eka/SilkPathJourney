@@ -24,7 +24,8 @@ MonoBehaviour:
     m_WaitForCompletion: 0
     m_LocalVariables: []
   <TimeLimit>k__BackingField: 3
-  InputConfig:
+  <MinigamePrefab>k__BackingField: {fileID: 8180872007469108925, guid: c739283dfb939d14398271d2ac429263, type: 3}
+  MinigameConfig:
     rid: 5481561599466799177
   <BiomeFilter>k__BackingField: 3
   <SuccessOutcomes>k__BackingField:
@@ -42,7 +43,7 @@ MonoBehaviour:
     version: 2
     RefIds:
     - rid: 5481561599466799177
-      type: {class: LeftOrRightInputConfig, ns: Internal.Scripts.Travel.Hazards.Input, asm: Assembly-CSharp}
+      type: {class: RockfallMinigameConfig, ns: Internal.Scripts.Travel.Hazards.Minigames, asm: Assembly-CSharp}
       data:
         <Hint>k__BackingField:
           m_TableReference:

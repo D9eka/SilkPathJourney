@@ -1,54 +1,73 @@
-using System;
 using Internal.Scripts.Input;
-using Internal.Scripts.Travel.Hazards.Input;
+using Internal.Scripts.Travel.Hazards.Minigames;
+using Internal.Scripts.UI.Localization;
+using Internal.Scripts.UI.Localization.Generated;
+using TMPro;
 using UnityEngine;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 
 namespace Internal.Scripts.UI.Screens.HazardQte.Qte
 {
-    public sealed class SandstormMinigame : MonoBehaviour, IQteMinigameView
+    public sealed class SandstormMinigame : MinigameBase
     {
         [SerializeField] private RectTransform _cart;
         [SerializeField] private Image _dangerZone;
-        [SerializeField] private float _defaultWindSpeed = 80f;
-        [SerializeField] private float _clickPush = 30f;
+        [SerializeField] private LayoutElement _dangerLayoutElement;
+        [SerializeField] private RectTransform _safeZone;
+        [SerializeField] private HorizontalLayoutGroup _roadLayout;
+        [SerializeField] private TextMeshProUGUI _windDirectionLabel;
 
-        public event Action<bool> OnCompleted;
-        public bool DidPlayerSucceed() => _alive;
+        public override bool DidPlayerSucceed() => IsAlive || Succeeded;
 
         private IQteInput _input;
         private float _windSpeed;
         private float _pushAmount;
-        private float _dangerLeft;
-        private bool _alive;
+        private int _windDirection;
 
-        public void Show(IHazardInputConfig config, IQteInput input)
+        public override void Show(IMinigameConfig config, IQteInput input)
         {
             _input = input;
-            _alive = true;
+            SetAlive(true);
 
-            if (config is WindResistInputConfig wr)
-            {
-                _windSpeed = wr.WindSpeed;
-                _pushAmount = wr.ClickPush;
-            }
-            else
-            {
-                _windSpeed = _defaultWindSpeed;
-                _pushAmount = _clickPush;
-            }
+            var c = config as SandstormMinigameConfig;
+            if (c == null) { Debug.LogError($"[SandstormMinigame] bad config: {config?.GetType().Name}"); Complete(false); return; }
+            _windSpeed = c.CartSpeed;
+            _pushAmount = c.ClickPush;
 
-            _cart.anchoredPosition = Vector2.zero;
+            bool windFromLeft = UnityEngine.Random.value < 0.5f;
+            _windDirection = windFromLeft ? -1 : +1;
 
-            _dangerLeft = _dangerZone.rectTransform.anchoredPosition.x
-                        + _dangerZone.rectTransform.rect.width * 0.5f;
+            _roadLayout.reverseArrangement = !windFromLeft;
+
+            float scaleX = windFromLeft ? 1f : -1f;
+            _safeZone.localScale = new Vector3(scaleX, 1f, 1f);
+            _dangerZone.rectTransform.localScale = new Vector3(scaleX, 1f, 1f);
+
+            Canvas.ForceUpdateCanvases();
+
+            var roadRect = (RectTransform)_roadLayout.transform;
+            LayoutRebuilder.ForceRebuildLayoutImmediate(roadRect);
+            float roadWidth = roadRect.rect.width;
+
+            float ratio = UnityEngine.Random.Range(c.DangerWidthRatioMin, c.DangerWidthRatioMax);
+            _dangerLayoutElement.preferredWidth = roadWidth * ratio;
+
+            LayoutRebuilder.ForceRebuildLayoutImmediate(roadRect);
+
+            _cart.anchoredPosition = ResolveCartStart(windFromLeft);
+
+            UpdateWindLabel();
+            LocalizationSettings.SelectedLocaleChanged += OnLocaleChanged;
 
             _input.Enable();
             _input.OnClick += OnClick;
         }
 
-        public void Hide()
+        public override void Hide()
         {
+            LocalizationSettings.SelectedLocaleChanged -= OnLocaleChanged;
             if (_input == null) return;
             _input.OnClick -= OnClick;
             _input.Disable();
@@ -57,28 +76,46 @@ namespace Internal.Scripts.UI.Screens.HazardQte.Qte
 
         private void Update()
         {
-            if (!_alive || _cart == null) return;
+            if (!IsAlive) return;
+
+            var roadRect = (RectTransform)_roadLayout.transform;
+            float roadWidth = roadRect.rect.width;
 
             var pos = _cart.anchoredPosition;
-            pos.x -= _windSpeed * Time.unscaledDeltaTime;
+            pos.x += _windDirection * _windSpeed * Time.unscaledDeltaTime;
+            if (roadWidth > 0f)
+            {
+                float halfCart = _cart.rect.width * 0.5f;
+                pos.x = Mathf.Clamp(pos.x, halfCart, roadWidth - halfCart);
+            }
             _cart.anchoredPosition = pos;
 
-            if (pos.x <= _dangerLeft)
-                Complete();
+            if (UiRectOverlap.Check(_cart, _dangerZone.rectTransform))
+                Complete(false);
         }
 
         private void OnClick()
         {
-            if (!_alive) return;
-            _cart.anchoredPosition += new Vector2(_pushAmount, 0f);
+            if (!IsAlive) return;
+            _cart.anchoredPosition += new Vector2(-_windDirection * _pushAmount, 0f);
         }
 
-        private void Complete()
+        private Vector2 ResolveCartStart(bool windFromLeft)
         {
-            if (!_alive) return;
-            _alive = false;
-            Hide();
-            OnCompleted?.Invoke(false);
+            var roadRect = (RectTransform)_roadLayout.transform;
+            float startX = windFromLeft ? roadRect.rect.width - 32f : 32f;
+            return new Vector2(startX, _cart.anchoredPosition.y);
+        }
+
+        private void OnLocaleChanged(Locale _) => UpdateWindLabel();
+
+        private void UpdateWindLabel()
+        {
+            string key = _windDirection < 0
+                ? LocUI.UI_HazardQte_Wind_FromLeft
+                : LocUI.UI_HazardQte_Wind_FromRight;
+            string fallback = _windDirection < 0 ? "Wind \u2190" : "Wind \u2192";
+            _windDirectionLabel.text = LocalizationService.Resolve(LocUI.Table, key, fallback);
         }
     }
 }

@@ -1,13 +1,12 @@
-using System;
 using DG.Tweening;
 using Internal.Scripts.Input;
-using Internal.Scripts.Travel.Hazards.Input;
+using Internal.Scripts.Travel.Hazards.Minigames;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Internal.Scripts.UI.Screens.HazardQte.Qte
 {
-    public sealed class ObstacleMinigame : MonoBehaviour, IQteMinigameView
+    public sealed class ObstacleMinigame : MinigameBase
     {
         [SerializeField] private RectTransform _road;
         [SerializeField] private RectTransform _cart;
@@ -15,21 +14,13 @@ namespace Internal.Scripts.UI.Screens.HazardQte.Qte
         [SerializeField] private Image _obstacle2;
         [SerializeField] private RectTransform _topLane;
         [SerializeField] private RectTransform _bottomLane;
-        [SerializeField] private float _defaultCartSpeed = 100f;
         [SerializeField] private GameObject _hintUp;
         [SerializeField] private GameObject _hintDown;
 
         private const float LaneSwitchDuration = 0.2f;
 
-        public event Action<bool> OnCompleted;
-        public bool DidPlayerSucceed() => _succeeded;
-
-        private static readonly Vector3[] CornerBuffer = new Vector3[4];
-
         private IQteInput _input;
         private float _cartSpeed;
-        private bool _alive;
-        private bool _succeeded;
         private float _screenRight;
         private float _topY;
         private float _bottomY;
@@ -42,17 +33,17 @@ namespace Internal.Scripts.UI.Screens.HazardQte.Qte
             _cartStartX = _cart.anchoredPosition.x;
         }
 
-        public void Show(IHazardInputConfig config, IQteInput input)
+        public override void Show(IMinigameConfig config, IQteInput input)
         {
             _input = input;
-            _alive = true;
-            _succeeded = false;
+            SetAlive(true);
 
-            var d = config as DodgeInputConfig;
-            _cartSpeed = d != null ? d.CartSpeed : _defaultCartSpeed;
-            float reactionMargin = d != null ? d.ReactionMargin : 120f;
-            float escapeMargin = d != null ? d.EscapeMargin : 80f;
-            float segmentMargin = d != null ? d.SegmentMargin : 120f;
+            var d = config as DodgeMinigameConfig;
+            if (d == null) { Debug.LogError($"[ObstacleMinigame] bad config: {config?.GetType().Name}"); Complete(false); return; }
+            _cartSpeed = d.CartSpeed;
+            float reactionMargin = d.ReactionMargin;
+            float escapeMargin = d.EscapeMargin;
+            float segmentMargin = d.SegmentMargin;
 
             Canvas.ForceUpdateCanvases();
 
@@ -93,7 +84,7 @@ namespace Internal.Scripts.UI.Screens.HazardQte.Qte
             _input.OnDown += OnDownPressed;
         }
 
-        public void Hide()
+        public override void Hide()
         {
             if (_input == null) return;
             _input.OnUp -= OnUpPressed;
@@ -106,13 +97,13 @@ namespace Internal.Scripts.UI.Screens.HazardQte.Qte
 
         private void Update()
         {
-            if (!_alive) return;
+            if (!IsAlive) return;
 
             var pos = _cart.anchoredPosition;
             pos.x += _cartSpeed * Time.unscaledDeltaTime;
             _cart.anchoredPosition = pos;
 
-            if (CollidesWith(_obstacle1) || CollidesWith(_obstacle2))
+            if (UiRectOverlap.Check(_cart, _obstacle1.rectTransform) || UiRectOverlap.Check(_cart, _obstacle2.rectTransform))
             {
                 Complete(false);
                 return;
@@ -129,30 +120,16 @@ namespace Internal.Scripts.UI.Screens.HazardQte.Qte
 
         private void OnUpPressed()
         {
-            if (!_alive) return;
+            if (!IsAlive) return;
             if (Mathf.Approximately(_cart.anchoredPosition.y, _topY)) return;
             _cart.DOAnchorPosY(_topY, LaneSwitchDuration).SetUpdate(true);
         }
 
         private void OnDownPressed()
         {
-            if (!_alive) return;
+            if (!IsAlive) return;
             if (Mathf.Approximately(_cart.anchoredPosition.y, _bottomY)) return;
             _cart.DOAnchorPosY(_bottomY, LaneSwitchDuration).SetUpdate(true);
-        }
-
-        private void Complete(bool success)
-        {
-            if (!_alive) return;
-            _alive = false;
-            _succeeded = success;
-            Hide();
-            OnCompleted?.Invoke(success);
-        }
-
-        private bool CollidesWith(Image obstacle)
-        {
-            return GetWorldRect(_cart).Overlaps(GetWorldRect(obstacle.rectTransform));
         }
 
         private void UpdateHint()
@@ -184,14 +161,6 @@ namespace Internal.Scripts.UI.Screens.HazardQte.Qte
             if (cartX < _obstacle1.rectTransform.anchoredPosition.x) return _obstacle1OnTop;
             if (cartX < _obstacle2.rectTransform.anchoredPosition.x) return _obstacle2OnTop;
             return null;
-        }
-
-        private static Rect GetWorldRect(RectTransform rt)
-        {
-            rt.GetWorldCorners(CornerBuffer);
-            Vector2 min = CornerBuffer[0];
-            Vector2 max = CornerBuffer[2];
-            return new Rect(min, max - min);
         }
     }
 }
