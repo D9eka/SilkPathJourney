@@ -9,6 +9,7 @@ using Internal.Scripts.UI.Screens.Core.Config;
 using Internal.Scripts.UI.Screens.Core.View;
 using Internal.Scripts.UI.Screens.Core.ViewModel;
 using Internal.Scripts.UI.Theme;
+using Plugins.Zenject.Source.Main;
 using UnityEngine;
 using Zenject;
 using Object = UnityEngine.Object;
@@ -23,6 +24,7 @@ namespace Internal.Scripts.UI.StackService
         private readonly LocalizationService _localizationService;
         private readonly StaticColorController _colorController;
         private readonly UiThemeService _themeService;
+        private readonly IInstantiator _instantiator;
         private readonly ScreenId _initialScreenId;
         private readonly List<ScreenInstance> _stack = new();
         private readonly Dictionary<ScreenId, ScreenInstance> _instances = new();
@@ -36,7 +38,7 @@ namespace Internal.Scripts.UI.StackService
         public ScreenStackService(UIScreenRoots roots, ScreenCatalog catalog,
             IScreenViewModelFactory viewModelFactory, LocalizationService localizationService,
             StaticColorController colorController,
-            UiThemeService themeService, ScreenId initialScreenId)
+            UiThemeService themeService, IInstantiator instantiator, ScreenId initialScreenId)
         {
             _roots = roots;
             _catalog = catalog;
@@ -44,6 +46,7 @@ namespace Internal.Scripts.UI.StackService
             _localizationService = localizationService;
             _colorController = colorController;
             _themeService = themeService;
+            _instantiator = instantiator;
             _initialScreenId = initialScreenId;
         }
 
@@ -167,7 +170,7 @@ namespace Internal.Scripts.UI.StackService
                 return null;
             }
 
-            GameObject instanceGo = Object.Instantiate(config.Prefab, parent);
+            GameObject instanceGo = _instantiator.InstantiatePrefab(config.Prefab, parent);
 
             instanceGo.InitializeColorBinders(_themeService, _colorController);
             SetupLocalization(instanceGo);

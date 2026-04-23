@@ -1398,6 +1398,66 @@ MonoBehaviour:
     m_Localized: Defeat!
     m_Metadata:
       m_Items: []
+  - m_Id: 28536522188775424
+    m_Localized: "Wind \u2190"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28536522339770368
+    m_Localized: "Wind \u2192"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28541653986828288
+    m_Localized: s
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28547478121865216
+    m_Localized: LMB
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28547478134448128
+    m_Localized: RMB
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28547478134448129
+    m_Localized: MMB
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28547478134448130
+    m_Localized: "Scroll \u2191"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28547478134448131
+    m_Localized: "Scroll \u2193"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28547478134448132
+    m_Localized: Space
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28547478134448133
+    m_Localized: "\u2191"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28547478134448134
+    m_Localized: "\u2193"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28547478134448135
+    m_Localized: "\u2190"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28547478134448136
+    m_Localized: "\u2192"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28547478138642432
+    m_Localized: Left Stick
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28547478138642433
+    m_Localized: Right Stick
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

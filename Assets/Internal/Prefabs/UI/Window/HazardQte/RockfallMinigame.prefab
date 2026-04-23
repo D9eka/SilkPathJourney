@@ -609,7 +609,6 @@ MonoBehaviour:
   _cart: {fileID: 6983190356337323570}
   _safeZoneLeft: {fileID: 1422631628969643309}
   _safeZoneRight: {fileID: 8849050583472419129}
-  _defaultMoveSpeed: 150
 --- !u!1001 &7775339263740153148
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -734,6 +733,10 @@ PrefabInstance:
       propertyPath: m_PreferredHeight
       value: -1
       objectReference: {fileID: 0}
+    - target: {fileID: 9033019193337333440, guid: 5594d9c93b8fbe948aca22ad9e538ee2, type: 3}
+      propertyPath: _action
+      value: 
+      objectReference: {fileID: -6845234923023948284, guid: 7197e719aa538634d8264b11c78d7448, type: 3}
     - target: {fileID: 9061921437657193805, guid: 5594d9c93b8fbe948aca22ad9e538ee2, type: 3}
       propertyPath: m_Name
       value: InputButtonLeft
@@ -864,6 +867,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9033019193337333440, guid: 5594d9c93b8fbe948aca22ad9e538ee2, type: 3}
+      propertyPath: _action
+      value: 
+      objectReference: {fileID: 8044662430355156, guid: 7197e719aa538634d8264b11c78d7448, type: 3}
     - target: {fileID: 9061921437657193805, guid: 5594d9c93b8fbe948aca22ad9e538ee2, type: 3}
       propertyPath: m_Name
       value: InputButtonRight

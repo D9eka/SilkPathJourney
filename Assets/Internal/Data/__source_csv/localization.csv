@@ -3161,6 +3161,8 @@ UI.HazardQte.Hint.Timing,interface_names,,Переезжайте когда во
 UI.HazardQte.Hint.Wind,interface_names,,Удерживайте повозку на дороге!,Keep the cart on the road!
 UI.HazardQte.Result.Success,interface_names,,Успех!,Success!
 UI.HazardQte.Result.Fail,interface_names,,Поражение!,Defeat!
+UI.HazardQte.Wind.FromLeft,interface_names,,Ветер ←,Wind ←
+UI.HazardQte.Wind.FromRight,interface_names,,Ветер →,Wind →
 UI.HazardQte.Timer.SecondsShort,interface_names,,с,s
 UI.Input.Key.LMB,interface_names,,ЛКМ,LMB
 UI.Input.Key.RMB,interface_names,,ПКМ,RMB

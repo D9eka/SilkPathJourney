@@ -140,6 +140,9 @@ HazardQte,Hint,,Timing,UI.HazardQte.Hint.Timing,,,Переезжайте ког�
 HazardQte,Hint,,Wind,UI.HazardQte.Hint.Wind,,,Удерживайте повозку на дороге!,Keep the cart on the road!,перевод
 HazardQte,Result,,Success,UI.HazardQte.Result.Success,,,Успех!,Success!,перевод
 HazardQte,Result,,Fail,UI.HazardQte.Result.Fail,,,Поражение!,Defeat!,перевод
+HazardQte,Wind,,FromLeft,UI.HazardQte.Wind.FromLeft,,,Ветер ←,Wind ←,перевод
+HazardQte,Wind,,FromRight,UI.HazardQte.Wind.FromRight,,,Ветер →,Wind →,перевод
+HazardQte,Timer,,SecondsShort,UI.HazardQte.Timer.SecondsShort,,,с,s,перевод
 Input,Key,,LMB,UI.Input.Key.LMB,,,ЛКМ,LMB,перевод
 Input,Key,,RMB,UI.Input.Key.RMB,,,ПКМ,RMB,перевод
 Input,Key,,MMB,UI.Input.Key.MMB,,,СКМ,MMB,перевод

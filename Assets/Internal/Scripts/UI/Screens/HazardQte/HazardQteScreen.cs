@@ -5,16 +5,18 @@ using Internal.Scripts.Travel.Hazards;
 using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Screens.Core.View;
 using Internal.Scripts.UI.Screens.Core.ViewModel;
+using Plugins.Zenject.Source.Main;
 using R3;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 namespace Internal.Scripts.UI.Screens.HazardQte
 {
     public sealed class HazardQteScreen : ScreenViewBase
     {
-        private const float FadeDuration = 0.3f;
+        private const float FADE_DURATION = 0.3f;
 
         [SerializeField] private IconLabelView _header;
         [SerializeField] private FillBar _timerBar;
@@ -30,10 +32,14 @@ namespace Internal.Scripts.UI.Screens.HazardQte
         [SerializeField] private Transform _minigameContainer;
         [SerializeField] private LayoutElement _minigameLayoutElement;
 
+        private IInstantiator _instantiator;
         private HazardQteViewModel _vm;
         private HazardTimerView _timer;
         private HazardOutcomesView _outcomes;
         private HazardMinigameSlot _minigame;
+
+        [Inject]
+        public void Construct(IInstantiator instantiator) => _instantiator = instantiator;
 
         private HazardData _currentData;
         private Tween _hintTween;
@@ -45,7 +51,7 @@ namespace Internal.Scripts.UI.Screens.HazardQte
             base.Awake();
             _timer = new HazardTimerView(_timerBar, _timerText);
             _outcomes = new HazardOutcomesView(_resultOutcomesContainer, _iconLabelPrefab);
-            _minigame = new HazardMinigameSlot(_minigameContainer, _minigameLayoutElement);
+            _minigame = new HazardMinigameSlot(_minigameContainer, _minigameLayoutElement, _instantiator);
         }
 
         private void OnEnable()
@@ -111,7 +117,7 @@ namespace Internal.Scripts.UI.Screens.HazardQte
 
             if (data == null) return;
 
-            _hintTween = _hintCanvasGroup.FadeIn(FadeDuration, _hintTween);
+            _hintTween = _hintCanvasGroup.FadeIn(FADE_DURATION, _hintTween);
             _resultTween?.Kill();
             _resultCanvasGroup.alpha = 0f;
             _resultCanvasGroup.gameObject.SetActive(false);
@@ -135,14 +141,14 @@ namespace Internal.Scripts.UI.Screens.HazardQte
             if (!result.HasValue) return;
 
             _minigame.Hide();
-            _hintTween = _hintCanvasGroup.FadeOut(FadeDuration, _hintTween, deactivateOnComplete: false);
+            _hintTween = _hintCanvasGroup.FadeOut(FADE_DURATION, _hintTween, deactivateOnComplete: false);
             _hintText.text = string.Empty;
 
             bool success = result.Value.Success;
             _resultTitleText.color = success ? _successColor : _failColor;
 
             _outcomes.Set(result.Value.Outcomes, _vm.ResourceIcons, _vm.ThemeService);
-            _resultTween = _resultCanvasGroup.FadeIn(FadeDuration, _resultTween);
+            _resultTween = _resultCanvasGroup.FadeIn(FADE_DURATION, _resultTween);
         }
     }
 }

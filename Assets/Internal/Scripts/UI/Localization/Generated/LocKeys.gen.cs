@@ -3734,6 +3734,9 @@ namespace Internal.Scripts.UI.Localization.Generated
         public const string UI_HazardQte_Hint_Wind = "UI.HazardQte.Hint.Wind";
         public const string UI_HazardQte_Result_Success = "UI.HazardQte.Result.Success";
         public const string UI_HazardQte_Result_Fail = "UI.HazardQte.Result.Fail";
+        public const string UI_HazardQte_Wind_FromLeft = "UI.HazardQte.Wind.FromLeft";
+        public const string UI_HazardQte_Wind_FromRight = "UI.HazardQte.Wind.FromRight";
+        public const string UI_HazardQte_Timer_SecondsShort = "UI.HazardQte.Timer.SecondsShort";
         public const string UI_Input_Key_LMB = "UI.Input.Key.LMB";
         public const string UI_Input_Key_RMB = "UI.Input.Key.RMB";
         public const string UI_Input_Key_MMB = "UI.Input.Key.MMB";
