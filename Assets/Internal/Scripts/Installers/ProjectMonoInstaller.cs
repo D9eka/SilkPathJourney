@@ -19,6 +19,7 @@ namespace Internal.Scripts.Installers
                 .AsTransient();
 
             Container.Bind<PlayerInputActions>().AsSingle();
+            Container.BindInterfacesAndSelfTo<InputModeTracker>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<InputRouter>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<UiInputRouter>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<QteInputRouter>().AsSingle().NonLazy();
