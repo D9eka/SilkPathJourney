@@ -3161,6 +3161,19 @@ UI.HazardQte.Hint.Timing,interface_names,,Переезжайте когда во
 UI.HazardQte.Hint.Wind,interface_names,,Удерживайте повозку на дороге!,Keep the cart on the road!
 UI.HazardQte.Result.Success,interface_names,,Успех!,Success!
 UI.HazardQte.Result.Fail,interface_names,,Поражение!,Defeat!
+UI.HazardQte.Timer.SecondsShort,interface_names,,с,s
+UI.Input.Key.LMB,interface_names,,ЛКМ,LMB
+UI.Input.Key.RMB,interface_names,,ПКМ,RMB
+UI.Input.Key.MMB,interface_names,,СКМ,MMB
+UI.Input.Key.ScrollUp,interface_names,,Колёсико ↑,Scroll ↑
+UI.Input.Key.ScrollDown,interface_names,,Колёсико ↓,Scroll ↓
+UI.Input.Key.Space,interface_names,,Пробел,Space
+UI.Input.Key.ArrowUp,interface_names,,↑,↑
+UI.Input.Key.ArrowDown,interface_names,,↓,↓
+UI.Input.Key.ArrowLeft,interface_names,,←,←
+UI.Input.Key.ArrowRight,interface_names,,→,→
+UI.Input.Key.LeftStick,interface_names,,Левый стик,Left Stick
+UI.Input.Key.RightStick,interface_names,,Правый стик,Right Stick
 event.camp_plains_snare.name,events,,Ловушки в траве,Snares in the Grass
 event.camp_plains_snare.description,events,,"Ночью кто-то слышал возню у ближних кустов. На рассвете погонщик обнаружил примятую тропку: зайцы. Он показывает петлю из конского волоса и кивает в сторону степи. Запасы на три дня, не больше. Дичь рядом, но петля ненадёжна, а человек в траве виден тому, кто не спит.","Someone heard rustling near the bushes at night. At dawn a driver found a flattened trail: hares. He holds up a horsehair snare and nods toward the steppe. Three days of supplies, no more. Game is close, but a snare is uncertain and a man in tall grass is easy prey for whoever is still awake."
 event.camp_plains_snare.choice1,event_choices,,Поставить петли у лагеря,Set snares near camp

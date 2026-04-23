@@ -2,6 +2,8 @@ using Internal.Scripts.Input;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
 using Zenject;
 
 namespace Internal.Scripts.UI.Input
@@ -19,15 +21,18 @@ namespace Internal.Scripts.UI.Input
         private void OnEnable()
         {
             _tracker.ModeChanged += OnModeChanged;
+            LocalizationSettings.SelectedLocaleChanged += OnLocaleChanged;
             Refresh();
         }
 
         private void OnDisable()
         {
             _tracker.ModeChanged -= OnModeChanged;
+            LocalizationSettings.SelectedLocaleChanged -= OnLocaleChanged;
         }
 
         private void OnModeChanged(InputMode _) => Refresh();
+        private void OnLocaleChanged(Locale _) => Refresh();
 
         private void Refresh()
         {
@@ -37,8 +42,8 @@ namespace Internal.Scripts.UI.Input
             int index = FindMatchingBindingIndex(action);
             if (index < 0) { _target.text = string.Empty; return; }
 
-            _target.text = action.GetBindingDisplayString(index,
-                InputBinding.DisplayStringOptions.DontIncludeInteractions);
+            _target.text = InputDisplayLocalizer.Localize(
+                action.GetBindingDisplayString(index, InputBinding.DisplayStringOptions.DontIncludeInteractions));
         }
 
         private int FindMatchingBindingIndex(InputAction action)

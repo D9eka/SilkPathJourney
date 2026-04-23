@@ -3734,5 +3734,17 @@ namespace Internal.Scripts.UI.Localization.Generated
         public const string UI_HazardQte_Hint_Wind = "UI.HazardQte.Hint.Wind";
         public const string UI_HazardQte_Result_Success = "UI.HazardQte.Result.Success";
         public const string UI_HazardQte_Result_Fail = "UI.HazardQte.Result.Fail";
+        public const string UI_Input_Key_LMB = "UI.Input.Key.LMB";
+        public const string UI_Input_Key_RMB = "UI.Input.Key.RMB";
+        public const string UI_Input_Key_MMB = "UI.Input.Key.MMB";
+        public const string UI_Input_Key_ScrollUp = "UI.Input.Key.ScrollUp";
+        public const string UI_Input_Key_ScrollDown = "UI.Input.Key.ScrollDown";
+        public const string UI_Input_Key_Space = "UI.Input.Key.Space";
+        public const string UI_Input_Key_ArrowUp = "UI.Input.Key.ArrowUp";
+        public const string UI_Input_Key_ArrowDown = "UI.Input.Key.ArrowDown";
+        public const string UI_Input_Key_ArrowLeft = "UI.Input.Key.ArrowLeft";
+        public const string UI_Input_Key_ArrowRight = "UI.Input.Key.ArrowRight";
+        public const string UI_Input_Key_LeftStick = "UI.Input.Key.LeftStick";
+        public const string UI_Input_Key_RightStick = "UI.Input.Key.RightStick";
     }
 }

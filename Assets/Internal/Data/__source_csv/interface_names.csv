@@ -140,3 +140,15 @@ HazardQte,Hint,,Timing,UI.HazardQte.Hint.Timing,,,Переезжайте ког�
 HazardQte,Hint,,Wind,UI.HazardQte.Hint.Wind,,,Удерживайте повозку на дороге!,Keep the cart on the road!,перевод
 HazardQte,Result,,Success,UI.HazardQte.Result.Success,,,Успех!,Success!,перевод
 HazardQte,Result,,Fail,UI.HazardQte.Result.Fail,,,Поражение!,Defeat!,перевод
+Input,Key,,LMB,UI.Input.Key.LMB,,,ЛКМ,LMB,перевод
+Input,Key,,RMB,UI.Input.Key.RMB,,,ПКМ,RMB,перевод
+Input,Key,,MMB,UI.Input.Key.MMB,,,СКМ,MMB,перевод
+Input,Key,,ScrollUp,UI.Input.Key.ScrollUp,,,Колёсико ↑,Scroll ↑,перевод
+Input,Key,,ScrollDown,UI.Input.Key.ScrollDown,,,Колёсико ↓,Scroll ↓,перевод
+Input,Key,,Space,UI.Input.Key.Space,,,Пробел,Space,перевод
+Input,Key,,ArrowUp,UI.Input.Key.ArrowUp,,,↑,↑,перевод
+Input,Key,,ArrowDown,UI.Input.Key.ArrowDown,,,↓,↓,перевод
+Input,Key,,ArrowLeft,UI.Input.Key.ArrowLeft,,,←,←,перевод
+Input,Key,,ArrowRight,UI.Input.Key.ArrowRight,,,→,→,перевод
+Input,Key,,LeftStick,UI.Input.Key.LeftStick,,,Левый стик,Left Stick,перевод
+Input,Key,,RightStick,UI.Input.Key.RightStick,,,Правый стик,Right Stick,перевод
