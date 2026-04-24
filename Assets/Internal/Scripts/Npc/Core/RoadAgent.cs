@@ -25,6 +25,7 @@ namespace Internal.Scripts.Npc.Core
         public RoadPose CurrentPose => _cursor.CurrentPose;
         public string CurrentFromNodeId => _cursor.CurrentFromNodeId;
         public string CurrentToNodeId => _cursor.CurrentToNodeId;
+        public float DistanceOnSegment => _cursor.DistanceOnSegment;
         public float SpeedMetersPerDay { get; set; }
         public float Weight { get; set; }
 

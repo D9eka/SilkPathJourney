@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: PlainsDustStorm
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
   <Id>k__BackingField: plains_dust_storm
+  <Category>k__BackingField: 4
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Events
@@ -133,6 +134,7 @@ MonoBehaviour:
       <Param>k__BackingField: 
       <Value>k__BackingField: -5
   <IsMinor>k__BackingField: 0
+  <Biome>k__BackingField: 1
   <AutoOutcomes>k__BackingField: []
   <SkillChecks>k__BackingField:
   - <ChoiceIndex>k__BackingField: 2

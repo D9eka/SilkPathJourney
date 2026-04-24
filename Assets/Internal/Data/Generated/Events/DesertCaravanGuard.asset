@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: DesertCaravanGuard
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
   <Id>k__BackingField: desert_caravan_guard
+  <Category>k__BackingField: 8
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Events
@@ -142,6 +143,7 @@ MonoBehaviour:
       <Param>k__BackingField: Turkic
       <Value>k__BackingField: 1
   <IsMinor>k__BackingField: 0
+  <Biome>k__BackingField: 2
   <AutoOutcomes>k__BackingField: []
   <SkillChecks>k__BackingField:
   - <ChoiceIndex>k__BackingField: 2

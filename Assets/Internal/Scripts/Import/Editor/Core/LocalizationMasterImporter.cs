@@ -16,7 +16,7 @@ namespace Internal.Scripts.Import.Editor.Core
                 "building.", "modifier.", "city_modifier.", "culture."
             }, true),
             ("UI", new[] { "UI." }, false),
-            ("Events", new[] { "event.", "event_type." }, true),
+            ("Events", new[] { "event.", "event_type.", "hazard." }, true),
             ("Theme", new[] { "biome." }, true),
             ("Npc", new[] { "npc.name." }, true),
             ("Quests", new[] { "quest.", "quest_branch." }, true),
@@ -61,6 +61,8 @@ namespace Internal.Scripts.Import.Editor.Core
 
                 AssetDatabase.SaveAssets();
                 Debug.Log($"[SPJ] All localization imported: {totalEntries} entries across {Tables.Length} tables.");
+
+                LocalizationKeysGenerator.Generate();
             }
             catch (Exception e)
             {

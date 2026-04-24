@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using Internal.Scripts.Quests.Data;
 using Internal.Scripts.UI.Localization;
+using Internal.Scripts.UI.Localization.Generated;
 using Internal.Scripts.UI.Theme;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Localization;
 using UnityEngine.UI;
 
 using static Internal.Scripts.UI.Screens.Quests.QuestLocContext;
@@ -121,8 +121,8 @@ namespace Internal.Scripts.UI.Screens.Quests
 
             if (_trackButtonText != null)
                 _trackButtonText.text = isTracked
-                    ? LocalizationService.ResolveString(new LocalizedString("UI", "UI.Quest.Untrack"), "Untrack", "QuestList")
-                    : LocalizationService.ResolveString(new LocalizedString("UI", "UI.Quest.Track"), "Track", "QuestList");
+                    ? LocalizationService.Resolve(LocUI.Table, LocUI.UI_Quest_Untrack)
+                    : LocalizationService.Resolve(LocUI.Table, LocUI.UI_Quest_Track);
 
             if (_refuseButton != null)
             {
@@ -131,7 +131,7 @@ namespace Internal.Scripts.UI.Screens.Quests
             }
 
             if (_refuseButtonText != null)
-                _refuseButtonText.text = LocalizationService.ResolveString(new LocalizedString("UI", "UI.Quest.Decline"), "Decline", "QuestList");
+                _refuseButtonText.text = LocalizationService.Resolve(LocUI.Table, LocUI.UI_Quest_Decline);
         }
 
         private void EnsureStagePool(int count)

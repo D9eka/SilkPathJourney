@@ -6,5 +6,6 @@ namespace Internal.Scripts.Player
     {
         event Action<string> OnCurrentNodeChanged;
         event Action<string> OnDestinationChanged;
+        event Action<string, string> OnCurrentSegmentChanged;
     }
 }

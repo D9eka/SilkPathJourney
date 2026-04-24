@@ -56,28 +56,8 @@ namespace Internal.Scripts.Npc.Routing
             }
         }
 
-        public List<KnownCityModifier> GetKnownModifiers(NpcAgentSaveState agent, string cityId, int currentDay)
-            => GetKnownModifiers(agent.Knowledge, agent.Experience, cityId, currentDay);
-
-        public List<KnownCityModifier> GetKnownModifiers(NpcEconomyState agent, string cityId, int currentDay)
-            => GetKnownModifiers(agent.Knowledge, agent.Experience, cityId, currentDay);
-
-        private List<KnownCityModifier> GetKnownModifiers(NpcKnowledgeState knowledge, NpcExperienceLevel experience,
-            string cityId, int currentDay)
-        {
-            float mult = GetExperienceMult(experience);
-            int duration = UnityEngine.Mathf.RoundToInt(_settings.BaseKnowledgeDuration * mult);
-
-            var result = new List<KnownCityModifier>();
-            foreach (KnownCityModifier entry in knowledge.Entries)
-            {
-                if (entry.CityId != cityId)
-                    continue;
-                if (entry.LearnedDay + duration > currentDay)
-                    result.Add(entry);
-            }
-            return result;
-        }
+        public int GetKnowledgeDuration(NpcExperienceLevel experience)
+            => UnityEngine.Mathf.RoundToInt(_settings.BaseKnowledgeDuration * GetExperienceMult(experience));
 
         public void PruneExpired(NpcAgentSaveState agent, int currentDay)
             => PruneExpiredInternal(agent.Knowledge, agent.Experience, currentDay);

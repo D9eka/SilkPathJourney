@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: DesertMirageDjinn
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
   <Id>k__BackingField: desert_mirage_djinn
+  <Category>k__BackingField: 21
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Events
@@ -95,6 +96,7 @@ MonoBehaviour:
       <Param>k__BackingField: 
       <Value>k__BackingField: -3
   <IsMinor>k__BackingField: 0
+  <Biome>k__BackingField: 2
   <AutoOutcomes>k__BackingField: []
   <SkillChecks>k__BackingField:
   - <ChoiceIndex>k__BackingField: 1

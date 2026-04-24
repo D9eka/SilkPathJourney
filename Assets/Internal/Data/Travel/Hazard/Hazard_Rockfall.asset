@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1699d70ebfc05e44b99af5ac77fc5ef, type: 3}
+  m_Name: Hazard_Rockfall
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Travel.Hazards.HazardData
+  <Type>k__BackingField: 0
+  <Icon>k__BackingField: {fileID: 0}
+  <WarningText>k__BackingField:
+    m_TableReference:
+      m_TableCollectionName: GUID:43598c3e97d7d9a439a074f7627fe021
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: UI.HazardQte.Header.Rockfall
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  <TimeLimit>k__BackingField: 3
+  <MinigamePrefab>k__BackingField: {fileID: 8180872007469108925, guid: c739283dfb939d14398271d2ac429263, type: 3}
+  MinigameConfig:
+    rid: 5481561599466799177
+  <BiomeFilter>k__BackingField: 3
+  <SuccessOutcomes>k__BackingField:
+  - <Type>k__BackingField: 10
+    <Param>k__BackingField: 
+    <Value>k__BackingField: 5
+  <FailOutcomes>k__BackingField:
+  - <Type>k__BackingField: 13
+    <Param>k__BackingField: 
+    <Value>k__BackingField: -10
+  - <Type>k__BackingField: 12
+    <Param>k__BackingField: 
+    <Value>k__BackingField: -5
+  references:
+    version: 2
+    RefIds:
+    - rid: 5481561599466799177
+      type: {class: RockfallMinigameConfig, ns: Internal.Scripts.Travel.Hazards.Minigames, asm: Assembly-CSharp}
+      data:
+        <Hint>k__BackingField:
+          m_TableReference:
+            m_TableCollectionName: GUID:43598c3e97d7d9a439a074f7627fe021
+          m_TableEntryReference:
+            m_KeyId: 0
+            m_Key: UI.HazardQte.Hint.LeftRight
+          m_FallbackState: 0
+          m_WaitForCompletion: 0
+          m_LocalVariables: []

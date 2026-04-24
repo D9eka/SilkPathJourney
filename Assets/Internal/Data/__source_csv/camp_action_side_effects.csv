@@ -1,0 +1,6 @@
+action_id,repeat_day,resource,value,event_chance
+rest,2,Danger,3,0.2
+rest,3,Danger,6,0.4
+rest,4,Danger,10,1
+order,2,Morale,-2,0
+order,3,Morale,-5,0

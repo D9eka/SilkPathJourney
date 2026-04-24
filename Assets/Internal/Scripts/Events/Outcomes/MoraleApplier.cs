@@ -1,15 +1,35 @@
 using System.Collections.Generic;
+using Internal.Scripts.Economy;
+using Internal.Scripts.Economy.Save;
 using Internal.Scripts.Events.Data;
 using Internal.Scripts.Events.Generated;
+using Internal.Scripts.UI.Components;
+using UnityEngine;
 
 namespace Internal.Scripts.Events.Outcomes
 {
-    public class MoraleApplier : IOutcomeApplier
+    public class MoraleApplier : IResourceOutcomeApplier
     {
         private static readonly EventOutcomeType[] Types = { EventOutcomeType.Morale };
 
+        private readonly PlayerResourceRepository _resourceRepo;
+
+        public MoraleApplier(PlayerResourceRepository resourceRepo)
+        {
+            _resourceRepo = resourceRepo;
+        }
+
         public IEnumerable<EventOutcomeType> SupportedTypes => Types;
 
-        public void Apply(EventOutcomeEntry entry) { }
+        public ResourceType? GetAffectedResource(EventOutcomeType type) =>
+            type == EventOutcomeType.Morale ? ResourceType.Morale : null;
+
+        public void Apply(EventOutcomeEntry entry)
+        {
+            _resourceRepo.UpdateResources(s =>
+                s.Morale = Mathf.Clamp(s.Morale + entry.Value, PlayerResourceState.MORALE_MIN, PlayerResourceState.MORALE_MAX));
+        }
+
+        public bool CanAfford(EventOutcomeType type, float netValue) => true;
     }
 }

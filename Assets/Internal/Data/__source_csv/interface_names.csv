@@ -123,3 +123,33 @@ Caravansary,Repair,Text,MainTitle,UI.Caravansary.MainCart.Title,,,Ремонт �
 Caravansary,Repair,Text,ExtraTitle,UI.Caravansary.ExtraCarts.Title,,,Ремонт доп. телег,Extra carts repair,перевод
 Caravansary,Repair,Text,Full,UI.Caravansary.Repair.Full,,,Исправно,Fully repaired,перевод
 Caravansary,Animal,Button,Switch,UI.Caravansary.SwitchAnimal,Формат: {0}=цена,,Заменить за {0},Switch for {0},перевод
+HazardQte,Header,,Rockfall,UI.HazardQte.Header.Rockfall,,,Камнепад!,Rockfall!,перевод
+HazardQte,Header,,Pothole,UI.HazardQte.Header.Pothole,,,Яма!,Pothole!,перевод
+HazardQte,Header,,Wolf,UI.HazardQte.Header.Wolf,,,Волки!,Wolves!,перевод
+HazardQte,Header,,Jackal,UI.HazardQte.Header.Jackal,,,Шакалы!,Jackals!,перевод
+HazardQte,Header,,Bandit,UI.HazardQte.Header.Bandit,,,Засада!,Ambush!,перевод
+HazardQte,Header,,Sandstorm,UI.HazardQte.Header.Sandstorm,,,Песчаная буря!,Sandstorm!,перевод
+HazardQte,Header,,River,UI.HazardQte.Header.River,,,Переправа!,River crossing!,перевод
+HazardQte,Hint,,Click,UI.HazardQte.Hint.Click,,,Нажмите кнопку чтобы перепрыгнуть яму,Press the button to jump over the pit,перевод
+HazardQte,Hint,,LeftRight,UI.HazardQte.Hint.LeftRight,,,Уклонитесь с помощью кнопок!,Dodge using the buttons!,перевод
+HazardQte,Hint,,Down,UI.HazardQte.Hint.Down,,,Нажмите кнопку чтобы объехать,Press the button to drive around,перевод
+HazardQte,Hint,,MultiClick,UI.HazardQte.Hint.MultiClick,,,"Нажмите, чтобы отбиваться!","Click to fight back!",перевод
+HazardQte,Hint,,Timing,UI.HazardQte.Hint.Timing,,,Переезжайте когда волны стихнут!,Cross when the waves calm down!,перевод
+HazardQte,Hint,,Wind,UI.HazardQte.Hint.Wind,,,Удерживайте повозку на дороге!,Keep the cart on the road!,перевод
+HazardQte,Result,,Success,UI.HazardQte.Result.Success,,,Успех!,Success!,перевод
+HazardQte,Result,,Fail,UI.HazardQte.Result.Fail,,,Поражение!,Defeat!,перевод
+HazardQte,Wind,,FromLeft,UI.HazardQte.Wind.FromLeft,,,Ветер ←,Wind ←,перевод
+HazardQte,Wind,,FromRight,UI.HazardQte.Wind.FromRight,,,Ветер →,Wind →,перевод
+HazardQte,Timer,,SecondsShort,UI.HazardQte.Timer.SecondsShort,,,с,s,перевод
+Input,Key,,LMB,UI.Input.Key.LMB,,,ЛКМ,LMB,перевод
+Input,Key,,RMB,UI.Input.Key.RMB,,,ПКМ,RMB,перевод
+Input,Key,,MMB,UI.Input.Key.MMB,,,СКМ,MMB,перевод
+Input,Key,,ScrollUp,UI.Input.Key.ScrollUp,,,Колёсико ↑,Scroll ↑,перевод
+Input,Key,,ScrollDown,UI.Input.Key.ScrollDown,,,Колёсико ↓,Scroll ↓,перевод
+Input,Key,,Space,UI.Input.Key.Space,,,Пробел,Space,перевод
+Input,Key,,ArrowUp,UI.Input.Key.ArrowUp,,,↑,↑,перевод
+Input,Key,,ArrowDown,UI.Input.Key.ArrowDown,,,↓,↓,перевод
+Input,Key,,ArrowLeft,UI.Input.Key.ArrowLeft,,,←,←,перевод
+Input,Key,,ArrowRight,UI.Input.Key.ArrowRight,,,→,→,перевод
+Input,Key,,LeftStick,UI.Input.Key.LeftStick,,,Левый стик,Left Stick,перевод
+Input,Key,,RightStick,UI.Input.Key.RightStick,,,Правый стик,Right Stick,перевод

@@ -15,15 +15,19 @@ namespace Internal.Scripts.Player
 
         private RoadAgent _roadAgent;
         private string _lastDestinationId;
+        private string _lastFromNode;
+        private string _lastToNode;
 
         public string CurrentNodeId => _roadAgent?.CurrentNodeId ?? string.Empty;
         public string DestinationNodeId => _roadAgent?.DestinationNodeId ?? string.Empty;
         public Vector3 CurrentPosition => _roadAgent?.CurrentPose.Position ?? Vector3.zero;
         public string CurrentFromNodeId => _roadAgent?.CurrentFromNodeId;
         public string CurrentToNodeId => _roadAgent?.CurrentToNodeId;
+        public float DistanceOnSegment => _roadAgent?.DistanceOnSegment ?? 0f;
 
         public event Action<string> OnCurrentNodeChanged;
         public event Action<string> OnDestinationChanged;
+        public event Action<string, string> OnCurrentSegmentChanged;
 
         public PlayerState State
         {
@@ -59,6 +63,7 @@ namespace Internal.Scripts.Player
         {
             if (_roadAgent == null) return;
             _roadAgent.Tick();
+            NotifySegmentChanged();
         }
 
         public void SetPaused(bool paused)
@@ -110,6 +115,19 @@ namespace Internal.Scripts.Player
 
             _lastDestinationId = destinationId;
             OnDestinationChanged?.Invoke(destinationId);
+        }
+
+        private void NotifySegmentChanged()
+        {
+            string from = CurrentFromNodeId ?? string.Empty;
+            string to = CurrentToNodeId ?? string.Empty;
+
+            if (from == _lastFromNode && to == _lastToNode)
+                return;
+
+            _lastFromNode = from;
+            _lastToNode = to;
+            OnCurrentSegmentChanged?.Invoke(from, to);
         }
 
     }

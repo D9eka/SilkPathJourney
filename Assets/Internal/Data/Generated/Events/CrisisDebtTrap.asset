@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: CrisisDebtTrap
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
   <Id>k__BackingField: crisis_debt_trap
+  <Category>k__BackingField: 9
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Events
@@ -130,6 +131,7 @@ MonoBehaviour:
       <Param>k__BackingField: 
       <Value>k__BackingField: 3
   <IsMinor>k__BackingField: 0
+  <Biome>k__BackingField: 0
   <AutoOutcomes>k__BackingField: []
   <SkillChecks>k__BackingField:
   - <ChoiceIndex>k__BackingField: 2

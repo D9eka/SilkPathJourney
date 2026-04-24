@@ -34,8 +34,7 @@ namespace Internal.Scripts.Npc.Save
 
         private void HandleDayChanged(int day)
         {
-            if (_dayTracker.IsSkipping) return;
-            Save();
+            _saveRepository.Data.Npcs = _lifeSimulator.BuildSaveData();
         }
 
         private void Save()

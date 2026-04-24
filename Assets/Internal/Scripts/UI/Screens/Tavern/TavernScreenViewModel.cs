@@ -12,11 +12,11 @@ using Internal.Scripts.Npc.Names;
 using Internal.Scripts.Player;
 using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Localization;
+using Internal.Scripts.UI.Localization.Generated;
 using Internal.Scripts.UI.Screens.Core.Config;
 using Internal.Scripts.UI.Screens.Core.ViewModel;
 using Internal.Scripts.UI.Theme;
 using R3;
-using UnityEngine.Localization;
 
 namespace Internal.Scripts.UI.Screens.Tavern
 {
@@ -112,7 +112,7 @@ namespace Internal.Scripts.UI.Screens.Tavern
 
             var hireList = _hireFormatter.Build(_cityCulture, money, currentCount, maxCompanions, _availableSlots);
 
-            string slotsFormatted = ResolveLoc("UI.Tavern.SlotsAvailable", "UI.Tavern.SlotsAvailable", currentCount, maxCompanions);
+            string slotsFormatted = LocalizationService.Resolve(LocUI.Table, LocUI.UI_Tavern_SlotsAvailable, null, currentCount, maxCompanions);
             _currentRumors = _rumorService.GetAvailableRumors(_cityId);
             int rumorCost = _rumorService.GetRumorCost();
             string rumorsText = _rumorFormatter.FormatRumorsText(_currentRumors);
@@ -138,10 +138,5 @@ namespace Internal.Scripts.UI.Screens.Tavern
             BuildState();
         }
 
-        private static string ResolveLoc(string key, string fallback, params object[] args)
-        {
-            var localized = new LocalizedString("UI", key);
-            return LocalizationService.ResolveString(localized, fallback, key, args);
-        }
     }
 }

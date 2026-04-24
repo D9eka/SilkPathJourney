@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: PlainsCaravanseraiRuins
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
   <Id>k__BackingField: plains_caravanserai_ruins
+  <Category>k__BackingField: 7
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Events
@@ -121,6 +122,7 @@ MonoBehaviour:
     <Conditions>k__BackingField: []
     <Outcomes>k__BackingField: []
   <IsMinor>k__BackingField: 0
+  <Biome>k__BackingField: 1
   <AutoOutcomes>k__BackingField: []
   <SkillChecks>k__BackingField:
   - <ChoiceIndex>k__BackingField: 2

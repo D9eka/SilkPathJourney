@@ -60,7 +60,7 @@ namespace Internal.Scripts.Import.Editor.Core
                 string rawName = ImportHelpers.GetField(rows[i], enumIndex).Trim();
                 string enumName = string.IsNullOrWhiteSpace(rawName) ? ImportHelpers.ToPascalCase(id) : rawName;
 
-                if (!IsValidIdentifier(enumName))
+                if (!ImportHelpers.IsValidIdentifier(enumName))
                 {
                     Debug.LogError($"[SPJ] Invalid enum name '{enumName}' in {spec.SourceCsvPath} (row {i + 1})");
                     return false;
@@ -82,8 +82,8 @@ namespace Internal.Scripts.Import.Editor.Core
             }
 
             string content = BuildEnumSource(spec.EnumName, entries, spec.ZeroValueName, spec.Namespace);
-            EnsureFolderExists(spec.OutputPath);
-            return WriteIfChanged(spec.OutputPath, content);
+            ImportHelpers.EnsureDirectory(spec.OutputPath);
+            return ImportHelpers.WriteIfChanged(spec.OutputPath, content);
         }
 
         private static string BuildEnumSource(string enumName, List<EnumEntry> entries, string zeroValueName, string ns)
@@ -106,58 +106,6 @@ namespace Internal.Scripts.Import.Editor.Core
             sb.AppendLine("}");
             return sb.ToString();
         }
-
-        private static bool WriteIfChanged(string path, string content)
-        {
-            if (File.Exists(path))
-            {
-                string existing = File.ReadAllText(path, Encoding.UTF8);
-                if (string.Equals(existing, content, StringComparison.Ordinal))
-                    return false;
-            }
-
-            File.WriteAllText(path, content, Encoding.UTF8);
-            return true;
-        }
-
-        private static void EnsureFolderExists(string filePath)
-        {
-            string dir = Path.GetDirectoryName(filePath);
-            if (string.IsNullOrWhiteSpace(dir))
-                return;
-            Directory.CreateDirectory(dir);
-        }
-
-        private static bool IsValidIdentifier(string value)
-        {
-            if (string.IsNullOrWhiteSpace(value))
-                return false;
-            if (Keywords.Contains(value))
-                return false;
-
-            if (!(char.IsLetter(value[0]) || value[0] == '_'))
-                return false;
-
-            for (int i = 1; i < value.Length; i++)
-            {
-                char c = value[i];
-                if (!(char.IsLetterOrDigit(c) || c == '_'))
-                    return false;
-            }
-            return true;
-        }
-
-        private static readonly HashSet<string> Keywords = new(StringComparer.Ordinal)
-        {
-            "abstract","as","base","bool","break","byte","case","catch","char","checked","class",
-            "const","continue","decimal","default","delegate","do","double","else","enum","event",
-            "explicit","extern","false","finally","fixed","float","for","foreach","goto","if",
-            "implicit","in","int","interface","internal","is","lock","long","namespace","new",
-            "null","object","operator","out","override","params","private","protected","public",
-            "readonly","ref","return","sbyte","sealed","short","sizeof","stackalloc","static",
-            "string","struct","switch","this","throw","true","try","typeof","uint","ulong",
-            "unchecked","unsafe","ushort","using","virtual","void","volatile","while"
-        };
 
         public readonly struct EnumSpec
         {

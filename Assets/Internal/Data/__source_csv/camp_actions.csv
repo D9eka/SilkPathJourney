@@ -1,0 +1,5 @@
+action_id,enum_name,cost_supplies,affected_resource,related_skill,max_repeat,skip_food,diminishing_curve,loc_name,loc_hint1,loc_hint2,loc_hint3plus
+forage,Forage,0,Food,Survival,3,true,"1;0.7;0.5;0.3;0.15",UI.Camp.Action.Forage.Name,UI.Camp.Forage.Hint.1,UI.Camp.Forage.Hint.2,UI.Camp.Forage.Hint.3
+rest,Rest,5,Morale,Charisma,3,false,,UI.Camp.Action.Rest.Name,UI.Camp.Rest.Hint.1,UI.Camp.Rest.Hint.2,UI.Camp.Rest.Hint.3
+repair,Repair,5,MainCartDurability,None,3,false,"1;0.6;0.35",UI.Camp.Action.Repair.Name,UI.Camp.Repair.Hint.1,UI.Camp.Repair.Hint.2,UI.Camp.Repair.Hint.3
+order,Order,0,Danger,Survival,3,false,"1;0.6;0.35",UI.Camp.Action.Order.Name,UI.Camp.Order.Hint.1,UI.Camp.Order.Hint.2,UI.Camp.Order.Hint.3

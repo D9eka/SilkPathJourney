@@ -3,8 +3,8 @@ using Internal.Scripts.Config;
 using Internal.Scripts.Economy;
 using Internal.Scripts.Economy.Save;
 using Internal.Scripts.UI.Localization;
+using Internal.Scripts.UI.Localization.Generated;
 using Internal.Scripts.UI.Screens.Shared;
-using UnityEngine.Localization;
 
 namespace Internal.Scripts.UI.Screens.Caravansary.Services
 {
@@ -29,9 +29,9 @@ namespace Internal.Scripts.UI.Screens.Caravansary.Services
             int maxPercent = Math.Min((int)Math.Ceiling(missing), affordablePercent);
             int maxCost = maxPercent * _config.RepairCostPerPercent;
 
-            string title = ResolveLoc("UI.Caravansary.MainCart.Title", "Main cart");
-            string durabilityText = $"{ResolveLoc("UI.Global.Durability.Prefix", "UI.Global.Durability.Prefix")} {cart.Durability:F0}/{cart.MaxDurability:F0}";
-            string priceText = ResolveLoc("UI.Caravansary.RepairPrice", "UI.Caravansary.RepairPrice", _config.RepairCostPerPercent);
+            string title = LocalizationService.Resolve(LocUI.Table, LocUI.UI_Caravansary_MainCart_Title);
+            string durabilityText = $"{LocalizationService.Resolve(LocUI.Table, LocUI.UI_Global_Durability_Prefix)} {cart.Durability:F0}/{cart.MaxDurability:F0}";
+            string priceText = LocalizationService.Resolve(LocUI.Table, LocUI.UI_Caravansary_RepairPrice, null, _config.RepairCostPerPercent);
 
             bool canRepair;
             bool canRepairMax;
@@ -42,13 +42,13 @@ namespace Internal.Scripts.UI.Screens.Caravansary.Services
             {
                 canRepair = false;
                 canRepairMax = false;
-                repairBtnText = ResolveLoc("UI.Caravansary.Repair.Full", "UI.Caravansary.Repair.Full");
+                repairBtnText = LocalizationService.Resolve(LocUI.Table, LocUI.UI_Caravansary_Repair_Full);
                 repairMaxText = "";
             }
             else
             {
-                repairBtnText = ResolveLoc("UI.Caravansary.RepairButton", "UI.Caravansary.RepairButton", defaultPercent, defaultCost);
-                repairMaxText = ResolveLoc("UI.Caravansary.RepairMaxButton", "UI.Caravansary.RepairMaxButton", maxPercent, maxCost);
+                repairBtnText = LocalizationService.Resolve(LocUI.Table, LocUI.UI_Caravansary_RepairButton, null, defaultPercent, defaultCost);
+                repairMaxText = LocalizationService.Resolve(LocUI.Table, LocUI.UI_Caravansary_RepairMaxButton, null, maxPercent, maxCost);
                 canRepair = defaultPercent > 0 && money >= defaultCost;
                 canRepairMax = maxPercent > 0;
             }
@@ -83,12 +83,6 @@ namespace Internal.Scripts.UI.Screens.Caravansary.Services
                     s.PlayerCart.Durability + percent,
                     s.PlayerCart.MaxDurability);
             });
-        }
-
-        private static string ResolveLoc(string key, string fallback, params object[] args)
-        {
-            var localized = new LocalizedString("UI", key);
-            return LocalizationService.ResolveString(localized, fallback, key, args);
         }
     }
 }

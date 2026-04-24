@@ -11,9 +11,11 @@ using Internal.Scripts.Player.Languages;
 using Internal.Scripts.Player.Languages.Generated;
 using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Localization;
+using Internal.Scripts.UI.Localization.Generated;
 using Internal.Scripts.UI.Screens.Core.Config;
 using Internal.Scripts.UI.Screens.Core.ViewModel;
 using Internal.Scripts.UI.Theme;
+using Internal.Scripts.UI.Utils;
 using R3;
 using UnityEngine;
 using UnityEngine.Localization;
@@ -120,13 +122,15 @@ namespace Internal.Scripts.UI.Screens.Caravan
             string weightFormatted = $"{(int)weight}/{(int)capacity}";
 
             string dangerFormatted = $"{(int)res.AccumulatedDanger}";
-            string foodFormatted = $"{(int)res.Food}";
-            string moraleFormatted = "-";
+            int foodCount = InventoryStateMutator.GetItemCount(
+                _inventoryRepo.GetPlayerInventory(), SuppliesItemId.Value);
+            string foodFormatted = $"{foodCount}";
+            string moraleFormatted = $"{(int)res.Morale}";
 
             bool isAnimalSick = false;
             string healthFormatted = isAnimalSick
-                ? ResolveLoc("UI.Caravan.Health.Sick", "UI.Caravan.Health.Sick")
-                : ResolveLoc("UI.Caravan.Health.Healthy", "UI.Caravan.Health.Healthy");
+                ? LocalizationService.Resolve(LocUI.Table, LocUI.UI_Caravan_Health_Sick)
+                : LocalizationService.Resolve(LocUI.Table, LocUI.UI_Caravan_Health_Healthy);
 
             float baseSpeed = res.PlayerCart.Speed;
             CartClassData classData = _caravanDb.GetCartClassById(res.CartClassId);
@@ -153,12 +157,12 @@ namespace Internal.Scripts.UI.Screens.Caravan
             }
             baseSpeed *= 1f - extraCartPenalty / 100f;
 
-            string speedFormatted = ResolveLoc("UI.Caravan.Stats.Speed", "UI.Caravan.Stats.Speed", $"{baseSpeed:0.#}");
+            string speedFormatted = LocalizationService.Resolve(LocUI.Table, LocUI.UI_Caravan_Stats_Speed, null, $"{baseSpeed:0.#}");
 
             int totalDailyCost = 0;
             foreach (var comp in res.Companions)
                 totalDailyCost += _companionCosts.CalculateDailyCost(comp);
-            string dailyCostFormatted = ResolveLoc("UI.Caravan.Stats.DailyCost", "UI.Caravan.Stats.DailyCost", totalDailyCost);
+            string dailyCostFormatted = LocalizationService.Resolve(LocUI.Table, LocUI.UI_Caravan_Stats_DailyCost, null, totalDailyCost);
 
             var companions = BuildCompanions(res);
             var animal = BuildAnimal(res);
@@ -177,9 +181,9 @@ namespace Internal.Scripts.UI.Screens.Caravan
         {
             var list = new List<CompanionCardData>(res.Companions.Count);
 
-            string statusPrefix = ResolveLoc("UI.Global.Status.Prefix", "UI.Global.Status.Prefix");
-            string effectPrefix = ResolveLoc("UI.Global.Effect.Prefix", "UI.Global.Effect.Prefix");
-            string dailyCostPrefix = ResolveLoc("UI.Global.DailyCost.Prefix", "UI.Global.DailyCost.Prefix");
+            string statusPrefix = LocalizationService.Resolve(LocUI.Table, LocUI.UI_Global_Status_Prefix);
+            string effectPrefix = LocalizationService.Resolve(LocUI.Table, LocUI.UI_Global_Effect_Prefix);
+            string dailyCostPrefix = LocalizationService.Resolve(LocUI.Table, LocUI.UI_Global_DailyCost_Prefix);
 
             for (int i = 0; i < res.Companions.Count; i++)
             {
@@ -193,8 +197,8 @@ namespace Internal.Scripts.UI.Screens.Caravan
                     : typeName;
 
                 string statusValue = comp.IsInjured
-                    ? ResolveLoc("UI.Caravan.CompanionStatus.Injured", "UI.Caravan.CompanionStatus.Injured")
-                    : ResolveLoc("UI.Caravan.CompanionStatus.Healthy", "UI.Caravan.CompanionStatus.Healthy");
+                    ? LocalizationService.Resolve(LocUI.Table, LocUI.UI_Caravan_CompanionStatus_Injured)
+                    : LocalizationService.Resolve(LocUI.Table, LocUI.UI_Caravan_CompanionStatus_Healthy);
                 string statusText = $"{statusPrefix} {statusValue}";
 
                 string effectText = "";
@@ -212,8 +216,7 @@ namespace Internal.Scripts.UI.Screens.Caravan
                                 string langName = ResolveLanguageName(compLang);
                                 int profValue = Mathf.RoundToInt(bonus.BonusValue);
                                 string profName = ResolveProficiencyName((LanguageProficiency)profValue);
-                                string translatorEffect = ResolveLoc("UI.Translator.LanguageEffect",
-                                    "UI.Translator.LanguageEffect", langName, profName);
+                                string translatorEffect = LocalizationService.Resolve(LocUI.Table, LocUI.UI_Translator_LanguageEffect, null, langName, profName);
                                 effectText = $"{effectPrefix} {translatorEffect}";
                             }
                             else
@@ -227,10 +230,10 @@ namespace Internal.Scripts.UI.Screens.Caravan
                 }
 
                 if (string.IsNullOrEmpty(effectText))
-                    effectText = $"{effectPrefix} {ResolveLoc("UI.Global.NoEffect", "UI.Global.NoEffect")}";
+                    effectText = $"{effectPrefix} {LocalizationService.Resolve(LocUI.Table, LocUI.UI_Global_NoEffect)}";
 
                 int dailyCost = _companionCosts.CalculateDailyCost(comp);
-                string dailyCostText = $"{dailyCostPrefix} {ResolveLoc("UI.Caravan.DailyCost", "UI.Caravan.DailyCost", dailyCost)}";
+                string dailyCostText = $"{dailyCostPrefix} {LocalizationService.Resolve(LocUI.Table, LocUI.UI_Caravan_DailyCost, null, dailyCost)}";
 
                 list.Add(new CompanionCardData(
                     typeAndName, statusText, effectText,
@@ -243,7 +246,7 @@ namespace Internal.Scripts.UI.Screens.Caravan
         private AnimalViewData BuildAnimal(PlayerResourceState res)
         {
             DraftAnimalData animal = _caravanDb.GetDraftAnimalById(res.DraftAnimalId);
-            string animalPrefix = ResolveLoc("UI.Global.Animals.Prefix", "UI.Global.Animals.Prefix");
+            string animalPrefix = LocalizationService.Resolve(LocUI.Table, LocUI.UI_Global_Animals_Prefix);
             string rawName = animal != null
                 ? LocalizationService.ResolveString(animal.Name, animal.Id, "Caravan.AnimalName")
                 : res.DraftAnimalId;
@@ -252,33 +255,32 @@ namespace Internal.Scripts.UI.Screens.Caravan
             bool isInjured = false;
             int healCost = 15;
 
-            string statusPrefix = ResolveLoc("UI.Global.Status.Prefix", "UI.Global.Status.Prefix");
+            string statusPrefix = LocalizationService.Resolve(LocUI.Table, LocUI.UI_Global_Status_Prefix);
             string statusValue = isInjured
-                ? ResolveLoc("UI.Caravan.AnimalStatus.Sick", "UI.Caravan.AnimalStatus.Sick", healCost)
-                : ResolveLoc("UI.Caravan.AnimalStatus.Healthy", "UI.Caravan.AnimalStatus.Healthy");
+                ? LocalizationService.Resolve(LocUI.Table, LocUI.UI_Caravan_AnimalStatus_Sick, null, healCost)
+                : LocalizationService.Resolve(LocUI.Table, LocUI.UI_Caravan_AnimalStatus_Healthy);
             string statusText = $"{statusPrefix} {statusValue}";
 
             string animalEffect;
             if (animal != null && (animal.SpeedModPct != 0 || animal.CapacityModPct != 0))
             {
-                string speedMod = FormatSignedPercent(animal.SpeedModPct);
-                string capMod = FormatSignedPercent(animal.CapacityModPct);
-                animalEffect = ResolveLoc("UI.Caravan.AnimalEffect.Base",
-                    "UI.Caravan.AnimalEffect.Base", speedMod, capMod);
+                string speedMod = NumberFormatter.SignedPercent(animal.SpeedModPct);
+                string capMod = NumberFormatter.SignedPercent(animal.CapacityModPct);
+                animalEffect = LocalizationService.Resolve(LocUI.Table, LocUI.UI_Caravan_AnimalEffect_Base, null, speedMod, capMod);
             }
             else
             {
-                animalEffect = ResolveLoc("UI.Global.NoEffect", "UI.Global.NoEffect");
+                animalEffect = LocalizationService.Resolve(LocUI.Table, LocUI.UI_Global_NoEffect);
             }
 
             string sickEffect = isInjured
-                ? ResolveLoc("UI.Caravan.AnimalEffect.Sick", "UI.Caravan.AnimalEffect.Sick")
+                ? LocalizationService.Resolve(LocUI.Table, LocUI.UI_Caravan_AnimalEffect_Sick)
                 : "";
 
             string combined = string.IsNullOrEmpty(sickEffect)
                 ? animalEffect
                 : $"{animalEffect}, {sickEffect}";
-            string effectText = ResolveLoc("UI.Global.CurrentEffect", "UI.Global.CurrentEffect", combined);
+            string effectText = LocalizationService.Resolve(LocUI.Table, LocUI.UI_Global_CurrentEffect, null, combined);
 
             return new AnimalViewData(typeName, statusText, effectText, isInjured, isInjured, healCost);
         }
@@ -287,11 +289,11 @@ namespace Internal.Scripts.UI.Screens.Caravan
         {
             var list = new List<CartViewData>(1 + res.Carts.Count);
 
-            string durabilityPrefix = ResolveLoc("UI.Global.Durability.Prefix", "UI.Global.Durability.Prefix");
-            string consumptionPrefix = ResolveLoc("UI.Global.Consumption.Prefix", "UI.Global.Consumption.Prefix");
-            string paramsPrefix = ResolveLoc("UI.Caravan.Params.Prefix", "UI.Caravan.Params.Prefix");
-            string mainCartPrefix = ResolveLoc("UI.Caravan.MainCart.Prefix", "UI.Caravan.MainCart.Prefix");
-            string extraCartPrefix = ResolveLoc("UI.Caravan.ExtraCart.Prefix", "UI.Caravan.ExtraCart.Prefix");
+            string durabilityPrefix = LocalizationService.Resolve(LocUI.Table, LocUI.UI_Global_Durability_Prefix);
+            string consumptionPrefix = LocalizationService.Resolve(LocUI.Table, LocUI.UI_Global_Consumption_Prefix);
+            string paramsPrefix = LocalizationService.Resolve(LocUI.Table, LocUI.UI_Caravan_Params_Prefix);
+            string mainCartPrefix = LocalizationService.Resolve(LocUI.Table, LocUI.UI_Caravan_MainCart_Prefix);
+            string extraCartPrefix = LocalizationService.Resolve(LocUI.Table, LocUI.UI_Caravan_ExtraCart_Prefix);
 
             CartClassData classData = _caravanDb.GetCartClassById(res.CartClassId);
             string localizedMainName = classData != null
@@ -300,10 +302,10 @@ namespace Internal.Scripts.UI.Screens.Caravan
             string mainName = $"{mainCartPrefix} {localizedMainName}";
 
             string mainEffect = classData != null
-                ? $"{paramsPrefix} {ResolveLoc("UI.Caravan.CartEffect", "UI.Caravan.CartEffect", $"{classData.SpeedKmDay:0.#}", $"{classData.Capacity:0.#}")}"
+                ? $"{paramsPrefix} {LocalizationService.Resolve(LocUI.Table, LocUI.UI_Caravan_CartEffect, null, $"{classData.SpeedKmDay:0.#}", $"{classData.Capacity:0.#}")}"
                 : "";
             string mainDurability = $"{durabilityPrefix} {(int)res.PlayerCart.Durability}/{(int)res.PlayerCart.MaxDurability}";
-            string mainConsumption = $"{consumptionPrefix} {ResolveLoc("UI.Caravan.Consumption", "UI.Caravan.Consumption", $"{res.PlayerCart.FoodConsumptionPerDay:0.#}")}";
+            string mainConsumption = $"{consumptionPrefix} {LocalizationService.Resolve(LocUI.Table, LocUI.UI_Caravan_Consumption, null, $"{res.PlayerCart.FoodConsumptionPerDay:0.#}")}";
 
             list.Add(new CartViewData(
                 mainName, true, mainEffect, mainDurability,
@@ -321,10 +323,9 @@ namespace Internal.Scripts.UI.Screens.Caravan
                     : (cart.TypeId ?? "");
                 string cartName = $"{extraCartPrefix} {localizedExtraName}";
 
-                string effectPrefix = ResolveLoc("UI.Global.Effect.Prefix", "UI.Global.Effect.Prefix");
+                string effectPrefix = LocalizationService.Resolve(LocUI.Table, LocUI.UI_Global_Effect_Prefix);
                 string effectValue = extraData != null
-                    ? ResolveLoc("UI.Caravan.ExtraCartEffect",
-                        "UI.Caravan.ExtraCartEffect",
+                    ? LocalizationService.Resolve(LocUI.Table, LocUI.UI_Caravan_ExtraCartEffect, null,
                         $"{extraData.Capacity:0.#}", $"{extraData.SpeedPenaltyPct}")
                     : "";
                 string effect = !string.IsNullOrEmpty(effectValue)
@@ -336,11 +337,11 @@ namespace Internal.Scripts.UI.Screens.Caravan
                 {
                     var comp = res.Companions[i];
                     var typeData = _caravanDb.CompanionTypes.Find(t => t.Id == comp.TypeId);
-                    string typeName = typeData != null
+                    string companionTypeName = typeData != null
                         ? LocalizationService.ResolveString(typeData.Name, typeData.Id, "Caravan.CompanionType")
                         : comp.TypeId;
-                    string fullName = $"{typeName} {comp.Name}";
-                    companionInfo = ResolveLoc("UI.Caravan.BelongsTo", "UI.Caravan.BelongsTo", fullName);
+                    string fullName = $"{companionTypeName} {comp.Name}";
+                    companionInfo = LocalizationService.Resolve(LocUI.Table, LocUI.UI_Caravan_BelongsTo, null, fullName);
                 }
 
                 string effectAndCompanion = !string.IsNullOrEmpty(companionInfo)
@@ -348,7 +349,7 @@ namespace Internal.Scripts.UI.Screens.Caravan
                     : effect;
 
                 string durability = $"{durabilityPrefix} {(int)cart.Durability}/{(int)cart.MaxDurability}";
-                string consumption = $"{consumptionPrefix} {ResolveLoc("UI.Caravan.Consumption", "UI.Caravan.Consumption", $"{cart.FoodConsumptionPerDay:0.#}")}";
+                string consumption = $"{consumptionPrefix} {LocalizationService.Resolve(LocUI.Table, LocUI.UI_Caravan_Consumption, null, $"{cart.FoodConsumptionPerDay:0.#}")}";
 
                 bool canRepair = cart.Durability < cart.MaxDurability;
 
@@ -358,11 +359,6 @@ namespace Internal.Scripts.UI.Screens.Caravan
             }
 
             return list;
-        }
-
-        private static string FormatSignedPercent(float value)
-        {
-            return value >= 0 ? $"+{value:F0}%" : $"{value:F0}%";
         }
 
         private static string ResolveLanguageName(LanguageType lang)
@@ -378,12 +374,6 @@ namespace Internal.Scripts.UI.Screens.Caravan
         {
             var localized = new LocalizedString("UI", $"UI.Language.Proficiency.{proficiency}");
             return LocalizationService.ResolveString(localized, proficiency.ToString(), $"Proficiency.{proficiency}");
-        }
-
-        private static string ResolveLoc(string key, string fallback, params object[] args)
-        {
-            var localized = new LocalizedString("UI", key);
-            return LocalizationService.ResolveString(localized, fallback, key, args);
         }
     }
 }

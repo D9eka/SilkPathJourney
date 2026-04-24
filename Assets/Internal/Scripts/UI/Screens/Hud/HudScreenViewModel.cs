@@ -141,6 +141,7 @@ namespace Internal.Scripts.UI.Screens.Hud
             {
                 case HudMode.Travel:
                     _model.SetSpeed(0);
+                    OpenCamp();
                     break;
                 case HudMode.City:
                     if (_cityEntryService.IsInCityView)
@@ -203,6 +204,12 @@ namespace Internal.Scripts.UI.Screens.Hud
         {
             if (!_screenStackService.TryOpen(ScreenId.Caravan, out ScreenOpenResult result))
                 Debug.LogWarning($"[SPJ] Cannot open caravan screen: {result}");
+        }
+
+        public void OpenCamp()
+        {
+            if (!_screenStackService.TryOpen(ScreenId.Camp, out ScreenOpenResult result))
+                Debug.LogWarning($"[SPJ] Cannot open camp screen: {result}");
         }
 
         public void LockCameraToPlayer() => _cameraController.FollowPlayer();

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Internal.Scripts.Economy.Generated;
 using Internal.Scripts.Events.Generated;
 using UnityEngine;
 using UnityEngine.Localization;
@@ -11,6 +12,7 @@ namespace Internal.Scripts.Events.Data
     {
         [Header("Event Info")]
         [field: SerializeField] public string Id { get; private set; }
+        [field: SerializeField] public EventCategory Category { get; private set; }
         [field: SerializeField] public LocalizedString Name { get; private set; }
         [field: SerializeField] public LocalizedString EventType { get; private set; }
         [field: SerializeField] public LocalizedString Description { get; private set; }
@@ -19,8 +21,9 @@ namespace Internal.Scripts.Events.Data
         [Header("Choices")]
         [field: SerializeField] public List<EventChoice> Choices { get; private set; }
 
-        [Header("Minor Event")]
+        [Header("Selection")]
         [field: SerializeField] public bool IsMinor { get; private set; }
+        [field: SerializeField] public Biome Biome { get; private set; }
         [field: SerializeField] public List<EventOutcomeEntry> AutoOutcomes { get; private set; }
 
         [Header("Skill Checks")]
@@ -47,11 +50,13 @@ namespace Internal.Scripts.Events.Data
             LocalizedString description,
             Sprite image,
             bool isMinor,
+            Biome biome,
             List<EventChoice> choices,
             List<EventOutcomeEntry> autoOutcomes,
             List<EventCondition> conditions,
             float weight,
-            List<SkillCheckData> skillChecks = null)
+            List<SkillCheckData> skillChecks = null,
+            EventCategory category = EventCategory.None)
         {
             Id = id;
             Name = name;
@@ -59,11 +64,13 @@ namespace Internal.Scripts.Events.Data
             Description = description;
             Image = image;
             IsMinor = isMinor;
+            Biome = biome;
             Choices = choices ?? new List<EventChoice>();
             AutoOutcomes = autoOutcomes ?? new List<EventOutcomeEntry>();
             SkillChecks = skillChecks ?? new List<SkillCheckData>();
             Conditions = conditions ?? new List<EventCondition>();
             Weight = weight;
+            Category = category;
         }
 #endif
     }

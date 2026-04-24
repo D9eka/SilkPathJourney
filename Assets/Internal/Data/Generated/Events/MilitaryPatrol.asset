@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: MilitaryPatrol
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
   <Id>k__BackingField: military_patrol
+  <Category>k__BackingField: 5
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Events
@@ -95,6 +96,7 @@ MonoBehaviour:
       <Param>k__BackingField: Charisma
       <Value>k__BackingField: 2
   <IsMinor>k__BackingField: 0
+  <Biome>k__BackingField: 0
   <AutoOutcomes>k__BackingField: []
   <SkillChecks>k__BackingField:
   - <ChoiceIndex>k__BackingField: 2

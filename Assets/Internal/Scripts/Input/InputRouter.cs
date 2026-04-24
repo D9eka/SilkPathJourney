@@ -7,50 +7,32 @@ using Zenject;
 
 namespace Internal.Scripts.Input
 {
-    public class InputRouter : IInitializable, ITickable, IDisposable
+    public class InputRouter : ICameraInput, ITimeSpeedInput, IInitializable, ITickable, IDisposable
     {
         private const float CAMERA_SIZE_MODIFIER = -1f;
         private const float MAX_RAY_DISTANCE = 1000f;
-        
+
         private static readonly Vector2 CameraMovementModifier = new Vector2(-1f, -1f);
 
-        public Action<float> OnChangeCameraSize;
-        public Action<Vector2> OnChangeCameraPosition;
-        public Action<Vector2> OnUiNavigate;
-        public Action OnUiSubmit;
-        public Action OnUiSubmitAll;
-        public Action OnUiBack;
-        public Action OnUiAction;
-        public Action OnUiNextArea;
-        public Action OnUiPrevArea;
-        public Action OnTimeSpeedPause;
-        public Action OnTimeSpeed1;
-        public Action OnTimeSpeed2;
-        public Action OnTimeSpeed3;
+        public event Action<float>   OnChangeSize;
+        public event Action<Vector2> OnChangePosition;
+        public event Action OnPause;
+        public event Action OnSpeed1;
+        public event Action OnSpeed2;
+        public event Action OnSpeed3;
 
-        public Vector2 UiNavigateValue => _uiNavigateValue;
-        
+        private readonly PlayerInputActions _actions;
+
         private LayerMask _interactableLayerMask;
-        private PlayerInputActions _inputActions;
-
         private IInteractableObject _currentHover;
 
         private bool _clickRequested;
         private float _zoomValue;
         private Vector2 _moveValue;
-        private Vector2 _uiNavigateValue;
 
-        private InputActionMap _uiMap;
-        private InputAction _uiNavigate;
-        private InputAction _uiSubmit;
-        private InputAction _uiSubmitAll;
-        private InputAction _uiBack;
-        private InputAction _uiAction;
-        private InputAction _uiNextArea;
-        private InputAction _uiPrevArea;
-
-        public InputRouter()
+        public InputRouter(PlayerInputActions actions)
         {
+            _actions = actions;
         }
 
         public void SetInteractableLayerMask(LayerMask mask)
@@ -60,14 +42,32 @@ namespace Internal.Scripts.Input
 
         public void Initialize()
         {
-            _inputActions = new PlayerInputActions();
-            BindUiActions();
-            EnableInput();
+            _actions.Player.Enable();
+
+            _actions.Player.Click.performed          += OnClick;
+            _actions.Player.ZoomCamera.performed     += OnZoomCamera;
+            _actions.Player.ZoomCamera.canceled      += OnZoomCamera;
+            _actions.Player.MoveCamera.performed     += OnMoveCamera;
+            _actions.Player.MoveCamera.canceled      += OnMoveCamera;
+            _actions.Player.TimeSpeedPause.performed += OnTimeSpeedPauseAction;
+            _actions.Player.TimeSpeed1.performed     += OnTimeSpeed1Action;
+            _actions.Player.TimeSpeed2.performed     += OnTimeSpeed2Action;
+            _actions.Player.TimeSpeed3.performed     += OnTimeSpeed3Action;
         }
 
         public void Dispose()
         {
-            DisableInput();
+            _actions.Player.Click.performed          -= OnClick;
+            _actions.Player.ZoomCamera.performed     -= OnZoomCamera;
+            _actions.Player.ZoomCamera.canceled      -= OnZoomCamera;
+            _actions.Player.MoveCamera.performed     -= OnMoveCamera;
+            _actions.Player.MoveCamera.canceled      -= OnMoveCamera;
+            _actions.Player.TimeSpeedPause.performed -= OnTimeSpeedPauseAction;
+            _actions.Player.TimeSpeed1.performed     -= OnTimeSpeed1Action;
+            _actions.Player.TimeSpeed2.performed     -= OnTimeSpeed2Action;
+            _actions.Player.TimeSpeed3.performed     -= OnTimeSpeed3Action;
+
+            _actions.Player.Disable();
         }
 
         public void Tick()
@@ -80,64 +80,6 @@ namespace Internal.Scripts.Input
 
             _clickRequested = false;
             _zoomValue = 0;
-        }
-
-        private void EnableInput()
-        {
-            _inputActions.Enable();
-
-            _inputActions.Player.Click.performed += OnClick;
-
-            _inputActions.Player.ZoomCamera.performed += OnZoomCamera;
-            _inputActions.Player.ZoomCamera.canceled += OnZoomCamera;
-
-            _inputActions.Player.MoveCamera.performed += OnMoveCamera;
-            _inputActions.Player.MoveCamera.canceled += OnMoveCamera;
-
-            _inputActions.Player.TimeSpeedPause.performed += OnTimeSpeedPauseAction;
-            _inputActions.Player.TimeSpeed1.performed += OnTimeSpeed1Action;
-            _inputActions.Player.TimeSpeed2.performed += OnTimeSpeed2Action;
-            _inputActions.Player.TimeSpeed3.performed += OnTimeSpeed3Action;
-
-            if (_uiMap != null)
-            {
-                _uiNavigate.performed += OnUiNavigateAction;
-                _uiNavigate.canceled += OnUiNavigateAction;
-                _uiSubmit.performed += OnUiSubmitAction;
-                _uiSubmitAll.performed += OnUiSubmitAllAction;
-                _uiBack.performed += OnUiBackAction;
-                _uiAction.performed += OnUiActionAction;
-                _uiNextArea.performed += OnUiNextAreaAction;
-                _uiPrevArea.performed += OnUiPrevAreaAction;
-            }
-        }
-
-        private void DisableInput()
-        {
-            _inputActions.Player.Click.performed -= OnClick;
-            _inputActions.Player.ZoomCamera.performed -= OnZoomCamera;
-            _inputActions.Player.ZoomCamera.canceled -= OnZoomCamera;
-            _inputActions.Player.MoveCamera.performed -= OnMoveCamera;
-            _inputActions.Player.MoveCamera.canceled -= OnMoveCamera;
-
-            _inputActions.Player.TimeSpeedPause.performed -= OnTimeSpeedPauseAction;
-            _inputActions.Player.TimeSpeed1.performed -= OnTimeSpeed1Action;
-            _inputActions.Player.TimeSpeed2.performed -= OnTimeSpeed2Action;
-            _inputActions.Player.TimeSpeed3.performed -= OnTimeSpeed3Action;
-
-            if (_uiMap != null)
-            {
-                _uiNavigate.performed -= OnUiNavigateAction;
-                _uiNavigate.canceled -= OnUiNavigateAction;
-                _uiSubmit.performed -= OnUiSubmitAction;
-                _uiSubmitAll.performed -= OnUiSubmitAllAction;
-                _uiBack.performed -= OnUiBackAction;
-                _uiAction.performed -= OnUiActionAction;
-                _uiNextArea.performed -= OnUiNextAreaAction;
-                _uiPrevArea.performed -= OnUiPrevAreaAction;
-            }
-
-            _inputActions.Disable();
         }
 
         private void HandleHover(bool isOverUI)
@@ -176,10 +118,10 @@ namespace Internal.Scripts.Input
             if (isOverUI)
                 return;
 
-            OnChangeCameraSize?.Invoke(_zoomValue * CAMERA_SIZE_MODIFIER);
-            OnChangeCameraPosition?.Invoke(_moveValue * CameraMovementModifier);
+            OnChangeSize?.Invoke(_zoomValue * CAMERA_SIZE_MODIFIER);
+            OnChangePosition?.Invoke(_moveValue * CameraMovementModifier);
         }
-        
+
         private IInteractableObject TryGetInteractableUnderMouse()
         {
             var cam = UnityEngine.Camera.main;
@@ -201,112 +143,22 @@ namespace Internal.Scripts.Input
         private void OnClick(InputAction.CallbackContext context)
         {
             if (context.performed)
-            {
                 _clickRequested = true;
-            }
         }
 
         private void OnZoomCamera(InputAction.CallbackContext context)
         {
-            if (context.canceled)
-            {
-                _zoomValue = 0;
-                return;
-            }
-
-            _zoomValue = context.ReadValue<float>();
+            _zoomValue = context.canceled ? 0f : context.ReadValue<float>();
         }
 
         private void OnMoveCamera(InputAction.CallbackContext context)
         {
-            if (context.canceled)
-            {
-                _moveValue = Vector2.zero;
-                return;
-            }
-
-            _moveValue = context.ReadValue<Vector2>();
+            _moveValue = context.canceled ? Vector2.zero : context.ReadValue<Vector2>();
         }
 
-        private void BindUiActions()
-        {
-            _uiMap = _inputActions.asset.FindActionMap("UI", false);
-            if (_uiMap == null)
-                return;
-
-            _uiNavigate = _uiMap.FindAction("Navigate", true);
-            _uiSubmit = _uiMap.FindAction("Submit", true);
-            _uiSubmitAll = _uiMap.FindAction("SubmitAll", true);
-            _uiBack = _uiMap.FindAction("Back", true);
-            _uiAction = _uiMap.FindAction("Action", true);
-            _uiNextArea = _uiMap.FindAction("NextArea", true);
-            _uiPrevArea = _uiMap.FindAction("PrevArea", true);
-        }
-
-        private void OnUiNavigateAction(InputAction.CallbackContext context)
-        {
-            _uiNavigateValue = context.ReadValue<Vector2>();
-            OnUiNavigate?.Invoke(_uiNavigateValue);
-        }
-
-        private void OnUiSubmitAction(InputAction.CallbackContext context)
-        {
-            if (context.performed)
-                OnUiSubmit?.Invoke();
-        }
-
-        private void OnUiSubmitAllAction(InputAction.CallbackContext context)
-        {
-            if (context.performed)
-                OnUiSubmitAll?.Invoke();
-        }
-
-        private void OnUiBackAction(InputAction.CallbackContext context)
-        {
-            if (context.performed)
-                OnUiBack?.Invoke();
-        }
-
-        private void OnUiActionAction(InputAction.CallbackContext context)
-        {
-            if (context.performed)
-                OnUiAction?.Invoke();
-        }
-
-        private void OnUiNextAreaAction(InputAction.CallbackContext context)
-        {
-            if (context.performed)
-                OnUiNextArea?.Invoke();
-        }
-
-        private void OnUiPrevAreaAction(InputAction.CallbackContext context)
-        {
-            if (context.performed)
-                OnUiPrevArea?.Invoke();
-        }
-
-        private void OnTimeSpeedPauseAction(InputAction.CallbackContext context)
-        {
-            if (context.performed)
-                OnTimeSpeedPause?.Invoke();
-        }
-
-        private void OnTimeSpeed1Action(InputAction.CallbackContext context)
-        {
-            if (context.performed)
-                OnTimeSpeed1?.Invoke();
-        }
-
-        private void OnTimeSpeed2Action(InputAction.CallbackContext context)
-        {
-            if (context.performed)
-                OnTimeSpeed2?.Invoke();
-        }
-
-        private void OnTimeSpeed3Action(InputAction.CallbackContext context)
-        {
-            if (context.performed)
-                OnTimeSpeed3?.Invoke();
-        }
+        private void OnTimeSpeedPauseAction(InputAction.CallbackContext context) => OnPause?.Invoke();
+        private void OnTimeSpeed1Action(InputAction.CallbackContext context)     => OnSpeed1?.Invoke();
+        private void OnTimeSpeed2Action(InputAction.CallbackContext context)     => OnSpeed2?.Invoke();
+        private void OnTimeSpeed3Action(InputAction.CallbackContext context)     => OnSpeed3?.Invoke();
     }
 }

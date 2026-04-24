@@ -22,6 +22,7 @@ namespace Internal.Scripts.Npc.Trading
         private readonly GuildSettings _guildSettings;
         private readonly NpcSupplyPlanner _supplyPlanner;
         private readonly DayTracker _dayTracker;
+        private Action<string> _activityLog;
 
         public NpcGuildTradeService(
             EconomyDatabase economyDatabase,
@@ -40,6 +41,8 @@ namespace Internal.Scripts.Npc.Trading
             _supplyPlanner = supplyPlanner;
             _dayTracker = dayTracker;
         }
+
+        public void SetActivityLog(Action<string> log) => _activityLog = log;
 
         public void TryTakeGuildContract(NpcEconomyState agent, string cityId, string nextDestNodeId,
             float speedMetersPerDay, Func<float> nextRandom = null)
@@ -123,7 +126,7 @@ namespace Internal.Scripts.Npc.Trading
                                 CargoAmount = cargoAmount
                             };
 
-                            Debug.Log($"[NpcContract] {agent.Name} took cargo contract {cityId}→{target.Id}, item={cargoItemId} x{cargoAmount}, reward={totalReward}g");
+                            _activityLog?.Invoke($"{agent.Name} took cargo contract {cityId}→{target.Id}, item={cargoItemId} x{cargoAmount}, reward={totalReward}g");
                             return;
                         }
                     }
@@ -143,7 +146,7 @@ namespace Internal.Scripts.Npc.Trading
                 ContractType = GuildContractType.Courier
             };
 
-            Debug.Log($"[NpcContract] {agent.Name} took courier contract {cityId}→{target.Id} for {reward}g");
+            _activityLog?.Invoke($"{agent.Name} took courier contract {cityId}→{target.Id} for {reward}g");
         }
 
         public void HandleDebtRepayment(NpcEconomyState agent, string cityId)
@@ -171,11 +174,11 @@ namespace Internal.Scripts.Npc.Trading
             {
                 agent.Debt = 0;
                 agent.InDebt = false;
-                Debug.Log($"[NpcTrader] {agent.Name} repaid debt in full");
+                _activityLog?.Invoke($"{agent.Name} repaid debt in full");
             }
             else
             {
-                Debug.Log($"[NpcTrader] {agent.Name} repaid {repayment}g, remaining debt: {agent.Debt:F0}g");
+                _activityLog?.Invoke($"{agent.Name} repaid {repayment}g, remaining debt: {agent.Debt:F0}g");
             }
         }
 
@@ -197,7 +200,7 @@ namespace Internal.Scripts.Npc.Trading
             agent.Money += amount;
             agent.Debt = amount;
             agent.InDebt = true;
-            Debug.Log($"[NpcTrader] {agent.Name} took guild credit of {amount}g");
+            _activityLog?.Invoke($"{agent.Name} took guild credit of {amount}g");
         }
 
     }

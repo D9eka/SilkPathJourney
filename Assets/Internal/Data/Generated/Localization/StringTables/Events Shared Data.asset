@@ -10019,6 +10019,1374 @@ MonoBehaviour:
     m_Key: event.event_artifact1_complete.choice1.result
     m_Metadata:
       m_Items: []
+  - m_Id: 25356240325435392
+    m_Key: event.camp_plains_snare.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378432
+    m_Key: event.camp_plains_snare.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378433
+    m_Key: event.camp_plains_snare.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378434
+    m_Key: event.camp_plains_snare.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378435
+    m_Key: event.camp_plains_snare.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378436
+    m_Key: event.camp_plains_snare.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378437
+    m_Key: event.camp_plains_snare.choice2.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378438
+    m_Key: event.camp_plains_snare.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378439
+    m_Key: event.camp_plains_snare.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378440
+    m_Key: event.camp_plains_berries.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378441
+    m_Key: event.camp_plains_berries.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378442
+    m_Key: event.camp_plains_berries.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378443
+    m_Key: event.camp_plains_berries.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378444
+    m_Key: event.camp_plains_berries.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378445
+    m_Key: event.camp_plains_berries.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378446
+    m_Key: event.camp_plains_berries.choice2.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378447
+    m_Key: event.camp_plains_berries.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378448
+    m_Key: event.camp_plains_berries.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378449
+    m_Key: event.camp_plains_shepherd_trade.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378450
+    m_Key: event.camp_plains_shepherd_trade.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378451
+    m_Key: event.camp_plains_shepherd_trade.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378452
+    m_Key: event.camp_plains_shepherd_trade.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378453
+    m_Key: event.camp_plains_shepherd_trade.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378454
+    m_Key: event.camp_plains_shepherd_trade.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378455
+    m_Key: event.camp_plains_shepherd_trade.choice2.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378456
+    m_Key: event.camp_plains_shepherd_trade.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378457
+    m_Key: event.camp_plains_shepherd_trade.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378458
+    m_Key: event.camp_desert_dates.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378459
+    m_Key: event.camp_desert_dates.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378460
+    m_Key: event.camp_desert_dates.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378461
+    m_Key: event.camp_desert_dates.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378462
+    m_Key: event.camp_desert_dates.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378463
+    m_Key: event.camp_desert_dates.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378464
+    m_Key: event.camp_desert_dates.choice2.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378465
+    m_Key: event.camp_desert_dates.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378466
+    m_Key: event.camp_desert_dates.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378467
+    m_Key: event.camp_desert_fox.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378468
+    m_Key: event.camp_desert_fox.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378469
+    m_Key: event.camp_desert_fox.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378470
+    m_Key: event.camp_desert_fox.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378471
+    m_Key: event.camp_desert_fox.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378472
+    m_Key: event.camp_desert_fox.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378473
+    m_Key: event.camp_desert_fox.choice2.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378474
+    m_Key: event.camp_desert_fox.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378475
+    m_Key: event.camp_desert_fox.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378476
+    m_Key: event.camp_desert_old_tracks.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378477
+    m_Key: event.camp_desert_old_tracks.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378478
+    m_Key: event.camp_desert_old_tracks.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378479
+    m_Key: event.camp_desert_old_tracks.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378480
+    m_Key: event.camp_desert_old_tracks.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378481
+    m_Key: event.camp_desert_old_tracks.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378482
+    m_Key: event.camp_desert_old_tracks.choice2.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378483
+    m_Key: event.camp_desert_old_tracks.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378484
+    m_Key: event.camp_desert_old_tracks.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378485
+    m_Key: event.camp_highland_pine.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378486
+    m_Key: event.camp_highland_pine.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378487
+    m_Key: event.camp_highland_pine.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378488
+    m_Key: event.camp_highland_pine.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378489
+    m_Key: event.camp_highland_pine.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378490
+    m_Key: event.camp_highland_pine.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378491
+    m_Key: event.camp_highland_pine.choice2.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378492
+    m_Key: event.camp_highland_pine.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378493
+    m_Key: event.camp_highland_pine.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378494
+    m_Key: event.camp_highland_goat.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378495
+    m_Key: event.camp_highland_goat.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378496
+    m_Key: event.camp_highland_goat.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378497
+    m_Key: event.camp_highland_goat.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378498
+    m_Key: event.camp_highland_goat.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378499
+    m_Key: event.camp_highland_goat.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378500
+    m_Key: event.camp_highland_goat.choice2.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378501
+    m_Key: event.camp_highland_goat.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378502
+    m_Key: event.camp_highland_goat.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378503
+    m_Key: event.camp_highland_ice_spring.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378504
+    m_Key: event.camp_highland_ice_spring.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378505
+    m_Key: event.camp_highland_ice_spring.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378506
+    m_Key: event.camp_highland_ice_spring.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378507
+    m_Key: event.camp_highland_ice_spring.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378508
+    m_Key: event.camp_highland_ice_spring.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378509
+    m_Key: event.camp_highland_ice_spring.choice2.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378510
+    m_Key: event.camp_highland_ice_spring.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378511
+    m_Key: event.camp_highland_ice_spring.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378512
+    m_Key: event.camp_plains_yurt.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378513
+    m_Key: event.camp_plains_yurt.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378514
+    m_Key: event.camp_plains_yurt.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378515
+    m_Key: event.camp_plains_yurt.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378516
+    m_Key: event.camp_plains_yurt.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378517
+    m_Key: event.camp_plains_yurt.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378518
+    m_Key: event.camp_plains_yurt.choice2.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378519
+    m_Key: event.camp_plains_yurt.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378520
+    m_Key: event.camp_plains_yurt.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378521
+    m_Key: event.camp_plains_shepherd_song.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378522
+    m_Key: event.camp_plains_shepherd_song.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378523
+    m_Key: event.camp_plains_shepherd_song.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378524
+    m_Key: event.camp_plains_shepherd_song.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378525
+    m_Key: event.camp_plains_shepherd_song.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378526
+    m_Key: event.camp_plains_shepherd_song.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378527
+    m_Key: event.camp_plains_shepherd_song.choice2.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378528
+    m_Key: event.camp_plains_shepherd_song.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240367378529
+    m_Key: event.camp_plains_shepherd_song.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572736
+    m_Key: event.camp_plains_night_rain.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572737
+    m_Key: event.camp_plains_night_rain.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572738
+    m_Key: event.camp_plains_night_rain.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572739
+    m_Key: event.camp_plains_night_rain.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572740
+    m_Key: event.camp_plains_night_rain.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572741
+    m_Key: event.camp_plains_night_rain.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572742
+    m_Key: event.camp_plains_night_rain.choice2.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572743
+    m_Key: event.camp_plains_night_rain.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572744
+    m_Key: event.camp_plains_night_rain.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572745
+    m_Key: event.camp_desert_cool_night.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572746
+    m_Key: event.camp_desert_cool_night.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572747
+    m_Key: event.camp_desert_cool_night.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572748
+    m_Key: event.camp_desert_cool_night.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572749
+    m_Key: event.camp_desert_cool_night.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572750
+    m_Key: event.camp_desert_cool_night.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572751
+    m_Key: event.camp_desert_cool_night.choice2.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572752
+    m_Key: event.camp_desert_cool_night.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572753
+    m_Key: event.camp_desert_cool_night.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572754
+    m_Key: event.camp_desert_star_prayer.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572755
+    m_Key: event.camp_desert_star_prayer.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572756
+    m_Key: event.camp_desert_star_prayer.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572757
+    m_Key: event.camp_desert_star_prayer.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572758
+    m_Key: event.camp_desert_star_prayer.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572759
+    m_Key: event.camp_desert_star_prayer.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572760
+    m_Key: event.camp_desert_star_prayer.choice2.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572761
+    m_Key: event.camp_desert_star_prayer.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572762
+    m_Key: event.camp_desert_star_prayer.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572763
+    m_Key: event.camp_desert_old_legend.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572764
+    m_Key: event.camp_desert_old_legend.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572765
+    m_Key: event.camp_desert_old_legend.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572766
+    m_Key: event.camp_desert_old_legend.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572767
+    m_Key: event.camp_desert_old_legend.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572768
+    m_Key: event.camp_desert_old_legend.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572769
+    m_Key: event.camp_desert_old_legend.choice2.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572770
+    m_Key: event.camp_desert_old_legend.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572771
+    m_Key: event.camp_desert_old_legend.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572772
+    m_Key: event.camp_highland_tea.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572773
+    m_Key: event.camp_highland_tea.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572774
+    m_Key: event.camp_highland_tea.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572775
+    m_Key: event.camp_highland_tea.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572776
+    m_Key: event.camp_highland_tea.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572777
+    m_Key: event.camp_highland_tea.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572778
+    m_Key: event.camp_highland_tea.choice2.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572779
+    m_Key: event.camp_highland_tea.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572780
+    m_Key: event.camp_highland_tea.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572781
+    m_Key: event.camp_highland_meditation.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572782
+    m_Key: event.camp_highland_meditation.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572783
+    m_Key: event.camp_highland_meditation.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572784
+    m_Key: event.camp_highland_meditation.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572785
+    m_Key: event.camp_highland_meditation.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572786
+    m_Key: event.camp_highland_meditation.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572787
+    m_Key: event.camp_highland_meditation.choice2.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572788
+    m_Key: event.camp_highland_meditation.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572789
+    m_Key: event.camp_highland_meditation.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572790
+    m_Key: event.camp_highland_blizzard_wait.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572791
+    m_Key: event.camp_highland_blizzard_wait.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572792
+    m_Key: event.camp_highland_blizzard_wait.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572793
+    m_Key: event.camp_highland_blizzard_wait.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572794
+    m_Key: event.camp_highland_blizzard_wait.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572795
+    m_Key: event.camp_highland_blizzard_wait.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572796
+    m_Key: event.camp_highland_blizzard_wait.choice2.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572797
+    m_Key: event.camp_highland_blizzard_wait.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572798
+    m_Key: event.camp_highland_blizzard_wait.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572799
+    m_Key: event.camp_plains_axle.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572800
+    m_Key: event.camp_plains_axle.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572801
+    m_Key: event.camp_plains_axle.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572802
+    m_Key: event.camp_plains_axle.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572803
+    m_Key: event.camp_plains_axle.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572804
+    m_Key: event.camp_plains_axle.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572805
+    m_Key: event.camp_plains_axle.choice2.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572806
+    m_Key: event.camp_plains_axle.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572807
+    m_Key: event.camp_plains_axle.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572808
+    m_Key: event.camp_plains_harness.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572809
+    m_Key: event.camp_plains_harness.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572810
+    m_Key: event.camp_plains_harness.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572811
+    m_Key: event.camp_plains_harness.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572812
+    m_Key: event.camp_plains_harness.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572813
+    m_Key: event.camp_plains_harness.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572814
+    m_Key: event.camp_plains_harness.choice2.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572815
+    m_Key: event.camp_plains_harness.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572816
+    m_Key: event.camp_plains_harness.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572817
+    m_Key: event.camp_plains_wheel_grease.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572818
+    m_Key: event.camp_plains_wheel_grease.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572819
+    m_Key: event.camp_plains_wheel_grease.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572820
+    m_Key: event.camp_plains_wheel_grease.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572821
+    m_Key: event.camp_plains_wheel_grease.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572822
+    m_Key: event.camp_plains_wheel_grease.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572823
+    m_Key: event.camp_plains_wheel_grease.choice2.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572824
+    m_Key: event.camp_plains_wheel_grease.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572825
+    m_Key: event.camp_plains_wheel_grease.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572826
+    m_Key: event.camp_desert_barrels.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572827
+    m_Key: event.camp_desert_barrels.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572828
+    m_Key: event.camp_desert_barrels.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572829
+    m_Key: event.camp_desert_barrels.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572830
+    m_Key: event.camp_desert_barrels.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572831
+    m_Key: event.camp_desert_barrels.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572832
+    m_Key: event.camp_desert_barrels.choice2.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572833
+    m_Key: event.camp_desert_barrels.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572834
+    m_Key: event.camp_desert_barrels.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572835
+    m_Key: event.camp_desert_tarp.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572836
+    m_Key: event.camp_desert_tarp.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572837
+    m_Key: event.camp_desert_tarp.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572838
+    m_Key: event.camp_desert_tarp.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572839
+    m_Key: event.camp_desert_tarp.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572840
+    m_Key: event.camp_desert_tarp.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572841
+    m_Key: event.camp_desert_tarp.choice2.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572842
+    m_Key: event.camp_desert_tarp.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572843
+    m_Key: event.camp_desert_tarp.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572844
+    m_Key: event.camp_desert_sand_clear.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572845
+    m_Key: event.camp_desert_sand_clear.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572846
+    m_Key: event.camp_desert_sand_clear.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572847
+    m_Key: event.camp_desert_sand_clear.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572848
+    m_Key: event.camp_desert_sand_clear.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572849
+    m_Key: event.camp_desert_sand_clear.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572850
+    m_Key: event.camp_desert_sand_clear.choice2.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572851
+    m_Key: event.camp_desert_sand_clear.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572852
+    m_Key: event.camp_desert_sand_clear.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572853
+    m_Key: event.camp_highland_horseshoes.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572854
+    m_Key: event.camp_highland_horseshoes.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572855
+    m_Key: event.camp_highland_horseshoes.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572856
+    m_Key: event.camp_highland_horseshoes.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572857
+    m_Key: event.camp_highland_horseshoes.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572858
+    m_Key: event.camp_highland_horseshoes.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572859
+    m_Key: event.camp_highland_horseshoes.choice2.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572860
+    m_Key: event.camp_highland_horseshoes.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572861
+    m_Key: event.camp_highland_horseshoes.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572862
+    m_Key: event.camp_highland_ropes.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572863
+    m_Key: event.camp_highland_ropes.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572864
+    m_Key: event.camp_highland_ropes.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572865
+    m_Key: event.camp_highland_ropes.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572866
+    m_Key: event.camp_highland_ropes.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572867
+    m_Key: event.camp_highland_ropes.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572868
+    m_Key: event.camp_highland_ropes.choice2.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572869
+    m_Key: event.camp_highland_ropes.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572870
+    m_Key: event.camp_highland_ropes.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572871
+    m_Key: event.camp_highland_snow_repair.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572872
+    m_Key: event.camp_highland_snow_repair.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572873
+    m_Key: event.camp_highland_snow_repair.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572874
+    m_Key: event.camp_highland_snow_repair.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572875
+    m_Key: event.camp_highland_snow_repair.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572876
+    m_Key: event.camp_highland_snow_repair.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572877
+    m_Key: event.camp_highland_snow_repair.choice2.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572878
+    m_Key: event.camp_highland_snow_repair.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572879
+    m_Key: event.camp_highland_snow_repair.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572880
+    m_Key: event.camp_order_plains_dispute.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572881
+    m_Key: event.camp_order_plains_dispute.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572882
+    m_Key: event.camp_order_plains_dispute.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572883
+    m_Key: event.camp_order_plains_dispute.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572884
+    m_Key: event.camp_order_plains_dispute.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572885
+    m_Key: event.camp_order_plains_dispute.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572886
+    m_Key: event.camp_order_plains_dispute.choice2.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572887
+    m_Key: event.camp_order_plains_dispute.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572888
+    m_Key: event.camp_order_plains_dispute.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572889
+    m_Key: event.camp_order_plains_watch.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572890
+    m_Key: event.camp_order_plains_watch.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572891
+    m_Key: event.camp_order_plains_watch.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572892
+    m_Key: event.camp_order_plains_watch.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572893
+    m_Key: event.camp_order_plains_watch.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572894
+    m_Key: event.camp_order_plains_watch.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572895
+    m_Key: event.camp_order_plains_watch.choice2.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572896
+    m_Key: event.camp_order_plains_watch.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572897
+    m_Key: event.camp_order_plains_watch.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572898
+    m_Key: event.camp_order_plains_discipline.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572899
+    m_Key: event.camp_order_plains_discipline.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572900
+    m_Key: event.camp_order_plains_discipline.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572901
+    m_Key: event.camp_order_plains_discipline.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572902
+    m_Key: event.camp_order_plains_discipline.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572903
+    m_Key: event.camp_order_plains_discipline.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572904
+    m_Key: event.camp_order_plains_discipline.choice2.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572905
+    m_Key: event.camp_order_plains_discipline.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572906
+    m_Key: event.camp_order_plains_discipline.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572907
+    m_Key: event.camp_order_desert_water.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572908
+    m_Key: event.camp_order_desert_water.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572909
+    m_Key: event.camp_order_desert_water.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572910
+    m_Key: event.camp_order_desert_water.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572911
+    m_Key: event.camp_order_desert_water.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572912
+    m_Key: event.camp_order_desert_water.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572913
+    m_Key: event.camp_order_desert_water.choice2.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572914
+    m_Key: event.camp_order_desert_water.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572915
+    m_Key: event.camp_order_desert_water.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572916
+    m_Key: event.camp_order_desert_rations.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572917
+    m_Key: event.camp_order_desert_rations.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572918
+    m_Key: event.camp_order_desert_rations.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572919
+    m_Key: event.camp_order_desert_rations.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572920
+    m_Key: event.camp_order_desert_rations.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240371572921
+    m_Key: event.camp_order_desert_rations.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767040
+    m_Key: event.camp_order_desert_rations.choice2.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767041
+    m_Key: event.camp_order_desert_rations.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767042
+    m_Key: event.camp_order_desert_rations.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767043
+    m_Key: event.camp_order_desert_sentries.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767044
+    m_Key: event.camp_order_desert_sentries.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767045
+    m_Key: event.camp_order_desert_sentries.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767046
+    m_Key: event.camp_order_desert_sentries.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767047
+    m_Key: event.camp_order_desert_sentries.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767048
+    m_Key: event.camp_order_desert_sentries.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767049
+    m_Key: event.camp_order_desert_sentries.choice2.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767050
+    m_Key: event.camp_order_desert_sentries.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767051
+    m_Key: event.camp_order_desert_sentries.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767052
+    m_Key: event.camp_order_highland_fatigue.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767053
+    m_Key: event.camp_order_highland_fatigue.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767054
+    m_Key: event.camp_order_highland_fatigue.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767055
+    m_Key: event.camp_order_highland_fatigue.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767056
+    m_Key: event.camp_order_highland_fatigue.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767057
+    m_Key: event.camp_order_highland_fatigue.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767058
+    m_Key: event.camp_order_highland_fatigue.choice2.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767059
+    m_Key: event.camp_order_highland_fatigue.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767060
+    m_Key: event.camp_order_highland_fatigue.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767061
+    m_Key: event.camp_order_highland_post.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767062
+    m_Key: event.camp_order_highland_post.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767063
+    m_Key: event.camp_order_highland_post.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767064
+    m_Key: event.camp_order_highland_post.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767065
+    m_Key: event.camp_order_highland_post.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767066
+    m_Key: event.camp_order_highland_post.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767067
+    m_Key: event.camp_order_highland_post.choice2.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767068
+    m_Key: event.camp_order_highland_post.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767069
+    m_Key: event.camp_order_highland_post.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767070
+    m_Key: event.camp_order_highland_rules.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767071
+    m_Key: event.camp_order_highland_rules.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767072
+    m_Key: event.camp_order_highland_rules.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767073
+    m_Key: event.camp_order_highland_rules.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767074
+    m_Key: event.camp_order_highland_rules.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767075
+    m_Key: event.camp_order_highland_rules.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767076
+    m_Key: event.camp_order_highland_rules.choice2.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767077
+    m_Key: event.camp_order_highland_rules.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767078
+    m_Key: event.camp_order_highland_rules.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767079
+    m_Key: event.camp_order_any_caravan_law.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767080
+    m_Key: event.camp_order_any_caravan_law.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767081
+    m_Key: event.camp_order_any_caravan_law.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767082
+    m_Key: event.camp_order_any_caravan_law.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767083
+    m_Key: event.camp_order_any_caravan_law.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767084
+    m_Key: event.camp_order_any_caravan_law.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767085
+    m_Key: event.camp_order_any_caravan_law.choice2.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767086
+    m_Key: event.camp_order_any_caravan_law.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767087
+    m_Key: event.camp_order_any_caravan_law.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767088
+    m_Key: event.camp_order_any_newcomer.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767089
+    m_Key: event.camp_order_any_newcomer.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767090
+    m_Key: event.camp_order_any_newcomer.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767091
+    m_Key: event.camp_order_any_newcomer.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767092
+    m_Key: event.camp_order_any_newcomer.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767093
+    m_Key: event.camp_order_any_newcomer.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767094
+    m_Key: event.camp_order_any_newcomer.choice2.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767095
+    m_Key: event.camp_order_any_newcomer.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767096
+    m_Key: event.camp_order_any_newcomer.choice3.result
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

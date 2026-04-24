@@ -13,7 +13,7 @@ namespace Internal.Scripts.Camera.Follow
     {
         private readonly ICameraMover _mover;
         private readonly ICameraZoomer _zoomer;
-        private readonly InputRouter _inputRouter;
+        private readonly ICameraInput _inputManager;
         private readonly CameraSceneSettings _settings;
         private readonly CameraBounds _bounds;
         private readonly RoadAgentView _roadAgentView;
@@ -29,7 +29,7 @@ namespace Internal.Scripts.Camera.Follow
         public CameraFollowService(
             ICameraMover mover,
             ICameraZoomer zoomer,
-            InputRouter inputRouter,
+            ICameraInput inputManager,
             CameraSceneSettings settings,
             CameraBounds bounds,
             RoadAgentView roadAgentView,
@@ -38,7 +38,7 @@ namespace Internal.Scripts.Camera.Follow
         {
             _mover = mover;
             _zoomer = zoomer;
-            _inputRouter = inputRouter;
+            _inputManager = inputManager;
             _settings = settings;
             _bounds = bounds;
             _roadAgentView = roadAgentView;
@@ -48,7 +48,7 @@ namespace Internal.Scripts.Camera.Follow
 
         public void Initialize()
         {
-            _inputRouter.OnChangeCameraPosition += OnInput;
+            _inputManager.OnChangePosition += OnInput;
             _playerStateEvents.OnCurrentNodeChanged += OnNodeChanged;
 
             if (_playerStateProvider.State == PlayerState.Moving)
@@ -97,7 +97,7 @@ namespace Internal.Scripts.Camera.Follow
 
         public void Dispose()
         {
-            _inputRouter.OnChangeCameraPosition -= OnInput;
+            _inputManager.OnChangePosition -= OnInput;
             _playerStateEvents.OnCurrentNodeChanged -= OnNodeChanged;
         }
 

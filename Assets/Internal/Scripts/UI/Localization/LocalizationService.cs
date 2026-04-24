@@ -23,6 +23,8 @@ namespace Internal.Scripts.UI.Localization
             private bool _isBound;
             private LocalizedString.ChangeHandler _handler;
 
+            public event Action TextChanged;
+
             internal LocalizedTextHandle(TextMeshProUGUI target, LocalizedString localized,
                 string context, string fallback, Func<string, string> postProcess = null)
             {
@@ -60,10 +62,12 @@ namespace Internal.Scripts.UI.Localization
                     if (string.IsNullOrWhiteSpace(value))
                     {
                         _target.text = _fallback;
+                        TextChanged?.Invoke();
                         return;
                     }
 
                     _target.text = _postProcess != null ? _postProcess(value) : value;
+                    TextChanged?.Invoke();
                 };
 
                 _localized.StringChanged += _handler;
@@ -80,6 +84,7 @@ namespace Internal.Scripts.UI.Localization
                 if (_localized == null || IsEmpty(_localized))
                 {
                     _target.text = _fallback;
+                    TextChanged?.Invoke();
                     return;
                 }
 
@@ -95,6 +100,7 @@ namespace Internal.Scripts.UI.Localization
 
                 _localized.StringChanged -= _handler;
                 _isBound = false;
+                TextChanged = null;
             }
         }
 
@@ -150,6 +156,21 @@ namespace Internal.Scripts.UI.Localization
             if (handle.TryBind())
                 handle.SetArguments(fallback);
             return handle;
+        }
+
+        private static readonly Dictionary<(string table, string key), LocalizedString> _cache = new();
+
+        public static string Resolve(string table, string key, string fallback = null, params object[] args)
+        {
+            if (string.IsNullOrEmpty(table) || string.IsNullOrEmpty(key))
+                return fallback ?? key ?? string.Empty;
+            var cacheKey = (table, key);
+            if (!_cache.TryGetValue(cacheKey, out var localized))
+            {
+                localized = new LocalizedString(table, key);
+                _cache[cacheKey] = localized;
+            }
+            return ResolveString(localized, fallback ?? key, key, args);
         }
 
         public static string ResolveString(LocalizedString localized, string fallback, string context, params object[] args)

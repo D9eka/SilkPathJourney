@@ -9,7 +9,6 @@ using Internal.Scripts.Items;
 using Internal.Scripts.Npc.Data;
 using Internal.Scripts.Npc.Lifecycle;
 using Internal.Scripts.Trading;
-using UnityEngine;
 
 namespace Internal.Scripts.Npc.Trading
 {
@@ -64,7 +63,6 @@ namespace Internal.Scripts.Npc.Trading
                 return (0, 0);
 
             var (soldUnits, received) = _transactionService.SellToCity(agent, cityId, toSell);
-            Debug.Log($"[NpcSellService] {agent.Name} sold {toSell.Count} item type(s) for {received}g in {cityId}");
 
             foreach (ItemStackState stack in toSell)
                 agent.Purchases.RemoveAll(p => p.ItemId == stack.ItemId);

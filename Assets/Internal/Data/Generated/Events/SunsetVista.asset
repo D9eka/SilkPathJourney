@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: SunsetVista
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
   <Id>k__BackingField: sunset_vista
+  <Category>k__BackingField: 21
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Events
@@ -89,6 +90,7 @@ MonoBehaviour:
       <Param>k__BackingField: 
       <Value>k__BackingField: 3
   <IsMinor>k__BackingField: 0
+  <Biome>k__BackingField: 0
   <AutoOutcomes>k__BackingField: []
   <SkillChecks>k__BackingField: []
   <Conditions>k__BackingField: []

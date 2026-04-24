@@ -25,6 +25,7 @@ namespace Internal.Scripts.Npc.Core
         public RoadPose CurrentPose { get; private set; }
         public string CurrentFromNodeId => _currentSegment?.FromNodeId;
         public string CurrentToNodeId => _currentSegment?.ToNodeId;
+        public float DistanceOnSegment => _distanceOnSegment;
 
         public SegmentMover(IRoadNetwork network, RoadSamplerCache samplerCache, RoadPoseSampler poseSampler)
         {

@@ -1,0 +1,4 @@
+biome,action_type,modifier
+desert,Forage,-50
+high_altitude,Forage,-30
+high_altitude,Rest,-30

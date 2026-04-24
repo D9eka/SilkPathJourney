@@ -10,6 +10,7 @@ namespace Internal.Scripts.Road.Graph
         List<RoadGraphEdge> GetOutgoingEdges(string nodeId);
         List<RoadPathSegment> GetOutgoingSegments(string nodeId);
         bool TryGetSegment(RoadSegmentId id, out RoadSegmentData data);
+        bool TryGetSegment(string fromNode, string toNode, out RoadPathSegment segment);
         IReadOnlyDictionary<RoadSegmentId, RoadSegmentData> Segments { get; }
     }
 }

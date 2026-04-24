@@ -1,4 +1,5 @@
 using System;
+using Internal.Scripts.Import.Editor.Camp;
 using Internal.Scripts.Import.Editor.Economy;
 using Internal.Scripts.Import.Editor.Events;
 using Internal.Scripts.Import.Editor.Languages;
@@ -25,6 +26,7 @@ namespace Internal.Scripts.Import.Editor.Core
                 EventImporter.ImportAll();
                 QuestImporter.ImportAll();
                 CaravanImporter.ImportAll();
+                CampImporter.ImportAll();
                 ThemeImporter.ImportColors();
                 NpcImporter.ImportAll();
                 TraderImporter.Import();

@@ -1,10 +1,10 @@
 using DG.Tweening;
 using Internal.Scripts.Quests.Data;
 using Internal.Scripts.UI.Localization;
+using Internal.Scripts.UI.Localization.Generated;
 using Internal.Scripts.UI.Screens.Quests;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Localization;
 using UnityEngine.UI;
 
 using static Internal.Scripts.UI.Screens.Quests.QuestLocContext;
@@ -188,7 +188,7 @@ namespace Internal.Scripts.UI.Screens.Hud
             if (_currentStage != null)
             {
                 _currentStage.gameObject.SetActive(true);
-                _currentStage.SetState(StageDisplayState.Completed, LocalizationService.ResolveString(new LocalizedString("UI", "UI.Quest.Failed"), "Quest failed", "QuestTracker"));
+                _currentStage.SetState(StageDisplayState.Completed, LocalizationService.Resolve(LocUI.Table, LocUI.UI_Quest_Failed));
             }
 
             if (_nextStage != null)

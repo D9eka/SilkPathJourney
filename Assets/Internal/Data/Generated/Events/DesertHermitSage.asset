@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: DesertHermitSage
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
   <Id>k__BackingField: desert_hermit_sage
+  <Category>k__BackingField: 5
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Events
@@ -127,6 +128,7 @@ MonoBehaviour:
     <Conditions>k__BackingField: []
     <Outcomes>k__BackingField: []
   <IsMinor>k__BackingField: 0
+  <Biome>k__BackingField: 2
   <AutoOutcomes>k__BackingField: []
   <SkillChecks>k__BackingField: []
   <Conditions>k__BackingField: []

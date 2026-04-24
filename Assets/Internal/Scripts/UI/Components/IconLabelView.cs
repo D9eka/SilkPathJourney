@@ -12,7 +12,14 @@ namespace Internal.Scripts.UI.Components
         public void Initialize(Sprite icon, string label)
         {
             if (icon != null)
+            {
+                _icon.gameObject.SetActive(true);
                 _icon.sprite = icon;
+            }
+            else
+            {
+                _icon.gameObject.SetActive(false);
+            }
             SetLabel(label);
         }
 

@@ -58,11 +58,8 @@ namespace Internal.Scripts.Player
 
         public void RefreshSpeed() => ApplySpeed();
 
-        private void ApplySpeed()
+        public float GetBaseSpeedKmDay(PlayerResourceState resources)
         {
-            if (_agent == null) return;
-
-            PlayerResourceState resources = _resourceRepo.Current;
             float baseSpeed = resources.PlayerCart.Speed;
 
             CartClassData classData = _caravanDatabase.GetCartClassById(resources.CartClassId);
@@ -88,6 +85,16 @@ namespace Internal.Scripts.Player
                 }
             }
             baseSpeed *= 1f - extraCartPenalty / 100f;
+
+            return baseSpeed;
+        }
+
+        private void ApplySpeed()
+        {
+            if (_agent == null) return;
+
+            PlayerResourceState resources = _resourceRepo.Current;
+            float baseSpeed = GetBaseSpeedKmDay(resources);
 
             SpeedModeData modeData = _config.GetModeData(CurrentMode.Value);
             float roadModifier = 1f;

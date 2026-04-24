@@ -210,7 +210,7 @@ namespace Internal.Scripts.Npc.Editor
         private void DrawTradeLogs(IReadOnlyList<NpcCaravanAgent> agents)
         {
             float halfWidth = position.width / 2f - 8f;
-            IReadOnlyList<string> log = _simulator.TradeLog;
+            IReadOnlyList<string> log = _simulator.ActivityLog;
 
             EditorGUILayout.BeginHorizontal();
 

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: EventEmpire1Complete
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
   <Id>k__BackingField: event_empire1_complete
+  <Category>k__BackingField: 29
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Events
@@ -81,13 +82,14 @@ MonoBehaviour:
       <Param>k__BackingField: silk
       <Value>k__BackingField: 10
   <IsMinor>k__BackingField: 0
+  <Biome>k__BackingField: 0
   <AutoOutcomes>k__BackingField: []
   <SkillChecks>k__BackingField: []
   <Conditions>k__BackingField:
-  - <Type>k__BackingField: 21
+  - <Type>k__BackingField: 22
     <Param>k__BackingField: quest_empire_1
     <Value>k__BackingField: 1
-  - <Type>k__BackingField: 24
+  - <Type>k__BackingField: 25
     <Param>k__BackingField: quest_empire_1
     <Value>k__BackingField: 3
   - <Type>k__BackingField: 16

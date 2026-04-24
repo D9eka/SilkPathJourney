@@ -1218,6 +1218,246 @@ MonoBehaviour:
     m_Localized: Trade
     m_Metadata:
       m_Items: []
+  - m_Id: 25634713195503619
+    m_Localized: Camp
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24175509310005248
+    m_Localized: Forage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24175509360336896
+    m_Localized: Rest
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24175509360336897
+    m_Localized: Repair
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24175509360336898
+    m_Localized: Order
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24175509360336899
+    m_Localized: Available in {0} days
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24175509360336900
+    m_Localized: Free
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24175509360336901
+    m_Localized: Food
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24175509360336902
+    m_Localized: Morale
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24175509360336903
+    m_Localized: Durability
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24175509360336904
+    m_Localized: Danger
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24553238299664384
+    m_Localized: Already foraged here
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24553238349996032
+    m_Localized: Resources running low
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24553238349996033
+    m_Localized: Resources nearly depleted
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24553238349996034
+    m_Localized: Smoke visible from afar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24553238349996035
+    m_Localized: Word is spreading
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24553238349996036
+    m_Localized: We've been spotted
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24553238349996037
+    m_Localized: Spare parts running low
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24553238349996038
+    m_Localized: Patching with scraps
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24553238349996039
+    m_Localized: Carts beyond repair
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24553238349996040
+    m_Localized: People are tired
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24553238349996041
+    m_Localized: People starting to rebel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24553238349996042
+    m_Localized: People refuse to obey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24553238349996043
+    m_Localized: Event risk
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25634713153560576
+    m_Localized: No one has anything to share right now.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25634713195503616
+    m_Localized: '{0}: {1}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25634713195503617
+    m_Localized: Buy for {0}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25634713195503618
+    m_Localized: '{0}, {1} days left'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27598045288849408
+    m_Localized: Rockfall!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27598045339181056
+    m_Localized: Pothole!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27598045339181057
+    m_Localized: Wolves!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27598045339181058
+    m_Localized: Jackals!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27598045339181059
+    m_Localized: Ambush!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27598045339181060
+    m_Localized: Sandstorm!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27598045339181061
+    m_Localized: River crossing!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27598045339181062
+    m_Localized: Mountain pass!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27598045339181063
+    m_Localized: Press the button to jump over the pit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27598045339181064
+    m_Localized: Dodge using the buttons!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27598045339181065
+    m_Localized: Press the button to drive around
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27598045339181066
+    m_Localized: Click to fight back!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27598045339181067
+    m_Localized: Hold the wheels!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27598045339181068
+    m_Localized: Cross when the waves calm down!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27598045339181069
+    m_Localized: Keep the cart on the road!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27598045339181070
+    m_Localized: Success!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27598045339181071
+    m_Localized: Defeat!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28536522188775424
+    m_Localized: "Wind \u2190"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28536522339770368
+    m_Localized: "Wind \u2192"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28541653986828288
+    m_Localized: s
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28547478121865216
+    m_Localized: LMB
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28547478134448128
+    m_Localized: RMB
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28547478134448129
+    m_Localized: MMB
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28547478134448130
+    m_Localized: "Scroll \u2191"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28547478134448131
+    m_Localized: "Scroll \u2193"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28547478134448132
+    m_Localized: Space
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28547478134448133
+    m_Localized: "\u2191"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28547478134448134
+    m_Localized: "\u2193"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28547478134448135
+    m_Localized: "\u2190"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28547478134448136
+    m_Localized: "\u2192"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28547478138642432
+    m_Localized: Left Stick
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28547478138642433
+    m_Localized: Right Stick
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

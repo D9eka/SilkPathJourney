@@ -6,31 +6,31 @@ namespace Internal.Scripts.Input
 {
     public sealed class GameSpeedController : IInitializable, IDisposable
     {
-        private readonly InputRouter _inputManager;
+        private readonly ITimeSpeedInput _input;
         private readonly GameClock _gameClock;
 
         private TimeSpeed _speedBeforePause = TimeSpeed.Normal;
 
-        public GameSpeedController(InputRouter inputManager, GameClock gameClock)
+        public GameSpeedController(ITimeSpeedInput input, GameClock gameClock)
         {
-            _inputManager = inputManager;
+            _input = input;
             _gameClock = gameClock;
         }
 
         public void Initialize()
         {
-            _inputManager.OnTimeSpeedPause += HandlePause;
-            _inputManager.OnTimeSpeed1 += HandleSpeed1;
-            _inputManager.OnTimeSpeed2 += HandleSpeed2;
-            _inputManager.OnTimeSpeed3 += HandleSpeed3;
+            _input.OnPause  += HandlePause;
+            _input.OnSpeed1 += HandleSpeed1;
+            _input.OnSpeed2 += HandleSpeed2;
+            _input.OnSpeed3 += HandleSpeed3;
         }
 
         public void Dispose()
         {
-            _inputManager.OnTimeSpeedPause -= HandlePause;
-            _inputManager.OnTimeSpeed1 -= HandleSpeed1;
-            _inputManager.OnTimeSpeed2 -= HandleSpeed2;
-            _inputManager.OnTimeSpeed3 -= HandleSpeed3;
+            _input.OnPause  -= HandlePause;
+            _input.OnSpeed1 -= HandleSpeed1;
+            _input.OnSpeed2 -= HandleSpeed2;
+            _input.OnSpeed3 -= HandleSpeed3;
         }
 
         private void HandlePause()

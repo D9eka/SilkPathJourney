@@ -1,12 +1,14 @@
-using System;
 using System.Collections.Generic;
 using Internal.Scripts.Economy;
+using Internal.Scripts.Economy.Save;
 using Internal.Scripts.Events.Data;
 using Internal.Scripts.Events.Generated;
+using Internal.Scripts.UI.Components;
+using UnityEngine;
 
 namespace Internal.Scripts.Events.Outcomes
 {
-    public class ReputationApplier : IOutcomeApplier
+    public class ReputationApplier : IResourceOutcomeApplier
     {
         private static readonly EventOutcomeType[] Types = { EventOutcomeType.Reputation };
 
@@ -19,10 +21,15 @@ namespace Internal.Scripts.Events.Outcomes
 
         public IEnumerable<EventOutcomeType> SupportedTypes => Types;
 
+        public ResourceType? GetAffectedResource(EventOutcomeType type) =>
+            type == EventOutcomeType.Reputation ? ResourceType.Reputation : null;
+
         public void Apply(EventOutcomeEntry entry)
         {
             _resourceRepo.UpdateResources(s =>
-                s.Reputation = Math.Clamp(s.Reputation + (int)entry.Value, 0, 100));
+                s.Reputation = (int)Mathf.Clamp(s.Reputation + (int)entry.Value, PlayerResourceState.REPUTATION_MIN, PlayerResourceState.REPUTATION_MAX));
         }
+
+        public bool CanAfford(EventOutcomeType type, float netValue) => true;
     }
 }

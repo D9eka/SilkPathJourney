@@ -10,12 +10,12 @@ using Internal.Scripts.Events.Data;
 using Internal.Scripts.Player;
 using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Localization;
+using Internal.Scripts.UI.Localization.Generated;
 using Internal.Scripts.UI.Screens.Core.Config;
 using Internal.Scripts.UI.Screens.Core.ViewModel;
 using Internal.Scripts.UI.Screens.Shared;
 using Internal.Scripts.UI.Theme;
 using R3;
-using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
 
@@ -174,22 +174,22 @@ namespace Internal.Scripts.UI.Screens.Workshop
 
         public string ResolveUpgradeLabel(int cost)
         {
-            return ResolveLoc("UI.Workshop.Upgrade", "UI.Workshop.Upgrade", cost);
+            return LocalizationService.Resolve(LocUI.Table, LocUI.UI_Workshop_Upgrade, null, cost);
         }
 
         public string ResolveMaxUpgradeLabel()
         {
-            return ResolveLoc("UI.Workshop.MaxUpgrade", "UI.Workshop.MaxUpgrade");
+            return LocalizationService.Resolve(LocUI.Table, LocUI.UI_Workshop_MaxUpgrade);
         }
 
         public string ResolveBuyLabel(int price)
         {
-            return ResolveLoc("UI.Workshop.Buy", "UI.Workshop.Buy", price);
+            return LocalizationService.Resolve(LocUI.Table, LocUI.UI_Workshop_Buy, null, price);
         }
 
         public string ResolveSellLabel(int price)
         {
-            return ResolveLoc("UI.Workshop.Sell", "UI.Workshop.Sell", price);
+            return LocalizationService.Resolve(LocUI.Table, LocUI.UI_Workshop_Sell, null, price);
         }
 
         private void BuildState()
@@ -221,7 +221,7 @@ namespace Internal.Scripts.UI.Screens.Workshop
             var upgrades = BuildUpgradeList(resources, money);
 
             int currentCount = resources.Carts?.Count ?? 0;
-            string slotsFormatted = ResolveLoc("UI.Workshop.Slots", "UI.Workshop.Slots", currentCount, MAX_EXTRA_CART_SLOTS);
+            string slotsFormatted = LocalizationService.Resolve(LocUI.Table, LocUI.UI_Workshop_Slots, null, currentCount, MAX_EXTRA_CART_SLOTS);
 
             _state.Value = new WorkshopViewState(
                 money, weightFormatted, speedFormatted, mainCart, extraCarts, upgrades,
@@ -254,10 +254,10 @@ namespace Internal.Scripts.UI.Screens.Workshop
 
             var stats = new CartStatsData(
                 displayName,
-                ResolveLoc("UI.Workshop.Speed", "UI.Workshop.Speed", $"{speed:F0}"),
-                ResolveLoc("UI.Workshop.Capacity", "UI.Workshop.Capacity", $"{capacity:F0}"),
-                ResolveLoc("UI.Workshop.Durability", "UI.Workshop.Durability", $"{durability:F0}"),
-                ResolveLoc("UI.Workshop.Animals", "UI.Workshop.Animals", animalCount),
+                LocalizationService.Resolve(LocUI.Table, LocUI.UI_Workshop_Speed, null, $"{speed:F0}"),
+                LocalizationService.Resolve(LocUI.Table, LocUI.UI_Workshop_Capacity, null, $"{capacity:F0}"),
+                LocalizationService.Resolve(LocUI.Table, LocUI.UI_Workshop_Durability, null, $"{durability:F0}"),
+                LocalizationService.Resolve(LocUI.Table, LocUI.UI_Workshop_Animals, null, animalCount),
                 "");
 
             var nextLevel = FindNextUpgradeLevel(resources.CartUpgradeLevelId);
@@ -271,14 +271,14 @@ namespace Internal.Scripts.UI.Screens.Workshop
                 float nextCapacity = baseCapacity * nextLevel.Value.CapacityMult;
                 float nextDurability = baseDurability * nextLevel.Value.DurabilityMult;
 
-                string effectDetail = $"{ResolveLoc("UI.Workshop.Speed", "UI.Workshop.Speed", $"{nextSpeed:F0}")}, " +
-                                      $"{ResolveLoc("UI.Workshop.Capacity", "UI.Workshop.Capacity", $"{nextCapacity:F0}")}, " +
-                                      $"{ResolveLoc("UI.Workshop.Durability", "UI.Workshop.Durability", $"{nextDurability:F0}")}";
-                upgradeEffectText = ResolveLoc("UI.Workshop.UpgradeEffect", "UI.Workshop.UpgradeEffect", effectDetail);
+                string effectDetail = $"{LocalizationService.Resolve(LocUI.Table, LocUI.UI_Workshop_Speed, null, $"{nextSpeed:F0}")}, " +
+                                      $"{LocalizationService.Resolve(LocUI.Table, LocUI.UI_Workshop_Capacity, null, $"{nextCapacity:F0}")}, " +
+                                      $"{LocalizationService.Resolve(LocUI.Table, LocUI.UI_Workshop_Durability, null, $"{nextDurability:F0}")}";
+                upgradeEffectText = LocalizationService.Resolve(LocUI.Table, LocUI.UI_Workshop_UpgradeEffect, null, effectDetail);
             }
             else
             {
-                upgradeEffectText = ResolveLoc("UI.Workshop.MaxUpgrade", "UI.Workshop.MaxUpgrade");
+                upgradeEffectText = LocalizationService.Resolve(LocUI.Table, LocUI.UI_Workshop_MaxUpgrade);
             }
 
             bool isMaxLevel = nextLevel == null;
@@ -298,14 +298,14 @@ namespace Internal.Scripts.UI.Screens.Workshop
 
                 var stats = new CartStatsData(
                     typeName,
-                    ResolveLoc("UI.Workshop.SpeedPenalty", "UI.Workshop.SpeedPenalty", $"-{extraCart.SpeedPenaltyPct:F0}"),
-                    ResolveLoc("UI.Workshop.Capacity", "UI.Workshop.Capacity", $"{extraCart.Capacity:F0}"),
-                    ResolveLoc("UI.Workshop.Durability", "UI.Workshop.Durability", $"{extraCart.Durability:F0}"),
-                    ResolveLoc("UI.Workshop.Animals", "UI.Workshop.Animals", 1),
-                    ResolveLoc("UI.Workshop.Consumption", "UI.Workshop.Consumption", $"{extraCart.SuppliesPerDay}"));
+                    LocalizationService.Resolve(LocUI.Table, LocUI.UI_Workshop_SpeedPenalty, null, $"-{extraCart.SpeedPenaltyPct:F0}"),
+                    LocalizationService.Resolve(LocUI.Table, LocUI.UI_Workshop_Capacity, null, $"{extraCart.Capacity:F0}"),
+                    LocalizationService.Resolve(LocUI.Table, LocUI.UI_Workshop_Durability, null, $"{extraCart.Durability:F0}"),
+                    LocalizationService.Resolve(LocUI.Table, LocUI.UI_Workshop_Animals, null, 1),
+                    LocalizationService.Resolve(LocUI.Table, LocUI.UI_Workshop_Consumption, null, $"{extraCart.SuppliesPerDay}"));
 
                 int ownedCount = resources.Carts?.Count(c => c.TypeId == extraCart.Id) ?? 0;
-                string countText = ResolveLoc("UI.Workshop.OwnedCount", "UI.Workshop.OwnedCount", ownedCount);
+                string countText = LocalizationService.Resolve(LocUI.Table, LocUI.UI_Workshop_OwnedCount, null, ownedCount);
 
                 bool canBuy = hasSlots && money >= extraCart.Price;
                 bool canSell = ownedCount > 0;
@@ -356,8 +356,8 @@ namespace Internal.Scripts.UI.Screens.Workshop
                 bool canBuy = !owned && money >= entry.Price;
 
                 string buttonText = owned
-                    ? ResolveLoc("UI.Workshop.Owned", "UI.Workshop.Owned")
-                    : ResolveLoc("UI.Workshop.Buy", "UI.Workshop.Buy", entry.Price);
+                    ? LocalizationService.Resolve(LocUI.Table, LocUI.UI_Workshop_Owned)
+                    : LocalizationService.Resolve(LocUI.Table, LocUI.UI_Workshop_Buy, null, entry.Price);
 
                 list.Add(new UpgradeViewData(title, description, buttonText, canBuy, owned, entry.Type));
             }
@@ -365,10 +365,5 @@ namespace Internal.Scripts.UI.Screens.Workshop
             return list;
         }
 
-        private static string ResolveLoc(string key, string fallback, params object[] args)
-        {
-            var localized = new LocalizedString("UI", key);
-            return LocalizationService.ResolveString(localized, fallback, key, args);
-        }
     }
 }

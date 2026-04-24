@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d3db2922d34be9479def148a67e13fe, type: 3}
+  m_Name: PickupDatabase
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Travel.Pickups.PickupDatabase
+  <Pickups>k__BackingField:
+  - {fileID: 11400000, guid: 143f2c4cefda40549a1e70039fde9ac8, type: 2}
+  - {fileID: 11400000, guid: ab29437705843ae49804bcbbe7e54462, type: 2}
+  - {fileID: 11400000, guid: b76559299f33aa24db02c04aff6b024d, type: 2}
+  - {fileID: 11400000, guid: 78ffa66b5bde4844ebdd964dee9ec7da, type: 2}
+  - {fileID: 11400000, guid: cce86630e538cea4aab16066e0469095, type: 2}
+  - {fileID: 11400000, guid: c96fbe58aa1c54f4b95362fee6305da2, type: 2}
+  - {fileID: 11400000, guid: 64b92f148a3a4c14faa24bda53bb0102, type: 2}
+  - {fileID: 11400000, guid: 2f48bf8385393964bb342d8d55b007ca, type: 2}

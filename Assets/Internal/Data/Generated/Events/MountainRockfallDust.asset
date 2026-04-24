@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: MountainRockfallDust
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
   <Id>k__BackingField: mountain_rockfall_dust
+  <Category>k__BackingField: 25
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Events
@@ -43,6 +44,7 @@ MonoBehaviour:
   <Image>k__BackingField: {fileID: 0}
   <Choices>k__BackingField: []
   <IsMinor>k__BackingField: 1
+  <Biome>k__BackingField: 0
   <AutoOutcomes>k__BackingField:
   - <Type>k__BackingField: 3
     <Param>k__BackingField: 

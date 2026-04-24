@@ -21,10 +21,10 @@ namespace Internal.Scripts.Npc.Editor.Headless
         private readonly NpcDayProcessor _dayProcessor;
         private readonly System.Random _rng;
 
-        private const int TradeLogCapacity = 100;
+        private const int ActivityLogCapacity = 100;
 
         private readonly List<HeadlessCaravanAgent> _agents = new();
-        private readonly List<string> _tradeLog = new();
+        private readonly List<string> _activityLog = new();
         private List<string> _cityNodeIds;
         private int _currentDay;
         private HeadlessNpcStatistics _statistics;
@@ -32,7 +32,7 @@ namespace Internal.Scripts.Npc.Editor.Headless
         private HeadlessRouteDecisionEnvironment _routeEnv;
 
         public IReadOnlyList<HeadlessCaravanAgent> Agents => _agents;
-        public IReadOnlyList<string> TradeLog => _tradeLog;
+        public IReadOnlyList<string> ActivityLog => _activityLog;
         public HeadlessNpcStatistics Statistics => _statistics;
 
         public event Action OnTradeCompleted;
@@ -180,9 +180,9 @@ namespace Internal.Scripts.Npc.Editor.Headless
             if (context.Traded)
                 _statistics.RecordContract(context.ContractReward);
 
-            _tradeLog.Add($"Day {_currentDay}: {agent.EconomyState.Name} traded at {city.Id}, money={agent.EconomyState.Money}");
-            if (_tradeLog.Count > TradeLogCapacity)
-                _tradeLog.RemoveAt(0);
+            _activityLog.Add($"Day {_currentDay}: {agent.EconomyState.Name} traded at {city.Id}, money={agent.EconomyState.Money}");
+            if (_activityLog.Count > ActivityLogCapacity)
+                _activityLog.RemoveAt(0);
 
             OnTradeCompleted?.Invoke();
         }

@@ -1,3 +1,4 @@
+using Internal.Scripts.Config;
 using Internal.Scripts.Economy;
 using Internal.Scripts.Economy.Save;
 using Internal.Scripts.Inventory;
@@ -28,19 +29,25 @@ namespace Internal.Scripts.Player
         private readonly PlayerResourceRepository _resourceRepo;
         private readonly InventoryRepository _inventoryRepo;
         private readonly OverloadCalculator _overload;
+        private readonly GameBalanceConfig _balanceConfig;
+        private readonly CaravanSpeedService _speedService;
 
         public TravelEstimator(
             IRoadPathFinder pathFinder,
             IPlayerStateProvider playerState,
             PlayerResourceRepository resourceRepo,
             InventoryRepository inventoryRepo,
-            OverloadCalculator overload)
+            OverloadCalculator overload,
+            GameBalanceConfig balanceConfig,
+            CaravanSpeedService speedService)
         {
             _pathFinder = pathFinder;
             _playerState = playerState;
             _resourceRepo = resourceRepo;
             _inventoryRepo = inventoryRepo;
             _overload = overload;
+            _balanceConfig = balanceConfig;
+            _speedService = speedService;
         }
 
         public TravelEstimate Estimate(string targetNodeId)
@@ -55,7 +62,8 @@ namespace Internal.Scripts.Player
             RoadPath path = _pathFinder.FindPath(startNodeId, targetNodeId);
             PlayerResourceState resources = _resourceRepo.Current;
 
-            float effectiveSpeed = resources.PlayerCart.Speed * _overload.GetSpeedModifier();
+            float baseSpeed = _speedService.GetBaseSpeedKmDay(resources);
+            float effectiveSpeed = baseSpeed * _balanceConfig.WorldUnitsPerKm * _overload.GetSpeedModifier();
             int days = path.EstimateDays(effectiveSpeed);
             if (days < 0)
                 return default;

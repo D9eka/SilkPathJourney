@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: CityCaravanseraiTale
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
   <Id>k__BackingField: city_caravanserai_tale
+  <Category>k__BackingField: 5
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Events
@@ -139,6 +140,7 @@ MonoBehaviour:
       <Param>k__BackingField: Persian
       <Value>k__BackingField: 1
   <IsMinor>k__BackingField: 0
+  <Biome>k__BackingField: 0
   <AutoOutcomes>k__BackingField: []
   <SkillChecks>k__BackingField:
   - <ChoiceIndex>k__BackingField: 2

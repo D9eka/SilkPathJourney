@@ -15,7 +15,7 @@ namespace Internal.Scripts.UI.Screens.Trade
     public sealed class TradeScreenViewModel : ScreenViewModelBase
     {
         private readonly TradeModel _model;
-        private readonly InputRouter _inputManager;
+        private readonly IUiInput _inputManager;
         private readonly ResourceIconCatalog _resourceIcons;
         private readonly TooltipService _tooltipService;
         private float _ignoreSubmitUntil;
@@ -26,7 +26,7 @@ namespace Internal.Scripts.UI.Screens.Trade
         public event Action NextArea;
         public event Action PrevArea;
 
-        public TradeScreenViewModel(TradeModel model, InputRouter inputManager,
+        public TradeScreenViewModel(TradeModel model, IUiInput inputManager,
             ResourceIconCatalog resourceIcons, TooltipService tooltipService)
         {
             _model = model;
@@ -49,20 +49,20 @@ namespace Internal.Scripts.UI.Screens.Trade
                 _model.ActivateWithGuild(guildArgs.CityId);
             else
                 _model.Activate(args as string);
-            _inputManager.OnUiNavigate += HandleNavigate;
-            _inputManager.OnUiSubmit += HandleSubmit;
-            _inputManager.OnUiSubmitAll += HandleSubmitAll;
-            _inputManager.OnUiNextArea += HandleNextArea;
-            _inputManager.OnUiPrevArea += HandlePrevArea;
+            _inputManager.OnNavigate  += HandleNavigate;
+            _inputManager.OnSubmit    += HandleSubmit;
+            _inputManager.OnSubmitAll += HandleSubmitAll;
+            _inputManager.OnNextArea  += HandleNextArea;
+            _inputManager.OnPrevArea  += HandlePrevArea;
         }
 
         protected override void OnClose()
         {
-            _inputManager.OnUiNavigate -= HandleNavigate;
-            _inputManager.OnUiSubmit -= HandleSubmit;
-            _inputManager.OnUiSubmitAll -= HandleSubmitAll;
-            _inputManager.OnUiNextArea -= HandleNextArea;
-            _inputManager.OnUiPrevArea -= HandlePrevArea;
+            _inputManager.OnNavigate  -= HandleNavigate;
+            _inputManager.OnSubmit    -= HandleSubmit;
+            _inputManager.OnSubmitAll -= HandleSubmitAll;
+            _inputManager.OnNextArea  -= HandleNextArea;
+            _inputManager.OnPrevArea  -= HandlePrevArea;
             _model.Deactivate();
         }
 

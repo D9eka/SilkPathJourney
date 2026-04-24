@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Internal.Scripts.Economy.Generated;
 using Internal.Scripts.Events.Data;
 using Internal.Scripts.Events.Generated;
 using Internal.Scripts.Import.Editor.Core;
@@ -40,6 +41,7 @@ namespace Internal.Scripts.Import.Editor.Events.Tables
             int imageIndex = FindColumnIndex(header, "image_name");
             int weightIndex = FindColumnIndex(header, "weight");
             int isMinorIndex = FindColumnIndex(header, "is_minor");
+            int biomeIndex = FindColumnIndex(header, "biome");
 
             if (idIndex < 0 || typeIdIndex < 0 || nameKeyIndex < 0)
             {
@@ -53,6 +55,7 @@ namespace Internal.Scripts.Import.Editor.Events.Tables
                 if (string.IsNullOrWhiteSpace(id)) continue;
 
                 string typeId = GetField(rows[i], typeIdIndex).Trim();
+                Enum.TryParse(ToPascalCase(typeId), out EventCategory category);
                 string nameKey = GetField(rows[i], nameKeyIndex).Trim();
                 string descKey = GetField(rows[i], descKeyIndex).Trim();
                 string weightStr = GetField(rows[i], weightIndex);
@@ -63,6 +66,14 @@ namespace Internal.Scripts.Import.Editor.Events.Tables
                 {
                     TryParseInt(GetField(rows[i], isMinorIndex), out int isMinorInt);
                     isMinor = isMinorInt != 0;
+                }
+
+                Biome biome = Biome.Unknown;
+                if (biomeIndex >= 0)
+                {
+                    string biomeStr = GetField(rows[i], biomeIndex).Trim();
+                    if (!string.IsNullOrEmpty(biomeStr))
+                        Enum.TryParse(ToPascalCase(biomeStr), out biome);
                 }
 
                 LocalizedString nameLS = MakeLocalizedString(nameKey, locTableName);
@@ -82,7 +93,7 @@ namespace Internal.Scripts.Import.Editor.Events.Tables
                 eventConditions.TryGetValue(id, out List<EventCondition> conditions);
 
                 EventData asset = LoadOrCreateAsset<EventData>(EVENTS_FOLDER, id);
-                asset.ApplyImport(id, nameLS, eventTypeLS, descLS, image, isMinor, builtChoices, autoOutcomes, conditions, weight, skillChecks);
+                asset.ApplyImport(id, nameLS, eventTypeLS, descLS, image, isMinor, biome, builtChoices, autoOutcomes, conditions, weight, skillChecks, category);
                 EditorUtility.SetDirty(asset);
                 events.Add(asset);
             }

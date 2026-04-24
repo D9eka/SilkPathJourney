@@ -23,7 +23,6 @@ using Internal.Scripts.Npc.Behavior;
 using Internal.Scripts.Npc.Behavior.Actions;
 using Internal.Scripts.Npc.Behavior.Phases;
 using Internal.Scripts.Npc.Core;
-using Internal.Scripts.Npc.Encounter;
 using Internal.Scripts.Npc.Lifecycle;
 using Internal.Scripts.Npc.Routing;
 using Internal.Scripts.Npc.Save;
@@ -52,10 +51,16 @@ using Internal.Scripts.UI.Factory;
 using Internal.Scripts.UI.PathVisualization;
 using Internal.Scripts.UI.Screens.Core.Config;
 using Internal.Scripts.UI.Screens.Event;
+using Internal.Scripts.UI.Screens.Camp;
 using Internal.Scripts.UI.Screens.Event.ConditionLines;
 using Internal.Scripts.UI.Screens.Hud;
 using Internal.Scripts.UI.StackService;
 using Internal.Scripts.UI.Theme;
+using Internal.Scripts.Camp;
+using Internal.Scripts.Travel.Hazards;
+using Internal.Scripts.Travel.Pickups;
+using Internal.Scripts.Travel.Triggers;
+using Internal.Scripts.Travel.Triggers.Actions;
 using Internal.Scripts.UI.Screens.Caravansary.Services;
 using Internal.Scripts.UI.Screens.Shared;
 using Internal.Scripts.UI.Tooltip;
@@ -109,6 +114,9 @@ namespace Internal.Scripts.Installers
             InstallScreens();
             InstallEvents();
             InstallQuests();
+            InstallCamp();
+            InstallPickups();
+            InstallHazards();
             InstallPathVisualization();
 
             Container.BindInterfacesTo<AutoSaveController>().AsSingle();
@@ -176,7 +184,7 @@ namespace Internal.Scripts.Installers
             Container.Bind<NpcRouteDecisionService>().AsSingle();
             Container.BindInterfacesTo<NpcSaveController>().AsSingle();
 
-            Container.BindInterfacesTo<NpcEncounterTrigger>().AsSingle();
+            Container.BindInterfacesTo<EncounterSegmentAction>().AsSingle();
 
             Container.Bind<LearnKnowledgeAction>().AsSingle();
             Container.Bind<ChargeTariffAction>().AsSingle();
@@ -357,7 +365,36 @@ namespace Internal.Scripts.Installers
             Container.Bind<ConditionLineBuilder>().AsSingle();
 
             Container.Bind<EventToastController>().AsSingle();
+            Container.BindInterfacesTo<CrisisTrigger>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<EventTrigger>().AsSingle().NonLazy();
+
+            Container.BindInterfacesTo<MajorEventDailyAction>().AsSingle();
+            Container.BindInterfacesTo<MinorEventDailyAction>().AsSingle();
+            Container.BindInterfacesTo<DailyTriggerService>().AsSingle();
+        }
+
+        private void InstallPickups()
+        {
+            Container.BindInterfacesAndSelfTo<PickupCollector>().AsSingle();
+            Container.BindInterfacesAndSelfTo<PickupSpawner>().AsSingle();
+            Container.BindInterfacesTo<PickupSegmentAction>().AsSingle();
+        }
+
+        private void InstallHazards()
+        {
+            Container.Bind<HazardSelector>().AsSingle();
+            Container.Bind<HazardController>().AsSingle();
+            Container.BindInterfacesTo<HazardSegmentAction>().AsSingle();
+            Container.BindInterfacesTo<SegmentTriggerService>().AsSingle();
+        }
+
+        private void InstallCamp()
+        {
+            Container.Bind<CampActionService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<CampController>().AsSingle();
+            Container.Bind<Events.Outcomes.IEventOutcomeScaler>()
+                .To<Camp.CampEventOutcomeScaler>().AsSingle();
+            Container.Bind<CampActionButtonFactory>().AsSingle();
         }
 
         private void InstallQuests()
@@ -391,6 +428,7 @@ namespace Internal.Scripts.Installers
                 .FromMethod(ctx => ctx.Container.Resolve<WorldCanvasFactory>().Create())
                 .AsSingle()
                 .NonLazy();
+            Container.Bind<FloatingRewardSpawner>().AsSingle();
         }
 
         private void InstallPathVisualization()
