@@ -3151,12 +3151,10 @@ UI.HazardQte.Header.Jackal,interface_names,,Шакалы!,Jackals!
 UI.HazardQte.Header.Bandit,interface_names,,Засада!,Ambush!
 UI.HazardQte.Header.Sandstorm,interface_names,,Песчаная буря!,Sandstorm!
 UI.HazardQte.Header.River,interface_names,,Переправа!,River crossing!
-UI.HazardQte.Header.Mountain,interface_names,,Горный перевал!,Mountain pass!
 UI.HazardQte.Hint.Click,interface_names,,Нажмите кнопку чтобы перепрыгнуть яму,Press the button to jump over the pit
 UI.HazardQte.Hint.LeftRight,interface_names,,Уклонитесь с помощью кнопок!,Dodge using the buttons!
 UI.HazardQte.Hint.Down,interface_names,,Нажмите кнопку чтобы объехать,Press the button to drive around
 UI.HazardQte.Hint.MultiClick,interface_names,,"Нажмите, чтобы отбиваться!","Click to fight back!"
-UI.HazardQte.Hint.Hold,interface_names,,Держите колёса!,Hold the wheels!
 UI.HazardQte.Hint.Timing,interface_names,,Переезжайте когда волны стихнут!,Cross when the waves calm down!
 UI.HazardQte.Hint.Wind,interface_names,,Удерживайте повозку на дороге!,Keep the cart on the road!
 UI.HazardQte.Result.Success,interface_names,,Успех!,Success!

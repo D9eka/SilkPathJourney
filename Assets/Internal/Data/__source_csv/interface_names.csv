@@ -130,12 +130,10 @@ HazardQte,Header,,Jackal,UI.HazardQte.Header.Jackal,,,Шакалы!,Jackals!,п�
 HazardQte,Header,,Bandit,UI.HazardQte.Header.Bandit,,,Засада!,Ambush!,перевод
 HazardQte,Header,,Sandstorm,UI.HazardQte.Header.Sandstorm,,,Песчаная буря!,Sandstorm!,перевод
 HazardQte,Header,,River,UI.HazardQte.Header.River,,,Переправа!,River crossing!,перевод
-HazardQte,Header,,Mountain,UI.HazardQte.Header.Mountain,,,Горный перевал!,Mountain pass!,перевод
 HazardQte,Hint,,Click,UI.HazardQte.Hint.Click,,,Нажмите кнопку чтобы перепрыгнуть яму,Press the button to jump over the pit,перевод
 HazardQte,Hint,,LeftRight,UI.HazardQte.Hint.LeftRight,,,Уклонитесь с помощью кнопок!,Dodge using the buttons!,перевод
 HazardQte,Hint,,Down,UI.HazardQte.Hint.Down,,,Нажмите кнопку чтобы объехать,Press the button to drive around,перевод
 HazardQte,Hint,,MultiClick,UI.HazardQte.Hint.MultiClick,,,"Нажмите, чтобы отбиваться!","Click to fight back!",перевод
-HazardQte,Hint,,Hold,UI.HazardQte.Hint.Hold,,,Держите колёса!,Hold the wheels!,перевод
 HazardQte,Hint,,Timing,UI.HazardQte.Hint.Timing,,,Переезжайте когда волны стихнут!,Cross when the waves calm down!,перевод
 HazardQte,Hint,,Wind,UI.HazardQte.Hint.Wind,,,Удерживайте повозку на дороге!,Keep the cart on the road!,перевод
 HazardQte,Result,,Success,UI.HazardQte.Result.Success,,,Успех!,Success!,перевод

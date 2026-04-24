@@ -23,11 +23,11 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  <TimeLimit>k__BackingField: 3
-  <MinigamePrefab>k__BackingField: {fileID: 0}
+  <TimeLimit>k__BackingField: 5
+  <MinigamePrefab>k__BackingField: {fileID: 668437248216612602, guid: 23ef90ddbc759934588eafc14fe141b2, type: 3}
   MinigameConfig:
     rid: 5481561599466799182
-  <BiomeFilter>k__BackingField: 0
+  <BiomeFilter>k__BackingField: 1
   <SuccessOutcomes>k__BackingField:
   - <Type>k__BackingField: 10
     <Param>k__BackingField: 
@@ -57,3 +57,8 @@ MonoBehaviour:
           m_FallbackState: 0
           m_WaitForCompletion: 0
           m_LocalVariables: []
+        <PulseSpeed>k__BackingField: 2
+        <CalmThreshold>k__BackingField: 0.45
+        <StepsToCross>k__BackingField: 4
+        <StepDuration>k__BackingField: 0.2
+        <SinkDuration>k__BackingField: 0.6
