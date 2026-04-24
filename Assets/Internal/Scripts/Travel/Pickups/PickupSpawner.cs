@@ -12,26 +12,26 @@ using Object = UnityEngine.Object;
 
 namespace Internal.Scripts.Travel.Pickups
 {
-    public sealed class PickupSpawner : IInitializable, IFixedTickable, IDisposable
+    public sealed class PickupSpawner : IFixedTickable, IDisposable
     {
-        private const float SpawnChance = 0.4f;
-        private const float SideOffset = 1.5f;
-        private const float HeightAboveGround = 0.5f;
+        private const float SIDE_OFFSET = 1.5f;
+        private const float HEIGHT_ABOVE_GROUND = 0.5f;
 
-        private readonly IPlayerStateProvider _player;
-        private readonly IPlayerStateEvents _playerEvents;
+        private readonly PlayerController _player;
         private readonly PickupDatabase _database;
         private readonly GameBalanceConfig _balance;
         private readonly IRoadSidePositionCalculator _roadSideCalc;
         private readonly IRoadNetwork _roadNetwork;
         private readonly PickupCollector _collector;
 
+        private string _currentFromNode;
+        private string _currentToNode;
+
         private readonly List<PickupEntry> _pool = new();
         private readonly List<PickupEntry> _pendingEntries = new();
 
         public PickupSpawner(
-            IPlayerStateProvider player,
-            IPlayerStateEvents playerEvents,
+            PlayerController player,
             PickupDatabase database,
             GameBalanceConfig balance,
             IRoadSidePositionCalculator roadSideCalc,
@@ -39,7 +39,6 @@ namespace Internal.Scripts.Travel.Pickups
             PickupCollector collector)
         {
             _player = player;
-            _playerEvents = playerEvents;
             _database = database;
             _balance = balance;
             _roadSideCalc = roadSideCalc;
@@ -47,14 +46,8 @@ namespace Internal.Scripts.Travel.Pickups
             _collector = collector;
         }
 
-        public void Initialize()
-        {
-            _playerEvents.OnCurrentSegmentChanged += OnSegmentChanged;
-        }
-
         public void Dispose()
         {
-            _playerEvents.OnCurrentSegmentChanged -= OnSegmentChanged;
             ClearAll();
         }
 
@@ -106,61 +99,57 @@ namespace Internal.Scripts.Travel.Pickups
             }
         }
 
-        private void OnSegmentChanged(string fromNode, string toNode)
+        public void OnSegmentChanged(string fromNode, string toNode)
         {
             ClearPending();
+            _currentFromNode = fromNode;
+            _currentToNode = toNode;
+            Log($"Segment changed: {fromNode} -> {toNode}");
+        }
+
+        public void SpawnOne()
+        {
+            string fromNode = _currentFromNode;
+            string toNode = _currentToNode;
 
             if (string.IsNullOrEmpty(fromNode) || string.IsNullOrEmpty(toNode))
             {
-                Log($"Segment skipped: from='{fromNode}' to='{toNode}' (empty node id)");
+                Log("SpawnOne skipped: no current segment");
                 return;
             }
 
             if (!_roadNetwork.TryGetSegment(fromNode, toNode, out RoadPathSegment segment))
             {
-                LogWarning($"Segment not found: {fromNode} -> {toNode}");
+                LogWarning($"SpawnOne: segment not found {fromNode} -> {toNode}");
+                return;
+            }
+
+            PickupData data = PickRandom();
+            if (data?.Prefab == null)
+            {
+                Log($"SpawnOne: no pickup data available");
                 return;
             }
 
             float length = segment.LengthMeters;
-            float interval = _balance.PickupSpawnIntervalMeters;
-            int attempts = 0;
-            int placed = 0;
+            float dist = _player.DistanceOnSegment + _balance.PickupSpawnIntervalMeters * 0.5f;
+            if (dist >= length) dist = length * 0.5f;
+            float pct = Mathf.Clamp01(dist / length);
 
-            for (float dist = interval * 0.5f; dist < length; dist += interval)
-            {
-                attempts++;
+            bool rightSide = UnityEngine.Random.value > 0.5f;
+            RoadLane lane = rightSide ? RoadLane.Right : RoadLane.Left;
 
-                if (UnityEngine.Random.value > SpawnChance)
-                    continue;
+            Vector3 worldPos = _roadSideCalc.CalculatePosition(
+                segment, lane, pct, SIDE_OFFSET, HEIGHT_ABOVE_GROUND);
 
-                PickupData data = PickRandom();
-                if (data?.Prefab == null)
-                {
-                    Log($"Skip roll at dist={dist:F1}m: data='{data?.name ?? "null"}' prefab is null");
-                    continue;
-                }
+            PickupView view = GetOrCreateView(data);
+            view.transform.position = worldPos;
+            view.gameObject.SetActive(false);
 
-                float pct = dist / length;
-                bool rightSide = UnityEngine.Random.value > 0.5f;
-                RoadLane lane = rightSide ? RoadLane.Right : RoadLane.Left;
-                float lateralPct = SideOffset;
+            _collector.Register(view);
+            _pendingEntries.Add(new PickupEntry { View = view, WorldPosition = worldPos, Data = data });
 
-                Vector3 worldPos = _roadSideCalc.CalculatePosition(
-                    segment, lane, pct, lateralPct, HeightAboveGround);
-
-                PickupView view = GetOrCreateView(data);
-                view.transform.position = worldPos;
-                view.gameObject.SetActive(false);
-
-                _collector.Register(view);
-                _pendingEntries.Add(new PickupEntry { View = view, WorldPosition = worldPos, Data = data });
-                placed++;
-
-                Log($"Placed '{data.Type}' at dist={dist:F1}m pct={pct:F2} lane={lane} pos={worldPos}");
-            }
-
-            Log($"Segment {fromNode}->{toNode} length={length:F1}m interval={interval}m attempts={attempts} placed={placed}");
+            Log($"SpawnOne '{data.Type}' at dist={dist:F1}m pct={pct:F2} lane={lane} pos={worldPos}");
         }
 
         private static void Log(string msg)

@@ -1,8 +1,10 @@
 using System;
+using Internal.Scripts.Config;
 using Internal.Scripts.Economy.Cities;
 using Internal.Scripts.Events;
 using Internal.Scripts.Events.Data;
 using Internal.Scripts.Npc.Data;
+using Internal.Scripts.Npc.Encounter;
 using Internal.Scripts.Npc.Lifecycle;
 using Internal.Scripts.Player;
 using Internal.Scripts.Road.Nodes;
@@ -13,9 +15,9 @@ using Internal.Scripts.World.State;
 using UnityEngine;
 using Zenject;
 
-namespace Internal.Scripts.Npc.Encounter
+namespace Internal.Scripts.Travel.Triggers.Actions
 {
-    public sealed class NpcEncounterTrigger : IFixedTickable, IInitializable, IDisposable
+    public sealed class EncounterSegmentAction : ISegmentTriggerAction, IInitializable, IDisposable
     {
         private readonly PlayerController _player;
         private readonly NpcLifeSimulator _npcSimulator;
@@ -26,6 +28,7 @@ namespace Internal.Scripts.Npc.Encounter
         private readonly ICityNodeResolver _cityNodeResolver;
         private readonly IRoadNodeLookup _nodeLookup;
         private readonly TradeModel _tradeModel;
+        private readonly GameBalanceConfig _balance;
 
         private NpcCaravanAgent _pendingAgent;
         private NpcCaravanAgent _lastTradeAgent;
@@ -33,7 +36,9 @@ namespace Internal.Scripts.Npc.Encounter
         private float _cooldownUntil;
         private bool _waitingForTradeClose;
 
-        public NpcEncounterTrigger(
+        public int Weight => _balance.SegmentWeights.Encounter;
+
+        public EncounterSegmentAction(
             PlayerController player,
             NpcLifeSimulator npcSimulator,
             ScreenStackService screenStackService,
@@ -42,7 +47,8 @@ namespace Internal.Scripts.Npc.Encounter
             NpcEncounterSettings settings,
             ICityNodeResolver cityNodeResolver,
             IRoadNodeLookup nodeLookup,
-            TradeModel tradeModel)
+            TradeModel tradeModel,
+            GameBalanceConfig balance)
         {
             _player = player;
             _npcSimulator = npcSimulator;
@@ -53,6 +59,7 @@ namespace Internal.Scripts.Npc.Encounter
             _cityNodeResolver = cityNodeResolver;
             _nodeLookup = nodeLookup;
             _tradeModel = tradeModel;
+            _balance = balance;
         }
 
         public void Initialize()
@@ -67,23 +74,41 @@ namespace Internal.Scripts.Npc.Encounter
             _screenStackService.OnScreenClosed -= HandleScreenClosed;
         }
 
-        public void FixedTick()
+        public bool CanTrigger()
         {
             if (_settings == null || _settings.EncounterEvents == null || _settings.EncounterEvents.Count == 0)
-                return;
+                return false;
 
             if (_waitingForTradeClose || _pendingAgent != null)
-                return;
+                return false;
 
             if (Time.time < _cooldownUntil)
-                return;
+                return false;
 
             if (_screenStackService.IsOpen(ScreenId.Event) || _screenStackService.IsOpen(ScreenId.Trade))
-                return;
+                return false;
 
             if (_player.State != PlayerState.Moving)
-                return;
+                return false;
 
+            Vector3 playerPos = _player.CurrentPosition;
+            var agents = _npcSimulator.Agents;
+            for (int i = 0; i < agents.Count; i++)
+            {
+                NpcCaravanAgent agent = agents[i];
+                if (agent?.RoadAgent == null)
+                    continue;
+
+                float dist = Vector3.Distance(playerPos, agent.RoadAgent.CurrentPose.Position);
+                if (dist < _settings.EncounterDistance)
+                    return true;
+            }
+
+            return false;
+        }
+
+        public void Trigger()
+        {
             Vector3 playerPos = _player.CurrentPosition;
             var agents = _npcSimulator.Agents;
             for (int i = 0; i < agents.Count; i++)

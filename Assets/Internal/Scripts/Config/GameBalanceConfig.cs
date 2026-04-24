@@ -1,9 +1,18 @@
+using System;
 using System.Collections.Generic;
 using Internal.Scripts.Economy.Cities;
 using UnityEngine;
 
 namespace Internal.Scripts.Config
 {
+    [Serializable]
+    public struct SegmentTriggerWeights
+    {
+        public int Hazard;
+        public int Encounter;
+        public int Pickup;
+    }
+
     [CreateAssetMenu(menuName = "SPJ/Game Balance Config", fileName = "GameBalanceConfig")]
     public sealed class GameBalanceConfig : ScriptableObject
     {
@@ -69,9 +78,8 @@ namespace Internal.Scripts.Config
         [field: SerializeField] public float TariffDefaultReputationModifier { get; private set; } = 0.5f;
 
         [Header("Road Hazards")]
-        [field: SerializeField] public float HazardBaseIntervalMeters { get; private set; } = 12f;
+        [field: SerializeField] public float SegmentTriggerIntervalMeters { get; private set; } = 10f;
         [field: SerializeField] public float HazardDangerMultiplier { get; private set; } = 0.5f;
-        [field: SerializeField] public int MinSegmentLengthForHazard { get; private set; } = 20;
 
         [Header("Road Pickups")]
         [field: SerializeField] public float PickupSpawnIntervalMeters { get; private set; } = 1f;
@@ -82,5 +90,8 @@ namespace Internal.Scripts.Config
 
         [Header("Camp")]
         [field: SerializeField] public float CampSkillEffectPerPoint { get; private set; } = 0.001f;
+
+        [Header("Segment Trigger Weights")]
+        [field: SerializeField] public SegmentTriggerWeights SegmentWeights { get; private set; }
     }
 }

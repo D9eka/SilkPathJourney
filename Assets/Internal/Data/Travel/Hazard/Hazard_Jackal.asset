@@ -27,17 +27,17 @@ MonoBehaviour:
   <MinigamePrefab>k__BackingField: {fileID: 8229889168656774137, guid: ab858e7651dccb94bb3c862261d71780, type: 3}
   MinigameConfig:
     rid: 6591672700577910290
-  <BiomeFilter>k__BackingField: 1
+  <BiomeFilter>k__BackingField: 2
   <SuccessOutcomes>k__BackingField:
   - <Type>k__BackingField: 10
-    <Param>k__BackingField:
+    <Param>k__BackingField: 
     <Value>k__BackingField: 5
   <FailOutcomes>k__BackingField:
   - <Type>k__BackingField: 2
-    <Param>k__BackingField:
+    <Param>k__BackingField: 
     <Value>k__BackingField: -3
   - <Type>k__BackingField: 10
-    <Param>k__BackingField:
+    <Param>k__BackingField: 
     <Value>k__BackingField: -5
   references:
     version: 2
@@ -45,9 +45,6 @@ MonoBehaviour:
     - rid: 6591672700577910290
       type: {class: MultiClickMinigameConfig, ns: Internal.Scripts.Travel.Hazards.Minigames, asm: Assembly-CSharp}
       data:
-        <MinClicks>k__BackingField: 2
-        <MaxClicks>k__BackingField: 5
-        <EnemyPool>k__BackingField: {fileID: 11400000, guid: c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8, type: 2}
         <Hint>k__BackingField:
           m_TableReference:
             m_TableCollectionName: GUID:43598c3e97d7d9a439a074f7627fe021
@@ -57,3 +54,6 @@ MonoBehaviour:
           m_FallbackState: 0
           m_WaitForCompletion: 0
           m_LocalVariables: []
+        <MinClicks>k__BackingField: 2
+        <MaxClicks>k__BackingField: 5
+        <EnemyPool>k__BackingField: {fileID: 11400000, guid: c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8, type: 2}
