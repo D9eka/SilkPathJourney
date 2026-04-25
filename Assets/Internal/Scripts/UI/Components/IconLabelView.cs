@@ -1,3 +1,5 @@
+using System;
+using Internal.Scripts.UI.Tooltip;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,23 +11,51 @@ namespace Internal.Scripts.UI.Components
         [SerializeField] private Image _icon;
         [SerializeField] private TextMeshProUGUI _label;
 
+        private HoverReporter _hover;
+        private Action _hoverEnter;
+        private Action _hoverExit;
+
         public void Initialize(Sprite icon, string label)
         {
-            if (icon != null)
-            {
-                _icon.gameObject.SetActive(true);
+            if (_icon != null && icon != null)
                 _icon.sprite = icon;
-            }
-            else
-            {
-                _icon.gameObject.SetActive(false);
-            }
             SetLabel(label);
         }
 
         public void SetLabel(string label)
         {
-            _label.text = label ?? string.Empty;
+            if (_label != null)
+                _label.text = label ?? string.Empty;
+        }
+
+        public void SetTooltip(ITooltipDataProvider provider, TooltipService service)
+        {
+            ClearTooltip();
+
+            if (provider == null || service == null)
+                return;
+
+            _hover = HoverReporter.GetOrAdd(gameObject);
+            _hoverEnter = () => service.ShowTooltipDelayed(provider);
+            _hoverExit = () => service.HideTooltip();
+            _hover.Entered += _hoverEnter;
+            _hover.Exited += _hoverExit;
+        }
+
+        public void ClearTooltip()
+        {
+            if (_hover != null)
+            {
+                if (_hoverEnter != null) _hover.Entered -= _hoverEnter;
+                if (_hoverExit != null) _hover.Exited -= _hoverExit;
+            }
+            _hoverEnter = null;
+            _hoverExit = null;
+        }
+
+        private void OnDisable()
+        {
+            ClearTooltip();
         }
     }
 }
