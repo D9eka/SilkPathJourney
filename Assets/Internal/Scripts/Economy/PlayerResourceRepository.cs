@@ -32,6 +32,7 @@ namespace Internal.Scripts.Economy
 
             EnsureLoaded();
             mutator(_state.Value);
+            _state.Value.ClampValues();
             _saveRepository.Save();
             NotifyChanged();
         }

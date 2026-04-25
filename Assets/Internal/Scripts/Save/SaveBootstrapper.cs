@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Internal.Scripts.Caravan;
 using Internal.Scripts.Config;
 using Internal.Scripts.Economy.Save;
 using Internal.Scripts.Npc.Save;
@@ -19,19 +20,22 @@ namespace Internal.Scripts.Save
         private readonly PlayerConfig _playerConfig;
         private readonly RoadUnlockService _roadUnlockService;
         private readonly GameBalanceConfig _balanceConfig;
+        private readonly CaravanDatabase _caravanDatabase;
 
         public SaveBootstrapper(
             SaveRepository saveRepository,
             EconomySaveBuilder economySaveBuilder,
             PlayerConfig playerConfig,
             RoadUnlockService roadUnlockService,
-            GameBalanceConfig balanceConfig)
+            GameBalanceConfig balanceConfig,
+            CaravanDatabase caravanDatabase)
         {
             _saveRepository = saveRepository;
             _economySaveBuilder = economySaveBuilder;
             _playerConfig = playerConfig;
             _roadUnlockService = roadUnlockService;
             _balanceConfig = balanceConfig;
+            _caravanDatabase = caravanDatabase;
         }
 
         public void Initialize()
@@ -50,6 +54,9 @@ namespace Internal.Scripts.Save
 
             if (data.Version < 5)
                 changed |= MigrateToV5(data);
+
+            if (data.Version < 6)
+                changed |= MigrateToV6(data);
 
             if (data.Economy == null || !data.Economy.IsInitialized)
             {
@@ -135,6 +142,45 @@ namespace Internal.Scripts.Save
                 };
             }
             data.Version = 5;
+            return true;
+        }
+
+        private bool MigrateToV6(SaveData data)
+        {
+            PlayerResourceState resources = data.Economy?.PlayerResources;
+            if (resources == null)
+            {
+                data.Version = 6;
+                return true;
+            }
+
+#pragma warning disable CS0618
+            if (resources.PlayerCart != null && resources.PlayerCart.AnimalCount == 0
+                && resources.PlayerCart.FoodConsumptionPerDay > 0f)
+            {
+                CartClassData classData = _caravanDatabase?.GetCartClassById(resources.CartClassId);
+                if (classData != null)
+                    resources.PlayerCart.AnimalCount = classData.AnimalCount;
+            }
+
+            if (resources.Carts != null)
+            {
+                foreach (CartState cart in resources.Carts)
+                {
+                    if (cart.AnimalCount != 0 || !(cart.FoodConsumptionPerDay > 0f))
+                        continue;
+
+                    if (string.IsNullOrEmpty(cart.TypeId))
+                        continue;
+
+                    ExtraCartData extraCart = _caravanDatabase?.ExtraCarts?.Find(e => e.Id == cart.TypeId);
+                    if (extraCart != null)
+                        cart.AnimalCount = extraCart.SuppliesPerDay;
+                }
+            }
+#pragma warning restore CS0618
+
+            data.Version = 6;
             return true;
         }
 

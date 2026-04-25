@@ -34,6 +34,7 @@ namespace Internal.Scripts.UI.Screens.Caravan
         private readonly InventoryRepository _inventoryRepo;
         private readonly UiThemeService _themeService;
         private readonly ResourceIconCatalog _resourceIcons;
+        private readonly FoodConsumptionCalculator _foodCalculator;
         private readonly ReactiveProperty<CaravanViewState> _state = new();
 
         public UiThemeService ThemeService => _themeService;
@@ -48,7 +49,8 @@ namespace Internal.Scripts.UI.Screens.Caravan
             ItemWeightCalculator weightCalculator,
             InventoryRepository inventoryRepo,
             UiThemeService themeService,
-            ResourceIconCatalog resourceIcons)
+            ResourceIconCatalog resourceIcons,
+            FoodConsumptionCalculator foodCalculator)
         {
             _resourceRepo = resourceRepo;
             _caravanDb = caravanDb;
@@ -59,6 +61,7 @@ namespace Internal.Scripts.UI.Screens.Caravan
             _inventoryRepo = inventoryRepo;
             _themeService = themeService;
             _resourceIcons = resourceIcons;
+            _foodCalculator = foodCalculator;
         }
 
         public override ScreenId Id => ScreenId.Caravan;
@@ -304,8 +307,12 @@ namespace Internal.Scripts.UI.Screens.Caravan
             string mainEffect = classData != null
                 ? $"{paramsPrefix} {LocalizationService.Resolve(LocUI.Table, LocUI.UI_Caravan_CartEffect, null, $"{classData.SpeedKmDay:0.#}", $"{classData.Capacity:0.#}")}"
                 : "";
+            DraftAnimalData animal = _caravanDb.GetDraftAnimalById(res.DraftAnimalId);
+            float feedPerDay = animal?.FeedPerDay ?? 0f;
+
             string mainDurability = $"{durabilityPrefix} {(int)res.PlayerCart.Durability}/{(int)res.PlayerCart.MaxDurability}";
-            string mainConsumption = $"{consumptionPrefix} {LocalizationService.Resolve(LocUI.Table, LocUI.UI_Caravan_Consumption, null, $"{res.PlayerCart.FoodConsumptionPerDay:0.#}")}";
+            float mainFeed = (classData?.AnimalCount ?? 0) * feedPerDay;
+            string mainConsumption = $"{consumptionPrefix} {LocalizationService.Resolve(LocUI.Table, LocUI.UI_Caravan_Consumption, null, $"{mainFeed:0.#}")}";
 
             list.Add(new CartViewData(
                 mainName, true, mainEffect, mainDurability,
@@ -349,7 +356,8 @@ namespace Internal.Scripts.UI.Screens.Caravan
                     : effect;
 
                 string durability = $"{durabilityPrefix} {(int)cart.Durability}/{(int)cart.MaxDurability}";
-                string consumption = $"{consumptionPrefix} {LocalizationService.Resolve(LocUI.Table, LocUI.UI_Caravan_Consumption, null, $"{cart.FoodConsumptionPerDay:0.#}")}";
+                float cartFeed = cart.AnimalCount * feedPerDay;
+                string consumption = $"{consumptionPrefix} {LocalizationService.Resolve(LocUI.Table, LocUI.UI_Caravan_Consumption, null, $"{cartFeed:0.#}")}";
 
                 bool canRepair = cart.Durability < cart.MaxDurability;
 

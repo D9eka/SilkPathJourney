@@ -31,6 +31,7 @@ namespace Internal.Scripts.Player
         private readonly OverloadCalculator _overload;
         private readonly GameBalanceConfig _balanceConfig;
         private readonly CaravanSpeedService _speedService;
+        private readonly FoodConsumptionCalculator _foodCalculator;
 
         public TravelEstimator(
             IRoadPathFinder pathFinder,
@@ -39,7 +40,8 @@ namespace Internal.Scripts.Player
             InventoryRepository inventoryRepo,
             OverloadCalculator overload,
             GameBalanceConfig balanceConfig,
-            CaravanSpeedService speedService)
+            CaravanSpeedService speedService,
+            FoodConsumptionCalculator foodCalculator)
         {
             _pathFinder = pathFinder;
             _playerState = playerState;
@@ -48,6 +50,7 @@ namespace Internal.Scripts.Player
             _overload = overload;
             _balanceConfig = balanceConfig;
             _speedService = speedService;
+            _foodCalculator = foodCalculator;
         }
 
         public TravelEstimate Estimate(string targetNodeId)
@@ -68,7 +71,7 @@ namespace Internal.Scripts.Player
             if (days < 0)
                 return default;
 
-            int suppliesNeeded = Mathf.CeilToInt(resources.TotalFoodPerDay * days);
+            int suppliesNeeded = Mathf.CeilToInt(_foodCalculator.Calculate(resources) * days);
             int currentSupplies = InventoryStateMutator.GetItemCount(
                 _inventoryRepo.GetPlayerInventory(), SuppliesItemId.Value);
             bool sufficient = currentSupplies >= suppliesNeeded;
