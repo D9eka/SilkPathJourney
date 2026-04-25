@@ -39,6 +39,8 @@ namespace Internal.Scripts.WorldModifiers
             RoadDayLog.Clear();
         }
 
+        public bool HasAnyCityModifiers => State.CityModifiers != null && State.CityModifiers.Count > 0;
+
         public List<ActiveModifierEntry> GetCityModifiers(string cityId)
         {
             return State.CityModifiers
@@ -141,7 +143,7 @@ namespace Internal.Scripts.WorldModifiers
             bool changed = false;
             foreach (var entry in State.CityModifiers)
             {
-                if (entry.LocationId == cityId)
+                if (entry.LocationId == cityId && entry.LastSeenDay != day)
                 {
                     entry.LastSeenDay = day;
                     changed = true;
@@ -155,7 +157,7 @@ namespace Internal.Scripts.WorldModifiers
             bool changed = false;
             foreach (var entry in State.RoadModifiers)
             {
-                if (entry.LocationId == roadId)
+                if (entry.LocationId == roadId && entry.LastSeenDay != day)
                 {
                     entry.LastSeenDay = day;
                     changed = true;
