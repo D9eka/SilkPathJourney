@@ -141,7 +141,8 @@ namespace Internal.Scripts.UI.Screens.Event
 
         private void SubscribeViewModel()
         {
-            if (_viewModel == null || _stateSubscription != null || Localization == null)
+            if (_viewModel == null || Localization == null
+                || _stateSubscription != null || _locationSubscription != null || _resultSubscription != null)
                 return;
 
             _stateSubscription = _viewModel.State.Subscribe(UpdateContent);
@@ -296,7 +297,7 @@ namespace Internal.Scripts.UI.Screens.Event
                     null,
                     null,
                     condition);
-                button.SetInteractable(true);
+                button.SetInteractable(_viewModel.CanSelectChoice(choiceIndex, choices));
                 _activeButtons.Add(button);
             }
         }
@@ -316,6 +317,7 @@ namespace Internal.Scripts.UI.Screens.Event
                 Localization,
                 _continueLocalizedString,
                 () => _viewModel?.ConfirmResult());
+            continueBtn.SetInteractable(true);
             _activeButtons.Add(continueBtn);
         }
 

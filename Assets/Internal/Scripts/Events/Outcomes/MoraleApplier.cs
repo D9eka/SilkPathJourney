@@ -4,8 +4,6 @@ using Internal.Scripts.Economy.Save;
 using Internal.Scripts.Events.Data;
 using Internal.Scripts.Events.Generated;
 using Internal.Scripts.UI.Components;
-using UnityEngine;
-
 namespace Internal.Scripts.Events.Outcomes
 {
     public class MoraleApplier : IResourceOutcomeApplier
@@ -26,8 +24,7 @@ namespace Internal.Scripts.Events.Outcomes
 
         public void Apply(EventOutcomeEntry entry)
         {
-            _resourceRepo.UpdateResources(s =>
-                s.Morale = Mathf.Clamp(s.Morale + entry.Value, PlayerResourceState.MORALE_MIN, PlayerResourceState.MORALE_MAX));
+            _resourceRepo.UpdateResources(s => s.Morale += entry.Value);
         }
 
         public bool CanAfford(EventOutcomeType type, float netValue) => true;

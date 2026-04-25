@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using DG.Tweening;
 using Internal.Scripts.Economy;
 using Internal.Scripts.Economy.Cities;
 using Internal.Scripts.Economy.Save;
@@ -54,6 +55,8 @@ namespace Internal.Scripts.UI.Screens.Event
 
     public sealed class EventScreenViewModel : ScreenViewModelBase
     {
+        private const float ConfirmResultDelay = 0.15f;
+
         private readonly EventTrigger _eventTrigger;
         private readonly ScreenStackService _screenStackService;
         private readonly UiThemeService _themeService;
@@ -69,6 +72,7 @@ namespace Internal.Scripts.UI.Screens.Event
         private readonly IEventOutcomeScaler _outcomeScaler;
         private List<EventOutcomeEntry> _lastAppliedOutcomes;
         public List<EventOutcomeEntry> LastAppliedOutcomes => _lastAppliedOutcomes;
+        private Tween _closeTween;
         private readonly ReactiveProperty<EventData> _state = new(null);
         private readonly ReactiveProperty<CityData> _city = new(null);
         private readonly ReactiveProperty<bool> _isAtCity = new(false);
@@ -150,6 +154,8 @@ namespace Internal.Scripts.UI.Screens.Event
 
         protected override void OnClose()
         {
+            _closeTween?.Kill();
+            _closeTween = null;
             _state.Value = null;
             _city.Value = null;
             _isAtCity.Value = false;
@@ -219,6 +225,15 @@ namespace Internal.Scripts.UI.Screens.Event
             if (choices == null || choiceIndex < 0 || choiceIndex >= choices.Count)
                 return true;
             return _eventTrigger.CanAffordOutcomes(choices[choiceIndex].Outcomes);
+        }
+
+        public bool CanSelectChoice(int choiceIndex, List<EventChoice> choices)
+        {
+            if (choices == null || choiceIndex < 0 || choiceIndex >= choices.Count)
+                return false;
+            if (!CanAffordChoice(choiceIndex, choices))
+                return false;
+            return _eventSelector.CheckConditions(choices[choiceIndex].Conditions);
         }
 
         public void SelectChoice(int choiceIndex)
@@ -315,7 +330,9 @@ namespace Internal.Scripts.UI.Screens.Event
         public void ConfirmResult()
         {
             _selectedChoice.Value = null;
-            _screenStackService.Close(ScreenId.Event);
+            _closeTween?.Kill();
+            _closeTween = DOVirtual.DelayedCall(ConfirmResultDelay,
+                () => _screenStackService.Close(ScreenId.Event), ignoreTimeScale: true);
         }
     }
 }
