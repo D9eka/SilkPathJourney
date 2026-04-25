@@ -21,6 +21,7 @@ using Internal.Scripts.UI.Screens.Guild;
 using Internal.Scripts.UI.Screens.CityEntryConfirm;
 using Internal.Scripts.UI.Screens.Camp;
 using Internal.Scripts.UI.Screens.HazardQte;
+using Internal.Scripts.UI.Screens.TargetSelection.Search;
 using Plugins.Zenject.Source.Main;
 
 namespace Internal.Scripts.UI.Factory
@@ -100,7 +101,8 @@ namespace Internal.Scripts.UI.Factory
             if (view is not TargetSelectionScreen)
                 return null;
 
-            return _container.Instantiate<TargetSelectionScreenViewModel>();
+            var searchPanel = _container.Instantiate<CitySearchPanelViewModel>();
+            return _container.Instantiate<TargetSelectionScreenViewModel>(new object[] { searchPanel });
         }
 
         private ScreenViewModelBase CreatePause(IScreenView view)
@@ -230,5 +232,6 @@ namespace Internal.Scripts.UI.Factory
 
             return _container.Instantiate<HazardQteViewModel>();
         }
+
     }
 }

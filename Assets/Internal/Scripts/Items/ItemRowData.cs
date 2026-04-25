@@ -1,3 +1,5 @@
+using Internal.Scripts.Economy.Generated;
+
 namespace Internal.Scripts.Items
 {
     public readonly struct ItemRowData
@@ -9,9 +11,11 @@ namespace Internal.Scripts.Items
         public readonly string Price;
         public readonly string PriceTooltipTitle;
         public readonly string PriceTooltipText;
+        public readonly ItemType Category;
 
         public ItemRowData(string itemId, int count, string name, string weight, string price,
-            string priceTooltipTitle = null, string priceTooltipText = null)
+            string priceTooltipTitle = null, string priceTooltipText = null,
+            ItemType category = ItemType.Unknown)
         {
             ItemId = itemId;
             Count = count;
@@ -20,6 +24,7 @@ namespace Internal.Scripts.Items
             Price = price;
             PriceTooltipTitle = priceTooltipTitle;
             PriceTooltipText = priceTooltipText;
+            Category = category;
         }
     }
 }

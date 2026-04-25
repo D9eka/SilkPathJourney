@@ -1,5 +1,4 @@
 using DG.Tweening;
-using Internal.Scripts.Economy.Generated;
 using Internal.Scripts.UI.Theme;
 using TMPro;
 using UnityEngine;
@@ -17,16 +16,14 @@ namespace Internal.Scripts.UI.Components
         [SerializeField] private TextMeshProUGUI _changeText;
         [SerializeField] private LayoutVisibilityAnimator _changeAnimator;
 
-        [Header("Colors")]
-        [SerializeField] private Color _positiveColor = new Color(0.2f, 0.8f, 0.2f, 1f);
-        [SerializeField] private Color _negativeColor = new Color(0.9f, 0.2f, 0.2f, 1f);
-
-        [Inject(Optional = true)] private StaticColorController _colorController;
+        [Inject(Optional = true)] private UiThemeService _themeService;
 
         public ResourceType ResourceType => _resourceType;
 
         public void SetResourceType(ResourceType type) => _resourceType = type;
 
+        private Color _positiveColor = new Color(0.2f, 0.8f, 0.2f, 1f);
+        private Color _negativeColor = new Color(0.9f, 0.2f, 0.2f, 1f);
         private Color _normalValueColor;
         private bool _cachedColor;
         private Sequence _autoHideSequence;
@@ -34,17 +31,26 @@ namespace Internal.Scripts.UI.Components
 
         protected virtual void Awake()
         {
-            if (_colorController != null)
-            {
-                _positiveColor = _colorController.GetColor(Biome.Plains, ColorSlot.ValuePositive);
-                _negativeColor = _colorController.GetColor(Biome.Plains, ColorSlot.ValueNegative);
-            }
+            ApplyThemeColors();
 
             if (_valueText != null && !_cachedColor)
             {
                 _normalValueColor = _valueText.color;
                 _cachedColor = true;
             }
+        }
+
+        public void Initialize(UiThemeService themeService)
+        {
+            _themeService = themeService;
+            ApplyThemeColors();
+        }
+
+        private void ApplyThemeColors()
+        {
+            if (_themeService == null) return;
+            _positiveColor = _themeService.GetColor(ColorSlot.ValuePositive);
+            _negativeColor = _themeService.GetColor(ColorSlot.ValueNegative);
         }
 
         public void SetIcon(Sprite icon)

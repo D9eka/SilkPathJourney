@@ -227,6 +227,7 @@ namespace Internal.Scripts.Installers
             Container.BindInterfacesAndSelfTo<PlayerSaveController>().AsSingle();
             Container.Bind<OverloadCalculator>().AsSingle();
             Container.BindInterfacesAndSelfTo<CaravanSpeedService>().AsSingle();
+            Container.Bind<FoodConsumptionCalculator>().AsSingle();
             Container.Bind<DailyTravelCosts>().AsSingle();
             Container.Bind<TravelEstimator>().AsSingle();
             Container.Bind<CompanionService>().AsSingle();
@@ -362,6 +363,7 @@ namespace Internal.Scripts.Installers
             Container.Bind<SkillCheckConditionLine>().AsSingle();
             Container.Bind<ItemConditionLine>().AsSingle();
             Container.Bind<LanguageConditionLine>().AsSingle();
+            Container.Bind<CompanionConditionLine>().AsSingle();
             Container.Bind<ConditionLineBuilder>().AsSingle();
 
             Container.Bind<EventToastController>().AsSingle();
@@ -402,6 +404,8 @@ namespace Internal.Scripts.Installers
             Container.BindInterfacesAndSelfTo<QuestRepository>().AsSingle().NonLazy();
             Container.Bind<QuestRewardApplier>().AsSingle();
             Container.BindInterfacesTo<QuestStageChecker>().AsSingle();
+            Container.Bind<QuestCityIndicatorService>().AsSingle();
+            Container.Bind<UI.Screens.TargetSelection.Search.CityCardBuilder>().AsSingle();
         }
 
         private void InstallWorldModifiers()

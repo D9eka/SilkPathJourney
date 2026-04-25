@@ -62,6 +62,8 @@ namespace Internal.Scripts.Installers
         [Header("UI")]
         [SerializeField] private ScreenCatalog _screenCatalog;
         [SerializeField] private ResourceIconCatalog _resourceIconCatalog;
+        [SerializeField] private ItemCategoryCatalog _itemCategoryCatalog;
+        [SerializeField] private BuildingFilterCatalog _buildingFilterCatalog;
 
         [Header("Scenes")]
         [SerializeField] private SceneReference _gameScene;
@@ -99,6 +101,8 @@ namespace Internal.Scripts.Installers
             Container.BindInstance(_guildSettings).AsSingle();
             Container.BindInstance(_screenCatalog).AsSingle();
             Container.BindInstance(_resourceIconCatalog).AsSingle();
+            Container.BindInstance(_itemCategoryCatalog).AsSingle();
+            Container.BindInstance(_buildingFilterCatalog).AsSingle();
             Container.BindInstance(_gameBalanceConfig).AsSingle();
             Container.BindInstance(_timeSpeedConfig).AsSingle();
             Container.BindInstance(_caravanSpeedConfig).AsSingle();

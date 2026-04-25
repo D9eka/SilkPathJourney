@@ -26781,6 +26781,14 @@ MonoBehaviour:
       \u0432\u0435\u0440\u043D\u0443\u043B\u0430\u0441\u044C \u0441 \u043F\u0440\u0438\u0431\u044B\u043B\u044C\u044E."
     m_Metadata:
       m_Items: []
+  - m_Id: 25356240375767097
+    m_Localized: "\u041D\u0443\u0436\u0435\u043D \u0441\u043F\u0443\u0442\u043D\u0438\u043A: {companion_name}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767098
+    m_Localized: "\u041D\u0443\u0436\u043D\u043E \u043C\u0438\u043D\u0438\u043C\u0443\u043C {count} \u0441\u043F\u0443\u0442\u043D\u0438\u043A\u043E\u0432"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

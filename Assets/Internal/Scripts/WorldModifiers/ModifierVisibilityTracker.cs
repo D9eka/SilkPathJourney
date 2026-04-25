@@ -31,11 +31,13 @@ namespace Internal.Scripts.WorldModifiers
         public void Initialize()
         {
             _playerEvents.OnCurrentNodeChanged += HandleNodeChanged;
+            _playerEvents.OnCurrentSegmentChanged += HandleSegmentChanged;
         }
 
         public void Dispose()
         {
             _playerEvents.OnCurrentNodeChanged -= HandleNodeChanged;
+            _playerEvents.OnCurrentSegmentChanged -= HandleSegmentChanged;
         }
 
         private void HandleNodeChanged(string nodeId)
@@ -48,6 +50,13 @@ namespace Internal.Scripts.WorldModifiers
             string roadId = _roadResolver.GetCurrentRoadId();
             if (roadId != null)
                 _repo.MarkRoadSeen(roadId, day);
+        }
+
+        private void HandleSegmentChanged(string fromNode, string toNode)
+        {
+            string roadId = _roadResolver.GetCurrentRoadId();
+            if (roadId != null)
+                _repo.MarkRoadSeen(roadId, _dayTracker.CurrentDay);
         }
     }
 }

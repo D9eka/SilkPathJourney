@@ -146,8 +146,7 @@ namespace Internal.Scripts.Economy.Save
                     Capacity = 250f,
                     Durability = 100f,
                     MaxDurability = 100f,
-                    Speed = 30f,
-                    FoodConsumptionPerDay = 3f
+                    Speed = 30f
                 };
             }
 
@@ -156,8 +155,7 @@ namespace Internal.Scripts.Economy.Save
                 Capacity = classData.Capacity,
                 Durability = classData.Durability,
                 MaxDurability = classData.Durability,
-                Speed = classData.SpeedKmDay,
-                FoodConsumptionPerDay = classData.AnimalCount
+                Speed = classData.SpeedKmDay
             };
         }
 

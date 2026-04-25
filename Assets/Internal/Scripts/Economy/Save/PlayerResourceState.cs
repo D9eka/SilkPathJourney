@@ -34,7 +34,13 @@ namespace Internal.Scripts.Economy.Save
 
         public int MaxCompanions => Math.Min(Carts?.Count ?? 0, MAX_COMPANION_LIMIT);
         public float TotalCapacity => PlayerCart.Capacity + (Carts?.Sum(c => c.Capacity) ?? 0f);
-        public float TotalFoodPerDay => PlayerCart.FoodConsumptionPerDay + (Carts?.Sum(c => c.FoodConsumptionPerDay) ?? 0f);
+
+        public void ClampValues()
+        {
+            Money = Math.Max(0, Money);
+            Morale = Math.Clamp(Morale, MORALE_MIN, MORALE_MAX);
+            Reputation = Math.Clamp(Reputation, REPUTATION_MIN, REPUTATION_MAX);
+        }
 
         public float GetValue(ResourceType type) => type switch
         {

@@ -32,6 +32,27 @@ city_modifier.high_taxes.description,city_modifiers,7,Местный прави�
 city_modifier.high_taxes.name,city_modifiers,7,Высокие налоги,High Taxes
 city_modifier.war.description,city_modifiers,2,Военные действия нарушили торговые пути — цены и опасность резко выросли,Military conflict has disrupted trade routes — prices and danger have surged
 city_modifier.war.name,city_modifiers,2,Война,War
+city_modifier_rumor.war.1,city_modifiers,,"Не езди сейчас в {0} — войска занимают дороги, а мародёры не дают покоя никому.","Do not ride to {0} now — troops hold the roads and looters give no one any rest."
+city_modifier_rumor.war.2,city_modifiers,,"Был я в {0} на прошлой неделе. Целый квартал сожжён, базар стоит закрытым, половина торговцев бежала.","I was in {0} last week. A whole quarter burned, the bazaar sits shut, half the merchants have fled."
+city_modifier_rumor.war.3,city_modifiers,,"Говорят, в {0} снова военные. Цены бешеные, но кое-какой товар там найти ещё можно.","They say soldiers are back in {0}. Prices are wild, but you can still find some goods there if you look."
+city_modifier_rumor.bandits.1,city_modifiers,,"Держись подальше от дороги на {0} — там банда шалит третью неделю, уже три каравана ограбили.","Keep clear of the road to {0} — a gang has been raiding for three weeks, three caravans already stripped."
+city_modifier_rumor.bandits.2,city_modifiers,,"Меня самого встретили у ворот {0}. Пятеро верхом, с луками. Лишился двух тюков шёлка и ещё дёшево отделался.","I was stopped myself near the gates of {0}. Five riders with bows. Lost two bales of silk and count myself lucky."
+city_modifier_rumor.bandits.3,city_modifiers,,"В {0} сейчас неспокойно — разбойники хозяйничают на подступах. Но торговля там всё равно идёт, если ехать большим обозом.","{0} is restless these days — bandits own the approaches. But trade still moves if you travel in a large convoy."
+city_modifier_rumor.epidemic.1,city_modifiers,,"Обходи {0} стороной — там мор. Стражники на воротах гонят всех прочь, кто без печати лекаря.","Skirt around {0} — plague is there. Gate guards drive off anyone without a physician's seal."
+city_modifier_rumor.epidemic.2,city_modifiers,,"Доехал я до {0}, да не въехал. Над стенами дым от костров, и запах такой — не спутаешь. Повернул назад.","I rode to {0} but did not enter. Smoke from bonfires hung above the walls and the smell — unmistakable. I turned back."
+city_modifier_rumor.epidemic.3,city_modifiers,,"В {0} болезнь ходит по кварталам. Народ там поредел, торговля встала, но лавки ещё не все закрыты — с большой осторожностью можно.","Sickness is making its rounds in {0}. Folk are thinning out, trade has all but stopped, but not every shop is shuttered — you can go, with great caution."
+city_modifier_rumor.festival.1,city_modifiers,,"В {0} сейчас праздник — торговцы со всех сторон понаехали, цены упали, и настроение доброе. Самое время туда.","There is a festival in {0} right now — merchants poured in from all sides, prices fell, and spirits are high. Best time to go."
+city_modifier_rumor.festival.2,city_modifiers,,"Я только из {0}. Площадь вся в огнях, барабаны гремят до утра, а за один дирхем тебе столько дадут, сколько в другой раз за два.","I just came from {0}. The square blazes with lights, drums beat till morning, and one dirham buys what two would any other day."
+city_modifier_rumor.festival.3,city_modifiers,,"В {0} праздник — народу полно, шумно. Товар уходит бойко, но и карманники не дремлют.","There is a feast in {0} — crowds everywhere, noise. Goods sell briskly, but the cut-purses are busy too."
+city_modifier_rumor.caravan_arrival.1,city_modifiers,,"В {0} недавно пришёл большой обоз с запада. Рынок ломится от товара — сейчас туда ехать смысла нет, цены упали.","A large convoy from the west arrived in {0} recently. The market is bursting with goods — no point going now, prices have dropped."
+city_modifier_rumor.caravan_arrival.2,city_modifiers,,"Опоздал ты в {0} с шёлком. Там с прошлой недели целый обоз разгружают — продать выгодно не выйдет.","You are late to {0} with silk. They have been unloading a whole convoy since last week — you will not sell at a good price."
+city_modifier_rumor.caravan_arrival.3,city_modifiers,,"В {0} сейчас товаров хоть завались — только что огромный обоз пришёл. Прикупить кое-что по дешёвке можно, а вот везти туда нечего.","{0} is awash in goods right now — a massive convoy just arrived. You can pick up something cheap, but there is nothing worth hauling there."
+city_modifier_rumor.high_taxes.1,city_modifiers,,"В {0} мытари обдирают до последней монеты — вози товар подальше.","In {0} the tax-men strip you to the last coin — haul your goods elsewhere."
+city_modifier_rumor.high_taxes.2,city_modifiers,,"Говорят, в {0} правитель новую пошлину ввёл. Торговцы стонут, на каждом въезде весовщики стоят.","They say the ruler of {0} imposed a new tariff. Merchants are groaning, and weighmen stand at every entry point."
+city_modifier_rumor.high_taxes.3,city_modifiers,,"Был я в {0} — налоги кусаются, не скрою. Но товар у них добрый, если взять не больно много.","I was in {0} — taxes bite hard, I will not deny it. But their wares are good, if you do not buy too much."
+city_modifier_rumor.drought.1,city_modifiers,,"Не рассчитывай на воду в {0} — колодцы мелкие, цены на воду и зерно как никогда. Запасайся здесь.","Do not count on water in {0} — the wells are low, and prices for water and grain are the worst I have seen. Stock up here."
+city_modifier_rumor.drought.2,city_modifiers,,"В {0} уже второй год засуха. Река обмелела, поля потрескались, люди ходят злые. Торговать там можно, да прибытку мало.","{0} has had drought two years running. The river shallowed, the fields cracked, the people are sour. You can trade there, but do not expect much."
+city_modifier_rumor.drought.3,city_modifiers,,"Говорят, в {0} дождя не видели с весны. На базаре еды мало, зато всё прочее продаётся — людям сейчас не до торговли, только бы прокормиться.","They say {0} has seen no rain since spring. Food is scarce in the bazaar, but everything else sells — people have no mind for trade, only for feeding themselves."
 city_type.border_city.description,city_types,4,"Сильные перекосы, потенциал выгодных сделок","Strong imbalances, potential for profitable deals"
 city_type.border_city.name,city_types,4,Пограничный город,Border City
 city_type.capital.description,city_types,2,"Большой рынок, высокий спрос, чаще дороже","Large market, high demand, often more expensive"
@@ -2693,7 +2714,7 @@ UI.Tooltip.Bonus,,,Бонусы,Bonuses
 UI.Tooltip.Modifiers,,,Модификаторы,Modifiers
 UI.Tooltip.Total,,,Итого,Total
 UI.Tooltip.UnknownLanguage,,,Вы не знаете этот язык,You don't know this language
-UI.TargetSelection.Main.Label.TravelTo,,,Отправиться в {0}?,Travel to {0}?
+UI.TargetSelection.Main.Label.TravelTo,,,Отправиться?,Travel?
 UI.TargetSelection.Main.Button.Confirm,,,Да,Yes
 UI.TargetSelection.Main.Button.Cancel,,,Нет,No
 UI.TargetSelection.Main.Label.TravelDays,interface_names,,Доедем за {0} дн. на обычной скорости,{0} days at normal speed
@@ -2921,6 +2942,7 @@ UI.Tavern.Rumors.Empty,interface_names,,Сейчас никто ничего н�
 UI.Tavern.Rumors.Entry,interface_names,,"{0}: {1}","{0}: {1}"
 UI.Tavern.Rumors.Buy,interface_names,,Купить за {0},Buy for {0}
 UI.Tavern.Rumors.Days,interface_names,,"{0}, осталось {1} дн.","{0}, {1} days left"
+UI.Tavern.Rumors.BuyDescription,interface_names,,Узнать новости о {0},Learn news about {0}
 UI.Tavern.RoadInfo.Header.Main,interface_names,94,Купить точную информацию,Buy exact information
 UI.Tavern.Companions.Header.Main,interface_names,95,Найм спутников,Hire Companions
 UI.Tavern.Companion.Button.Hire,interface_names,96,Нанять,Hire
@@ -3109,6 +3131,7 @@ UI.CityEntry.Fine,interface_names,109,"Штраф: {0}","Fine: {0}"
 UI.CityEntry.ContinueButton,interface_names,110,"Продолжить","Continue"
 UI.CityEntry.CityTypeLabel,interface_names,111,"Тип города:","City type:"
 UI.CityEntry.BuildingsLabel,interface_names,112,"Здания в городе:","Buildings in city:"
+UI.CityEntry.ModifiersLabel,interface_names,113,"Модификаторы:","Modifiers:"
 UI.Guild.OfferingsHeader,ui,,Услуги,Services
 UI.Guild.ContractsHeader,ui,,Контракты,Contracts
 UI.Guild.ActiveContract.Desc,ui,,"Доставка в {0} · Награда: {1} · Осталось {2} дн.","Delivery to {0} · Reward: {1} · {2} days left"
@@ -3668,5 +3691,20 @@ event.road_quest_R_N_Urumqi__N_Kucha.choice1,road_events,,Принять бла�
 event.road_quest_R_N_Urumqi__N_Kucha.choice1.result,road_events,,Караванщик разворачивает потайную карту и подробно описывает каждый поворот. Теперь этот путь открыт и для вас!,The caravan master unfolds a hidden map and describes every turn in detail. This route is now open to you as well!
 event.road_quest_R_N_Urumqi__N_Kucha.choice2,road_events,,Вежливо отказать,Politely decline
 event.road_quest_R_N_Urumqi__N_Kucha.choice2.result,road_events,,"Караванщик кланяется и уходит, унося свой секрет.","The caravan master bows and departs, taking his secret with him."
+event.companion_condition_info.has,events,,Нужен спутник: {companion_name},Requires companion: {companion_name}
+event.companion_condition_info.min,events,,Нужно минимум {count} спутников,Requires at least {count} companions
 event.road_quest_R_N_Urumqi__N_Kucha.name,road_events,,Долг караванщика,Caravan Master's Debt
 event.road_quest_R_N_Urumqi__N_Kucha.description,road_events,,"Бывалый караванщик догоняет ваш отряд. Он говорит, что обязан вам жизнью — в прошлый раз вы помогли его людям на переправе. В благодарность он готов открыть секретный маршрут, которым пользуются только избранные торговцы.","A seasoned caravan master catches up with your party. He says he owes you his life — you helped his people at a crossing once before. In gratitude, he offers to reveal a secret route used only by select merchants."
+UI.TargetSelection.Search.Header.Results,interface_names,,"Найденные города ({0})","Cities found ({0})"
+UI.TargetSelection.Search.Header.Input,interface_names,,Поиск города,Find city
+UI.TargetSelection.Search.Input.Placeholder,interface_names,,Введите название города…,Type city name…
+UI.TargetSelection.Search.Hint,interface_names,,Введите название или выберите фильтр для поиска городов,Type a name or choose a filter to find cities
+UI.TargetSelection.Search.Row.Select,interface_names,,Выбрать,Select
+UI.QuestIndicator.New,interface_names,,Доступно задание,Quest available
+UI.QuestIndicator.Stage,interface_names,,Задание ведёт сюда,Quest leads here
+UI.TargetSelection.Search.Filter.All,interface_names,,Все,All
+UI.TargetSelection.Search.Filter.Temple,interface_names,,Храм,Temple
+UI.TargetSelection.Search.Filter.Guild,interface_names,,Гильдия,Guild
+UI.TargetSelection.Search.Filter.Tavern,interface_names,,Таверна,Tavern
+UI.TargetSelection.Search.Filter.Caravansary,interface_names,,Постоялый двор,Caravansary
+UI.TargetSelection.Search.Empty,interface_names,,Ничего не найдено,Nothing found

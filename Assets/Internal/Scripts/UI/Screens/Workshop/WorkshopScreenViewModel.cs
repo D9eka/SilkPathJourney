@@ -126,7 +126,7 @@ namespace Internal.Scripts.UI.Screens.Workshop
                     Durability = extraCartData.Durability,
                     MaxDurability = extraCartData.Durability,
                     Speed = extraCartData.SpeedPenaltyPct,
-                    FoodConsumptionPerDay = extraCartData.SuppliesPerDay
+                    AnimalCount = extraCartData.SuppliesPerDay
                 });
             });
 

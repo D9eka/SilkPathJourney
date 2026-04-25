@@ -30,7 +30,7 @@ namespace Internal.Scripts.UI.Screens.Tavern
         private readonly UiThemeService _themeService;
         private readonly ResourceIconCatalog _resourceIcons;
         private readonly RumorService _rumorService;
-        private readonly RumorFormatter _rumorFormatter = new();
+        private readonly RumorFormatter _rumorFormatter;
         private readonly CompanionHireFormatter _hireFormatter;
         private readonly ReactiveProperty<TavernViewState> _state = new();
 
@@ -64,6 +64,7 @@ namespace Internal.Scripts.UI.Screens.Tavern
             _themeService = themeService;
             _resourceIcons = resourceIcons;
             _rumorService = rumorService;
+            _rumorFormatter = new RumorFormatter(economyDb);
             _hireFormatter = new CompanionHireFormatter(caravanDb, economyDb, nameDb, companionService);
         }
 

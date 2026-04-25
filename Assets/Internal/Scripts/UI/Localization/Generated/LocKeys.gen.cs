@@ -363,6 +363,27 @@ namespace Internal.Scripts.UI.Localization.Generated
         public const string CityModifier_HighTaxes_Name = "city_modifier.high_taxes.name";
         public const string CityModifier_War_Description = "city_modifier.war.description";
         public const string CityModifier_War_Name = "city_modifier.war.name";
+        public const string CityModifierRumor_War_1 = "city_modifier_rumor.war.1";
+        public const string CityModifierRumor_War_2 = "city_modifier_rumor.war.2";
+        public const string CityModifierRumor_War_3 = "city_modifier_rumor.war.3";
+        public const string CityModifierRumor_Bandits_1 = "city_modifier_rumor.bandits.1";
+        public const string CityModifierRumor_Bandits_2 = "city_modifier_rumor.bandits.2";
+        public const string CityModifierRumor_Bandits_3 = "city_modifier_rumor.bandits.3";
+        public const string CityModifierRumor_Epidemic_1 = "city_modifier_rumor.epidemic.1";
+        public const string CityModifierRumor_Epidemic_2 = "city_modifier_rumor.epidemic.2";
+        public const string CityModifierRumor_Epidemic_3 = "city_modifier_rumor.epidemic.3";
+        public const string CityModifierRumor_Festival_1 = "city_modifier_rumor.festival.1";
+        public const string CityModifierRumor_Festival_2 = "city_modifier_rumor.festival.2";
+        public const string CityModifierRumor_Festival_3 = "city_modifier_rumor.festival.3";
+        public const string CityModifierRumor_CaravanArrival_1 = "city_modifier_rumor.caravan_arrival.1";
+        public const string CityModifierRumor_CaravanArrival_2 = "city_modifier_rumor.caravan_arrival.2";
+        public const string CityModifierRumor_CaravanArrival_3 = "city_modifier_rumor.caravan_arrival.3";
+        public const string CityModifierRumor_HighTaxes_1 = "city_modifier_rumor.high_taxes.1";
+        public const string CityModifierRumor_HighTaxes_2 = "city_modifier_rumor.high_taxes.2";
+        public const string CityModifierRumor_HighTaxes_3 = "city_modifier_rumor.high_taxes.3";
+        public const string CityModifierRumor_Drought_1 = "city_modifier_rumor.drought.1";
+        public const string CityModifierRumor_Drought_2 = "city_modifier_rumor.drought.2";
+        public const string CityModifierRumor_Drought_3 = "city_modifier_rumor.drought.3";
     }
     public static class LocEvents
     {
@@ -3210,6 +3231,8 @@ namespace Internal.Scripts.UI.Localization.Generated
         public const string Event_CampOrderAnyNewcomer_Choice2_Fail = "event.camp_order_any_newcomer.choice2.fail";
         public const string Event_CampOrderAnyNewcomer_Choice3 = "event.camp_order_any_newcomer.choice3";
         public const string Event_CampOrderAnyNewcomer_Choice3_Result = "event.camp_order_any_newcomer.choice3.result";
+        public const string Event_CompanionConditionInfo_Has = "event.companion_condition_info.has";
+        public const string Event_CompanionConditionInfo_Min = "event.companion_condition_info.min";
     }
     public static class LocNpc
     {
@@ -3749,5 +3772,20 @@ namespace Internal.Scripts.UI.Localization.Generated
         public const string UI_Input_Key_ArrowRight = "UI.Input.Key.ArrowRight";
         public const string UI_Input_Key_LeftStick = "UI.Input.Key.LeftStick";
         public const string UI_Input_Key_RightStick = "UI.Input.Key.RightStick";
+        public const string UI_Tavern_Rumors_BuyDescription = "UI.Tavern.Rumors.BuyDescription";
+        public const string UI_CityEntry_ModifiersLabel = "UI.CityEntry.ModifiersLabel";
+        public const string UI_TargetSelection_Search_Header_Results = "UI.TargetSelection.Search.Header.Results";
+        public const string UI_TargetSelection_Search_Header_Input = "UI.TargetSelection.Search.Header.Input";
+        public const string UI_TargetSelection_Search_Input_Placeholder = "UI.TargetSelection.Search.Input.Placeholder";
+        public const string UI_TargetSelection_Search_Hint = "UI.TargetSelection.Search.Hint";
+        public const string UI_TargetSelection_Search_Row_Select = "UI.TargetSelection.Search.Row.Select";
+        public const string UI_QuestIndicator_New = "UI.QuestIndicator.New";
+        public const string UI_QuestIndicator_Stage = "UI.QuestIndicator.Stage";
+        public const string UI_TargetSelection_Search_Filter_All = "UI.TargetSelection.Search.Filter.All";
+        public const string UI_TargetSelection_Search_Filter_Temple = "UI.TargetSelection.Search.Filter.Temple";
+        public const string UI_TargetSelection_Search_Filter_Guild = "UI.TargetSelection.Search.Filter.Guild";
+        public const string UI_TargetSelection_Search_Filter_Tavern = "UI.TargetSelection.Search.Filter.Tavern";
+        public const string UI_TargetSelection_Search_Filter_Caravansary = "UI.TargetSelection.Search.Filter.Caravansary";
+        public const string UI_TargetSelection_Search_Empty = "UI.TargetSelection.Search.Empty";
     }
 }

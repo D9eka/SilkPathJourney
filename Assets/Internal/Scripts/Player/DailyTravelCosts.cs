@@ -1,6 +1,5 @@
 using System;
 using Internal.Scripts.Camp;
-using Internal.Scripts.Caravan;
 using Internal.Scripts.Config;
 using Internal.Scripts.Economy;
 using Internal.Scripts.Economy.Cities;
@@ -25,7 +24,6 @@ namespace Internal.Scripts.Player
         private readonly PlayerResourceRepository _resourceRepo;
         private readonly InventoryRepository _inventoryRepository;
         private readonly GameBalanceConfig _balanceConfig;
-        private readonly CaravanDatabase _caravanDatabase;
         private readonly CompanionCosts _companionCosts;
         private readonly ModifierEffectQuery _modifierQuery;
         private readonly CurrentRoadResolver _roadResolver;
@@ -33,6 +31,7 @@ namespace Internal.Scripts.Player
         private readonly IPlayerStateProvider _playerState;
         private readonly CampActionService _campActionService;
         private readonly CampActionDatabase _campActionDatabase;
+        private readonly FoodConsumptionCalculator _foodCalculator;
 
         public DailyTravelCosts(
             DayTracker dayTracker,
@@ -42,14 +41,14 @@ namespace Internal.Scripts.Player
             PlayerResourceRepository resourceRepo,
             InventoryRepository inventoryRepository,
             GameBalanceConfig balanceConfig,
-            CaravanDatabase caravanDatabase,
             CompanionCosts companionCosts,
             ModifierEffectQuery modifierQuery,
             CurrentRoadResolver roadResolver,
             ICityNodeResolver cityResolver,
             IPlayerStateProvider playerState,
             CampActionService campActionService,
-            CampActionDatabase campActionDatabase)
+            CampActionDatabase campActionDatabase,
+            FoodConsumptionCalculator foodCalculator)
         {
             _dayTracker = dayTracker;
             _speedService = speedService;
@@ -58,7 +57,6 @@ namespace Internal.Scripts.Player
             _resourceRepo = resourceRepo;
             _inventoryRepository = inventoryRepository;
             _balanceConfig = balanceConfig;
-            _caravanDatabase = caravanDatabase;
             _companionCosts = companionCosts;
             _modifierQuery = modifierQuery;
             _roadResolver = roadResolver;
@@ -66,6 +64,7 @@ namespace Internal.Scripts.Player
             _playerState = playerState;
             _campActionService = campActionService;
             _campActionDatabase = campActionDatabase;
+            _foodCalculator = foodCalculator;
         }
 
         public void Activate()
@@ -133,25 +132,12 @@ namespace Internal.Scripts.Player
 
         private int AccumulateFoodConsumption(PlayerResourceState state, SpeedModeData data, float overloadMod, float suppliesMult)
         {
-            float baseFoodPerDay = state.TotalFoodPerDay;
-            baseFoodPerDay += CalculateAnimalFeed(state);
-            baseFoodPerDay += state.Companions?.Count ?? 0;
-
+            float baseFoodPerDay = _foodCalculator.Calculate(state);
             state.Food += baseFoodPerDay * data.FoodMultiplier * overloadMod * suppliesMult;
 
             int toConsume = (int)state.Food;
             state.Food -= toConsume;
             return toConsume;
-        }
-
-        private float CalculateAnimalFeed(PlayerResourceState state)
-        {
-            CartClassData classData = _caravanDatabase.GetCartClassById(state.CartClassId);
-            DraftAnimalData animal = _caravanDatabase.GetDraftAnimalById(state.DraftAnimalId);
-            if (classData == null || animal == null)
-                return 0f;
-
-            return classData.AnimalCount * animal.FeedPerDay;
         }
 
         private void ApplyDangerIncrease(PlayerResourceState state, SpeedModeData data, float dangerMult)

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Internal.Scripts.Config;
 using Internal.Scripts.Economy;
+using Internal.Scripts.Player;
 using Internal.Scripts.Events;
 using Internal.Scripts.Player.Languages;
 using Internal.Scripts.Player.Languages.Generated;
@@ -26,6 +27,7 @@ namespace Internal.Scripts.UI.Screens.LanguageSchool
         private readonly TraderUICatalog _catalog;
         private readonly UiThemeService _themeService;
         private readonly ResourceIconCatalog _resourceIcons;
+        private readonly FoodConsumptionCalculator _foodCalculator;
         private readonly ReactiveProperty<LanguageSchoolViewState> _state = new();
 
         private string _cityId;
@@ -41,7 +43,8 @@ namespace Internal.Scripts.UI.Screens.LanguageSchool
             DayTracker dayTracker,
             TraderUICatalog catalog,
             UiThemeService themeService,
-            ResourceIconCatalog resourceIcons)
+            ResourceIconCatalog resourceIcons,
+            FoodConsumptionCalculator foodCalculator)
         {
             _languageRepository = languageRepository;
             _resourceRepository = resourceRepository;
@@ -51,6 +54,7 @@ namespace Internal.Scripts.UI.Screens.LanguageSchool
             _catalog = catalog;
             _themeService = themeService;
             _resourceIcons = resourceIcons;
+            _foodCalculator = foodCalculator;
         }
 
         public override ScreenId Id => ScreenId.LanguageSchool;
@@ -156,7 +160,7 @@ namespace Internal.Scripts.UI.Screens.LanguageSchool
             return pct >= 0 ? $"+{pct}%" : $"{pct}%";
         }
 
-        private float GetTotalFoodPerDay() => _resourceRepository.Current.TotalFoodPerDay;
+        private float GetTotalFoodPerDay() => _foodCalculator.Calculate(_resourceRepository.Current);
 
         private static LanguageProficiency NextLevel(LanguageProficiency current)
         {

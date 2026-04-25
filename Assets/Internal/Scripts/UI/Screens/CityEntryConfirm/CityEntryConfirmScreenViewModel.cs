@@ -8,11 +8,13 @@ using Internal.Scripts.Economy.Guild;
 using Internal.Scripts.Economy.Save.Models;
 using Internal.Scripts.Inventory;
 using Internal.Scripts.Player;
+using Internal.Scripts.Quests;
 using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Localization;
 using Internal.Scripts.UI.Screens.Core.Config;
 using Internal.Scripts.UI.Screens.Core.ViewModel;
 using Internal.Scripts.UI.StackService;
+using Internal.Scripts.UI.Tooltip;
 using Internal.Scripts.WorldModifiers;
 using R3;
 using UnityEngine.Localization.Settings;
@@ -33,8 +35,11 @@ namespace Internal.Scripts.UI.Screens.CityEntryConfirm
         private readonly EconomyDatabase _database;
         private readonly WorldModifierRepository _modifierRepo;
         private readonly ResourceIconCatalog _resourceIcons;
+        private readonly TooltipService _tooltipService;
+        private readonly QuestCityIndicatorService _questIndicator;
 
         public ResourceIconCatalog ResourceIcons => _resourceIcons;
+        public TooltipService TooltipService => _tooltipService;
 
         private readonly ReactiveProperty<CityEntryConfirmViewState> _state = new();
         private CityData _city;
@@ -53,7 +58,9 @@ namespace Internal.Scripts.UI.Screens.CityEntryConfirm
             CaravanUpgradeService upgradeService,
             EconomyDatabase database,
             WorldModifierRepository modifierRepo,
-            ResourceIconCatalog resourceIcons)
+            ResourceIconCatalog resourceIcons,
+            TooltipService tooltipService,
+            QuestCityIndicatorService questIndicator)
         {
             _tariffService = tariffService;
             _smugglingService = smugglingService;
@@ -67,6 +74,8 @@ namespace Internal.Scripts.UI.Screens.CityEntryConfirm
             _database = database;
             _modifierRepo = modifierRepo;
             _resourceIcons = resourceIcons;
+            _tooltipService = tooltipService;
+            _questIndicator = questIndicator;
         }
 
         public override ScreenId Id => ScreenId.CityEntryConfirm;
@@ -113,7 +122,7 @@ namespace Internal.Scripts.UI.Screens.CityEntryConfirm
                 CityType = ResolveCityType(),
                 Buildings = ResolveBuildings(),
                 Modifiers = ResolveModifiers(),
-                HasQuest = false,
+                QuestIndicatorText = _questIndicator?.GetIndicatorText(_city.Id),
                 IsGuildMember = _guildService.IsMember,
                 GuildDiscountPct = _guildSettings.MemberTariffDiscount,
                 PlayerMoney = moneyAfter,
@@ -167,7 +176,7 @@ namespace Internal.Scripts.UI.Screens.CityEntryConfirm
                 CityType = ResolveCityType(),
                 Buildings = ResolveBuildings(),
                 Modifiers = ResolveModifiers(),
-                HasQuest = false,
+                QuestIndicatorText = _questIndicator?.GetIndicatorText(_city.Id),
                 TariffAmount = tariff,
                 IsGuildMember = _guildService.IsMember,
                 GuildDiscountPct = _guildSettings.MemberTariffDiscount,
@@ -186,7 +195,7 @@ namespace Internal.Scripts.UI.Screens.CityEntryConfirm
             if (data == null)
                 return new IconLabelEntry(null, _city.Type.ToString());
             string name = LocalizationService.ResolveString(data.Name, _city.Type.ToString(), "CityEntry.CityType");
-            return new IconLabelEntry(data.Icon, name);
+            return new IconLabelEntry(data.Icon, name, data);
         }
 
         private IconLabelEntry[] ResolveBuildings()
@@ -217,7 +226,7 @@ namespace Internal.Scripts.UI.Screens.CityEntryConfirm
                 var data = _database.GetCityModifier(entry.ModifierId);
                 if (data == null) continue;
                 string name = LocalizationService.ResolveString(data.Name, data.Id, "CityEntry.Modifier");
-                result.Add(new IconLabelEntry(data.Icon, name));
+                result.Add(new IconLabelEntry(data.Icon, name, data));
             }
             return result.ToArray();
         }

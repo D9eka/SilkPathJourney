@@ -15167,6 +15167,14 @@ MonoBehaviour:
       had not mentioned at first. Generosity returned with interest."
     m_Metadata:
       m_Items: []
+  - m_Id: 25356240375767097
+    m_Localized: 'Requires companion: {companion_name}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25356240375767098
+    m_Localized: Requires at least {count} companions
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

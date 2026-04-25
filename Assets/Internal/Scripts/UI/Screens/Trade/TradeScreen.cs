@@ -175,6 +175,11 @@ namespace Internal.Scripts.UI.Screens.Trade
             _npcItemsView?.SetTooltipService(tooltip);
             _buyItemsView?.SetTooltipService(tooltip);
             _sellItemsView?.SetTooltipService(tooltip);
+            var categories = _viewModel?.CategoryCatalog;
+            _playerTradeContainer?.SetServices(tooltip, categories);
+            _npcTradeContainer?.SetServices(tooltip, categories);
+            _itemsToBuyTradeContainer?.SetServices(tooltip, categories);
+            _itemsToSellTradeContainer?.SetServices(tooltip, categories);
             _stateSubscription = _viewModel.State.Subscribe(ApplyState);
             _viewModel.Navigate += HandleNavigate;
             _viewModel.Submit += HandleSubmit;

@@ -45,6 +45,18 @@ namespace Internal.Scripts.WorldModifiers
         public void Initialize()
         {
             _dayTracker.OnDayChanged += HandleDayChanged;
+            SeedInitialModifiersIfEmpty();
+        }
+
+        private void SeedInitialModifiersIfEmpty()
+        {
+            if (_repo.HasAnyCityModifiers) return;
+
+            int day = _dayTracker.CurrentDay;
+            foreach (CityData city in _economyDb.Cities)
+                TrySpawnCityModifier(city.Id, city.Biome, day);
+
+            TryCascadeToRoads(day);
         }
 
         public void Dispose()

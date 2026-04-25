@@ -87,7 +87,7 @@ namespace Internal.Scripts.Economy.Cities.Smuggling
 
             _resourceRepo.UpdateResources(s =>
             {
-                s.Money = Mathf.Max(0, s.Money - penalty);
+                s.Money -= penalty;
                 s.Reputation -= _penaltySettings.ReputationPenalty;
                 s.SmugglingCaughtCount++;
                 s.CityTradeBans.Add(new CityTradeBan

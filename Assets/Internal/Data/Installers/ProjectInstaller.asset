@@ -28,6 +28,7 @@ MonoBehaviour:
   _guildSettings: {fileID: 11400000, guid: 392c8adf438f4d35987b0192d5c57635, type: 2}
   _screenCatalog: {fileID: 11400000, guid: 666dbe6a588aa6e48900895fc40fcca8, type: 2}
   _resourceIconCatalog: {fileID: 11400000, guid: a42aa19a74ddc194c8d99e338c0cd34a, type: 2}
+  _itemCategoryCatalog: {fileID: 11400000, guid: 9f55077a1d778fb438d20c5d8997d14e, type: 2}
   _gameScene:
     _sceneAsset: {fileID: 102900000, guid: 4469673e4990f2a41b1bebe1d3d4d6e8, type: 3}
     _sceneName: StrategicView
@@ -41,4 +42,3 @@ MonoBehaviour:
   _caravanSpeedConfig: {fileID: 11400000, guid: 57feadfa4050739439ed160a6b15c563, type: 2}
   _pickupDatabase: {fileID: 11400000, guid: 5b1c02d97bc20db459cdbd0b29197fe3, type: 2}
   _hazardDatabase: {fileID: 11400000, guid: d411c85b485d8c14296f15105066598a, type: 2}
-  _qteMinigameCatalog: {fileID: 11400000, guid: 32c417971a1770a4094d1037d6e66a58, type: 2}

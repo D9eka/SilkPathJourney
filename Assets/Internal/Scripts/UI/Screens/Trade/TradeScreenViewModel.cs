@@ -18,6 +18,7 @@ namespace Internal.Scripts.UI.Screens.Trade
         private readonly IUiInput _inputManager;
         private readonly ResourceIconCatalog _resourceIcons;
         private readonly TooltipService _tooltipService;
+        private readonly ItemCategoryCatalog _categoryCatalog;
         private float _ignoreSubmitUntil;
 
         public event Action<Vector2> Navigate;
@@ -27,12 +28,14 @@ namespace Internal.Scripts.UI.Screens.Trade
         public event Action PrevArea;
 
         public TradeScreenViewModel(TradeModel model, IUiInput inputManager,
-            ResourceIconCatalog resourceIcons, TooltipService tooltipService)
+            ResourceIconCatalog resourceIcons, TooltipService tooltipService,
+            ItemCategoryCatalog categoryCatalog)
         {
             _model = model;
             _inputManager = inputManager;
             _resourceIcons = resourceIcons;
             _tooltipService = tooltipService;
+            _categoryCatalog = categoryCatalog;
         }
 
         public override ScreenId Id => ScreenId.Trade;
@@ -40,6 +43,7 @@ namespace Internal.Scripts.UI.Screens.Trade
         public Observable<TradeViewState> State => _model.State;
         public ResourceIconCatalog ResourceIcons => _resourceIcons;
         public TooltipService TooltipService => _tooltipService;
+        public ItemCategoryCatalog CategoryCatalog => _categoryCatalog;
 
         protected override void OnOpen(object args)
         {

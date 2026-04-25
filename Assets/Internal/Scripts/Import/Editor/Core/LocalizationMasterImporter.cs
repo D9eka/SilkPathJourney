@@ -13,7 +13,7 @@ namespace Internal.Scripts.Import.Editor.Core
             ("Economy", new[]
             {
                 "item.", "item_category.", "city.", "city_type.",
-                "building.", "modifier.", "city_modifier.", "culture."
+                "building.", "modifier.", "city_modifier.", "city_modifier_rumor.", "culture."
             }, true),
             ("UI", new[] { "UI." }, false),
             ("Events", new[] { "event.", "event_type.", "hazard." }, true),

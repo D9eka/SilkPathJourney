@@ -15,7 +15,7 @@ namespace Internal.Scripts.UI.Screens.CityEntryConfirm
         public IconLabelEntry CityType;
         public IconLabelEntry[] Buildings;
         public IconLabelEntry[] Modifiers;
-        public bool HasQuest;
+        public string QuestIndicatorText;
 
         public int TariffAmount;
         public bool IsGuildMember;

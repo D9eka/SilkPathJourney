@@ -20,6 +20,7 @@ namespace Internal.Scripts.Economy.Cities
         [field: SerializeField] public int MaxDuration { get; private set; }
         [field: SerializeField] public string CascadeRoadId { get; private set; }
         [field: SerializeField] public float CascadeChance { get; private set; }
+        [field: SerializeField] public LocalizedString[] RumorLines { get; private set; } = System.Array.Empty<LocalizedString>();
 
         protected override LocalizedString TooltipName => Name;
         protected override LocalizedString TooltipDescription => Description;
@@ -61,7 +62,8 @@ namespace Internal.Scripts.Economy.Cities
             int minDuration,
             int maxDuration,
             string cascadeRoadId,
-            float cascadeChance)
+            float cascadeChance,
+            LocalizedString[] rumorLines)
         {
             Id = id;
             Name = name;
@@ -75,6 +77,7 @@ namespace Internal.Scripts.Economy.Cities
             MaxDuration = maxDuration;
             CascadeRoadId = cascadeRoadId;
             CascadeChance = cascadeChance;
+            RumorLines = rumorLines;
         }
 #endif
     }

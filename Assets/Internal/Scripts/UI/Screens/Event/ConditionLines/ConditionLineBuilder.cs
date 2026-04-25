@@ -9,9 +9,10 @@ namespace Internal.Scripts.UI.Screens.Event.ConditionLines
         public ConditionLineBuilder(
             SkillCheckConditionLine skillCheck,
             ItemConditionLine item,
-            LanguageConditionLine language)
+            LanguageConditionLine language,
+            CompanionConditionLine companion)
         {
-            _lines = new IConditionLine[] { skillCheck, item, language };
+            _lines = new IConditionLine[] { skillCheck, item, language, companion };
         }
 
         public string Build(ConditionLineContext context)

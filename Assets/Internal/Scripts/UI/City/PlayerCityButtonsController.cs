@@ -90,11 +90,8 @@ namespace Internal.Scripts.UI.City
 
             if (_cityNodeResolver.TryGetCityByNodeId(nodeId, out CityData city))
             {
-                if (!_screenStackService.TryOpen(ScreenId.Trade, city.Id, out ScreenOpenResult result))
-                {
-                    Debug.LogWarning($"[SPJ] Cannot open trade screen: {result}");
-                    return;
-                }
+                if (!_screenStackService.TryOpen(ScreenId.CityEntryConfirm, city, out ScreenOpenResult result))
+                    Debug.LogWarning($"[SPJ] Cannot open city entry screen: {result}");
                 return;
             }
 
