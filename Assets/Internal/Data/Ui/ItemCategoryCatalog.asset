@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eb4572eb4ba89843806ac9a683f00f1, type: 3}
+  m_Name: ItemCategoryCatalog
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Components.ItemCategoryCatalog
+  _entries:
+  - Category: 1
+    Icon: {fileID: 0}
+    Name:
+      m_TableReference:
+        m_TableCollectionName: GUID:bd0fd534586ea9547b344b35cd78732d
+      m_TableEntryReference:
+        m_KeyId: 523370496
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  - Category: 2
+    Icon: {fileID: 0}
+    Name:
+      m_TableReference:
+        m_TableCollectionName: GUID:bd0fd534586ea9547b344b35cd78732d
+      m_TableEntryReference:
+        m_KeyId: 573702144
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  - Category: 3
+    Icon: {fileID: 0}
+    Name:
+      m_TableReference:
+        m_TableCollectionName: GUID:bd0fd534586ea9547b344b35cd78732d
+      m_TableEntryReference:
+        m_KeyId: 573702145
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  - Category: 4
+    Icon: {fileID: 0}
+    Name:
+      m_TableReference:
+        m_TableCollectionName: GUID:bd0fd534586ea9547b344b35cd78732d
+      m_TableEntryReference:
+        m_KeyId: 573702146
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  - Category: 5
+    Icon: {fileID: 0}
+    Name:
+      m_TableReference:
+        m_TableCollectionName: GUID:bd0fd534586ea9547b344b35cd78732d
+      m_TableEntryReference:
+        m_KeyId: 577896448
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  - Category: 6
+    Icon: {fileID: 0}
+    Name:
+      m_TableReference:
+        m_TableCollectionName: GUID:bd0fd534586ea9547b344b35cd78732d
+      m_TableEntryReference:
+        m_KeyId: 3360399972884480
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []

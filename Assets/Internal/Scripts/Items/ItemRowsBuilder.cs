@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Internal.Scripts.Economy.Generated;
 using Internal.Scripts.Economy.Save.Models;
 using Internal.Scripts.Trading;
 
@@ -195,7 +196,8 @@ namespace Internal.Scripts.Items
                 (tooltipTitle, tooltipText) = PriceTooltipFormatter.Format(breakdown);
             }
 
-            rows.Add(new ItemRowData(itemId, count, name, weightText, priceText, tooltipTitle, tooltipText));
+            ItemType category = _itemCatalog.GetItem(itemId)?.Type ?? ItemType.Unknown;
+            rows.Add(new ItemRowData(itemId, count, name, weightText, priceText, tooltipTitle, tooltipText, category));
         }
     }
 }
