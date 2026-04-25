@@ -4,6 +4,7 @@ using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Localization;
 using Internal.Scripts.UI.Screens.Core.View;
 using Internal.Scripts.UI.Screens.Core.ViewModel;
+using Internal.Scripts.UI.Screens.TargetSelection.Search;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Localization;
@@ -14,10 +15,15 @@ namespace Internal.Scripts.UI.Screens.TargetSelection
     public class TargetSelectionScreen : ScreenViewBase
     {
         [SerializeField] protected CloseButton _cancelButton;
+        [Header("Search Panel")]
+        [SerializeField] private CitySearchPanelView _searchPanel;
         [Header("Confirmation")]
         [SerializeField] private GameObject _confirmContainer;
         [SerializeField] private TextMeshProUGUI _headerText;
-        [SerializeField] private TextMeshProUGUI _travelInfoText;
+        [SerializeField] private CityInfoView _confirmCityInfo;
+        [SerializeField] private TextMeshProUGUI _travelInfoTopText;
+        [SerializeField] private TextMeshProUGUI _travelInfoBottomText;
+        [SerializeField] private GameObject _travelInfoSection;
         [SerializeField] private Button _confirmButton;
         [SerializeField] private Button _cancelPreviewButton;
         [SerializeField] private TextMeshProUGUI _confirmButtonText;
@@ -31,6 +37,13 @@ namespace Internal.Scripts.UI.Screens.TargetSelection
         [SerializeField] private LocalizedString _suppliesInsufficientLocalizedString;
 
         private TargetSelectionScreenViewModel _viewModel;
+        private LocalizationService.LocalizedTextHandle _headerHandle;
+        private LocalizationService.LocalizedTextHandle _confirmButtonHandle;
+        private LocalizationService.LocalizedTextHandle _cancelButtonHandle;
+        private LocalizationService.LocalizedTextHandle _travelDaysHandle;
+        private LocalizationService.LocalizedTextHandle _suppliesHandle;
+        private int _lastTravelDays;
+        private bool _lastSuppliesSufficient;
 
         public override void BindViewModel(IScreenViewModel viewModel)
         {
@@ -44,7 +57,15 @@ namespace Internal.Scripts.UI.Screens.TargetSelection
             if (_cancelPreviewButton != null)
                 _cancelPreviewButton.onClick.AddListener(OnCancelPreview);
 
-            SetStaticTexts();
+            _searchPanel?.Bind(_viewModel.SearchPanel);
+            _searchPanel?.SetLocalization(Localization);
+            if (_confirmCityInfo != null)
+            {
+                _confirmCityInfo.SetTooltipService(_viewModel.SearchPanel?.TooltipService);
+                _confirmCityInfo.SetLocalization(Localization);
+            }
+
+            BindStaticTexts();
         }
 
         public override void Show()
@@ -53,27 +74,54 @@ namespace Internal.Scripts.UI.Screens.TargetSelection
             base.Show();
         }
 
+        protected override void OnLocalizationReady()
+        {
+            base.OnLocalizationReady();
+            _searchPanel?.SetLocalization(Localization);
+            _confirmCityInfo?.SetLocalization(Localization);
+            BindStaticTexts();
+        }
+
         private void ResetPreviewState()
         {
             if (_confirmContainer != null)
                 _confirmContainer.SetActive(false);
             if (_cancelButton != null)
                 _cancelButton.gameObject.SetActive(true);
-            if (_travelInfoText != null)
-                _travelInfoText.gameObject.SetActive(false);
+            if (_travelInfoSection != null)
+                _travelInfoSection.SetActive(false);
         }
 
-        private void SetStaticTexts()
+        private void BindStaticTexts()
         {
+            if (Localization == null) return;
+
+            DisposeStaticHandles();
+
+            if (_headerText != null && _travelToLocalizedString != null)
+                _headerHandle = Localization.BindText(
+                    _headerText, _travelToLocalizedString, "TargetSelection.TravelTo");
+
             if (_confirmButtonText != null && _confirmLocalizedString != null)
-                _confirmButtonText.text = LocalizationService.ResolveString(
-                    _confirmLocalizedString, "Yes", "UI.TargetSelection.Main.Button.Confirm");
+                _confirmButtonHandle = Localization.BindText(
+                    _confirmButtonText, _confirmLocalizedString, "TargetSelection.Confirm");
+
             if (_cancelPreviewButtonText != null && _cancelLocalizedString != null)
-                _cancelPreviewButtonText.text = LocalizationService.ResolveString(
-                    _cancelLocalizedString, "No", "UI.TargetSelection.Main.Button.Cancel");
+                _cancelButtonHandle = Localization.BindText(
+                    _cancelPreviewButtonText, _cancelLocalizedString, "TargetSelection.Cancel");
         }
 
-        private void ApplyPreview(CityData city, TravelEstimate estimate)
+        private void DisposeStaticHandles()
+        {
+            _headerHandle?.Dispose();
+            _headerHandle = null;
+            _confirmButtonHandle?.Dispose();
+            _confirmButtonHandle = null;
+            _cancelButtonHandle?.Dispose();
+            _cancelButtonHandle = null;
+        }
+
+        private void ApplyPreview(CityData city, TravelEstimate estimate, CityRowData rowData)
         {
             bool inPreview = city != null;
 
@@ -82,43 +130,59 @@ namespace Internal.Scripts.UI.Screens.TargetSelection
             if (_cancelButton != null)
                 _cancelButton.gameObject.SetActive(!inPreview);
 
-            if (inPreview && _headerText != null)
+            if (inPreview && _confirmCityInfo != null)
             {
-                string cityName = city.Name.GetLocalizedString();
-                _headerText.text = LocalizationService.ResolveString(
-                    _travelToLocalizedString,
-                    $"Travel to {cityName}?",
-                    "UI.TargetSelection.Main.Label.TravelTo",
-                    cityName);
+                _confirmCityInfo.Apply(rowData.CityIcon, rowData.Name, rowData.CityTooltip,
+                    rowData.BuildingEntries, rowData.QuestIndicatorText);
             }
 
-            if (_travelInfoText != null)
+            ApplyTravelInfo(inPreview, estimate);
+        }
+
+        private void ApplyTravelInfo(bool inPreview, TravelEstimate estimate)
+        {
+            bool show = inPreview && estimate.IsValid;
+            if (_travelInfoSection != null)
+                _travelInfoSection.SetActive(show);
+            if (!show)
+                return;
+
+            BindTravelDays(estimate.Days);
+            BindSupplies(estimate.SuppliesSufficient);
+        }
+
+        private void BindTravelDays(int days)
+        {
+            if (_travelInfoTopText == null || _travelDaysLocalizedString == null || Localization == null)
+                return;
+
+            if (_travelDaysHandle == null || _lastTravelDays != days)
             {
-                if (inPreview && estimate.IsValid)
-                {
-                    string daysLine = LocalizationService.ResolveString(
-                        _travelDaysLocalizedString,
-                        $"{estimate.Days} days at normal speed",
-                        "UI.TargetSelection.Main.Label.TravelDays",
-                        estimate.Days);
+                _lastTravelDays = days;
+                _travelDaysHandle?.Dispose();
+                _travelDaysHandle = Localization.BindText(
+                    _travelInfoTopText, _travelDaysLocalizedString,
+                    "TargetSelection.TravelDays", fallback: null, postProcess: null, days);
+            }
+        }
 
-                    LocalizedString suppliesString = estimate.SuppliesSufficient
-                        ? _suppliesSufficientLocalizedString
-                        : _suppliesInsufficientLocalizedString;
-                    string suppliesLine = LocalizationService.ResolveString(
-                        suppliesString,
-                        estimate.SuppliesSufficient ? "Supplies sufficient" : "Supplies insufficient",
-                        estimate.SuppliesSufficient
-                            ? "UI.TargetSelection.Main.Label.SuppliesSufficient"
-                            : "UI.TargetSelection.Main.Label.SuppliesInsufficient");
+        private void BindSupplies(bool sufficient)
+        {
+            if (_travelInfoBottomText == null || Localization == null)
+                return;
 
-                    _travelInfoText.text = $"{daysLine}\n{suppliesLine}";
-                    _travelInfoText.gameObject.SetActive(true);
-                }
-                else
-                {
-                    _travelInfoText.gameObject.SetActive(false);
-                }
+            LocalizedString target = sufficient
+                ? _suppliesSufficientLocalizedString
+                : _suppliesInsufficientLocalizedString;
+            if (target == null) return;
+
+            if (_suppliesHandle == null || _lastSuppliesSufficient != sufficient)
+            {
+                _lastSuppliesSufficient = sufficient;
+                _suppliesHandle?.Dispose();
+                _suppliesHandle = Localization.BindText(
+                    _travelInfoBottomText, target,
+                    sufficient ? "TargetSelection.SuppliesSufficient" : "TargetSelection.SuppliesInsufficient");
             }
         }
 
@@ -133,6 +197,12 @@ namespace Internal.Scripts.UI.Screens.TargetSelection
                 _confirmButton.onClick.RemoveListener(OnConfirm);
             if (_cancelPreviewButton != null)
                 _cancelPreviewButton.onClick.RemoveListener(OnCancelPreview);
+
+            DisposeStaticHandles();
+            _travelDaysHandle?.Dispose();
+            _travelDaysHandle = null;
+            _suppliesHandle?.Dispose();
+            _suppliesHandle = null;
 
             base.OnDestroy();
         }

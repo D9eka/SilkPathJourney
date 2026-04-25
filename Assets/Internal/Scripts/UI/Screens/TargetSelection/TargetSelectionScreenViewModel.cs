@@ -5,6 +5,7 @@ using Internal.Scripts.Player;
 using Internal.Scripts.Player.StartMovement;
 using Internal.Scripts.UI.Screens.Core.Config;
 using Internal.Scripts.UI.Screens.Core.ViewModel;
+using Internal.Scripts.UI.Screens.TargetSelection.Search;
 using Internal.Scripts.UI.StackService;
 using UnityEngine;
 
@@ -17,21 +18,29 @@ namespace Internal.Scripts.UI.Screens.TargetSelection
         private readonly CameraController _cameraController;
         private readonly CameraSceneSettings _settings;
         private readonly TravelEstimator _travelEstimator;
+        private readonly CitySearchPanelViewModel _searchPanel;
+        private readonly CityCardBuilder _cardBuilder;
 
-        public event Action<CityData, TravelEstimate> PreviewChanged;
+        public event Action<CityData, TravelEstimate, CityRowData> PreviewChanged;
+
+        public CitySearchPanelViewModel SearchPanel => _searchPanel;
 
         public TargetSelectionScreenViewModel(
             IPlayerStartMovement playerStartMovement,
             ScreenStackService screenStackService,
             CameraController cameraController,
             CameraSceneSettings settings,
-            TravelEstimator travelEstimator)
+            TravelEstimator travelEstimator,
+            CitySearchPanelViewModel searchPanel,
+            CityCardBuilder cardBuilder)
         {
             _playerStartMovement = playerStartMovement;
             _screenStackService = screenStackService;
             _cameraController = cameraController;
             _settings = settings;
             _travelEstimator = travelEstimator;
+            _searchPanel = searchPanel;
+            _cardBuilder = cardBuilder;
         }
 
         public override ScreenId Id => ScreenId.TargetSelection;
@@ -43,10 +52,16 @@ namespace Internal.Scripts.UI.Screens.TargetSelection
             _playerStartMovement.BeginSelection();
             _cameraController.UnfollowPlayer();
             _cameraController.ZoomCamera(_settings.TargetSelectionZoomSize);
+
+            _searchPanel.Activate();
+            _searchPanel.CityRowClicked += HandleSearchCityClicked;
         }
 
         protected override void OnClose()
         {
+            _searchPanel.CityRowClicked -= HandleSearchCityClicked;
+            _searchPanel.Deactivate();
+
             _playerStartMovement.OnSelectionStateChanged -= HandleSelectionStateChanged;
             _playerStartMovement.OnCityPreview -= HandleCityPreview;
             if (_playerStartMovement.IsChoosingTarget)
@@ -68,7 +83,8 @@ namespace Internal.Scripts.UI.Screens.TargetSelection
         {
             _playerStartMovement.CancelPreview();
             _cameraController.ZoomCamera(_settings.TargetSelectionZoomSize);
-            PreviewChanged?.Invoke(null, default);
+            _searchPanel.SetVisible(true);
+            PreviewChanged?.Invoke(null, default, default);
         }
 
         private void HandleCityPreview(CityData city, Vector3 worldPos)
@@ -81,13 +97,20 @@ namespace Internal.Scripts.UI.Screens.TargetSelection
             _cameraController.ZoomCamera(_settings.FollowZoomSize);
 
             TravelEstimate estimate = _travelEstimator.Estimate(city.NodeId);
-            PreviewChanged?.Invoke(city, estimate);
+            CityRowData rowData = _cardBuilder.Build(city);
+            _searchPanel.SetVisible(false);
+            PreviewChanged?.Invoke(city, estimate, rowData);
         }
 
         private void HandleSelectionStateChanged(bool isSelecting)
         {
             if (!isSelecting)
                 _screenStackService.Close(ScreenId.TargetSelection);
+        }
+
+        private void HandleSearchCityClicked(CityData city)
+        {
+            _playerStartMovement.RequestCityPreview(city);
         }
     }
 }
