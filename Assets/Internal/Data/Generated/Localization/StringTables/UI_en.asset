@@ -535,7 +535,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 12936485635350528
-    m_Localized: Travel to {0}?
+    m_Localized: Travel?
     m_Metadata:
       m_Items: []
   - m_Id: 12936485698265088
@@ -1456,6 +1456,66 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 28547478138642433
     m_Localized: Right Stick
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29253922433523712
+    m_Localized: Learn news about {0}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29253922458689536
+    m_Localized: 'Modifiers:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29253922458689537
+    m_Localized: Cities found ({0})
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29253922458689538
+    m_Localized: Find city
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29253922458689539
+    m_Localized: "Type city name\u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29253922458689540
+    m_Localized: Type a name or choose a filter to find cities
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29253922458689541
+    m_Localized: Select
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29253922458689542
+    m_Localized: Quest available
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29253922458689543
+    m_Localized: Quest leads here
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29253922458689544
+    m_Localized: All
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29253922458689545
+    m_Localized: Temple
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29253922458689546
+    m_Localized: Guild
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29253922458689547
+    m_Localized: Tavern
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29253922458689548
+    m_Localized: Caravansary
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29253922458689549
+    m_Localized: Nothing found
     m_Metadata:
       m_Items: []
   references:

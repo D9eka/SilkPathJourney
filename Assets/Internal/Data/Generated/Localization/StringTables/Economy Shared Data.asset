@@ -1203,6 +1203,90 @@ MonoBehaviour:
     m_Key: city_modifier.war.name
     m_Metadata:
       m_Items: []
+  - m_Id: 31115015099506688
+    m_Key: city_modifier_rumor.war.1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31115015145644032
+    m_Key: city_modifier_rumor.war.2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31115015145644033
+    m_Key: city_modifier_rumor.war.3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31115015145644034
+    m_Key: city_modifier_rumor.bandits.1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31115015145644035
+    m_Key: city_modifier_rumor.bandits.2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31115015145644036
+    m_Key: city_modifier_rumor.bandits.3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31115015145644037
+    m_Key: city_modifier_rumor.epidemic.1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31115015145644038
+    m_Key: city_modifier_rumor.epidemic.2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31115015145644039
+    m_Key: city_modifier_rumor.epidemic.3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31115015145644040
+    m_Key: city_modifier_rumor.festival.1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31115015145644041
+    m_Key: city_modifier_rumor.festival.2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31115015145644042
+    m_Key: city_modifier_rumor.festival.3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31115015145644043
+    m_Key: city_modifier_rumor.caravan_arrival.1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31115015145644044
+    m_Key: city_modifier_rumor.caravan_arrival.2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31115015145644045
+    m_Key: city_modifier_rumor.caravan_arrival.3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31115015145644046
+    m_Key: city_modifier_rumor.high_taxes.1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31115015145644047
+    m_Key: city_modifier_rumor.high_taxes.2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31115015145644048
+    m_Key: city_modifier_rumor.high_taxes.3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31115015145644049
+    m_Key: city_modifier_rumor.drought.1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31115015145644050
+    m_Key: city_modifier_rumor.drought.2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31115015145644051
+    m_Key: city_modifier_rumor.drought.3
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -1259,6 +1259,114 @@ MonoBehaviour:
     m_Localized: War
     m_Metadata:
       m_Items: []
+  - m_Id: 31115015099506688
+    m_Localized: "Do not ride to {0} now \u2014 troops hold the roads and looters
+      give no one any rest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31115015145644032
+    m_Localized: I was in {0} last week. A whole quarter burned, the bazaar sits
+      shut, half the merchants have fled.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31115015145644033
+    m_Localized: They say soldiers are back in {0}. Prices are wild, but you can
+      still find some goods there if you look.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31115015145644034
+    m_Localized: "Keep clear of the road to {0} \u2014 a gang has been raiding for
+      three weeks, three caravans already stripped."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31115015145644035
+    m_Localized: I was stopped myself near the gates of {0}. Five riders with bows.
+      Lost two bales of silk and count myself lucky.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31115015145644036
+    m_Localized: "{0} is restless these days \u2014 bandits own the approaches. But
+      trade still moves if you travel in a large convoy."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31115015145644037
+    m_Localized: "Skirt around {0} \u2014 plague is there. Gate guards drive off
+      anyone without a physician's seal."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31115015145644038
+    m_Localized: "I rode to {0} but did not enter. Smoke from bonfires hung above
+      the walls and the smell \u2014 unmistakable. I turned back."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31115015145644039
+    m_Localized: "Sickness is making its rounds in {0}. Folk are thinning out, trade
+      has all but stopped, but not every shop is shuttered \u2014 you can go, with
+      great caution."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31115015145644040
+    m_Localized: "There is a festival in {0} right now \u2014 merchants poured in
+      from all sides, prices fell, and spirits are high. Best time to go."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31115015145644041
+    m_Localized: I just came from {0}. The square blazes with lights, drums beat
+      till morning, and one dirham buys what two would any other day.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31115015145644042
+    m_Localized: "There is a feast in {0} \u2014 crowds everywhere, noise. Goods
+      sell briskly, but the cut-purses are busy too."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31115015145644043
+    m_Localized: "A large convoy from the west arrived in {0} recently. The market
+      is bursting with goods \u2014 no point going now, prices have dropped."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31115015145644044
+    m_Localized: "You are late to {0} with silk. They have been unloading a whole
+      convoy since last week \u2014 you will not sell at a good price."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31115015145644045
+    m_Localized: "{0} is awash in goods right now \u2014 a massive convoy just arrived.
+      You can pick up something cheap, but there is nothing worth hauling there."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31115015145644046
+    m_Localized: "In {0} the tax-men strip you to the last coin \u2014 haul your
+      goods elsewhere."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31115015145644047
+    m_Localized: They say the ruler of {0} imposed a new tariff. Merchants are groaning,
+      and weighmen stand at every entry point.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31115015145644048
+    m_Localized: "I was in {0} \u2014 taxes bite hard, I will not deny it. But their
+      wares are good, if you do not buy too much."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31115015145644049
+    m_Localized: "Do not count on water in {0} \u2014 the wells are low, and prices
+      for water and grain are the worst I have seen. Stock up here."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31115015145644050
+    m_Localized: '{0} has had drought two years running. The river shallowed, the
+      fields cracked, the people are sour. You can trade there, but do not expect
+      much.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31115015145644051
+    m_Localized: "They say {0} has seen no rain since spring. Food is scarce in the
+      bazaar, but everything else sells \u2014 people have no mind for trade, only
+      for feeding themselves."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
