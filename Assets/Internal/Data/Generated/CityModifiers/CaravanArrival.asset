@@ -40,6 +40,31 @@ MonoBehaviour:
   <MaxDuration>k__BackingField: 10
   <CascadeRoadId>k__BackingField: clear_weather
   <CascadeChance>k__BackingField: 0.025
+  <RumorLines>k__BackingField:
+  - m_TableReference:
+      m_TableCollectionName: Economy
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: city_modifier_rumor.caravan_arrival.1
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  - m_TableReference:
+      m_TableCollectionName: Economy
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: city_modifier_rumor.caravan_arrival.2
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  - m_TableReference:
+      m_TableCollectionName: Economy
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: city_modifier_rumor.caravan_arrival.3
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   references:
     version: 2
     RefIds: []

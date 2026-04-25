@@ -40,6 +40,31 @@ MonoBehaviour:
   <MaxDuration>k__BackingField: 30
   <CascadeRoadId>k__BackingField: fog
   <CascadeChance>k__BackingField: 0.02
+  <RumorLines>k__BackingField:
+  - m_TableReference:
+      m_TableCollectionName: Economy
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: city_modifier_rumor.bandits.1
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  - m_TableReference:
+      m_TableCollectionName: Economy
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: city_modifier_rumor.bandits.2
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  - m_TableReference:
+      m_TableCollectionName: Economy
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: city_modifier_rumor.bandits.3
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   references:
     version: 2
     RefIds: []

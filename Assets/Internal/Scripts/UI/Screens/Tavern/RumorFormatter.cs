@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Text;
+using Internal.Scripts.Economy;
 using Internal.Scripts.Economy.Cities;
 using Internal.Scripts.Economy.Cities.Rumors;
 using Internal.Scripts.UI.Localization;
@@ -9,6 +10,13 @@ namespace Internal.Scripts.UI.Screens.Tavern
 {
     public sealed class RumorFormatter
     {
+        private readonly EconomyDatabase _economyDb;
+
+        public RumorFormatter(EconomyDatabase economyDb)
+        {
+            _economyDb = economyDb;
+        }
+
         public string FormatRumorsText(List<RumorData> rumors)
         {
             if (rumors == null || rumors.Count == 0)
@@ -17,11 +25,25 @@ namespace Internal.Scripts.UI.Screens.Tavern
             var sb = new StringBuilder();
             foreach (var rumor in rumors)
             {
-                string line = ResolveLoc("UI.Tavern.Rumors.Entry", "UI.Tavern.Rumors.Entry",
-                    ResolveCityName(rumor), rumor.ModifierName);
+                string line = ResolveRumorLine(rumor);
                 sb.AppendLine(line);
             }
             return sb.ToString().TrimEnd();
+        }
+
+        private string ResolveRumorLine(RumorData rumor)
+        {
+            var modifier = _economyDb?.GetCityModifier(rumor.ModifierId);
+            if (modifier?.RumorLines is { Length: > 0 } lines)
+            {
+                int seed = rumor.StartDay ^ rumor.ModifierId.GetHashCode();
+                int index = ((seed % lines.Length) + lines.Length) % lines.Length;
+                string cityName = ResolveCityName(rumor);
+                return LocalizationService.ResolveString(lines[index], cityName, "TavernRumorLine", cityName);
+            }
+
+            return ResolveLoc("UI.Tavern.Rumors.Entry", "UI.Tavern.Rumors.Entry",
+                ResolveCityName(rumor), rumor.ModifierName);
         }
 
         public List<RoadInfoEntry> BuildRoadInfoEntries(List<RumorData> rumors, int playerMoney, int rumorCost)
@@ -33,7 +55,7 @@ namespace Internal.Scripts.UI.Screens.Tavern
             {
                 var rumor = rumors[i];
                 string description = ResolveLoc(
-                    "UI.Tavern.Rumors.Days", "UI.Tavern.Rumors.Days", rumor.ModifierName, rumor.RemainingDays);
+                    "UI.Tavern.Rumors.BuyDescription", "UI.Tavern.Rumors.BuyDescription", ResolveCityName(rumor));
                 result.Add(new RoadInfoEntry(ResolveCityName(rumor), description, buyText, canAfford, i));
             }
             return result;

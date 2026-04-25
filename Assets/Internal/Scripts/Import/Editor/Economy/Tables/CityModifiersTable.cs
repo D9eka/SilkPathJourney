@@ -35,6 +35,9 @@ namespace Internal.Scripts.Import.Editor.Economy.Tables
             int maxDurIndex = FindColumnIndex(header, "max_duration");
             int cascadeRoadIndex = FindColumnIndex(header, "cascade_road_id");
             int cascadeChanceIndex = FindColumnIndex(header, "cascade_chance");
+            int rumor1Index = FindColumnIndex(header, "rumor_1");
+            int rumor2Index = FindColumnIndex(header, "rumor_2");
+            int rumor3Index = FindColumnIndex(header, "rumor_3");
             if (idIndex < 0 || nameIndex < 0)
             {
                 Debug.LogError("[SPJ] Missing required columns in city_modifiers.csv");
@@ -61,6 +64,14 @@ namespace Internal.Scripts.Import.Editor.Economy.Tables
                 TryParseInt(GetField(rows[i], maxDurIndex), out int maxDur);
                 TryParseFloat(GetField(rows[i], cascadeChanceIndex), out float cascadeChance);
 
+                var rumorKeys = new[] {
+                    GetField(rows[i], rumor1Index).Trim(),
+                    GetField(rows[i], rumor2Index).Trim(),
+                    GetField(rows[i], rumor3Index).Trim()
+                };
+                var rumorLines = System.Array.ConvertAll(rumorKeys,
+                    k => MakeLocalizedString(k, locTableName));
+
                 asset.ApplyImport(
                     id,
                     MakeLocalizedString(nameKey, locTableName),
@@ -73,7 +84,8 @@ namespace Internal.Scripts.Import.Editor.Economy.Tables
                     minDur,
                     maxDur,
                     GetField(rows[i], cascadeRoadIndex).Trim(),
-                    cascadeChance);
+                    cascadeChance,
+                    rumorLines);
 
                 EditorUtility.SetDirty(asset);
                 modifiers.Add(asset);
