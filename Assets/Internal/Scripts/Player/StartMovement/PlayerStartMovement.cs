@@ -94,6 +94,22 @@ namespace Internal.Scripts.Player.StartMovement
             _pendingCity = null;
         }
 
+        public void RequestCityPreview(CityData city)
+        {
+            if (city == null || !_isChoosingTarget)
+                return;
+
+            var view = _cityViewSpawner.FindByNodeId(city.NodeId);
+            if (view == null)
+                return;
+
+            if (_pendingCity != null)
+                return;
+
+            _pendingCity = view;
+            OnCityPreview?.Invoke(view.City, view.transform.position);
+        }
+
         private void SubscribeToNodes()
         {
             foreach (CityView view in _cityViewSpawner.Views)

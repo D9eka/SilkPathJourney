@@ -15,5 +15,6 @@ namespace Internal.Scripts.Player.StartMovement
         void CancelSelection();
         void ConfirmSelection();
         void CancelPreview();
+        void RequestCityPreview(CityData city);
     }
 }

@@ -208,6 +208,8 @@ namespace Internal.Scripts.UI.Screens.Hud
 
         public void OpenCamp()
         {
+            if (TryOpenCityEntryConfirm())
+                return;
             if (!_screenStackService.TryOpen(ScreenId.Camp, out ScreenOpenResult result))
                 Debug.LogWarning($"[SPJ] Cannot open camp screen: {result}");
         }
@@ -224,10 +226,15 @@ namespace Internal.Scripts.UI.Screens.Hud
                     _playerMovementControl.CancelDestinationAtNode(turnNodeId);
             }
 
-            if (!_model.TryGetEnterCity(out CityData city))
-                return;
+            TryOpenCityEntryConfirm();
+        }
 
+        private bool TryOpenCityEntryConfirm()
+        {
+            if (!_model.TryGetEnterCity(out CityData city))
+                return false;
             _screenStackService.TryOpen(ScreenId.CityEntryConfirm, city, out _);
+            return true;
         }
 
         private void RebuildTrackerState()
