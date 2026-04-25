@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Localization;
+using Internal.Scripts.UI.Screens.TargetSelection.Search;
+using Internal.Scripts.UI.Tooltip;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Localization;
@@ -11,18 +13,14 @@ namespace Internal.Scripts.UI.Screens.CityEntryConfirm
 {
     public class CityEntryPreviewView : MonoBehaviour
     {
-        [Header("Section Labels")]
-        [SerializeField] private TextMeshProUGUI _cityTypeLabel;
-        [SerializeField] private TextMeshProUGUI _buildingsLabel;
+        [Header("City Info")]
+        [SerializeField] private CityInfoView _cityInfo;
 
-        [Header("City Info (dynamic)")]
-        [SerializeField] private IconLabelView _cityTypeView;
-        [SerializeField] private IconLabelView _haveQuestView;
-
-        [Header("Icon+Label Lists")]
-        [SerializeField] private IconLabelView _iconLabelPrefab;
-        [SerializeField] private RectTransform _buildingsContent;
+        [Header("Modifiers")]
+        [SerializeField] private TextMeshProUGUI _modifiersLabel;
+        [SerializeField] private LocalizedString _modifiersLabelLocalized;
         [SerializeField] private RectTransform _modifiersContent;
+        [SerializeField] private IconLabelView _iconLabelPrefab;
 
         [Header("Entry Conditions")]
         [SerializeField] private IconLabelView _dutyCountView;
@@ -37,8 +35,6 @@ namespace Internal.Scripts.UI.Screens.CityEntryConfirm
         [SerializeField] private TextMeshProUGUI _leaveButtonText;
 
         [Header("Localization")]
-        [SerializeField] private LocalizedString _cityTypeLabelLocalized;
-        [SerializeField] private LocalizedString _buildingsLabelLocalized;
         [SerializeField] private LocalizedString _dutyCountLocalized;
         [SerializeField] private LocalizedString _dutyDiscountLocalized;
         [SerializeField] private LocalizedString _hiddenItemsLocalized;
@@ -46,8 +42,9 @@ namespace Internal.Scripts.UI.Screens.CityEntryConfirm
         [SerializeField] private LocalizedString _enterCityButtonLocalized;
         [SerializeField] private LocalizedString _leaveButtonLocalized;
 
-        private readonly List<IconLabelView> _spawnedBuildings = new();
         private readonly List<IconLabelView> _spawnedModifiers = new();
+
+        private TooltipService _tooltipService;
 
         public event Action EnterClicked;
         public event Action LeaveClicked;
@@ -58,24 +55,39 @@ namespace Internal.Scripts.UI.Screens.CityEntryConfirm
             _leaveButton.onClick.AddListener(() => LeaveClicked?.Invoke());
         }
 
+        public void Initialize(TooltipService tooltipService)
+        {
+            _tooltipService = tooltipService;
+            if (_cityInfo != null)
+                _cityInfo.SetTooltipService(tooltipService);
+        }
+
         public void Apply(CityEntryConfirmViewState state)
         {
             ApplyCityInfo(state);
+            ApplyModifiers(state);
             ApplyEntryConditions(state);
             ApplyButtons(state);
         }
 
         private void ApplyCityInfo(CityEntryConfirmViewState state)
         {
-            _cityTypeLabel.text = LocalizationService.ResolveString(
-                _cityTypeLabelLocalized, "Тип города:", "CityEntryConfirm.CityTypeLabel");
-            _cityTypeView.Initialize(state.CityType.Icon, state.CityType.Label);
+            if (_cityInfo != null)
+                _cityInfo.Apply(state.CityType.Icon, state.CityType.Label, state.CityType.TooltipProvider,
+                    state.Buildings, state.QuestIndicatorText);
+        }
 
-            _buildingsLabel.text = LocalizationService.ResolveString(
-                _buildingsLabelLocalized, "Здания в городе:", "CityEntryConfirm.BuildingsLabel");
-            RebuildIconLabels(_buildingsContent, _spawnedBuildings, state.Buildings);
+        private void ApplyModifiers(CityEntryConfirmViewState state)
+        {
+            bool hasModifiers = state.Modifiers != null && state.Modifiers.Length > 0;
+            if (_modifiersLabel != null)
+            {
+                _modifiersLabel.gameObject.SetActive(hasModifiers);
+                if (hasModifiers && _modifiersLabelLocalized != null)
+                    _modifiersLabel.text = LocalizationService.ResolveString(
+                        _modifiersLabelLocalized, "Модификаторы:", "CityEntryConfirm.ModifiersLabel");
+            }
             RebuildIconLabels(_modifiersContent, _spawnedModifiers, state.Modifiers);
-            _haveQuestView.gameObject.SetActive(state.HasQuest);
         }
 
         private void ApplyEntryConditions(CityEntryConfirmViewState state)
@@ -138,6 +150,15 @@ namespace Internal.Scripts.UI.Screens.CityEntryConfirm
             {
                 IconLabelView card = Instantiate(_iconLabelPrefab, container);
                 card.Initialize(entry.Icon, entry.Label);
+
+                if (entry.TooltipProvider != null && _tooltipService != null)
+                {
+                    var provider = entry.TooltipProvider;
+                    var hover = HoverReporter.GetOrAdd(card.gameObject);
+                    hover.Entered += () => _tooltipService.ShowTooltipDelayed(provider);
+                    hover.Exited += () => _tooltipService.HideTooltip();
+                }
+
                 pool.Add(card);
             }
         }

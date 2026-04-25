@@ -34,6 +34,7 @@ namespace Internal.Scripts.UI.Screens.CityEntryConfirm
         {
             base.BindViewModel(viewModel);
             _viewModel = viewModel as CityEntryConfirmScreenViewModel;
+            _previewView.Initialize(_viewModel?.TooltipService);
             SubscribeViewModel();
         }
 
@@ -59,6 +60,7 @@ namespace Internal.Scripts.UI.Screens.CityEntryConfirm
         protected override void OnDisable()
         {
             UnsubscribeViewModel();
+            _viewModel?.TooltipService?.HideTooltip();
 
             _previewView.EnterClicked -= HandleEnterClicked;
             _previewView.LeaveClicked -= HandleLeaveClicked;
