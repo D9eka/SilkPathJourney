@@ -10,7 +10,7 @@ namespace Internal.Scripts.Npc.Core
     public class SegmentMover
     {
         public event Action<List<RoadPathSegment>> OnEndSegment;
-        
+
         private readonly IRoadNetwork _network;
         private readonly RoadSamplerCache _samplerCache;
         private readonly RoadPoseSampler _poseSampler;

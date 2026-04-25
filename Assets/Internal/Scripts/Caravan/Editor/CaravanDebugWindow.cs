@@ -147,13 +147,13 @@ namespace Internal.Scripts.Caravan.Editor
                 var extraData = _caravanDb.ExtraCarts.Find(e => e.Type == extraType);
                 string typeId = extraData != null ? extraData.Id : extraType.ToString().ToLower();
                 float dur = extraData != null ? extraData.Durability : 100;
-                float supply = extraData != null ? extraData.SuppliesPerDay : 1;
+                int animalCount = extraData != null ? extraData.SuppliesPerDay : 1;
                 _resourceRepo.UpdateResources(s => s.Carts.Add(new CartState
                 {
                     TypeId = typeId,
                     Durability = dur,
                     MaxDurability = dur,
-                    FoodConsumptionPerDay = supply
+                    AnimalCount = animalCount
                 }));
             }
 
