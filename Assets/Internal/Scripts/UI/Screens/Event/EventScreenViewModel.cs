@@ -70,6 +70,7 @@ namespace Internal.Scripts.UI.Screens.Event
         private readonly PlayerLanguageRepository _languageRepo;
         private readonly TooltipService _tooltipService;
         private readonly IEventOutcomeScaler _outcomeScaler;
+        private readonly RunEndOutcomeApplier _runEndApplier;
         private List<EventOutcomeEntry> _lastAppliedOutcomes;
         public List<EventOutcomeEntry> LastAppliedOutcomes => _lastAppliedOutcomes;
         private Tween _closeTween;
@@ -96,7 +97,8 @@ namespace Internal.Scripts.UI.Screens.Event
             EventOutcomeFormatter formatter,
             PlayerLanguageRepository languageRepo,
             TooltipService tooltipService,
-            IEventOutcomeScaler outcomeScaler)
+            IEventOutcomeScaler outcomeScaler,
+            RunEndOutcomeApplier runEndApplier)
         {
             _eventTrigger = eventTrigger;
             _screenStackService = screenStackService;
@@ -111,6 +113,7 @@ namespace Internal.Scripts.UI.Screens.Event
             _languageRepo = languageRepo;
             _tooltipService = tooltipService;
             _outcomeScaler = outcomeScaler;
+            _runEndApplier = runEndApplier;
         }
 
         public override ScreenId Id => ScreenId.Event;
@@ -331,8 +334,11 @@ namespace Internal.Scripts.UI.Screens.Event
         {
             _selectedChoice.Value = null;
             _closeTween?.Kill();
-            _closeTween = DOVirtual.DelayedCall(ConfirmResultDelay,
-                () => _screenStackService.Close(ScreenId.Event), ignoreTimeScale: true);
+            _closeTween = DOVirtual.DelayedCall(ConfirmResultDelay, () =>
+            {
+                _screenStackService.Close(ScreenId.Event);
+                _runEndApplier.TryFlushPending();
+            }, ignoreTimeScale: true);
         }
     }
 }

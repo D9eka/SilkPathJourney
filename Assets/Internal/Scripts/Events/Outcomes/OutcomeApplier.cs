@@ -30,7 +30,8 @@ namespace Internal.Scripts.Events.Outcomes
             AdvanceQuestApplier advanceQuest,
             CompleteQuestApplier completeQuest,
             FailQuestApplier failQuest,
-            SetQuestFlagApplier setQuestFlag)
+            SetQuestFlagApplier setQuestFlag,
+            RunEndOutcomeApplier runEnd)
         {
             Register(resource);
             Register(item);
@@ -52,6 +53,7 @@ namespace Internal.Scripts.Events.Outcomes
             Register(completeQuest);
             Register(failQuest);
             Register(setQuestFlag);
+            Register(runEnd);
         }
 
         public ResourceType? GetAffectedResource(EventOutcomeType type)

@@ -25,5 +25,6 @@
         CompleteQuest = 20,
         FailQuest = 21,
         SetQuestFlag = 22,
+        EndRun = 23,
     }
 }

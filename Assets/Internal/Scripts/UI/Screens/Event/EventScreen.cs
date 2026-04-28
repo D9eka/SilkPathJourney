@@ -16,6 +16,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 
 namespace Internal.Scripts.UI.Screens.Event
@@ -53,6 +54,7 @@ namespace Internal.Scripts.UI.Screens.Event
         private readonly List<ResourceIndicator> _spawnedIndicators = new();
         private readonly Dictionary<EventOutcomeType, ResourceIndicator> _resourceIndicators = new();
         private List<EventChoice> _currentChoices;
+        private bool _choiceMade;
         private int _lastLinkIndex = -1;
         private string _unknownLanguageTooltip;
 
@@ -77,10 +79,12 @@ namespace Internal.Scripts.UI.Screens.Event
             if (Localization != null)
                 BindHeaderLocalization();
             SubscribeViewModel();
+            LocalizationSettings.SelectedLocaleChanged += OnLocaleChanged;
         }
 
         private void OnDisable()
         {
+            LocalizationSettings.SelectedLocaleChanged -= OnLocaleChanged;
             UnsubscribeViewModel();
             _lastLinkIndex = -1;
             _unknownLanguageTooltip = null;
@@ -131,6 +135,13 @@ namespace Internal.Scripts.UI.Screens.Event
             if (_mainHeader != null && _mainHeader.Text != null && _mainHeaderLocalizedString != null)
                 _mainHeaderHandle = Localization.BindText(
                     _mainHeader.Text, _mainHeaderLocalizedString, "Event.MainHeader");
+        }
+
+        private void OnLocaleChanged(Locale _)
+        {
+            if (_choiceMade || _currentChoices == null || _currentChoices.Count == 0)
+                return;
+            CreateChoiceButtons(_currentChoices);
         }
 
         public override void BindViewModel(IScreenViewModel viewModel)
@@ -190,6 +201,7 @@ namespace Internal.Scripts.UI.Screens.Event
             _currentChoices = eventData.Choices != null
                 ? new List<EventChoice>(eventData.Choices)
                 : new List<EventChoice>();
+            _choiceMade = false;
             SpawnResourceIndicators();
 
             if (_currentChoices.Count == 0)
@@ -361,6 +373,7 @@ namespace Internal.Scripts.UI.Screens.Event
                     _eventDescriptionText.text = string.Join("\n\n", parts);
             }
 
+            _choiceMade = true;
             ClearChoiceButtons();
             SpawnContinueButton();
 
