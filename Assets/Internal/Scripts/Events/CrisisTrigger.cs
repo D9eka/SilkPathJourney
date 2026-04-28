@@ -57,9 +57,23 @@ namespace Internal.Scripts.Events
             if (state.Morale <= 0f
                 && TryTriggerRandom(_crisisConfig.OnMoraleDepleted)) return;
 
-            if (state.PlayerCart.Durability <= 0f)
-                TryTriggerRandom(_crisisConfig.OnCartBroken);
+            if (state.PlayerCart != null && state.PlayerCart.Durability <= 0f
+                && TryTriggerRandom(_crisisConfig.OnCartBroken)) return;
+
+            if (state.Food <= 0f
+                && TryTriggerRandom(_crisisConfig.OnFoodDepleted)) return;
+
+            if (state.Money <= 0
+                && TryTriggerRandom(_crisisConfig.OnMoneyDepleted)) return;
+
+            if ((state.Companions == null || state.Companions.Count == 0)
+                && (state.Carts == null || state.Carts.Count == 0)
+                && TryTriggerRandom(_crisisConfig.OnCaravanLost)) return;
         }
+
+#if UNITY_EDITOR
+        public void EditorForceCheck() => CheckCrisis();
+#endif
 
         private bool TryTriggerRandom(List<EventData> events)
         {

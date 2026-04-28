@@ -103,7 +103,8 @@ namespace Internal.Scripts.Import.Editor.Events
             var cart   = allEvents.Where(e => e.Category == EventCategory.CrisisCart).ToList();
 
             CrisisEventConfig config = LoadOrCreateAsset<CrisisEventConfig>(CRISIS_CONFIG_PATH);
-            config.ApplyImport(danger, morale, cart);
+            config.ApplyImport(danger, morale, cart,
+                config.OnFoodDepleted, config.OnMoneyDepleted, config.OnCaravanLost);
             EditorUtility.SetDirty(config);
         }
 
