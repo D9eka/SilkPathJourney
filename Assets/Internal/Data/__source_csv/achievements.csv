@@ -1,0 +1,6 @@
+achievement_id,name_key,description_key,trigger,value,legacy_reward,icon
+ach_first_trade,achievement.ach_first_trade.name,achievement.ach_first_trade.description,MoneyEarned,100,20,
+ach_long_journey,achievement.ach_long_journey.name,achievement.ach_long_journey.description,DaysTravelled,50,30,
+ach_polyglot,achievement.ach_polyglot.name,achievement.ach_polyglot.description,LanguagesLearned,2,25,
+ach_victory,achievement.ach_victory.name,achievement.ach_victory.description,Victory,0,100,
+ach_survivor,achievement.ach_survivor.name,achievement.ach_survivor.description,DefeatSurvived,0,20,

@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6ab103ee4ebcab4083e0a7bf5467bf2, type: 3}
+  m_Name: MerchantSon
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Player.Background.BackgroundData
+  <Id>k__BackingField: merchant_son
+  <Name>k__BackingField:
+    m_TableReference:
+      m_TableCollectionName: Player
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: background.merchant_son.name
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  <Description>k__BackingField:
+    m_TableReference:
+      m_TableCollectionName: Player
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: background.merchant_son.desc
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  <IsUnlockedByDefault>k__BackingField: 1
+  <UnlockCost>k__BackingField: 0
+  <TradeSkill>k__BackingField: 30
+  <CharismaSkill>k__BackingField: 15
+  <SurvivalSkill>k__BackingField: 10
+  <RoleKey>k__BackingField: background.merchant_son.role
+  <Difficulty>k__BackingField: 0
+  <MainSkillType>k__BackingField: 3
+  <SecondarySkillType>k__BackingField: 1
+  <FeaturesKey>k__BackingField: background.merchant_son.features
+  <IsRecommended>k__BackingField: 1
+  <StartingLanguages>k__BackingField:
+  - <LanguageType>k__BackingField: 2
+    <Level>k__BackingField: 4
+  - <LanguageType>k__BackingField: 1
+    <Level>k__BackingField: 2
+  <StartingMoney>k__BackingField: 100
+  <StartingSupplies>k__BackingField: 40
+  <StartingReputation>k__BackingField: 25
+  <StartingMoraleBonus>k__BackingField: 0
+  <StartingItems>k__BackingField:
+  - <ItemId>k__BackingField: silk
+    <Count>k__BackingField: 2
+  <StartingCityId>k__BackingField: changan
+  references:
+    version: 2
+    RefIds: []

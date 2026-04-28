@@ -1518,6 +1518,342 @@ MonoBehaviour:
     m_Localized: Nothing found
     m_Metadata:
       m_Items: []
+  - m_Id: 29628994755223552
+    m_Localized: Profile
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994801360896
+    m_Localized: Start New Run?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994801360897
+    m_Localized: Your current run will be permanently deleted.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994801360898
+    m_Localized: Start Over
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994801360899
+    m_Localized: Cancel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994805555200
+    m_Localized: New Run
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994805555201
+    m_Localized: Begin Journey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994805555202
+    m_Localized: Available
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994805555203
+    m_Localized: Locked
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994805555204
+    m_Localized: Starting Skills
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994805555205
+    m_Localized: Languages
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994805555206
+    m_Localized: Starting Resources
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994805555207
+    m_Localized: Starting Goods
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994805555208
+    m_Localized: Cart Selection
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994805555209
+    m_Localized: 'Role:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994805555210
+    m_Localized: Difficulty
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994805555211
+    m_Localized: Select
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994805555212
+    m_Localized: Recommended for first playthrough
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994805555213
+    m_Localized: Constantinople Reached!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994805555214
+    m_Localized: Bankruptcy. Journey ends
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994805555215
+    m_Localized: Caravan mutiny. Journey ends
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994805555216
+    m_Localized: Caravan lost. Journey ends
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994805555217
+    m_Localized: Famine on the road. Journey ends
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994805555218
+    m_Localized: You reached Constantinople!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994805555219
+    m_Localized: The treasury is empty, the trade route is closed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994805555220
+    m_Localized: Caravan morale hit zero, the mutiny began
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994805555221
+    m_Localized: All animals and companions are lost
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994805555222
+    m_Localized: Supplies ran out, famine claimed the travelers
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994805555223
+    m_Localized: General Statistics
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994805555224
+    m_Localized: Economy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994805555225
+    m_Localized: Caravan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994805555226
+    m_Localized: Adventures
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994805555227
+    m_Localized: Social
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994805555228
+    m_Localized: 'Days travelled: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994805555229
+    m_Localized: 'Cities visited: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994805555230
+    m_Localized: 'Earned: {0} coins'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994805555231
+    m_Localized: 'Spent: {0} coins'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994805555232
+    m_Localized: 'Net profit: {0} coins'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994805555233
+    m_Localized: 'Items bought: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994809749504
+    m_Localized: 'Items sold: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994809749505
+    m_Localized: 'Companions hired: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994809749506
+    m_Localized: 'Companions lost: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994809749507
+    m_Localized: 'Reached the end: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994809749508
+    m_Localized: 'Carts bought: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994809749509
+    m_Localized: 'Repairs: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994809749510
+    m_Localized: 'Of them successful: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994809749511
+    m_Localized: 'Of them failed: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994809749512
+    m_Localized: 'Crises survived: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994809749513
+    m_Localized: 'Quests completed: {0} / {1}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994809749514
+    m_Localized: Quests failed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994809749515
+    m_Localized: 'Languages learned: {0} ({1})'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994809749516
+    m_Localized: Legacy Points
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994809749517
+    m_Localized: Main Menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994809749518
+    m_Localized: New Run
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29628994809749519
+    m_Localized: To Legacy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29638641138524160
+    m_Localized: To unlock, visit the Legacy Shop and spend {0} legacy points
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29650283532378112
+    m_Localized: Starting City
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29722751307603968
+    m_Localized: Path
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29722751357935616
+    m_Localized: Legacy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29743789726752768
+    m_Localized: Legacy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30121302437126144
+    m_Localized: Legacy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30121302483263488
+    m_Localized: Shop
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30121302483263489
+    m_Localized: Achievements
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30121302483263490
+    m_Localized: Statistics
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30121302483263491
+    m_Localized: Unlock for {points}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30121302483263492
+    m_Localized: Purchased
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30121302483263493
+    m_Localized: Not enough LP
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30121302483263494
+    m_Localized: Earned
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30121302483263495
+    m_Localized: Locked
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30121302483263496
+    m_Localized: Total Runs
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30121302483263497
+    m_Localized: Victories
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30121302483263498
+    m_Localized: Defeats
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30121302483263499
+    m_Localized: Best Run
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30121302483263500
+    m_Localized: Total Days Travelled
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30121302483263501
+    m_Localized: Total Earned
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30121302483263502
+    m_Localized: Legacy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30306157171040256
+    m_Localized: 'Roads travelled: {0} km'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30306157212983296
+    m_Localized: 'Events lived through: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30306157212983297
+    m_Localized: 'Animals lost: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30306157212983298
+    m_Localized: 'Peak load: {0} %'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30306157212983299
+    m_Localized: 'Hazards on the road: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30306157212983300
+    m_Localized: 'Most expensive item: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30306157212983301
+    m_Localized: 'Legacy points earned: +{0} LP'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30306157212983302
+    m_Localized: 'Defeat bonus: +{0} LP'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

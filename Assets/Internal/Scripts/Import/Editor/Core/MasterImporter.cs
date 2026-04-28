@@ -1,13 +1,16 @@
 using System;
+using Internal.Scripts.Import.Editor.Achievement;
 using Internal.Scripts.Import.Editor.Camp;
 using Internal.Scripts.Import.Editor.Economy;
 using Internal.Scripts.Import.Editor.Events;
 using Internal.Scripts.Import.Editor.Languages;
 using Internal.Scripts.Import.Editor.Npc;
+using Internal.Scripts.Import.Editor.Player;
 using Internal.Scripts.Import.Editor.Quests;
 using Internal.Scripts.Import.Editor.Theme;
 using Internal.Scripts.Import.Editor.Caravan;
 using Internal.Scripts.Import.Editor.Trader;
+using Internal.Scripts.Import.Editor.Unlock;
 using UnityEditor;
 using UnityEngine;
 
@@ -31,6 +34,9 @@ namespace Internal.Scripts.Import.Editor.Core
                 NpcImporter.ImportAll();
                 TraderImporter.Import();
                 LanguageTypeGenerator.Generate();
+                BackgroundImporter.ImportAll();
+                UnlockImporter.ImportAll();
+                AchievementImporter.ImportAll();
                 LocalizationMasterImporter.ImportAll();
                 CultureAdjacencyBuilder.Build();
 

@@ -11395,6 +11395,294 @@ MonoBehaviour:
     m_Key: event.companion_condition_info.min
     m_Metadata:
       m_Items: []
+  - m_Id: 28642856263475200
+    m_Key: event.event_empire5_complete.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856301223936
+    m_Key: event.event_empire5_complete.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856301223937
+    m_Key: event.event_empire5_complete.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856301223938
+    m_Key: event.event_empire5_complete.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856301223939
+    m_Key: event.event_famine_storm.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856301223940
+    m_Key: event.event_famine_storm.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856301223941
+    m_Key: event.event_famine_storm.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418240
+    m_Key: event.event_famine_storm.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418241
+    m_Key: event.event_famine_locusts.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418242
+    m_Key: event.event_famine_locusts.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418243
+    m_Key: event.event_famine_locusts.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418244
+    m_Key: event.event_famine_locusts.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418245
+    m_Key: event.event_famine_poisoned.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418246
+    m_Key: event.event_famine_poisoned.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418247
+    m_Key: event.event_famine_poisoned.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418248
+    m_Key: event.event_famine_poisoned.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418249
+    m_Key: event.event_bankruptcy_creditors.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418250
+    m_Key: event.event_bankruptcy_creditors.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418251
+    m_Key: event.event_bankruptcy_creditors.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418252
+    m_Key: event.event_bankruptcy_creditors.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418253
+    m_Key: event.event_bankruptcy_robbed.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418254
+    m_Key: event.event_bankruptcy_robbed.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418255
+    m_Key: event.event_bankruptcy_robbed.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418256
+    m_Key: event.event_bankruptcy_robbed.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418257
+    m_Key: event.event_bankruptcy_sealed.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418258
+    m_Key: event.event_bankruptcy_sealed.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418259
+    m_Key: event.event_bankruptcy_sealed.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418260
+    m_Key: event.event_bankruptcy_sealed.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418261
+    m_Key: event.event_caravan_storm_lost.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418262
+    m_Key: event.event_caravan_storm_lost.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418263
+    m_Key: event.event_caravan_storm_lost.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418264
+    m_Key: event.event_caravan_storm_lost.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418265
+    m_Key: event.event_caravan_disease.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418266
+    m_Key: event.event_caravan_disease.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418267
+    m_Key: event.event_caravan_disease.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418268
+    m_Key: event.event_caravan_disease.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418269
+    m_Key: event.event_caravan_avalanche.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418270
+    m_Key: event.event_caravan_avalanche.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418271
+    m_Key: event.event_caravan_avalanche.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418272
+    m_Key: event.event_caravan_avalanche.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418273
+    m_Key: event.event_mutiny_revolt.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418274
+    m_Key: event.event_mutiny_revolt.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418275
+    m_Key: event.event_mutiny_revolt.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418276
+    m_Key: event.event_mutiny_revolt.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418277
+    m_Key: event.event_mutiny_desertion.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418278
+    m_Key: event.event_mutiny_desertion.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418279
+    m_Key: event.event_mutiny_desertion.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418280
+    m_Key: event.event_mutiny_desertion.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418281
+    m_Key: event.event_mutiny_killed_leader.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418282
+    m_Key: event.event_mutiny_killed_leader.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418283
+    m_Key: event.event_mutiny_killed_leader.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418284
+    m_Key: event.event_mutiny_killed_leader.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28649777125122048
+    m_Key: event.crisis_famine_mutiny.choice4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28649777162870784
+    m_Key: event.crisis_famine_mutiny.choice4.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28649777162870785
+    m_Key: event.crisis_famine_sell.choice4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28649777162870786
+    m_Key: event.crisis_famine_sell.choice4.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28649777162870787
+    m_Key: event.crisis_poverty_debt.choice4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28649777162870788
+    m_Key: event.crisis_poverty_debt.choice4.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28649777162870789
+    m_Key: event.crisis_poverty_theft.choice4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28649777162870790
+    m_Key: event.crisis_poverty_theft.choice4.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28649777162870791
+    m_Key: event.crisis_desertion.choice4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28649777162870792
+    m_Key: event.crisis_desertion.choice4.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28649777162870793
+    m_Key: event.crisis_unrest.choice4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28649777162870794
+    m_Key: event.crisis_unrest.choice4.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28649777162870795
+    m_Key: event.crisis_mutiny.choice4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28649777162870796
+    m_Key: event.crisis_mutiny.choice4.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28649777183842304
+    m_Key: event.crisis_famine_caravan.choice4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28649777183842305
+    m_Key: event.crisis_famine_caravan.choice4.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28649777183842306
+    m_Key: event.crisis_mutiny_porters.choice4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28649777183842307
+    m_Key: event.crisis_mutiny_porters.choice4.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28649777183842308
+    m_Key: event.crisis_debt_trap.choice4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28649777183842309
+    m_Key: event.crisis_debt_trap.choice4.result
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

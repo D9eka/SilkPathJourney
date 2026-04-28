@@ -366,18 +366,21 @@ UI.SaveSlot.Main.Tag.AutoSave,interface_names,35,А,A
 UI.SaveSlot.Main.Tag.ManualSave,interface_names,36,Р,M
 UI.MainMenu.Main.Button.NewGame,interface_names,37,Новая игра,New Game
 UI.MainMenu.Main.Button.Continue,interface_names,38,Продолжить,Continue
-UI.MainMenu.Main.Button.Load,interface_names,39,Загрузка,Load
+UI.MainMenu.Main.Button.Profile,interface_names,39,Профиль,Profile
 UI.MainMenu.Main.Button.Settings,interface_names,40,Настройки,Settings
 UI.MainMenu.Main.Button.Quit,interface_names,41,Выход,Quit
 UI.Pause.Main.Header.Main,interface_names,42,Пауза,Pause
 UI.Pause.Main.Button.BackToGame,interface_names,43,Продолжить,Resume
-UI.Pause.Main.Button.Save,interface_names,44,Сохранить,Save
-UI.Pause.Main.Button.Load,interface_names,45,Загрузить,Load
 UI.Pause.Main.Button.Settings,interface_names,46,Настройки,Settings
 UI.Pause.Main.Button.ExitToMenu,interface_names,47,В главное меню,Main Menu
 UI.Pause.Main.Button.Quit,interface_names,48,Выход из игры,Quit Game
 UI.SaveSlot.Main.Text.NewSave,interface_names,49,+ Новое сохранение,+ New Save
 UI.MainMenu.Main.Header.GameTitle,interface_names,50,Silk Path Journey,Silk Path Journey
+UI.ConfirmNewGame.Main.Header.Main,interface_names,51,Начать новый забег?,Start New Run?
+UI.ConfirmNewGame.Main.Text.Body,interface_names,52,Текущий забег будет удалён без возможности восстановления.,Your current run will be permanently deleted.
+UI.ConfirmNewGame.Main.Button.Confirm,interface_names,53,Начать заново,Start Over
+UI.ConfirmNewGame.Main.Button.Cancel,interface_names,54,Отмена,Cancel
+UI.NewGame.Card.Locked,interface_names,55,Заблокировано,Locked
 npc.name.li_wei,npc,,Ли Вэй,Li Wei
 npc.name.zhang_hao,npc,,Чжан Хао,Zhang Hao
 npc.name.chen_ming,npc,,Чэнь Мин,Chen Ming
@@ -1602,6 +1605,8 @@ event.crisis_famine_mutiny.choice2.result,event_choices,,"Вы встали пе
 event.crisis_famine_mutiny.choice2.fail,event_choices,,Пустые слова на голодный желудок — как масло в огонь. Кто-то швырнул камень в повозку. Двое схватились за ножи. Еле удалось развести.,Empty words on an empty stomach — fuel to the fire. Someone hurled a stone at the wagon. Two men grabbed knives. You barely pulled them apart.
 event.crisis_famine_mutiny.choice3,event_choices,,Стражник наводит порядок,The guard restores order
 event.crisis_famine_mutiny.choice3.result,event_choices,,"Стражник молча вышел вперёд, положив ладонь на рукоять меча. Не угрожая — просто напоминая. Толпа отхлынула. Бунт прекратился, но в глазах людей осталась ненависть.","The guard stepped forward silently, hand resting on his sword hilt. Not threatening — just reminding. The crowd pulled back. The mutiny ended, but hatred lingered in their eyes."
+event.crisis_famine_mutiny.choice4,events,,"Лечь голодать со всеми. Конец похода","Starve with them. The journey ends"
+event.crisis_famine_mutiny.choice4.result,events,,На рассвете лагерь не встал. Караван остался в песках навсегда.,At dawn the camp does not rise. The caravan remains in the sands forever.
 event.crisis_famine_sell.name,events,,Вынужденная распродажа,Desperate Sell-Off
 event.crisis_famine_sell.description,events,,"Припасы на исходе. У обочины стоит одинокий торговец с тощим ослом, нагруженным мешками зерна и вяленого мяса. Он видит отчаяние на ваших лицах и щурится с расчётливой ухмылкой. Он купит ваш товар — но за бесценок. Голод — лучший переговорщик на его стороне.",Supplies have run out. A lone trader stands by the roadside with a scrawny donkey laden with sacks of grain and dried meat. He sees the desperation on your faces and squints with a calculating smirk. He will buy your goods — but for a pittance. Hunger is the best negotiator on his side.
 event.crisis_famine_sell.choice1,event_choices,,Продать товар за еду,Sell goods for food
@@ -1611,6 +1616,8 @@ event.crisis_famine_sell.choice2.result,event_choices,,"Вы назвали ис
 event.crisis_famine_sell.choice2.fail,event_choices,,"Торговец расхохотался: «Да ты и торговать не умеешь, а туда же — в караванщики!» Пришлось отдать больше, чем хотелось, и проглотить унижение.","The trader laughed out loud: ""You cannot even haggle, yet you call yourself a caravan master!"" You had to give more than intended and swallow the humiliation."
 event.crisis_famine_sell.choice3,event_choices,,Купец из свиты находит выход,The merchant companion finds a deal
 event.crisis_famine_sell.choice3.result,event_choices,,"Ваш спутник-купец отвёл торговца в сторону и заговорил на языке прибыли — тихо, вкрадчиво. Через минуту оба вернулись с довольными лицами. Сделка вышла почти честной.","Your merchant companion drew the trader aside and spoke the language of profit — quietly, persuasively. A minute later both returned looking satisfied. The deal was almost fair."
+event.crisis_famine_sell.choice4,events,,"Прекратить торг. Шёлковый путь окончен","Cease trading. The Silk Road journey is over"
+event.crisis_famine_sell.choice4.result,events,,"Караван возвращается ни с чем. Голод догоняет на пути назад. Никто не доходит.","The caravan turns back with nothing. Hunger overtakes them on the road home. None make it back."
 event.crisis_poverty_debt.name,events,,Ростовщик на дороге,The Roadside Moneylender
 event.crisis_poverty_debt.description,events,,"На перекрёстке караванных троп под выцветшим навесом сидит согдийский ростовщик. Перед ним — весы, чернильница и стопка долговых расписок. Он знает вашу беду раньше, чем вы откроете рот: пустая мошна видна за ли. Его условия жестоки, но без денег караван не дойдёт до следующего города.
 
@@ -1624,6 +1631,8 @@ event.crisis_poverty_debt.choice2.result,event_choices,,"Вы знаете со�
 event.crisis_poverty_debt.choice2.fail,event_choices,,"Ростовщик выслушал и покачал головой. «Не учи учёного.» Займ урезан, а условия ещё хуже. Расписка легла в стопку — вы не первый и не последний.","The moneylender listened and shook his head. ""Do not teach the teacher."" The loan is smaller, the terms worse. Your note joined the pile — you are neither the first nor the last."
 event.crisis_poverty_debt.choice3,event_choices,,Уйти с пустыми руками,Walk away empty-handed
 event.crisis_poverty_debt.choice3.result,event_choices,,Вы развернулись и ушли. Гордость сохранена — но вечером люди считали последние медяки. Без денег каждый день на дороге — испытание.,"You turned and walked away. Pride intact — but that evening the men counted their last coppers. Without money, every day on the road is an ordeal."
+event.crisis_poverty_debt.choice4,events,,"Объявить себя банкротом. Поход окончен","Declare bankruptcy. The journey is over"
+event.crisis_poverty_debt.choice4.result,events,,"Кредиторы забирают повозки и товары. Дальше идти не на чем. Шёлковый путь закрыт.","The creditors take the carts and the goods. There is no way forward. The Silk Road is closed."
 event.crisis_poverty_theft.name,events,,Воровство из отчаяния,Desperate Theft
 event.crisis_poverty_theft.description,events,,"Ночью вы проснулись от шороха. Один из ваших людей копается в чужом тюке — караван попутчиков остановился рядом. Вор замер, глядя на вас глазами затравленного пса. Если его поймают чужие — отрубят руку. Если не поймают — сегодня будет чем заплатить за воду.","You wake at night to a rustling sound. One of your men is rummaging through a stranger's bale — a fellow caravan has camped nearby. The thief freezes, staring at you with the eyes of a cornered dog. If the strangers catch him — they will cut off his hand. If they do not — you will have coin for water today."
 event.crisis_poverty_theft.choice1,event_choices,,Прикрыть вора,Cover for the thief
@@ -1633,6 +1642,8 @@ event.crisis_poverty_theft.choice2,event_choices,,Остановить и нак
 event.crisis_poverty_theft.choice2.result,event_choices,,"Вы схватили его за руку и оттащили. Утром объявили перед всеми: виновный лишён доли. Люди смотрят исподлобья — кто с одобрением, кто со страхом. Но чужой караван кивнул с уважением.","You grabbed his arm and dragged him back. Come morning, you announced before all: the guilty man forfeits his share. The men watch from under their brows — some with approval, some with fear. But the neighboring caravan nodded with respect."
 event.crisis_poverty_theft.choice3,event_choices,,Разбудить всех и решить сообща,Wake everyone and decide together
 event.crisis_poverty_theft.choice3.result,event_choices,,"Вы созвали совет посреди ночи. Люди высказались — и решили вернуть украденное, а виновного не выдавать. Честность перед чужими, милосердие к своим. Наутро оба каравана двинулись вместе.","You called a council in the dead of night. The men spoke — and decided to return the stolen goods but not surrender the thief. Honesty before strangers, mercy for one's own. By morning both caravans set off together."
+event.crisis_poverty_theft.choice4,events,,"Признать поражение. Путь окончен","Admit defeat. The road ends here"
+event.crisis_poverty_theft.choice4.result,events,,"Воры унесли последние монеты. Без денег не пройти ни одной заставы. Караван брошен на полпути.","The thieves took the last coins. No checkpoint can be passed without silver. The caravan is abandoned halfway."
 event.crisis_poverty_theft.choice3.fail,event_choices,,"Совет перерос в свару. Одни кричали «отдать вора», другие — «своих не сдаём». Чужой караван проснулся от шума. Утро начали с раздора и позора.","The council devolved into a brawl. Some cried ""hand over the thief,"" others — ""we don't betray our own."" The other caravan woke from the noise. The morning began with discord and shame."
 event.crisis_siege.name,events,,Осада каравана,Caravan Under Siege
 event.crisis_siege.description,events,,"Они пришли на рассвете — два десятка всадников с закрытыми лицами. Не разбойники с большой дороги, а организованная банда, привыкшая брать караваны. Они окружили лагерь и встали кольцом, не торопясь атаковать. Вожак поднял руку: ждут вашего решения.
@@ -1656,6 +1667,8 @@ event.crisis_desertion.choice2.result,event_choices,,"Вы собрали люд
 event.crisis_desertion.choice2.fail,event_choices,,"Слова прозвучали пусто. Кто-то буркнул: «Слова не кормят.» Ещё один ушёл до полудня, прихватив лепёшки из общего мешка.","The words rang hollow. Someone muttered: ""Words don't feed."" One more left before noon, snatching flatbread from the common sack."
 event.crisis_desertion.choice3,event_choices,,Выслать погоню,Send a pursuit
 event.crisis_desertion.choice3.result,event_choices,,"Двое верных людей нагнали беглецов к полудню. Вернули припасы и привели обоих назад. Дезертиры понуры, но живы. Остальные молчат — урок понят.",Two loyal men caught up with the deserters by noon. They brought back the provisions and both runaways. The deserters hang their heads but are alive. The rest are silent — lesson learned.
+event.crisis_desertion.choice4,events,,"Отпустить всех и сдаться. Конец каравана","Let them all go and surrender. The caravan ends"
+event.crisis_desertion.choice4.result,events,,"На рассвете лагерь пуст. Купец остался без рук, без повозок, без надежды.","By dawn the camp is empty. The merchant is left without hands, without carts, without hope."
 event.crisis_desertion.choice3.fail,event_choices,,"Погоня вернулась ни с чем — следы затерялись в каменистой пустоши. Потрачен день, потеряны люди, потеряно время.","The pursuit returned empty-handed — the tracks vanished in the rocky wastes. A day wasted, people lost, time lost."
 event.crisis_unrest.name,events,,Ропот в караване,Caravan Unrest
 event.crisis_unrest.description,events,,"Люди перестали петь на привалах. Перестали шутить. Теперь они перешёптываются, замолкая при вашем приближении. Вечером у костра вы слышите обрывки: «...обещал лёгкий путь...», «...гнилые лепёшки третий день...», «...а он жирует...». Искра недовольства тлеет — ещё немного, и вспыхнет.","The men have stopped singing at camp. Stopped joking. Now they whisper, falling silent as you approach. By the fire you catch fragments: ""...promised an easy road..."", ""...rotten flatbread for three days..."", ""...while he eats well..."". The spark of discontent smolders — a little more and it will ignite."
@@ -1666,6 +1679,8 @@ event.crisis_unrest.choice2.result,event_choices,,"Вы нашли того, к�
 event.crisis_unrest.choice2.fail,event_choices,,Зачинщик выслушал и усмехнулся: «Слова хозяина — ветер.» Развернулся и ушёл к своим. Шёпот стал громче.,"The ringleader listened and smirked: ""The master's words are wind."" He turned and went back to his men. The whispers grew louder."
 event.crisis_unrest.choice3,event_choices,,Раздать небольшие премии,Hand out small bonuses
 event.crisis_unrest.choice3.result,event_choices,,"По три монеты каждому — мало, но звон серебра успокаивает лучше любых слов. Люди спрятали деньги и разошлись. Не радостные, но и не злые.","Three coins each — little, but the clink of silver soothes better than any words. The men pocketed the money and dispersed. Not happy, but not angry."
+event.crisis_unrest.choice4,events,,"Сдаться шёпоту. Путь окончен","Yield to the whispers. The road is over"
+event.crisis_unrest.choice4.result,events,,К утру в лагере осталась только тишина и брошенный костёр. Никто не возвращается.,"By morning only silence remains in the camp, and a cold fire. No one comes back."
 event.crisis_mutiny.name,events,,Мятеж,Mutiny
 event.crisis_mutiny.description,events,,"Проснулись от крика. Четверо стоят перед повозкой, вооружённые дрекольем. Старший — тот самый, что молчал на всех привалах — теперь говорит за всех: «Мы уходим. И забираем половину груза — это наше жалованье.» За их спинами — ещё шестеро, пока не решивших, к кому примкнуть. Это не ропот. Это мятеж.","You woke to a shout. Four men stand before the wagon, armed with clubs. Their leader — the one who stayed silent at every camp — now speaks for all: ""We are leaving. And we are taking half the cargo — that is our wages."" Behind them stand six more, still undecided whose side to take. This is not grumbling. This is mutiny."
 event.crisis_mutiny.choice1,event_choices,,Отдать требуемое,Give them what they demand
@@ -1674,6 +1689,8 @@ event.crisis_mutiny.choice2,event_choices,,Встать на пути,Stand your
 event.crisis_mutiny.choice2.result,event_choices,,"Вы встали перед повозкой. Удар палкой по плечу — вы устояли. Драка. Кто-то перевернул мешки, кто-то поджёг тент. Когда всё кончилось, мятежники ушли с малым, но караван остался с синяками и без порядка.","You stood before the wagon. A club struck your shoulder — you held firm. A brawl. Someone overturned sacks, someone set the canopy alight. When it ended, the mutineers left with little, but the caravan was left bruised and in disarray."
 event.crisis_mutiny.choice3,event_choices,,Стражник усмиряет бунт,The guard quells the mutiny
 event.crisis_mutiny.choice3.result,event_choices,,"Стражник встал рядом, обнажив клинок. Не замахнулся — просто стоял, и лунный свет плыл по лезвию. Мятежники переглянулись. Вожак сплюнул и бросил палку. «Ладно. Пока.» Ушли трое — без груза.","The guard stood beside you, blade drawn. He did not swing — just stood there, moonlight gliding along the edge. The mutineers exchanged glances. The leader spat and dropped his club. ""Fine. For now."" Three left — without cargo."
+event.crisis_mutiny.choice4,events,,"Не сопротивляться. Конец похода","Do not resist. The march is over"
+event.crisis_mutiny.choice4.result,events,,Бунтовщики уводят повозки и спутников в ночь. Купец остался один в пустыне.,The rebels lead away the carts and companions into the night. The merchant is left alone in the wilderness.
 event.crisis_cart_collapse.name,events,,Телега разваливается,Cart Collapse
 event.crisis_cart_collapse.description,events,,"Треск раздался как выстрел. Основная телега осела набок — ось переломилась надвое, колесо откатилось в канаву. Тюки посыпались на дорогу. Рама перекошена, борт расщеплён. Без ремонта дальше — никуда, но материала почти нет.","The crack sounded like a gunshot. The main cart sagged to one side — the axle snapped in two, the wheel rolled into a ditch. Bales tumbled onto the road. The frame is skewed, the sideboards splintered. No moving forward without repair, but materials are almost gone."
 event.crisis_cart_collapse.choice1,event_choices,,Разобрать доп. телегу на запчасти,Cannibalize the extra cart
@@ -2540,6 +2557,8 @@ event.crisis_famine_caravan.choice2.result,event_choices,,"Трое ушли н�
 event.crisis_famine_caravan.choice2.fail,event_choices,,"Охотники вернулись затемно с пустыми руками — один хромает, второй молчит, третий сплёвывает кровью. Нарвались на волчью нору и еле унесли ноги. Люди встретили их тишиной, которая хуже крика. Утром двое носильщиков исчезли, прихватив бурдюк воды.","The hunters returned after dark empty-handed — one limping, the second silent, the third spitting blood. They stumbled into a wolf den and barely escaped. The men greeted them with a silence worse than shouting. By morning two porters had vanished, taking a waterskin with them."
 event.crisis_famine_caravan.choice3,event_choices,,Лекарь готовит отвар из трав,The healer brews a restorative draught
 event.crisis_famine_caravan.choice3.result,event_choices,,"Лекарь обошёл обочину, собирая то, что остальные не замечали: щавель, корни лопуха, стебли дикого чеснока, горсть ячменных зёрен, просыпавшихся из чужого мешка на тропе. Вечером над костром кипит густой отвар — горький, но сытный. Лекарь добавил толчёный корень, от которого люди перестали дрожать. «Это не еда, — сказал он спокойно, — это время. Два дня. Хватит, чтобы дойти.» Остатки мяса, снятого с костей быка, он засолил и завернул в тряпицу.","The healer walked the roadside gathering what others overlooked: sorrel, burdock roots, wild garlic stems, a fistful of barley grains spilled from a stranger's sack on the trail. By evening a thick decoction simmered over the fire — bitter but filling. The healer added a crushed root that stopped the men's trembling. ""This is not food,"" he said calmly, ""this is time. Two days. Enough to reach the city."" He salted the scraps of meat from the ox bones and wrapped them in cloth."
+event.crisis_famine_caravan.choice4,events,,"Принять голод. Конец каравана","Accept the hunger. The caravan ends"
+event.crisis_famine_caravan.choice4.result,events,,Один за другим путники падают в пески. Караван угасает безмолвно.,"One by one the travelers fall into the sands. The caravan fades in silence."
 event.crisis_mutiny_porters.name,events,,Мятеж носильщиков,Porter Mutiny
 event.crisis_mutiny_porters.description,events,,"Крик разорвал утреннюю тишину. Носильщики побросали тюки посреди дороги и стоят стеной — двенадцать человек с палками, грузовыми крюками и кольями от палатки. Впереди — кряжистый мужчина с багровым шрамом через скулу, бывший солдат. Он говорит за всех: жалованье не платили два месяца, припасы гнилые, а хозяин каравана разъезжает на мягких подушках. Они требуют двойную оплату — прямо сейчас, серебром на ладонь. Иначе бросят груз на дороге и уйдут. За спиной зачинщика кто-то достал нож.
 
@@ -2553,6 +2572,8 @@ event.crisis_mutiny_porters.choice2.result,event_choices,,"Вы не стали 
 event.crisis_mutiny_porters.choice2.fail,event_choices,,"Слова увязли в воздухе, как камни в болоте. Зачинщик расхохотался: «Красиво говоришь, хозяин. А мы жрать будем твои речи?» Толпа качнулась вперёд. Кто-то вспорол тюк на повозке и вытряхнул содержимое на дорогу. Пока вы пытались навести порядок, трое ушли, прихватив мешок с провизией и один из тюков. Остальные вернулись на места — но доверия больше нет.","The words sank in the air like stones in a swamp. The ringleader laughed: ""Fine words, master. Shall we eat your speeches?"" The crowd surged forward. Someone slashed open a bale on the wagon and shook its contents onto the road. While you scrambled to restore order, three men walked off, taking a sack of provisions and one of the bales. The rest returned to their posts — but trust is gone."
 event.crisis_mutiny_porters.choice3,event_choices,,Стражник встаёт рядом,The guard stands beside you
 event.crisis_mutiny_porters.choice3.result,event_choices,,"Стражник не стал ждать приказа. Вышел вперёд, встал рядом с вами — молча, не касаясь оружия. Просто встал. Бывший солдат узнал повадку — служивый против служивого. Они мерялись взглядами десять ударов сердца. Потом зачинщик сплюнул и буркнул: «Ладно. Но в городе — расчёт. Полностью.» Стражник кивнул. Носильщики подобрали тюки. Никто не потерял лица — а это на дороге дороже серебра.","The guard did not wait for orders. He stepped forward and stood beside you — silent, not touching his weapon. Just stood. The former soldier recognized the bearing — soldier facing soldier. They held each other's gaze for ten heartbeats. Then the ringleader spat and muttered: ""Fine. But in the city — full settlement."" The guard nodded. The porters picked up their bales. No one lost face — and on the road, that is worth more than silver."
+event.crisis_mutiny_porters.choice4,events,,"Сложить полномочия. Поход окончен","Step down. The journey is over"
+event.crisis_mutiny_porters.choice4.result,events,,"Носильщики разбирают тюки и расходятся. Купец один на дороге, без груза и без сил.","The porters take the bales and scatter. The merchant stands alone on the road, no cargo, no strength."
 event.crisis_plague_rumor.name,events,,Слухи о чуме впереди,Plague Rumors Ahead
 event.crisis_plague_rumor.description,events,,"Встречный путник — оборванный погонщик мулов с безумными глазами — кричит, размахивая руками: город впереди закрыт. Чума. Трупы лежат на улицах, ворота заколочены изнутри, стражники стреляют в каждого, кто приближается. Правда это или паника — неизвестно, но караванщики уже переглядываются. Дорога вперёд ведёт прямо к запертым воротам. Объезд займёт неделю и истощит припасы. А можно рискнуть и подойти ближе — вдруг слухи преувеличены, и город торгует через внешний карантин.
 
@@ -2579,6 +2600,8 @@ event.crisis_debt_trap.choice2.result,event_choices,,"Вы взяли распи
 event.crisis_debt_trap.choice2.fail,event_choices,,"Вы ткнули пальцем в расписку — но ростовщик ждал этого. Он достал второй свиток: свидетельство от менялы в Бухаре, заверенное печатью гильдии. «Оспаривай в суде — если дойдёшь.» Охранники шагнули вперёд. Пришлось отдать больше, чем он просил изначально: он добавил штраф за «оскорбление». Слово о вашей несговорчивости побежит впереди каравана.","You jabbed a finger at the note — but the moneylender was expecting this. He produced a second scroll: a testament from a money changer in Bukhara, stamped with the guild seal. ""Contest it in court — if you get there."" The guards stepped forward. You ended up giving more than he originally demanded: he added a penalty for ""insult."" Word of your truculence will run ahead of the caravan."
 event.crisis_debt_trap.choice3,event_choices,,Переводчик ведёт переговоры,The translator negotiates
 event.crisis_debt_trap.choice3.result,event_choices,,"Переводчик выступил вперёд и заговорил с ростовщиком на чистом согдийском: <npc_speech lang=""Sogdian"">Эта расписка составлена с нарушением закона Бухары. Ты это знаешь, и я это знаю. Давай решим по-честному.</npc_speech> Ростовщик насторожился: перед ним не безграмотный караванщик, а человек, который знает, как работают согдийские суды. Разговор шёл четверть часа. Переводчик ткнул пальцем в три пункта расписки, процитировал закон Бухары о ростовщичестве и предложил честный расчёт — треть от требуемого. Ростовщик скривился, но взял деньги. Уходя, переводчик обернулся: «Он больше не придёт. Я упомянул гильдейского судью в Самарканде — они знакомы, и не в хорошем смысле.»","The translator stepped forward and addressed the moneylender in fluent Sogdian: <npc_speech lang=""Sogdian"">This note was drawn in violation of Bukharan law. You know it, and I know it. Let us settle this fairly.</npc_speech> The moneylender stiffened: before him stood not an illiterate caravan hand but someone who knew how Sogdian courts worked. The conversation lasted a quarter of an hour. The translator pointed to three clauses in the note, cited Bukharan usury law, and proposed an honest settlement — a third of the demand. The moneylender grimaced but took the money. As he left, the translator turned back: ""He will not come again. I mentioned the guild judge in Samarkand — they know each other, and not in a good way."""
+event.crisis_debt_trap.choice4,events,,"Отдать всё за долги. Шёлковый путь закрыт","Yield everything to debts. The Silk Road is closed"
+event.crisis_debt_trap.choice4.result,events,,Заимодавец забирает караван целиком. Купец возвращается домой пешком и без гроша.,The lender takes the caravan whole. The merchant walks home alone and penniless.
 event.city_bazaar_scam.name,events,,Базарная афера,Bazaar Scam
 event.city_bazaar_scam.description,events,,"Базарный гул обволакивает, как жара — крики зазывал, звон чеканных монет, запах жареного кунжута и горячей меди. У лавки с тканями согдийский торговец раскладывает на прилавке рулоны шёлка — тонкого, с переливчатым блеском, какого не встретишь на каждом углу. Он касается ткани кончиками пальцев, будто драгоценности, и обращается к вам с широкой улыбкой:
 
@@ -2984,9 +3007,9 @@ draft_animal.yak.name,draft_animals,,Яки,Yaks
 cart_class.light.name,cart_classes,,Лёгкая,Light
 cart_class.balanced.name,cart_classes,,Сбалансированная,Balanced
 cart_class.heavy.name,cart_classes,,Тяжёлая,Heavy
-cart_class.light.desc,cart_classes,,Быстрая и манёвренная. Идеальна для коротких торговых рейсов и разведки новых маршрутов.,Fast and maneuverable. Ideal for short trade runs and scouting new routes.
-cart_class.balanced.desc,cart_classes,,Универсальный выбор. Достаточно быстрая для большинства маршрутов и достаточно вместительная для разнообразной торговли.,Universal choice. Fast enough for most routes and spacious enough for diverse trade.
-cart_class.heavy.desc,cart_classes,,Массивная и прочная. Огромная грузоподъёмность позволяет перевозить большие объёмы товаров.,Massive and sturdy. Huge capacity allows transporting large volumes of goods.
+cart_class.light.desc,cart_classes,,Быстрая. Малая грузоподъёмность.,Fast. Low capacity.
+cart_class.balanced.desc,cart_classes,,Средняя скорость и вместимость.,Average speed and capacity.
+cart_class.heavy.desc,cart_classes,,Большая грузоподъёмность. Медленная.,High capacity. Slow.
 extra_cart.light.name,extra_carts,,Лёгкая,Light
 extra_cart.trade.name,extra_carts,,Торговая,Trade
 extra_cart.reinforced.name,extra_carts,,Укреплённая,Reinforced
@@ -3674,6 +3697,150 @@ event.camp_order_any_newcomer.choice2.result,event_choices,,"Отказали в
 event.camp_order_any_newcomer.choice2.fail,event_skill_checks,,"Отказ прозвучал грубо. Незнакомец обиделся и при всех сказал несколько слов о жадных купцах. Лагерь слышал. Неловко.","The refusal came out rudely. The stranger took offence and said a few words in public about tight-fisted merchants. The camp heard. Awkward."
 event.camp_order_any_newcomer.choice3,event_choices,,Принять сразу — лишние руки нужны,Accept at once — extra hands are always needed
 event.camp_order_any_newcomer.choice3.result,event_choices,,"Взяли без лишних вопросов. Работал хорошо. Через неделю обнаружили, что он зналдорогу к скрытому источнику воды — знание, о котором не говорил сразу. Доброта вернулась с прибылью.","Taken on without too many questions. He worked well. A week later it emerged that he knew the way to a hidden water source — knowledge he had not mentioned at first. Generosity returned with interest."
+event.companion_condition_info.has,events,,Нужен спутник: {companion_name},Requires companion: {companion_name}
+event.companion_condition_info.min,events,,Нужно минимум {count} спутников,Requires at least {count} companions
+UI.TargetSelection.Search.Header.Results,interface_names,,"Найденные города ({0})","Cities found ({0})"
+UI.TargetSelection.Search.Header.Input,interface_names,,Поиск города,Find city
+UI.TargetSelection.Search.Input.Placeholder,interface_names,,Введите название города…,Type city name…
+UI.TargetSelection.Search.Hint,interface_names,,Введите название или выберите фильтр для поиска городов,Type a name or choose a filter to find cities
+UI.TargetSelection.Search.Row.Select,interface_names,,Выбрать,Select
+UI.QuestIndicator.New,interface_names,,Доступно задание,Quest available
+UI.QuestIndicator.Stage,interface_names,,Задание ведёт сюда,Quest leads here
+UI.TargetSelection.Search.Filter.All,interface_names,,Все,All
+UI.TargetSelection.Search.Filter.Temple,interface_names,,Храм,Temple
+UI.TargetSelection.Search.Filter.Guild,interface_names,,Гильдия,Guild
+UI.TargetSelection.Search.Filter.Tavern,interface_names,,Таверна,Tavern
+UI.TargetSelection.Search.Filter.Caravansary,interface_names,,Постоялый двор,Caravansary
+UI.TargetSelection.Search.Empty,interface_names,,Ничего не найдено,Nothing found
+background.merchant_son.name,backgrounds,,Сын купца,Merchant's Son
+background.merchant_son.desc,backgrounds,,"Отец был успешным торговцем на восточном побережье, но разорился из-за неудачной сделки. Ты унаследовал знания о ценах и товарах — но начинаешь путь с нуля.","Your father was a successful merchant on the eastern coast, but went bankrupt from a bad deal. You inherited knowledge of prices and goods — but start your journey from scratch."
+background.former_caravaneer.name,backgrounds,,Бывший караванщик,Former Caravaneer
+background.former_caravaneer.desc,backgrounds,,"Много лет водил чужие караваны по опасным дорогам. Знаешь пустыню, степь и горы — но торговать всегда было не твоим делом. Теперь пора попробовать самому.","You spent years leading other people's caravans through dangerous roads. You know the desert, steppe and mountains — but trading was never your thing. Now it's time to try for yourself."
+background.wanderer.name,backgrounds,,Странник,Wanderer
+background.wanderer.desc,backgrounds,,"Бродил по городам Средней Азии, подрабатывая переводчиком и посредником. Не привязан ни к одному месту, зато знаешь людей и дороги.","You wandered through Central Asian cities, working as a translator and middleman. Tied to no single place, but you know people and roads."
+background.diplomat.name,backgrounds,,Дипломат,Diplomat
+background.diplomat.desc,backgrounds,,"Служил при дворе чиновником, но попал в немилость. Умеешь убеждать и договариваться, знаешь персидский — язык дипломатии. Но пустыня и горы для тебя в новинку.","You served as a court official, but fell out of favor. You know how to persuade and negotiate, and speak Persian — the language of diplomacy. But the desert and mountains are new to you."
+background.smuggler.name,backgrounds,,Контрабандист,Smuggler
+background.smuggler.desc,backgrounds,,"Торговал запрещёнными товарами через пограничные города. Знаешь тайные тропы и умеешь прятать груз. Но репутация подпорчена — честные торговцы тебя сторонятся.","You traded forbidden goods through border cities. You know secret paths and how to hide cargo. But your reputation is tarnished — honest merchants avoid you."
+background.former_bandit.name,backgrounds,,Бывший разбойник,Former Bandit
+background.former_bandit.desc,backgrounds,,"Много лет грабил караваны в степях. Устал от этой жизни и решил стать честным торговцем. Но прошлое не отпускает — тебя знают и не доверяют.","You spent years robbing caravans in the steppes. Tired of that life, you decided to go straight. But the past won't let go — people know you and don't trust you."
+background.scholar.name,backgrounds,,Учёный,Scholar
+background.scholar.desc,backgrounds,,"Изучал древние тексты и карты в библиотеке Чанъаня. Знаешь языки и историю, но жизнь на дороге — совсем не то, что книги. Отправился в путь ради великого открытия.","You studied ancient texts and maps in the Chang'an library. You know languages and history, but life on the road is nothing like books. You set out in pursuit of a great discovery."
+background.pilgrim.name,backgrounds,,Паломник,Pilgrim
+background.pilgrim.desc,backgrounds,,"Идёшь по святым местам от Лхасы до Константинополя. Для тебя торговля — лишь средство достичь духовной цели. Люди тянутся к тебе, но денег почти нет.","You walk the holy places from Lhasa to Constantinople. Trade is merely a means to your spiritual goal. People are drawn to you, but you have little money."
+UI.NewGame.Main.Header.Title,ui_newgame,,Новый забег,New Run
+UI.NewGame.Main.Button.Start,ui_newgame,,Начать путь,Begin Journey
+UI.NewGame.Card.Available,ui_newgame,,Доступна,Available
+UI.NewGame.Detail.Skills,ui_newgame,,Стартовые навыки,Starting Skills
+UI.NewGame.Detail.Languages,ui_newgame,,Языки,Languages
+UI.NewGame.Detail.Resources,ui_newgame,,Стартовые ресурсы,Starting Resources
+UI.NewGame.Detail.Items,ui_newgame,,Стартовые товары,Starting Goods
+UI.NewGame.CartClass.Header,ui_newgame,,Выбор телеги,Cart Selection
+UI.NewGame.Role,ui_newgame,,Роль:,Role:
+UI.NewGame.Difficulty,ui_newgame,,Сложность,Difficulty
+UI.NewGame.Select,ui_newgame,,Выбрать,Select
+UI.NewGame.RecommendedForFirstRun,ui_newgame,,Рекомендуется для первого прохождения,Recommended for first playthrough
+UI.NewGame.Card.LockedDescription,ui_newgame,,"Чтобы разблокировать, посетите Магазин Наследия и заплатите {0} очков наследия","To unlock, visit the Legacy Shop and spend {0} legacy points"
+UI.NewGame.Detail.StartingCity,ui_newgame,,Стартовый город,Starting City
+background.merchant_son.role,backgrounds,,Торговец,Merchant
+background.merchant_son.features,backgrounds,,"Купеческое наследие: высокая торговля, 2× шёлк на старте, торговый согдийский","Merchant heritage: high trade skill, 2× silk at start, trade Sogdian"
+background.former_caravaneer.role,backgrounds,,Наёмник,Hireling
+background.former_caravaneer.features,backgrounds,,"Опытен в дороге: высокое выживание, припасы вяленого мяса","Seasoned on the road: high survival, dried meat supplies"
+background.wanderer.role,backgrounds,,Странник,Wanderer
+background.wanderer.features,backgrounds,,"Странник: чай на старте, скромное снаряжение","Wanderer: tea at start, modest supplies"
+background.diplomat.role,backgrounds,,Дипломат,Diplomat
+background.diplomat.features,backgrounds,,"Дипломат: высокая харизма, большой стартовый капитал, бумага","Diplomat: high charisma, large starting capital, paper"
+background.smuggler.role,backgrounds,,Контрабандист,Smuggler
+background.smuggler.features,backgrounds,,"Контрабандист: ценные специи и мускус, мало денег","Smuggler: valuable spices and musk, little money"
+background.former_bandit.role,backgrounds,,Разбойник,Bandit
+background.former_bandit.features,backgrounds,,"Закалённый: максимум выживания, низкая репутация, железо","Hardened: maximum survival, low reputation, iron"
+background.scholar.role,backgrounds,,Учёный,Scholar
+background.scholar.features,backgrounds,,"Эрудит: знает три языка, бумага","Erudite: knows three languages, paper"
+background.pilgrim.role,backgrounds,,Паломник,Pilgrim
+background.pilgrim.features,backgrounds,,"Паломник: бонус морали, высокая репутация, благовония","Pilgrim: morale bonus, high reputation, incense"
+
+UI.RunEnd.Title.Victory,ui_run_end,,Константинополь достигнут!,Constantinople Reached!
+UI.RunEnd.Title.Defeat.Bankruptcy,ui_run_end,,"Банкротство. Путь окончен","Bankruptcy. Journey ends"
+UI.RunEnd.Title.Defeat.Mutiny,ui_run_end,,"Бунт каравана. Путь окончен","Caravan mutiny. Journey ends"
+UI.RunEnd.Title.Defeat.CaravanLost,ui_run_end,,"Караван погиб. Путь окончен","Caravan lost. Journey ends"
+UI.RunEnd.Title.Defeat.Famine,ui_run_end,,"Голод в пути. Путь окончен","Famine on the road. Journey ends"
+UI.RunEnd.Reason.Victory,ui_run_end,,Вы добрались до Константинополя!,You reached Constantinople!
+UI.RunEnd.Reason.Bankruptcy,ui_run_end,,"Казна опустела, торговый путь закрыт","The treasury is empty, the trade route is closed"
+UI.RunEnd.Reason.Mutiny,ui_run_end,,"Мораль каравана упала до нуля, начался бунт","Caravan morale hit zero, the mutiny began"
+UI.RunEnd.Reason.CaravanLost,ui_run_end,,Все животные и спутники потеряны,All animals and companions are lost
+UI.RunEnd.Reason.Famine,ui_run_end,,"Провизия закончилась, голод сгубил путников","Supplies ran out, famine claimed the travelers"
+UI.RunEnd.Section.Path,ui_run_end,,Путь,Path
+UI.RunEnd.Section.Economy,ui_run_end,,Экономика,Economy
+UI.RunEnd.Section.Caravan,ui_run_end,,Караван,Caravan
+UI.RunEnd.Section.Adventures,ui_run_end,,Приключения,Adventures
+UI.RunEnd.Button.MainMenu,ui_run_end,,В главное меню,Main Menu
+UI.RunEnd.Button.NewRun,ui_run_end,,Начать новый забег,New Run
+UI.RunEnd.Button.LegacyShop,ui_run_end,,К наследию,Legacy
+UI.RunEnd.Stat.DaysTravelled,ui_run_end,,Дней в пути: {0},Days travelled: {0}
+UI.RunEnd.Stat.CitiesVisited,ui_run_end,,Городов посещено: {0},Cities visited: {0}
+UI.RunEnd.Stat.MoneyEarned,ui_run_end,,Заработано: {0} монет,Earned: {0} coins
+UI.RunEnd.Stat.MoneySpent,ui_run_end,,Потрачено: {0} монет,Spent: {0} coins
+UI.RunEnd.Stat.NetProfit,ui_run_end,,Чистая прибыль: {0} монет,Net profit: {0} coins
+UI.RunEnd.Stat.ItemsBought,ui_run_end,,Товаров куплено: {0},Items bought: {0}
+UI.RunEnd.Stat.ItemsSold,ui_run_end,,Товаров продано: {0},Items sold: {0}
+UI.RunEnd.Stat.CompanionsHired,ui_run_end,,Спутников нанято: {0},Companions hired: {0}
+UI.RunEnd.Stat.CompanionsLost,ui_run_end,,Спутников погибло: {0},Companions lost: {0}
+UI.RunEnd.Stat.CompanionsFinal,ui_run_end,,Дожило до финала: {0},Reached the end: {0}
+UI.RunEnd.Stat.CartsBought,ui_run_end,,Телег куплено: {0},Carts bought: {0}
+UI.RunEnd.Stat.RepairsDone,ui_run_end,,Ремонтов: {0},Repairs: {0}
+UI.RunEnd.Stat.EventsSuccess,ui_run_end,,Из них успешных: {0},Of them successful: {0}
+UI.RunEnd.Stat.EventsFail,ui_run_end,,Из них провальных: {0},Of them failed: {0}
+UI.RunEnd.Stat.CrisesSurvived,ui_run_end,,Кризисов пережито: {0},Crises survived: {0}
+UI.RunEnd.Stat.QuestsCompleted,ui_run_end,,Квестов завершено: {0} / {1},Quests completed: {0} / {1}
+UI.RunEnd.Stat.QuestsFailed,ui_run_end,,Квестов провалено,Quests failed
+UI.RunEnd.Stat.LanguagesLearned,ui_run_end,,Языков изучено: {0} ({1}),Languages learned: {0} ({1})
+UI.RunEnd.Stat.LegacyPoints,ui_run_end,,Очки наследия,Legacy Points
+UI.RunEnd.Stat.KilometersTravelled,ui_run_end,,Пройдено дорог: {0} км,Roads travelled: {0} km
+UI.RunEnd.Stat.EventsTotal,ui_run_end,,Событий пережито: {0},Events lived through: {0}
+UI.RunEnd.Stat.AnimalsLost,ui_run_end,,Животных потеряно: {0},Animals lost: {0}
+UI.RunEnd.Stat.PeakLoad,ui_run_end,,Пиковая загрузка: {0} %,Peak load: {0} %
+UI.RunEnd.Stat.TotalHazards,ui_run_end,,Опасностей на дороге: {0},Hazards on the road: {0}
+UI.RunEnd.Stat.BestDeal,ui_run_end,,Самый дорогой товар: {0},Most expensive item: {0}
+UI.RunEnd.Stat.LegacyEarned,ui_run_end,,Очки наследия за забег: +{0} ОН,Legacy points earned: +{0} LP
+UI.RunEnd.Stat.LegacyBonus,ui_run_end,,Бонус провала: +{0} ОН,Defeat bonus: +{0} LP
+event.event_empire5_complete.name,events,,Константинополь!,Constantinople!
+event.event_empire5_complete.description,events,,"После сотен дней пути золотые купола Константинополя сияют впереди. Путь окончен — Шёлковый путь пройден.","After hundreds of days on the road, the golden domes of Constantinople gleam ahead. The journey is over — the Silk Road is conquered."
+event.event_empire5_complete.choice1,events,,Город ваш!,The city is yours!
+event.event_empire5_complete.choice1.result,events,,Шёлковый путь пройден.,The Silk Road is conquered.
+UI.LegacyShop.Title,ui,,Наследие,Legacy
+UI.LegacyShop.Tab.Shop,ui,,Магазин,Shop
+UI.LegacyShop.Tab.Achievements,ui,,Достижения,Achievements
+UI.LegacyShop.Tab.Lifetime,ui,,Статистика,Statistics
+UI.LegacyShop.Unlock.Buy,ui,,Разблокировать за {points},Unlock for {points}
+UI.LegacyShop.Unlock.Bought,ui,,Куплено,Purchased
+UI.LegacyShop.Unlock.NotEnough,ui,,Не хватает ОН,Not enough LP
+UI.LegacyShop.Achievement.Earned,ui,,Получено,Earned
+UI.LegacyShop.Achievement.Locked,ui,,Не получено,Locked
+UI.LegacyShop.Lifetime.RunsCompleted,ui,,Всего забегов,Total Runs
+UI.LegacyShop.Lifetime.RunsVictory,ui,,Побед,Victories
+UI.LegacyShop.Lifetime.RunsDefeat,ui,,Поражений,Defeats
+UI.LegacyShop.Lifetime.BestRun,ui,,Лучший забег,Best Run
+UI.LegacyShop.Lifetime.TotalDays,ui,,Дней в пути всего,Total Days Travelled
+UI.LegacyShop.Lifetime.TotalEarned,ui,,Заработано всего,Total Earned
+UI.MainMenu.LegacyShop,ui,,Наследие,Legacy
+achievement.ach_first_trade.name,player,,Первый барыш,First Profit
+achievement.ach_first_trade.description,player,,Заработай 100 монет за один забег.,Earn 100 coins in a single run.
+achievement.ach_long_journey.name,player,,Долгий путь,Long Journey
+achievement.ach_long_journey.description,player,,Пройди 50 дней за один забег.,Travel for 50 days in a single run.
+achievement.ach_polyglot.name,player,,Полиглот,Polyglot
+achievement.ach_polyglot.description,player,,Выучи 2 языка за один забег.,Learn 2 languages in a single run.
+achievement.ach_victory.name,player,,Шёлковый путь покорён,Silk Road Conquered
+achievement.ach_victory.description,player,,Доведи караван до Константинополя.,Lead your caravan to Constantinople.
+achievement.ach_survivor.name,player,,Не сдаёмся,We Stand Firm
+achievement.ach_survivor.description,player,,Доиграй любой забег до поражения.,Complete any run through to defeat.
+unlock.unlock_background_princess.name,player,,Принцесса,Princess
+unlock.unlock_background_princess.description,player,,Дочь правителя из Самарканда. Открывает новую предысторию.,Daughter of a ruler from Samarkand. Unlocks a new background.
+unlock.unlock_startitem_silk.name,player,,Дополнительный шёлк,Extra Silk
+unlock.unlock_startitem_silk.description,player,,Начинай каждый забег с дополнительными двумя тюками шёлка.,Start each run with two extra bales of silk.
+unlock.unlock_route_southern.name,player,,Южный маршрут,Southern Route
+unlock.unlock_route_southern.description,player,,Открывает путь через Индию в новых забегах.,Unlocks the route through India in new runs.
+unlock.unlock_upgrade_reinforced_cart.name,player,,Усиленная телега,Reinforced Cart
+unlock.unlock_upgrade_reinforced_cart.description,player,,Добавляет усиленную телегу в стартовый набор.,Adds a reinforced cart to your starting equipment.
 event.road_discover_R_N_Urumqi__N_Kucha.choice1,road_events,,Расчистить путь,Clear the path
 event.road_discover_R_N_Urumqi__N_Kucha.choice1.result,road_events,,Караван прокладывает дорогу сквозь заросли. За поворотом открывается пригодный для движения тракт — новый маршрут найден!,"The caravan cuts through the overgrowth. Around the bend, a passable road opens up — a new route discovered!"
 event.road_discover_R_N_Urumqi__N_Kucha.choice2,road_events,,Не рисковать,Don't risk it
@@ -3691,20 +3858,5 @@ event.road_quest_R_N_Urumqi__N_Kucha.choice1,road_events,,Принять бла�
 event.road_quest_R_N_Urumqi__N_Kucha.choice1.result,road_events,,Караванщик разворачивает потайную карту и подробно описывает каждый поворот. Теперь этот путь открыт и для вас!,The caravan master unfolds a hidden map and describes every turn in detail. This route is now open to you as well!
 event.road_quest_R_N_Urumqi__N_Kucha.choice2,road_events,,Вежливо отказать,Politely decline
 event.road_quest_R_N_Urumqi__N_Kucha.choice2.result,road_events,,"Караванщик кланяется и уходит, унося свой секрет.","The caravan master bows and departs, taking his secret with him."
-event.companion_condition_info.has,events,,Нужен спутник: {companion_name},Requires companion: {companion_name}
-event.companion_condition_info.min,events,,Нужно минимум {count} спутников,Requires at least {count} companions
 event.road_quest_R_N_Urumqi__N_Kucha.name,road_events,,Долг караванщика,Caravan Master's Debt
 event.road_quest_R_N_Urumqi__N_Kucha.description,road_events,,"Бывалый караванщик догоняет ваш отряд. Он говорит, что обязан вам жизнью — в прошлый раз вы помогли его людям на переправе. В благодарность он готов открыть секретный маршрут, которым пользуются только избранные торговцы.","A seasoned caravan master catches up with your party. He says he owes you his life — you helped his people at a crossing once before. In gratitude, he offers to reveal a secret route used only by select merchants."
-UI.TargetSelection.Search.Header.Results,interface_names,,"Найденные города ({0})","Cities found ({0})"
-UI.TargetSelection.Search.Header.Input,interface_names,,Поиск города,Find city
-UI.TargetSelection.Search.Input.Placeholder,interface_names,,Введите название города…,Type city name…
-UI.TargetSelection.Search.Hint,interface_names,,Введите название или выберите фильтр для поиска городов,Type a name or choose a filter to find cities
-UI.TargetSelection.Search.Row.Select,interface_names,,Выбрать,Select
-UI.QuestIndicator.New,interface_names,,Доступно задание,Quest available
-UI.QuestIndicator.Stage,interface_names,,Задание ведёт сюда,Quest leads here
-UI.TargetSelection.Search.Filter.All,interface_names,,Все,All
-UI.TargetSelection.Search.Filter.Temple,interface_names,,Храм,Temple
-UI.TargetSelection.Search.Filter.Guild,interface_names,,Гильдия,Guild
-UI.TargetSelection.Search.Filter.Tavern,interface_names,,Таверна,Tavern
-UI.TargetSelection.Search.Filter.Caravansary,interface_names,,Постоялый двор,Caravansary
-UI.TargetSelection.Search.Empty,interface_names,,Ничего не найдено,Nothing found

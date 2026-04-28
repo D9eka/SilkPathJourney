@@ -340,3 +340,4 @@ camp_order_highland_post,camp_order,event.camp_order_highland_post.name,event.ca
 camp_order_highland_rules,camp_order,event.camp_order_highland_rules.name,event.camp_order_highland_rules.description,order_highland_rules,"Camp scene in highland, silk road era, announcing new camp rules after altitude sickness panic",0.5,0,high_altitude
 camp_order_any_caravan_law,camp_order,event.camp_order_any_caravan_law.name,event.camp_order_any_caravan_law.description,order_any_caravan_law,"Camp scene on silk road, merchant reads caravan law code to assembled workers",0.5,0,
 camp_order_any_newcomer,camp_order,event.camp_order_any_newcomer.name,event.camp_order_any_newcomer.description,order_any_newcomer,"Camp scene on silk road, integrating new hired worker into caravan order",0.5,0,
+event_empire5_complete,encounter,event.event_empire5_complete.name,event.event_empire5_complete.description,,,1.0,0,

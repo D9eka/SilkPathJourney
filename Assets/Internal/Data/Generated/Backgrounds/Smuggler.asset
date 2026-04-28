@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6ab103ee4ebcab4083e0a7bf5467bf2, type: 3}
+  m_Name: Smuggler
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Player.Background.BackgroundData
+  <Id>k__BackingField: smuggler
+  <Name>k__BackingField:
+    m_TableReference:
+      m_TableCollectionName: Player
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: background.smuggler.name
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  <Description>k__BackingField:
+    m_TableReference:
+      m_TableCollectionName: Player
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: background.smuggler.desc
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  <IsUnlockedByDefault>k__BackingField: 0
+  <UnlockCost>k__BackingField: 75
+  <TradeSkill>k__BackingField: 25
+  <CharismaSkill>k__BackingField: 15
+  <SurvivalSkill>k__BackingField: 15
+  <RoleKey>k__BackingField: background.smuggler.role
+  <Difficulty>k__BackingField: 2
+  <MainSkillType>k__BackingField: 3
+  <SecondarySkillType>k__BackingField: 1
+  <FeaturesKey>k__BackingField: background.smuggler.features
+  <IsRecommended>k__BackingField: 0
+  <StartingLanguages>k__BackingField:
+  - <LanguageType>k__BackingField: 7
+    <Level>k__BackingField: 4
+  <StartingMoney>k__BackingField: 70
+  <StartingSupplies>k__BackingField: 45
+  <StartingReputation>k__BackingField: 15
+  <StartingMoraleBonus>k__BackingField: 0
+  <StartingItems>k__BackingField:
+  - <ItemId>k__BackingField: spices
+    <Count>k__BackingField: 2
+  - <ItemId>k__BackingField: musk
+    <Count>k__BackingField: 1
+  <StartingCityId>k__BackingField: quanzhou
+  references:
+    version: 2
+    RefIds: []

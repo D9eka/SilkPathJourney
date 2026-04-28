@@ -15175,6 +15175,331 @@ MonoBehaviour:
     m_Localized: Requires at least {count} companions
     m_Metadata:
       m_Items: []
+  - m_Id: 28642856263475200
+    m_Localized: Constantinople!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856301223936
+    m_Localized: "After hundreds of days on the road, the golden domes of Constantinople
+      gleam ahead. The journey is over \u2014 the Silk Road is conquered."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856301223937
+    m_Localized: The city is yours!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856301223938
+    m_Localized: The Silk Road is conquered.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856301223939
+    m_Localized: Sandstorm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856301223940
+    m_Localized: "A black wall of sand crashed onto the caravan. When the storm subsided,
+      not a sack of food remained \u2014 everything was carried into the desert.
+      Starvation is inevitable."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856301223941
+    m_Localized: Accept fate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418240
+    m_Localized: The caravan slowly fades in the sands.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418241
+    m_Localized: Locust Swarm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418242
+    m_Localized: "A dark cloud covered the sky \u2014 millions of locusts devoured
+      every supply in mere hours. Grain sacks, dried meat, preserved fruit \u2014
+      nothing remained. Without food, the road cannot be finished."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418243
+    m_Localized: Accept fate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418244
+    m_Localized: The plundered caravan halts in an empty field. There is nowhere
+      left to go.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418245
+    m_Localized: Poisoned Water
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418246
+    m_Localized: "A rest by the spring turned to disaster \u2014 the water tasted
+      bitter, but the exhausted men drank. By morning all provisions had to be discarded:
+      the oasis was poisoned. Empty flasks and weakened companions \u2014 that is
+      all that remains of the caravan."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418247
+    m_Localized: Accept fate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418248
+    m_Localized: Strength left the men. The road ends here.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418249
+    m_Localized: Creditors Arrived
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418250
+    m_Localized: "At dawn, armed men appeared at the camp gate with promissory notes.
+      The debts had accumulated too long \u2014 the merchant can no longer delay
+      payment. The last coins pass into other hands."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418251
+    m_Localized: Give everything
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418252
+    m_Localized: An empty treasury. The trading venture is ruined.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418253
+    m_Localized: Robbery
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418254
+    m_Localized: "Thieves crept into the camp at night. The guards heard nothing
+      \u2014 too exhausted. When dawn broke, the coin purses had vanished. Every
+      last dirham."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418255
+    m_Localized: Admit defeat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418256
+    m_Localized: Without money the road is closed.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418257
+    m_Localized: Goods Confiscated
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418258
+    m_Localized: "The customs official presented debt documents and sealed every
+      bale. The trade route is possible only with a treasury \u2014 but the treasury
+      is empty. The goods are seized."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418259
+    m_Localized: Accept the judgment
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418260
+    m_Localized: The empty caravan stands at closed gates.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418261
+    m_Localized: Storm Wrecked the Caravan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418262
+    m_Localized: A mountain hurricane struck without warning. Carts were hurled against
+      rocks, ropes snapped like thread. When the wind died, only splinters and scattered
+      goods across the stones remained. There is nothing left to travel with.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418263
+    m_Localized: Accept fate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418264
+    m_Localized: The wrecked caravan remains at the foot of the pass.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418265
+    m_Localized: Plague
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418266
+    m_Localized: "The illness came quietly \u2014 first fever, then delirium. In
+      a week the epidemic emptied the ranks of companions. The last healthy men fled
+      before their turn came. A trade route without people is no route at all."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418267
+    m_Localized: Accept fate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418268
+    m_Localized: The lone merchant remains in the middle of an empty road.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418269
+    m_Localized: Avalanche
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418270
+    m_Localized: "The thunder came from above \u2014 and a mass of snow engulfed
+      the gorge. When survivors from a nearby party arrived, there was no one left
+      to dig out. The caravan is buried in the mountains forever."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418271
+    m_Localized: Accept fate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418272
+    m_Localized: " \u0447\u0442\u043E \u0432\u0437\u044F\u043B\u0438."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418273
+    m_Localized: Revolt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418274
+    m_Localized: "Long hardships filled the cup to overflowing. Companions surrounded
+      the merchant by the evening fire \u2014 faces grim, hands clenched. Words were
+      finished, demands were final. Control over the caravan is lost."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418275
+    m_Localized: Step down
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418276
+    m_Localized: The rebels scatter the caravan to the wind.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418277
+    m_Localized: Desertion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418278
+    m_Localized: "At dawn the camp was empty. The men had left at night \u2014 quietly,
+      without shouts, taking part of the supplies. The remaining merchant stands
+      before the dead fire, alone. Without people the road is meaningless."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418279
+    m_Localized: Admit defeat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418280
+    m_Localized: The caravan is abandoned. The journey is over.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418281
+    m_Localized: Death of the Leader
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418282
+    m_Localized: "In the dead of night, whispers and shadows by the tent. By morning
+      the merchant did not rise \u2014 found beside his camp bed. The killers vanished
+      into the night with the treasury. The trade route ends here."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418283
+    m_Localized: End of the road
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28642856305418284
+    m_Localized: The Silk Road is merciless to weak leaders.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28649777125122048
+    m_Localized: Starve with them. The journey ends
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28649777162870784
+    m_Localized: At dawn the camp does not rise. The caravan remains in the sands
+      forever.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28649777162870785
+    m_Localized: Cease trading. The Silk Road journey is over
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28649777162870786
+    m_Localized: The caravan turns back with nothing. Hunger overtakes them on the
+      road home. None make it back.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28649777162870787
+    m_Localized: Declare bankruptcy. The journey is over
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28649777162870788
+    m_Localized: The creditors take the carts and the goods. There is no way forward.
+      The Silk Road is closed.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28649777162870789
+    m_Localized: Admit defeat. The road ends here
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28649777162870790
+    m_Localized: The thieves took the last coins. No checkpoint can be passed without
+      silver. The caravan is abandoned halfway.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28649777162870791
+    m_Localized: Let them all go and surrender. The caravan ends
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28649777162870792
+    m_Localized: By dawn the camp is empty. The merchant is left without hands, without
+      carts, without hope.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28649777162870793
+    m_Localized: Yield to the whispers. The road is over
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28649777162870794
+    m_Localized: By morning only silence remains in the camp, and a cold fire. No
+      one comes back.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28649777162870795
+    m_Localized: Do not resist. The march is over
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28649777162870796
+    m_Localized: The rebels lead away the carts and companions into the night. The
+      merchant is left alone in the wilderness.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28649777183842304
+    m_Localized: Accept the hunger. The caravan ends
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28649777183842305
+    m_Localized: One by one the travelers fall into the sands. The caravan fades
+      in silence.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28649777183842306
+    m_Localized: Step down. The journey is over
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28649777183842307
+    m_Localized: The porters take the bales and scatter. The merchant stands alone
+      on the road, no cargo, no strength.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28649777183842308
+    m_Localized: Yield everything to debts. The Silk Road is closed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28649777183842309
+    m_Localized: The lender takes the caravan whole. The merchant walks home alone
+      and penniless.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -6,14 +6,13 @@ using Internal.Scripts.Events;
 using Internal.Scripts.Inventory;
 using Internal.Scripts.Player;
 using Internal.Scripts.Player.Languages;
-using Internal.Scripts.Player.Languages.Generated;
 using Internal.Scripts.Quests;
 using Internal.Scripts.Save;
 using Internal.Scripts.Trading;
 using R3;
 using Zenject;
 
-namespace Internal.Scripts.Game
+namespace Internal.Scripts.Meta
 {
     public sealed class RunStatsService : IInitializable, IDisposable
     {

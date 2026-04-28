@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Internal.Scripts.Game
+namespace Internal.Scripts.Meta
 {
     public enum EndType
     {

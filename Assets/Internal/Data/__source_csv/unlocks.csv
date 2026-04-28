@@ -1,0 +1,5 @@
+unlock_id,name_key,description_key,category,cost,icon
+unlock_background_princess,unlock.unlock_background_princess.name,unlock.unlock_background_princess.description,Background,50,
+unlock_startitem_silk,unlock.unlock_startitem_silk.name,unlock.unlock_startitem_silk.description,StartItem,30,
+unlock_route_southern,unlock.unlock_route_southern.name,unlock.unlock_route_southern.description,Route,40,
+unlock_upgrade_reinforced_cart,unlock.unlock_upgrade_reinforced_cart.name,unlock.unlock_upgrade_reinforced_cart.description,CaravanUpgrade,50,

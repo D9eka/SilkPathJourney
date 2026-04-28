@@ -1,4 +1,4 @@
-namespace Internal.Scripts.Game
+namespace Internal.Scripts.Meta
 {
     public sealed class RunEndArgs
     {

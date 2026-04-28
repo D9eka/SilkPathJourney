@@ -1,0 +1,228 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: Player Shared Data
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
+  m_TableCollectionName: Player
+  m_TableCollectionNameGuidString: eff343e1c16dba340a2b7cd41dcaea3f
+  m_Entries:
+  - m_Id: 527425536
+    m_Key: background.merchant_son.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 556785664
+    m_Key: background.merchant_son.desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 556785665
+    m_Key: background.former_caravaneer.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 556785666
+    m_Key: background.former_caravaneer.desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 556785667
+    m_Key: background.wanderer.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 556785668
+    m_Key: background.wanderer.desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 556785669
+    m_Key: background.diplomat.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 556785670
+    m_Key: background.diplomat.desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 556785671
+    m_Key: background.smuggler.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 556785672
+    m_Key: background.smuggler.desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 556785673
+    m_Key: background.former_bandit.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 556785674
+    m_Key: background.former_bandit.desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 556785675
+    m_Key: background.scholar.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 556785676
+    m_Key: background.scholar.desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 556785677
+    m_Key: background.pilgrim.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 556785678
+    m_Key: background.pilgrim.desc
+    m_Metadata:
+      m_Items: []
+  - m_Id: 556785679
+    m_Key: background.merchant_son.role
+    m_Metadata:
+      m_Items: []
+  - m_Id: 556785680
+    m_Key: background.merchant_son.features
+    m_Metadata:
+      m_Items: []
+  - m_Id: 560979968
+    m_Key: background.former_caravaneer.role
+    m_Metadata:
+      m_Items: []
+  - m_Id: 560979969
+    m_Key: background.former_caravaneer.features
+    m_Metadata:
+      m_Items: []
+  - m_Id: 560979970
+    m_Key: background.wanderer.role
+    m_Metadata:
+      m_Items: []
+  - m_Id: 560979971
+    m_Key: background.wanderer.features
+    m_Metadata:
+      m_Items: []
+  - m_Id: 560979972
+    m_Key: background.diplomat.role
+    m_Metadata:
+      m_Items: []
+  - m_Id: 560979973
+    m_Key: background.diplomat.features
+    m_Metadata:
+      m_Items: []
+  - m_Id: 560979974
+    m_Key: background.smuggler.role
+    m_Metadata:
+      m_Items: []
+  - m_Id: 560979975
+    m_Key: background.smuggler.features
+    m_Metadata:
+      m_Items: []
+  - m_Id: 560979976
+    m_Key: background.former_bandit.role
+    m_Metadata:
+      m_Items: []
+  - m_Id: 560979977
+    m_Key: background.former_bandit.features
+    m_Metadata:
+      m_Items: []
+  - m_Id: 560979978
+    m_Key: background.scholar.role
+    m_Metadata:
+      m_Items: []
+  - m_Id: 560979979
+    m_Key: background.scholar.features
+    m_Metadata:
+      m_Items: []
+  - m_Id: 560979980
+    m_Key: background.pilgrim.role
+    m_Metadata:
+      m_Items: []
+  - m_Id: 560979981
+    m_Key: background.pilgrim.features
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492307936698368
+    m_Key: achievement.ach_first_trade.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492307961864192
+    m_Key: achievement.ach_first_trade.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492307961864193
+    m_Key: achievement.ach_long_journey.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492307961864194
+    m_Key: achievement.ach_long_journey.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492307961864195
+    m_Key: achievement.ach_polyglot.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492307961864196
+    m_Key: achievement.ach_polyglot.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492307961864197
+    m_Key: achievement.ach_victory.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492307961864198
+    m_Key: achievement.ach_victory.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492307961864199
+    m_Key: achievement.ach_survivor.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492307961864200
+    m_Key: achievement.ach_survivor.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492307961864201
+    m_Key: unlock.unlock_background_princess.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492307961864202
+    m_Key: unlock.unlock_background_princess.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492307961864203
+    m_Key: unlock.unlock_startitem_silk.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492307961864204
+    m_Key: unlock.unlock_startitem_silk.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492307961864205
+    m_Key: unlock.unlock_route_southern.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492307961864206
+    m_Key: unlock.unlock_route_southern.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492307961864207
+    m_Key: unlock.unlock_upgrade_reinforced_cart.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492307961864208
+    m_Key: unlock.unlock_upgrade_reinforced_cart.description
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 5481561939731808324
+  references:
+    version: 2
+    RefIds:
+    - rid: 5481561939731808324
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1777192901598

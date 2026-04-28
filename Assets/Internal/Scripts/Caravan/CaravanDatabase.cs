@@ -152,7 +152,7 @@ namespace Internal.Scripts.Caravan
         public CompanionTypeData GetCompanionTypeById(string typeId)
         {
             if (string.IsNullOrEmpty(typeId)) return null;
-            return CompanionTypes.Find(c => c.Id == typeId);
+            return CompanionTypes.Find(c => string.Equals(c.Id, typeId, StringComparison.OrdinalIgnoreCase));
         }
 
         public bool IsAnimalSuitable(DraftAnimalType animalType, Biome biome)

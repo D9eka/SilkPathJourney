@@ -158,6 +158,17 @@ namespace Internal.Scripts.UI.Localization
             return handle;
         }
 
+        public LocalizedTextHandle BindText(TextMeshProUGUI target, string table, string key, string context)
+        {
+            var cacheKey = (table, key);
+            if (!_cache.TryGetValue(cacheKey, out var localized))
+            {
+                localized = new LocalizedString(table, key);
+                _cache[cacheKey] = localized;
+            }
+            return BindText(target, localized, context);
+        }
+
         private static readonly Dictionary<(string table, string key), LocalizedString> _cache = new();
 
         public static string Resolve(string table, string key, string fallback = null, params object[] args)

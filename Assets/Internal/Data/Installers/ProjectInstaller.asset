@@ -22,6 +22,7 @@ MonoBehaviour:
   _questDatabase: {fileID: 11400000, guid: 6b44833f326147340bbbb4d14d47250c, type: 2}
   _caravanDatabase: {fileID: 11400000, guid: e9febe3d356477b418297aa618add05b, type: 2}
   _playerProfile: {fileID: 11400000, guid: 031379dad52073149ab163bf31de2bda, type: 2}
+  _backgroundDatabase: {fileID: 11400000, guid: 60b77d8d17a2c8c44a1ef1227c9cdeb6, type: 2}
   _npcSimulationSettings: {fileID: 11400000, guid: 7cc4547f4ffaef74e9c15f5e09b93473, type: 2}
   _nameDatabase: {fileID: 11400000, guid: ddd26a7df1b99f64881d8b4f7391c1da, type: 2}
   _campActionDatabase: {fileID: 11400000, guid: 4f18352aa8c175048957231b839387c0, type: 2}
@@ -29,6 +30,7 @@ MonoBehaviour:
   _screenCatalog: {fileID: 11400000, guid: 666dbe6a588aa6e48900895fc40fcca8, type: 2}
   _resourceIconCatalog: {fileID: 11400000, guid: a42aa19a74ddc194c8d99e338c0cd34a, type: 2}
   _itemCategoryCatalog: {fileID: 11400000, guid: 9f55077a1d778fb438d20c5d8997d14e, type: 2}
+  _buildingFilterCatalog: {fileID: 0}
   _gameScene:
     _sceneAsset: {fileID: 102900000, guid: 4469673e4990f2a41b1bebe1d3d4d6e8, type: 3}
     _sceneName: StrategicView
@@ -42,3 +44,5 @@ MonoBehaviour:
   _caravanSpeedConfig: {fileID: 11400000, guid: 57feadfa4050739439ed160a6b15c563, type: 2}
   _pickupDatabase: {fileID: 11400000, guid: 5b1c02d97bc20db459cdbd0b29197fe3, type: 2}
   _hazardDatabase: {fileID: 11400000, guid: d411c85b485d8c14296f15105066598a, type: 2}
+  _unlockDatabase: {fileID: 11400000, guid: abac3aac7dbedab4b96ebda928a8b9a7, type: 2}
+  _achievementDatabase: {fileID: 11400000, guid: 8160855f02f18aa4dbcead978d9ada28, type: 2}

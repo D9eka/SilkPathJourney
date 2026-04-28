@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Internal.Scripts.Caravan;
 using Internal.Scripts.Caravan.Generated;
@@ -27,6 +28,9 @@ namespace Internal.Scripts.Player
             _economyDb = economyDb;
             _nameDb = nameDb;
         }
+
+        public event Action CompanionHired;
+        public event Action CompanionRemoved;
 
         public int GetHireCost(CompanionType type, CompanionQuality quality, float regionMultiplier = 1f)
         {
@@ -90,6 +94,7 @@ namespace Internal.Scripts.Player
                 });
             });
 
+            CompanionHired?.Invoke();
             return true;
         }
 
@@ -117,6 +122,7 @@ namespace Internal.Scripts.Player
                 if (index >= 0 && index < s.Companions.Count)
                     s.Companions.RemoveAt(index);
             });
+            CompanionRemoved?.Invoke();
         }
 
         public void HealCompanion(int index)

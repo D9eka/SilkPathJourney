@@ -1,0 +1,9 @@
+background_id,loc_link,desc_loc_link,is_default,unlock_cost,skill_trade,skill_charisma,skill_survival,role_key,difficulty,main_skill,secondary_skill,features_key,is_recommended,starting_money,starting_supplies,starting_reputation,starting_morale_bonus,starting_languages,starting_items,starting_city_id
+merchant_son,background.merchant_son.name,background.merchant_son.desc,true,0,30,15,10,background.merchant_son.role,Easy,Trade,Survival,background.merchant_son.features,true,100,40,25,0,Chinese:4|Sogdian:2,silk:2,changan
+former_caravaneer,background.former_caravaneer.name,background.former_caravaneer.desc,true,0,20,10,25,background.former_caravaneer.role,Normal,Survival,Trade,background.former_caravaneer.features,false,80,60,25,0,Turkic:4,dried_meat:3,lanzhou
+wanderer,background.wanderer.name,background.wanderer.desc,true,0,20,10,20,background.wanderer.role,Normal,Survival,Charisma,background.wanderer.features,false,80,50,25,0,Sogdian:4,tea:2,jiuquan
+diplomat,background.diplomat.name,background.diplomat.desc,true,0,20,25,10,background.diplomat.role,Easy,Charisma,Trade,background.diplomat.features,false,120,30,30,0,Persian:4,paper:3,hangzhou
+smuggler,background.smuggler.name,background.smuggler.desc,false,75,25,15,15,background.smuggler.role,Hard,Trade,Survival,background.smuggler.features,false,70,45,15,0,Arabic:4,spices:2|musk:1,quanzhou
+former_bandit,background.former_bandit.name,background.former_bandit.desc,false,100,15,10,30,background.former_bandit.role,Hard,Survival,Trade,background.former_bandit.features,false,50,55,5,0,Tibetan:4,iron:2,yumen
+scholar,background.scholar.name,background.scholar.desc,false,50,20,20,10,background.scholar.role,Normal,Charisma,Trade,background.scholar.features,false,80,30,25,0,Greek:4,paper:2,beijing
+pilgrim,background.pilgrim.name,background.pilgrim.desc,false,100,15,20,15,background.pilgrim.role,Hard,Charisma,Survival,background.pilgrim.features,false,40,35,35,20,Sanskrit:4,incense:2,changan

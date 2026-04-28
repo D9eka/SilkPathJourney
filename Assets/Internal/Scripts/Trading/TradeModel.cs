@@ -208,6 +208,8 @@ namespace Internal.Scripts.Trading
                 RebuildState();
         }
 
+        public event Action<Dictionary<string, int>, Dictionary<string, int>, int, int> TradeExecuted;
+
         public void ExecuteTrade()
         {
             ExecuteTradeCore();
@@ -231,7 +233,10 @@ namespace Internal.Scripts.Trading
             Dictionary<string, int> toSell = new(_session.ToSell);
             _session.ClearToDictionaries();
 
+            int buyTotal2 = _totalsCalculator.CalculateTotal(toBuy, _pricing.GetBuyPrice);
+            int sellTotal2 = _totalsCalculator.CalculateTotal(toSell, _pricing.GetSellPrice);
             ApplyTradeResults(toBuy, toSell, playerMoney, npcMoney);
+            TradeExecuted?.Invoke(toBuy, toSell, buyTotal2, sellTotal2);
             RebuildState();
         }
 
