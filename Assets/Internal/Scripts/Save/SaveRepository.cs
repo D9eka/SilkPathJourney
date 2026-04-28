@@ -5,6 +5,7 @@ using Internal.Scripts.Economy.Save;
 using Internal.Scripts.Economy.Save.Models;
 using Internal.Scripts.Inventory;
 using Internal.Scripts.Items;
+using Internal.Scripts.Meta;
 using Internal.Scripts.Npc.Save;
 using Internal.Scripts.Player.Skills;
 using Internal.Scripts.Quests.Save;
@@ -20,7 +21,6 @@ namespace Internal.Scripts.Save
         private SaveData _data;
         private bool _isLoaded;
         private string _loadedSlotId;
-        private bool _activeSlotIsAutoSave;
 
         public SaveRepository(ISaveService saveService, ActiveSaveSlot activeSaveSlot, GameBalanceConfig balanceConfig)
         {
@@ -38,10 +38,9 @@ namespace Internal.Scripts.Save
             }
         }
 
-        public void MarkAsManual()
-        {
-            _activeSlotIsAutoSave = false;
-        }
+        public bool HasActiveRun() => _saveService.HasActiveRun();
+
+        public void DeleteRun() => _saveService.DeleteRun();
 
         public void Save()
         {
@@ -51,9 +50,11 @@ namespace Internal.Scripts.Save
             string currentSlot = _activeSaveSlot.SlotId;
             _loadedSlotId = currentSlot;
 
-            var metadata = BuildMetadata(currentSlot, _activeSlotIsAutoSave);
+            var metadata = BuildMetadata(currentSlot, isAutoSave: false);
             _saveService.Save(currentSlot, _data, metadata);
         }
+
+        public void SaveRun() => SaveToSlot(JsonSaveService.RunSlotId, isAutoSave: true);
 
         public void SaveToSlot(string slotId, bool isAutoSave)
         {
@@ -120,10 +121,6 @@ namespace Internal.Scripts.Save
             Normalize(_data);
             _isLoaded = true;
             _loadedSlotId = currentSlot;
-
-            var allSaves = _saveService.GetAllSaves();
-            var existing = allSaves.Find(s => s.SlotId == currentSlot);
-            _activeSlotIsAutoSave = existing?.IsAutoSave ?? false;
         }
 
         private static void Normalize(SaveData data)
@@ -137,6 +134,7 @@ namespace Internal.Scripts.Save
             data.Quests ??= new QuestSaveData();
             data.WorldModifiers ??= new WorldModifierSaveData();
             data.Economy.CityInventories ??= new List<CityInventoryState>();
+            data.RunStats ??= new RunStatsData();
 
             if (!data.Economy.IsInitialized && data.Economy.CityInventories.Count > 0)
                 data.Economy.IsInitialized = true;

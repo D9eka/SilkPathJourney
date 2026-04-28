@@ -15,6 +15,7 @@ using Internal.Scripts.Economy.Cities.UI;
 using Internal.Scripts.Economy.Save;
 using Internal.Scripts.Economy.Simulation;
 using Internal.Scripts.Events;
+using Internal.Scripts.Events.Outcomes;
 using Internal.Scripts.Quests;
 using Internal.Scripts.Input;
 using Internal.Scripts.Inventory;
@@ -57,6 +58,7 @@ using Internal.Scripts.UI.Screens.Hud;
 using Internal.Scripts.UI.StackService;
 using Internal.Scripts.UI.Theme;
 using Internal.Scripts.Camp;
+using Internal.Scripts.Meta;
 using Internal.Scripts.Travel.Hazards;
 using Internal.Scripts.Travel.Pickups;
 using Internal.Scripts.Travel.Triggers;
@@ -119,8 +121,10 @@ namespace Internal.Scripts.Installers
             InstallHazards();
             InstallPathVisualization();
 
-            Container.BindInterfacesTo<AutoSaveController>().AsSingle();
+            Container.BindInterfacesAndSelfTo<AutoSaveController>().AsSingle();
             Container.BindInterfacesTo<CameraSaveController>().AsSingle();
+
+            InstallGameEnd();
         }
 
         private void InstallCamera()
@@ -243,7 +247,6 @@ namespace Internal.Scripts.Installers
 
         private void InstallEconomy()
         {
-            Container.Bind<ItemCatalog>().AsSingle();
             Container.Bind<ItemWeightCalculator>().AsSingle();
             Container.Bind<EconomySaveBuilder>().AsSingle();
             Container.BindInterfacesAndSelfTo<SaveBootstrapper>().AsSingle().NonLazy();
@@ -367,7 +370,7 @@ namespace Internal.Scripts.Installers
             Container.Bind<ConditionLineBuilder>().AsSingle();
 
             Container.Bind<EventToastController>().AsSingle();
-            Container.BindInterfacesTo<CrisisTrigger>().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<CrisisTrigger>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<EventTrigger>().AsSingle().NonLazy();
 
             Container.BindInterfacesTo<MajorEventDailyAction>().AsSingle();
@@ -433,6 +436,12 @@ namespace Internal.Scripts.Installers
                 .AsSingle()
                 .NonLazy();
             Container.Bind<FloatingRewardSpawner>().AsSingle();
+        }
+
+        private void InstallGameEnd()
+        {
+            Container.BindInterfacesAndSelfTo<RunStatsService>().AsSingle().NonLazy();
+            Container.Bind<RunEndOutcomeApplier>().AsSingle();
         }
 
         private void InstallPathVisualization()

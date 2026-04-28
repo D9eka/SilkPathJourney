@@ -1,9 +1,11 @@
 using System.Collections.Generic;
 using Internal.Scripts.Caravan;
 using Internal.Scripts.Config;
+using Internal.Scripts.Economy;
 using Internal.Scripts.Economy.Save;
 using Internal.Scripts.Npc.Save;
 using Internal.Scripts.Player;
+using Internal.Scripts.Player.Background;
 using Internal.Scripts.Player.Languages;
 using Internal.Scripts.Player.Languages.Generated;
 using Internal.Scripts.Player.Skills;
@@ -21,6 +23,9 @@ namespace Internal.Scripts.Save
         private readonly RoadUnlockService _roadUnlockService;
         private readonly GameBalanceConfig _balanceConfig;
         private readonly CaravanDatabase _caravanDatabase;
+        private readonly BackgroundDatabase _backgroundDatabase;
+        private readonly ActiveSaveSlot _activeSaveSlot;
+        private readonly EconomyDatabase _economyDatabase;
 
         public SaveBootstrapper(
             SaveRepository saveRepository,
@@ -28,7 +33,10 @@ namespace Internal.Scripts.Save
             PlayerConfig playerConfig,
             RoadUnlockService roadUnlockService,
             GameBalanceConfig balanceConfig,
-            CaravanDatabase caravanDatabase)
+            CaravanDatabase caravanDatabase,
+            BackgroundDatabase backgroundDatabase,
+            ActiveSaveSlot activeSaveSlot,
+            EconomyDatabase economyDatabase)
         {
             _saveRepository = saveRepository;
             _economySaveBuilder = economySaveBuilder;
@@ -36,6 +44,9 @@ namespace Internal.Scripts.Save
             _roadUnlockService = roadUnlockService;
             _balanceConfig = balanceConfig;
             _caravanDatabase = caravanDatabase;
+            _backgroundDatabase = backgroundDatabase;
+            _activeSaveSlot = activeSaveSlot;
+            _economyDatabase = economyDatabase;
         }
 
         public void Initialize()
@@ -58,9 +69,15 @@ namespace Internal.Scripts.Save
             if (data.Version < 6)
                 changed |= MigrateToV6(data);
 
+            changed |= SyncActiveSaveSlotIds(data);
+
+            BackgroundData selectedBackground = _backgroundDatabase?.GetById(_activeSaveSlot?.SelectedBackgroundId);
+
             if (data.Economy == null || !data.Economy.IsInitialized)
             {
-                data.Economy = _economySaveBuilder.Build();
+                CartClassData cartClass = _caravanDatabase?.GetCartClassById(_activeSaveSlot?.SelectedCartClassId);
+                data.Economy = _economySaveBuilder.Build(selectedBackground, cartClass);
+                ApplyBackgroundToSkillsAndLanguages(data, selectedBackground);
                 changed = true;
             }
 
@@ -69,7 +86,7 @@ namespace Internal.Scripts.Save
                 if (data.Player == null)
                     data.Player = new PlayerSaveData();
 
-                data.Player.CurrentNodeId = ResolveStartNodeId();
+                data.Player.CurrentNodeId = ResolveStartNodeId(selectedBackground);
                 data.Player.DestinationNodeId = string.Empty;
                 data.Player.State = PlayerState.Idle;
                 changed = true;
@@ -184,8 +201,63 @@ namespace Internal.Scripts.Save
             return true;
         }
 
-        private string ResolveStartNodeId()
+        private bool SyncActiveSaveSlotIds(SaveData data)
         {
+            if (string.IsNullOrEmpty(data.SelectedBackgroundId) &&
+                !string.IsNullOrEmpty(_activeSaveSlot.SelectedBackgroundId))
+            {
+                data.SelectedBackgroundId = _activeSaveSlot.SelectedBackgroundId;
+                data.SelectedCartClassId = _activeSaveSlot.SelectedCartClassId;
+                return true;
+            }
+
+            if (!string.IsNullOrEmpty(data.SelectedBackgroundId) &&
+                string.IsNullOrEmpty(_activeSaveSlot.SelectedBackgroundId))
+            {
+                _activeSaveSlot.Restore(data.SelectedBackgroundId, data.SelectedCartClassId);
+            }
+
+            return false;
+        }
+
+        private static void ApplyBackgroundToSkillsAndLanguages(SaveData data, BackgroundData background)
+        {
+            if (background == null)
+                return;
+
+            data.Skills = new PlayerSkillState
+            {
+                Skills = new List<SkillEntry>
+                {
+                    new() { Type = SkillType.Trade, Value = background.TradeSkill },
+                    new() { Type = SkillType.Charisma, Value = background.CharismaSkill },
+                    new() { Type = SkillType.Survival, Value = background.SurvivalSkill }
+                }
+            };
+
+            var languageEntries = new List<LanguageEntry>();
+            foreach (LanguageStartEntry entry in background.StartingLanguages)
+            {
+                languageEntries.Add(new LanguageEntry
+                {
+                    Type = entry.LanguageType,
+                    Proficiency = (LanguageProficiency)entry.Level
+                });
+            }
+            data.Languages = new PlayerLanguageState { Languages = languageEntries };
+        }
+
+        private string ResolveStartNodeId(BackgroundData background = null)
+        {
+            if (background != null && !string.IsNullOrEmpty(background.StartingCityId) && _economyDatabase != null)
+            {
+                string cityId = background.StartingCityId;
+                var city = _economyDatabase.Cities?.Find(c =>
+                    string.Equals(c.Id, cityId, System.StringComparison.OrdinalIgnoreCase));
+                if (city != null && !string.IsNullOrWhiteSpace(city.NodeId))
+                    return city.NodeId;
+            }
+
             if (_playerConfig != null && !string.IsNullOrWhiteSpace(_playerConfig.StartNodeId))
                 return _playerConfig.StartNodeId;
 

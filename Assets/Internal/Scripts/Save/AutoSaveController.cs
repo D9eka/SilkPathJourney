@@ -1,50 +1,29 @@
-using System;
-using System.Collections.Generic;
-using UnityEngine;
+using Internal.Scripts.Economy.Cities;
 using Zenject;
 
 namespace Internal.Scripts.Save
 {
-    public sealed class AutoSaveController : ITickable
+    public sealed class AutoSaveController : IInitializable, System.IDisposable
     {
-        private const float INTERVAL = 60f;
-        private const int MAX_SLOTS = 5;
-        private const string PREFIX = "autosave_";
-
         private readonly SaveRepository _saveRepository;
-        private readonly ISaveService _saveService;
-        private float _elapsed;
+        private readonly ICityEntryService _cityEntryService;
 
-        public AutoSaveController(SaveRepository saveRepository, ISaveService saveService)
+        public AutoSaveController(SaveRepository saveRepository, ICityEntryService cityEntryService)
         {
             _saveRepository = saveRepository;
-            _saveService = saveService;
+            _cityEntryService = cityEntryService;
         }
 
-        public void Tick()
+        public void Initialize()
         {
-            _elapsed += Time.unscaledDeltaTime;
-            if (_elapsed < INTERVAL)
-                return;
-
-            _elapsed = 0f;
-            PerformAutoSave();
+            _cityEntryService.OnCityEntered += SaveOnCityEntry;
         }
 
-        private void PerformAutoSave()
+        public void Dispose()
         {
-            List<SaveMetadata> allSaves = _saveService.GetAllSaves();
-            var autoSlots = allSaves.FindAll(s => s.IsAutoSave);
-
-            while (autoSlots.Count >= MAX_SLOTS)
-            {
-                var oldest = autoSlots[autoSlots.Count - 1];
-                _saveService.Delete(oldest.SlotId);
-                autoSlots.RemoveAt(autoSlots.Count - 1);
-            }
-
-            string newSlotId = PREFIX + Guid.NewGuid().ToString("N");
-            _saveRepository.SaveToSlot(newSlotId, isAutoSave: true);
+            _cityEntryService.OnCityEntered -= SaveOnCityEntry;
         }
+
+        private void SaveOnCityEntry(CityData _) => _saveRepository.SaveRun();
     }
 }

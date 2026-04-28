@@ -2,7 +2,6 @@ using Internal.Scripts.Camera;
 using Internal.Scripts.Installers;
 using Internal.Scripts.UI.Screens.Core.Config;
 using Internal.Scripts.UI.Screens.Core.ViewModel;
-using Internal.Scripts.UI.Screens.Save;
 using Internal.Scripts.UI.StackService;
 using Internal.Scripts.Utils;
 using Internal.Scripts.World.State;
@@ -53,16 +52,6 @@ namespace Internal.Scripts.UI.Screens.Pause
         public void QuitGame()
         {
             _quitGameService.Quit();
-        }
-
-        public void OpenSave()
-        {
-            _screenStackService.TryOpen(ScreenId.SaveGame, SaveLoadMode.Save, out _);
-        }
-
-        public void OpenLoad()
-        {
-            _screenStackService.TryOpen(ScreenId.LoadGame, SaveLoadMode.Load, out _);
         }
     }
 }

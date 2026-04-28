@@ -292,14 +292,16 @@ MonoBehaviour:
     m_LocalVariables: []
   _newGameButton: {fileID: 1787395014051606462}
   _continueButton: {fileID: 1909057211134744760}
-  _loadButton: {fileID: 7934676675024207493}
+  _profileButton: {fileID: 0}
   _settingsButton: {fileID: 1578698890720168665}
   _quitButton: {fileID: 5537618456791647598}
+  _legacyShopButton: {fileID: 0}
   _newGameButtonText: {fileID: 3167648331207289409}
   _continueButtonText: {fileID: 2974047559258217799}
-  _loadButtonText: {fileID: 6712060477247372154}
+  _profileButtonText: {fileID: 0}
   _settingsButtonText: {fileID: 2797596640998608678}
   _quitButtonText: {fileID: 9214989024619856017}
+  _legacyShopButtonText: {fileID: 0}
   _newGameLocalizedString:
     m_TableReference:
       m_TableCollectionName: GUID:43598c3e97d7d9a439a074f7627fe021
@@ -318,11 +320,11 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  _loadLocalizedString:
+  _profileLocalizedString:
     m_TableReference:
-      m_TableCollectionName: GUID:43598c3e97d7d9a439a074f7627fe021
+      m_TableCollectionName: 
     m_TableEntryReference:
-      m_KeyId: 8401231889293320
+      m_KeyId: 0
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -341,6 +343,15 @@ MonoBehaviour:
       m_TableCollectionName: GUID:43598c3e97d7d9a439a074f7627fe021
     m_TableEntryReference:
       m_KeyId: 8401231889293322
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  _legacyShopLocalizedString:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -688,48 +699,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7199195567623877095, guid: acc94249dd75bf647955e6a83926568d, type: 3}
       propertyPath: m_text
-      value: LoadGame
+      value: LegacyShop
       objectReference: {fileID: 0}
     - target: {fileID: 7710692126525503874, guid: acc94249dd75bf647955e6a83926568d, type: 3}
       propertyPath: m_Name
-      value: LoadGameButton
+      value: LegacyShopButton
       objectReference: {fileID: 0}
     - target: {fileID: 9035468853248014029, guid: acc94249dd75bf647955e6a83926568d, type: 3}
       propertyPath: m_Name
-      value: LoadGameButtonText
+      value: LegacyShopButtonText
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: acc94249dd75bf647955e6a83926568d, type: 3}
---- !u!114 &6712060477247372154 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7199195567623877095, guid: acc94249dd75bf647955e6a83926568d, type: 3}
-  m_PrefabInstance: {fileID: 4525740806107892381}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!224 &7885778933784585706 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6026171856949620599, guid: acc94249dd75bf647955e6a83926568d, type: 3}
   m_PrefabInstance: {fileID: 4525740806107892381}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7934676675024207493 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5824011033368867864, guid: acc94249dd75bf647955e6a83926568d, type: 3}
-  m_PrefabInstance: {fileID: 4525740806107892381}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!1001 &4988758494640733889
 PrefabInstance:
   m_ObjectHideFlags: 0

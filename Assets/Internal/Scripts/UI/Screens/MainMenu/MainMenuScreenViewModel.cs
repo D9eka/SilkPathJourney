@@ -1,12 +1,12 @@
-using System.Collections.Generic;
 using Internal.Scripts.Camera;
 using Internal.Scripts.Installers;
 using Internal.Scripts.Save;
 using Internal.Scripts.UI.Screens.Core.Config;
 using Internal.Scripts.UI.Screens.Core.ViewModel;
-using Internal.Scripts.UI.Screens.Save;
+using Internal.Scripts.UI.Screens.LegacyShop;
 using Internal.Scripts.UI.StackService;
 using Internal.Scripts.Utils;
+using R3;
 using Zenject;
 
 namespace Internal.Scripts.UI.Screens.MainMenu
@@ -19,6 +19,10 @@ namespace Internal.Scripts.UI.Screens.MainMenu
         private readonly QuitGameService _quitGameService;
         private readonly SceneLoaderService _sceneLoader;
         private readonly ScreenStackService _screenStackService;
+
+        private readonly ReactiveProperty<bool> _hasActiveRun = new(false);
+
+        public Observable<bool> HasActiveRun => _hasActiveRun;
 
         public MainMenuScreenViewModel(
             ISaveService saveService,
@@ -38,10 +42,9 @@ namespace Internal.Scripts.UI.Screens.MainMenu
 
         public override ScreenId Id => ScreenId.MainMenu;
 
-        public bool HasSave => _saveService.HasAnySave();
-
         protected override void OnOpen(object args)
         {
+            _hasActiveRun.Value = _saveService.HasActiveRun();
         }
 
         protected override void OnClose()
@@ -50,23 +53,36 @@ namespace Internal.Scripts.UI.Screens.MainMenu
 
         public void NewGame()
         {
-            _activeSaveSlot.CreateNew();
-            _sceneLoader.LoadScene(_gameScene);
+            if (_hasActiveRun.Value)
+            {
+                _screenStackService.TryOpen(ScreenId.ConfirmNewGame, (System.Action)NewGameConfirmed, out _);
+                return;
+            }
+
+            _screenStackService.TryOpen(ScreenId.NewGame, out _);
+        }
+
+        private void NewGameConfirmed()
+        {
+            _saveService.DeleteRun();
+            _hasActiveRun.Value = false;
+            _screenStackService.TryOpen(ScreenId.NewGame, out _);
         }
 
         public void Continue()
         {
-            List<SaveMetadata> saves = _saveService.GetAllSaves();
-            if (saves.Count == 0)
+            if (!_hasActiveRun.Value)
                 return;
 
-            _activeSaveSlot.Set(saves[0].SlotId);
+            _activeSaveSlot.Set(JsonSaveService.RunSlotId);
             _sceneLoader.LoadScene(_gameScene);
         }
 
-        public void OpenLoad()
+        public void OnProfile() { }
+
+        public void OpenLegacyShop()
         {
-            _screenStackService.TryOpen(ScreenId.LoadGame, SaveLoadMode.Load, out _);
+            _screenStackService.TryOpen(ScreenId.LegacyShop, LegacyShopTab.Lifetime, out _);
         }
 
         public void QuitGame()

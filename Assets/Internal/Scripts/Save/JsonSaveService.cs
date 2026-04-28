@@ -9,6 +9,7 @@ namespace Internal.Scripts.Save
 {
     public sealed class JsonSaveService : ISaveService
     {
+        public const string RunSlotId = "run";
         private const string SAVES_FOLDER = "saves";
         private const string LEGACY_SAVE_FILE = "save.json";
 
@@ -50,6 +51,16 @@ namespace Internal.Scripts.Save
         public bool HasAnySave()
         {
             return Directory.Exists(_savesDir) && Directory.GetFiles(_savesDir, "*.json").Length > 0;
+        }
+
+        public bool HasActiveRun()
+        {
+            return File.Exists(GetSlotPath(RunSlotId));
+        }
+
+        public void DeleteRun()
+        {
+            Delete(RunSlotId);
         }
 
         public SaveData Load(string slotId)

@@ -16,16 +16,12 @@ namespace Internal.Scripts.UI.Screens.Pause
 
         [Header("Buttons")]
         [SerializeField] private Button _backToGameButton;
-        [SerializeField] private Button _saveButton;
-        [SerializeField] private Button _loadButton;
         [SerializeField] private Button _settingsButton;
         [SerializeField] private Button _exitToMenuButton;
         [SerializeField] private Button _quitButton;
 
         [Header("Button Texts")]
         [SerializeField] private TextMeshProUGUI _backToGameButtonText;
-        [SerializeField] private TextMeshProUGUI _saveButtonText;
-        [SerializeField] private TextMeshProUGUI _loadButtonText;
         [SerializeField] private TextMeshProUGUI _settingsButtonText;
         [SerializeField] private TextMeshProUGUI _exitToMenuButtonText;
         [SerializeField] private TextMeshProUGUI _quitButtonText;
@@ -33,8 +29,6 @@ namespace Internal.Scripts.UI.Screens.Pause
         [Header("Localization")]
         [SerializeField] private LocalizedString _headerLocalizedString;
         [SerializeField] private LocalizedString _backToGameLocalizedString;
-        [SerializeField] private LocalizedString _saveLocalizedString;
-        [SerializeField] private LocalizedString _loadLocalizedString;
         [SerializeField] private LocalizedString _settingsLocalizedString;
         [SerializeField] private LocalizedString _exitToMenuLocalizedString;
         [SerializeField] private LocalizedString _quitLocalizedString;
@@ -58,10 +52,6 @@ namespace Internal.Scripts.UI.Screens.Pause
         {
             if (_backToGameButton != null)
                 _backToGameButton.onClick.AddListener(OnBackToGame);
-            if (_saveButton != null)
-                _saveButton.onClick.AddListener(OnSave);
-            if (_loadButton != null)
-                _loadButton.onClick.AddListener(OnLoad);
             if (_settingsButton != null)
                 _settingsButton.onClick.AddListener(OnSettings);
             if (_exitToMenuButton != null)
@@ -79,10 +69,6 @@ namespace Internal.Scripts.UI.Screens.Pause
         {
             if (_backToGameButton != null)
                 _backToGameButton.onClick.RemoveListener(OnBackToGame);
-            if (_saveButton != null)
-                _saveButton.onClick.RemoveListener(OnSave);
-            if (_loadButton != null)
-                _loadButton.onClick.RemoveListener(OnLoad);
             if (_settingsButton != null)
                 _settingsButton.onClick.RemoveListener(OnSettings);
             if (_exitToMenuButton != null)
@@ -96,8 +82,6 @@ namespace Internal.Scripts.UI.Screens.Pause
         }
 
         private void OnBackToGame() => RaiseCloseRequested();
-        private void OnSave() => _viewModel?.OpenSave();
-        private void OnLoad() => _viewModel?.OpenLoad();
         private void OnSettings() { }
         private void OnExitToMenu() => _viewModel?.ExitToMenu();
         private void OnQuit() => _viewModel?.QuitGame();
@@ -114,8 +98,6 @@ namespace Internal.Scripts.UI.Screens.Pause
             _buttonHandles?.Dispose();
             _buttonHandles = Localization.CreateTextGroup();
             _buttonHandles.Bind(_backToGameButtonText, _backToGameLocalizedString, "Pause.BackToGame");
-            _buttonHandles.Bind(_saveButtonText, _saveLocalizedString, "Pause.Save");
-            _buttonHandles.Bind(_loadButtonText, _loadLocalizedString, "Pause.Load");
             _buttonHandles.Bind(_settingsButtonText, _settingsLocalizedString, "Pause.Settings");
             _buttonHandles.Bind(_exitToMenuButtonText, _exitToMenuLocalizedString, "Pause.ExitToMenu");
             _buttonHandles.Bind(_quitButtonText, _quitLocalizedString, "Pause.Quit");

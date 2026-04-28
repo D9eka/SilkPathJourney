@@ -7,8 +7,10 @@ using Internal.Scripts.Economy.Guild;
 using Internal.Scripts.Economy.Items;
 using Internal.Scripts.Economy.Save.Models;
 using Internal.Scripts.Economy.Simulation;
+using Internal.Scripts.Inventory;
 using Internal.Scripts.Items;
 using Internal.Scripts.Player;
+using Internal.Scripts.Player.Background;
 using UnityEngine;
 
 namespace Internal.Scripts.Economy.Save
@@ -40,11 +42,11 @@ namespace Internal.Scripts.Economy.Save
             _guildSettings = guildSettings;
         }
 
-        public EconomySaveData Build()
+        public EconomySaveData Build(BackgroundData background = null, CartClassData cartClass = null)
         {
             EconomySaveData data = new EconomySaveData();
-            data.PlayerInventory = CreatePlayerInventory();
-            data.PlayerResources = CreatePlayerResources();
+            data.PlayerInventory = CreatePlayerInventory(background);
+            data.PlayerResources = CreatePlayerResources(background, cartClass);
 
             if (_economyDatabase.Cities != null)
             {
@@ -67,49 +69,40 @@ namespace Internal.Scripts.Economy.Save
             return data;
         }
 
-        private InventoryState CreatePlayerInventory()
+        private InventoryState CreatePlayerInventory(BackgroundData background)
         {
-            InventoryState inv = new InventoryState
-            {
-                Items = new List<ItemStackState>()
-            };
+            InventoryState inv = new InventoryState { Items = new List<ItemStackState>() };
 
-            int startSupplies = Mathf.RoundToInt(_playerConfig.StartFood);
-            if (startSupplies > 0)
+            int startSupplies = background != null ? background.StartingSupplies : Mathf.RoundToInt(_playerConfig.StartFood);
+            InventoryStateMutator.AddItems(inv, SuppliesItemId.Value, startSupplies);
+
+            if (background != null)
             {
-                inv.Items.Add(new ItemStackState
-                {
-                    ItemId = SuppliesItemId.Value,
-                    Count = startSupplies
-                });
+                foreach (ItemStartEntry entry in background.StartingItems)
+                    InventoryStateMutator.AddItems(inv, entry.ItemId, entry.Count);
             }
-
-            if (_playerConfig.StartItems != null)
+            else if (_playerConfig.StartItems != null)
             {
                 foreach (PlayerConfig.StartItemEntry entry in _playerConfig.StartItems)
-                {
-                    if (string.IsNullOrWhiteSpace(entry.ItemId) || entry.Count <= 0)
-                        continue;
-
-                    inv.Items.Add(new ItemStackState
-                    {
-                        ItemId = entry.ItemId,
-                        Count = entry.Count
-                    });
-                }
+                    InventoryStateMutator.AddItems(inv, entry.ItemId, entry.Count);
             }
 
             return inv;
         }
 
-        private PlayerResourceState CreatePlayerResources()
+        private PlayerResourceState CreatePlayerResources(BackgroundData background, CartClassData cartClass)
         {
-            CartClassData classData = _caravanDatabase.GetCartClass(_playerConfig.StartCartClass);
+            CartClassData classData = cartClass ?? _caravanDatabase.GetCartClass(_playerConfig.StartCartClass);
             string classId = classData != null ? classData.Id : PlayerResourceState.DEFAULT_CART_CLASS;
+            int money = background != null ? background.StartingMoney : _playerConfig.StartMoney;
+            int reputation = background != null ? background.StartingReputation : 25;
+            float morale = background != null
+                ? PlayerResourceState.MORALE_MAX / 2f + background.StartingMoraleBonus
+                : PlayerResourceState.MORALE_MAX / 2f;
 
             PlayerResourceState resources = new PlayerResourceState
             {
-                Money = _playerConfig.StartMoney,
+                Money = money,
                 Food = 0f,
                 AccumulatedDanger = 0f,
                 PlayerCart = CreatePlayerCart(classData),
@@ -118,7 +111,9 @@ namespace Internal.Scripts.Economy.Save
                 CartUpgradeLevelId = PlayerResourceState.DEFAULT_UPGRADE_LEVEL,
                 DraftAnimalId = PlayerResourceState.DEFAULT_DRAFT_ANIMAL,
                 Companions = new List<CompanionState>(),
-                ActiveUpgrades = new List<string>()
+                ActiveUpgrades = new List<string>(),
+                Reputation = reputation,
+                Morale = Mathf.Clamp(morale, PlayerResourceState.MORALE_MIN, PlayerResourceState.MORALE_MAX)
             };
 
             if (_playerConfig.StartCarts != null)
