@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using Internal.Scripts.Caravan;
 using Internal.Scripts.Config;
 using Internal.Scripts.Economy;
+using Internal.Scripts.Player.Background;
 using Internal.Scripts.Player.Languages;
 using Internal.Scripts.Player.Languages.Generated;
 using Internal.Scripts.Player.Skills;
+using Internal.Scripts.Save;
 using Internal.Scripts.UI.Localization;
 using Internal.Scripts.UI.Screens.Core.Config;
 using Internal.Scripts.UI.Screens.Core.ViewModel;
@@ -22,6 +24,8 @@ namespace Internal.Scripts.UI.Screens.Trader
         private readonly PlayerLanguageRepository _languageRepository;
         private readonly PlayerResourceRepository _resourceRepository;
         private readonly CaravanDatabase _caravanDb;
+        private readonly BackgroundDatabase _backgroundDb;
+        private readonly ActiveSaveSlot _activeSaveSlot;
         private readonly LanguagePriceModifier _languagePriceModifier;
         private readonly GameBalanceConfig _config;
         private readonly TraderUICatalog _catalog;
@@ -33,6 +37,8 @@ namespace Internal.Scripts.UI.Screens.Trader
             PlayerLanguageRepository languageRepository,
             PlayerResourceRepository resourceRepository,
             CaravanDatabase caravanDb,
+            BackgroundDatabase backgroundDb,
+            ActiveSaveSlot activeSaveSlot,
             LanguagePriceModifier languagePriceModifier,
             GameBalanceConfig config,
             TraderUICatalog catalog,
@@ -42,6 +48,8 @@ namespace Internal.Scripts.UI.Screens.Trader
             _languageRepository = languageRepository;
             _resourceRepository = resourceRepository;
             _caravanDb = caravanDb;
+            _backgroundDb = backgroundDb;
+            _activeSaveSlot = activeSaveSlot;
             _languagePriceModifier = languagePriceModifier;
             _config = config;
             _catalog = catalog;
@@ -78,6 +86,7 @@ namespace Internal.Scripts.UI.Screens.Trader
         {
             var list = new List<ProfileEntry>();
             CartClassData cartClass = _caravanDb.GetCartClassById(_resourceRepository.Current.CartClassId);
+            BackgroundData background = _backgroundDb.GetById(_activeSaveSlot.SelectedBackgroundId);
 
             foreach (var item in _catalog.ProfileItems)
             {
@@ -87,6 +96,12 @@ namespace Internal.Scripts.UI.Screens.Trader
                     string cartName = LocalizationService.ResolveString(cartClass.Name, cartClass.Id, "Trader.CartName");
                     string cartDesc = LocalizationService.ResolveString(cartClass.Description, cartClass.Id, "Trader.CartDesc");
                     value = $"{cartName}\n{cartDesc}";
+                }
+                else if (item.Id == "backstory" && background != null)
+                {
+                    string bgName = LocalizationService.ResolveString(background.Name, background.Id, "Trader.BackgroundName");
+                    string bgDesc = LocalizationService.ResolveString(background.Description, background.Id, "Trader.BackgroundDesc");
+                    value = $"{bgName}\n{bgDesc}";
                 }
                 list.Add(new ProfileEntry(item.Header, value));
             }

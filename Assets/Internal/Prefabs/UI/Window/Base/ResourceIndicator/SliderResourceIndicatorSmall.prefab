@@ -88,6 +88,30 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7657926310265985892, guid: 811e04bc1563c8242b275a1ddba4673c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657926310265985892, guid: 811e04bc1563c8242b275a1ddba4673c, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657926310265985892, guid: 811e04bc1563c8242b275a1ddba4673c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657926310265985892, guid: 811e04bc1563c8242b275a1ddba4673c, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657926310265985892, guid: 811e04bc1563c8242b275a1ddba4673c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7657926310265985892, guid: 811e04bc1563c8242b275a1ddba4673c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8221309844256793169, guid: 811e04bc1563c8242b275a1ddba4673c, type: 3}
       propertyPath: m_Name
       value: SliderResourceIndicatorSmall
@@ -184,6 +208,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 3017174810482134595}
   m_SourcePrefab: {fileID: 100100000, guid: 811e04bc1563c8242b275a1ddba4673c, type: 3}
+--- !u!114 &1157475869420943207 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1588009799356567135, guid: 811e04bc1563c8242b275a1ddba4673c, type: 3}
+  m_PrefabInstance: {fileID: 439541129207560504}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f601f181d2079e240a34779ff7d8a785, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Components.IconView
 --- !u!114 &1476916380877103968 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1325922837012519512, guid: 811e04bc1563c8242b275a1ddba4673c, type: 3}
@@ -206,17 +241,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
---- !u!114 &7598709180115413885 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8029242938268602949, guid: 811e04bc1563c8242b275a1ddba4673c, type: 3}
-  m_PrefabInstance: {fileID: 439541129207560504}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!114 &8037726495544481107 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7607193287350004843, guid: 811e04bc1563c8242b275a1ddba4673c, type: 3}
@@ -251,12 +275,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Components.SliderResourceIndicator
   _resourceType: 0
-  _icon: {fileID: 7598709180115413885}
+  _iconView: {fileID: 1157475869420943207}
   _valueText: {fileID: 1476916380877103968}
   _changeText: {fileID: 7541969765380457017}
   _changeAnimator: {fileID: 8037726495544481107}
-  _positiveColor: {r: 0.2, g: 0.8, b: 0.2, a: 1}
-  _negativeColor: {r: 0.9, g: 0.2, b: 0.2, a: 1}
   _fillBar: {fileID: 4427080310197051501}
 --- !u!1001 &5691342465316530459
 PrefabInstance:

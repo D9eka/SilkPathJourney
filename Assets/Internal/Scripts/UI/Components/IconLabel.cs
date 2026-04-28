@@ -2,13 +2,12 @@ using System;
 using Internal.Scripts.UI.Tooltip;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Internal.Scripts.UI.Components
 {
-    public class IconLabelView : MonoBehaviour
+    public class IconLabel : MonoBehaviour
     {
-        [SerializeField] private Image _icon;
+        [SerializeField] private IconView _iconView;
         [SerializeField] private TextMeshProUGUI _label;
 
         private HoverReporter _hover;
@@ -17,8 +16,9 @@ namespace Internal.Scripts.UI.Components
 
         public void Initialize(Sprite icon, string label)
         {
-            if (_icon != null && icon != null)
-                _icon.sprite = icon;
+            _iconView.gameObject.SetActive(icon != null);
+            if (icon != null)
+                _iconView.SetSprite(icon);
             SetLabel(label);
         }
 

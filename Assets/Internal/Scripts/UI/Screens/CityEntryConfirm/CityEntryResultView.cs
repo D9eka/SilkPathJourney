@@ -12,7 +12,7 @@ namespace Internal.Scripts.UI.Screens.CityEntryConfirm
     public class CityEntryResultView : MonoBehaviour
     {
         [Header("Duty")]
-        [SerializeField] private IconLabelView _dutyPaidView;
+        [SerializeField] private IconLabel _dutyPaidView;
 
         [Header("Smuggling Outcome")]
         [SerializeField] private TextMeshProUGUI _resultOutcomeText;

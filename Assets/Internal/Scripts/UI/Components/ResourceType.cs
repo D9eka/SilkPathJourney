@@ -13,6 +13,8 @@ namespace Internal.Scripts.UI.Components
         Speed,
         CompanionPay,
         Health,
-        Reputation
+        Reputation,
+        Lock,
+        LegacyPoints
     }
 }
