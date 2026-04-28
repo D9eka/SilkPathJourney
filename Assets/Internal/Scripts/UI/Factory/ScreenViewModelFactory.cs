@@ -6,7 +6,6 @@ using Internal.Scripts.UI.Screens.Hud;
 using Internal.Scripts.UI.Screens.Inventory;
 using Internal.Scripts.UI.Screens.MainMenu;
 using Internal.Scripts.UI.Screens.Pause;
-using Internal.Scripts.UI.Screens.Save;
 using Internal.Scripts.UI.Screens.TargetSelection;
 using Internal.Scripts.UI.Screens.Trade;
 using Internal.Scripts.UI.Screens.EnterCity;
@@ -21,6 +20,9 @@ using Internal.Scripts.UI.Screens.Guild;
 using Internal.Scripts.UI.Screens.CityEntryConfirm;
 using Internal.Scripts.UI.Screens.Camp;
 using Internal.Scripts.UI.Screens.HazardQte;
+using Internal.Scripts.UI.Screens.NewGame;
+using Internal.Scripts.UI.Screens.LegacyShop;
+using Internal.Scripts.UI.Screens.RunEnd;
 using Internal.Scripts.UI.Screens.TargetSelection.Search;
 using Plugins.Zenject.Source.Main;
 
@@ -46,8 +48,6 @@ namespace Internal.Scripts.UI.Factory
                 ScreenId.TargetSelection => CreateTargetSelection(view),
                 ScreenId.Pause => CreatePause(view),
                 ScreenId.MainMenu => CreateMainMenu(view),
-                ScreenId.SaveGame => CreateSaveGame(view),
-                ScreenId.LoadGame => CreateLoadGame(view),
                 ScreenId.Trader => CreateTrader(view),
                 ScreenId.LanguageSchool => CreateLanguageSchool(view),
                 ScreenId.EnterCity => CreateEnterCity(view),
@@ -60,6 +60,10 @@ namespace Internal.Scripts.UI.Factory
                 ScreenId.CityEntryConfirm => CreateCityEntryConfirm(view),
                 ScreenId.Camp => CreateCamp(view),
                 ScreenId.HazardQte => CreateHazardQte(view),
+                ScreenId.NewGame => CreateNewGame(view),
+                ScreenId.ConfirmNewGame => CreateConfirmNewGame(view),
+                ScreenId.RunEnd => CreateRunEnd(view),
+                ScreenId.LegacyShop => CreateLegacyShop(view),
                 _ => null
             };
         }
@@ -119,22 +123,6 @@ namespace Internal.Scripts.UI.Factory
                 return null;
 
             return _container.Instantiate<MainMenuScreenViewModel>();
-        }
-
-        private ScreenViewModelBase CreateSaveGame(IScreenView view)
-        {
-            if (view is not SaveGameScreen)
-                return null;
-
-            return _container.Instantiate<SaveLoadScreenViewModel>();
-        }
-
-        private ScreenViewModelBase CreateLoadGame(IScreenView view)
-        {
-            if (view is not LoadGameScreen)
-                return null;
-
-            return _container.Instantiate<SaveLoadScreenViewModel>();
         }
 
         private ScreenViewModelBase CreateTrader(IScreenView view)
@@ -233,5 +221,36 @@ namespace Internal.Scripts.UI.Factory
             return _container.Instantiate<HazardQteViewModel>();
         }
 
+        private ScreenViewModelBase CreateNewGame(IScreenView view)
+        {
+            if (view is not NewGameScreen)
+                return null;
+
+            return _container.Instantiate<NewGameScreenViewModel>();
+        }
+
+        private ScreenViewModelBase CreateConfirmNewGame(IScreenView view)
+        {
+            if (view is not ConfirmNewGameScreen)
+                return null;
+
+            return _container.Instantiate<ConfirmNewGameScreenViewModel>();
+        }
+
+        private ScreenViewModelBase CreateRunEnd(IScreenView view)
+        {
+            if (view is not RunEndScreen)
+                return null;
+
+            return _container.Instantiate<RunEndScreenViewModel>();
+        }
+
+        private ScreenViewModelBase CreateLegacyShop(IScreenView view)
+        {
+            if (view is not LegacyShopScreen)
+                return null;
+
+            return _container.Instantiate<LegacyShopScreenViewModel>();
+        }
     }
 }
