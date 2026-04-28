@@ -6,7 +6,7 @@ namespace Internal.Scripts.UI.WorldLabel
 {
     public sealed class FloatingRewardLabel : MonoBehaviour
     {
-        [SerializeField] private IconLabelView _content;
+        [SerializeField] private IconLabel _content;
         [SerializeField] private CanvasGroup _canvasGroup;
         [SerializeField] private float _riseHeight = 1.2f;
         [SerializeField] private float _duration = 1f;
@@ -14,13 +14,6 @@ namespace Internal.Scripts.UI.WorldLabel
 
         public void Play(Sprite icon, string text)
         {
-            if (_content == null || _canvasGroup == null)
-            {
-                Debug.LogError($"[FloatingRewardLabel] Missing serialized fields on '{name}'");
-                Destroy(gameObject);
-                return;
-            }
-
             _content.Initialize(icon, text);
             _canvasGroup.alpha = 1f;
 
