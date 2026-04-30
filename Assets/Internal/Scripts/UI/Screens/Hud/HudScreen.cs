@@ -124,20 +124,19 @@ namespace Internal.Scripts.UI.Screens.Hud
             _openInventoryButton.onClick.AddListener(OnOpenInventory);
             _openPauseButton.onClick.AddListener(OnOpenPause);
             _openTraderButton.onClick.AddListener(OnOpenTrader);
-            if (_openQuestsButton != null) _openQuestsButton.onClick.AddListener(OnOpenQuests);
-            if (_openCompanionsButton != null) _openCompanionsButton.onClick.AddListener(OnOpenCaravan);
-            if (_lockCameraButton != null) _lockCameraButton.onClick.AddListener(OnLockCamera);
-            if (_lockCameraButtonText != null)
-                _lockCameraHandle = Localization.BindText(_lockCameraButtonText, _lockCameraLocalizedString, "Hud.LockCamera");
+            _openQuestsButton.onClick.AddListener(OnOpenQuests);
+            _openCompanionsButton.onClick.AddListener(OnOpenCaravan);
+            _lockCameraButton.onClick.AddListener(OnLockCamera);
+            _lockCameraHandle = Localization.BindText(_lockCameraButtonText, _lockCameraLocalizedString, "Hud.LockCamera");
 
             _timeSpeedSubscription = _viewModel.TimeSpeedState.Subscribe(ApplyTimeSpeedBorder);
             _trackerSubscription = _viewModel.TrackerState.Subscribe(ApplyTrackerState);
             if (_questTracker != null && _questTracker.OpenQuestsButton != null)
                 _questTracker.OpenQuestsButton.onClick.AddListener(OnOpenQuests);
-            if (_pauseTimeButton != null) _pauseTimeButton.onClick.AddListener(OnPauseTime);
-            if (_normalTimeButton != null) _normalTimeButton.onClick.AddListener(OnNormalTime);
-            if (_fastTimeButton != null) _fastTimeButton.onClick.AddListener(OnFastTime);
-            if (_veryFastTimeButton != null) _veryFastTimeButton.onClick.AddListener(OnVeryFastTime);
+            _pauseTimeButton.onClick.AddListener(OnPauseTime);
+            _normalTimeButton.onClick.AddListener(OnNormalTime);
+            _fastTimeButton.onClick.AddListener(OnFastTime);
+            _veryFastTimeButton.onClick.AddListener(OnVeryFastTime);
         }
 
         private void UnsubscribeViewModel()
@@ -170,16 +169,16 @@ namespace Internal.Scripts.UI.Screens.Hud
             _openInventoryButton.onClick.RemoveListener(OnOpenInventory);
             _openPauseButton.onClick.RemoveListener(OnOpenPause);
             _openTraderButton.onClick.RemoveListener(OnOpenTrader);
-            if (_openQuestsButton != null) _openQuestsButton.onClick.RemoveListener(OnOpenQuests);
-            if (_openCompanionsButton != null) _openCompanionsButton.onClick.RemoveListener(OnOpenCaravan);
-            if (_lockCameraButton != null) _lockCameraButton.onClick.RemoveListener(OnLockCamera);
+            _openQuestsButton.onClick.RemoveListener(OnOpenQuests);
+            _openCompanionsButton.onClick.RemoveListener(OnOpenCaravan);
+            _lockCameraButton.onClick.RemoveListener(OnLockCamera);
 
             if (_questTracker != null && _questTracker.OpenQuestsButton != null)
                 _questTracker.OpenQuestsButton.onClick.RemoveListener(OnOpenQuests);
-            if (_pauseTimeButton != null) _pauseTimeButton.onClick.RemoveListener(OnPauseTime);
-            if (_normalTimeButton != null) _normalTimeButton.onClick.RemoveListener(OnNormalTime);
-            if (_fastTimeButton != null) _fastTimeButton.onClick.RemoveListener(OnFastTime);
-            if (_veryFastTimeButton != null) _veryFastTimeButton.onClick.RemoveListener(OnVeryFastTime);
+            _pauseTimeButton.onClick.RemoveListener(OnPauseTime);
+            _normalTimeButton.onClick.RemoveListener(OnNormalTime);
+            _fastTimeButton.onClick.RemoveListener(OnFastTime);
+            _veryFastTimeButton.onClick.RemoveListener(OnVeryFastTime);
         }
 
         private void ApplyState(HudViewState state)

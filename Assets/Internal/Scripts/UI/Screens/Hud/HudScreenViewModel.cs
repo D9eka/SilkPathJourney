@@ -208,8 +208,6 @@ namespace Internal.Scripts.UI.Screens.Hud
 
         public void OpenCamp()
         {
-            if (TryOpenCityEntryConfirm())
-                return;
             if (!_screenStackService.TryOpen(ScreenId.Camp, out ScreenOpenResult result))
                 Debug.LogWarning($"[SPJ] Cannot open camp screen: {result}");
         }
