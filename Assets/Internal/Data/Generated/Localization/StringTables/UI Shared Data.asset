@@ -1835,6 +1835,254 @@ MonoBehaviour:
     m_Key: UI.RunEnd.Stat.LegacyBonus
     m_Metadata:
       m_Items: []
+  - m_Id: 30677111948697608
+    m_Key: UI.LegacyShop.Category.Backstories
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697609
+    m_Key: UI.LegacyShop.Category.StarterItems
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697610
+    m_Key: UI.LegacyShop.Category.RouteKnowledge
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697611
+    m_Key: UI.LegacyShop.Category.CaravanUpgrades
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697612
+    m_Key: UI.LegacyShop.Lifetime.Section.Path
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697613
+    m_Key: UI.LegacyShop.Lifetime.Section.Adventures
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697614
+    m_Key: UI.LegacyShop.Lifetime.Section.Caravan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697615
+    m_Key: UI.LegacyShop.Lifetime.Section.Economy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697616
+    m_Key: UI.LegacyShop.Lifetime.Section.Endings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697617
+    m_Key: UI.LegacyShop.Lifetime.Section.Social
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697618
+    m_Key: UI.LegacyShop.Lifetime.LanguagesLearned
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697619
+    m_Key: UI.LegacyShop.Lifetime.TopLanguage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697620
+    m_Key: UI.LegacyShop.Lifetime.FriendlyCities
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697621
+    m_Key: UI.LegacyShop.Lifetime.HostileCities
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697622
+    m_Key: UI.LegacyShop.Lifetime.CaravansHelped
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697623
+    m_Key: UI.LegacyShop.Lifetime.Conflicts
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697624
+    m_Key: UI.LegacyShop.Lifetime.NpcMet
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697625
+    m_Key: UI.LegacyShop.Lifetime.RunsTotal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697626
+    m_Key: UI.LegacyShop.Lifetime.Wins
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697627
+    m_Key: UI.LegacyShop.Lifetime.Losses
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697628
+    m_Key: UI.LegacyShop.Lifetime.LongestRun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697629
+    m_Key: UI.LegacyShop.Lifetime.QuestsCompleted
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697630
+    m_Key: UI.LegacyShop.Lifetime.QuestsFailed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697631
+    m_Key: UI.LegacyShop.Lifetime.BestDeal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697632
+    m_Key: UI.LegacyShop.Lifetime.FavoriteItem
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697633
+    m_Key: UI.LegacyShop.Lifetime.LegacyEarned
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697634
+    m_Key: UI.LegacyShop.Lifetime.FavoriteRoute
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697635
+    m_Key: UI.LegacyShop.Lifetime.DeathReasons
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697636
+    m_Key: UI.LegacyShop.Lifetime.End.Hunger
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697637
+    m_Key: UI.LegacyShop.Lifetime.End.Mutiny
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697638
+    m_Key: UI.LegacyShop.Lifetime.End.Bandits
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697639
+    m_Key: UI.LegacyShop.Lifetime.End.Illness
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697640
+    m_Key: UI.LegacyShop.Lifetime.End.Bankruptcy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697641
+    m_Key: UI.LegacyShop.Lifetime.End.CaravanLost
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697642
+    m_Key: UI.LegacyShop.Lifetime.End.CountSuffix
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697643
+    m_Key: UI.LegacyShop.Lifetime.Days
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697644
+    m_Key: UI.LegacyShop.Lifetime.Cities
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697645
+    m_Key: UI.LegacyShop.Lifetime.Distance
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697646
+    m_Key: UI.LegacyShop.Lifetime.Events
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697647
+    m_Key: UI.LegacyShop.Lifetime.EventsSuccess
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697648
+    m_Key: UI.LegacyShop.Lifetime.EventsFail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697649
+    m_Key: UI.LegacyShop.Lifetime.Crises
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697650
+    m_Key: UI.LegacyShop.Lifetime.Hazards
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697651
+    m_Key: UI.LegacyShop.Lifetime.Quests
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697652
+    m_Key: UI.LegacyShop.Lifetime.Languages
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697653
+    m_Key: UI.LegacyShop.Lifetime.CompanionsHired
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697654
+    m_Key: UI.LegacyShop.Lifetime.CompanionsLost
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697655
+    m_Key: UI.LegacyShop.Lifetime.CompanionsFinal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697656
+    m_Key: UI.LegacyShop.Lifetime.Carts
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697657
+    m_Key: UI.LegacyShop.Lifetime.PeakLoad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697658
+    m_Key: UI.LegacyShop.Lifetime.AnimalsLost
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697659
+    m_Key: UI.LegacyShop.Lifetime.Repairs
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697660
+    m_Key: UI.LegacyShop.Lifetime.Earned
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697661
+    m_Key: UI.LegacyShop.Lifetime.Spent
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697662
+    m_Key: UI.LegacyShop.Lifetime.NetProfit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697663
+    m_Key: UI.LegacyShop.Lifetime.ItemsBought
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697664
+    m_Key: UI.LegacyShop.Lifetime.ItemsSold
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697665
+    m_Key: UI.LegacyShop.Lifetime.MostExpensive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697666
+    m_Key: UI.LegacyShop.Achievement.Requirements
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697667
+    m_Key: UI.LegacyShop.Achievement.Progress
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697668
+    m_Key: UI.LegacyShop.Achievement.EarnedDate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697669
+    m_Key: UI.LegacyShop.Achievement.TotalCounter
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

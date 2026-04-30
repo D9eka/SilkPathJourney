@@ -215,6 +215,142 @@ MonoBehaviour:
     m_Key: unlock.unlock_upgrade_reinforced_cart.description
     m_Metadata:
       m_Items: []
+  - m_Id: 1263631324020736
+    m_Key: unlock.unlock_upgrade_reinforced_harness.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963776
+    m_Key: unlock.unlock_upgrade_reinforced_harness.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963777
+    m_Key: unlock.unlock_background_smuggler.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963778
+    m_Key: unlock.unlock_background_smuggler.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963779
+    m_Key: unlock.unlock_background_scholar.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963780
+    m_Key: unlock.unlock_background_scholar.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963781
+    m_Key: unlock.unlock_startitem_dried_meat.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963782
+    m_Key: unlock.unlock_startitem_dried_meat.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963783
+    m_Key: unlock.unlock_startitem_tea.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963784
+    m_Key: unlock.unlock_startitem_tea.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963785
+    m_Key: unlock.unlock_startitem_paper.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963786
+    m_Key: unlock.unlock_startitem_paper.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963787
+    m_Key: unlock.unlock_startitem_spices.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963788
+    m_Key: unlock.unlock_startitem_spices.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963789
+    m_Key: unlock.unlock_route_china.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963790
+    m_Key: unlock.unlock_route_china.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963791
+    m_Key: unlock.unlock_route_central_asia.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963792
+    m_Key: unlock.unlock_route_central_asia.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963793
+    m_Key: unlock.unlock_route_persia.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963794
+    m_Key: unlock.unlock_route_persia.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963795
+    m_Key: unlock.unlock_route_arabia.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963796
+    m_Key: unlock.unlock_route_arabia.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963797
+    m_Key: unlock.unlock_route_india.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963798
+    m_Key: unlock.unlock_route_india.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963799
+    m_Key: unlock.unlock_route_byzantine.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963800
+    m_Key: unlock.unlock_route_byzantine.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963801
+    m_Key: unlock.unlock_upgrade_sturdy_wheels.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963802
+    m_Key: unlock.unlock_upgrade_sturdy_wheels.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963803
+    m_Key: unlock.unlock_upgrade_sealed_containers.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963804
+    m_Key: unlock.unlock_upgrade_sealed_containers.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963805
+    m_Key: unlock.unlock_upgrade_repair_kit.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963806
+    m_Key: unlock.unlock_upgrade_repair_kit.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963807
+    m_Key: unlock.unlock_upgrade_road_lanterns.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963808
+    m_Key: unlock.unlock_upgrade_road_lanterns.description
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

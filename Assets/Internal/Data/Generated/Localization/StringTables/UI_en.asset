@@ -1807,7 +1807,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 30121302483263499
-    m_Localized: Best Run
+    m_Localized: 'Best run: {0} days / +{1} LP'
     m_Metadata:
       m_Items: []
   - m_Id: 30121302483263500
@@ -1852,6 +1852,254 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 30306157212983302
     m_Localized: 'Defeat bonus: +{0} LP'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697608
+    m_Localized: Backstories
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697609
+    m_Localized: Starter Goods
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697610
+    m_Localized: Route Knowledge
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697611
+    m_Localized: Caravan Upgrades
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697666
+    m_Localized: 'Requirements: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697667
+    m_Localized: 'Progress:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697668
+    m_Localized: 'Earned: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697669
+    m_Localized: 'Achievements unlocked: {0}/{1}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697612
+    m_Localized: Path
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697613
+    m_Localized: Adventures
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697614
+    m_Localized: Caravan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697615
+    m_Localized: Economy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697616
+    m_Localized: Endings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697617
+    m_Localized: Social
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697618
+    m_Localized: 'Languages mastered: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697619
+    m_Localized: 'Top language: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697620
+    m_Localized: 'Friendly cities: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697621
+    m_Localized: 'Hostile cities: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697622
+    m_Localized: 'Caravans helped: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697623
+    m_Localized: 'Conflicts resolved: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697624
+    m_Localized: 'NPCs met: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697625
+    m_Localized: 'Total runs: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697626
+    m_Localized: 'Wins: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697627
+    m_Localized: 'Losses: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697628
+    m_Localized: 'Longest run: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697629
+    m_Localized: 'Quests completed: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697630
+    m_Localized: 'Quests failed: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697631
+    m_Localized: 'Best deal: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697632
+    m_Localized: 'Favorite item: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697633
+    m_Localized: 'Legacy points earned: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697634
+    m_Localized: 'Favorite route: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697635
+    m_Localized: 'Top 3 caravan death causes:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697636
+    m_Localized: 'Hunger: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697637
+    m_Localized: 'Mutiny: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697638
+    m_Localized: 'Bandits: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697639
+    m_Localized: 'Illness: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697640
+    m_Localized: 'Bankruptcy: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697641
+    m_Localized: 'Caravan lost: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697642
+    m_Localized: '{0} times'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697643
+    m_Localized: 'Days travelled: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697644
+    m_Localized: 'Cities visited: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697645
+    m_Localized: 'Distance: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697646
+    m_Localized: 'Events survived: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697647
+    m_Localized: 'Successful: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697648
+    m_Localized: 'Failed: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697649
+    m_Localized: 'Crises survived: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697650
+    m_Localized: 'Road hazards: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697651
+    m_Localized: 'Quests done: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697652
+    m_Localized: 'Languages learned: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697653
+    m_Localized: 'Companions hired: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697654
+    m_Localized: 'Companions lost: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697655
+    m_Localized: 'Survived to end: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697656
+    m_Localized: 'Carts bought: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697657
+    m_Localized: 'Peak load: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697658
+    m_Localized: 'Animals lost: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697659
+    m_Localized: 'Repairs: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697660
+    m_Localized: 'Earned: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697661
+    m_Localized: 'Spent: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697662
+    m_Localized: 'Net profit: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697663
+    m_Localized: 'Items bought: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697664
+    m_Localized: 'Items sold: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30677111948697665
+    m_Localized: 'Most expensive: {0}'
     m_Metadata:
       m_Items: []
   references:

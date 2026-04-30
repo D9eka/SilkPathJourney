@@ -10,7 +10,7 @@ namespace Internal.Scripts.UI.Localization.Args
     {
         private static readonly Regex ArgPattern = new(@"\{(\w+)\}");
         private static readonly Regex SpeechPattern = new(
-            @"<npc_speech\s+lang=""(\w+)"">(.+?)</npc_speech>", RegexOptions.Singleline);
+            @"<npc_speech\s+lang=""+(\w+)""+>(.+?)</npc_speech>", RegexOptions.Singleline);
 
         public static string Format(string format, IReadOnlyList<ILocArg> args)
         {

@@ -234,6 +234,144 @@ MonoBehaviour:
     m_Localized: Adds a reinforced cart to your starting equipment.
     m_Metadata:
       m_Items: []
+  - m_Id: 1263631324020736
+    m_Localized: Reinforced Harness
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963776
+    m_Localized: Reduces penalty from each additional cart in caravan by 2%.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963777
+    m_Localized: Smuggler
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963778
+    m_Localized: 'Unlocks the smuggler background: secret paths and valuable starting
+      cargo.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963779
+    m_Localized: Scholar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963780
+    m_Localized: 'Unlocks the scholar background: three languages and paper in starting
+      inventory.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963781
+    m_Localized: Dried Meat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963782
+    m_Localized: Start each run with dried meat in your inventory.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963783
+    m_Localized: Tea
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963784
+    m_Localized: Start each run with tea in your inventory.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963785
+    m_Localized: Paper
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963786
+    m_Localized: Start each run with paper in your inventory.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963787
+    m_Localized: Spices
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963788
+    m_Localized: Start each run with spices in your inventory.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963789
+    m_Localized: China Routes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963790
+    m_Localized: Unlocks roads through Chang'an and northern China.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963791
+    m_Localized: Central Asia Routes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963792
+    m_Localized: Unlocks roads through Samarkand and Bukhara.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963793
+    m_Localized: Persia Routes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963794
+    m_Localized: Unlocks roads through the Persian cultural belt.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963795
+    m_Localized: Arabia Routes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963796
+    m_Localized: Unlocks roads through the Arabian Peninsula.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963797
+    m_Localized: India Routes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963798
+    m_Localized: Unlocks roads through the Indian subcontinent.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963799
+    m_Localized: Byzantine Routes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963800
+    m_Localized: Unlocks roads through Constantinople and the Greek belt.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963801
+    m_Localized: Sturdy Wheels
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963802
+    m_Localized: Reduces the chance of the Broken Wheel event by 30%.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963803
+    m_Localized: Sealed Containers
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963804
+    m_Localized: Doubles goods shelf life during travel.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963805
+    m_Localized: Repair Kit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963806
+    m_Localized: Adds +1 main cart durability per travel day.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963807
+    m_Localized: Road Lanterns
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963808
+    m_Localized: Reduces the fog negative effect on roads by 30%.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
