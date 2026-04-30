@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 8090969114279033662}
   - component: {fileID: 8819502994658401086}
   - component: {fileID: 4848217918257437726}
-  - component: {fileID: 2883698586521852099}
+  - component: {fileID: 3043735785083736954}
   m_Layer: 5
   m_Name: TabButton
   m_TagString: Untagged
@@ -255,7 +255,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -274,7 +274,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2883698586521852099
+--- !u!114 &3043735785083736954
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -283,9 +283,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1856801462627005374}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a16ed461c506a9429e0f0d356af0c13, type: 3}
+  m_Script: {fileID: 11500000, guid: 25d00e2915f5dd44281f4922824118dd, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Theme.UiColorBinder
-  _colorSlot: 2
-  _target: {fileID: 8819502994658401086}
-  _transitionDuration: 0.5
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Screens.Core.Tabs.TabButton
+  _button: {fileID: 4848217918257437726}
+  _label: {fileID: 3537681613527330568}
+  _background: {fileID: 8819502994658401086}
+  _hideWhenSelected: 0

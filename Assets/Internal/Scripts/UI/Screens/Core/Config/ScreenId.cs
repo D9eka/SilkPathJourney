@@ -25,6 +25,6 @@ namespace Internal.Scripts.UI.Screens.Core.Config
         NewGame = 22,
         ConfirmNewGame = 23,
         RunEnd = 24,
-        LegacyShop = 25
+        Legacy = 25
     }
 }

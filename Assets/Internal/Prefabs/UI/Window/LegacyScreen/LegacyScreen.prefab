@@ -114,6 +114,7 @@ GameObject:
   - component: {fileID: 2178275911476249542}
   - component: {fileID: 2197387032012177652}
   - component: {fileID: 5549371303156654745}
+  - component: {fileID: 6039028727023745014}
   m_Layer: 5
   m_Name: TabContainer
   m_TagString: Untagged
@@ -179,6 +180,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6039028727023745014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6037496819072455517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a16ed461c506a9429e0f0d356af0c13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Theme.UiColorBinder
+  _colorSlot: 1
+  _target: {fileID: 5549371303156654745}
+  _transitionDuration: 0.5
 --- !u!1 &9048400324182235485
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,7 +209,7 @@ GameObject:
   - component: {fileID: 3830878006648394318}
   - component: {fileID: 6039470807585402133}
   m_Layer: 5
-  m_Name: LegacyStreen
+  m_Name: LegacyScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -301,23 +317,51 @@ MonoBehaviour:
   _closeButton: {fileID: 8799082107400037287}
   _mainHeaderLocalizedString:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: GUID:43598c3e97d7d9a439a074f7627fe021
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 30121302437126144
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
   _legacyPointsIndicator: {fileID: 3445189089998237621}
-  _shopTabButton: {fileID: 2001805002362634903}
-  _shopTabText: {fileID: 7608793252065309057}
-  _achievementsTabButton: {fileID: 5921797293235886843}
-  _achievementsTabText: {fileID: 2341442370620418541}
-  _lifetimeTabButton: {fileID: 4838500623909122848}
-  _lifetimeTabText: {fileID: 3563970751084806198}
-  _shopTabView: {fileID: 7990101777988684638}
-  _achievementsTabView: {fileID: 8523541312159111390}
-  _lifetimeTabView: {fileID: 6179704369458054303}
+  _tabs:
+  - _button: {fileID: 8264674969079270899}
+    _view: {fileID: 7990101777988684638}
+    _label:
+      m_TableReference:
+        m_TableCollectionName: GUID:43598c3e97d7d9a439a074f7627fe021
+      m_TableEntryReference:
+        m_KeyId: 30121302483263488
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    _tab: 0
+  - _button: {fileID: 4277190739094754719}
+    _view: {fileID: 8523541312159111390}
+    _label:
+      m_TableReference:
+        m_TableCollectionName: GUID:43598c3e97d7d9a439a074f7627fe021
+      m_TableEntryReference:
+        m_KeyId: 30121302483263489
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    _tab: 1
+  - _button: {fileID: 3048971844792056900}
+    _view: {fileID: 6179704369458054303}
+    _label:
+      m_TableReference:
+        m_TableCollectionName: GUID:43598c3e97d7d9a439a074f7627fe021
+      m_TableEntryReference:
+        m_KeyId: 30121302483263490
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    _tab: 2
   references:
     version: 2
     RefIds: []
@@ -439,28 +483,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 160504344323053315, guid: 4e7eb0842dab09040b801611ad175a09, type: 3}
   m_PrefabInstance: {fileID: 30850290239467326}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3563970751084806198 stripped
+--- !u!114 &3048971844792056900 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3537681613527330568, guid: 4e7eb0842dab09040b801611ad175a09, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3043735785083736954, guid: 4e7eb0842dab09040b801611ad175a09, type: 3}
   m_PrefabInstance: {fileID: 30850290239467326}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Script: {fileID: 11500000, guid: 25d00e2915f5dd44281f4922824118dd, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
---- !u!114 &4838500623909122848 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4848217918257437726, guid: 4e7eb0842dab09040b801611ad175a09, type: 3}
-  m_PrefabInstance: {fileID: 30850290239467326}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Screens.Core.Tabs.TabButton
 --- !u!1001 &430246714152774258
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -788,28 +821,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 160504344323053315, guid: 4e7eb0842dab09040b801611ad175a09, type: 3}
   m_PrefabInstance: {fileID: 1253733256761362149}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2341442370620418541 stripped
+--- !u!114 &4277190739094754719 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3537681613527330568, guid: 4e7eb0842dab09040b801611ad175a09, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3043735785083736954, guid: 4e7eb0842dab09040b801611ad175a09, type: 3}
   m_PrefabInstance: {fileID: 1253733256761362149}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Script: {fileID: 11500000, guid: 25d00e2915f5dd44281f4922824118dd, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
---- !u!114 &5921797293235886843 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4848217918257437726, guid: 4e7eb0842dab09040b801611ad175a09, type: 3}
-  m_PrefabInstance: {fileID: 1253733256761362149}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Screens.Core.Tabs.TabButton
 --- !u!1001 &3678614501841752300
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2710,7 +2732,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1452285095544815778, guid: efc7a9f64c5d5934a8ab782d4ed837b6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2179717777658910026, guid: efc7a9f64c5d5934a8ab782d4ed837b6, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2762,7 +2784,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4143139695415067112, guid: efc7a9f64c5d5934a8ab782d4ed837b6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5784.0874
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4143139695415067112, guid: efc7a9f64c5d5934a8ab782d4ed837b6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2921,6 +2943,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AchievementsTabView
       objectReference: {fileID: 0}
+    - target: {fileID: 7111413817620355629, guid: 1757bc61c04f30c4abb3a88ad82844a0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3043,30 +3069,19 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e7eb0842dab09040b801611ad175a09, type: 3}
---- !u!114 &2001805002362634903 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4848217918257437726, guid: 4e7eb0842dab09040b801611ad175a09, type: 3}
-  m_PrefabInstance: {fileID: 6381463822783733385}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
 --- !u!224 &6536335289580751242 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 160504344323053315, guid: 4e7eb0842dab09040b801611ad175a09, type: 3}
   m_PrefabInstance: {fileID: 6381463822783733385}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7608793252065309057 stripped
+--- !u!114 &8264674969079270899 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3537681613527330568, guid: 4e7eb0842dab09040b801611ad175a09, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3043735785083736954, guid: 4e7eb0842dab09040b801611ad175a09, type: 3}
   m_PrefabInstance: {fileID: 6381463822783733385}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Script: {fileID: 11500000, guid: 25d00e2915f5dd44281f4922824118dd, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Screens.Core.Tabs.TabButton

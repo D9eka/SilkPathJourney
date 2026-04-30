@@ -21,7 +21,7 @@ using Internal.Scripts.UI.Screens.CityEntryConfirm;
 using Internal.Scripts.UI.Screens.Camp;
 using Internal.Scripts.UI.Screens.HazardQte;
 using Internal.Scripts.UI.Screens.NewGame;
-using Internal.Scripts.UI.Screens.LegacyShop;
+using Internal.Scripts.UI.Screens.Legacy;
 using Internal.Scripts.UI.Screens.RunEnd;
 using Internal.Scripts.UI.Screens.TargetSelection.Search;
 using Plugins.Zenject.Source.Main;
@@ -63,7 +63,7 @@ namespace Internal.Scripts.UI.Factory
                 ScreenId.NewGame => CreateNewGame(view),
                 ScreenId.ConfirmNewGame => CreateConfirmNewGame(view),
                 ScreenId.RunEnd => CreateRunEnd(view),
-                ScreenId.LegacyShop => CreateLegacyShop(view),
+                ScreenId.Legacy => CreateLegacy(view),
                 _ => null
             };
         }
@@ -245,12 +245,12 @@ namespace Internal.Scripts.UI.Factory
             return _container.Instantiate<RunEndScreenViewModel>();
         }
 
-        private ScreenViewModelBase CreateLegacyShop(IScreenView view)
+        private ScreenViewModelBase CreateLegacy(IScreenView view)
         {
-            if (view is not LegacyShopScreen)
+            if (view is not LegacyScreen)
                 return null;
 
-            return _container.Instantiate<LegacyShopScreenViewModel>();
+            return _container.Instantiate<LegacyScreenViewModel>();
         }
     }
 }
