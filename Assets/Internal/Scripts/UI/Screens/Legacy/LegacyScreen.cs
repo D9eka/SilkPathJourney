@@ -13,8 +13,6 @@ namespace Internal.Scripts.UI.Screens.Legacy
     public sealed class LegacyScreen : PopupScreen
     {
         [SerializeField] private ResourceIndicator _legacyPointsIndicator;
-
-        [Header("Tabs")]
         [SerializeField] private LegacyTabBinding[] _tabs;
 
         private LegacyScreenViewModel _viewModel;

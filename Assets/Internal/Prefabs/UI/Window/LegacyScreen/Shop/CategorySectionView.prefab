@@ -50,7 +50,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddeee2e5fa0ad01418e8fc0372196c23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Screens.Legacy.Tabs.CategorySectionView
-  _categoryTitle: {fileID: 8389323495838582713}
+  _categoryTitleBackground: {fileID: 1097487044880289547}
+  _categoryTitleText: {fileID: 8389323495838582713}
   _container: {fileID: 5672541112525843587}
 --- !u!1001 &1236924911351630140
 PrefabInstance:
@@ -72,6 +73,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5298838608494539283, guid: 7bd894d15b68a5c42bf1e4d990b9bb15, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5298838608494539283, guid: 7bd894d15b68a5c42bf1e4d990b9bb15, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5298838608494539283, guid: 7bd894d15b68a5c42bf1e4d990b9bb15, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6886736865791370687, guid: 7bd894d15b68a5c42bf1e4d990b9bb15, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
@@ -90,7 +103,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9059014079561511531, guid: 7bd894d15b68a5c42bf1e4d990b9bb15, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9059014079561511531, guid: 7bd894d15b68a5c42bf1e4d990b9bb15, type: 3}
       propertyPath: m_AnchorMin.x
@@ -106,7 +119,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9059014079561511531, guid: 7bd894d15b68a5c42bf1e4d990b9bb15, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 304
+      value: -64
       objectReference: {fileID: 0}
     - target: {fileID: 9059014079561511531, guid: 7bd894d15b68a5c42bf1e4d990b9bb15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -156,16 +169,51 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9172734878246486229, guid: 7bd894d15b68a5c42bf1e4d990b9bb15, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4819938898634600047, guid: 7bd894d15b68a5c42bf1e4d990b9bb15, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1656161635622290730}
   m_SourcePrefab: {fileID: 100100000, guid: 7bd894d15b68a5c42bf1e4d990b9bb15, type: 3}
 --- !u!224 &5672541112525843587 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6886736865791370687, guid: 7bd894d15b68a5c42bf1e4d990b9bb15, type: 3}
   m_PrefabInstance: {fileID: 1236924911351630140}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6037546180953630547 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4819938898634600047, guid: 7bd894d15b68a5c42bf1e4d990b9bb15, type: 3}
+  m_PrefabInstance: {fileID: 1236924911351630140}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1656161635622290730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6037546180953630547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.HorizontalLayoutGroup
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 3
+  m_Spacing: 16
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 1
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!224 &7823427550900960087 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 9059014079561511531, guid: 7bd894d15b68a5c42bf1e4d990b9bb15, type: 3}
@@ -268,6 +316,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fee54f666d08e784ca14b63390c1e360, type: 3}
+--- !u!114 &1097487044880289547 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1377659444297574261, guid: fee54f666d08e784ca14b63390c1e360, type: 3}
+  m_PrefabInstance: {fileID: 2028136403145025662}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!224 &6330611335001788989 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5476300352609892931, guid: fee54f666d08e784ca14b63390c1e360, type: 3}

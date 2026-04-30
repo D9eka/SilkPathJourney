@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9750bc489b05d5b4fa6c2929ee47c9ff, type: 3}
-  m_Name: UnlockUpgradeReinforcedCart
-  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Game.Unlocks.UnlockData
-  <Id>k__BackingField: unlock_upgrade_reinforced_cart
+  m_Name: UnlockUpgradeReinforcedHarness
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Meta.Unlocks.UnlockData
+  <Id>k__BackingField: unlock_upgrade_reinforced_harness
   <Category>k__BackingField: 3
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Player
     m_TableEntryReference:
       m_KeyId: 0
-      m_Key: unlock.unlock_upgrade_reinforced_cart.name
+      m_Key: unlock.unlock_upgrade_reinforced_harness.name
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
@@ -28,7 +28,7 @@ MonoBehaviour:
       m_TableCollectionName: Player
     m_TableEntryReference:
       m_KeyId: 0
-      m_Key: unlock.unlock_upgrade_reinforced_cart.description
+      m_Key: unlock.unlock_upgrade_reinforced_harness.description
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
