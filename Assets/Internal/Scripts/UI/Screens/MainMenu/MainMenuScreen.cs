@@ -20,7 +20,6 @@ namespace Internal.Scripts.UI.Screens.MainMenu
         [Header("Buttons")]
         [SerializeField] private Button _newGameButton;
         [SerializeField] private Button _continueButton;
-        [SerializeField] private Button _profileButton;
         [SerializeField] private Button _settingsButton;
         [SerializeField] private Button _quitButton;
         [SerializeField] private Button _legacyShopButton;
@@ -28,7 +27,6 @@ namespace Internal.Scripts.UI.Screens.MainMenu
         [Header("Button Texts")]
         [SerializeField] private TextMeshProUGUI _newGameButtonText;
         [SerializeField] private TextMeshProUGUI _continueButtonText;
-        [SerializeField] private TextMeshProUGUI _profileButtonText;
         [SerializeField] private TextMeshProUGUI _settingsButtonText;
         [SerializeField] private TextMeshProUGUI _quitButtonText;
         [SerializeField] private TextMeshProUGUI _legacyShopButtonText;
@@ -36,7 +34,6 @@ namespace Internal.Scripts.UI.Screens.MainMenu
         [Header("Localization")]
         [SerializeField] private LocalizedString _newGameLocalizedString;
         [SerializeField] private LocalizedString _continueLocalizedString;
-        [SerializeField] private LocalizedString _profileLocalizedString;
         [SerializeField] private LocalizedString _settingsLocalizedString;
         [SerializeField] private LocalizedString _quitLocalizedString;
         [SerializeField] private LocalizedString _legacyShopLocalizedString;
@@ -62,14 +59,9 @@ namespace Internal.Scripts.UI.Screens.MainMenu
         {
             _newGameButton.onClick.AddListener(OnNewGame);
             _continueButton.onClick.AddListener(OnContinue);
-            if (_profileButton != null)
-                _profileButton.onClick.AddListener(OnProfile);
-            if (_settingsButton != null)
-                _settingsButton.onClick.AddListener(OnSettings);
-            if (_quitButton != null)
-                _quitButton.onClick.AddListener(OnQuit);
-            if (_legacyShopButton != null)
-                _legacyShopButton.onClick.AddListener(OnLegacyShop);
+            _settingsButton.onClick.AddListener(OnSettings);
+            _quitButton.onClick.AddListener(OnQuit);
+            _legacyShopButton.onClick.AddListener(OnLegacyShop);
             if (Localization != null)
             {
                 BindHeaderLocalization();
@@ -82,14 +74,9 @@ namespace Internal.Scripts.UI.Screens.MainMenu
         {
             _newGameButton.onClick.RemoveListener(OnNewGame);
             _continueButton.onClick.RemoveListener(OnContinue);
-            if (_profileButton != null)
-                _profileButton.onClick.RemoveListener(OnProfile);
-            if (_settingsButton != null)
-                _settingsButton.onClick.RemoveListener(OnSettings);
-            if (_quitButton != null)
-                _quitButton.onClick.RemoveListener(OnQuit);
-            if (_legacyShopButton != null)
-                _legacyShopButton.onClick.RemoveListener(OnLegacyShop);
+            _settingsButton.onClick.RemoveListener(OnSettings);
+            _quitButton.onClick.RemoveListener(OnQuit);
+            _legacyShopButton.onClick.RemoveListener(OnLegacyShop);
             _headerHandle?.Dispose();
             _headerHandle = null;
             _buttonHandles?.Dispose();
@@ -111,7 +98,6 @@ namespace Internal.Scripts.UI.Screens.MainMenu
 
         private void OnNewGame() => _viewModel?.NewGame();
         private void OnContinue() => _viewModel?.Continue();
-        private void OnProfile() => _viewModel?.OnProfile();
         private void OnSettings() { }
         private void OnQuit() => _viewModel?.QuitGame();
         private void OnLegacyShop() => _viewModel?.OpenLegacyShop();
@@ -129,7 +115,6 @@ namespace Internal.Scripts.UI.Screens.MainMenu
             _buttonHandles = Localization.CreateTextGroup();
             _buttonHandles.Bind(_newGameButtonText, _newGameLocalizedString, "MainMenu.NewGame");
             _buttonHandles.Bind(_continueButtonText, _continueLocalizedString, "MainMenu.Continue");
-            _buttonHandles.Bind(_profileButtonText, _profileLocalizedString, "MainMenu.Profile");
             _buttonHandles.Bind(_settingsButtonText, _settingsLocalizedString, "MainMenu.Settings");
             _buttonHandles.Bind(_quitButtonText, _quitLocalizedString, "MainMenu.Quit");
             _buttonHandles.Bind(_legacyShopButtonText, _legacyShopLocalizedString, "MainMenu.LegacyShop");

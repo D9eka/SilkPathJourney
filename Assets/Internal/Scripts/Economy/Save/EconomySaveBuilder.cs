@@ -9,6 +9,7 @@ using Internal.Scripts.Economy.Save.Models;
 using Internal.Scripts.Economy.Simulation;
 using Internal.Scripts.Inventory;
 using Internal.Scripts.Items;
+using Internal.Scripts.Meta;
 using Internal.Scripts.Player;
 using Internal.Scripts.Player.Background;
 using UnityEngine;
@@ -22,6 +23,7 @@ namespace Internal.Scripts.Economy.Save
         private readonly CaravanDatabase _caravanDatabase;
         private readonly EconomySimulationSettings _simulationSettings;
         private readonly GuildSettings _guildSettings;
+        private readonly PersistentProgressService _persistent;
 
         private Dictionary<CityType, CityTypeData> _cityTypeByEnum;
         private Dictionary<ItemType, List<ItemData>> _itemsByCategory;
@@ -33,13 +35,15 @@ namespace Internal.Scripts.Economy.Save
             PlayerConfig playerConfig,
             CaravanDatabase caravanDatabase,
             EconomySimulationSettings simulationSettings,
-            GuildSettings guildSettings)
+            GuildSettings guildSettings,
+            PersistentProgressService persistent)
         {
             _economyDatabase = economyDatabase;
             _playerConfig = playerConfig;
             _caravanDatabase = caravanDatabase;
             _simulationSettings = simulationSettings;
             _guildSettings = guildSettings;
+            _persistent = persistent;
         }
 
         public EconomySaveData Build(BackgroundData background = null, CartClassData cartClass = null)
@@ -87,6 +91,14 @@ namespace Internal.Scripts.Economy.Save
                     InventoryStateMutator.AddItems(inv, entry.ItemId, entry.Count);
             }
 
+            const string StartItemPrefix = "unlock_startitem_";
+            foreach (string id in _persistent.UnlockedIds)
+            {
+                if (!id.StartsWith(StartItemPrefix, System.StringComparison.Ordinal)) continue;
+                string itemId = id.Substring(StartItemPrefix.Length);
+                InventoryStateMutator.AddItems(inv, itemId, 1);
+            }
+
             return inv;
         }
 
@@ -111,7 +123,7 @@ namespace Internal.Scripts.Economy.Save
                 CartUpgradeLevelId = PlayerResourceState.DEFAULT_UPGRADE_LEVEL,
                 DraftAnimalId = PlayerResourceState.DEFAULT_DRAFT_ANIMAL,
                 Companions = new List<CompanionState>(),
-                ActiveUpgrades = new List<string>(),
+                ActiveUpgrades = BuildLegacyActiveUpgrades(),
                 Reputation = reputation,
                 Morale = Mathf.Clamp(morale, PlayerResourceState.MORALE_MIN, PlayerResourceState.MORALE_MAX)
             };
@@ -130,6 +142,18 @@ namespace Internal.Scripts.Economy.Save
             }
 
             return resources;
+        }
+
+        private List<string> BuildLegacyActiveUpgrades()
+        {
+            const string UpgradePrefix = "unlock_upgrade_";
+            var result = new List<string>();
+            foreach (string id in _persistent.UnlockedIds)
+            {
+                if (!id.StartsWith(UpgradePrefix, System.StringComparison.Ordinal)) continue;
+                result.Add(id.Substring(UpgradePrefix.Length).Replace("_", ""));
+            }
+            return result;
         }
 
         private CartState CreatePlayerCart(CartClassData classData)

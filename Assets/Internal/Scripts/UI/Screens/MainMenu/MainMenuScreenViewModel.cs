@@ -3,7 +3,6 @@ using Internal.Scripts.Installers;
 using Internal.Scripts.Save;
 using Internal.Scripts.UI.Screens.Core.Config;
 using Internal.Scripts.UI.Screens.Core.ViewModel;
-using Internal.Scripts.UI.Screens.LegacyShop;
 using Internal.Scripts.UI.StackService;
 using Internal.Scripts.Utils;
 using R3;
@@ -78,11 +77,9 @@ namespace Internal.Scripts.UI.Screens.MainMenu
             _sceneLoader.LoadScene(_gameScene);
         }
 
-        public void OnProfile() { }
-
         public void OpenLegacyShop()
         {
-            _screenStackService.TryOpen(ScreenId.LegacyShop, LegacyShopTab.Lifetime, out _);
+            _screenStackService.TryOpen(ScreenId.Legacy, out _);
         }
 
         public void QuitGame()

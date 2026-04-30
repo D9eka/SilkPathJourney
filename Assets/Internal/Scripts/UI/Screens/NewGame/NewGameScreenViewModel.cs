@@ -1,10 +1,12 @@
 using System.Collections.Generic;
+using System.Linq;
 using Internal.Scripts.Camera;
 using Internal.Scripts.Caravan;
 using Internal.Scripts.Economy;
 using Internal.Scripts.Installers;
 using Internal.Scripts.Items;
 using Internal.Scripts.Player.Background;
+using Internal.Scripts.Meta;
 using Internal.Scripts.Save;
 using Internal.Scripts.UI.Localization;
 using Internal.Scripts.UI.Screens.Core.Config;
@@ -27,6 +29,7 @@ namespace Internal.Scripts.UI.Screens.NewGame
         private readonly LocalizationService _localization;
         private readonly ItemCatalog _itemCatalog;
         private readonly EconomyDatabase _economyDatabase;
+        private readonly PersistentProgressService _persistent;
 
         public NewGameScreenViewModel(
             BackgroundDatabase backgroundDatabase,
@@ -37,6 +40,7 @@ namespace Internal.Scripts.UI.Screens.NewGame
             LocalizationService localization,
             ItemCatalog itemCatalog,
             EconomyDatabase economyDatabase,
+            PersistentProgressService persistent,
             [Inject(Id = SceneRefId.Game)] SceneReference gameScene)
         {
             _backgroundDatabase = backgroundDatabase;
@@ -47,6 +51,7 @@ namespace Internal.Scripts.UI.Screens.NewGame
             _localization = localization;
             _itemCatalog = itemCatalog;
             _economyDatabase = economyDatabase;
+            _persistent = persistent;
             _gameScene = gameScene;
 
             CanStart = Observable.CombineLatest(
@@ -71,7 +76,8 @@ namespace Internal.Scripts.UI.Screens.NewGame
 
         public ReadOnlyReactiveProperty<bool> CanStart { get; }
 
-        public bool IsBackgroundUnlocked(BackgroundData data) => data.IsUnlockedByDefault;
+        public bool IsBackgroundUnlocked(BackgroundData data) =>
+            data.IsUnlockedByDefault || _persistent.UnlockedIds.Contains($"unlock_background_{data.Id}");
 
         public void Start()
         {

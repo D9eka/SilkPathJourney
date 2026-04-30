@@ -10,7 +10,6 @@ using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Localization;
 using Internal.Scripts.UI.Screens.Core.Config;
 using Internal.Scripts.UI.Screens.Core.ViewModel;
-using Internal.Scripts.UI.Screens.LegacyShop;
 using Internal.Scripts.UI.StackService;
 using Internal.Scripts.Utils;
 using R3;
@@ -118,7 +117,7 @@ namespace Internal.Scripts.UI.Screens.RunEnd
 
         public void OpenLegacyShop()
         {
-            _screenStackService.TryOpen(ScreenId.LegacyShop, LegacyShopTab.Shop, out _);
+            _screenStackService.TryOpen(ScreenId.Legacy, out _);
         }
     }
 }
