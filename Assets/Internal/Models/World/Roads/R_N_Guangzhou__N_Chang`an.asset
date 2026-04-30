@@ -15,6 +15,7 @@ MonoBehaviour:
   <Version>k__BackingField: 1
   <RoadId>k__BackingField: R_N_Guangzhou__N_Chang`an
   <RelativeTo>k__BackingField: Plane
+  <Region>k__BackingField: 1
   <LaneCount>k__BackingField: 2
   <LaneWidth>k__BackingField: 0.07
   <SpeedMul>k__BackingField: 1

@@ -11,6 +11,7 @@ using Internal.Scripts.Import.Editor.Theme;
 using Internal.Scripts.Import.Editor.Caravan;
 using Internal.Scripts.Import.Editor.Trader;
 using Internal.Scripts.Import.Editor.Unlock;
+using Internal.Scripts.World.Roads.Editor;
 using UnityEditor;
 using UnityEngine;
 
@@ -27,6 +28,7 @@ namespace Internal.Scripts.Import.Editor.Core
             {
                 EconomyImporter.ImportAll();
                 EventImporter.ImportAll();
+                RoadEventGenerator.Generate();
                 QuestImporter.ImportAll();
                 CaravanImporter.ImportAll();
                 CampImporter.ImportAll();
@@ -35,6 +37,7 @@ namespace Internal.Scripts.Import.Editor.Core
                 TraderImporter.Import();
                 LanguageTypeGenerator.Generate();
                 BackgroundImporter.ImportAll();
+                RoadRegionAutoFiller.AutoFillRegions();
                 UnlockImporter.ImportAll();
                 AchievementImporter.ImportAll();
                 LocalizationMasterImporter.ImportAll();
