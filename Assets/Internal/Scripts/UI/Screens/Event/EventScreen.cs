@@ -191,9 +191,9 @@ namespace Internal.Scripts.UI.Screens.Event
                 eventData.Description, "EventDescription", formatArgs,
                 raw => LocArgRenderer.ProcessNpcSpeech(raw, _viewModel?.LanguageRepo));
 
-            if (_nameHandle != null) _nameHandle.TextChanged += RequestLayoutRefresh;
-            if (_typeHandle != null) _typeHandle.TextChanged += RequestLayoutRefresh;
-            if (_descriptionHandle != null) _descriptionHandle.TextChanged += RequestLayoutRefresh;
+            _nameHandle.TextChanged += RequestLayoutRefresh;
+            _typeHandle.TextChanged += RequestLayoutRefresh;
+            _descriptionHandle.TextChanged += RequestLayoutRefresh;
 
             if (eventData.Image != null)
                 _eventImage.sprite = eventData.Image;
@@ -301,7 +301,7 @@ namespace Internal.Scripts.UI.Screens.Event
                 EventChoice choice = choices[i];
                 ConditionContent condition = _viewModel.GetChoiceConditionInfo(choiceIndex, choices);
                 EventChoiceButton button = _buttonPool.Get();
-                button.gameObject.InitializeColorBinders(themeService: _viewModel?.ThemeService);
+                button.gameObject.InitializeColorBinders(_viewModel?.ThemeService);
                 button.Initialize(
                     Localization,
                     choice.Text,
