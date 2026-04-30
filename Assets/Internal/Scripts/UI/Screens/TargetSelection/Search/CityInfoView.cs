@@ -8,11 +8,7 @@ using UnityEngine.Localization;
 
 namespace Internal.Scripts.UI.Screens.TargetSelection.Search
 {
-    /// <summary>
-    /// Отображение общей информации о городе: иконка типа + название/тип, заголовок "Здания:" со списком,
-    /// маркер квеста. Используется в CityRowView (карточка поиска) и CityEntryPreviewView (ConfirmWindow).
-    /// </summary>
-    public class CityInfoView : MonoBehaviour
+    public class CityInfoView : MonoBehaviour, ILocalizationConsumer
     {
         [Header("City")]
         [SerializeField] private IconLabel _cityNameView;

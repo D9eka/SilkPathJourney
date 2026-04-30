@@ -25,7 +25,8 @@ namespace Internal.Scripts.UI.Screens.TargetSelection.Search
 
         private readonly ReactiveProperty<CitySearchViewState> _state = new();
         private readonly ReactiveProperty<string> _searchQuery = new(string.Empty);
-        private readonly ReactiveProperty<BuildingId?> _activeFilter = new(null);
+        private readonly HashSet<BuildingId> _activeFilters = new();
+        private readonly ReactiveProperty<int> _activeFiltersVersion = new(0);
         private readonly ReactiveProperty<bool> _isVisible = new(true);
 
         private IDisposable _searchSubscription;
@@ -60,11 +61,12 @@ namespace Internal.Scripts.UI.Screens.TargetSelection.Search
         {
             Deactivate();
             _searchQuery.Value = string.Empty;
-            _activeFilter.Value = null;
+            _activeFilters.Clear();
+            _activeFiltersVersion.Value = 0;
             _isVisible.Value = true;
 
             _searchSubscription = _searchQuery.Subscribe(_ => RebuildState());
-            _filterSubscription = _activeFilter.Subscribe(_ => RebuildState());
+            _filterSubscription = _activeFiltersVersion.Subscribe(_ => RebuildState());
             LocalizationSettings.SelectedLocaleChanged += OnLocaleChanged;
         }
 
@@ -89,9 +91,11 @@ namespace Internal.Scripts.UI.Screens.TargetSelection.Search
             _searchQuery.Value = query ?? string.Empty;
         }
 
-        public void SetFilter(BuildingId? filter)
+        public void ToggleFilter(BuildingId filter)
         {
-            _activeFilter.Value = _activeFilter.Value == filter ? null : filter;
+            if (!_activeFilters.Add(filter))
+                _activeFilters.Remove(filter);
+            _activeFiltersVersion.Value++;
         }
 
         public void SetVisible(bool value)
@@ -129,20 +133,22 @@ namespace Internal.Scripts.UI.Screens.TargetSelection.Search
         private void RebuildState()
         {
             string query = _searchQuery.Value ?? string.Empty;
-            BuildingId? filter = _activeFilter.Value;
+            var filtersSnapshot = _activeFilters.Count > 0
+                ? new HashSet<BuildingId>(_activeFilters)
+                : null;
 
-            bool hasSearch = !string.IsNullOrWhiteSpace(query) || filter.HasValue;
+            bool hasSearch = !string.IsNullOrWhiteSpace(query) || filtersSnapshot != null;
             if (!hasSearch)
             {
-                _state.Value = new CitySearchViewState(null, filter);
+                _state.Value = new CitySearchViewState(null, filtersSnapshot);
                 return;
             }
 
-            var results = FilterCities(query, filter);
-            _state.Value = new CitySearchViewState(results, filter);
+            var results = FilterCities(query, filtersSnapshot);
+            _state.Value = new CitySearchViewState(results, filtersSnapshot);
         }
 
-        private List<CityRowData> FilterCities(string query, BuildingId? filter)
+        private List<CityRowData> FilterCities(string query, HashSet<BuildingId> filters)
         {
             var cities = _economyDb.Cities;
             var result = new List<CityRowData>(cities.Count);
@@ -150,7 +156,7 @@ namespace Internal.Scripts.UI.Screens.TargetSelection.Search
 
             foreach (var city in cities)
             {
-                if (filter.HasValue && !city.HasBuilding(filter.Value))
+                if (filters != null && !MatchesAllFilters(city, filters))
                     continue;
 
                 CityRowData row = _cardBuilder.Build(city);
@@ -163,6 +169,14 @@ namespace Internal.Scripts.UI.Screens.TargetSelection.Search
             }
 
             return result;
+        }
+
+        private static bool MatchesAllFilters(CityData city, HashSet<BuildingId> filters)
+        {
+            foreach (BuildingId id in filters)
+                if (!city.HasBuilding(id))
+                    return false;
+            return true;
         }
     }
 }

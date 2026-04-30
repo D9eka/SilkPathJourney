@@ -107,6 +107,7 @@ MonoBehaviour:
   _clearButton: {fileID: 5078142036055308712}
   _clearButtonObject: {fileID: 2874449153483886602}
   _hintText: {fileID: 8618560632692478044}
+  _placeholderText: {fileID: 3537758320038681694}
   _filterButtons:
   - {fileID: 3602176353444122048}
   - {fileID: 5488710726776789601}

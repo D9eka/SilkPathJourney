@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Internal.Scripts.Economy.Generated;
 using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Localization;
@@ -207,7 +208,7 @@ namespace Internal.Scripts.UI.Screens.TargetSelection.Search
                     continue;
 
                 BuildingId id = btn.Building;
-                btn.Initialize(catalog, tooltip, () => _viewModel?.SetFilter(id));
+                btn.Initialize(catalog, tooltip, () => _viewModel?.ToggleFilter(id));
             }
 
             _filtersBound = true;
@@ -250,7 +251,7 @@ namespace Internal.Scripts.UI.Screens.TargetSelection.Search
                 ReleaseRows();
             }
 
-            UpdateFilterHighlights(state.ActiveFilter);
+            UpdateFilterHighlights(state.ActiveFilters);
         }
 
         private void RebuildRows(IReadOnlyList<CityRowData> results)
@@ -285,7 +286,7 @@ namespace Internal.Scripts.UI.Screens.TargetSelection.Search
             _activeRows.Clear();
         }
 
-        private void UpdateFilterHighlights(BuildingId? active)
+        private void UpdateFilterHighlights(IReadOnlyCollection<BuildingId> active)
         {
             if (_filterButtons == null)
                 return;
@@ -294,7 +295,7 @@ namespace Internal.Scripts.UI.Screens.TargetSelection.Search
             {
                 if (btn == null)
                     continue;
-                btn.SetActive(active.HasValue && btn.Building == active.Value);
+                btn.SetActive(active != null && active.Contains(btn.Building));
             }
         }
 

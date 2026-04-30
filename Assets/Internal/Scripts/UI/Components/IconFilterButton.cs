@@ -74,6 +74,6 @@ namespace Internal.Scripts.UI.Components
 
         private void Invoke() => _clickHandler?.Invoke();
 
-        private void OnDisable() => UnbindInternal();
+        private void OnDestroy() => UnbindInternal();
     }
 }

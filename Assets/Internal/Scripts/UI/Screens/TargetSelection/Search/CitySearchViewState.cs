@@ -12,15 +12,15 @@ namespace Internal.Scripts.UI.Screens.TargetSelection.Search
         public readonly int ResultsCount;
         public readonly bool ShowResults;
         public readonly bool ShowEmpty;
-        public readonly BuildingId? ActiveFilter;
+        public readonly IReadOnlyCollection<BuildingId> ActiveFilters;
 
         public CitySearchViewState(
             IReadOnlyList<CityRowData> results,
-            BuildingId? activeFilter)
+            IReadOnlyCollection<BuildingId> activeFilters)
         {
             Results = results;
             ResultsCount = results?.Count ?? 0;
-            ActiveFilter = activeFilter;
+            ActiveFilters = activeFilters;
             ShowResults = results != null && results.Count > 0;
             ShowEmpty = results != null && results.Count == 0;
         }
