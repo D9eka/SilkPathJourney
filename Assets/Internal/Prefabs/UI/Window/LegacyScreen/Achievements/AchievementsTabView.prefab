@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f156d1f86b7300a4dadb61b3117a3260, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Screens.Legacy.Tabs.Achievement.AchievementsTabView
-  _entryPrefab: {fileID: 0}
+  _entryPrefab: {fileID: 2812084924848457991, guid: 9814fe0edfad2704097198ead572621d, type: 3}
   _container: {fileID: 1292658777148149825}
   _totalCounterLabel: {fileID: 7233177325149991522}
 --- !u!1001 &5798332669106439276
