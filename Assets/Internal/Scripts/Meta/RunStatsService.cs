@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Internal.Scripts.Config;
 using Internal.Scripts.Economy;
 using Internal.Scripts.Economy.Cities;
 using Internal.Scripts.Events;
@@ -9,6 +10,7 @@ using Internal.Scripts.Player.Languages;
 using Internal.Scripts.Quests;
 using Internal.Scripts.Save;
 using Internal.Scripts.Trading;
+using Internal.Scripts.Travel.Triggers;
 using R3;
 using Zenject;
 
@@ -25,6 +27,8 @@ namespace Internal.Scripts.Meta
         private readonly PlayerLanguageRepository _languageRepository;
         private readonly PlayerResourceRepository _resourceRepository;
         private readonly InventoryModel _inventoryModel;
+        private readonly DistanceTrackingService _distance;
+        private readonly GameBalanceConfig _balance;
 
         private IDisposable _languageSubscription;
         private IDisposable _inventorySubscription;
@@ -42,7 +46,9 @@ namespace Internal.Scripts.Meta
             CompanionService companionService,
             PlayerLanguageRepository languageRepository,
             PlayerResourceRepository resourceRepository,
-            InventoryModel inventoryModel)
+            InventoryModel inventoryModel,
+            DistanceTrackingService distance,
+            GameBalanceConfig balance)
         {
             _saveRepository = saveRepository;
             _dayTracker = dayTracker;
@@ -53,6 +59,8 @@ namespace Internal.Scripts.Meta
             _languageRepository = languageRepository;
             _resourceRepository = resourceRepository;
             _inventoryModel = inventoryModel;
+            _distance = distance;
+            _balance = balance;
         }
 
         public void Initialize()
@@ -86,6 +94,13 @@ namespace Internal.Scripts.Meta
         private void HandleDayChanged(int day)
         {
             Stats.DaysTravelled = day - 1;
+            SyncDerived();
+        }
+
+        private void SyncDerived()
+        {
+            if (_balance.WorldUnitsPerKm > 0f)
+                Stats.KilometersTravelled = _distance.TotalDistanceUnits / _balance.WorldUnitsPerKm;
         }
 
         private void HandleCityEntered(CityData city)
@@ -187,6 +202,7 @@ namespace Internal.Scripts.Meta
 
         public void Snapshot()
         {
+            SyncDerived();
             Stats.CompanionsFinal = _resourceRepository.Current.Companions.Count;
         }
     }

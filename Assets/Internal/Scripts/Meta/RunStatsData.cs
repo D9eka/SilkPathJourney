@@ -61,6 +61,7 @@ namespace Internal.Scripts.Meta
         // End
         public EndType EndType;
         public string EndReasonKey;
+        public string EndingBranchId;
         public int LegacyEarned;
         public int LegacyBonus;
 
