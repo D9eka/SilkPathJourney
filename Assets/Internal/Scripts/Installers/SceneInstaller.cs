@@ -409,7 +409,7 @@ namespace Internal.Scripts.Installers
             Container.Bind<QuestRewardApplier>().AsSingle();
             Container.BindInterfacesTo<QuestStageChecker>().AsSingle();
             Container.Bind<QuestCityIndicatorService>().AsSingle();
-            Container.Bind<BuildingQuestSlotPresenter>().AsTransient();
+            Container.Bind<BuildingQuestSlotViewModel>().AsTransient();
             Container.Bind<UI.Screens.TargetSelection.Search.CityCardBuilder>().AsSingle();
         }
 

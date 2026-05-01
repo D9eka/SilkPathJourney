@@ -23,6 +23,7 @@ using Internal.Scripts.Travel.Pickups;
 using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Localization;
 using Internal.Scripts.UI.Screens.Config;
+using Internal.Scripts.UI.WorldLabel;
 using Internal.Scripts.Utils;
 using Plugins.Zenject.Source.Install;
 using UnityEngine;
@@ -47,6 +48,7 @@ namespace Internal.Scripts.Installers
 
         [Header("Quests")]
         [SerializeField] private QuestDatabase _questDatabase;
+        [SerializeField] private QuestIndicatorIcons _questIndicatorIcons;
 
         [Header("Caravan")]
         [SerializeField] private CaravanDatabase _caravanDatabase;
@@ -104,6 +106,7 @@ namespace Internal.Scripts.Installers
             Container.BindInstance(_eventDatabase).AsSingle();
             Container.BindInstance(_crisisEventConfig).AsSingle();
             Container.BindInstance(_questDatabase).AsSingle();
+            Container.BindInstance(_questIndicatorIcons).AsSingle();
             Container.BindInstance(_caravanDatabase).AsSingle();
             Container.BindInstance(_playerProfile).AsSingle();
             Container.BindInstance(_backgroundDatabase).AsSingle();

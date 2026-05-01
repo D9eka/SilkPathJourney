@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Internal.Scripts.Travel.Hazards.Data
 {
-    [CreateAssetMenu(menuName = "SilkPath/Hazards/Enemy Pool", fileName = "Pool_")]
+    [CreateAssetMenu(menuName = "SPJ/Hazards/Enemy Pool", fileName = "New EnemyPool")]
     public sealed class EnemyPool : ScriptableObject
     {
         [field: SerializeField] public EnemyVisual[] Visuals { get; private set; }

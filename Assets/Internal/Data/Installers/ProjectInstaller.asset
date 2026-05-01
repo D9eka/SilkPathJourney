@@ -20,6 +20,7 @@ MonoBehaviour:
   _eventDatabase: {fileID: 11400000, guid: 8573b1faa3d1a1b4797c85b1c9579688, type: 2}
   _crisisEventConfig: {fileID: 11400000, guid: b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7, type: 2}
   _questDatabase: {fileID: 11400000, guid: 6b44833f326147340bbbb4d14d47250c, type: 2}
+  _questIndicatorIcons: {fileID: 11400000, guid: bf1652521b7119d4bb6f2db6434ed114, type: 2}
   _caravanDatabase: {fileID: 11400000, guid: e9febe3d356477b418297aa618add05b, type: 2}
   _playerProfile: {fileID: 11400000, guid: 031379dad52073149ab163bf31de2bda, type: 2}
   _backgroundDatabase: {fileID: 11400000, guid: 60b77d8d17a2c8c44a1ef1227c9cdeb6, type: 2}
