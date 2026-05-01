@@ -25,9 +25,8 @@ namespace Internal.Scripts.Events
         private readonly OutcomeApplier _outcomeApplier;
         private readonly ICityNodeResolver _cityNodeResolver;
         private readonly IPlayerStateProvider _playerState;
+        private readonly RecentEventHistory _history;
 
-        private readonly Queue<string> _recentEventIds = new();
-        private const int RECENT_HISTORY_SIZE = 5;
         private const int MIN_AVAILABLE_CHOICES = 2;
 
         public EventSelector(
@@ -36,7 +35,8 @@ namespace Internal.Scripts.Events
             PlayerResourceRepository resourceRepository,
             OutcomeApplier outcomeApplier,
             ICityNodeResolver cityNodeResolver,
-            IPlayerStateProvider playerState)
+            IPlayerStateProvider playerState,
+            RecentEventHistory history)
         {
             _eventDatabase = eventDatabase;
             _conditionEvaluator = conditionEvaluator;
@@ -44,6 +44,7 @@ namespace Internal.Scripts.Events
             _outcomeApplier = outcomeApplier;
             _cityNodeResolver = cityNodeResolver;
             _playerState = playerState;
+            _history = history;
         }
 
         public List<EventData> GetEligibleEvents(bool minor, Predicate<EventData> filter = null)
@@ -97,17 +98,9 @@ namespace Internal.Scripts.Events
             if (eventBiome != Biome.Unknown && eventBiome != currentBiome) return false;
             if (!CheckConditions(evt.Conditions)) return false;
             if (filter != null && !filter(evt)) return false;
-            if (_recentEventIds.Contains(evt.Id)) return false;
+            if (_history.Contains(evt.Id)) return false;
             if (!HasAvailableChoices(evt)) return false;
             return true;
-        }
-
-        public void RegisterRecentEvent(string eventId)
-        {
-            if (string.IsNullOrEmpty(eventId)) return;
-            _recentEventIds.Enqueue(eventId);
-            while (_recentEventIds.Count > RECENT_HISTORY_SIZE)
-                _recentEventIds.Dequeue();
         }
 
         public List<EventChoice> GetAvailableChoices(EventData eventData)
@@ -144,6 +137,5 @@ namespace Internal.Scripts.Events
             var resources = _resourceRepository.Current;
             return conditions.All(c => _conditionEvaluator.Evaluate(c, resources));
         }
-
     }
 }
