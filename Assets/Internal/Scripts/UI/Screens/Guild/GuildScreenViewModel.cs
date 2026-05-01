@@ -1,16 +1,19 @@
 using System;
 using System.Collections.Generic;
 using Internal.Scripts.Economy;
+using Internal.Scripts.Economy.Buildings;
 using Internal.Scripts.Economy.Guild;
 using Internal.Scripts.Economy.Save;
 using Internal.Scripts.Events;
 using Internal.Scripts.Inventory;
 using Internal.Scripts.Items;
+using Internal.Scripts.Quests;
 using Internal.Scripts.Save;
 using Internal.Scripts.Trading;
 using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Localization;
 using Internal.Scripts.UI.Localization.Generated;
+using Internal.Scripts.UI.Screens.Building;
 using Internal.Scripts.UI.Screens.Core.Config;
 using Internal.Scripts.UI.Screens.Core.ViewModel;
 using Internal.Scripts.UI.Screens.Shared;
@@ -37,6 +40,7 @@ namespace Internal.Scripts.UI.Screens.Guild
         private readonly InventoryRepository _inventoryRepository;
         private readonly ScreenStackService _screenStackService;
         private readonly ResourceIconCatalog _resourceIcons;
+        private readonly BuildingQuestSlotViewModel _questSlotVM;
         private readonly ReactiveProperty<GuildViewState> _state = new();
         private readonly List<GuildOfferingAction> _offeringActions = new();
 
@@ -44,6 +48,7 @@ namespace Internal.Scripts.UI.Screens.Guild
         private List<GuildContract> _availableContracts = new();
 
         public Observable<GuildViewState> State => _state;
+        public Observable<BuildingQuestSlotState?> QuestSlot => _questSlotVM.State;
         public UiThemeService ThemeService => _themeService;
         public ResourceIconCatalog ResourceIcons => _resourceIcons;
         public override ScreenId Id => ScreenId.Guild;
@@ -60,7 +65,8 @@ namespace Internal.Scripts.UI.Screens.Guild
             ItemWeightCalculator weightCalculator,
             InventoryRepository inventoryRepository,
             ScreenStackService screenStackService,
-            ResourceIconCatalog resourceIcons)
+            ResourceIconCatalog resourceIcons,
+            BuildingQuestSlotViewModel questSlotVM)
         {
             _guildService = guildService;
             _guildSettings = guildSettings;
@@ -74,11 +80,15 @@ namespace Internal.Scripts.UI.Screens.Guild
             _inventoryRepository = inventoryRepository;
             _screenStackService = screenStackService;
             _resourceIcons = resourceIcons;
+            _questSlotVM = questSlotVM;
         }
+
+        public void OnQuestSlotTalk() => _questSlotVM.OnTalk();
 
         protected override void OnOpen(object args)
         {
             _cityId = args as string;
+            _questSlotVM.Bind(BuildingType.Guild, _cityId);
             BuildState();
             LocalizationSettings.SelectedLocaleChanged += OnLocaleChanged;
         }
@@ -86,6 +96,7 @@ namespace Internal.Scripts.UI.Screens.Guild
         protected override void OnClose()
         {
             LocalizationSettings.SelectedLocaleChanged -= OnLocaleChanged;
+            _questSlotVM.Dispose();
             _state.Value = null;
         }
 

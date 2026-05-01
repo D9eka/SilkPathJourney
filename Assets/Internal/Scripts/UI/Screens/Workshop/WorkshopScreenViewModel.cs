@@ -3,6 +3,7 @@ using System.Linq;
 using Internal.Scripts.Caravan;
 using Internal.Scripts.Caravan.Generated;
 using Internal.Scripts.Economy;
+using Internal.Scripts.Economy.Buildings;
 using Internal.Scripts.Economy.Generated;
 using Internal.Scripts.Economy.Save;
 using Internal.Scripts.Events;
@@ -11,6 +12,7 @@ using Internal.Scripts.Player;
 using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Localization;
 using Internal.Scripts.UI.Localization.Generated;
+using Internal.Scripts.UI.Screens.Building;
 using Internal.Scripts.UI.Screens.Core.Config;
 using Internal.Scripts.UI.Screens.Core.ViewModel;
 using Internal.Scripts.UI.Screens.Shared;
@@ -32,6 +34,7 @@ namespace Internal.Scripts.UI.Screens.Workshop
         private readonly EventDatabase _eventDb;
         private readonly UiThemeService _themeService;
         private readonly ResourceIconCatalog _resourceIcons;
+        private readonly BuildingQuestSlotViewModel _questSlotVM;
         private readonly ReactiveProperty<WorkshopViewState> _state = new();
 
         private string _cityId;
@@ -39,6 +42,7 @@ namespace Internal.Scripts.UI.Screens.Workshop
         public UiThemeService ThemeService => _themeService;
         public ResourceIconCatalog ResourceIcons => _resourceIcons;
         public Observable<WorkshopViewState> State => _state;
+        public Observable<BuildingQuestSlotState?> QuestSlot => _questSlotVM.State;
         public override ScreenId Id => ScreenId.Workshop;
 
         public WorkshopScreenViewModel(
@@ -48,7 +52,8 @@ namespace Internal.Scripts.UI.Screens.Workshop
             EventTrigger eventTrigger,
             EventDatabase eventDb,
             UiThemeService themeService,
-            ResourceIconCatalog resourceIcons)
+            ResourceIconCatalog resourceIcons,
+            BuildingQuestSlotViewModel questSlotVM)
         {
             _resourceRepository = resourceRepository;
             _caravanDatabase = caravanDatabase;
@@ -57,11 +62,15 @@ namespace Internal.Scripts.UI.Screens.Workshop
             _eventDb = eventDb;
             _themeService = themeService;
             _resourceIcons = resourceIcons;
+            _questSlotVM = questSlotVM;
         }
+
+        public void OnQuestSlotTalk() => _questSlotVM.OnTalk();
 
         protected override void OnOpen(object args)
         {
             _cityId = args as string;
+            _questSlotVM.Bind(BuildingType.Workshop, _cityId);
             BuildState();
             LocalizationSettings.SelectedLocaleChanged += OnLocaleChanged;
         }
@@ -69,6 +78,7 @@ namespace Internal.Scripts.UI.Screens.Workshop
         protected override void OnClose()
         {
             LocalizationSettings.SelectedLocaleChanged -= OnLocaleChanged;
+            _questSlotVM.Dispose();
         }
 
         private void OnLocaleChanged(Locale _) => BuildState();
@@ -160,16 +170,6 @@ namespace Internal.Scripts.UI.Screens.Workshop
         {
             if (_upgradeService.PurchaseUpgrade(type))
                 BuildState();
-        }
-
-        public void TalkToQuestGiver(string eventId)
-        {
-            if (string.IsNullOrEmpty(eventId))
-                return;
-
-            var eventData = _eventDb.GetById(eventId);
-            if (eventData != null)
-                _eventTrigger.TriggerEvent(eventData);
         }
 
         public string ResolveUpgradeLabel(int cost)

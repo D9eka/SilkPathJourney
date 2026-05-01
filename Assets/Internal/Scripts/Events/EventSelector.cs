@@ -6,6 +6,7 @@ using Internal.Scripts.Economy.Cities;
 using Internal.Scripts.Economy.Generated;
 using Internal.Scripts.Events.Conditions;
 using Internal.Scripts.Events.Data;
+using Internal.Scripts.Events.Generated;
 using Internal.Scripts.Events.Outcomes;
 using Internal.Scripts.Player;
 using UnityEngine;
@@ -90,6 +91,7 @@ namespace Internal.Scripts.Events
                 return false;
 #endif
             if (evt.IsMinor != minor) return false;
+            if (evt.Category == EventCategory.Quest) return false;
             if (evt.Weight <= 0f) return false;
             Biome eventBiome = evt.Biome;
             if (eventBiome != Biome.Unknown && eventBiome != currentBiome) return false;

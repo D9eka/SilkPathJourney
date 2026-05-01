@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Internal.Scripts.Caravan;
 using Internal.Scripts.Caravan.Generated;
 using Internal.Scripts.Economy;
+using Internal.Scripts.Economy.Buildings;
 using Internal.Scripts.Economy.Cities;
 using Internal.Scripts.Economy.Cities.Rumors;
 using Internal.Scripts.Economy.Generated;
@@ -13,8 +14,10 @@ using Internal.Scripts.Player;
 using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Localization;
 using Internal.Scripts.UI.Localization.Generated;
+using Internal.Scripts.UI.Screens.Building;
 using Internal.Scripts.UI.Screens.Core.Config;
 using Internal.Scripts.UI.Screens.Core.ViewModel;
+using Internal.Scripts.UI.Screens.Shared;
 using Internal.Scripts.UI.Theme;
 using R3;
 
@@ -33,6 +36,7 @@ namespace Internal.Scripts.UI.Screens.Tavern
         private readonly RumorFormatter _rumorFormatter;
         private readonly CompanionHireFormatter _hireFormatter;
         private readonly ReactiveProperty<TavernViewState> _state = new();
+        private readonly BuildingQuestSlotViewModel _questSlotVM;
 
         private string _cityId;
         private CultureId _cityCulture;
@@ -42,6 +46,7 @@ namespace Internal.Scripts.UI.Screens.Tavern
         public UiThemeService ThemeService => _themeService;
         public ResourceIconCatalog ResourceIcons => _resourceIcons;
         public Observable<TavernViewState> State => _state;
+        public Observable<BuildingQuestSlotState?> QuestSlot => _questSlotVM.State;
         public override ScreenId Id => ScreenId.Tavern;
 
         public TavernScreenViewModel(
@@ -54,7 +59,8 @@ namespace Internal.Scripts.UI.Screens.Tavern
             NameDatabase nameDb,
             UiThemeService themeService,
             ResourceIconCatalog resourceIcons,
-            RumorService rumorService)
+            RumorService rumorService,
+            BuildingQuestSlotViewModel questSlotVM)
         {
             _resourceRepository = resourceRepository;
             _companionService = companionService;
@@ -66,7 +72,10 @@ namespace Internal.Scripts.UI.Screens.Tavern
             _rumorService = rumorService;
             _rumorFormatter = new RumorFormatter(economyDb);
             _hireFormatter = new CompanionHireFormatter(caravanDb, economyDb, nameDb, companionService);
+            _questSlotVM = questSlotVM;
         }
+
+        public void OnQuestSlotTalk() => _questSlotVM.OnTalk();
 
         protected override void OnOpen(object args)
         {
@@ -74,11 +83,13 @@ namespace Internal.Scripts.UI.Screens.Tavern
             var city = _economyDb.Cities.Find(c =>
                 string.Equals(c.Id, _cityId, StringComparison.OrdinalIgnoreCase));
             _cityCulture = city?.PrimaryCulture ?? CultureId.None;
+            _questSlotVM.Bind(BuildingType.Tavern, _cityId);
             BuildState();
         }
 
         protected override void OnClose()
         {
+            _questSlotVM.Dispose();
         }
 
         public void HireCompanion(int index)
@@ -92,16 +103,6 @@ namespace Internal.Scripts.UI.Screens.Tavern
                 return;
 
             BuildState();
-        }
-
-        public void TalkToQuestGiver(string eventId)
-        {
-            if (string.IsNullOrEmpty(eventId))
-                return;
-
-            var eventData = _eventDb.GetById(eventId);
-            if (eventData != null)
-                _eventTrigger.TriggerEvent(eventData);
         }
 
         private void BuildState()

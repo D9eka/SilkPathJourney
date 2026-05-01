@@ -64,7 +64,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    <TriggerEventId>k__BackingField: event_artifact4_accept
+    <TriggerEventId>k__BackingField: 
     <AutoCompleteCondition>k__BackingField:
       <Type>k__BackingField: 0
       <Param>k__BackingField: 
@@ -108,6 +108,8 @@ MonoBehaviour:
     <Value>k__BackingField: 15
   <FailConditions>k__BackingField: []
   <FailConsequences>k__BackingField: []
+  <GiverBuilding>k__BackingField: 0
+  <BriefingEventId>k__BackingField: 
   references:
     version: 2
     RefIds: []

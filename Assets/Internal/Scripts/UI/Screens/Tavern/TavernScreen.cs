@@ -42,6 +42,7 @@ namespace Internal.Scripts.UI.Screens.Tavern
 
         private TavernScreenViewModel _viewModel;
         private IDisposable _stateSubscription;
+        private IDisposable _questSlotSubscription;
         private LocalizationService.LocalizedTextHandle _roadInfoEmptyHandle;
         private readonly List<CompanionHireCardView> _spawnedCompanions = new();
         private readonly List<ServiceCardView> _spawnedRoadInfos = new();
@@ -108,15 +109,21 @@ namespace Internal.Scripts.UI.Screens.Tavern
                 return;
 
             _stateSubscription = _viewModel.State.Subscribe(ApplyState);
+            _questSlotSubscription = _viewModel.QuestSlot.Subscribe(state =>
+            {
+                if (state.HasValue)
+                    _questCardView.Initialize(state.Value.Description, () => _viewModel.OnQuestSlotTalk());
+                else
+                    _questCardView.Hide();
+            });
         }
 
         private void UnsubscribeViewModel()
         {
-            if (_viewModel == null)
-                return;
-
             _stateSubscription?.Dispose();
             _stateSubscription = null;
+            _questSlotSubscription?.Dispose();
+            _questSlotSubscription = null;
         }
 
         private void ApplyState(TavernViewState state)
@@ -133,14 +140,6 @@ namespace Internal.Scripts.UI.Screens.Tavern
 
             RebuildRoadInfos(state.RoadInfos);
             RebuildCompanions(state.AvailableCompanions);
-
-            if (_questCardView != null)
-            {
-                if (state.HasQuest)
-                    _questCardView.Initialize(state.QuestDescription, () => _viewModel?.TalkToQuestGiver(state.QuestEventId));
-                else
-                    _questCardView.Hide();
-            }
         }
 
         private void RebuildRoadInfos(IReadOnlyList<RoadInfoEntry> roadInfos)

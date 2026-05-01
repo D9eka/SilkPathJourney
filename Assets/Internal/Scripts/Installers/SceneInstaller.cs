@@ -64,6 +64,7 @@ using Internal.Scripts.Travel.Pickups;
 using Internal.Scripts.Travel.Triggers;
 using Internal.Scripts.Travel.Triggers.Actions;
 using Internal.Scripts.UI.Screens.Caravansary.Services;
+using Internal.Scripts.UI.Screens.Building;
 using Internal.Scripts.UI.Screens.Shared;
 using Internal.Scripts.UI.Tooltip;
 using Internal.Scripts.UI.WorldLabel;
@@ -408,6 +409,7 @@ namespace Internal.Scripts.Installers
             Container.Bind<QuestRewardApplier>().AsSingle();
             Container.BindInterfacesTo<QuestStageChecker>().AsSingle();
             Container.Bind<QuestCityIndicatorService>().AsSingle();
+            Container.Bind<BuildingQuestSlotPresenter>().AsTransient();
             Container.Bind<UI.Screens.TargetSelection.Search.CityCardBuilder>().AsSingle();
         }
 

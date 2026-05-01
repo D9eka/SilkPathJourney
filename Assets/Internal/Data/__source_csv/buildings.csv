@@ -1,6 +1,6 @@
 building_id,enum_name,name_key,description_key,interaction_screen,loc_ru,loc_en,desc_ru,desc_en
 shop,Shop,building.shop.name,building.shop.description,Trade,Лавка,Shop,Торговля товарами,Trade goods
-guild,Guild,building.guild.name,building.guild.description,None,Гильдия,Guild,"Торговые лицензии, задания гильдии","Trade licenses, guild quests"
+guild,Guild,building.guild.name,building.guild.description,Guild,Гильдия,Guild,"Торговые лицензии, задания гильдии","Trade licenses, guild quests"
 tavern,Tavern,building.tavern.name,building.tavern.description,Tavern,Таверна,Tavern,"Слухи о дорогах, события","Road rumors, events"
 temple,Temple,building.temple.name,building.temple.description,None,Храм,Temple,"Молитва, пожертвования","Prayer, donations"
 workshop,Workshop,building.workshop.name,building.workshop.description,Workshop,Мастерская,Workshop,"Крафт товаров, улучшения телег","Craft goods, cart upgrades"
