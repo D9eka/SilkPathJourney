@@ -47,7 +47,7 @@ MonoBehaviour:
             m_TableCollectionName: GUID:43598c3e97d7d9a439a074f7627fe021
           m_TableEntryReference:
             m_KeyId: 0
-            m_Key: UI.HazardQte.Hint.Click
+            m_Key: UI.HazardQte.Hint.LeftRight
           m_FallbackState: 0
           m_WaitForCompletion: 0
           m_LocalVariables: []
