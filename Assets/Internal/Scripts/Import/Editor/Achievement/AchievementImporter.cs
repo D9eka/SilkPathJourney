@@ -12,8 +12,8 @@ namespace Internal.Scripts.Import.Editor.Achievement
     {
         private const string ACHIEVEMENTS_FOLDER = GENERATED_DATA_FOLDER + "/Achievements";
 
-        [MenuItem("SPJ/Import/Achievements")]
-        public static void ImportAll()
+        [MenuItem("SPJ/Import/Achievements/Import")]
+        public static void Import()
         {
             if (IsCompiling()) return;
 

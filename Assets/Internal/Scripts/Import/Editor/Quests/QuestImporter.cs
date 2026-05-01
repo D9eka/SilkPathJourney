@@ -16,18 +16,22 @@ namespace Internal.Scripts.Import.Editor.Quests
         private const string LOCALIZATION_TABLE_NAME = "Quests";
         private const string QUESTS_FOLDER = GENERATED_DATA_FOLDER + "/Quests";
 
-        [MenuItem("SPJ/Import/Quests")]
-        public static void ImportAll()
+        [MenuItem("SPJ/Import/Quests/Generate")]
+        public static void Generate()
+        {
+            QuestBranchGenerator.Generate();
+            QuestRewardTypeGenerator.Generate();
+            QuestFailConditionTypeGenerator.Generate();
+            QuestStageConditionTypeGenerator.Generate();
+        }
+
+        [MenuItem("SPJ/Import/Quests/Import")]
+        public static void Import()
         {
             if (IsCompiling()) return;
 
             try
             {
-                QuestBranchGenerator.Generate();
-                QuestRewardTypeGenerator.Generate();
-                QuestFailConditionTypeGenerator.Generate();
-                QuestStageConditionTypeGenerator.Generate();
-
                 EnsureAssetFolder(QUESTS_FOLDER);
                 EnsureAssetFolder(DATABASES_FOLDER);
 

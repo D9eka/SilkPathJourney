@@ -13,16 +13,19 @@ namespace Internal.Scripts.Import.Editor.Theme
     {
         private const string PALETTES_FOLDER = GENERATED_DATA_FOLDER + "/BiomePalettes";
 
-        [MenuItem("SPJ/Import/Theme")]
-        public static void ImportColors()
+        [MenuItem("SPJ/Import/Theme/Generate")]
+        public static void Generate()
+        {
+            BiomeGenerator.Generate();
+        }
+
+        [MenuItem("SPJ/Import/Theme/Import")]
+        public static void Import()
         {
             if (IsCompiling()) return;
 
             try
             {
-                // 1. Generate Biome enum
-                BiomeGenerator.Generate();
-
                 // 2. Ensure folders
                 EnsureAssetFolder(PALETTES_FOLDER);
                 EnsureAssetFolder(DATABASES_FOLDER);

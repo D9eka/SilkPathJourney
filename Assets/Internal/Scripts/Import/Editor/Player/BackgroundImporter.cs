@@ -12,8 +12,8 @@ namespace Internal.Scripts.Import.Editor.Player
     {
         private const string BACKGROUNDS_FOLDER = GENERATED_DATA_FOLDER + "/Backgrounds";
 
-        [MenuItem("SPJ/Import/Backgrounds")]
-        public static void ImportAll()
+        [MenuItem("SPJ/Import/Backgrounds/Import")]
+        public static void Import()
         {
             if (IsCompiling()) return;
 

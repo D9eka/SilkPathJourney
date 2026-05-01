@@ -29,8 +29,8 @@ namespace Internal.Scripts.Import.Editor.Core
             ("Player", new[] { "background.", "achievement.", "unlock." }, true),
         };
 
-        [MenuItem("SPJ/Import/Localization")]
-        public static void ImportAll()
+        [MenuItem("SPJ/Import/Localization/Import")]
+        public static void Import()
         {
             if (IsCompiling()) return;
 

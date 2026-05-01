@@ -12,8 +12,8 @@ namespace Internal.Scripts.Import.Editor.Unlock
     {
         private const string UNLOCKS_FOLDER = GENERATED_DATA_FOLDER + "/Unlocks";
 
-        [MenuItem("SPJ/Import/Unlocks")]
-        public static void ImportAll()
+        [MenuItem("SPJ/Import/Unlocks/Import")]
+        public static void Import()
         {
             if (IsCompiling()) return;
 
