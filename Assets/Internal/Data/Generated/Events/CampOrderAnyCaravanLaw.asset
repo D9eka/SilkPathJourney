@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CampOrderAnyCaravanLaw
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
   <Id>k__BackingField: camp_order_any_caravan_law
-  <Category>k__BackingField: 16
+  <Category>k__BackingField: 18
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Events

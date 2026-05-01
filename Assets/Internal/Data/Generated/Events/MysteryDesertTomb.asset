@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MysteryDesertTomb
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
   <Id>k__BackingField: mystery_desert_tomb
-  <Category>k__BackingField: 20
+  <Category>k__BackingField: 22
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Events

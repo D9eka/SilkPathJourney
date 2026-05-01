@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CampPropheticDream
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
   <Id>k__BackingField: camp_prophetic_dream
-  <Category>k__BackingField: 14
+  <Category>k__BackingField: 16
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Events

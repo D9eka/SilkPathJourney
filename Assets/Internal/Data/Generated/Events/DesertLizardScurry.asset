@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DesertLizardScurry
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
   <Id>k__BackingField: desert_lizard_scurry
-  <Category>k__BackingField: 27
+  <Category>k__BackingField: 29
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Events

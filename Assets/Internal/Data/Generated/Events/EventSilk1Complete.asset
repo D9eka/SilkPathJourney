@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EventSilk1Complete
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
   <Id>k__BackingField: event_silk1_complete
-  <Category>k__BackingField: 29
+  <Category>k__BackingField: 31
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Events

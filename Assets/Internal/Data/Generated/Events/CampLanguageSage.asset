@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CampLanguageSage
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
   <Id>k__BackingField: camp_language_sage
-  <Category>k__BackingField: 17
+  <Category>k__BackingField: 19
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Events

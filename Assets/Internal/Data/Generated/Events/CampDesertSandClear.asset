@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CampDesertSandClear
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
   <Id>k__BackingField: camp_desert_sand_clear
-  <Category>k__BackingField: 15
+  <Category>k__BackingField: 17
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Events

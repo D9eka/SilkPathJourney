@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MysteryHighlandInscription
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
   <Id>k__BackingField: mystery_highland_inscription
-  <Category>k__BackingField: 20
+  <Category>k__BackingField: 22
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Events

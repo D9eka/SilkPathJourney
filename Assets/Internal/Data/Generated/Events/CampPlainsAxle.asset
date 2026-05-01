@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CampPlainsAxle
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
   <Id>k__BackingField: camp_plains_axle
-  <Category>k__BackingField: 15
+  <Category>k__BackingField: 17
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Events

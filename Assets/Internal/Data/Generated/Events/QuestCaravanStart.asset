@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: QuestCaravanStart
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
   <Id>k__BackingField: quest_caravan_start
-  <Category>k__BackingField: 29
+  <Category>k__BackingField: 31
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Events

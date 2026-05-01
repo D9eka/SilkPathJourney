@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RivalCaravan
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
   <Id>k__BackingField: rival_caravan
-  <Category>k__BackingField: 24
+  <Category>k__BackingField: 26
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Events

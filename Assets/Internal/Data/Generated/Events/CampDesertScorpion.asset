@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CampDesertScorpion
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
   <Id>k__BackingField: camp_desert_scorpion
-  <Category>k__BackingField: 17
+  <Category>k__BackingField: 19
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Events

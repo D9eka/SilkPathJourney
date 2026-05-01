@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CampHighlandHotspring
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
   <Id>k__BackingField: camp_highland_hotspring
-  <Category>k__BackingField: 14
+  <Category>k__BackingField: 16
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Events
