@@ -1,3 +1,4 @@
+using System;
 using Internal.Scripts.Caravan.Generated;
 using Internal.Scripts.Economy.Save;
 using Internal.Scripts.Player;
@@ -6,6 +7,7 @@ namespace Internal.Scripts.Economy.Buildings.Healer
 {
     public sealed class HealerService
     {
+        public event Action<CompanionState, int> OnHealed;
         private const int HEAL_COST_NOVICE = 10;
         private const int HEAL_COST_EXPERIENCED = 25;
         private const int HEAL_COST_MASTER = 50;
@@ -53,6 +55,7 @@ namespace Internal.Scripts.Economy.Buildings.Healer
 
             _resourceRepository.UpdateResources(s => s.Money -= cost);
             _companionService.HealCompanion(companionIndex);
+            OnHealed?.Invoke(companion, cost);
             return true;
         }
     }

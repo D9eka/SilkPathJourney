@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Internal.Scripts.Caravan;
 using Internal.Scripts.Caravan.Generated;
@@ -52,6 +53,8 @@ namespace Internal.Scripts.UI.Screens.Caravansary
             _resourceIcons = resourceIcons;
         }
 
+        public event Action<string, string> OnPurchased;
+
         public override ScreenId Id => ScreenId.Caravansary;
         public Observable<CaravansaryViewState> State => _state;
 
@@ -68,7 +71,16 @@ namespace Internal.Scripts.UI.Screens.Caravansary
         public void ExecuteOffering(int index, bool toMax)
         {
             if (index < 0 || index >= _offerings.Count) return;
+            var offeringData = _offerings[index].Build(_resourceRepository.Current, _resourceRepository.Current.Money);
+            int moneyBefore = _resourceRepository.Current.Money;
             _offerings[index].Execute(_resourceRepository, toMax);
+            if (_resourceRepository.Current.Money != moneyBefore)
+            {
+                string description = offeringData.Type == OfferingType.CartRepair
+                    ? offeringData.RepairData.Title
+                    : offeringData.Title;
+                OnPurchased?.Invoke(_cityId, description);
+            }
             BuildState();
         }
 

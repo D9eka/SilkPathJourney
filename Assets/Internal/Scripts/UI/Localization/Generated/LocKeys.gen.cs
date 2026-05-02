@@ -4321,5 +4321,14 @@ namespace Internal.Scripts.UI.Localization.Generated
         public const string Ui_Journal_Entry_Crisis = "ui.journal.entry.crisis";
         public const string Ui_Journal_Entry_Loss = "ui.journal.entry.loss";
         public const string UI_CitySearch_Filter_Quest = "UI.CitySearch.Filter.Quest";
+        public const string Ui_Journal_Entry_Travel = "ui.journal.entry.travel";
+        public const string Ui_Journal_Entry_Trade = "ui.journal.entry.trade";
+        public const string Ui_Journal_Entry_Caravansary = "ui.journal.entry.caravansary";
+        public const string Ui_Journal_Entry_Tavern = "ui.journal.entry.tavern";
+        public const string Ui_Journal_Entry_Teacher = "ui.journal.entry.teacher";
+        public const string Ui_Journal_Entry_Departure = "ui.journal.entry.departure";
+        public const string Ui_Journal_Entry_CompanionHired = "ui.journal.entry.companion_hired";
+        public const string Ui_Journal_Entry_CompanionDismissed = "ui.journal.entry.companion_dismissed";
+        public const string Ui_Journal_Entry_CompanionHealed = "ui.journal.entry.companion_healed";
     }
 }

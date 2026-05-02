@@ -2266,6 +2266,42 @@ MonoBehaviour:
     m_Localized: Quests
     m_Metadata:
       m_Items: []
+  - m_Id: 31860148338294784
+    m_Localized: Travelled {0} km
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31860148380237824
+    m_Localized: "Trade in \xAB{0}\xBB"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31860148380237825
+    m_Localized: "Caravansary in \xAB{0}\xBB: {1}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31860148380237826
+    m_Localized: "Tavern in \xAB{0}\xBB: hired {1}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31860148380237827
+    m_Localized: "Language school in \xAB{0}\xBB: learned {1}"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31860148380237828
+    m_Localized: "Left \xAB{0}\xBB"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31860148380237829
+    m_Localized: Hired {0}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31860148380237830
+    m_Localized: Dismissed {0}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31860148380237831
+    m_Localized: Healed {0}
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

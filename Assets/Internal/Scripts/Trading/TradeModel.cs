@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Internal.Scripts.Economy;
 using Internal.Scripts.Economy.Guild;
 using Internal.Scripts.Economy.Save;
@@ -160,10 +161,52 @@ namespace Internal.Scripts.Trading
             LocalizationSettings.SelectedLocaleChanged += OnLocaleChanged;
             HandlePlayerInventory(_inventoryRepository.GetPlayerInventory());
             _playerResources = _resourceRepository.Current;
+            TakeSnapshot();
+        }
+
+        private void TakeSnapshot()
+        {
+            _snapshotMoney = _resourceRepository.Current.Money;
+            var inv = _inventoryRepository.GetPlayerInventory();
+            _snapshotItems = new Dictionary<string, int>();
+            if (inv?.Items != null)
+                foreach (var stack in inv.Items)
+                    _snapshotItems[stack.ItemId] = stack.Count;
+        }
+
+        private void EmitTradeResult()
+        {
+            if (OnTradeCompleted == null || _snapshotItems == null) return;
+            int currentMoney = _resourceRepository.Current.Money;
+            var currentInv = _inventoryRepository.GetPlayerInventory();
+            var currentItems = new Dictionary<string, int>();
+            if (currentInv?.Items != null)
+                foreach (var stack in currentInv.Items)
+                    currentItems[stack.ItemId] = stack.Count;
+
+            var deltas = new List<(string ItemId, int Delta)>();
+            var allKeys = new HashSet<string>(_snapshotItems.Keys);
+            allKeys.UnionWith(currentItems.Keys);
+            foreach (string key in allKeys)
+            {
+                _snapshotItems.TryGetValue(key, out int before);
+                currentItems.TryGetValue(key, out int after);
+                int delta = after - before;
+                if (delta != 0)
+                    deltas.Add((key, delta));
+            }
+
+            OnTradeCompleted?.Invoke(new TradeResult
+            {
+                CityId = _cityId,
+                MoneyDelta = currentMoney - _snapshotMoney,
+                ItemDeltas = deltas
+            });
         }
 
         public void Deactivate()
         {
+            EmitTradeResult();
             LocalizationSettings.SelectedLocaleChanged -= OnLocaleChanged;
             _playerSubscription?.Dispose();
             _playerSubscription = null;
@@ -208,7 +251,18 @@ namespace Internal.Scripts.Trading
                 RebuildState();
         }
 
+        public struct TradeResult
+        {
+            public string CityId;
+            public int MoneyDelta;
+            public List<(string ItemId, int Delta)> ItemDeltas;
+        }
+
         public event Action<Dictionary<string, int>, Dictionary<string, int>, int, int> TradeExecuted;
+        public event Action<TradeResult> OnTradeCompleted;
+
+        private int _snapshotMoney;
+        private Dictionary<string, int> _snapshotItems;
 
         public void ExecuteTrade()
         {

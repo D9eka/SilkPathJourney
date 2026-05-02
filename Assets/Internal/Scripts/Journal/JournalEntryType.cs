@@ -15,5 +15,9 @@ namespace Internal.Scripts.Journal
         Teacher = 10,
         Crisis = 11,
         Loss = 12,
+        Departure = 13,
+        CompanionHired = 14,
+        CompanionDismissed = 15,
+        CompanionHealed = 16,
     }
 }

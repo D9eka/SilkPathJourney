@@ -43,6 +43,8 @@ namespace Internal.Scripts.UI.Screens.Tavern
         private readonly List<(CompanionType type, CompanionQuality quality)> _availableSlots = new();
         private List<RumorData> _currentRumors = new();
 
+        public event Action<string, string> OnCompanionHiredInCity;
+
         public UiThemeService ThemeService => _themeService;
         public ResourceIconCatalog ResourceIcons => _resourceIcons;
         public Observable<TavernViewState> State => _state;
@@ -99,8 +101,16 @@ namespace Internal.Scripts.UI.Screens.Tavern
 
             var (type, quality) = _availableSlots[index];
             int cost = _companionService.GetHireCost(type, quality);
+            int countBefore = _resourceRepository.Current.Companions?.Count ?? 0;
             if (!_companionService.HireCompanion(type, quality, cost, _cityCulture))
                 return;
+
+            var companions = _resourceRepository.Current.Companions;
+            if (companions != null && companions.Count > countBefore)
+            {
+                string companionName = companions[^1].Name;
+                OnCompanionHiredInCity?.Invoke(_cityId, companionName);
+            }
 
             BuildState();
         }

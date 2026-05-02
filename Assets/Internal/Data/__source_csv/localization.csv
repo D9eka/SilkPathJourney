@@ -3792,6 +3792,15 @@ ui.journal.entry.event,journal,,Событие: «{0}»,Event: "{0}"
 ui.journal.entry.arrival,journal,,Прибытие в {0},Arrived in {0}
 ui.journal.entry.crisis,journal,,Кризис: {0},Crisis: {0}
 ui.journal.entry.loss,journal,,Ранен: {0},Injured: {0}
+ui.journal.entry.travel,journal,,Прошли {0} км,Travelled {0} km
+ui.journal.entry.trade,journal,,"Торговля в «{0}»","Trade in «{0}»"
+ui.journal.entry.caravansary,journal,,"Караван-сарай в «{0}»: {1}","Caravansary in «{0}»: {1}"
+ui.journal.entry.tavern,journal,,"Таверна в «{0}»: нанял {1}","Tavern in «{0}»: hired {1}"
+ui.journal.entry.teacher,journal,,"Школа языков в «{0}»: изучил {1}","Language school in «{0}»: learned {1}"
+ui.journal.entry.departure,journal,,"Покинул «{0}»","Left «{0}»"
+ui.journal.entry.companion_hired,journal,,Нанял {0},Hired {0}
+ui.journal.entry.companion_dismissed,journal,,Уволил {0},Dismissed {0}
+ui.journal.entry.companion_healed,journal,,Вылечил {0},Healed {0}
 event.event_empire1_complete.choice2,event_choices,,Зайду позже,I'll come back later
 event.event_empire1_complete.choice2.result,event_choices,,Вы убираете кошель за пояс. Ваху-Ман пожимает плечами: «Гильдия не запирает дверей. Когда будешь готов — заходи.» Следующий контракт подождёт в его кабинете.,"You tuck the purse into your belt. Vahu-Man shrugs: ""The guild's doors are open. Come back when you are ready."" The next contract will wait in his office."
 event.event_mystic1_complete.choice2,event_choices,,Зайду позже,I'll come back later

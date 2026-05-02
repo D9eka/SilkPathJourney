@@ -15,6 +15,7 @@ namespace Internal.Scripts.Economy.Cities
         void ExitCity(Action onComplete = null);
         event Action<CityData> OnCityEntered;
         event Action OnCityExited;
+        event Action<CityData> OnCityLeft;
         event Action<CityData> OnCityAutoApproached;
     }
 
@@ -41,6 +42,7 @@ namespace Internal.Scripts.Economy.Cities
 
         public event Action<CityData> OnCityEntered;
         public event Action OnCityExited;
+        public event Action<CityData> OnCityLeft;
         public event Action<CityData> OnCityAutoApproached;
 
         public CityEntryService(
@@ -202,6 +204,7 @@ namespace Internal.Scripts.Economy.Cities
                             _cameraSceneLoader.SuspendAutoLoading = false;
                             _cameraMover.SuspendLateTick = false;
 
+                            OnCityLeft?.Invoke(exitingCity);
                             OnCityExited?.Invoke();
                             onComplete?.Invoke();
                         }));

@@ -2247,6 +2247,42 @@ MonoBehaviour:
     m_Key: UI.CitySearch.Filter.Quest
     m_Metadata:
       m_Items: []
+  - m_Id: 31860148338294784
+    m_Key: ui.journal.entry.travel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31860148380237824
+    m_Key: ui.journal.entry.trade
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31860148380237825
+    m_Key: ui.journal.entry.caravansary
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31860148380237826
+    m_Key: ui.journal.entry.tavern
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31860148380237827
+    m_Key: ui.journal.entry.teacher
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31860148380237828
+    m_Key: ui.journal.entry.departure
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31860148380237829
+    m_Key: ui.journal.entry.companion_hired
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31860148380237830
+    m_Key: ui.journal.entry.companion_dismissed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31860148380237831
+    m_Key: ui.journal.entry.companion_healed
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
