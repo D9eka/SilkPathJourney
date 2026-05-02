@@ -12,11 +12,11 @@ namespace Internal.Scripts.Quests
 
     public class QuestCityIndicatorService
     {
-        private readonly QuestRepository _questRepository;
+        private readonly QuestAvailabilityService _availability;
 
-        public QuestCityIndicatorService(QuestRepository questRepository)
+        public QuestCityIndicatorService(QuestAvailabilityService availability)
         {
-            _questRepository = questRepository;
+            _availability = availability;
         }
 
         public QuestCityIndicator GetIndicator(string cityId)
@@ -24,10 +24,10 @@ namespace Internal.Scripts.Quests
             if (string.IsNullOrEmpty(cityId))
                 return QuestCityIndicator.None;
 
-            if (_questRepository.HasActiveStageInCity(cityId))
+            if (_availability.HasActiveStageInCity(cityId))
                 return QuestCityIndicator.ActiveStageHere;
 
-            if (_questRepository.HasAvailableInCity(cityId))
+            if (_availability.HasAvailableInCity(cityId))
                 return QuestCityIndicator.NewAvailable;
 
             return QuestCityIndicator.None;

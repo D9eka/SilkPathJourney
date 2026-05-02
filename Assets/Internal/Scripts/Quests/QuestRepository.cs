@@ -1,49 +1,33 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Internal.Scripts.Economy.Buildings;
 using Internal.Scripts.Economy.Cities;
 using Internal.Scripts.Events;
-using Internal.Scripts.Player;
 using Internal.Scripts.Quests.Data;
-using Internal.Scripts.Quests.Generated;
 using Internal.Scripts.Quests.Save;
-using Internal.Scripts.Road.Nodes;
 using Internal.Scripts.Save;
-using Internal.Scripts.UI.WorldLabel;
 using R3;
-using Zenject;
 
 namespace Internal.Scripts.Quests
 {
-    public class QuestRepository : IInitializable, IQuestAvailabilityProvider
+    public class QuestRepository
     {
         private readonly SaveRepository _saveRepository;
         private readonly DayTracker _dayTracker;
-        private readonly ICityEntryService _cityEntryService;
-        private readonly IPlayerStateProvider _playerState;
-        private readonly IRoadNodeLookup _nodeLookup;
-        private readonly ICityNodeResolver _cityNodeResolver;
         private readonly QuestDatabase _questDatabase;
+        private readonly PlayerCityLocator _cityLocator;
         private readonly ReactiveProperty<int> _version = new(0);
-        private readonly ReactiveProperty<bool> _hasAvailableQuest = new(false);
 
         public QuestRepository(
             SaveRepository saveRepository,
             DayTracker dayTracker,
-            ICityEntryService cityEntryService,
-            IPlayerStateProvider playerState,
-            IRoadNodeLookup nodeLookup,
-            ICityNodeResolver cityNodeResolver,
-            QuestDatabase questDatabase)
+            QuestDatabase questDatabase,
+            PlayerCityLocator cityLocator)
         {
             _saveRepository = saveRepository;
             _dayTracker = dayTracker;
-            _cityEntryService = cityEntryService;
-            _playerState = playerState;
-            _nodeLookup = nodeLookup;
-            _cityNodeResolver = cityNodeResolver;
             _questDatabase = questDatabase;
+            _cityLocator = cityLocator;
         }
 
         public event Action<string> QuestStarted;
@@ -52,14 +36,8 @@ namespace Internal.Scripts.Quests
         public event Action<string> QuestFailed;
 
         public Observable<int> Changed => _version;
-        public ReadOnlyReactiveProperty<bool> HasAvailableQuest => _hasAvailableQuest;
 
         private QuestSaveData QuestData => _saveRepository.Data.Quests;
-
-        public void Initialize()
-        {
-            _ = _saveRepository.Data.Quests;
-        }
 
         public void StartQuest(string questId)
         {
@@ -70,7 +48,7 @@ namespace Internal.Scripts.Quests
                 QuestId = questId,
                 CurrentStageIndex = 0,
                 StartDay = _dayTracker.CurrentDay,
-                StartCityId = ResolveCurrentCityId()
+                StartCityId = _cityLocator.ResolveCurrentCityId()
             });
 
             if (string.IsNullOrEmpty(QuestData.TrackedQuestId))
@@ -203,102 +181,6 @@ namespace Internal.Scripts.Quests
         {
             if (QuestData.TrackedQuestId == questId)
                 QuestData.TrackedQuestId = null;
-        }
-
-        private string ResolveCurrentCityId()
-        {
-            var current = _cityEntryService.CurrentCity;
-            if (current != null) return current.Id;
-
-            string nearestNode = _nodeLookup.FindNearestNodeId(_playerState.CurrentPosition);
-            if (!string.IsNullOrEmpty(nearestNode) && _cityNodeResolver.TryGetCityByNodeId(nearestNode, out var nearCity))
-                return nearCity.Id;
-
-            return string.Empty;
-        }
-
-        public QuestData GetAvailableForBuilding(BuildingType building, string cityId)
-        {
-            if (_questDatabase?.Quests == null) return null;
-
-            foreach (var quest in _questDatabase.Quests)
-            {
-                if (quest.GiverBuilding != building) continue;
-                if (quest.StartCityId != cityId) continue;
-                if (!IsAvailable(quest)) continue;
-                return quest;
-            }
-
-            return null;
-        }
-
-        public QuestData GetActiveStageInBuildingCity(string cityId)
-        {
-            var activeQuests = QuestData.ActiveQuests;
-            if (activeQuests == null) return null;
-
-            foreach (var entry in activeQuests)
-            {
-                var questData = _questDatabase?.GetById(entry.QuestId);
-                if (questData?.Stages == null) continue;
-
-                int stageIndex = entry.CurrentStageIndex;
-                if (stageIndex < 0 || stageIndex >= questData.Stages.Count) continue;
-
-                var condition = questData.Stages[stageIndex].AutoCompleteCondition;
-                if (condition.Type == QuestStageConditionType.InCity && condition.Param == cityId)
-                    return questData;
-            }
-
-            return null;
-        }
-
-        public bool IsAvailable(QuestData quest)
-        {
-            if (IsActive(quest.Id) || IsCompleted(quest.Id) || IsFailed(quest.Id))
-                return false;
-
-            if (quest.OrderInBranch <= 1)
-                return true;
-
-            var allQuests = _questDatabase?.Quests;
-            if (allQuests == null) return false;
-
-            int prevOrder = quest.OrderInBranch - 1;
-            foreach (var candidate in allQuests)
-            {
-                if (candidate.Branch == quest.Branch && candidate.OrderInBranch == prevOrder)
-                    return IsCompleted(candidate.Id);
-            }
-
-            return false;
-        }
-
-        public bool HasActiveStageInCity(string cityId)
-            => GetActiveStageInBuildingCity(cityId) != null;
-
-        public bool HasAvailableInCity(string cityId)
-        {
-            if (_questDatabase?.Quests == null) return false;
-
-            foreach (var quest in _questDatabase.Quests)
-            {
-                if (quest.StartCityId != cityId) continue;
-                if (IsAvailable(quest)) return true;
-            }
-
-            return false;
-        }
-
-        public IEnumerable<QuestData> EnumerateAvailableInCity(string cityId)
-        {
-            if (_questDatabase?.Quests == null) yield break;
-
-            foreach (var quest in _questDatabase.Quests)
-            {
-                if (quest.StartCityId != cityId) continue;
-                if (IsAvailable(quest)) yield return quest;
-            }
         }
 
         private void SaveAndNotify()
