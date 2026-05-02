@@ -34,10 +34,21 @@ namespace Internal.Scripts.UI.Screens.Legacy.Tabs.Shop
             }
 
             foreach (var entry in _entries)
-                if (entry != null) Destroy(entry.gameObject);
+            {
+                if (entry == null) continue;
+                entry.gameObject.SetActive(false);
+                Destroy(entry.gameObject);
+            }
             _entries.Clear();
 
             if (entryPrefab == null || _container == null) return;
+
+            for (int i = _container.childCount - 1; i >= 0; i--)
+            {
+                var child = _container.GetChild(i).gameObject;
+                child.SetActive(false);
+                Destroy(child);
+            }
 
             foreach (var data in items)
             {

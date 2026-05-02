@@ -13,14 +13,17 @@ namespace Internal.Scripts.UI.Screens.TargetSelection.Search
         public readonly bool ShowResults;
         public readonly bool ShowEmpty;
         public readonly IReadOnlyCollection<BuildingId> ActiveFilters;
+        public readonly bool QuestFilterActive;
 
         public CitySearchViewState(
             IReadOnlyList<CityRowData> results,
-            IReadOnlyCollection<BuildingId> activeFilters)
+            IReadOnlyCollection<BuildingId> activeFilters,
+            bool questFilterActive = false)
         {
             Results = results;
             ResultsCount = results?.Count ?? 0;
             ActiveFilters = activeFilters;
+            QuestFilterActive = questFilterActive;
             ShowResults = results != null && results.Count > 0;
             ShowEmpty = results != null && results.Count == 0;
         }
@@ -35,6 +38,7 @@ namespace Internal.Scripts.UI.Screens.TargetSelection.Search
         public readonly ITooltipDataProvider CityTooltip;
         public readonly IReadOnlyList<IconLabelEntry> BuildingEntries;
         public readonly string QuestIndicatorText;
+        public bool HasQuestActivity => !string.IsNullOrEmpty(QuestIndicatorText);
 
         public CityRowData(
             string cityId,

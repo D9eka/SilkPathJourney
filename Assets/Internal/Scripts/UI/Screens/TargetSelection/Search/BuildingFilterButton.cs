@@ -31,6 +31,17 @@ namespace Internal.Scripts.UI.Screens.TargetSelection.Search
             _iconButton.Configure(icon, tooltip, tooltipService, onClick);
         }
 
+        public void InitializeWithTooltip(BuildingFilterCatalog catalog, TooltipService tooltipService,
+            string tooltip, Action onClick)
+        {
+            if (_iconButton == null)
+                _iconButton = GetComponent<IconFilterButton>();
+
+            BuildingFilterEntry entry = catalog?.Get(_building);
+            Sprite icon = entry?.Icon;
+            _iconButton.Configure(icon, tooltip, tooltipService, onClick);
+        }
+
         public void SetActive(bool active)
         {
             if (_iconButton == null)

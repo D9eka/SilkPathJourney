@@ -42,13 +42,25 @@ namespace Internal.Scripts.UI.Screens.Legacy.Tabs.Shop
             {
                 if (section == null) continue;
                 section.DisposeBinding();
+                section.gameObject.SetActive(false);
                 Destroy(section.gameObject);
             }
             _sections.Clear();
 
             foreach (var entry in _flatEntries)
-                if (entry != null) Destroy(entry.gameObject);
+            {
+                if (entry == null) continue;
+                entry.gameObject.SetActive(false);
+                Destroy(entry.gameObject);
+            }
             _flatEntries.Clear();
+
+            for (int i = _container.childCount - 1; i >= 0; i--)
+            {
+                var child = _container.GetChild(i).gameObject;
+                child.SetActive(false);
+                Destroy(child);
+            }
 
             if (_categorySectionPrefab == null)
             {

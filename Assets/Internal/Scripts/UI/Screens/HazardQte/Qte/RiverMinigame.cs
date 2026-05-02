@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using DG.Tweening;
 using Internal.Scripts.Input;
 using Internal.Scripts.Travel.Hazards.Minigames;
@@ -47,15 +48,16 @@ namespace Internal.Scripts.UI.Screens.HazardQte.Qte
 
         public void Show(IMinigameConfig config, IQteInput input)
         {
-            _input = input;
-            _active = true;
-            _phase = 0f;
-
             var tc = config as RiverMinigameConfig;
             if (tc == null) { Debug.LogError($"[RiverMinigame] bad config: {config?.GetType().Name}"); OnCompleted?.Invoke(false); return; }
+
+            _input = input;
             _cfg = tc;
             _threshold = tc.CalmThreshold;
             _currentPulseSpeed = UnityEngine.Random.Range(tc.MinPulseSpeed, tc.MaxPulseSpeed);
+            _phase = 0f;
+            _won = false;
+            _startFromUp = UnityEngine.Random.value < 0.5f;
 
             if (!_cached)
             {
@@ -69,16 +71,23 @@ namespace Internal.Scripts.UI.Screens.HazardQte.Qte
                 _cartImage.color = _initialColor;
             }
 
+            _active = false;
+            _state = State.Done;
+            StopAllCoroutines();
+            StartCoroutine(InitDelayed());
+        }
+
+        private IEnumerator InitDelayed()
+        {
+            yield return null;
+
             Canvas.ForceUpdateCanvases();
             LayoutRebuilder.ForceRebuildLayoutImmediate((RectTransform)_cart.parent);
 
-            // Выравниваем anchors Cart с Up/Down, чтобы anchoredPosition
-            // читался в одной системе координат.
             _cart.anchorMin = _upAnchor.anchorMin;
             _cart.anchorMax = _upAnchor.anchorMax;
             _cart.pivot = _upAnchor.pivot;
 
-            _startFromUp = UnityEngine.Random.value < 0.5f;
             Vector2 upAnchored = _upAnchor.anchoredPosition;
             Vector2 downAnchored = _downAnchor.anchoredPosition;
 
@@ -87,7 +96,7 @@ namespace Internal.Scripts.UI.Screens.HazardQte.Qte
 
             _cart.anchoredPosition = _startAnchored;
             _state = State.Idle;
-            _won = false;
+            _active = true;
 
             _input.Enable();
             _input.OnClick += OnClick;
@@ -95,6 +104,7 @@ namespace Internal.Scripts.UI.Screens.HazardQte.Qte
 
         public void Hide()
         {
+            StopAllCoroutines();
             _active = false;
             _tween?.Kill();
             if (_cached)

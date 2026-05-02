@@ -30,6 +30,7 @@ namespace Internal.Scripts.UI.WorldLabel
         private readonly QuestIndicatorIcons _questIcons;
         private readonly Dictionary<string, CityLabelView> _cityLabels = new();
         private IDisposable _modifierSubscription;
+        private IDisposable _questSubscription;
 
         public CityLabelSpawner(
             CityViewSpawner cityViewSpawner,
@@ -61,10 +62,7 @@ namespace Internal.Scripts.UI.WorldLabel
         protected override void OnDispose()
         {
             _modifierSubscription?.Dispose();
-            _questRepo.QuestStarted -= OnQuestEventChanged;
-            _questRepo.QuestAdvanced -= OnQuestEventChanged;
-            _questRepo.QuestCompleted -= OnQuestEventChanged;
-            _questRepo.QuestFailed -= OnQuestEventChanged;
+            _questSubscription?.Dispose();
             LocalizationSettings.SelectedLocaleChanged -= OnLocaleChanged;
         }
 
@@ -104,10 +102,7 @@ namespace Internal.Scripts.UI.WorldLabel
             }
 
             _modifierSubscription = _modifierRepo.Changed.Subscribe(_ => RefreshAllModifiers());
-            _questRepo.QuestStarted += OnQuestEventChanged;
-            _questRepo.QuestAdvanced += OnQuestEventChanged;
-            _questRepo.QuestCompleted += OnQuestEventChanged;
-            _questRepo.QuestFailed += OnQuestEventChanged;
+            _questSubscription = _questRepo.Changed.Subscribe(_ => RefreshAllModifiers());
             LocalizationSettings.SelectedLocaleChanged += OnLocaleChanged;
 
             UnityEngine.Debug.Log($"[CityLabelSpawner] City labels created: {total}");
@@ -137,8 +132,6 @@ namespace Internal.Scripts.UI.WorldLabel
         }
 
         private void OnLocaleChanged(Locale _) => RefreshAllModifiers();
-
-        private void OnQuestEventChanged(string _) => RefreshAllModifiers();
 
         private void RefreshAllModifiers()
         {

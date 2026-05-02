@@ -31,7 +31,6 @@ namespace Internal.Scripts.UI.Screens.Quests
         [SerializeField] private QuestDataListView _failList;
 
         private EconomyDatabase _economyDatabase;
-
         private string _runtimeStartCityId;
 
         public void ShowQuest(QuestData quest, int currentStageIndex, EconomyDatabase economyDatabase,

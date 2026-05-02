@@ -32,6 +32,7 @@ namespace Internal.Scripts.UI.Screens.TargetSelection.Search
         private IDisposable _searchSubscription;
         private IDisposable _filterSubscription;
         private bool _searchFocused;
+        private bool _questFilterActive;
 
         public event Action<CityData> CityRowClicked;
 
@@ -63,6 +64,7 @@ namespace Internal.Scripts.UI.Screens.TargetSelection.Search
             _searchQuery.Value = string.Empty;
             _activeFilters.Clear();
             _activeFiltersVersion.Value = 0;
+            _questFilterActive = false;
             _isVisible.Value = true;
 
             _searchSubscription = _searchQuery.Subscribe(_ => RebuildState());
@@ -95,6 +97,12 @@ namespace Internal.Scripts.UI.Screens.TargetSelection.Search
         {
             if (!_activeFilters.Add(filter))
                 _activeFilters.Remove(filter);
+            _activeFiltersVersion.Value++;
+        }
+
+        public void ToggleQuestFilter()
+        {
+            _questFilterActive = !_questFilterActive;
             _activeFiltersVersion.Value++;
         }
 
@@ -137,18 +145,18 @@ namespace Internal.Scripts.UI.Screens.TargetSelection.Search
                 ? new HashSet<BuildingId>(_activeFilters)
                 : null;
 
-            bool hasSearch = !string.IsNullOrWhiteSpace(query) || filtersSnapshot != null;
+            bool hasSearch = !string.IsNullOrWhiteSpace(query) || filtersSnapshot != null || _questFilterActive;
             if (!hasSearch)
             {
-                _state.Value = new CitySearchViewState(null, filtersSnapshot);
+                _state.Value = new CitySearchViewState(null, filtersSnapshot, _questFilterActive);
                 return;
             }
 
-            var results = FilterCities(query, filtersSnapshot);
-            _state.Value = new CitySearchViewState(results, filtersSnapshot);
+            var results = FilterCities(query, filtersSnapshot, _questFilterActive);
+            _state.Value = new CitySearchViewState(results, filtersSnapshot, _questFilterActive);
         }
 
-        private List<CityRowData> FilterCities(string query, HashSet<BuildingId> filters)
+        private List<CityRowData> FilterCities(string query, HashSet<BuildingId> filters, bool questFilter)
         {
             var cities = _economyDb.Cities;
             var result = new List<CityRowData>(cities.Count);
@@ -160,6 +168,9 @@ namespace Internal.Scripts.UI.Screens.TargetSelection.Search
                     continue;
 
                 CityRowData row = _cardBuilder.Build(city);
+
+                if (questFilter && !row.HasQuestActivity)
+                    continue;
 
                 if (hasQuery && !string.IsNullOrEmpty(row.Name) &&
                     !row.Name.Contains(query, StringComparison.OrdinalIgnoreCase))
