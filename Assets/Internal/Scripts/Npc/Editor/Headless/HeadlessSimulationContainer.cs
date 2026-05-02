@@ -92,7 +92,7 @@ namespace Internal.Scripts.Npc.Editor.Headless
             var weightCalc = new ItemWeightCalculator(itemCatalog);
 
             var headlessPlayerConfig = ScriptableObject.CreateInstance<PlayerConfig>();
-            var economySaveBuilder = new EconomySaveBuilder(economyDb, headlessPlayerConfig, caravanDb, econSimSettings, guildSettings, new PersistentProgressService());
+            var economySaveBuilder = new EconomySaveBuilder(economyDb, headlessPlayerConfig, caravanDb, econSimSettings, guildSettings, new PersistentProgressService(new JsonFileStorage()));
             saveRepo.Data.Economy = economySaveBuilder.Build();
 
             var inventoryRepo = new InventoryRepository(saveRepo);

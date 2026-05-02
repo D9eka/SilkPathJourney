@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using Internal.Scripts.Economy.Save;
+using Internal.Scripts.Journal;
 using Internal.Scripts.Meta;
 using Internal.Scripts.Npc.Save;
 using Internal.Scripts.Player.Languages;
@@ -25,5 +27,6 @@ namespace Internal.Scripts.Save
         public QuestSaveData Quests;
         public WorldModifierSaveData WorldModifiers;
         public RunStatsData RunStats;
+        public List<JournalEntry> Journal = new();
     }
 }
