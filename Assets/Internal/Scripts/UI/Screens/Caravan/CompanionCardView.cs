@@ -48,7 +48,7 @@ namespace Internal.Scripts.UI.Screens.Caravan
 
             if (_healButton != null)
             {
-                _healButton.gameObject.SetActive(data.IsInjured && data.CanHeal);
+                _healButton.gameObject.SetActive(false);
                 _healButton.onClick.AddListener(HandleHealClick);
             }
 

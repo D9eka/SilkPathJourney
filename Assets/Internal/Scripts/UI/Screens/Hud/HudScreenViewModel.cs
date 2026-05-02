@@ -206,6 +206,12 @@ namespace Internal.Scripts.UI.Screens.Hud
                 Debug.LogWarning($"[SPJ] Cannot open caravan screen: {result}");
         }
 
+        public void OpenDiary()
+        {
+            if (!_screenStackService.TryOpen(ScreenId.Journal, out ScreenOpenResult result))
+                Debug.LogWarning($"[SPJ] Cannot open journal screen: {result}");
+        }
+
         public void OpenCamp()
         {
             if (!_screenStackService.TryOpen(ScreenId.Camp, out ScreenOpenResult result))

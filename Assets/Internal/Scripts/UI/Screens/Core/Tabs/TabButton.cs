@@ -45,7 +45,6 @@ namespace Internal.Scripts.UI.Screens.Core.Tabs
         public void SetSelected(bool selected)
         {
             _button.interactable = !selected;
-            _button.gameObject.SetActive(!selected);
         }
 
         public void SetSelected(bool selected, (Color backgroundColor, Color textColor) colors)

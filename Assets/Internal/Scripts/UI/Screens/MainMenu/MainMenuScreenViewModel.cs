@@ -82,6 +82,11 @@ namespace Internal.Scripts.UI.Screens.MainMenu
             _screenStackService.TryOpen(ScreenId.Legacy, out _);
         }
 
+        public void OpenSettings()
+        {
+            _screenStackService.TryOpen(ScreenId.Settings, out _);
+        }
+
         public void QuitGame()
         {
             _quitGameService.Quit();

@@ -80,19 +80,6 @@ namespace Internal.Scripts.UI.Screens.Caravan
 
         private void OnLocaleChanged(Locale _) => BuildState();
 
-        public void HealCompanion(int index)
-        {
-            var state = _resourceRepo.Current;
-            if (index < 0 || index >= state.Companions.Count)
-                return;
-
-            if (!state.Companions[index].IsInjured)
-                return;
-
-            _companionService.HealCompanion(index);
-            BuildState();
-        }
-
         public void FireCompanion(int index)
         {
             _companionService.RemoveCompanion(index);

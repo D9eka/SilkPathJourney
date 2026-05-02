@@ -24,6 +24,11 @@ using Internal.Scripts.UI.Screens.NewGame;
 using Internal.Scripts.UI.Screens.Legacy;
 using Internal.Scripts.UI.Screens.RunEnd;
 using Internal.Scripts.UI.Screens.TargetSelection.Search;
+using Internal.Scripts.UI.Screens.Healer;
+using Internal.Scripts.UI.Screens.Archive;
+using Internal.Scripts.UI.Screens.Archive.Tabs;
+using Internal.Scripts.UI.Screens.Settings;
+using Internal.Scripts.UI.Screens.Journal;
 using Plugins.Zenject.Source.Main;
 
 namespace Internal.Scripts.UI.Factory
@@ -64,6 +69,10 @@ namespace Internal.Scripts.UI.Factory
                 ScreenId.ConfirmNewGame => CreateConfirmNewGame(view),
                 ScreenId.RunEnd => CreateRunEnd(view),
                 ScreenId.Legacy => CreateLegacy(view),
+                ScreenId.Healer => CreateHealer(view),
+                ScreenId.Archive => CreateArchive(view),
+                ScreenId.Settings => CreateSettings(view),
+                ScreenId.Journal => CreateJournal(view),
                 _ => null
             };
         }
@@ -251,6 +260,46 @@ namespace Internal.Scripts.UI.Factory
                 return null;
 
             return _container.Instantiate<LegacyScreenViewModel>();
+        }
+
+        private ScreenViewModelBase CreateHealer(IScreenView view)
+        {
+            if (view is not HealerScreen)
+                return null;
+
+            var formatter = _container.Instantiate<HealerEntryFormatter>();
+            return _container.Instantiate<HealerScreenViewModel>(new object[] { formatter });
+        }
+
+        private ScreenViewModelBase CreateArchive(IScreenView view)
+        {
+            if (view is not ArchiveScreen)
+                return null;
+
+            var questSlot = _container.Instantiate<Internal.Scripts.UI.Screens.Building.BuildingQuestSlotViewModel>();
+            var builders = new IArchiveTabBuilder[]
+            {
+                _container.Instantiate<CitiesArchiveTabBuilder>(),
+                _container.Instantiate<CulturesArchiveTabBuilder>(),
+                _container.Instantiate<LanguagesArchiveTabBuilder>()
+            };
+            return _container.Instantiate<ArchiveScreenViewModel>(new object[] { builders, questSlot });
+        }
+
+        private ScreenViewModelBase CreateSettings(IScreenView view)
+        {
+            if (view is not SettingsScreen)
+                return null;
+
+            return _container.Instantiate<SettingsScreenViewModel>();
+        }
+
+        private ScreenViewModelBase CreateJournal(IScreenView view)
+        {
+            if (view is not JournalScreen)
+                return null;
+
+            return _container.Instantiate<JournalScreenViewModel>();
         }
     }
 }

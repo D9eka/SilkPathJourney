@@ -25,6 +25,10 @@ namespace Internal.Scripts.UI.Screens.Core.Config
         NewGame = 22,
         ConfirmNewGame = 23,
         RunEnd = 24,
-        Legacy = 25
+        Legacy = 25,
+        Healer = 26,
+        Archive = 27,
+        Settings = 28,
+        Journal = 29
     }
 }

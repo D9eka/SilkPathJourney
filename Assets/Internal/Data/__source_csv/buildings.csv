@@ -8,3 +8,5 @@ warehouse,Warehouse,building.warehouse.name,building.warehouse.description,None,
 language_school,LanguageSchool,building.language_school.name,building.language_school.description,LanguageSchool,Школа языков,Language School,Изучение языков региона,Learn regional languages
 caravansary,Caravansary,building.caravansary.name,building.caravansary.description,Caravansary,Караван-сарай,Caravansary,"Покупка телег, животных, улучшений","Buy carts, animals, upgrades"
 barracks,Barracks,building.barracks.name,building.barracks.description,None,Казармы,Barracks,"Военные улучшения, наём охраны","Military upgrades, hire guards"
+healer,Healer,building.healer.name,building.healer.description,Healer,Лекарь,Healer,"Лечение спутников","Heal companions"
+archive,Archive,building.archive.name,building.archive.description,Archive,Архив,Archive,"Свитки, культуры, артефакты","Scrolls, cultures, artifacts"

@@ -12,5 +12,7 @@
         LanguageSchool = 7,
         Caravansary = 8,
         Barracks = 9,
+        Healer = 10,
+        Archive = 11,
     }
 }

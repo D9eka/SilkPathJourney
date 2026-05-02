@@ -126,6 +126,7 @@ namespace Internal.Scripts.UI.Screens.Hud
             _openTraderButton.onClick.AddListener(OnOpenTrader);
             _openQuestsButton.onClick.AddListener(OnOpenQuests);
             _openCompanionsButton.onClick.AddListener(OnOpenCaravan);
+            _openDiaryButton.onClick.AddListener(OnOpenDiary);
             _lockCameraButton.onClick.AddListener(OnLockCamera);
             _lockCameraHandle = Localization.BindText(_lockCameraButtonText, _lockCameraLocalizedString, "Hud.LockCamera");
 
@@ -171,6 +172,7 @@ namespace Internal.Scripts.UI.Screens.Hud
             _openTraderButton.onClick.RemoveListener(OnOpenTrader);
             _openQuestsButton.onClick.RemoveListener(OnOpenQuests);
             _openCompanionsButton.onClick.RemoveListener(OnOpenCaravan);
+            _openDiaryButton.onClick.RemoveListener(OnOpenDiary);
             _lockCameraButton.onClick.RemoveListener(OnLockCamera);
 
             if (_questTracker != null && _questTracker.OpenQuestsButton != null)
@@ -355,6 +357,7 @@ namespace Internal.Scripts.UI.Screens.Hud
         private void OnOpenTrader() => _viewModel?.OpenTrader();
         private void OnOpenQuests() => _viewModel?.OpenQuests();
         private void OnOpenCaravan() => _viewModel?.OpenCaravan();
+        private void OnOpenDiary() => _viewModel?.OpenDiary();
         private void OnLockCamera() => _viewModel?.LockCameraToPlayer();
         private void OnPauseTime() => _viewModel?.OnTimeSpeedSelected(TimeSpeed.Paused);
         private void OnNormalTime() => _viewModel?.OnTimeSpeedSelected(TimeSpeed.Normal);

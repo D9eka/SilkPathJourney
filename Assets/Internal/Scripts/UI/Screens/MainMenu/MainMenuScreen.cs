@@ -98,7 +98,7 @@ namespace Internal.Scripts.UI.Screens.MainMenu
 
         private void OnNewGame() => _viewModel?.NewGame();
         private void OnContinue() => _viewModel?.Continue();
-        private void OnSettings() { }
+        private void OnSettings() => _viewModel?.OpenSettings();
         private void OnQuit() => _viewModel?.QuitGame();
         private void OnLegacyShop() => _viewModel?.OpenLegacyShop();
 

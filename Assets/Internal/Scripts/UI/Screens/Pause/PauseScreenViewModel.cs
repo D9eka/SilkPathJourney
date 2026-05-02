@@ -49,6 +49,11 @@ namespace Internal.Scripts.UI.Screens.Pause
             _sceneLoader.LoadScene(_mainMenuScene);
         }
 
+        public void OnSettings()
+        {
+            _screenStackService.TryOpen(ScreenId.Settings, out _);
+        }
+
         public void QuitGame()
         {
             _quitGameService.Quit();

@@ -19,7 +19,7 @@ namespace Internal.Scripts.Import.Editor.Core
 {
     public static class MasterImporter
     {
-        [MenuItem("SPJ/Master/Import/Generate")]
+        [MenuItem("SPJ/Import/Master/Generate")]
         public static void Generate()
         {
             if (ImportHelpers.IsCompiling()) return;
@@ -36,7 +36,7 @@ namespace Internal.Scripts.Import.Editor.Core
             catch (Exception e) { Debug.LogException(e); }
         }
 
-        [MenuItem("SPJ/Master/Import/Import")]
+        [MenuItem("SPJ/Import/Master/Import")]
         public static void Import()
         {
             if (ImportHelpers.IsCompiling()) return;
