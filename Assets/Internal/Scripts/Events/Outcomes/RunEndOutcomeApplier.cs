@@ -4,6 +4,7 @@ using Internal.Scripts.Events.Data;
 using Internal.Scripts.Events.Generated;
 using Internal.Scripts.Meta;
 using Internal.Scripts.Meta.Achievements;
+using Internal.Scripts.Quests;
 using Internal.Scripts.Save;
 using Internal.Scripts.UI.Screens.Core.Config;
 using Internal.Scripts.UI.StackService;
@@ -20,8 +21,12 @@ namespace Internal.Scripts.Events.Outcomes
         private readonly PersistentProgressService _persistent;
         private readonly LegacyPointsCalculator _legacyCalculator;
         private readonly AchievementService _achievementService;
+        private readonly QuestPendingEndingsService _pendingEndings;
         private bool _ended;
         private EndType? _pendingEndType;
+        private string _pendingBranchId;
+
+        public bool IsEnded => _ended;
 
         public IEnumerable<EventOutcomeType> SupportedTypes => new[] { EventOutcomeType.EndRun };
 
@@ -32,7 +37,8 @@ namespace Internal.Scripts.Events.Outcomes
             ScreenStackService screenStackService,
             PersistentProgressService persistent,
             LegacyPointsCalculator legacyCalculator,
-            AchievementService achievementService)
+            AchievementService achievementService,
+            QuestPendingEndingsService pendingEndings)
         {
             _gameClock = gameClock;
             _runStatsService = runStatsService;
@@ -41,27 +47,37 @@ namespace Internal.Scripts.Events.Outcomes
             _persistent = persistent;
             _legacyCalculator = legacyCalculator;
             _achievementService = achievementService;
+            _pendingEndings = pendingEndings;
         }
 
         public void Apply(EventOutcomeEntry entry)
         {
-            if (!Enum.TryParse<EndType>(entry.Param, out var endType) || endType == EndType.None)
+            string paramStr = entry.Param ?? string.Empty;
+            int sep = paramStr.IndexOf('|');
+            string endTypeStr = sep < 0 ? paramStr : paramStr.Substring(0, sep);
+            string branchId = sep < 0 ? null : paramStr.Substring(sep + 1);
+
+            if (!Enum.TryParse<EndType>(endTypeStr, out var endType) || endType == EndType.None)
                 return;
             _pendingEndType = endType;
+            _pendingBranchId = branchId;
         }
 
         public void TryFlushPending()
         {
             if (_pendingEndType == null) return;
             EndType endType = _pendingEndType.Value;
+            string branchId = _pendingBranchId;
             _pendingEndType = null;
-            TriggerRunEnd(endType);
+            _pendingBranchId = null;
+            TriggerRunEnd(endType, branchId);
         }
 
-        public void TriggerRunEnd(EndType endType)
+        public void TriggerRunEnd(EndType endType, string branchId = null)
         {
             if (_ended) return;
             _ended = true;
+            _pendingEndings.ClearAllPendingEndings();
 
             string reasonKey = endType switch
             {
@@ -78,6 +94,7 @@ namespace Internal.Scripts.Events.Outcomes
             RunStatsData stats = _runStatsService.Stats;
             stats.EndType = endType;
             stats.EndReasonKey = reasonKey;
+            stats.EndingBranchId = branchId;
 
             int earned = _legacyCalculator.Calculate(stats, endType, out int bonus);
             stats.LegacyEarned = earned;
@@ -87,7 +104,7 @@ namespace Internal.Scripts.Events.Outcomes
             _achievementService.CheckAll(stats, endType);
             _saveRepository.Save();
 
-            var args = new RunEndArgs(endType, reasonKey, stats);
+            var args = new RunEndArgs(endType, reasonKey, stats, branchId);
             _screenStackService.TryOpen(ScreenId.RunEnd, args, out _);
         }
     }

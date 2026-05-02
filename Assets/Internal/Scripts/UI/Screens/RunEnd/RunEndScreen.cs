@@ -117,8 +117,8 @@ namespace Internal.Scripts.UI.Screens.RunEnd
         {
             if (state == null) return;
 
-            BindTitleForEndType(state.EndType);
-            BindSubtitle(state.ReasonKey);
+            BindTitleForEndType(state);
+            BindSubtitle(state);
 
             _pathStats.Apply(state.Stats);
             _economyStats.Apply(state.Stats, state.BestDealName);
@@ -128,12 +128,12 @@ namespace Internal.Scripts.UI.Screens.RunEnd
             _legacyPointsIndicator?.SetValue(state.LegacyPointsTotal);
         }
 
-        private void BindTitleForEndType(EndType endType)
+        private void BindTitleForEndType(RunEndViewState state)
         {
             _titleHandle?.Dispose();
             if (Localization == null) return;
 
-            string key = endType switch
+            string genericKey = state.EndType switch
             {
                 EndType.Victory => LocUI.UI_RunEnd_Title_Victory,
                 EndType.Defeat_Bankruptcy => LocUI.UI_RunEnd_Title_Defeat_Bankruptcy,
@@ -142,14 +142,36 @@ namespace Internal.Scripts.UI.Screens.RunEnd
                 EndType.Defeat_Famine => LocUI.UI_RunEnd_Title_Defeat_Famine,
                 _ => LocUI.UI_RunEnd_Title_Defeat_Bankruptcy
             };
-            _titleHandle = Localization.BindText(_titleText, "UI", key, $"{name}.Title");
+
+            if (state.EndType == EndType.Victory && !string.IsNullOrEmpty(state.BranchId))
+            {
+                string fallback = LocalizationService.Resolve("UI", genericKey);
+                _titleHandle = Localization.BindText(_titleText, "UI", $"runend.victory.{state.BranchId}.title",
+                    $"{name}.Title", fallback, (Func<string, string>)null);
+            }
+            else
+            {
+                _titleHandle = Localization.BindText(_titleText, "UI", genericKey, $"{name}.Title");
+            }
         }
 
-        private void BindSubtitle(string reasonKey)
+        private void BindSubtitle(RunEndViewState state)
         {
             _subtitleHandle?.Dispose();
-            if (Localization == null || _subtitleText == null || string.IsNullOrEmpty(reasonKey)) return;
-            _subtitleHandle = Localization.BindText(_subtitleText, "UI", reasonKey, $"{name}.Subtitle");
+            if (Localization == null || _subtitleText == null) return;
+
+            if (state.EndType == EndType.Victory && !string.IsNullOrEmpty(state.BranchId))
+            {
+                string fallback = !string.IsNullOrEmpty(state.ReasonKey)
+                    ? LocalizationService.Resolve("UI", state.ReasonKey)
+                    : string.Empty;
+                _subtitleHandle = Localization.BindText(_subtitleText, "UI", $"runend.victory.{state.BranchId}.flavor",
+                    $"{name}.Subtitle", fallback, (Func<string, string>)null);
+            }
+            else if (!string.IsNullOrEmpty(state.ReasonKey))
+            {
+                _subtitleHandle = Localization.BindText(_subtitleText, "UI", state.ReasonKey, $"{name}.Subtitle");
+            }
         }
     }
 }

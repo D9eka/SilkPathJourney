@@ -7,19 +7,44 @@ using Internal.Scripts.Quests.Data;
 using Internal.Scripts.UI.Localization;
 using Internal.Scripts.UI.Screens.Core.Config;
 using Internal.Scripts.UI.Screens.Quests;
+using Internal.Scripts.UI.StackService;
 using R3;
+using UnityEngine.Localization;
 
 namespace Internal.Scripts.UI.Screens.Building
 {
     public readonly struct BuildingQuestSlotState
     {
         public string Description { get; }
-        public BuildingQuestSlotState(string description) { Description = description; }
+        public string EndingBranchId { get; }
+
+        public bool IsEndingOffer => EndingBranchId != null;
+
+        public BuildingQuestSlotState(string description) { Description = description; EndingBranchId = null; }
+        public BuildingQuestSlotState(string description, string endingBranchId) { Description = description; EndingBranchId = endingBranchId; }
     }
 
     public class BuildingQuestSlotViewModel : IDisposable
     {
+        private enum SlotKind { None, PendingEnding, AvailableQuest, ActiveStage }
+
+        private readonly struct SlotResolution
+        {
+            public readonly SlotKind Kind;
+            public readonly QuestData Quest;
+            public readonly string PendingBranchId;
+
+            public SlotResolution(SlotKind kind, QuestData quest, string pendingBranchId)
+            {
+                Kind = kind;
+                Quest = quest;
+                PendingBranchId = pendingBranchId;
+            }
+        }
+
         private readonly QuestRepository _questRepository;
+        private readonly QuestAvailabilityService _availability;
+        private readonly QuestPendingEndingsService _pendingEndings;
         private readonly EventDatabase _eventDb;
         private readonly EventTrigger _eventTrigger;
         private readonly ScreenStackService _screenStackService;
@@ -29,17 +54,21 @@ namespace Internal.Scripts.UI.Screens.Building
         private BuildingType _building;
         private string _cityId;
         private QuestData _resolvedQuest;
-        private bool _isAvailable;
+        private string _pendingEndingBranchId;
 
         public Observable<BuildingQuestSlotState?> State => _state;
 
         public BuildingQuestSlotViewModel(
             QuestRepository questRepository,
+            QuestAvailabilityService availability,
+            QuestPendingEndingsService pendingEndings,
             EventDatabase eventDb,
             EventTrigger eventTrigger,
             ScreenStackService screenStackService)
         {
             _questRepository = questRepository;
+            _availability = availability;
+            _pendingEndings = pendingEndings;
             _eventDb = eventDb;
             _eventTrigger = eventTrigger;
             _screenStackService = screenStackService;
@@ -56,6 +85,7 @@ namespace Internal.Scripts.UI.Screens.Building
             _questRepository.QuestAdvanced += OnQuestChanged;
             _questRepository.QuestCompleted += OnQuestChanged;
             _questRepository.QuestFailed += OnQuestChanged;
+            _pendingEndings.PendingEndingsChanged += OnPendingEndingsChanged;
 
             Refresh();
         }
@@ -66,76 +96,106 @@ namespace Internal.Scripts.UI.Screens.Building
             _questRepository.QuestAdvanced -= OnQuestChanged;
             _questRepository.QuestCompleted -= OnQuestChanged;
             _questRepository.QuestFailed -= OnQuestChanged;
+            _pendingEndings.PendingEndingsChanged -= OnPendingEndingsChanged;
 
             _resolvedQuest = null;
+            _pendingEndingBranchId = null;
             _state.Value = null;
         }
 
         public void OnTalk()
         {
-            if (_resolvedQuest == null)
-                return;
-
-            if (_isAvailable)
-            {
-                if (!string.IsNullOrEmpty(_resolvedQuest.BriefingEventId))
-                {
-                    var eventData = _eventDb.GetById(_resolvedQuest.BriefingEventId);
-                    if (eventData != null)
-                    {
-                        _eventTrigger.TriggerEvent(eventData);
-                        return;
-                    }
-                }
-
-                _screenStackService.TryOpen(ScreenId.Quests, out _);
-                return;
-            }
-
-            int stageIndex = _questRepository.GetCurrentStageIndex(_resolvedQuest.Id);
-            if (stageIndex >= 0 && _resolvedQuest.Stages != null && stageIndex < _resolvedQuest.Stages.Count)
-            {
-                string triggerEventId = _resolvedQuest.Stages[stageIndex].TriggerEventId;
-                if (!string.IsNullOrEmpty(triggerEventId))
-                {
-                    var eventData = _eventDb.GetById(triggerEventId);
-                    if (eventData != null)
-                    {
-                        _eventTrigger.TriggerEvent(eventData);
-                        return;
-                    }
-                }
-            }
-
+            if (TryTriggerPendingEnding()) return;
+            if (TryTriggerAvailableBriefing()) return;
+            if (TryTriggerActiveStage()) return;
             _screenStackService.TryOpen(ScreenId.Quests, out _);
         }
 
-        private void OnQuestChanged(string _) => Refresh();
-
-        private void Refresh()
+        private bool TryTriggerPendingEnding()
         {
-            var available = _questRepository.GetAvailableForBuilding(_building, _cityId);
+            if (_pendingEndingBranchId == null) return false;
+            string eventId = QuestPendingEndingsService.GetFinaleOfferEventId(_pendingEndingBranchId);
+            var eventData = _eventDb.GetById(eventId);
+            if (eventData == null) return false;
+            _eventTrigger.TriggerEvent(eventData);
+            return true;
+        }
+
+        private bool TryTriggerAvailableBriefing()
+        {
+            if (_resolvedQuest == null || _pendingEndingBranchId != null) return false;
+            var available = _availability.GetAvailableForBuilding(_building, _cityId);
+            if (available == null) return false;
+            if (string.IsNullOrEmpty(available.BriefingEventId)) return false;
+            var eventData = _eventDb.GetById(available.BriefingEventId);
+            if (eventData == null) return false;
+            _eventTrigger.TriggerEvent(eventData);
+            return true;
+        }
+
+        private bool TryTriggerActiveStage()
+        {
+            if (_resolvedQuest == null || _pendingEndingBranchId != null) return false;
+            if (_availability.GetAvailableForBuilding(_building, _cityId) != null) return false;
+            int stageIndex = _questRepository.GetCurrentStageIndex(_resolvedQuest.Id);
+            if (stageIndex < 0 || _resolvedQuest.Stages == null || stageIndex >= _resolvedQuest.Stages.Count) return false;
+            string triggerEventId = _resolvedQuest.Stages[stageIndex].TriggerEventId;
+            if (string.IsNullOrEmpty(triggerEventId)) return false;
+            var eventData = _eventDb.GetById(triggerEventId);
+            if (eventData == null) return false;
+            _eventTrigger.TriggerEvent(eventData);
+            return true;
+        }
+
+        private void OnQuestChanged(string _) => Refresh();
+        private void OnPendingEndingsChanged() => Refresh();
+
+        private void Refresh() => Apply(Resolve());
+
+        private SlotResolution Resolve()
+        {
+            foreach (var branchId in _pendingEndings.GetPendingEndingsForBuilding(_building, _cityId))
+                return new SlotResolution(SlotKind.PendingEnding, null, branchId);
+
+            var available = _availability.GetAvailableForBuilding(_building, _cityId);
             if (available != null)
-            {
-                _resolvedQuest = available;
-                _isAvailable = true;
-                string desc = LocalizationService.ResolveString(available.Description, available.Id, QuestLocContext.QuestDesc(available.Id));
-                _state.Value = new BuildingQuestSlotState(desc);
-                return;
-            }
+                return new SlotResolution(SlotKind.AvailableQuest, available, null);
 
-            var active = _questRepository.GetActiveStageInBuildingCity(_cityId);
+            var active = _availability.GetActiveStageInBuildingCity(_cityId);
             if (active != null)
-            {
-                _resolvedQuest = active;
-                _isAvailable = false;
-                string desc = GetCurrentStageDescription(active);
-                _state.Value = new BuildingQuestSlotState(desc);
-                return;
-            }
+                return new SlotResolution(SlotKind.ActiveStage, active, null);
 
-            _resolvedQuest = null;
-            _state.Value = null;
+            return new SlotResolution(SlotKind.None, null, null);
+        }
+
+        private void Apply(SlotResolution r)
+        {
+            _pendingEndingBranchId = r.PendingBranchId;
+            _resolvedQuest = r.Quest;
+
+            switch (r.Kind)
+            {
+                case SlotKind.PendingEnding:
+                    string endingDesc = LocalizationService.ResolveString(
+                        new LocalizedString("UI", "UI.Building.QuestSlot.EndingOffer"),
+                        "Завершить путешествие",
+                        "BuildingQuestSlot.EndingOffer");
+                    _state.Value = new BuildingQuestSlotState(endingDesc, r.PendingBranchId);
+                    break;
+
+                case SlotKind.AvailableQuest:
+                    string questDesc = LocalizationService.ResolveString(r.Quest.Description, r.Quest.Id, QuestLocContext.QuestDesc(r.Quest.Id));
+                    _state.Value = new BuildingQuestSlotState(questDesc);
+                    break;
+
+                case SlotKind.ActiveStage:
+                    _state.Value = new BuildingQuestSlotState(GetCurrentStageDescription(r.Quest));
+                    break;
+
+                default:
+                    _state.Value = null;
+                    break;
+            }
         }
 
         private string GetCurrentStageDescription(QuestData quest)

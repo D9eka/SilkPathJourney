@@ -33,5 +33,6 @@
         NoItem = 28,
         DangerAbove = 29,
         NotCompletedQuest = 30,
+        QuestAvailable = 31,
     }
 }

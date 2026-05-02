@@ -151,7 +151,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 577896477
-    m_Localized: Steppe
+    m_Localized: Steppe Peoples
     m_Metadata:
       m_Items: []
   - m_Id: 577896478
@@ -1365,6 +1365,86 @@ MonoBehaviour:
     m_Localized: "They say {0} has seen no rain since spring. Food is scarce in the
       bazaar, but everything else sells \u2014 people have no mind for trade, only
       for feeding themselves."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33352844525568000
+    m_Localized: Healer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33352844571705344
+    m_Localized: Heal companions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33352844571705345
+    m_Localized: Archive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33352844571705346
+    m_Localized: Scrolls, cultures, artifacts
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33352844571705347
+    m_Localized: Unknown
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33352844571705348
+    m_Localized: Culture not defined
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33352844571705349
+    m_Localized: The great empire of the East. Birthplace of silk and porcelain.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33352844571705350
+    m_Localized: Nomads of the open plains. Masters of horsemanship and livestock
+      trade.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33352844571705351
+    m_Localized: Central Asia
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33352844571705352
+    m_Localized: "Sogdian merchants \u2014 middlemen of the Great Road. Their cities
+      are crossroads of civilizations."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33352844571705353
+    m_Localized: Land of poets and scholars. Persian is the diplomatic language of
+      the East.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33352844571705354
+    m_Localized: Land between rivers. The oldest trade routes originate here.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33352844571705355
+    m_Localized: Crossroads of three seas. Arab merchants control the sea routes.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33352844571705356
+    m_Localized: Bridge between East and West. Here cultures and religions meet.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33352844571705357
+    m_Localized: Heir of Rome. Constantinople is the trade capital of the world.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33352844571705358
+    m_Localized: Land of spices and cotton. Ancient traditions of trade and wisdom.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33352844571705359
+    m_Localized: Homeland of incense and maritime trade. Arab navigators reached
+      the edge of the world.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33352844571705360
+    m_Localized: Roof of the world. Monasteries preserve the knowledge of centuries.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33459451552989184
+    m_Localized: Language School
     m_Metadata:
       m_Items: []
   references:

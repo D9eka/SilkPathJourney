@@ -61,7 +61,10 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    <Conditions>k__BackingField: []
+    <Conditions>k__BackingField:
+    - <Type>k__BackingField: 31
+      <Param>k__BackingField: quest_artifact_2
+      <Value>k__BackingField: 1
     <Outcomes>k__BackingField:
     - <Type>k__BackingField: 20
       <Param>k__BackingField: quest_artifact_1
@@ -72,6 +75,35 @@ MonoBehaviour:
     - <Type>k__BackingField: 19
       <Param>k__BackingField: quest_artifact_2
       <Value>k__BackingField: 1
+    - <Type>k__BackingField: 1
+      <Param>k__BackingField: 
+      <Value>k__BackingField: 20
+    - <Type>k__BackingField: 11
+      <Param>k__BackingField: 
+      <Value>k__BackingField: 5
+  - <Text>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Events
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: event.event_artifact1_complete.choice2
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <ResultText>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Events
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: event.event_artifact1_complete.choice2.result
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <Conditions>k__BackingField: []
+    <Outcomes>k__BackingField:
+    - <Type>k__BackingField: 20
+      <Param>k__BackingField: quest_artifact_1
+      <Value>k__BackingField: 0
     - <Type>k__BackingField: 1
       <Param>k__BackingField: 
       <Value>k__BackingField: 20

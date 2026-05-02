@@ -48,6 +48,7 @@ using Internal.Scripts.UI.Arrow.DirectionCalculation;
 using Internal.Scripts.UI.Arrow.JunctionBalancer;
 using Internal.Scripts.UI.Arrow.Placement;
 using Internal.Scripts.UI.Arrow.PositionCalculation;
+using Internal.Scripts.UI.City;
 using Internal.Scripts.UI.Factory;
 using Internal.Scripts.UI.PathVisualization;
 using Internal.Scripts.UI.Screens.Core.Config;
@@ -64,6 +65,9 @@ using Internal.Scripts.Travel.Pickups;
 using Internal.Scripts.Travel.Triggers;
 using Internal.Scripts.Travel.Triggers.Actions;
 using Internal.Scripts.UI.Screens.Caravansary.Services;
+using Internal.Scripts.Economy.Buildings.Healer;
+using Internal.Scripts.Economy.Buildings.Archive;
+using Internal.Scripts.Journal;
 using Internal.Scripts.UI.Screens.Building;
 using Internal.Scripts.UI.Screens.Shared;
 using Internal.Scripts.UI.Tooltip;
@@ -91,6 +95,7 @@ namespace Internal.Scripts.Installers
         [SerializeField] private ArrowView _arrowPrefab;
         [Header("UI")]
         [SerializeField] private UIScreenRoots _uiScreenRoots;
+        [SerializeField] private UnityEngine.UI.Button _enterCityButton;
         [Header("Convoy")]
         [Header("Path Visualization")]
         [SerializeField] private Shader _pathShader;
@@ -244,6 +249,10 @@ namespace Internal.Scripts.Installers
             Container.BindInterfacesTo<ConvoyVisualizer>().AsSingle();
             Container.BindInterfacesTo<CityNodeResolver>().AsSingle();
             Container.BindInterfacesTo<RoadNodeProximityScaler>().AsSingle();
+
+            if (_enterCityButton != null)
+                Container.BindInterfacesTo<PlayerCityButtonsController>().AsSingle()
+                    .WithArguments(_enterCityButton);
         }
 
         private void InstallEconomy()
@@ -359,6 +368,7 @@ namespace Internal.Scripts.Installers
             Container.Bind<Events.Outcomes.CompleteQuestApplier>().AsSingle();
             Container.Bind<Events.Outcomes.FailQuestApplier>().AsSingle();
             Container.Bind<Events.Outcomes.SetQuestFlagApplier>().AsSingle();
+            Container.Bind<Events.Outcomes.MarkPendingEndingApplier>().AsSingle();
             Container.Bind<Events.Outcomes.OutcomeApplier>().AsSingle();
 
             Container.Bind<SkillCheckService>().AsSingle();
@@ -371,6 +381,8 @@ namespace Internal.Scripts.Installers
             Container.Bind<ConditionLineBuilder>().AsSingle();
 
             Container.Bind<EventToastController>().AsSingle();
+            Container.Bind<EventCloseSignal>().AsSingle();
+            Container.Bind<RecentEventHistory>().AsSingle();
             Container.BindInterfacesAndSelfTo<CrisisTrigger>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<EventTrigger>().AsSingle().NonLazy();
 
@@ -391,7 +403,8 @@ namespace Internal.Scripts.Installers
             Container.Bind<HazardSelector>().AsSingle();
             Container.Bind<HazardController>().AsSingle();
             Container.BindInterfacesTo<HazardSegmentAction>().AsSingle();
-            Container.BindInterfacesTo<SegmentTriggerService>().AsSingle();
+            Container.Bind<DistanceTrackingService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<SegmentTriggerService>().AsSingle().NonLazy();
         }
 
         private void InstallCamp()
@@ -405,12 +418,19 @@ namespace Internal.Scripts.Installers
 
         private void InstallQuests()
         {
-            Container.BindInterfacesAndSelfTo<QuestRepository>().AsSingle().NonLazy();
+            Container.Bind<PlayerCityLocator>().AsSingle();
+            Container.Bind<QuestRepository>().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<QuestAvailabilityService>().AsSingle().NonLazy();
+            Container.Bind<QuestPendingEndingsService>().AsSingle();
             Container.Bind<QuestRewardApplier>().AsSingle();
             Container.BindInterfacesTo<QuestStageChecker>().AsSingle();
             Container.Bind<QuestCityIndicatorService>().AsSingle();
             Container.Bind<BuildingQuestSlotViewModel>().AsTransient();
             Container.Bind<UI.Screens.TargetSelection.Search.CityCardBuilder>().AsSingle();
+
+            Container.Bind<HealerService>().AsSingle();
+            Container.Bind<ArchiveService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<JournalService>().AsSingle().NonLazy();
         }
 
         private void InstallWorldModifiers()

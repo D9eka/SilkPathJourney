@@ -1591,7 +1591,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 29628994805555213
-    m_Localized: Constantinople Reached!
+    m_Localized: The Silk Road is conquered
     m_Metadata:
       m_Items: []
   - m_Id: 29628994805555214
@@ -1775,7 +1775,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 30121302483263491
-    m_Localized: Unlock for {points}
+    m_Localized: Unlock for {0}
     m_Metadata:
       m_Items: []
   - m_Id: 30121302483263492
@@ -2100,6 +2100,170 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 30677111948697665
     m_Localized: 'Most expensive: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751863779328
+    m_Localized: End the Journey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945152
+    m_Localized: Healer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945153
+    m_Localized: Healing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945154
+    m_Localized: All companions are healthy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945155
+    m_Localized: Companions need healing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945156
+    m_Localized: "Heal \xB7 {0} \u25CF"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945157
+    m_Localized: No companions in the party
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945158
+    m_Localized: Healthy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945159
+    m_Localized: Injured
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945160
+    m_Localized: Archive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945161
+    m_Localized: Cities
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945162
+    m_Localized: Cultures
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945163
+    m_Localized: Languages
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945164
+    m_Localized: Select a city from the list
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945165
+    m_Localized: Select a culture from the list
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945166
+    m_Localized: Select a language from the list
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945167
+    m_Localized: Settings
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945168
+    m_Localized: Russian
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945169
+    m_Localized: English
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945170
+    m_Localized: Russian language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945171
+    m_Localized: English language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945172
+    m_Localized: Selected
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945173
+    m_Localized: Select
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945174
+    m_Localized: Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945175
+    m_Localized: Journal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945176
+    m_Localized: Journal is empty
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945177
+    m_Localized: Day {0}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945178
+    m_Localized: 'Quest: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945179
+    m_Localized: Clear
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945180
+    m_Localized: 'Quest started: "{0}"'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945181
+    m_Localized: 'Quest advanced: "{0}"'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945182
+    m_Localized: 'Quest completed: "{0}"'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945183
+    m_Localized: 'Quest failed: "{0}"'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945184
+    m_Localized: 'Event: "{0}"'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945185
+    m_Localized: Chronicle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31507501466910720
+    m_Localized: Screen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31507501500465152
+    m_Localized: Fullscreen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31561781158739968
+    m_Localized: Arrived in {0}
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31561781200683008
+    m_Localized: 'Crisis: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31561781200683009
+    m_Localized: 'Injured: {0}'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31597680412196864
+    m_Localized: Quests
     m_Metadata:
       m_Items: []
   references:

@@ -19,7 +19,7 @@ quest_silk_2,quest.quest_silk_2.name,quest.quest_silk_2.description,,secrets_of_
 quest_silk_3,quest.quest_silk_3.name,quest.quest_silk_3.description,,secrets_of_silk,3,changan,,
 quest_silk_4,quest.quest_silk_4.name,quest.quest_silk_4.description,,secrets_of_silk,4,changan,,
 quest_silk_5,quest.quest_silk_5.name,quest.quest_silk_5.description,,secrets_of_silk,5,changan,,
-quest_artifact_1,quest.quest_artifact_1.name,quest.quest_artifact_1.description,,legend_of_artifacts,1,,,
+quest_artifact_1,quest.quest_artifact_1.name,quest.quest_artifact_1.description,,legend_of_artifacts,1,samarkand,Archive,quest_artifact_start
 quest_artifact_2,quest.quest_artifact_2.name,quest.quest_artifact_2.description,,legend_of_artifacts,2,,,
 quest_artifact_3,quest.quest_artifact_3.name,quest.quest_artifact_3.description,,legend_of_artifacts,3,,,
 quest_artifact_4,quest.quest_artifact_4.name,quest.quest_artifact_4.description,,legend_of_artifacts,4,,,

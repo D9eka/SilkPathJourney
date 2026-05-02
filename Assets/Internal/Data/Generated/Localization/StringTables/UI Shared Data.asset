@@ -2083,6 +2083,170 @@ MonoBehaviour:
     m_Key: UI.LegacyShop.Achievement.TotalCounter
     m_Metadata:
       m_Items: []
+  - m_Id: 31491751863779328
+    m_Key: UI.Building.QuestSlot.EndingOffer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945152
+    m_Key: ui.healer.title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945153
+    m_Key: ui.healer.additional_header
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945154
+    m_Key: ui.healer.attention.healthy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945155
+    m_Key: ui.healer.attention.injured
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945156
+    m_Key: ui.healer.heal_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945157
+    m_Key: ui.healer.no_companions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945158
+    m_Key: ui.healer.status.healthy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945159
+    m_Key: ui.healer.status.injured
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945160
+    m_Key: ui.archive.title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945161
+    m_Key: ui.archive.tab.cities
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945162
+    m_Key: ui.archive.tab.cultures
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945163
+    m_Key: ui.archive.tab.languages
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945164
+    m_Key: ui.archive.empty.cities
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945165
+    m_Key: ui.archive.empty.cultures
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945166
+    m_Key: ui.archive.empty.languages
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945167
+    m_Key: ui.settings.title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945168
+    m_Key: ui.settings.locale.ru.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945169
+    m_Key: ui.settings.locale.en.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945170
+    m_Key: ui.settings.locale.ru.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945171
+    m_Key: ui.settings.locale.en.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945172
+    m_Key: ui.settings.button.selected
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945173
+    m_Key: ui.settings.button.select
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945174
+    m_Key: ui.settings.language_header
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945175
+    m_Key: ui.journal.title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945176
+    m_Key: ui.journal.empty
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945177
+    m_Key: ui.journal.day_label
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945178
+    m_Key: ui.journal.filter.quest
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945179
+    m_Key: ui.journal.filter.clear
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945180
+    m_Key: ui.journal.entry.quest_started
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945181
+    m_Key: ui.journal.entry.quest_advanced
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945182
+    m_Key: ui.journal.entry.quest_completed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945183
+    m_Key: ui.journal.entry.quest_failed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945184
+    m_Key: ui.journal.entry.event
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31491751888945185
+    m_Key: ui.quest.detail.open_journal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31507501466910720
+    m_Key: ui.settings.screen_header
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31507501500465152
+    m_Key: ui.settings.fullscreen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31561781158739968
+    m_Key: ui.journal.entry.arrival
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31561781200683008
+    m_Key: ui.journal.entry.crisis
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31561781200683009
+    m_Key: ui.journal.entry.loss
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31597680412196864
+    m_Key: UI.CitySearch.Filter.Quest
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

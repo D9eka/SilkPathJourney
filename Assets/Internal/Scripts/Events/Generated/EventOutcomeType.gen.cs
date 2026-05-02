@@ -26,5 +26,6 @@
         FailQuest = 21,
         SetQuestFlag = 22,
         EndRun = 23,
+        MarkPendingEnding = 24,
     }
 }

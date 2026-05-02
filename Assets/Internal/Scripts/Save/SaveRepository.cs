@@ -40,7 +40,13 @@ namespace Internal.Scripts.Save
 
         public bool HasActiveRun() => _saveService.HasActiveRun();
 
-        public void DeleteRun() => _saveService.DeleteRun();
+        public void DeleteRun()
+        {
+            _saveService.DeleteRun();
+            _data = null;
+            _isLoaded = false;
+            _loadedSlotId = null;
+        }
 
         public void Save()
         {

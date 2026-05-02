@@ -31,6 +31,7 @@ namespace Internal.Scripts.Events.Outcomes
             CompleteQuestApplier completeQuest,
             FailQuestApplier failQuest,
             SetQuestFlagApplier setQuestFlag,
+            MarkPendingEndingApplier markPendingEnding,
             RunEndOutcomeApplier runEnd)
         {
             Register(resource);
@@ -53,6 +54,7 @@ namespace Internal.Scripts.Events.Outcomes
             Register(completeQuest);
             Register(failQuest);
             Register(setQuestFlag);
+            Register(markPendingEnding);
             Register(runEnd);
         }
 

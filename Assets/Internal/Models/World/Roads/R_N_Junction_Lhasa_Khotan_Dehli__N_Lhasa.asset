@@ -15,6 +15,7 @@ MonoBehaviour:
   <Version>k__BackingField: 1
   <RoadId>k__BackingField: R_N_Junction_Lhasa_Khotan_Dehli__N_Lhasa
   <RelativeTo>k__BackingField: Plane
+  <Region>k__BackingField: 0
   <LaneCount>k__BackingField: 2
   <LaneWidth>k__BackingField: 0.07
   <SpeedMul>k__BackingField: 1

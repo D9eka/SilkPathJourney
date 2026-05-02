@@ -1287,6 +1287,82 @@ MonoBehaviour:
     m_Key: city_modifier_rumor.drought.3
     m_Metadata:
       m_Items: []
+  - m_Id: 33352844525568000
+    m_Key: building.healer.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33352844571705344
+    m_Key: building.healer.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33352844571705345
+    m_Key: building.archive.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33352844571705346
+    m_Key: building.archive.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33352844571705347
+    m_Key: culture.none.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33352844571705348
+    m_Key: culture.none.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33352844571705349
+    m_Key: culture.china.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33352844571705350
+    m_Key: culture.steppe.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33352844571705351
+    m_Key: culture.centralasia.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33352844571705352
+    m_Key: culture.centralasia.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33352844571705353
+    m_Key: culture.persia.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33352844571705354
+    m_Key: culture.mesopotamia.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33352844571705355
+    m_Key: culture.levant.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33352844571705356
+    m_Key: culture.anatolia.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33352844571705357
+    m_Key: culture.byzantine.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33352844571705358
+    m_Key: culture.india.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33352844571705359
+    m_Key: culture.arabia.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33352844571705360
+    m_Key: culture.tibet.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 33459451552989184
+    m_Key: building.languageschool.name
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -68,7 +68,7 @@ namespace Internal.Scripts.UI.Screens.RunEnd
         private void OnLocaleChanged(UnityEngine.Localization.Locale _)
         {
             if (_state.Value != null)
-                BuildState(new RunEndArgs(_state.Value.EndType, _state.Value.ReasonKey, _state.Value.Stats));
+                BuildState(new RunEndArgs(_state.Value.EndType, _state.Value.ReasonKey, _state.Value.Stats, _state.Value.BranchId));
         }
 
         private void BuildState(RunEndArgs args)
@@ -100,7 +100,7 @@ namespace Internal.Scripts.UI.Screens.RunEnd
 
             _state.Value = new RunEndViewState(args.EndType, args.ReasonKey, args.Stats,
                 earned, bonus, total,
-                bestDealName, languagesNames);
+                bestDealName, languagesNames, args.BranchId);
         }
 
         public void OpenMainMenu()

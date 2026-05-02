@@ -9,6 +9,7 @@ namespace Internal.Scripts.Quests.Save
         public List<QuestStateEntry> ActiveQuests = new();
         public List<string> CompletedQuestIds = new();
         public List<string> FailedQuestIds = new();
+        public List<string> PendingEndingBranchIds = new();
         public string TrackedQuestId;
     }
 
