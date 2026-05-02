@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
-using UnityEngine;
+using Internal.Scripts.Save;
 
 namespace Internal.Scripts.Meta
 {
@@ -9,7 +8,7 @@ namespace Internal.Scripts.Meta
     {
         private const string FILE_NAME = "persistent_progress.json";
 
-        private readonly string _filePath;
+        private readonly IJsonStorage _storage;
         private PersistentProgressData _data;
 
         public int LegacyPoints => _data.LegacyPoints;
@@ -17,31 +16,15 @@ namespace Internal.Scripts.Meta
         public IReadOnlyList<string> EarnedAchievementIds => _data.EarnedAchievementIds;
         public LifetimeStatsData Lifetime => _data.Lifetime;
 
-        public PersistentProgressService()
+        public PersistentProgressService(IJsonStorage storage)
         {
-            _filePath = Path.Combine(Application.persistentDataPath, FILE_NAME);
+            _storage = storage;
             Load();
         }
 
         private void Load()
         {
-            if (!File.Exists(_filePath))
-            {
-                _data = new PersistentProgressData();
-                return;
-            }
-
-            try
-            {
-                string json = File.ReadAllText(_filePath);
-                _data = JsonUtility.FromJson<PersistentProgressData>(json) ?? new PersistentProgressData();
-            }
-            catch (Exception e)
-            {
-                Debug.LogWarning($"[SPJ] Failed to load persistent progress: {e.Message}");
-                _data = new PersistentProgressData();
-            }
-
+            _data = _storage.Load<PersistentProgressData>(FILE_NAME) ?? new PersistentProgressData();
             MigrateMissingEarnedDates();
         }
 
@@ -58,15 +41,7 @@ namespace Internal.Scripts.Meta
 
         public void Save()
         {
-            try
-            {
-                string json = JsonUtility.ToJson(_data, true);
-                File.WriteAllText(_filePath, json);
-            }
-            catch (Exception e)
-            {
-                Debug.LogWarning($"[SPJ] Failed to save persistent progress: {e.Message}");
-            }
+            _storage.Save(FILE_NAME, _data);
         }
 
         public void AddLegacyPoints(int amount)
