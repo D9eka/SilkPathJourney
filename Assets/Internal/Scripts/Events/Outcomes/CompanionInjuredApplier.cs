@@ -14,6 +14,8 @@ namespace Internal.Scripts.Events.Outcomes
 
         private readonly PlayerResourceRepository _resourceRepository;
 
+        public event Action<string> OnCompanionInjured;
+
         public CompanionInjuredApplier(PlayerResourceRepository resourceRepository)
         {
             _resourceRepository = resourceRepository;
@@ -23,6 +25,7 @@ namespace Internal.Scripts.Events.Outcomes
 
         public void Apply(EventOutcomeEntry entry)
         {
+            string injuredName = null;
             _resourceRepository.UpdateResources(s =>
             {
                 if (s.Companions == null)
@@ -34,8 +37,14 @@ namespace Internal.Scripts.Events.Outcomes
                         string.Equals(c.TypeId, entry.Param, StringComparison.OrdinalIgnoreCase) && !c.IsInjured);
 
                 if (target != null)
+                {
                     target.IsInjured = true;
+                    injuredName = target.Name ?? target.TypeId;
+                }
             });
+
+            if (injuredName != null)
+                OnCompanionInjured?.Invoke(injuredName);
         }
     }
 }

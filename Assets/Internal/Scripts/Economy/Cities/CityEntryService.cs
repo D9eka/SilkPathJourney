@@ -15,6 +15,7 @@ namespace Internal.Scripts.Economy.Cities
         void ExitCity(Action onComplete = null);
         event Action<CityData> OnCityEntered;
         event Action OnCityExited;
+        event Action<CityData> OnCityAutoApproached;
     }
 
     public class CityEntryService : ICityEntryService
@@ -40,6 +41,7 @@ namespace Internal.Scripts.Economy.Cities
 
         public event Action<CityData> OnCityEntered;
         public event Action OnCityExited;
+        public event Action<CityData> OnCityAutoApproached;
 
         public CityEntryService(
             CityViewAnimator animator,
@@ -214,9 +216,7 @@ namespace Internal.Scripts.Economy.Cities
             _previousCameraSize = _cameraController.CurrentZoomSize;
             _previousWorldTarget = _animator.GetWorldTarget(cam);
 
-            _currentCity = city;
-            _mainSceneVisibility.Hide();
-            OnCityEntered?.Invoke(city);
+            OnCityAutoApproached?.Invoke(city);
         }
 
         private void HandleDetailSceneAutoUnloaded()

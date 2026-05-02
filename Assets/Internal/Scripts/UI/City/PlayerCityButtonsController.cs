@@ -21,6 +21,7 @@ namespace Internal.Scripts.UI.City
         private readonly IPlayerTurnChoiceState _turnChoiceState;
         private readonly IArrowsController _arrowsController;
         private readonly ScreenStackService _screenStackService;
+        private readonly ICityEntryService _cityEntryService;
         private readonly Button _enterCityButton;
 
         private bool _lastCanEnter;
@@ -33,6 +34,7 @@ namespace Internal.Scripts.UI.City
             IPlayerTurnChoiceState turnChoiceState,
             IArrowsController arrowsController,
             ScreenStackService screenStackService,
+            ICityEntryService cityEntryService,
             Button enterCityButton)
         {
             _playerStateProvider = playerStateProvider;
@@ -42,12 +44,14 @@ namespace Internal.Scripts.UI.City
             _turnChoiceState = turnChoiceState;
             _arrowsController = arrowsController;
             _screenStackService = screenStackService;
+            _cityEntryService = cityEntryService;
             _enterCityButton = enterCityButton;
         }
 
         public void Initialize()
         {
             _enterCityButton.onClick.AddListener(OnEnterCity);
+            _cityEntryService.OnCityAutoApproached += HandleCityAutoApproached;
 
             UpdateButtons(force: true);
         }
@@ -55,6 +59,7 @@ namespace Internal.Scripts.UI.City
         public void Dispose()
         {
             _enterCityButton.onClick.RemoveListener(OnEnterCity);
+            _cityEntryService.OnCityAutoApproached -= HandleCityAutoApproached;
         }
 
         public void Tick()
@@ -90,8 +95,7 @@ namespace Internal.Scripts.UI.City
 
             if (_cityNodeResolver.TryGetCityByNodeId(nodeId, out CityData city))
             {
-                if (!_screenStackService.TryOpen(ScreenId.CityEntryConfirm, city, out ScreenOpenResult result))
-                    Debug.LogWarning($"[SPJ] Cannot open city entry screen: {result}");
+                OpenCityEntryConfirm(city);
                 return;
             }
 
@@ -116,6 +120,15 @@ namespace Internal.Scripts.UI.City
                 return false;
 
             return _cityNodeResolver.TryGetCityByNodeId(nodeId, out _);
+        }
+
+        private void HandleCityAutoApproached(CityData city) => OpenCityEntryConfirm(city);
+
+        private void OpenCityEntryConfirm(CityData city)
+        {
+            if (!_screenStackService.TryOpen(ScreenId.CityEntryConfirm, city, out ScreenOpenResult result)
+                && result != ScreenOpenResult.AlreadyOpen)
+                Debug.LogWarning($"[SPJ] Cannot open city entry screen: {result}");
         }
     }
 }

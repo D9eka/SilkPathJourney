@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using Internal.Scripts.Config;
 using Internal.Scripts.Economy;
 using Internal.Scripts.Events.Data;
+using Internal.Scripts.Events.Outcomes;
+using Internal.Scripts.Inventory;
+using Internal.Scripts.Items;
+using Internal.Scripts.Meta;
 using Zenject;
 using Random = UnityEngine.Random;
 
@@ -14,30 +18,55 @@ namespace Internal.Scripts.Events
         private readonly PlayerResourceRepository _resources;
         private readonly CrisisEventConfig _crisisConfig;
         private readonly EventTrigger _eventTrigger;
+        private readonly EventCloseSignal _closeSignal;
         private readonly GameBalanceConfig _balanceConfig;
+        private readonly InventoryRepository _inventoryRepository;
+        private readonly RunStatsService _runStats;
+        private readonly RunEndOutcomeApplier _runEndApplier;
+
+        private EventData _activeCrisisEvent;
 
         public CrisisTrigger(
             DayTracker dayTracker,
             PlayerResourceRepository resources,
             CrisisEventConfig crisisConfig,
             EventTrigger eventTrigger,
-            GameBalanceConfig balanceConfig)
+            EventCloseSignal closeSignal,
+            GameBalanceConfig balanceConfig,
+            InventoryRepository inventoryRepository,
+            RunStatsService runStats,
+            RunEndOutcomeApplier runEndApplier)
         {
             _dayTracker = dayTracker;
             _resources = resources;
             _crisisConfig = crisisConfig;
             _eventTrigger = eventTrigger;
+            _closeSignal = closeSignal;
             _balanceConfig = balanceConfig;
+            _inventoryRepository = inventoryRepository;
+            _runStats = runStats;
+            _runEndApplier = runEndApplier;
         }
 
         public void Initialize()
         {
             _dayTracker.OnDayChanged += HandleDayChanged;
+            _closeSignal.Closed += HandleEventClosed;
         }
 
         public void Dispose()
         {
             _dayTracker.OnDayChanged -= HandleDayChanged;
+            _closeSignal.Closed -= HandleEventClosed;
+            _activeCrisisEvent = null;
+        }
+
+        private void HandleEventClosed(EventData ev)
+        {
+            if (_activeCrisisEvent == null || ev != _activeCrisisEvent) return;
+            _activeCrisisEvent = null;
+            if (!_runEndApplier.IsEnded)
+                _runStats.RecordCrisisSurvived();
         }
 
         private void HandleDayChanged(int currentDay)
@@ -60,14 +89,16 @@ namespace Internal.Scripts.Events
             if (state.PlayerCart != null && state.PlayerCart.Durability <= 0f
                 && TryTriggerRandom(_crisisConfig.OnCartBroken)) return;
 
-            if (state.Food <= 0f
+            if (!_inventoryRepository.HasPlayerItem(SuppliesItemId.Value)
                 && TryTriggerRandom(_crisisConfig.OnFoodDepleted)) return;
 
             if (state.Money <= 0
                 && TryTriggerRandom(_crisisConfig.OnMoneyDepleted)) return;
 
-            if ((state.Companions == null || state.Companions.Count == 0)
-                && (state.Carts == null || state.Carts.Count == 0)
+            bool noCart = state.PlayerCart == null
+                          && (state.Carts == null || state.Carts.Count == 0);
+            bool noCompanions = state.Companions == null || state.Companions.Count == 0;
+            if (noCart && noCompanions
                 && TryTriggerRandom(_crisisConfig.OnCaravanLost)) return;
         }
 
@@ -79,7 +110,10 @@ namespace Internal.Scripts.Events
         {
             if (events == null || events.Count == 0) return false;
             EventData picked = events[Random.Range(0, events.Count)];
-            return picked != null && _eventTrigger.TriggerEvent(picked);
+            if (picked == null) return false;
+            if (!_eventTrigger.TriggerEvent(picked)) return false;
+            _activeCrisisEvent = picked;
+            return true;
         }
     }
 }
