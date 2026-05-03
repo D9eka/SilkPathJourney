@@ -74,6 +74,20 @@ namespace Internal.Scripts.Npc.Core
             _cursor.CancelPath();
         }
 
+        public void TeleportTo(string nodeId)
+        {
+            if (string.IsNullOrWhiteSpace(nodeId) || nodeId == _currentNodeId)
+                return;
+
+            _destinationNodeId = null;
+            _cursor.Dispose();
+            _currentNodeId = nodeId;
+            _cursor.Initialize(nodeId);
+            RoadPose pose = _cursor.CurrentPose;
+            _view.SetPose(pose.Position, pose.Forward);
+            OnArrived?.Invoke(this);
+        }
+
         public void AdvanceByDays(float days)
         {
             if (_cursor.IsEmpty) return;

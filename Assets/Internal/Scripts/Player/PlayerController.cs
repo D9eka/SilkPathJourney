@@ -107,6 +107,14 @@ namespace Internal.Scripts.Player
             NotifyDestinationChanged();
         }
 
+        public void Teleport(string nodeId)
+        {
+            if (_roadAgent == null || string.IsNullOrWhiteSpace(nodeId))
+                return;
+
+            _roadAgent.TeleportTo(nodeId);
+        }
+
         private void NotifyDestinationChanged()
         {
             string destinationId = DestinationNodeId ?? string.Empty;
