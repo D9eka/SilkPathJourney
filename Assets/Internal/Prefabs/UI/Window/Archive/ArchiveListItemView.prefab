@@ -145,10 +145,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 7204820975701042931}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 256, y: -87.175}
-  m_SizeDelta: {x: 480, y: 22.35}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8491714112562034432
 CanvasRenderer:
@@ -216,6 +216,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -459,6 +460,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Screens.Archive.ArchiveListItemView
   _nameText: {fileID: 5127366738304878521}
   _descriptionText: {fileID: 8277425537495960190}
+  _border: {fileID: 2731578582923295971}
+  _cardButton: {fileID: 9090437688910616742}
   _selectButton: {fileID: 4154881194688140766}
   _selectButtonText: {fileID: 761881820277493793}
 --- !u!114 &9090437688910616742
@@ -485,8 +488,8 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -538,10 +541,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 8793231940725176265}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 240, y: -21.41}
-  m_SizeDelta: {x: 456, y: 26.82}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2149878080469035734
 CanvasRenderer:
@@ -609,6 +612,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -693,10 +697,10 @@ RectTransform:
   - {fileID: 8885465947930828192}
   m_Father: {fileID: 7204820975701042931}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 256, y: -40}
-  m_SizeDelta: {x: 480, y: 48}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7786361862521001229
 CanvasRenderer:
@@ -819,7 +823,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6517165192174760497, guid: 4d7baa43e04683b47955389d9fb2eece, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6517165192174760497, guid: 4d7baa43e04683b47955389d9fb2eece, type: 3}
       propertyPath: m_AnchorMin.x
@@ -827,15 +831,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6517165192174760497, guid: 4d7baa43e04683b47955389d9fb2eece, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6517165192174760497, guid: 4d7baa43e04683b47955389d9fb2eece, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 480
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6517165192174760497, guid: 4d7baa43e04683b47955389d9fb2eece, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 48
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6517165192174760497, guid: 4d7baa43e04683b47955389d9fb2eece, type: 3}
       propertyPath: m_LocalPosition.x
@@ -867,11 +871,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6517165192174760497, guid: 4d7baa43e04683b47955389d9fb2eece, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 256
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6517165192174760497, guid: 4d7baa43e04683b47955389d9fb2eece, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -134.35
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6517165192174760497, guid: 4d7baa43e04683b47955389d9fb2eece, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

@@ -2451,6 +2451,26 @@ MonoBehaviour:
     m_Key: UI.RunEnd.Reason.CaravanDisbanded
     m_Metadata:
       m_Items: []
+  - m_Id: 32265621449342976
+    m_Key: ui.archive.cultures.city_count
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32265621487091712
+    m_Key: ui.archive.cultures.language_label
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32265621487091713
+    m_Key: ui.archive.languages.proficiency_label
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32265621487091714
+    m_Key: ui.archive.languages.not_learned
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32265621487091715
+    m_Key: ui.archive.select
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

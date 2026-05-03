@@ -104,6 +104,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -256,6 +257,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -702,9 +704,9 @@ MonoBehaviour:
   _stagesContainer: {fileID: 8241809637352924987}
   _stagePrefab: {fileID: 434842327911153456, guid: 4462d4412be3d444b8d0b8eaa12b2827, type: 3}
   _trackButton: {fileID: 1678774235937055429}
-  _trackButtonText: {fileID: 5891234567890123456}
+  _trackButtonText: {fileID: 2627728687360550714}
   _refuseButton: {fileID: 3052296466165587355}
-  _refuseButtonText: {fileID: 6912345678901234567}
+  _refuseButtonText: {fileID: 1828543235926743140}
   _border: {fileID: 3301088672797869375}
   _selectButton: {fileID: 8778172200311093953}
 --- !u!114 &8778172200311093953
@@ -731,8 +733,8 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_SelectedColor: {r: 1, g: 1, b: 1, a: 1}
+    m_DisabledColor: {r: 1, g: 1, b: 1, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -855,6 +857,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -1238,6 +1241,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
+--- !u!114 &2627728687360550714 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7653993390100737185, guid: 4d7baa43e04683b47955389d9fb2eece, type: 3}
+  m_PrefabInstance: {fileID: 5642978714252659611}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1001 &8311454741267690693
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1343,6 +1357,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d7baa43e04683b47955389d9fb2eece, type: 3}
+--- !u!114 &1828543235926743140 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7653993390100737185, guid: 4d7baa43e04683b47955389d9fb2eece, type: 3}
+  m_PrefabInstance: {fileID: 8311454741267690693}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!224 &2966085703154452212 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6517165192174760497, guid: 4d7baa43e04683b47955389d9fb2eece, type: 3}
@@ -1357,27 +1382,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name:
+  m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
---- !u!114 &5891234567890123456 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7653993390100737185, guid: 4d7baa43e04683b47955389d9fb2eece, type: 3}
-  m_PrefabInstance: {fileID: 5642978714252659611}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name:
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
---- !u!114 &6912345678901234567 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7653993390100737185, guid: 4d7baa43e04683b47955389d9fb2eece, type: 3}
-  m_PrefabInstance: {fileID: 8311454741267690693}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name:
-  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI

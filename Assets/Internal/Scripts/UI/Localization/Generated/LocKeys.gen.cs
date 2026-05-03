@@ -4372,5 +4372,10 @@ namespace Internal.Scripts.UI.Localization.Generated
         public const string UI_Pause_ConfirmEndRun_Cancel = "UI.Pause.ConfirmEndRun.Cancel";
         public const string UI_RunEnd_Title_Defeat_CaravanDisbanded = "UI.RunEnd.Title.Defeat.CaravanDisbanded";
         public const string UI_RunEnd_Reason_CaravanDisbanded = "UI.RunEnd.Reason.CaravanDisbanded";
+        public const string Ui_Archive_Cultures_CityCount = "ui.archive.cultures.city_count";
+        public const string Ui_Archive_Cultures_LanguageLabel = "ui.archive.cultures.language_label";
+        public const string Ui_Archive_Languages_ProficiencyLabel = "ui.archive.languages.proficiency_label";
+        public const string Ui_Archive_Languages_NotLearned = "ui.archive.languages.not_learned";
+        public const string Ui_Archive_Select = "ui.archive.select";
     }
 }

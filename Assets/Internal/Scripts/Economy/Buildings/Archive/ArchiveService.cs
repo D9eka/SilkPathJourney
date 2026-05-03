@@ -35,9 +35,10 @@ namespace Internal.Scripts.Economy.Buildings.Archive
                 string id = culture.ToString().ToLowerInvariant();
                 string nameKey = $"culture.{id}.name";
                 string descKey = $"culture.{id}.description";
-                string name = LocalizationService.ResolveString(new LocalizedString("UI", nameKey), id, "Archive.Culture");
-                string description = LocalizationService.ResolveString(new LocalizedString("UI", descKey), string.Empty, "Archive.Culture.Desc");
-                result.Add(new CultureRefEntry(culture, name, description));
+                string name = LocalizationService.ResolveString(new LocalizedString("Economy", nameKey), id, "Archive.Culture");
+                string description = LocalizationService.ResolveString(new LocalizedString("Economy", descKey), string.Empty, "Archive.Culture.Desc");
+                var language = _economyDatabase.GetLanguageForCulture(culture);
+                result.Add(new CultureRefEntry(culture, name, description, language));
             }
             return result;
         }
@@ -64,12 +65,14 @@ namespace Internal.Scripts.Economy.Buildings.Archive
         public readonly CultureId Culture;
         public readonly string Name;
         public readonly string Description;
+        public readonly LanguageType Language;
 
-        public CultureRefEntry(CultureId culture, string name, string description)
+        public CultureRefEntry(CultureId culture, string name, string description, LanguageType language)
         {
             Culture = culture;
             Name = name;
             Description = description;
+            Language = language;
         }
     }
 

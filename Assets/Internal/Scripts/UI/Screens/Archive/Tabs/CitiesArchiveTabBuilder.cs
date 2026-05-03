@@ -56,7 +56,7 @@ namespace Internal.Scripts.UI.Screens.Archive.Tabs
         {
             if (culture == CultureId.None) return string.Empty;
             string id = culture.ToString().ToLowerInvariant();
-            return LocalizationService.Resolve("UI", $"culture.{id}.name", culture.ToString());
+            return LocalizationService.Resolve("Economy", $"culture.{id}.name", culture.ToString());
         }
 
         private static string ResolveCityType(CityType type)

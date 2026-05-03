@@ -12,17 +12,17 @@ namespace Internal.Scripts.UI.Screens.Archive
 
         public void ShowEntry(string title, string description)
         {
-            _emptyStatePlaceholder.SetActive(false);
-            _titleText.text = title;
-            _descriptionText.text = description;
+            gameObject.SetActive(true);
+            if (_emptyStatePlaceholder != null) _emptyStatePlaceholder.SetActive(false);
+            if (_titleText != null) _titleText.text = title;
+            if (_descriptionText != null) _descriptionText.text = description;
         }
 
         public void ShowEmpty(string message)
         {
-            _emptyStatePlaceholder.SetActive(true);
-            _emptyStateText.text = message;
-            _titleText.text = string.Empty;
-            _descriptionText.text = string.Empty;
+            gameObject.SetActive(false);
+            if (_emptyStatePlaceholder != null) _emptyStatePlaceholder.SetActive(true);
+            if (_emptyStateText != null) _emptyStateText.text = message;
         }
     }
 }

@@ -41,8 +41,11 @@ namespace Internal.Scripts.UI.Screens.Archive.Tabs
 
         private static string ResolveProficiency(LanguageProficiency proficiency)
         {
-            if (proficiency == LanguageProficiency.None) return string.Empty;
-            return LocalizationService.Resolve("UI", $"UI.Language.Proficiency.{proficiency}", proficiency.ToString());
+            if (proficiency == LanguageProficiency.None)
+                return LocalizationService.Resolve("UI", "ui.archive.languages.not_learned", "Не изучен");
+
+            string levelName = LocalizationService.Resolve("UI", $"UI.Language.Proficiency.{proficiency}", proficiency.ToString());
+            return LocalizationService.Resolve("UI", "ui.archive.languages.proficiency_label", $"Уровень: {levelName}", levelName);
         }
     }
 }

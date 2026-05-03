@@ -3785,6 +3785,11 @@ ui.archive.tab.languages,archive_screen,,Языки,Languages
 ui.archive.empty.cities,archive_screen,,Выберите город из списка,Select a city from the list
 ui.archive.empty.cultures,archive_screen,,Выберите культуру из списка,Select a culture from the list
 ui.archive.empty.languages,archive_screen,,Выберите язык из списка,Select a language from the list
+ui.archive.cultures.city_count,archive_screen,,Городов: {0},{0} cities
+ui.archive.cultures.language_label,archive_screen,,Язык: {0},Language: {0}
+ui.archive.languages.proficiency_label,archive_screen,,Уровень: {0},Level: {0}
+ui.archive.languages.not_learned,archive_screen,,Не изучен,Not learned
+ui.archive.select,archive_screen,,Выбрать,Select
 culture.none.name,cultures,,Неизвестно,Unknown
 culture.none.description,cultures,,Культура не определена,Culture not defined
 culture.china.description,cultures,,Великая империя Востока. Родина шёлка и фарфора.,"The great empire of the East. Birthplace of silk and porcelain."
