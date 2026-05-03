@@ -120,6 +120,7 @@ namespace Internal.Scripts.UI.Screens.HazardQte
             _closeTween?.Kill();
             _closeTween = null;
             _gameClock.Resume();
+
             _data.Value = null;
             _minigamePrefab.Value = null;
             _result.Value = null;
