@@ -1,5 +1,6 @@
 using System;
 using Internal.Scripts.Caravan.Generated;
+using Internal.Scripts.Config;
 using Internal.Scripts.Economy.Save;
 using Internal.Scripts.Player;
 
@@ -8,35 +9,34 @@ namespace Internal.Scripts.Economy.Buildings.Healer
     public sealed class HealerService
     {
         public event Action<CompanionState, int> OnHealed;
-        private const int HEAL_COST_NOVICE = 10;
-        private const int HEAL_COST_EXPERIENCED = 25;
-        private const int HEAL_COST_MASTER = 50;
 
         private readonly CompanionService _companionService;
         private readonly PlayerResourceRepository _resourceRepository;
+        private readonly GameBalanceConfig _balance;
 
-        public HealerService(CompanionService companionService, PlayerResourceRepository resourceRepository)
+        public HealerService(CompanionService companionService, PlayerResourceRepository resourceRepository, GameBalanceConfig balance)
         {
             _companionService = companionService;
             _resourceRepository = resourceRepository;
+            _balance = balance;
         }
 
         public int GetHealCost(CompanionState companion)
         {
             if (string.IsNullOrEmpty(companion.QualityId))
-                return HEAL_COST_NOVICE;
+                return _balance.HealerNoviceCost;
 
             if (System.Enum.TryParse(companion.QualityId, true, out CompanionQuality quality))
             {
                 return quality switch
                 {
-                    CompanionQuality.Master => HEAL_COST_MASTER,
-                    CompanionQuality.Experienced => HEAL_COST_EXPERIENCED,
-                    _ => HEAL_COST_NOVICE
+                    CompanionQuality.Master => _balance.HealerMasterCost,
+                    CompanionQuality.Experienced => _balance.HealerExperiencedCost,
+                    _ => _balance.HealerNoviceCost
                 };
             }
 
-            return HEAL_COST_NOVICE;
+            return _balance.HealerNoviceCost;
         }
 
         public bool TryHeal(int companionIndex)

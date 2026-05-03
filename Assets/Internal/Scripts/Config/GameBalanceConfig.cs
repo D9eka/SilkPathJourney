@@ -63,6 +63,11 @@ namespace Internal.Scripts.Config
         [Header("Rumors")]
         [field: SerializeField] public int RumorCost { get; private set; } = 10;
         [field: SerializeField] public int RumorRadius { get; private set; } = 2;
+        [field: SerializeField] public int PriceTipBaseCost { get; private set; } = 20;
+        [field: SerializeField] public int PriceTipCostPerHop { get; private set; } = 10;
+
+        public int GetPriceTipCost(int distanceHops) =>
+            PriceTipBaseCost + PriceTipCostPerHop * Mathf.Max(0, distanceHops);
 
         [Header("Exoticity")]
         [field: SerializeField] public float ExoticityPerStep { get; private set; } = 0.15f;
@@ -87,6 +92,22 @@ namespace Internal.Scripts.Config
         [field: SerializeField] public float PickupDespawnRadius { get; private set; } = 25f;
         [field: SerializeField] public float PickupLifetimeSeconds { get; private set; } = 30f;
         [field: SerializeField] public int MaxActivePickups { get; private set; } = 3;
+
+        [Header("Temple")]
+        [field: SerializeField] public int TemplePrayCost { get; private set; } = 10;
+        [field: SerializeField] public int TempleDonateCost { get; private set; } = 50;
+        [field: SerializeField] public int TempleBlessCost { get; private set; } = 30;
+        [field: SerializeField] public int TempleMoraleGain { get; private set; } = 5;
+        [field: SerializeField] public int TempleReputationGain { get; private set; } = 5;
+        [field: SerializeField] public int TempleDangerReduction { get; private set; } = 20;
+
+        [Header("Barracks")]
+        [field: SerializeField] public int BarracksGuardCost { get; private set; } = 80;
+
+        [Header("Healer")]
+        [field: SerializeField] public int HealerNoviceCost { get; private set; } = 10;
+        [field: SerializeField] public int HealerExperiencedCost { get; private set; } = 25;
+        [field: SerializeField] public int HealerMasterCost { get; private set; } = 50;
 
         [Header("Camp")]
         [field: SerializeField] public float CampSkillEffectPerPoint { get; private set; } = 0.001f;
