@@ -141,6 +141,7 @@ namespace Internal.Scripts.Save
             data.WorldModifiers ??= new WorldModifierSaveData();
             data.Economy.CityInventories ??= new List<CityInventoryState>();
             data.RunStats ??= new RunStatsData();
+            data.MarketMemory ??= new Dictionary<string, Economy.MarketMemory.MarketSnapshot>();
 
             if (!data.Economy.IsInitialized && data.Economy.CityInventories.Count > 0)
                 data.Economy.IsInitialized = true;

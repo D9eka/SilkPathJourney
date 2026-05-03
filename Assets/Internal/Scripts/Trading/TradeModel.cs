@@ -207,6 +207,8 @@ namespace Internal.Scripts.Trading
         public void Deactivate()
         {
             EmitTradeResult();
+            if (!_isNpcTrade && !_isGuildTrade && !string.IsNullOrEmpty(_cityId))
+                OnCitySessionClosed?.Invoke(_cityId);
             LocalizationSettings.SelectedLocaleChanged -= OnLocaleChanged;
             _playerSubscription?.Dispose();
             _playerSubscription = null;
@@ -260,6 +262,7 @@ namespace Internal.Scripts.Trading
 
         public event Action<Dictionary<string, int>, Dictionary<string, int>, int, int> TradeExecuted;
         public event Action<TradeResult> OnTradeCompleted;
+        public event Action<string> OnCitySessionClosed;
 
         private int _snapshotMoney;
         private Dictionary<string, int> _snapshotItems;
