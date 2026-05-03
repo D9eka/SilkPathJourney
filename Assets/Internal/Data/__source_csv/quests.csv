@@ -4,12 +4,12 @@ quest_empire_2,quest.quest_empire_2.name,quest.quest_empire_2.description,,empir
 quest_empire_3,quest.quest_empire_3.name,quest.quest_empire_3.description,,empire_of_trade,3,samarkand,,
 quest_empire_4,quest.quest_empire_4.name,quest.quest_empire_4.description,,empire_of_trade,4,samarkand,,
 quest_empire_5,quest.quest_empire_5.name,quest.quest_empire_5.description,,empire_of_trade,5,samarkand,,
-quest_mystic_1,quest.quest_mystic_1.name,quest.quest_mystic_1.description,,path_of_mystic,1,,,
+quest_mystic_1,quest.quest_mystic_1.name,quest.quest_mystic_1.description,,path_of_mystic,1,,Temple,quest_mystic_start
 quest_mystic_2,quest.quest_mystic_2.name,quest.quest_mystic_2.description,,path_of_mystic,2,anxi,,
 quest_mystic_3,quest.quest_mystic_3.name,quest.quest_mystic_3.description,,path_of_mystic,3,anxi,,
 quest_mystic_4,quest.quest_mystic_4.name,quest.quest_mystic_4.description,,path_of_mystic,4,anxi,,
 quest_mystic_5,quest.quest_mystic_5.name,quest.quest_mystic_5.description,,path_of_mystic,5,anxi,,
-quest_caravaneer_1,quest.quest_caravaneer_1.name,quest.quest_caravaneer_1.description,,path_of_caravaneer,1,,,
+quest_caravaneer_1,quest.quest_caravaneer_1.name,quest.quest_caravaneer_1.description,,path_of_caravaneer,1,,Barracks,quest_caravaneer_start
 quest_caravaneer_2,quest.quest_caravaneer_2.name,quest.quest_caravaneer_2.description,,path_of_caravaneer,2,,,
 quest_caravaneer_3,quest.quest_caravaneer_3.name,quest.quest_caravaneer_3.description,,path_of_caravaneer,3,,,
 quest_caravaneer_4,quest.quest_caravaneer_4.name,quest.quest_caravaneer_4.description,,path_of_caravaneer,4,,,
