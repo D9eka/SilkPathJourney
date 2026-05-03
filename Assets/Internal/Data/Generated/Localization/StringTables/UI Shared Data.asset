@@ -2283,6 +2283,174 @@ MonoBehaviour:
     m_Key: ui.journal.entry.companion_healed
     m_Metadata:
       m_Items: []
+  - m_Id: 31901646471692288
+    m_Key: ui.temple.title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31901646475886592
+    m_Key: ui.temple.additional_header
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31901646475886593
+    m_Key: ui.temple.pray.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31901646475886594
+    m_Key: ui.temple.pray.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31901646475886595
+    m_Key: ui.temple.pray.button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31901646475886596
+    m_Key: ui.temple.donate.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31901646475886597
+    m_Key: ui.temple.donate.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31901646475886598
+    m_Key: ui.temple.donate.button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31901646475886599
+    m_Key: ui.temple.bless.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31901646475886600
+    m_Key: ui.temple.bless.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31901646475886601
+    m_Key: ui.temple.bless.button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31901646475886602
+    m_Key: ui.barracks.title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31901646475886603
+    m_Key: ui.barracks.additional_header
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31901646475886604
+    m_Key: ui.barracks.hire_guard.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31901646475886605
+    m_Key: ui.barracks.hire_guard.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31901646475886606
+    m_Key: ui.barracks.hire_guard.button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31901646475886607
+    m_Key: ui.barracks.elite_guard.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31901646475886608
+    m_Key: ui.barracks.elite_guard.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31901646475886609
+    m_Key: ui.barracks.elite_guard.button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31901646475886610
+    m_Key: ui.barracks.elite_guard.owned
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32182809874530304
+    m_Key: ui.city_info.cheap_to_buy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32182809916473344
+    m_Key: ui.city_info.expensive_to_buy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32182809916473345
+    m_Key: ui.city_info.cheap_to_sell
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32182809916473346
+    m_Key: ui.city_info.expensive_to_sell
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32182809916473347
+    m_Key: ui.city_info.purchase_label
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32182809916473348
+    m_Key: ui.city_info.sales_label
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32182809916473349
+    m_Key: ui.city_info.known_prices_today
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32182809916473350
+    m_Key: ui.city_info.known_prices_days_ago
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32182809916473351
+    m_Key: ui.city_info.no_visit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32182809916473352
+    m_Key: ui.city_info.stale_data
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32182809916473353
+    m_Key: ui.city_info.fresh_rumor_today
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32182809916473354
+    m_Key: ui.city_info.fresh_rumor_days_ago
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32182809916473355
+    m_Key: ui.tavern.buy_price_tip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32182809916473356
+    m_Key: ui.tavern.buy_price_tip_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32190106394820608
+    m_Key: UI.Pause.Main.AutoSaveHint.Main
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32194887762968576
+    m_Key: UI.Pause.Main.Button.EndRun
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32194887767162880
+    m_Key: UI.Pause.ConfirmEndRun.Header
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32194887767162881
+    m_Key: UI.Pause.ConfirmEndRun.Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32194887767162882
+    m_Key: UI.Pause.ConfirmEndRun.Confirm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32194887767162883
+    m_Key: UI.Pause.ConfirmEndRun.Cancel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32194887775551488
+    m_Key: UI.RunEnd.Title.Defeat.CaravanDisbanded
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32194887775551489
+    m_Key: UI.RunEnd.Reason.CaravanDisbanded
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

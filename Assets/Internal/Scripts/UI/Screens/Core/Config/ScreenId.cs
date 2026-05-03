@@ -29,6 +29,9 @@ namespace Internal.Scripts.UI.Screens.Core.Config
         Healer = 26,
         Archive = 27,
         Settings = 28,
-        Journal = 29
+        Journal = 29,
+        Temple = 30,
+        Barracks = 31,
+        ConfirmEndRun = 32
     }
 }

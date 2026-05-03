@@ -2302,6 +2302,174 @@ MonoBehaviour:
     m_Localized: Healed {0}
     m_Metadata:
       m_Items: []
+  - m_Id: 31901646471692288
+    m_Localized: Temple
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31901646475886592
+    m_Localized: Temple Services
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31901646475886593
+    m_Localized: Prayer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31901646475886594
+    m_Localized: Call upon the gods in prayer. Raises caravan morale.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31901646475886595
+    m_Localized: "Pray \xB7 {0} \u25CF"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31901646475886596
+    m_Localized: Donation
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31901646475886597
+    m_Localized: Donate to the temple. Improves your regional reputation.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31901646475886598
+    m_Localized: "Donate \xB7 {0} \u25CF"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31901646475886599
+    m_Localized: Blessing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31901646475886600
+    m_Localized: Ask for a blessing for the road. Reduces accumulated danger.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31901646475886601
+    m_Localized: "Receive blessing \xB7 {0} \u25CF"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31901646475886602
+    m_Localized: Barracks
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31901646475886603
+    m_Localized: Barracks Services
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31901646475886604
+    m_Localized: Hire Guard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31901646475886605
+    m_Localized: Hire an experienced guard to protect the caravan.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31901646475886606
+    m_Localized: "Hire \xB7 {0} \u25CF"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31901646475886607
+    m_Localized: Elite Guard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31901646475886608
+    m_Localized: 'Caravan upgrade: elite fighters reduce road risks.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31901646475886609
+    m_Localized: "Buy \xB7 {0} \u25CF"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31901646475886610
+    m_Localized: Owned
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32182809874530304
+    m_Localized: Cheap to buy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32182809916473344
+    m_Localized: Expensive to buy
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32182809916473345
+    m_Localized: Cheap to sell
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32182809916473346
+    m_Localized: Expensive to sell
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32182809916473347
+    m_Localized: Purchase
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32182809916473348
+    m_Localized: Sales
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32182809916473349
+    m_Localized: Known today
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32182809916473350
+    m_Localized: Known {0} days ago
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32182809916473351
+    m_Localized: Not visited
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32182809916473352
+    m_Localized: Outdated data
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32182809916473353
+    m_Localized: Fresh rumor (today)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32182809916473354
+    m_Localized: Fresh rumor ({0} days ago)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32182809916473355
+    m_Localized: 'Buy price rumor for [{0}]: {1} coins'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32182809916473356
+    m_Localized: Price rumor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32190106394820608
+    m_Localized: Progress saves automatically when you enter a city
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32194887762968576
+    m_Localized: End run
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32194887767162880
+    m_Localized: End run?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32194887767162881
+    m_Localized: Progress will be lost
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32194887767162882
+    m_Localized: Yes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32194887767162883
+    m_Localized: No
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32194887775551488
+    m_Localized: Caravan disbanded. Journey ends
+    m_Metadata:
+      m_Items: []
+  - m_Id: 32194887775551489
+    m_Localized: The caravanner paid his men and set the camels free
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

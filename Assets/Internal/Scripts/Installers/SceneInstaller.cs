@@ -10,6 +10,7 @@ using Internal.Scripts.Economy.Cities;
 using Internal.Scripts.Economy.Cities.Tariff;
 using Internal.Scripts.Economy.Cities.Smuggling;
 using Internal.Scripts.Economy.Cities.Rumors;
+using Internal.Scripts.Economy.MarketMemory;
 using Internal.Scripts.Economy.Guild;
 using Internal.Scripts.Economy.Cities.UI;
 using Internal.Scripts.Economy.Save;
@@ -67,6 +68,8 @@ using Internal.Scripts.Travel.Triggers.Actions;
 using Internal.Scripts.UI.Screens.Caravansary.Services;
 using Internal.Scripts.Economy.Buildings.Healer;
 using Internal.Scripts.Economy.Buildings.Archive;
+using Internal.Scripts.Economy.Buildings.Temple;
+using Internal.Scripts.Economy.Buildings.Barracks;
 using Internal.Scripts.Journal;
 using Internal.Scripts.UI.Screens.Building;
 using Internal.Scripts.UI.Screens.Shared;
@@ -278,6 +281,7 @@ namespace Internal.Scripts.Installers
             Container.Bind<SmugglingModifierCalculator>().AsSingle();
             Container.Bind<SmugglingCheckService>().AsSingle();
             Container.Bind<RumorService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<MarketMemoryService>().AsSingle();
         }
 
         private void InstallScreens()
@@ -430,6 +434,8 @@ namespace Internal.Scripts.Installers
 
             Container.Bind<HealerService>().AsSingle();
             Container.Bind<ArchiveService>().AsSingle();
+            Container.Bind<TempleService>().AsSingle();
+            Container.Bind<BarracksService>().AsSingle();
             Container.BindInterfacesAndSelfTo<JournalService>().AsSingle().NonLazy();
         }
 

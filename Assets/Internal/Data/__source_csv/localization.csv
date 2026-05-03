@@ -374,6 +374,12 @@ UI.Pause.Main.Button.BackToGame,interface_names,43,Продолжить,Resume
 UI.Pause.Main.Button.Settings,interface_names,46,Настройки,Settings
 UI.Pause.Main.Button.ExitToMenu,interface_names,47,В главное меню,Main Menu
 UI.Pause.Main.Button.Quit,interface_names,48,Выход из игры,Quit Game
+UI.Pause.Main.AutoSaveHint.Main,interface_names,49,Прогресс сохраняется автоматически при входе в город,Progress saves automatically when you enter a city
+UI.Pause.Main.Button.EndRun,interface_names,,Завершить забег,End run
+UI.Pause.ConfirmEndRun.Header,interface_names,,Завершить забег?,End run?
+UI.Pause.ConfirmEndRun.Description,interface_names,,Прогресс будет потерян,Progress will be lost
+UI.Pause.ConfirmEndRun.Confirm,interface_names,,Да,Yes
+UI.Pause.ConfirmEndRun.Cancel,interface_names,,Нет,No
 UI.SaveSlot.Main.Text.NewSave,interface_names,49,+ Новое сохранение,+ New Save
 UI.MainMenu.Main.Header.GameTitle,interface_names,50,Silk Path Journey,Silk Path Journey
 UI.ConfirmNewGame.Main.Header.Main,interface_names,51,Начать новый забег?,Start New Run?
@@ -3598,6 +3604,8 @@ UI.RunEnd.Title.Defeat.Bankruptcy,ui_run_end,,"Банкротство. Путь 
 UI.RunEnd.Title.Defeat.Mutiny,ui_run_end,,"Бунт каравана. Путь окончен","Caravan mutiny. Journey ends"
 UI.RunEnd.Title.Defeat.CaravanLost,ui_run_end,,"Караван погиб. Путь окончен","Caravan lost. Journey ends"
 UI.RunEnd.Title.Defeat.Famine,ui_run_end,,"Голод в пути. Путь окончен","Famine on the road. Journey ends"
+UI.RunEnd.Title.Defeat.CaravanDisbanded,ui_run_end,,"Караван распущен. Путь окончен","Caravan disbanded. Journey ends"
+UI.RunEnd.Reason.CaravanDisbanded,ui_run_end,,Караванщик расплатился с людьми и отпустил верблюдов на волю,The caravanner paid his men and set the camels free
 UI.RunEnd.Reason.Victory,ui_run_end,,Вы добрались до Константинополя!,You reached Constantinople!
 UI.RunEnd.Reason.Bankruptcy,ui_run_end,,"Казна опустела, торговый путь закрыт","The treasury is empty, the trade route is closed"
 UI.RunEnd.Reason.Mutiny,ui_run_end,,"Мораль каравана упала до нуля, начался бунт","Caravan morale hit zero, the mutiny began"
@@ -3750,6 +3758,26 @@ ui.healer.heal_button,healer_screen,,Лечить · {0} ●,Heal · {0} ●
 ui.healer.no_companions,healer_screen,,В отряде нет спутников,No companions in the party
 ui.healer.status.healthy,healer_screen,,Здоров,Healthy
 ui.healer.status.injured,healer_screen,,Ранен,Injured
+ui.temple.title,temple_screen,,Храм,Temple
+ui.temple.additional_header,temple_screen,,Услуги храма,Temple Services
+ui.temple.pray.name,temple_screen,,Молитва,Prayer
+ui.temple.pray.description,temple_screen,,Обратитесь к богам с молитвой. Поднимает боевой дух каравана.,Call upon the gods in prayer. Raises caravan morale.
+ui.temple.pray.button,temple_screen,,Помолиться · {0} ●,Pray · {0} ●
+ui.temple.donate.name,temple_screen,,Пожертвование,Donation
+ui.temple.donate.description,temple_screen,,Пожертвуйте храму. Улучшает вашу репутацию в регионе.,Donate to the temple. Improves your regional reputation.
+ui.temple.donate.button,temple_screen,,Пожертвовать · {0} ●,Donate · {0} ●
+ui.temple.bless.name,temple_screen,,Благословение,Blessing
+ui.temple.bless.description,temple_screen,,Попросите благословения в дорогу. Снижает накопленную опасность.,Ask for a blessing for the road. Reduces accumulated danger.
+ui.temple.bless.button,temple_screen,,Получить благословение · {0} ●,Receive blessing · {0} ●
+ui.barracks.title,barracks_screen,,Казармы,Barracks
+ui.barracks.additional_header,barracks_screen,,Услуги казармы,Barracks Services
+ui.barracks.hire_guard.name,barracks_screen,,Наём охранника,Hire Guard
+ui.barracks.hire_guard.description,barracks_screen,,Нанять опытного охранника для защиты каравана.,Hire an experienced guard to protect the caravan.
+ui.barracks.hire_guard.button,barracks_screen,,Нанять · {0} ●,Hire · {0} ●
+ui.barracks.elite_guard.name,barracks_screen,,Элитная охрана,Elite Guard
+ui.barracks.elite_guard.description,barracks_screen,,Улучшение каравана: элитные бойцы снижают риски в пути.,Caravan upgrade: elite fighters reduce road risks.
+ui.barracks.elite_guard.button,barracks_screen,,Купить · {0} ●,Buy · {0} ●
+ui.barracks.elite_guard.owned,barracks_screen,,Куплено,Owned
 ui.archive.title,archive_screen,,Архив,Archive
 ui.archive.tab.cities,archive_screen,,Города,Cities
 ui.archive.tab.cultures,archive_screen,,Культуры,Cultures
@@ -3781,6 +3809,20 @@ ui.settings.button.select,settings,,Выбрать,Select
 ui.settings.language_header,settings,,Язык,Language
 ui.settings.screen_header,settings,,Экран,Screen
 ui.settings.fullscreen,settings,,Полный экран,Fullscreen
+ui.city_info.cheap_to_buy,city_info,,Дёшево купить,Cheap to buy
+ui.city_info.expensive_to_buy,city_info,,Дорого купить,Expensive to buy
+ui.city_info.cheap_to_sell,city_info,,Дёшево продать,Cheap to sell
+ui.city_info.expensive_to_sell,city_info,,Дорого продать,Expensive to sell
+ui.city_info.purchase_label,city_info,,Покупка,Purchase
+ui.city_info.sales_label,city_info,,Продажа,Sales
+ui.city_info.known_prices_today,city_info,,Известно сегодня,Known today
+ui.city_info.known_prices_days_ago,city_info,,Известно {0} дн. назад,Known {0} days ago
+ui.city_info.no_visit,city_info,,Не посещено,Not visited
+ui.city_info.stale_data,city_info,,Устаревшие данные,Outdated data
+ui.city_info.fresh_rumor_today,city_info,,Свежие слухи (сегодня),Fresh rumor (today)
+ui.city_info.fresh_rumor_days_ago,city_info,,Свежие слухи ({0} дн. назад),Fresh rumor ({0} days ago)
+ui.tavern.buy_price_tip,interface_names,,Купить слух о ценах в [{0}]: {1} монет,Buy price rumor for [{0}]: {1} coins
+ui.tavern.buy_price_tip_button,interface_names,,Слух о ценах,Price rumor
 ui.journal.title,journal,,Дневник,Journal
 ui.journal.empty,journal,,Хроника пуста,Journal is empty
 ui.journal.day_label,journal,,День {0},Day {0}

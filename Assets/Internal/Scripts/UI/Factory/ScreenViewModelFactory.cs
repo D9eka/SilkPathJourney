@@ -29,6 +29,8 @@ using Internal.Scripts.UI.Screens.Archive;
 using Internal.Scripts.UI.Screens.Archive.Tabs;
 using Internal.Scripts.UI.Screens.Settings;
 using Internal.Scripts.UI.Screens.Journal;
+using Internal.Scripts.UI.Screens.Temple;
+using Internal.Scripts.UI.Screens.Barracks;
 using Plugins.Zenject.Source.Main;
 
 namespace Internal.Scripts.UI.Factory
@@ -67,12 +69,15 @@ namespace Internal.Scripts.UI.Factory
                 ScreenId.HazardQte => CreateHazardQte(view),
                 ScreenId.NewGame => CreateNewGame(view),
                 ScreenId.ConfirmNewGame => CreateConfirmNewGame(view),
+                ScreenId.ConfirmEndRun => CreateConfirmEndRun(view),
                 ScreenId.RunEnd => CreateRunEnd(view),
                 ScreenId.Legacy => CreateLegacy(view),
                 ScreenId.Healer => CreateHealer(view),
                 ScreenId.Archive => CreateArchive(view),
                 ScreenId.Settings => CreateSettings(view),
                 ScreenId.Journal => CreateJournal(view),
+                ScreenId.Temple => CreateTemple(view),
+                ScreenId.Barracks => CreateBarracks(view),
                 _ => null
             };
         }
@@ -246,6 +251,14 @@ namespace Internal.Scripts.UI.Factory
             return _container.Instantiate<ConfirmNewGameScreenViewModel>();
         }
 
+        private ScreenViewModelBase CreateConfirmEndRun(IScreenView view)
+        {
+            if (view is not ConfirmEndRunScreen)
+                return null;
+
+            return _container.Instantiate<ConfirmEndRunScreenViewModel>();
+        }
+
         private ScreenViewModelBase CreateRunEnd(IScreenView view)
         {
             if (view is not RunEndScreen)
@@ -300,6 +313,24 @@ namespace Internal.Scripts.UI.Factory
                 return null;
 
             return _container.Instantiate<JournalScreenViewModel>();
+        }
+
+        private ScreenViewModelBase CreateTemple(IScreenView view)
+        {
+            if (view is not TempleScreen)
+                return null;
+
+            var questSlot = _container.Instantiate<Internal.Scripts.UI.Screens.Building.BuildingQuestSlotViewModel>();
+            return _container.Instantiate<TempleScreenViewModel>(new object[] { questSlot });
+        }
+
+        private ScreenViewModelBase CreateBarracks(IScreenView view)
+        {
+            if (view is not BarracksScreen)
+                return null;
+
+            var questSlot = _container.Instantiate<Internal.Scripts.UI.Screens.Building.BuildingQuestSlotViewModel>();
+            return _container.Instantiate<BarracksScreenViewModel>(new object[] { questSlot });
         }
     }
 }
