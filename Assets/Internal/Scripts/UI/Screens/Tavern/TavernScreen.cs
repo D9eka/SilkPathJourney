@@ -45,7 +45,7 @@ namespace Internal.Scripts.UI.Screens.Tavern
         private IDisposable _questSlotSubscription;
         private LocalizationService.LocalizedTextHandle _roadInfoEmptyHandle;
         private readonly List<CompanionHireCardView> _spawnedCompanions = new();
-        private readonly List<ServiceCardView> _spawnedRoadInfos = new();
+        private readonly List<ServiceCardView> _spawnedTavernCards = new();
 
         protected override void OnEnable()
         {
@@ -138,32 +138,49 @@ namespace Internal.Scripts.UI.Screens.Tavern
             if (_rumorView != null)
                 _rumorView.Initialize(state.RumorsText);
 
-            RebuildRoadInfos(state.RoadInfos);
+            RebuildTavernCards(state.RoadInfos, state.PriceTips);
             RebuildCompanions(state.AvailableCompanions);
         }
 
-        private void RebuildRoadInfos(IReadOnlyList<RoadInfoEntry> roadInfos)
+        private void RebuildTavernCards(IReadOnlyList<RoadInfoEntry> roadInfos, IReadOnlyList<PriceTipEntry> priceTips)
         {
-            foreach (var item in _spawnedRoadInfos)
+            foreach (var item in _spawnedTavernCards)
                 Destroy(item.gameObject);
-            _spawnedRoadInfos.Clear();
+            _spawnedTavernCards.Clear();
 
-            bool hasInfos = roadInfos != null && roadInfos.Count > 0;
-            _roadInfoScrollView?.SetActive(hasInfos);
-            _roadInfoEmptyPlaceholder?.SetActive(!hasInfos);
+            int roadCount = roadInfos?.Count ?? 0;
+            int tipCount = priceTips?.Count ?? 0;
+            bool hasAny = roadCount > 0 || tipCount > 0;
 
-            if (!hasInfos || _roadInfoPrefab == null || _roadInfoContent == null)
+            _roadInfoScrollView?.SetActive(hasAny);
+            _roadInfoEmptyPlaceholder?.SetActive(!hasAny);
+
+            if (!hasAny || _roadInfoPrefab == null || _roadInfoContent == null)
                 return;
 
-            foreach (var info in roadInfos)
+            for (int i = 0; i < roadCount; i++)
             {
-                var instance = Instantiate(_roadInfoPrefab, _roadInfoContent);
-                instance.gameObject.InitializeColorBinders(themeService: _viewModel?.ThemeService);
+                var info = roadInfos[i];
                 int idx = info.Index;
-                instance.Initialize(info.RouteName, info.Description, info.ButtonText, info.CanBuy,
+                SpawnTavernCard(info.RouteName, info.Description, info.ButtonText, info.CanBuy,
                     () => _viewModel?.BuyRoadInfo(idx));
-                _spawnedRoadInfos.Add(instance);
             }
+
+            for (int i = 0; i < tipCount; i++)
+            {
+                var tip = priceTips[i];
+                int idx = tip.Index;
+                SpawnTavernCard(tip.CityName, tip.Description, tip.ButtonText, tip.CanBuy,
+                    () => _viewModel?.BuyPriceTipForCity(idx));
+            }
+        }
+
+        private void SpawnTavernCard(string title, string description, string buttonText, bool canBuy, Action onBuy)
+        {
+            var instance = Instantiate(_roadInfoPrefab, _roadInfoContent);
+            instance.gameObject.InitializeColorBinders(themeService: _viewModel?.ThemeService);
+            instance.Initialize(title, description, buttonText, canBuy, onBuy);
+            _spawnedTavernCards.Add(instance);
         }
 
         private void RebuildCompanions(IReadOnlyList<CompanionHireData> companions)

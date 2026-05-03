@@ -20,6 +20,7 @@ using Internal.Scripts.UI.Screens.Core.ViewModel;
 using Internal.Scripts.UI.Screens.Shared;
 using Internal.Scripts.UI.Theme;
 using R3;
+using UnityEngine.Localization;
 
 namespace Internal.Scripts.UI.Screens.Tavern
 {
@@ -42,6 +43,7 @@ namespace Internal.Scripts.UI.Screens.Tavern
         private CultureId _cityCulture;
         private readonly List<(CompanionType type, CompanionQuality quality)> _availableSlots = new();
         private List<RumorData> _currentRumors = new();
+        private List<PriceTipData> _currentPriceTips = new();
 
         public event Action<string, string> OnCompanionHiredInCity;
 
@@ -130,10 +132,30 @@ namespace Internal.Scripts.UI.Screens.Tavern
             string rumorsText = _rumorFormatter.FormatRumorsText(_currentRumors);
             var roadInfos = _rumorFormatter.BuildRoadInfoEntries(_currentRumors, money, rumorCost);
 
+            _currentPriceTips = _rumorService.GetAvailablePriceTips(_cityId);
+            var priceTips = BuildPriceTipEntries(_currentPriceTips, money);
+
             _state.Value = new TavernViewState(
-                money, rumorsText, roadInfos, hireList,
+                money, rumorsText, roadInfos, priceTips, hireList,
                 currentCount, maxCompanions, slotsFormatted,
                 false, null, null);
+        }
+
+        private List<PriceTipEntry> BuildPriceTipEntries(List<PriceTipData> tips, int playerMoney)
+        {
+            string buyPriceTipButton = ResolveLoc(LocUI.Ui_Tavern_BuyPriceTipButton, "Слух о ценах");
+            var result = new List<PriceTipEntry>(tips.Count);
+            for (int i = 0; i < tips.Count; i++)
+            {
+                var tip = tips[i];
+                string cityName = LocalizationService.ResolveString(tip.City.Name, tip.City.Id, "TavernPriceTip");
+                string description = string.Format(
+                    ResolveLoc(LocUI.Ui_Tavern_BuyPriceTip, "Купить слух о ценах в [{0}]: {1} монет"),
+                    cityName, tip.Cost);
+                bool canBuy = playerMoney >= tip.Cost;
+                result.Add(new PriceTipEntry(tip.City.Id, cityName, buyPriceTipButton, description, canBuy, i));
+            }
+            return result;
         }
 
         public void BuyRoadInfo(int index)
@@ -148,6 +170,26 @@ namespace Internal.Scripts.UI.Screens.Tavern
             _resourceRepository.UpdateResources(s => s.Money -= cost);
             _rumorService.PurchaseRumors(_currentRumors[index].City.Id);
             BuildState();
+        }
+
+        public void BuyPriceTipForCity(int index)
+        {
+            if (index < 0 || index >= _currentPriceTips.Count)
+                return;
+
+            var tip = _currentPriceTips[index];
+            if (_resourceRepository.Current.Money < tip.Cost)
+                return;
+
+            _resourceRepository.UpdateResources(s => s.Money -= tip.Cost);
+            _rumorService.PurchasePriceTip(tip.City.Id);
+            BuildState();
+        }
+
+        private static string ResolveLoc(string key, string fallback = null, params object[] args)
+        {
+            var localized = new LocalizedString(LocUI.Table, key);
+            return LocalizationService.ResolveString(localized, fallback ?? key, key, args);
         }
 
     }

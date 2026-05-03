@@ -21,6 +21,7 @@ namespace Internal.Scripts.UI.Screens.TargetSelection
         [SerializeField] private GameObject _confirmContainer;
         [SerializeField] private TextMeshProUGUI _headerText;
         [SerializeField] private CityInfoView _confirmCityInfo;
+        [SerializeField] private MarketCityInfoView _confirmMarketView;
         [SerializeField] private TextMeshProUGUI _travelInfoText;
         [SerializeField] private Button _confirmButton;
         [SerializeField] private Button _cancelPreviewButton;
@@ -58,6 +59,8 @@ namespace Internal.Scripts.UI.Screens.TargetSelection
                 _confirmCityInfo.SetTooltipService(_viewModel.SearchPanel?.TooltipService);
                 _confirmCityInfo.SetLocalization(Localization);
             }
+            if (_confirmMarketView != null)
+                _confirmMarketView.SetLocalization(Localization);
 
             BindStaticTexts();
         }
@@ -73,6 +76,7 @@ namespace Internal.Scripts.UI.Screens.TargetSelection
             base.OnLocalizationReady();
             _searchPanel?.SetLocalization(Localization);
             _confirmCityInfo?.SetLocalization(Localization);
+            _confirmMarketView?.SetLocalization(Localization);
             BindStaticTexts();
         }
 
@@ -124,10 +128,11 @@ namespace Internal.Scripts.UI.Screens.TargetSelection
             if (_cancelButton != null)
                 _cancelButton.gameObject.SetActive(!inPreview);
 
-            if (inPreview && _confirmCityInfo != null)
+            if (inPreview)
             {
-                _confirmCityInfo.Apply(rowData.CityIcon, rowData.Name, rowData.CityTooltip,
+                _confirmCityInfo?.Apply(rowData.CityIcon, rowData.Name, rowData.CityTooltip,
                     rowData.BuildingEntries, rowData.QuestIndicatorText);
+                _confirmMarketView?.ApplyMarketProfile(rowData.Specialization);
             }
 
             ApplyTravelInfo(inPreview, estimate);
