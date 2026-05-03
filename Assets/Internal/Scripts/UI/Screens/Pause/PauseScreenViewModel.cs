@@ -1,5 +1,8 @@
+using System;
 using Internal.Scripts.Camera;
+using Internal.Scripts.Events.Outcomes;
 using Internal.Scripts.Installers;
+using Internal.Scripts.Meta;
 using Internal.Scripts.UI.Screens.Core.Config;
 using Internal.Scripts.UI.Screens.Core.ViewModel;
 using Internal.Scripts.UI.StackService;
@@ -16,18 +19,21 @@ namespace Internal.Scripts.UI.Screens.Pause
         private readonly QuitGameService _quitGameService;
         private readonly SceneLoaderService _sceneLoader;
         private readonly ScreenStackService _screenStackService;
+        private readonly RunEndOutcomeApplier _runEndApplier;
 
         public PauseScreenViewModel(
             GameClock gameClock,
             QuitGameService quitGameService,
             SceneLoaderService sceneLoader,
             ScreenStackService screenStackService,
+            RunEndOutcomeApplier runEndApplier,
             [Inject(Id = SceneRefId.MainMenu)] SceneReference mainMenuScene)
         {
             _gameClock = gameClock;
             _quitGameService = quitGameService;
             _sceneLoader = sceneLoader;
             _screenStackService = screenStackService;
+            _runEndApplier = runEndApplier;
             _mainMenuScene = mainMenuScene;
         }
 
@@ -57,6 +63,12 @@ namespace Internal.Scripts.UI.Screens.Pause
         public void QuitGame()
         {
             _quitGameService.Quit();
+        }
+
+        public void EndRun()
+        {
+            Action onConfirmed = () => _runEndApplier.TriggerRunEnd(EndType.Defeat_CaravanDisbanded);
+            _screenStackService.TryOpen(ScreenId.ConfirmEndRun, (System.Action)onConfirmed, out _);
         }
     }
 }

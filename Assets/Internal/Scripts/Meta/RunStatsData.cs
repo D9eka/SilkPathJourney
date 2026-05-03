@@ -10,7 +10,8 @@ namespace Internal.Scripts.Meta
         Defeat_Bankruptcy = 2,
         Defeat_Mutiny = 3,
         Defeat_CaravanLost = 4,
-        Defeat_Famine = 5
+        Defeat_Famine = 5,
+        Defeat_CaravanDisbanded = 6
     }
 
     [Serializable]

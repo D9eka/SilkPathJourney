@@ -86,6 +86,7 @@ namespace Internal.Scripts.Events.Outcomes
                 EndType.Defeat_Mutiny => "UI.RunEnd.Reason.Mutiny",
                 EndType.Defeat_CaravanLost => "UI.RunEnd.Reason.CaravanLost",
                 EndType.Defeat_Famine => "UI.RunEnd.Reason.Famine",
+                EndType.Defeat_CaravanDisbanded => "UI.RunEnd.Reason.CaravanDisbanded",
                 _ => "UI.RunEnd.Reason.Bankruptcy"
             };
 

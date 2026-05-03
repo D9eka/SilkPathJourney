@@ -140,6 +140,7 @@ namespace Internal.Scripts.UI.Screens.RunEnd
                 EndType.Defeat_Mutiny => LocUI.UI_RunEnd_Title_Defeat_Mutiny,
                 EndType.Defeat_CaravanLost => LocUI.UI_RunEnd_Title_Defeat_CaravanLost,
                 EndType.Defeat_Famine => LocUI.UI_RunEnd_Title_Defeat_Famine,
+                EndType.Defeat_CaravanDisbanded => LocUI.UI_RunEnd_Title_Defeat_CaravanDisbanded,
                 _ => LocUI.UI_RunEnd_Title_Defeat_Bankruptcy
             };
 
