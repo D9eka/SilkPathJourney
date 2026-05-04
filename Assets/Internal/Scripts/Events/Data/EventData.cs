@@ -99,13 +99,15 @@ namespace Internal.Scripts.Events.Data
     {
         [field: SerializeField] public EventConditionType Type { get; private set; }
         [field: SerializeField] public string Param { get; private set; }
+        [field: SerializeField] public string[] ParamList { get; private set; }
         [field: SerializeField] public float Value { get; private set; }
 
 #if UNITY_EDITOR
-        public EventCondition(EventConditionType type, string param, float value)
+        public EventCondition(EventConditionType type, string param, string[] paramList, float value)
         {
             Type = type;
             Param = param;
+            ParamList = paramList;
             Value = value;
         }
 #endif

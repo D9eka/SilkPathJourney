@@ -347,6 +347,7 @@ namespace Internal.Scripts.Installers
             Container.Bind<Events.Conditions.QuestConditionEvaluator>().AsSingle();
             Container.Bind<Events.Conditions.QuestStageEvaluator>().AsSingle();
             Container.Bind<Events.Conditions.QuestFlagEvaluator>().AsSingle();
+            Container.Bind<Events.Conditions.NoQuestFlagEvaluator>().AsSingle();
             Container.Bind<Events.Conditions.TravelEvaluator>().AsSingle();
             Container.Bind<Events.Conditions.NoItemEvaluator>().AsSingle();
             Container.Bind<Events.Conditions.DangerAboveEvaluator>().AsSingle();

@@ -34,5 +34,6 @@
         DangerAbove = 29,
         NotCompletedQuest = 30,
         QuestAvailable = 31,
+        NoQuestFlag = 32,
     }
 }

@@ -28,7 +28,19 @@ namespace Internal.Scripts.Events.Conditions
         public bool Evaluate(EventCondition condition, PlayerResourceState resources)
         {
             string nearestNodeId = _nodeLookup.FindNearestNodeId(_playerController.CurrentPosition);
-            return nearestNodeId == condition.Param;
+
+            if (condition.ParamList != null && condition.ParamList.Length > 0)
+            {
+                foreach (string id in condition.ParamList)
+                {
+                    if (string.Equals(nearestNodeId, id, System.StringComparison.OrdinalIgnoreCase))
+                        return true;
+                }
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(condition.Param)) return false;
+            return string.Equals(nearestNodeId, condition.Param, System.StringComparison.OrdinalIgnoreCase);
         }
     }
 }
