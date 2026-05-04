@@ -251,17 +251,21 @@ namespace Internal.Scripts.Quests.Editor
                 if (data?.Stages != null && stageIdx >= 0 && stageIdx < data.Stages.Count)
                 {
                     var stage = data.Stages[stageIdx];
-                    if (!string.IsNullOrEmpty(stage.TriggerEventId))
+                    if (stage.TriggerEventIds != null && stage.TriggerEventIds.Length > 0)
                     {
-                        var stageEvent = _eventDatabase.GetById(stage.TriggerEventId);
-                        GUI.enabled = stageEvent != null;
-                        if (GUILayout.Button(stageEvent != null
-                            ? $"{PrefixStageEvent}{stage.TriggerEventId}"
-                            : $"{PrefixStageEvent}{stage.TriggerEventId} {SuffixNotFound}"))
+                        foreach (string triggerId in stage.TriggerEventIds)
                         {
-                            TriggerEvent(stageEvent);
+                            if (string.IsNullOrEmpty(triggerId)) continue;
+                            var stageEvent = _eventDatabase.GetById(triggerId);
+                            GUI.enabled = stageEvent != null;
+                            if (GUILayout.Button(stageEvent != null
+                                ? $"{PrefixStageEvent}{triggerId}"
+                                : $"{PrefixStageEvent}{triggerId} {SuffixNotFound}"))
+                            {
+                                TriggerEvent(stageEvent);
+                            }
+                            GUI.enabled = true;
                         }
-                        GUI.enabled = true;
                     }
                     else
                     {
@@ -343,8 +347,8 @@ namespace Internal.Scripts.Quests.Editor
                 {
                     var stage = data.Stages[stageIdx];
                     EditorGUILayout.LabelField(LabelStageId, stage.Id);
-                    if (!string.IsNullOrEmpty(stage.TriggerEventId))
-                        EditorGUILayout.LabelField(LabelTriggerEvent, stage.TriggerEventId);
+                    if (stage.TriggerEventIds != null && stage.TriggerEventIds.Length > 0)
+                        EditorGUILayout.LabelField(LabelTriggerEvent, string.Join(", ", stage.TriggerEventIds));
                 }
 
                 var entry = _questRepository.GetActiveEntry(questId);

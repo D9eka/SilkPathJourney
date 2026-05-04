@@ -139,12 +139,16 @@ namespace Internal.Scripts.UI.Screens.Building
             if (_availability.GetAvailableForBuilding(_building, _cityId) != null) return false;
             int stageIndex = _questRepository.GetCurrentStageIndex(_resolvedQuest.Id);
             if (stageIndex < 0 || _resolvedQuest.Stages == null || stageIndex >= _resolvedQuest.Stages.Count) return false;
-            string triggerEventId = _resolvedQuest.Stages[stageIndex].TriggerEventId;
-            if (string.IsNullOrEmpty(triggerEventId)) return false;
-            var eventData = _eventDb.GetById(triggerEventId);
-            if (eventData == null) return false;
-            _eventTrigger.TriggerEvent(eventData);
-            return true;
+            string[] triggerEventIds = _resolvedQuest.Stages[stageIndex].TriggerEventIds;
+            if (triggerEventIds == null || triggerEventIds.Length == 0) return false;
+            foreach (string triggerEventId in triggerEventIds)
+            {
+                if (string.IsNullOrEmpty(triggerEventId)) continue;
+                var eventData = _eventDb.GetById(triggerEventId);
+                if (eventData == null) continue;
+                if (_eventTrigger.TriggerEvent(eventData)) return true;
+            }
+            return false;
         }
 
         private void OnQuestChanged(string _) => Refresh();

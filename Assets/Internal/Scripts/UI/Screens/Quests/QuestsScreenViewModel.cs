@@ -9,6 +9,8 @@ using Internal.Scripts.UI.Screens.Core.ViewModel;
 using Internal.Scripts.UI.StackService;
 using Internal.Scripts.UI.Theme;
 using R3;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
 
 namespace Internal.Scripts.UI.Screens.Quests
 {
@@ -72,15 +74,19 @@ namespace Internal.Scripts.UI.Screens.Quests
 
         protected override void OnOpen(object args)
         {
+            LocalizationSettings.SelectedLocaleChanged += OnLocaleChanged;
             _changedSubscription = _questRepository.Changed.Subscribe(_ => RebuildState());
             RebuildState();
         }
 
         protected override void OnClose()
         {
+            LocalizationSettings.SelectedLocaleChanged -= OnLocaleChanged;
             _changedSubscription?.Dispose();
             _changedSubscription = null;
         }
+
+        private void OnLocaleChanged(Locale _) => RebuildState();
 
         private void RebuildState()
         {

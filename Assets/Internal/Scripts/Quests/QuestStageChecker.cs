@@ -25,6 +25,7 @@ namespace Internal.Scripts.Quests
         private readonly EventDatabase _eventDatabase;
         private readonly EventSelector _eventSelector;
         private readonly EventTrigger _eventTrigger;
+        private readonly EventCloseSignal _closeSignal;
 
         public QuestStageChecker(
             QuestRepository questRepository,
@@ -36,7 +37,8 @@ namespace Internal.Scripts.Quests
             QuestRewardApplier rewardApplier,
             EventDatabase eventDatabase,
             EventSelector eventSelector,
-            EventTrigger eventTrigger)
+            EventTrigger eventTrigger,
+            EventCloseSignal closeSignal)
         {
             _questRepository = questRepository;
             _questDatabase = questDatabase;
@@ -48,6 +50,7 @@ namespace Internal.Scripts.Quests
             _eventDatabase = eventDatabase;
             _eventSelector = eventSelector;
             _eventTrigger = eventTrigger;
+            _closeSignal = closeSignal;
         }
 
         public void Initialize()
@@ -56,6 +59,7 @@ namespace Internal.Scripts.Quests
             _cityEntryService.OnCityEntered += HandleCityEntered;
             _questRepository.QuestStarted += HandleQuestStarted;
             _questRepository.QuestAdvanced += HandleQuestChanged;
+            _closeSignal.Closed += HandleEventClosed;
         }
 
         public void Dispose()
@@ -64,7 +68,10 @@ namespace Internal.Scripts.Quests
             _cityEntryService.OnCityEntered -= HandleCityEntered;
             _questRepository.QuestStarted -= HandleQuestStarted;
             _questRepository.QuestAdvanced -= HandleQuestChanged;
+            _closeSignal.Closed -= HandleEventClosed;
         }
+
+        private void HandleEventClosed(EventData _) => CheckAll();
 
         private void HandleDayChanged(int _) => CheckAll();
         private void HandleCityEntered(CityData _) => CheckAll();
@@ -126,14 +133,19 @@ namespace Internal.Scripts.Quests
                 if (quest?.Stages == null || entry.CurrentStageIndex >= quest.Stages.Count) continue;
 
                 var stage = quest.Stages[entry.CurrentStageIndex];
-                if (string.IsNullOrEmpty(stage.TriggerEventId)) continue;
+                if (stage.TriggerEventIds == null || stage.TriggerEventIds.Length == 0) continue;
 
-                var eventData = _eventDatabase.GetById(stage.TriggerEventId);
-                if (eventData == null || eventData.Choices == null || eventData.Choices.Count == 0) continue;
+                foreach (string eventId in stage.TriggerEventIds)
+                {
+                    if (string.IsNullOrEmpty(eventId)) continue;
 
-                if (!_eventSelector.CheckConditions(eventData.Conditions)) continue;
+                    var eventData = _eventDatabase.GetById(eventId);
+                    if (eventData == null || eventData.Choices == null || eventData.Choices.Count == 0) continue;
 
-                if (_eventTrigger.TriggerEvent(eventData)) return;
+                    if (!_eventSelector.CheckConditions(eventData.Conditions)) continue;
+
+                    if (_eventTrigger.TriggerEvent(eventData)) return;
+                }
             }
         }
 

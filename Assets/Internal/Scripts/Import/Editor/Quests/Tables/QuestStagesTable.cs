@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Internal.Scripts.Import.Editor.Core;
 using Internal.Scripts.Quests.Generated;
 using UnityEngine;
@@ -13,7 +14,8 @@ namespace Internal.Scripts.Import.Editor.Quests.Tables
         {
             public string Id;
             public string DescriptionKey;
-            public string TriggerEventId;
+            public string NarrativeKey;
+            public string[] TriggerEventIds;
             public QuestStageConditionType AutoConditionType;
             public string AutoConditionParam;
             public int AutoConditionValue;
@@ -30,6 +32,7 @@ namespace Internal.Scripts.Import.Editor.Quests.Tables
             int questIdIndex = FindColumnIndex(header, "quest_id");
             int stageIdIndex = FindColumnIndex(header, "stage_id");
             int descKeyIndex = FindColumnIndex(header, "description_key");
+            int narrativeKeyIndex = FindColumnIndex(header, "narrative_key");
             int triggerIndex = FindColumnIndex(header, "trigger_event_id");
             int condTypeIndex = FindColumnIndex(header, "auto_condition_type");
             int condParamIndex = FindColumnIndex(header, "auto_condition_param");
@@ -59,11 +62,20 @@ namespace Internal.Scripts.Import.Editor.Quests.Tables
 
                 TryParseInt(GetField(rows[i], condValueIndex), out int condValue);
 
+                string triggerRaw = GetField(rows[i], triggerIndex).Trim();
+                string[] triggerIds = string.IsNullOrWhiteSpace(triggerRaw)
+                    ? Array.Empty<string>()
+                    : triggerRaw.Split(',')
+                        .Select(s => s.Trim())
+                        .Where(s => !string.IsNullOrEmpty(s))
+                        .ToArray();
+
                 var stage = new StageRaw
                 {
                     Id = GetField(rows[i], stageIdIndex).Trim(),
                     DescriptionKey = GetField(rows[i], descKeyIndex).Trim(),
-                    TriggerEventId = GetField(rows[i], triggerIndex).Trim(),
+                    NarrativeKey = narrativeKeyIndex >= 0 ? GetField(rows[i], narrativeKeyIndex).Trim() : "",
+                    TriggerEventIds = triggerIds,
                     AutoConditionType = condType,
                     AutoConditionParam = GetField(rows[i], condParamIndex).Trim(),
                     AutoConditionValue = condValue

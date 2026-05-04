@@ -45,8 +45,27 @@ namespace Internal.Scripts.UI.Screens.Quests
                     quest.Name, quest.Id, QuestName(quest.Id));
 
             if (_descriptionText != null)
-                _descriptionText.text = LocalizationService.ResolveString(
-                    quest.Description, string.Empty, QuestDesc(quest.Id));
+            {
+                var sb = new System.Text.StringBuilder();
+                sb.Append(LocalizationService.ResolveString(
+                    quest.Description, string.Empty, QuestDesc(quest.Id)));
+
+                if (quest.Stages != null)
+                {
+                    int upTo = Math.Min(currentStageIndex, quest.Stages.Count);
+                    for (int i = 0; i < upTo; i++)
+                    {
+                        var stage = quest.Stages[i];
+                        if (LocalizationService.IsEmpty(stage.Narrative)) continue;
+                        string narrative = LocalizationService.ResolveString(
+                            stage.Narrative, string.Empty, StageNarrative(quest.Id, stage.Id));
+                        if (!string.IsNullOrWhiteSpace(narrative))
+                            sb.Append("\n\n").Append(narrative);
+                    }
+                }
+
+                _descriptionText.text = sb.ToString();
+            }
 
             if (_currentObjectiveText != null)
             {

@@ -108,12 +108,13 @@ namespace Internal.Scripts.Import.Editor.Quests.Tables
             foreach (var raw in rawStages)
             {
                 LocalizedString descLS = MakeLocalizedString(raw.DescriptionKey, locTableName);
+                LocalizedString narrativeLS = MakeLocalizedString(raw.NarrativeKey, locTableName);
 
                 QuestStageCondition autoCondition = raw.AutoConditionType != QuestStageConditionType.None
                     ? new QuestStageCondition(raw.AutoConditionType, raw.AutoConditionParam, raw.AutoConditionValue)
                     : default;
 
-                result.Add(new QuestStageData(raw.Id, descLS, raw.TriggerEventId, autoCondition));
+                result.Add(new QuestStageData(raw.Id, descLS, narrativeLS, raw.TriggerEventIds, autoCondition));
             }
 
             return result;

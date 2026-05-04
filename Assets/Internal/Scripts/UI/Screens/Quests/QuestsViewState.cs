@@ -32,6 +32,7 @@ namespace Internal.Scripts.UI.Screens.Quests
     {
         public static string QuestName(string questId) => $"Quest.{questId}.Name";
         public static string StageDesc(string questId, string stageId) => $"Quest.{questId}.Stage.{stageId}";
+        public static string StageNarrative(string questId, string stageId) => $"Quest.{questId}.Stage.{stageId}.Narrative";
         public static string QuestDesc(string questId) => $"Quest.{questId}.Description";
         public static string BranchName(QuestBranch branch) => $"QuestBranch.{branch}.Name";
         public static string BranchDesc(QuestBranch branch) => $"QuestBranch.{branch}.Description";

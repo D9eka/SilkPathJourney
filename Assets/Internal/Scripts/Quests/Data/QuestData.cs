@@ -81,15 +81,18 @@ namespace Internal.Scripts.Quests.Data
     {
         [field: SerializeField] public string Id { get; private set; }
         [field: SerializeField] public LocalizedString Description { get; private set; }
-        [field: SerializeField] public string TriggerEventId { get; private set; }
+        [field: SerializeField] public LocalizedString Narrative { get; private set; }
+        [field: SerializeField] public string[] TriggerEventIds { get; private set; }
         [field: SerializeField] public QuestStageCondition AutoCompleteCondition { get; private set; }
 
 #if UNITY_EDITOR
-        public QuestStageData(string id, LocalizedString description, string triggerEventId, QuestStageCondition autoCompleteCondition)
+        public QuestStageData(string id, LocalizedString description, LocalizedString narrative,
+            string[] triggerEventIds, QuestStageCondition autoCompleteCondition)
         {
             Id = id;
             Description = description;
-            TriggerEventId = triggerEventId;
+            Narrative = narrative;
+            TriggerEventIds = triggerEventIds ?? System.Array.Empty<string>();
             AutoCompleteCondition = autoCompleteCondition;
         }
 #endif
