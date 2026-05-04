@@ -16,6 +16,7 @@ namespace Internal.Scripts.Npc.Movement
         private readonly IRoadNetwork _roadNetwork;
         private readonly SegmentMover _segmentMover;
         private readonly INextSegmentProvider _nextSegmentProvider;
+        private readonly IRoadPathFinder _pathFinder;
 
         private RoadLane _lane;
         private float _lateralOffset;
@@ -25,12 +26,13 @@ namespace Internal.Scripts.Npc.Movement
         private bool _arrived;
         private CancellationTokenSource _chooseCts;
 
-        public RoadPathCursor(IRoadNetwork roadNetwork, SegmentMover segmentMover, 
-            INextSegmentProvider nextSegmentProvider)
+        public RoadPathCursor(IRoadNetwork roadNetwork, SegmentMover segmentMover,
+            INextSegmentProvider nextSegmentProvider, IRoadPathFinder pathFinder)
         {
             _roadNetwork = roadNetwork;
             _segmentMover = segmentMover;
             _nextSegmentProvider = nextSegmentProvider;
+            _pathFinder = pathFinder;
         }
 
         public bool IsEmpty => !_hasPath;
@@ -54,7 +56,45 @@ namespace Internal.Scripts.Npc.Movement
             _chooseCts = null;
         }
         
-        public void SetDestination(string currentNodeId, string destinationNodeId, 
+        public void UpdateDestination(string destinationNodeId)
+        {
+            _destinationNodeId = destinationNodeId;
+            if (_nextSegmentProvider is IDestinationAware aware)
+                aware.SetDestination(destinationNodeId);
+
+            string fromNode = _segmentMover.CurrentFromNodeId;
+            string toNode = _segmentMover.CurrentToNodeId;
+            if (string.IsNullOrEmpty(fromNode) || string.IsNullOrEmpty(toNode))
+                return;
+
+            if (ShouldReverseToReach(fromNode, toNode, destinationNodeId))
+                _segmentMover.ReverseCurrentSegment();
+        }
+
+        private bool ShouldReverseToReach(string fromNode, string toNode, string target)
+        {
+            if (target == fromNode) return true;
+            if (target == toNode) return false;
+
+            float distToFrom = _segmentMover.DistanceOnSegment;
+            float distToTo = _segmentMover.SegmentLength - distToFrom;
+
+            RoadPath viaFrom = _pathFinder.FindPath(fromNode, target);
+            RoadPath viaTo = _pathFinder.FindPath(toNode, target);
+
+            bool fromValid = viaFrom != null && viaFrom.IsValid;
+            bool toValid = viaTo != null && viaTo.IsValid;
+
+            if (!fromValid && !toValid) return false;
+            if (!fromValid) return false;
+            if (!toValid) return true;
+
+            float reverseLen = distToFrom + viaFrom.TotalLengthMeters;
+            float continueLen = distToTo + viaTo.TotalLengthMeters;
+            return reverseLen < continueLen;
+        }
+
+        public void SetDestination(string currentNodeId, string destinationNodeId,
             RoadLane lane, float lateralOffset)
         {
             _chooseCts?.Cancel();

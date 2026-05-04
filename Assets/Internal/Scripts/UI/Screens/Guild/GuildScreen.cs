@@ -31,7 +31,7 @@ namespace Internal.Scripts.UI.Screens.Guild
         [SerializeField] private ServiceCardView _contractPrefab;
         [SerializeField] private RectTransform _contractContent;
 
-        [Header("Quest (placeholder — guild quest system WIP)")]
+        [Header("Quest")]
         [SerializeField] private QuestCardView _questView;
 
         [Header("Empty State")]
@@ -54,6 +54,7 @@ namespace Internal.Scripts.UI.Screens.Guild
 
         private GuildScreenViewModel _viewModel;
         private IDisposable _stateSubscription;
+        private IDisposable _questSlotSubscription;
         private GuildViewState _currentState;
 
         protected override void OnEnable()
@@ -80,12 +81,21 @@ namespace Internal.Scripts.UI.Screens.Guild
                 return;
 
             _stateSubscription = _viewModel.State.Subscribe(ApplyState);
+            _questSlotSubscription = _viewModel.QuestSlot.Subscribe(state =>
+            {
+                if (state.HasValue)
+                    _questView.Initialize(state.Value.Description, () => _viewModel.OnQuestSlotTalk());
+                else
+                    _questView.Hide();
+            });
         }
 
         private void UnsubscribeViewModel()
         {
             _stateSubscription?.Dispose();
             _stateSubscription = null;
+            _questSlotSubscription?.Dispose();
+            _questSlotSubscription = null;
         }
 
         private void ApplyState(GuildViewState state)
@@ -100,8 +110,6 @@ namespace Internal.Scripts.UI.Screens.Guild
                 _offeringsHeaderLocalized, "Услуги", "Guild.OfferingsHeader");
             _contractsHeaderText.text = LocalizationService.ResolveString(
                 _contractsHeaderLocalized, "Контракты", "Guild.ContractsHeader");
-
-            _questView.Hide();
 
             RebuildOfferings(state.Offerings);
             RebuildContracts(state);

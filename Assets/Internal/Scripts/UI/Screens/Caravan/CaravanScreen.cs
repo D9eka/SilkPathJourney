@@ -193,15 +193,8 @@ namespace Internal.Scripts.UI.Screens.Caravan
 
         private void HandleCompanionAction(int index, CompanionCardAction action)
         {
-            switch (action)
-            {
-                case CompanionCardAction.Heal:
-                    _viewModel?.HealCompanion(index);
-                    break;
-                case CompanionCardAction.Fire:
-                    _viewModel?.FireCompanion(index);
-                    break;
-            }
+            if (action == CompanionCardAction.Fire)
+                _viewModel?.FireCompanion(index);
         }
 
         private void HandleCartRepair(int index)

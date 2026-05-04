@@ -5,11 +5,13 @@ using Internal.Scripts.Economy;
 using Internal.Scripts.Economy.Cities;
 using Internal.Scripts.Economy.Cities.UI;
 using Internal.Scripts.Events;
+using Internal.Scripts.Quests;
 using Internal.Scripts.UI.Theme;
 using Internal.Scripts.UI.WorldLabel.Components;
 using Internal.Scripts.World.State;
 using Internal.Scripts.WorldModifiers;
 using R3;
+using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
 
@@ -23,8 +25,12 @@ namespace Internal.Scripts.UI.WorldLabel
         private readonly WorldModifierRepository _modifierRepo;
         private readonly DayTracker _dayTracker;
         private readonly GameBalanceConfig _balanceConfig;
+        private readonly QuestCityIndicatorService _questIndicator;
+        private readonly QuestRepository _questRepo;
+        private readonly QuestIndicatorIcons _questIcons;
         private readonly Dictionary<string, CityLabelView> _cityLabels = new();
         private IDisposable _modifierSubscription;
+        private IDisposable _questSubscription;
 
         public CityLabelSpawner(
             CityViewSpawner cityViewSpawner,
@@ -34,7 +40,10 @@ namespace Internal.Scripts.UI.WorldLabel
             StaticColorController colorController,
             WorldModifierRepository modifierRepo,
             DayTracker dayTracker,
-            GameBalanceConfig balanceConfig)
+            GameBalanceConfig balanceConfig,
+            QuestCityIndicatorService questIndicator,
+            QuestRepository questRepo,
+            QuestIndicatorIcons questIcons)
             : base(worldStateController, worldCanvas)
         {
             _cityViewSpawner = cityViewSpawner;
@@ -43,6 +52,9 @@ namespace Internal.Scripts.UI.WorldLabel
             _modifierRepo = modifierRepo;
             _dayTracker = dayTracker;
             _balanceConfig = balanceConfig;
+            _questIndicator = questIndicator;
+            _questRepo = questRepo;
+            _questIcons = questIcons;
         }
 
         protected override bool ShouldShowInViewMode(WorldViewMode viewMode) => true;
@@ -50,6 +62,7 @@ namespace Internal.Scripts.UI.WorldLabel
         protected override void OnDispose()
         {
             _modifierSubscription?.Dispose();
+            _questSubscription?.Dispose();
             LocalizationSettings.SelectedLocaleChanged -= OnLocaleChanged;
         }
 
@@ -82,10 +95,14 @@ namespace Internal.Scripts.UI.WorldLabel
                 }
 
                 _cityLabels[city.Id] = label;
-                AddActiveModifiers(label.Modifiers, city.Id);
+                bool hasModifiers = AddActiveModifiers(label.Modifiers, city.Id);
+                bool hasQuest = AddQuestIndicator(label.Modifiers, city.Id);
+                if (!hasModifiers && !hasQuest)
+                    label.Modifiers?.SetVisible(false);
             }
 
             _modifierSubscription = _modifierRepo.Changed.Subscribe(_ => RefreshAllModifiers());
+            _questSubscription = _questRepo.Changed.Subscribe(_ => RefreshAllModifiers());
             LocalizationSettings.SelectedLocaleChanged += OnLocaleChanged;
 
             UnityEngine.Debug.Log($"[CityLabelSpawner] City labels created: {total}");
@@ -111,7 +128,6 @@ namespace Internal.Scripts.UI.WorldLabel
                     modifiers.AddIcon(mod.Icon, mod.GetTooltipTitle(), mod.GetTooltipDescription(), alpha);
                 added = true;
             }
-            modifiers.SetVisible(added);
             return added;
         }
 
@@ -122,8 +138,26 @@ namespace Internal.Scripts.UI.WorldLabel
             foreach (var kvp in _cityLabels)
             {
                 kvp.Value.Modifiers?.ClearIcons();
-                AddActiveModifiers(kvp.Value.Modifiers, kvp.Key);
+                bool hasModifiers = AddActiveModifiers(kvp.Value.Modifiers, kvp.Key);
+                bool hasQuest = AddQuestIndicator(kvp.Value.Modifiers, kvp.Key);
+                if (!hasModifiers && !hasQuest)
+                    kvp.Value.Modifiers?.SetVisible(false);
             }
+        }
+
+        private bool AddQuestIndicator(ModifierIconsView modifiers, string cityId)
+        {
+            if (modifiers == null) return false;
+
+            var ind = _questIndicator.GetIndicator(cityId);
+            if (ind == QuestCityIndicator.None) return false;
+
+            Sprite icon = ind == QuestCityIndicator.NewAvailable ? _questIcons.NewAvailable : _questIcons.ActiveStage;
+            string title = _questIcons.GetTooltipTitle(ind);
+            string desc = _questIcons.GetTooltipDescription(ind);
+            modifiers.AddIcon(icon, title, desc);
+            modifiers.SetVisible(true);
+            return true;
         }
     }
 }

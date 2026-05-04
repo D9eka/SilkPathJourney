@@ -6,7 +6,7 @@ namespace Internal.Scripts.Import.Editor.Languages
 {
     public static class LanguageTypeGenerator
     {
-        [MenuItem("SPJ/Import/Languages")]
+        [MenuItem("SPJ/Import/Languages/Generate")]
         public static bool Generate()
         {
             var spec = new EnumGenerator.EnumSpec(

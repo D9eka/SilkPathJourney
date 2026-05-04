@@ -13,8 +13,8 @@ namespace Internal.Scripts.Import.Editor.Npc
         private const string NAME_DATABASE_PATH = DATABASES_FOLDER + "/NameDatabase.asset";
         private const string LOC_TABLE = "Npc";
 
-        [MenuItem("SPJ/Import/Npc")]
-        public static void ImportAll()
+        [MenuItem("SPJ/Import/Npc/Import")]
+        public static void Import()
         {
             if (IsCompiling()) return;
 

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Internal.Scripts.Economy.Buildings;
 using Internal.Scripts.Events.Data;
 using Internal.Scripts.Import.Editor.Core;
 using Internal.Scripts.Quests.Data;
@@ -40,6 +41,8 @@ namespace Internal.Scripts.Import.Editor.Quests.Tables
             int branchIdIndex = FindColumnIndex(header, "branch_id");
             int orderIndex = FindColumnIndex(header, "order_in_branch");
             int startCityIndex = FindColumnIndex(header, "start_city_id");
+            int giverBuildingIndex = FindColumnIndex(header, "giver_building");
+            int briefingEventIndex = FindColumnIndex(header, "briefing_event_id");
 
             if (idIndex < 0 || nameKeyIndex < 0)
             {
@@ -57,6 +60,12 @@ namespace Internal.Scripts.Import.Editor.Quests.Tables
                 string branchId = GetField(rows[i], branchIdIndex).Trim();
                 string startCityId = startCityIndex >= 0 ? GetField(rows[i], startCityIndex).Trim() : "";
                 TryParseInt(GetField(rows[i], orderIndex), out int orderInBranch);
+
+                string giverBuildingRaw = giverBuildingIndex >= 0 ? GetField(rows[i], giverBuildingIndex).Trim() : "";
+                BuildingType giverBuilding = Enum.TryParse<BuildingType>(giverBuildingRaw, ignoreCase: true, out var parsedBuilding)
+                    ? parsedBuilding
+                    : BuildingType.Unknown;
+                string briefingEventId = briefingEventIndex >= 0 ? GetField(rows[i], briefingEventIndex).Trim() : "";
 
                 LocalizedString nameLS = MakeLocalizedString(nameKey, locTableName);
                 LocalizedString descLS = MakeLocalizedString(descKey, locTableName);
@@ -77,7 +86,8 @@ namespace Internal.Scripts.Import.Editor.Quests.Tables
                 QuestData asset = LoadOrCreateAsset<QuestData>(QUESTS_FOLDER, id);
                 asset.ApplyImport(id, nameLS, descLS, icon, branch, orderInBranch, startCityId,
                     branchNameLS, branchDescLS,
-                    builtStages, builtRewards, conditions, consequences);
+                    builtStages, builtRewards, conditions, consequences,
+                    giverBuilding, briefingEventId);
                 EditorUtility.SetDirty(asset);
                 quests.Add(asset);
             }
@@ -98,12 +108,13 @@ namespace Internal.Scripts.Import.Editor.Quests.Tables
             foreach (var raw in rawStages)
             {
                 LocalizedString descLS = MakeLocalizedString(raw.DescriptionKey, locTableName);
+                LocalizedString narrativeLS = MakeLocalizedString(raw.NarrativeKey, locTableName);
 
                 QuestStageCondition autoCondition = raw.AutoConditionType != QuestStageConditionType.None
                     ? new QuestStageCondition(raw.AutoConditionType, raw.AutoConditionParam, raw.AutoConditionValue)
                     : default;
 
-                result.Add(new QuestStageData(raw.Id, descLS, raw.TriggerEventId, autoCondition));
+                result.Add(new QuestStageData(raw.Id, descLS, narrativeLS, raw.TriggerEventIds, autoCondition));
             }
 
             return result;

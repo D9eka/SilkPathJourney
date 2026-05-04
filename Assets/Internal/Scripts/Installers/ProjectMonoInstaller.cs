@@ -38,7 +38,7 @@ namespace Internal.Scripts.Installers
 
             TooltipView tooltip = Instantiate(_tooltipPrefab, tooltipCanvas.transform);
             Container.BindInstance(tooltip).AsSingle();
-            Container.Bind<TooltipService>().AsSingle();
+            Container.BindInterfacesAndSelfTo<TooltipService>().AsSingle().NonLazy();
         }
     }
 }

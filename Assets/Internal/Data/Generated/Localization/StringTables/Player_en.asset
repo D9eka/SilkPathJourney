@@ -1,0 +1,377 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Player_en
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: eff343e1c16dba340a2b7cd41dcaea3f, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 527425536
+    m_Localized: Merchant's Son
+    m_Metadata:
+      m_Items: []
+  - m_Id: 556785664
+    m_Localized: "Your father was a successful merchant on the eastern coast, but
+      went bankrupt from a bad deal. You inherited knowledge of prices and goods
+      \u2014 but start your journey from scratch."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 556785665
+    m_Localized: Former Caravaneer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 556785666
+    m_Localized: "You spent years leading other people's caravans through dangerous
+      roads. You know the desert, steppe and mountains \u2014 but trading was never
+      your thing. Now it's time to try for yourself."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 556785667
+    m_Localized: Wanderer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 556785668
+    m_Localized: You wandered through Central Asian cities, working as a translator
+      and middleman. Tied to no single place, but you know people and roads.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 556785669
+    m_Localized: Diplomat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 556785670
+    m_Localized: "You served as a court official, but fell out of favor. You know
+      how to persuade and negotiate, and speak Persian \u2014 the language of diplomacy.
+      But the desert and mountains are new to you."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 556785671
+    m_Localized: Smuggler
+    m_Metadata:
+      m_Items: []
+  - m_Id: 556785672
+    m_Localized: "You traded forbidden goods through border cities. You know secret
+      paths and how to hide cargo. But your reputation is tarnished \u2014 honest
+      merchants avoid you."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 556785673
+    m_Localized: Former Bandit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 556785674
+    m_Localized: "You spent years robbing caravans in the steppes. Tired of that
+      life, you decided to go straight. But the past won't let go \u2014 people know
+      you and don't trust you."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 556785675
+    m_Localized: Scholar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 556785676
+    m_Localized: You studied ancient texts and maps in the Chang'an library. You
+      know languages and history, but life on the road is nothing like books. You
+      set out in pursuit of a great discovery.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 556785677
+    m_Localized: Pilgrim
+    m_Metadata:
+      m_Items: []
+  - m_Id: 556785678
+    m_Localized: You walk the holy places from Lhasa to Constantinople. Trade is
+      merely a means to your spiritual goal. People are drawn to you, but you have
+      little money.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 556785679
+    m_Localized: Merchant
+    m_Metadata:
+      m_Items: []
+  - m_Id: 556785680
+    m_Localized: "Merchant heritage: high trade skill, 2\xD7 silk at start, trade
+      Sogdian"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 560979968
+    m_Localized: Hireling
+    m_Metadata:
+      m_Items: []
+  - m_Id: 560979969
+    m_Localized: 'Seasoned on the road: high survival, dried meat supplies'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 560979970
+    m_Localized: Wanderer
+    m_Metadata:
+      m_Items: []
+  - m_Id: 560979971
+    m_Localized: 'Wanderer: tea at start, modest supplies'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 560979972
+    m_Localized: Diplomat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 560979973
+    m_Localized: 'Diplomat: high charisma, large starting capital, paper'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 560979974
+    m_Localized: Smuggler
+    m_Metadata:
+      m_Items: []
+  - m_Id: 560979975
+    m_Localized: 'Smuggler: valuable spices and musk, little money'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 560979976
+    m_Localized: Bandit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 560979977
+    m_Localized: 'Hardened: maximum survival, low reputation, iron'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 560979978
+    m_Localized: Scholar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 560979979
+    m_Localized: 'Erudite: knows three languages, paper'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 560979980
+    m_Localized: Pilgrim
+    m_Metadata:
+      m_Items: []
+  - m_Id: 560979981
+    m_Localized: 'Pilgrim: morale bonus, high reputation, incense'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492307936698368
+    m_Localized: First Profit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492307961864192
+    m_Localized: Earn 100 coins in a single run.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492307961864193
+    m_Localized: Long Journey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492307961864194
+    m_Localized: Travel for 50 days in a single run.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492307961864195
+    m_Localized: Polyglot
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492307961864196
+    m_Localized: Learn 2 languages in a single run.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492307961864197
+    m_Localized: Silk Road Conquered
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492307961864198
+    m_Localized: Lead your caravan to Constantinople.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492307961864199
+    m_Localized: We Stand Firm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492307961864200
+    m_Localized: Complete any run through to defeat.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492307961864201
+    m_Localized: Princess
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492307961864202
+    m_Localized: Daughter of a ruler from Samarkand. Unlocks a new background.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492307961864203
+    m_Localized: Extra Silk
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492307961864204
+    m_Localized: Start each run with two extra bales of silk.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492307961864205
+    m_Localized: Southern Route
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492307961864206
+    m_Localized: Unlocks the route through India in new runs.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492307961864207
+    m_Localized: Reinforced Cart
+    m_Metadata:
+      m_Items: []
+  - m_Id: 492307961864208
+    m_Localized: Adds a reinforced cart to your starting equipment.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631324020736
+    m_Localized: Reinforced Harness
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963776
+    m_Localized: Reduces penalty from each additional cart in caravan by 2%.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963777
+    m_Localized: Smuggler
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963778
+    m_Localized: 'Unlocks the smuggler background: secret paths and valuable starting
+      cargo.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963779
+    m_Localized: Scholar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963780
+    m_Localized: 'Unlocks the scholar background: three languages and paper in starting
+      inventory.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963781
+    m_Localized: Dried Meat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963782
+    m_Localized: Start each run with dried meat in your inventory.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963783
+    m_Localized: Tea
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963784
+    m_Localized: Start each run with tea in your inventory.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963785
+    m_Localized: Paper
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963786
+    m_Localized: Start each run with paper in your inventory.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963787
+    m_Localized: Spices
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963788
+    m_Localized: Start each run with spices in your inventory.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963789
+    m_Localized: China Routes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963790
+    m_Localized: Unlocks roads through Chang'an and northern China.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963791
+    m_Localized: Central Asia Routes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963792
+    m_Localized: Unlocks roads through Samarkand and Bukhara.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963793
+    m_Localized: Persia Routes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963794
+    m_Localized: Unlocks roads through the Persian cultural belt.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963795
+    m_Localized: Arabia Routes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963796
+    m_Localized: Unlocks roads through the Arabian Peninsula.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963797
+    m_Localized: India Routes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963798
+    m_Localized: Unlocks roads through the Indian subcontinent.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963799
+    m_Localized: Byzantine Routes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963800
+    m_Localized: Unlocks roads through Constantinople and the Greek belt.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963801
+    m_Localized: Sturdy Wheels
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963802
+    m_Localized: Reduces the chance of the Broken Wheel event by 30%.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963803
+    m_Localized: Sealed Containers
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963804
+    m_Localized: Doubles goods shelf life during travel.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963805
+    m_Localized: Repair Kit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963806
+    m_Localized: Adds +1 main cart durability per travel day.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963807
+    m_Localized: Road Lanterns
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1263631365963808
+    m_Localized: Reduces the fog negative effect on roads by 30%.
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

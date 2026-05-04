@@ -8,16 +8,25 @@ using Internal.Scripts.Economy.Cities;
 using Internal.Scripts.Economy.Guild;
 using Internal.Scripts.Economy.Simulation;
 using Internal.Scripts.Events.Data;
+using Internal.Scripts.Items;
+using Internal.Scripts.Journal;
+using Internal.Scripts.Meta;
+using Internal.Scripts.Meta.Achievements;
+using Internal.Scripts.Meta.Unlocks;
 using Internal.Scripts.Npc.Lifecycle;
 using Internal.Scripts.Npc.Names;
 using Internal.Scripts.Player;
+using Internal.Scripts.Player.Background;
 using Internal.Scripts.Quests.Data;
 using Internal.Scripts.Save;
+using Internal.Scripts.Settings;
 using Internal.Scripts.Travel.Hazards;
 using Internal.Scripts.Travel.Pickups;
 using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Localization;
 using Internal.Scripts.UI.Screens.Config;
+using Internal.Scripts.UI.Screens.Journal;
+using Internal.Scripts.UI.WorldLabel;
 using Internal.Scripts.Utils;
 using Plugins.Zenject.Source.Install;
 using UnityEngine;
@@ -42,12 +51,14 @@ namespace Internal.Scripts.Installers
 
         [Header("Quests")]
         [SerializeField] private QuestDatabase _questDatabase;
+        [SerializeField] private QuestIndicatorIcons _questIndicatorIcons;
 
         [Header("Caravan")]
         [SerializeField] private CaravanDatabase _caravanDatabase;
 
         [Header("Player")]
         [SerializeField] private PlayerConfig _playerProfile;
+        [SerializeField] private BackgroundDatabase _backgroundDatabase;
 
         [Header("NPC")]
         [SerializeField] private NpcSimulationSettings _npcSimulationSettings;
@@ -64,6 +75,7 @@ namespace Internal.Scripts.Installers
         [SerializeField] private ResourceIconCatalog _resourceIconCatalog;
         [SerializeField] private ItemCategoryCatalog _itemCategoryCatalog;
         [SerializeField] private BuildingFilterCatalog _buildingFilterCatalog;
+        [SerializeField] private JournalIconCatalog _journalIconCatalog;
 
         [Header("Scenes")]
         [SerializeField] private SceneReference _gameScene;
@@ -80,6 +92,10 @@ namespace Internal.Scripts.Installers
         [Header("Hazards")]
         [SerializeField] private HazardDatabase _hazardDatabase;
 
+        [Header("Meta")]
+        [SerializeField] private UnlockDatabase _unlockDatabase;
+        [SerializeField] private AchievementDatabase _achievementDatabase;
+
         public override void InstallBindings()
         {
             Application.SetStackTraceLogType(LogType.Log, StackTraceLogType.None);
@@ -88,13 +104,17 @@ namespace Internal.Scripts.Installers
             Container.BindInstance(_cameraZoomerData).AsSingle();
             Container.BindInstance(_cameraSceneSettings).AsSingle();
             Container.BindInstance(_economyDatabase).AsSingle();
+            Container.Bind<ItemCatalog>().AsSingle();
             Container.BindInstance(_economySimulationSettings).AsSingle();
             Container.BindInstance(_cultureAdjacencyData).AsSingle();
             Container.BindInstance(_eventDatabase).AsSingle();
             Container.BindInstance(_crisisEventConfig).AsSingle();
             Container.BindInstance(_questDatabase).AsSingle();
+            Container.BindInstance(_questIndicatorIcons).AsSingle();
+            Container.BindInstance(_journalIconCatalog).AsSingle();
             Container.BindInstance(_caravanDatabase).AsSingle();
             Container.BindInstance(_playerProfile).AsSingle();
+            Container.BindInstance(_backgroundDatabase).AsSingle();
             Container.BindInstance(_npcSimulationSettings).AsSingle();
             Container.BindInstance(_nameDatabase).AsSingle();
             Container.BindInstance(_campActionDatabase).AsSingle();
@@ -109,6 +129,7 @@ namespace Internal.Scripts.Installers
             Container.BindInstance(_pickupDatabase).AsSingle();
             Container.BindInstance(_hazardDatabase).AsSingle();
 
+            Container.Bind<IJsonStorage>().To<JsonFileStorage>().AsSingle();
             Container.Bind<ISaveService>().To<JsonSaveService>().AsSingle();
             Container.Bind<ActiveSaveSlot>().AsSingle();
             Container.Bind<SaveRepository>().AsSingle();
@@ -116,6 +137,23 @@ namespace Internal.Scripts.Installers
             Container.Bind<QuitGameService>().AsSingle();
             Container.Bind<SceneReference>().WithId(SceneRefId.Game).FromInstance(_gameScene).AsCached();
             Container.Bind<SceneReference>().WithId(SceneRefId.MainMenu).FromInstance(_mainMenuScene).AsCached();
+
+            Container.Bind<PersistentProgressService>().AsSingle();
+            Container.Bind<LegacyPointsCalculator>().AsSingle();
+
+            Container.BindInterfacesAndSelfTo<SettingsService>().AsSingle().NonLazy();
+
+            if (_unlockDatabase != null)
+                Container.Bind<UnlockRepository>().FromMethod(_ => new UnlockRepository(_unlockDatabase.All)).AsSingle();
+            else
+                Container.Bind<UnlockRepository>().FromMethod(_ => new UnlockRepository(System.Array.Empty<UnlockData>())).AsSingle();
+
+            if (_achievementDatabase != null)
+                Container.BindInstance(_achievementDatabase).AsSingle();
+            else
+                Container.Bind<AchievementDatabase>().AsSingle();
+
+            Container.Bind<AchievementService>().AsSingle();
         }
     }
 }

@@ -113,6 +113,7 @@ MonoBehaviour:
     <Conditions>k__BackingField:
     - <Type>k__BackingField: 13
       <Param>k__BackingField: Tibetan
+      <ParamList>k__BackingField: []
       <Value>k__BackingField: 2
     <Outcomes>k__BackingField:
     - <Type>k__BackingField: 7
@@ -130,7 +131,26 @@ MonoBehaviour:
   <IsMinor>k__BackingField: 0
   <Biome>k__BackingField: 3
   <AutoOutcomes>k__BackingField: []
-  <SkillChecks>k__BackingField: []
+  <SkillChecks>k__BackingField:
+  - <ChoiceIndex>k__BackingField: 1
+    <SkillType>k__BackingField: 2
+    <BaseChance>k__BackingField: 0.35
+    <FailResultText>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Events
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: event.highland_abandoned_shrine.choice1.fail
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <FailOutcomes>k__BackingField:
+    - <Type>k__BackingField: 3
+      <Param>k__BackingField: 
+      <Value>k__BackingField: 5
+    - <Type>k__BackingField: 10
+      <Param>k__BackingField: 
+      <Value>k__BackingField: -3
   <Conditions>k__BackingField: []
   <Weight>k__BackingField: 0.4
   references:

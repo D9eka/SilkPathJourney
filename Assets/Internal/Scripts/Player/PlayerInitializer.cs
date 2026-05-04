@@ -4,6 +4,7 @@ using Internal.Scripts.Npc.Movement;
 using Internal.Scripts.Npc.NextSegment;
 using Internal.Scripts.Player.StartMovement;
 using Internal.Scripts.Road.Graph;
+using Internal.Scripts.Road.Path;
 using Internal.Scripts.Save;
 using Internal.Scripts.UI.Arrow.JunctionBalancer;
 using Internal.Scripts.World.State;
@@ -26,13 +27,15 @@ namespace Internal.Scripts.Player
         private readonly IGameDayDeltaProvider _gameDayDeltaProvider;
         private readonly CaravanSpeedService _caravanSpeedService;
         private readonly DailyTravelCosts _dailyTravelCosts;
+        private readonly IRoadPathFinder _pathFinder;
 
         public PlayerInitializer(RoadAgentView view, RoadAgentConfig config,
             IRoadNetwork roadNetwork, SegmentMover segmentMover,
             INextSegmentProvider nextSegmentProvider, IArrowJunctionBalancer arrowJunctionBalancer,
             PlayerController playerController, PlayerConfig playerConfig, SaveRepository saveRepository,
             IGameDayDeltaProvider gameDayDeltaProvider,
-            CaravanSpeedService caravanSpeedService, DailyTravelCosts dailyTravelCosts)
+            CaravanSpeedService caravanSpeedService, DailyTravelCosts dailyTravelCosts,
+            IRoadPathFinder pathFinder)
         {
             _view = view;
             _config = config;
@@ -46,6 +49,7 @@ namespace Internal.Scripts.Player
             _gameDayDeltaProvider = gameDayDeltaProvider;
             _caravanSpeedService = caravanSpeedService;
             _dailyTravelCosts = dailyTravelCosts;
+            _pathFinder = pathFinder;
         }
 
         public void Initialize()
@@ -53,7 +57,7 @@ namespace Internal.Scripts.Player
             string startNodeId = ResolveStartNodeId();
 
             RoadAgent agent = new RoadAgent(_view, _config,
-                new RoadPathCursor(_roadNetwork, _segmentMover, _nextSegmentProvider), _gameDayDeltaProvider, startNodeId);
+                new RoadPathCursor(_roadNetwork, _segmentMover, _nextSegmentProvider, _pathFinder), _gameDayDeltaProvider, startNodeId);
 
             agent.Initialize();
             _arrowJunctionBalancer.Initialize(agent);

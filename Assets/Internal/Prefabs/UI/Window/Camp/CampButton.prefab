@@ -293,8 +293,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Screens.Camp.CampActionButtonView
   _nameText: {fileID: 4766961289490703670}
-  _effectLabel: {fileID: 3574236856140182656}
-  _costLabel: {fileID: 9012001107523392123}
+  _effectLabel: {fileID: 6290602979968246384}
+  _costLabel: {fileID: 2001713890278671499}
   _hintText: {fileID: 755082831899469141}
   _button: {fileID: 587953208842843265}
   _canvasGroup: {fileID: 5024662756054507830}
@@ -511,6 +511,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7305244551180736756}
     m_Modifications:
+    - target: {fileID: 490569216977697586, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 490569216977697586, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 490569216977697586, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 490569216977697586, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 490569216977697586, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 490569216977697586, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2829723450315599667, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
       propertyPath: m_Name
       value: CostLabel
@@ -652,22 +676,22 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
---- !u!224 &8554170572167629136 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 6448229880392651747, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
-  m_PrefabInstance: {fileID: 3443620086630046387}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &9012001107523392123 stripped
+--- !u!114 &2001713890278671499 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: -3252938706320881464, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3750854262641221176, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
   m_PrefabInstance: {fileID: 3443620086630046387}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62393b25545a23841874d2021ed74fb8, type: 3}
+  m_Script: {fileID: 11500000, guid: 0914381f2b422d7478e325f813b5f604, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Components.IconLabelView
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Components.IconLabel
+--- !u!224 &8554170572167629136 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6448229880392651747, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+  m_PrefabInstance: {fileID: 3443620086630046387}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7151997687350967368
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -676,6 +700,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7305244551180736756}
     m_Modifications:
+    - target: {fileID: 490569216977697586, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 490569216977697586, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 490569216977697586, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 490569216977697586, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 490569216977697586, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 490569216977697586, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2829723450315599667, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
       propertyPath: m_Name
       value: EfectLabel
@@ -817,19 +865,19 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
---- !u!114 &3574236856140182656 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: -3252938706320881464, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
-  m_PrefabInstance: {fileID: 7151997687350967368}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62393b25545a23841874d2021ed74fb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Components.IconLabelView
 --- !u!224 &4196711542007607211 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6448229880392651747, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
   m_PrefabInstance: {fileID: 7151997687350967368}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6290602979968246384 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3750854262641221176, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+  m_PrefabInstance: {fileID: 7151997687350967368}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0914381f2b422d7478e325f813b5f604, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Components.IconLabel

@@ -8,6 +8,7 @@ namespace Internal.Scripts.UI.Screens.Tavern
         public readonly int PlayerMoney;
         public readonly string RumorsText;
         public readonly IReadOnlyList<RoadInfoEntry> RoadInfos;
+        public readonly IReadOnlyList<PriceTipEntry> PriceTips;
         public readonly IReadOnlyList<CompanionHireData> AvailableCompanions;
         public readonly int CurrentCompanionCount;
         public readonly int MaxCompanions;
@@ -20,6 +21,7 @@ namespace Internal.Scripts.UI.Screens.Tavern
             int playerMoney,
             string rumorsText,
             IReadOnlyList<RoadInfoEntry> roadInfos,
+            IReadOnlyList<PriceTipEntry> priceTips,
             IReadOnlyList<CompanionHireData> availableCompanions,
             int currentCompanionCount,
             int maxCompanions,
@@ -31,6 +33,7 @@ namespace Internal.Scripts.UI.Screens.Tavern
             PlayerMoney = playerMoney;
             RumorsText = rumorsText;
             RoadInfos = roadInfos;
+            PriceTips = priceTips;
             AvailableCompanions = availableCompanions;
             CurrentCompanionCount = currentCompanionCount;
             MaxCompanions = maxCompanions;
@@ -54,6 +57,26 @@ namespace Internal.Scripts.UI.Screens.Tavern
             RouteName = routeName;
             Description = description;
             ButtonText = buttonText;
+            CanBuy = canBuy;
+            Index = index;
+        }
+    }
+
+    public readonly struct PriceTipEntry
+    {
+        public readonly string CityId;
+        public readonly string CityName;
+        public readonly string ButtonText;
+        public readonly string Description;
+        public readonly bool CanBuy;
+        public readonly int Index;
+
+        public PriceTipEntry(string cityId, string cityName, string buttonText, string description, bool canBuy, int index)
+        {
+            CityId = cityId;
+            CityName = cityName;
+            ButtonText = buttonText;
+            Description = description;
             CanBuy = canBuy;
             Index = index;
         }

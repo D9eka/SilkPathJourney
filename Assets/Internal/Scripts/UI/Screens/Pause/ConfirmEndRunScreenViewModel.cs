@@ -1,0 +1,41 @@
+using System;
+using Internal.Scripts.UI.Screens.Core.Config;
+using Internal.Scripts.UI.Screens.Core.ViewModel;
+using Internal.Scripts.UI.StackService;
+
+namespace Internal.Scripts.UI.Screens.Pause
+{
+    public sealed class ConfirmEndRunScreenViewModel : ScreenViewModelBase
+    {
+        private readonly ScreenStackService _screenStackService;
+        private Action _onConfirmed;
+
+        public ConfirmEndRunScreenViewModel(ScreenStackService screenStackService)
+        {
+            _screenStackService = screenStackService;
+        }
+
+        public override ScreenId Id => ScreenId.ConfirmEndRun;
+
+        protected override void OnOpen(object args)
+        {
+            _onConfirmed = args as Action;
+        }
+
+        protected override void OnClose()
+        {
+            _onConfirmed = null;
+        }
+
+        public void Confirm()
+        {
+            _screenStackService.CloseTop();
+            _onConfirmed?.Invoke();
+        }
+
+        public void Cancel()
+        {
+            _screenStackService.CloseTop();
+        }
+    }
+}

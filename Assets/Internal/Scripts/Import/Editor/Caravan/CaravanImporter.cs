@@ -16,21 +16,25 @@ namespace Internal.Scripts.Import.Editor.Caravan
     {
         private const string CARAVAN_FOLDER = GENERATED_DATA_FOLDER + "/Caravan";
 
-        [MenuItem("SPJ/Import/Caravan")]
-        public static void ImportAll()
+        [MenuItem("SPJ/Import/Caravan/Generate")]
+        public static void Generate()
+        {
+            CartClassGenerator.Generate();
+            CartUpgradeLevelGenerator.Generate();
+            ExtraCartTypeGenerator.Generate();
+            CompanionTypeGenerator.Generate();
+            CompanionQualityGenerator.Generate();
+            CaravanUpgradeTypeGenerator.Generate();
+            DraftAnimalTypeGenerator.Generate();
+        }
+
+        [MenuItem("SPJ/Import/Caravan/Import")]
+        public static void Import()
         {
             if (IsCompiling()) return;
 
             try
             {
-                CartClassGenerator.Generate();
-                CartUpgradeLevelGenerator.Generate();
-                ExtraCartTypeGenerator.Generate();
-                CompanionTypeGenerator.Generate();
-                CompanionQualityGenerator.Generate();
-                CaravanUpgradeTypeGenerator.Generate();
-                DraftAnimalTypeGenerator.Generate();
-
                 EnsureAssetFolder(CARAVAN_FOLDER);
                 EnsureAssetFolder(DATABASES_FOLDER);
 

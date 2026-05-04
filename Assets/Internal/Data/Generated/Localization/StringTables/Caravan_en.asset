@@ -31,18 +31,15 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 456122370
-    m_Localized: Fast and maneuverable. Ideal for short trade runs and scouting new
-      routes.
+    m_Localized: Fast. Low capacity.
     m_Metadata:
       m_Items: []
   - m_Id: 460316672
-    m_Localized: Universal choice. Fast enough for most routes and spacious enough
-      for diverse trade.
+    m_Localized: Average speed and capacity.
     m_Metadata:
       m_Items: []
   - m_Id: 460316673
-    m_Localized: Massive and sturdy. Huge capacity allows transporting large volumes
-      of goods.
+    m_Localized: High capacity. Slow.
     m_Metadata:
       m_Items: []
   - m_Id: 93437629030400

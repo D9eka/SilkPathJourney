@@ -12,6 +12,10 @@ namespace Internal.Scripts.Npc.Editor.Headless
 
         public bool HasAnySave() => _store.Count > 0;
 
+        public bool HasActiveRun() => _store.ContainsKey(JsonSaveService.RunSlotId);
+
+        public void DeleteRun() => Delete(JsonSaveService.RunSlotId);
+
         public SaveData Load(string slotId)
         {
             if (_store.TryGetValue(slotId, out var entry))

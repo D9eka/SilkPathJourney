@@ -1,4 +1,5 @@
 using Internal.Scripts.Events;
+using Internal.Scripts.Meta;
 using Internal.Scripts.UI.Screens.Core.Config;
 using Internal.Scripts.UI.StackService;
 
@@ -8,13 +9,15 @@ namespace Internal.Scripts.Travel.Hazards
     {
         private readonly ScreenStackService _screenStackService;
         private readonly DayTracker _dayTracker;
+        private readonly RunStatsService _runStats;
 
         public bool IsActive => _screenStackService.IsOpen(ScreenId.HazardQte);
 
-        public HazardController(ScreenStackService screenStackService, DayTracker dayTracker)
+        public HazardController(ScreenStackService screenStackService, DayTracker dayTracker, RunStatsService runStats)
         {
             _screenStackService = screenStackService;
             _dayTracker = dayTracker;
+            _runStats = runStats;
         }
 
         public void Show(HazardData data)
@@ -25,7 +28,8 @@ namespace Internal.Scripts.Travel.Hazards
                 return;
             if (_screenStackService.IsOpen(ScreenId.Event))
                 return;
-            _screenStackService.TryOpen(ScreenId.HazardQte, data, out _);
+            if (_screenStackService.TryOpen(ScreenId.HazardQte, data, out _))
+                _runStats.RecordHazard();
         }
 
         public void ForceShow(HazardData data)

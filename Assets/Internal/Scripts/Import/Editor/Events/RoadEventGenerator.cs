@@ -17,7 +17,12 @@ namespace Internal.Scripts.Import.Editor.Events
         private const string ROAD_CONDITIONS_CSV = "road_event_conditions.csv";
         private const string ROAD_OUTCOMES_CSV = "road_event_outcomes.csv";
         private const string ROAD_SKILL_CHECKS_CSV = "road_event_skill_checks.csv";
-        private const string ROAD_LOC_KEY_PREFIX = "event.road_";
+        private static readonly string[] AUTO_GENERATED_LOC_PREFIXES =
+        {
+            "event.road_discover_",
+            "event.road_encounter_",
+            "event.road_quest_",
+        };
 
         private struct TemplateData
         {
@@ -380,7 +385,11 @@ namespace Internal.Scripts.Import.Editor.Events
             {
                 int commaIdx = line.IndexOf(',');
                 string key = commaIdx > 0 ? line.Substring(0, commaIdx).Trim().Trim('"') : line;
-                return key.StartsWith(ROAD_LOC_KEY_PREFIX);
+                foreach (string prefix in AUTO_GENERATED_LOC_PREFIXES)
+                {
+                    if (key.StartsWith(prefix)) return true;
+                }
+                return false;
             });
 
             foreach (string entry in newEntries.ToString().Split('\n'))

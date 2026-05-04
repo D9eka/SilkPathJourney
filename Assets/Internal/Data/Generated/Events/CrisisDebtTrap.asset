@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CrisisDebtTrap
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
   <Id>k__BackingField: crisis_debt_trap
-  <Category>k__BackingField: 9
+  <Category>k__BackingField: 14
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Events
@@ -119,6 +119,7 @@ MonoBehaviour:
     <Conditions>k__BackingField:
     - <Type>k__BackingField: 10
       <Param>k__BackingField: Translator
+      <ParamList>k__BackingField: []
       <Value>k__BackingField: 1
     <Outcomes>k__BackingField:
     - <Type>k__BackingField: 1
@@ -130,6 +131,29 @@ MonoBehaviour:
     - <Type>k__BackingField: 10
       <Param>k__BackingField: 
       <Value>k__BackingField: 3
+  - <Text>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Events
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: event.crisis_debt_trap.choice4
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <ResultText>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Events
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: event.crisis_debt_trap.choice4.result
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <Conditions>k__BackingField: []
+    <Outcomes>k__BackingField:
+    - <Type>k__BackingField: 23
+      <Param>k__BackingField: Defeat_Bankruptcy
+      <Value>k__BackingField: 0
   <IsMinor>k__BackingField: 0
   <Biome>k__BackingField: 0
   <AutoOutcomes>k__BackingField: []
@@ -159,7 +183,8 @@ MonoBehaviour:
   <Conditions>k__BackingField:
   - <Type>k__BackingField: 2
     <Param>k__BackingField: 
-    <Value>k__BackingField: 10
+    <ParamList>k__BackingField: []
+    <Value>k__BackingField: 0
   <Weight>k__BackingField: 0.6
   references:
     version: 2

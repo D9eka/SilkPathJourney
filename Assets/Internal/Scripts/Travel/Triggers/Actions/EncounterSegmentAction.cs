@@ -23,7 +23,7 @@ namespace Internal.Scripts.Travel.Triggers.Actions
         private readonly NpcLifeSimulator _npcSimulator;
         private readonly ScreenStackService _screenStackService;
         private readonly GameClock _gameClock;
-        private readonly EventTrigger _eventTrigger;
+        private readonly EventCloseSignal _closeSignal;
         private readonly NpcEncounterSettings _settings;
         private readonly ICityNodeResolver _cityNodeResolver;
         private readonly IRoadNodeLookup _nodeLookup;
@@ -43,7 +43,7 @@ namespace Internal.Scripts.Travel.Triggers.Actions
             NpcLifeSimulator npcSimulator,
             ScreenStackService screenStackService,
             GameClock gameClock,
-            EventTrigger eventTrigger,
+            EventCloseSignal closeSignal,
             NpcEncounterSettings settings,
             ICityNodeResolver cityNodeResolver,
             IRoadNodeLookup nodeLookup,
@@ -54,7 +54,7 @@ namespace Internal.Scripts.Travel.Triggers.Actions
             _npcSimulator = npcSimulator;
             _screenStackService = screenStackService;
             _gameClock = gameClock;
-            _eventTrigger = eventTrigger;
+            _closeSignal = closeSignal;
             _settings = settings;
             _cityNodeResolver = cityNodeResolver;
             _nodeLookup = nodeLookup;
@@ -64,13 +64,13 @@ namespace Internal.Scripts.Travel.Triggers.Actions
 
         public void Initialize()
         {
-            _eventTrigger.OnEventClosed += HandleEventClosed;
+            _closeSignal.Closed += HandleEventClosed;
             _screenStackService.OnScreenClosed += HandleScreenClosed;
         }
 
         public void Dispose()
         {
-            _eventTrigger.OnEventClosed -= HandleEventClosed;
+            _closeSignal.Closed -= HandleEventClosed;
             _screenStackService.OnScreenClosed -= HandleScreenClosed;
         }
 
@@ -130,7 +130,7 @@ namespace Internal.Scripts.Travel.Triggers.Actions
         {
             _pendingAgent = agent;
             _cooldownUntil = Time.time + _settings.CooldownSeconds;
-            _eventTrigger.LastChoiceIndex = -1;
+            _closeSignal.LastChoiceIndex = -1;
 
             EventData eventData = _settings.EncounterEvents[
                 UnityEngine.Random.Range(0, _settings.EncounterEvents.Count)];
@@ -145,7 +145,7 @@ namespace Internal.Scripts.Travel.Triggers.Actions
             _screenStackService.TryOpen(ScreenId.Event, args, out _);
         }
 
-        private void HandleEventClosed()
+        private void HandleEventClosed(EventData _)
         {
             if (_pendingAgent == null)
                 return;
@@ -153,7 +153,7 @@ namespace Internal.Scripts.Travel.Triggers.Actions
             NpcCaravanAgent agent = _pendingAgent;
             _pendingAgent = null;
 
-            if (_eventTrigger.LastChoiceIndex == 0)
+            if (_closeSignal.LastChoiceIndex == 0)
             {
                 _lastTradeAgent = agent;
                 _gameClock.Pause();

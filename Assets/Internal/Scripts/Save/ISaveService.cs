@@ -6,8 +6,10 @@ namespace Internal.Scripts.Save
     {
         List<SaveMetadata> GetAllSaves();
         bool HasAnySave();
+        bool HasActiveRun();
         SaveData Load(string slotId);
         void Save(string slotId, SaveData data, SaveMetadata metadata);
         void Delete(string slotId);
+        void DeleteRun();
     }
 }

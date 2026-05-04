@@ -1,7 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using Internal.Scripts.Economy.Save;
 using UnityEngine;
 
@@ -9,15 +7,15 @@ namespace Internal.Scripts.Save
 {
     public sealed class JsonSaveService : ISaveService
     {
+        public const string RunSlotId = "run";
         private const string SAVES_FOLDER = "saves";
         private const string LEGACY_SAVE_FILE = "save.json";
 
-        private readonly string _savesDir;
+        private readonly IJsonStorage _storage;
 
-        public JsonSaveService()
+        public JsonSaveService(IJsonStorage storage)
         {
-            _savesDir = Path.Combine(Application.persistentDataPath, SAVES_FOLDER);
-            Directory.CreateDirectory(_savesDir);
+            _storage = storage;
             MigrateLegacySave();
         }
 
@@ -25,22 +23,12 @@ namespace Internal.Scripts.Save
         {
             var result = new List<SaveMetadata>();
 
-            if (!Directory.Exists(_savesDir))
-                return result;
-
-            foreach (string file in Directory.GetFiles(_savesDir, "*.json"))
+            foreach (string fullPath in _storage.ListFiles(SAVES_FOLDER))
             {
-                try
-                {
-                    string json = File.ReadAllText(file);
-                    var wrapper = JsonUtility.FromJson<SaveFileWrapper>(json);
-                    if (wrapper?.Metadata != null)
-                        result.Add(wrapper.Metadata);
-                }
-                catch (Exception e)
-                {
-                    Debug.LogWarning($"[SPJ] Failed to read save metadata from {file}: {e.Message}");
-                }
+                string slotId = System.IO.Path.GetFileNameWithoutExtension(fullPath);
+                var wrapper = _storage.Load<SaveFileWrapper>(RelativeSavePath(slotId));
+                if (wrapper?.Metadata != null)
+                    result.Add(wrapper.Metadata);
             }
 
             result.Sort((a, b) => b.LastSavedTimestamp.CompareTo(a.LastSavedTimestamp));
@@ -49,30 +37,23 @@ namespace Internal.Scripts.Save
 
         public bool HasAnySave()
         {
-            return Directory.Exists(_savesDir) && Directory.GetFiles(_savesDir, "*.json").Length > 0;
+            return _storage.ListFiles(SAVES_FOLDER).Count > 0;
+        }
+
+        public bool HasActiveRun()
+        {
+            return _storage.Exists(RelativeSavePath(RunSlotId));
+        }
+
+        public void DeleteRun()
+        {
+            Delete(RunSlotId);
         }
 
         public SaveData Load(string slotId)
         {
-            string path = GetSlotPath(slotId);
-
-            if (!File.Exists(path))
-                return null;
-
-            try
-            {
-                string json = File.ReadAllText(path);
-                if (string.IsNullOrWhiteSpace(json))
-                    return null;
-
-                var wrapper = JsonUtility.FromJson<SaveFileWrapper>(json);
-                return wrapper?.Data;
-            }
-            catch (Exception e)
-            {
-                Debug.LogWarning($"[SPJ] Failed to load save slot {slotId}: {e.Message}");
-                return null;
-            }
+            var wrapper = _storage.Load<SaveFileWrapper>(RelativeSavePath(slotId));
+            return wrapper?.Data;
         }
 
         public void Save(string slotId, SaveData data, SaveMetadata metadata)
@@ -80,69 +61,36 @@ namespace Internal.Scripts.Save
             if (data == null || string.IsNullOrEmpty(slotId))
                 return;
 
-            try
-            {
-                Directory.CreateDirectory(_savesDir);
-
-                var wrapper = new SaveFileWrapper
-                {
-                    Metadata = metadata,
-                    Data = data
-                };
-
-                string json = JsonUtility.ToJson(wrapper, true);
-                File.WriteAllText(GetSlotPath(slotId), json);
-            }
-            catch (Exception e)
-            {
-                Debug.LogWarning($"[SPJ] Failed to save slot {slotId}: {e.Message}");
-            }
+            var wrapper = new SaveFileWrapper { Metadata = metadata, Data = data };
+            _storage.Save(RelativeSavePath(slotId), wrapper);
         }
 
         public void Delete(string slotId)
         {
-            string path = GetSlotPath(slotId);
-            if (File.Exists(path))
-                File.Delete(path);
+            _storage.Delete(RelativeSavePath(slotId));
         }
 
-        private string GetSlotPath(string slotId)
-        {
-            return Path.Combine(_savesDir, slotId + ".json");
-        }
+        private static string RelativeSavePath(string slotId) => $"{SAVES_FOLDER}/{slotId}.json";
 
         private void MigrateLegacySave()
         {
-            string legacyPath = Path.Combine(Application.persistentDataPath, LEGACY_SAVE_FILE);
-            if (!File.Exists(legacyPath))
+            if (!_storage.Exists(LEGACY_SAVE_FILE))
                 return;
 
             try
             {
-                string json = File.ReadAllText(legacyPath);
-                if (string.IsNullOrWhiteSpace(json))
-                {
-                    File.Delete(legacyPath);
-                    return;
-                }
-
-                SaveData data = JsonUtility.FromJson<SaveData>(json);
+                var data = _storage.Load<SaveData>(LEGACY_SAVE_FILE);
                 if (data == null)
                 {
-                    if (json.Contains("\"PlayerInventory\""))
+                    var legacy = _storage.Load<EconomySaveData>(LEGACY_SAVE_FILE);
+                    if (legacy != null)
                     {
-                        EconomySaveData legacy = JsonUtility.FromJson<EconomySaveData>(json);
-                        if (legacy != null)
-                            legacy.IsInitialized = true;
-                        data = new SaveData
-                        {
-                            Economy = legacy,
-                            Player = new PlayerSaveData()
-                        };
+                        legacy.IsInitialized = true;
+                        data = new SaveData { Economy = legacy, Player = new PlayerSaveData() };
                     }
                     else
                     {
-                        File.Delete(legacyPath);
+                        _storage.Delete(LEGACY_SAVE_FILE);
                         return;
                     }
                 }
@@ -157,7 +105,7 @@ namespace Internal.Scripts.Save
                 };
 
                 Save(slotId, data, metadata);
-                File.Delete(legacyPath);
+                _storage.Delete(LEGACY_SAVE_FILE);
                 Debug.Log($"[SPJ] Migrated legacy save to slot {slotId}");
             }
             catch (Exception e)

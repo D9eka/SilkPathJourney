@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: QuestArtifactStart
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
   <Id>k__BackingField: quest_artifact_start
-  <Category>k__BackingField: 29
+  <Category>k__BackingField: 31
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Events
@@ -42,17 +42,170 @@ MonoBehaviour:
     m_WaitForCompletion: 0
     m_LocalVariables: []
   <Image>k__BackingField: {fileID: 0}
-  <Choices>k__BackingField: []
+  <Choices>k__BackingField:
+  - <Text>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Events
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: event.quest_artifact_start.choice1
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <ResultText>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Events
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: event.quest_artifact_start.choice1.result
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <Conditions>k__BackingField: []
+    <Outcomes>k__BackingField:
+    - <Type>k__BackingField: 10
+      <Param>k__BackingField: 
+      <Value>k__BackingField: 2
+  - <Text>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Events
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: event.quest_artifact_start.choice2
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <ResultText>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Events
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: event.quest_artifact_start.choice2.result
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <Conditions>k__BackingField: []
+    <Outcomes>k__BackingField:
+    - <Type>k__BackingField: 18
+      <Param>k__BackingField: quest_artifact_1
+      <Value>k__BackingField: 1
+    - <Type>k__BackingField: 4
+      <Param>k__BackingField: ancient_map
+      <Value>k__BackingField: 1
+    - <Type>k__BackingField: 19
+      <Param>k__BackingField: quest_artifact_1
+      <Value>k__BackingField: 1
+    - <Type>k__BackingField: 10
+      <Param>k__BackingField: 
+      <Value>k__BackingField: 5
+    - <Type>k__BackingField: 11
+      <Param>k__BackingField: 
+      <Value>k__BackingField: 3
+    - <Type>k__BackingField: 7
+      <Param>k__BackingField: Trade
+      <Value>k__BackingField: 2
+  - <Text>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Events
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: event.quest_artifact_start.choice3
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <ResultText>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Events
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: event.quest_artifact_start.choice3.result
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <Conditions>k__BackingField:
+    - <Type>k__BackingField: 10
+      <Param>k__BackingField: Translator
+      <ParamList>k__BackingField: []
+      <Value>k__BackingField: 1
+    <Outcomes>k__BackingField:
+    - <Type>k__BackingField: 18
+      <Param>k__BackingField: quest_artifact_1
+      <Value>k__BackingField: 1
+    - <Type>k__BackingField: 4
+      <Param>k__BackingField: ancient_map
+      <Value>k__BackingField: 1
+    - <Type>k__BackingField: 19
+      <Param>k__BackingField: quest_artifact_1
+      <Value>k__BackingField: 1
+    - <Type>k__BackingField: 10
+      <Param>k__BackingField: 
+      <Value>k__BackingField: 8
+    - <Type>k__BackingField: 11
+      <Param>k__BackingField: 
+      <Value>k__BackingField: 5
+    - <Type>k__BackingField: 7
+      <Param>k__BackingField: Trade
+      <Value>k__BackingField: 3
+    - <Type>k__BackingField: 9
+      <Param>k__BackingField: Persian
+      <Value>k__BackingField: 1
+  - <Text>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Events
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: event.quest_artifact_start.choice4
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <ResultText>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Events
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: event.quest_artifact_start.choice4.result
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <Conditions>k__BackingField: []
+    <Outcomes>k__BackingField: []
   <IsMinor>k__BackingField: 0
   <Biome>k__BackingField: 0
   <AutoOutcomes>k__BackingField: []
-  <SkillChecks>k__BackingField: []
+  <SkillChecks>k__BackingField:
+  - <ChoiceIndex>k__BackingField: 2
+    <SkillType>k__BackingField: 3
+    <BaseChance>k__BackingField: 0.5
+    <FailResultText>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Events
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: event.quest_artifact_start.choice2.fail
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <FailOutcomes>k__BackingField:
+    - <Type>k__BackingField: 18
+      <Param>k__BackingField: quest_artifact_1
+      <Value>k__BackingField: 1
+    - <Type>k__BackingField: 4
+      <Param>k__BackingField: ancient_map
+      <Value>k__BackingField: 1
+    - <Type>k__BackingField: 19
+      <Param>k__BackingField: quest_artifact_1
+      <Value>k__BackingField: 1
+    - <Type>k__BackingField: 10
+      <Param>k__BackingField: 
+      <Value>k__BackingField: -3
   <Conditions>k__BackingField:
   - <Type>k__BackingField: 23
     <Param>k__BackingField: quest_artifact_1
+    <ParamList>k__BackingField: []
     <Value>k__BackingField: 1
   - <Type>k__BackingField: 30
     <Param>k__BackingField: quest_artifact_1
+    <ParamList>k__BackingField: []
     <Value>k__BackingField: 1
   <Weight>k__BackingField: 0.4
   references:

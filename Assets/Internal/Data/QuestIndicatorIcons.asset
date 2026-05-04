@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 352a0ccca7ff43347a0d6974a2480e42, type: 3}
+  m_Name: QuestIndicatorIcons
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.WorldLabel.QuestIndicatorIcons
+  NewAvailable: {fileID: 21300000, guid: 46339337edcbc9a4b8deb1a56789fb0d, type: 3}
+  ActiveStage: {fileID: 0}
+  NewAvailableTitle:
+    m_TableReference:
+      m_TableCollectionName: GUID:43598c3e97d7d9a439a074f7627fe021
+    m_TableEntryReference:
+      m_KeyId: 29253922458689542
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  NewAvailableDescription:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  ActiveStageTitle:
+    m_TableReference:
+      m_TableCollectionName: GUID:43598c3e97d7d9a439a074f7627fe021
+    m_TableEntryReference:
+      m_KeyId: 29253922458689543
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  ActiveStageDescription:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []

@@ -1,10 +1,12 @@
 building_id,enum_name,name_key,description_key,interaction_screen,loc_ru,loc_en,desc_ru,desc_en
 shop,Shop,building.shop.name,building.shop.description,Trade,Лавка,Shop,Торговля товарами,Trade goods
-guild,Guild,building.guild.name,building.guild.description,None,Гильдия,Guild,"Торговые лицензии, задания гильдии","Trade licenses, guild quests"
+guild,Guild,building.guild.name,building.guild.description,Guild,Гильдия,Guild,"Торговые лицензии, задания гильдии","Trade licenses, guild quests"
 tavern,Tavern,building.tavern.name,building.tavern.description,Tavern,Таверна,Tavern,"Слухи о дорогах, события","Road rumors, events"
-temple,Temple,building.temple.name,building.temple.description,None,Храм,Temple,"Молитва, пожертвования","Prayer, donations"
+temple,Temple,building.temple.name,building.temple.description,Temple,Храм,Temple,"Молитва, пожертвования","Prayer, donations"
 workshop,Workshop,building.workshop.name,building.workshop.description,Workshop,Мастерская,Workshop,"Крафт товаров, улучшения телег","Craft goods, cart upgrades"
 warehouse,Warehouse,building.warehouse.name,building.warehouse.description,None,Склад,Warehouse,Хранение товаров,Goods storage
 language_school,LanguageSchool,building.language_school.name,building.language_school.description,LanguageSchool,Школа языков,Language School,Изучение языков региона,Learn regional languages
 caravansary,Caravansary,building.caravansary.name,building.caravansary.description,Caravansary,Караван-сарай,Caravansary,"Покупка телег, животных, улучшений","Buy carts, animals, upgrades"
-barracks,Barracks,building.barracks.name,building.barracks.description,None,Казармы,Barracks,"Военные улучшения, наём охраны","Military upgrades, hire guards"
+barracks,Barracks,building.barracks.name,building.barracks.description,Barracks,Казармы,Barracks,"Военные улучшения, наём охраны","Military upgrades, hire guards"
+healer,Healer,building.healer.name,building.healer.description,Healer,Лекарь,Healer,"Лечение спутников","Heal companions"
+archive,Archive,building.archive.name,building.archive.description,Archive,Архив,Archive,"Свитки, культуры, артефакты","Scrolls, cultures, artifacts"

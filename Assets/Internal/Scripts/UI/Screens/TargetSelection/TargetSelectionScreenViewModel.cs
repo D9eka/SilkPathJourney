@@ -7,6 +7,7 @@ using Internal.Scripts.UI.Screens.Core.Config;
 using Internal.Scripts.UI.Screens.Core.ViewModel;
 using Internal.Scripts.UI.Screens.TargetSelection.Search;
 using Internal.Scripts.UI.StackService;
+using Internal.Scripts.World.State;
 using UnityEngine;
 
 namespace Internal.Scripts.UI.Screens.TargetSelection
@@ -20,6 +21,7 @@ namespace Internal.Scripts.UI.Screens.TargetSelection
         private readonly TravelEstimator _travelEstimator;
         private readonly CitySearchPanelViewModel _searchPanel;
         private readonly CityCardBuilder _cardBuilder;
+        private readonly GameClock _gameClock;
 
         public event Action<CityData, TravelEstimate, CityRowData> PreviewChanged;
 
@@ -32,7 +34,8 @@ namespace Internal.Scripts.UI.Screens.TargetSelection
             CameraSceneSettings settings,
             TravelEstimator travelEstimator,
             CitySearchPanelViewModel searchPanel,
-            CityCardBuilder cardBuilder)
+            CityCardBuilder cardBuilder,
+            GameClock gameClock)
         {
             _playerStartMovement = playerStartMovement;
             _screenStackService = screenStackService;
@@ -41,12 +44,14 @@ namespace Internal.Scripts.UI.Screens.TargetSelection
             _travelEstimator = travelEstimator;
             _searchPanel = searchPanel;
             _cardBuilder = cardBuilder;
+            _gameClock = gameClock;
         }
 
         public override ScreenId Id => ScreenId.TargetSelection;
 
         protected override void OnOpen(object args)
         {
+            _gameClock.Pause();
             _playerStartMovement.OnSelectionStateChanged += HandleSelectionStateChanged;
             _playerStartMovement.OnCityPreview += HandleCityPreview;
             _playerStartMovement.BeginSelection();
@@ -67,6 +72,7 @@ namespace Internal.Scripts.UI.Screens.TargetSelection
             if (_playerStartMovement.IsChoosingTarget)
                 _playerStartMovement.CancelSelection();
             _cameraController.FollowPlayer();
+            _gameClock.Resume();
         }
 
         public void Cancel()

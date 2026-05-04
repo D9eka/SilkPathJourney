@@ -32,7 +32,7 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  <InteractionScreen>k__BackingField: 0
+  <InteractionScreen>k__BackingField: 31
   references:
     version: 2
     RefIds: []

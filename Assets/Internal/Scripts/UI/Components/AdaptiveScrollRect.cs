@@ -10,11 +10,14 @@ namespace Internal.Scripts.UI.Components
 
         private float _scrollbarWidth;
         private bool _scrollbarWidthCached;
+        private float _scrollbarHeight;
+        private bool _scrollbarHeightCached;
         private Coroutine _refreshCoroutine;
 
         protected override void OnEnable()
         {
             verticalScrollbarVisibility = ScrollbarVisibility.Permanent;
+            horizontalScrollbarVisibility = ScrollbarVisibility.Permanent;
             base.OnEnable();
         }
 
@@ -30,6 +33,20 @@ namespace Internal.Scripts.UI.Components
                 }
             }
             return _scrollbarWidth;
+        }
+
+        private float GetScrollbarHeight()
+        {
+            if (!_scrollbarHeightCached && horizontalScrollbar != null)
+            {
+                float h = ((RectTransform)horizontalScrollbar.transform).rect.height;
+                if (h > 0)
+                {
+                    _scrollbarHeight = h;
+                    _scrollbarHeightCached = true;
+                }
+            }
+            return _scrollbarHeight;
         }
 
         public void Refresh()
@@ -54,16 +71,42 @@ namespace Internal.Scripts.UI.Components
 
         private void UpdateScrollbarVisibility()
         {
-            if (content == null || viewport == null || verticalScrollbar == null) return;
+            if (content == null || viewport == null || 
+                (verticalScrollbar == null && horizontalScrollbar == null)) return;
 
-            bool needsScroll = content.rect.height > viewport.rect.height;
-            float expectedOffset = needsScroll ? -(GetScrollbarWidth() + _scrollbarPadding) : 0;
+            if (verticalScrollbar != null)
+            {
+                UpdateVerticalScrollbarVisibility();
+            }
 
-            if (verticalScrollbar.gameObject.activeSelf != needsScroll)
-                verticalScrollbar.gameObject.SetActive(needsScroll);
+            if (horizontalScrollbar != null)
+            {
+                UpdateHorizontalScrollbarVisibility();
+            }
+        }
 
-            if (!Mathf.Approximately(viewport.offsetMax.x, expectedOffset))
-                viewport.offsetMax = new Vector2(expectedOffset, viewport.offsetMax.y);
+        private void UpdateVerticalScrollbarVisibility()
+        {
+            bool needsVerticalScroll = content.rect.height > viewport.rect.height;
+            float expectedWidthOffset = needsVerticalScroll ? -(GetScrollbarWidth() + _scrollbarPadding) : 0;
+
+            if (verticalScrollbar.gameObject.activeSelf != needsVerticalScroll)
+                verticalScrollbar.gameObject.SetActive(needsVerticalScroll);
+
+            if (!Mathf.Approximately(viewport.offsetMax.x, expectedWidthOffset))
+                viewport.offsetMax = new Vector2(expectedWidthOffset, viewport.offsetMax.y);
+        }
+
+        private void UpdateHorizontalScrollbarVisibility()
+        {
+            bool needsHorizontalScroll = content.rect.width > viewport.rect.width;
+            float expectedBottomOffset = needsHorizontalScroll ? GetScrollbarHeight() + _scrollbarPadding : 0;
+
+            if (horizontalScrollbar.gameObject.activeSelf != needsHorizontalScroll)
+                horizontalScrollbar.gameObject.SetActive(needsHorizontalScroll);
+
+            if (!Mathf.Approximately(viewport.offsetMin.y, expectedBottomOffset))
+                viewport.offsetMin = new Vector2(viewport.offsetMin.x, expectedBottomOffset);
         }
     }
 }

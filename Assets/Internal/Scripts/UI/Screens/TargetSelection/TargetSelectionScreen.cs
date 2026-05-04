@@ -21,9 +21,8 @@ namespace Internal.Scripts.UI.Screens.TargetSelection
         [SerializeField] private GameObject _confirmContainer;
         [SerializeField] private TextMeshProUGUI _headerText;
         [SerializeField] private CityInfoView _confirmCityInfo;
-        [SerializeField] private TextMeshProUGUI _travelInfoTopText;
-        [SerializeField] private TextMeshProUGUI _travelInfoBottomText;
-        [SerializeField] private GameObject _travelInfoSection;
+        [SerializeField] private MarketCityInfoView _confirmMarketView;
+        [SerializeField] private TextMeshProUGUI _travelInfoText;
         [SerializeField] private Button _confirmButton;
         [SerializeField] private Button _cancelPreviewButton;
         [SerializeField] private TextMeshProUGUI _confirmButtonText;
@@ -40,10 +39,6 @@ namespace Internal.Scripts.UI.Screens.TargetSelection
         private LocalizationService.LocalizedTextHandle _headerHandle;
         private LocalizationService.LocalizedTextHandle _confirmButtonHandle;
         private LocalizationService.LocalizedTextHandle _cancelButtonHandle;
-        private LocalizationService.LocalizedTextHandle _travelDaysHandle;
-        private LocalizationService.LocalizedTextHandle _suppliesHandle;
-        private int _lastTravelDays;
-        private bool _lastSuppliesSufficient;
 
         public override void BindViewModel(IScreenViewModel viewModel)
         {
@@ -64,6 +59,8 @@ namespace Internal.Scripts.UI.Screens.TargetSelection
                 _confirmCityInfo.SetTooltipService(_viewModel.SearchPanel?.TooltipService);
                 _confirmCityInfo.SetLocalization(Localization);
             }
+            if (_confirmMarketView != null)
+                _confirmMarketView.SetLocalization(Localization);
 
             BindStaticTexts();
         }
@@ -79,6 +76,7 @@ namespace Internal.Scripts.UI.Screens.TargetSelection
             base.OnLocalizationReady();
             _searchPanel?.SetLocalization(Localization);
             _confirmCityInfo?.SetLocalization(Localization);
+            _confirmMarketView?.SetLocalization(Localization);
             BindStaticTexts();
         }
 
@@ -88,8 +86,8 @@ namespace Internal.Scripts.UI.Screens.TargetSelection
                 _confirmContainer.SetActive(false);
             if (_cancelButton != null)
                 _cancelButton.gameObject.SetActive(true);
-            if (_travelInfoSection != null)
-                _travelInfoSection.SetActive(false);
+            if (_travelInfoText != null)
+                _travelInfoText.gameObject.SetActive(false);
         }
 
         private void BindStaticTexts()
@@ -130,10 +128,11 @@ namespace Internal.Scripts.UI.Screens.TargetSelection
             if (_cancelButton != null)
                 _cancelButton.gameObject.SetActive(!inPreview);
 
-            if (inPreview && _confirmCityInfo != null)
+            if (inPreview)
             {
-                _confirmCityInfo.Apply(rowData.CityIcon, rowData.Name, rowData.CityTooltip,
+                _confirmCityInfo?.Apply(rowData.CityIcon, rowData.Name, rowData.CityTooltip,
                     rowData.BuildingEntries, rowData.QuestIndicatorText);
+                _confirmMarketView?.ApplyMarketProfile(rowData.Specialization);
             }
 
             ApplyTravelInfo(inPreview, estimate);
@@ -142,48 +141,18 @@ namespace Internal.Scripts.UI.Screens.TargetSelection
         private void ApplyTravelInfo(bool inPreview, TravelEstimate estimate)
         {
             bool show = inPreview && estimate.IsValid;
-            if (_travelInfoSection != null)
-                _travelInfoSection.SetActive(show);
-            if (!show)
-                return;
+            if (_travelInfoText != null)
+                _travelInfoText.gameObject.SetActive(show);
+            if (!show || _travelInfoText == null) return;
 
-            BindTravelDays(estimate.Days);
-            BindSupplies(estimate.SuppliesSufficient);
-        }
-
-        private void BindTravelDays(int days)
-        {
-            if (_travelInfoTopText == null || _travelDaysLocalizedString == null || Localization == null)
-                return;
-
-            if (_travelDaysHandle == null || _lastTravelDays != days)
-            {
-                _lastTravelDays = days;
-                _travelDaysHandle?.Dispose();
-                _travelDaysHandle = Localization.BindText(
-                    _travelInfoTopText, _travelDaysLocalizedString,
-                    "TargetSelection.TravelDays", fallback: null, postProcess: null, days);
-            }
-        }
-
-        private void BindSupplies(bool sufficient)
-        {
-            if (_travelInfoBottomText == null || Localization == null)
-                return;
-
-            LocalizedString target = sufficient
+            string days = LocalizationService.ResolveString(_travelDaysLocalizedString,
+                estimate.Days.ToString(), "TargetSelection.TravelDays", estimate.Days);
+            LocalizedString suppliesStr = estimate.SuppliesSufficient
                 ? _suppliesSufficientLocalizedString
                 : _suppliesInsufficientLocalizedString;
-            if (target == null) return;
-
-            if (_suppliesHandle == null || _lastSuppliesSufficient != sufficient)
-            {
-                _lastSuppliesSufficient = sufficient;
-                _suppliesHandle?.Dispose();
-                _suppliesHandle = Localization.BindText(
-                    _travelInfoBottomText, target,
-                    sufficient ? "TargetSelection.SuppliesSufficient" : "TargetSelection.SuppliesInsufficient");
-            }
+            string supplies = LocalizationService.ResolveString(suppliesStr, string.Empty,
+                estimate.SuppliesSufficient ? "TargetSelection.SuppliesSufficient" : "TargetSelection.SuppliesInsufficient");
+            _travelInfoText.text = $"{days}\n{supplies}";
         }
 
         protected override void OnDestroy()
@@ -199,10 +168,6 @@ namespace Internal.Scripts.UI.Screens.TargetSelection
                 _cancelPreviewButton.onClick.RemoveListener(OnCancelPreview);
 
             DisposeStaticHandles();
-            _travelDaysHandle?.Dispose();
-            _travelDaysHandle = null;
-            _suppliesHandle?.Dispose();
-            _suppliesHandle = null;
 
             base.OnDestroy();
         }

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Internal.Scripts.Economy.Generated;
 using UnityEngine;
 namespace Internal.Scripts.World.Roads
 {
@@ -11,6 +12,7 @@ namespace Internal.Scripts.World.Roads
         [field:SerializeField] public string RelativeTo { get; set; }
 
         [Header("Meta")]
+        [field: SerializeField] public CultureId Region { get; set; } = CultureId.None;
         [field: SerializeField] public int LaneCount { get; set; } = 2;
         [field:SerializeField] public float LaneWidth { get; set; } = 3.5f;
         [field:SerializeField] public float SpeedMul { get; set; } = 1f;

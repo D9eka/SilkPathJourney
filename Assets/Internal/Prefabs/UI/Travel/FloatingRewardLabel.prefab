@@ -170,15 +170,15 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
 --- !u!114 &2860235018758752427 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: -3252938706320881464, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3750854262641221176, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
   m_PrefabInstance: {fileID: 8460757245798350947}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5922118744611024720}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62393b25545a23841874d2021ed74fb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Components.IconLabelView
+  m_Script: {fileID: 11500000, guid: 0914381f2b422d7478e325f813b5f604, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Components.IconLabel
 --- !u!1 &5922118744611024720 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2829723450315599667, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}

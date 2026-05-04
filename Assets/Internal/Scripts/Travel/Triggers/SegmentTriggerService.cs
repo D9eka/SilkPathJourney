@@ -4,6 +4,7 @@ using Internal.Scripts.Config;
 using Internal.Scripts.Economy;
 using Internal.Scripts.Events;
 using Internal.Scripts.Player;
+using Internal.Scripts.Save;
 using Internal.Scripts.UI.Screens.Core.Config;
 using Internal.Scripts.UI.StackService;
 using UnityEngine;
@@ -11,7 +12,7 @@ using Zenject;
 
 namespace Internal.Scripts.Travel.Triggers
 {
-    public sealed class SegmentTriggerService : IFixedTickable
+    public sealed class SegmentTriggerService : IFixedTickable, IInitializable
     {
         private readonly IReadOnlyList<ISegmentTriggerAction> _actions;
         private readonly PlayerController _player;
@@ -20,6 +21,8 @@ namespace Internal.Scripts.Travel.Triggers
         private readonly DayTracker _dayTracker;
         private readonly ScreenStackService _screens;
         private readonly PlayerResourceRepository _resourceRepository;
+        private readonly SaveRepository _saveRepository;
+        private readonly DistanceTrackingService _distance;
 
         private Vector3? _lastPos;
         private float _accumulator;
@@ -32,7 +35,9 @@ namespace Internal.Scripts.Travel.Triggers
             CaravanSpeedService speed,
             DayTracker dayTracker,
             ScreenStackService screens,
-            PlayerResourceRepository resourceRepository)
+            PlayerResourceRepository resourceRepository,
+            SaveRepository saveRepository,
+            DistanceTrackingService distance)
         {
             _actions = actions;
             _player = player;
@@ -41,6 +46,13 @@ namespace Internal.Scripts.Travel.Triggers
             _dayTracker = dayTracker;
             _screens = screens;
             _resourceRepository = resourceRepository;
+            _saveRepository = saveRepository;
+            _distance = distance;
+        }
+
+        public void Initialize()
+        {
+            _distance.Add(_saveRepository.Data.RunStats.KilometersTravelled * _balance.WorldUnitsPerKm);
         }
 
         public void FixedTick()
@@ -53,7 +65,11 @@ namespace Internal.Scripts.Travel.Triggers
 
             Vector3 pos = _player.CurrentPosition;
             if (_lastPos.HasValue)
-                _accumulator += Vector3.Distance(_lastPos.Value, pos);
+            {
+                float deltaUnits = Vector3.Distance(_lastPos.Value, pos);
+                _accumulator += deltaUnits;
+                _distance.Add(deltaUnits);
+            }
             _lastPos = pos;
 
             float interval = CurrentInterval();

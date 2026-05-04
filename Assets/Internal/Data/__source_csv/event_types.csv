@@ -11,6 +11,8 @@ crisis,Crisis,event_type.crisis.name
 crisis_danger,CrisisDanger,event_type.crisis.name
 crisis_morale,CrisisMorale,event_type.crisis.name
 crisis_cart,CrisisCart,event_type.crisis.name
+crisis_famine,CrisisFamine,event_type.crisis.name
+crisis_money,CrisisMoney,event_type.crisis.name
 camp_forage,CampForage,event_type.camp.name
 camp_rest,CampRest,event_type.camp.name
 camp_repair,CampRepair,event_type.camp.name

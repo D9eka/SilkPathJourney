@@ -31,9 +31,9 @@ namespace Internal.Scripts.UI.Screens.TargetSelection.Search
         public void SetLocalization(LocalizationService localization)
         {
             _localization = localization;
+            BindSelectButton();
             if (_cityInfo != null)
                 _cityInfo.SetLocalization(localization);
-            BindSelectButton();
         }
 
         public void Initialize(CityRowData data, Action onSelectClicked)

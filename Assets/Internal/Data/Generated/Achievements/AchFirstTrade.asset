@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77531c51c54d1da48a72537fdb2a6d8d, type: 3}
+  m_Name: AchFirstTrade
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Game.Achievements.AchievementData
+  <Id>k__BackingField: ach_first_trade
+  <Name>k__BackingField:
+    m_TableReference:
+      m_TableCollectionName: Player
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: achievement.ach_first_trade.name
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  <Description>k__BackingField:
+    m_TableReference:
+      m_TableCollectionName: Player
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: achievement.ach_first_trade.description
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  <Trigger>k__BackingField: 2
+  <Value>k__BackingField: 100
+  <LegacyReward>k__BackingField: 20
+  <Icon>k__BackingField: {fileID: 0}
+  references:
+    version: 2
+    RefIds: []

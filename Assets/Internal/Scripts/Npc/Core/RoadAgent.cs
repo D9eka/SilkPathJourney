@@ -21,6 +21,7 @@ namespace Internal.Scripts.Npc.Core
 
         public string CurrentNodeId => _currentNodeId;
         public string DestinationNodeId => _destinationNodeId;
+        public string StationaryNodeId => HasPath ? null : _currentNodeId;
         public bool HasPath => !_cursor.IsEmpty;
         public RoadPose CurrentPose => _cursor.CurrentPose;
         public string CurrentFromNodeId => _cursor.CurrentFromNodeId;
@@ -57,11 +58,20 @@ namespace Internal.Scripts.Npc.Core
             if (string.IsNullOrWhiteSpace(destinationNodeId))
                 return;
 
+            if (HasPath)
+            {
+                if (_destinationNodeId == destinationNodeId)
+                    return;
+                _destinationNodeId = destinationNodeId;
+                _cursor.UpdateDestination(destinationNodeId);
+                return;
+            }
+
             if (_currentNodeId == destinationNodeId)
                 return;
 
             _destinationNodeId = destinationNodeId;
-            _cursor.SetDestination(_currentNodeId, _destinationNodeId, 
+            _cursor.SetDestination(_currentNodeId, _destinationNodeId,
                 _config.Lane, _config.LateralOffsetMeters);
         }
 
@@ -72,6 +82,20 @@ namespace Internal.Scripts.Npc.Core
 
             _destinationNodeId = null;
             _cursor.CancelPath();
+        }
+
+        public void TeleportTo(string nodeId)
+        {
+            if (string.IsNullOrWhiteSpace(nodeId) || nodeId == _currentNodeId)
+                return;
+
+            _destinationNodeId = null;
+            _cursor.Dispose();
+            _currentNodeId = nodeId;
+            _cursor.Initialize(nodeId);
+            RoadPose pose = _cursor.CurrentPose;
+            _view.SetPose(pose.Position, pose.Forward);
+            OnArrived?.Invoke(this);
         }
 
         public void AdvanceByDays(float days)

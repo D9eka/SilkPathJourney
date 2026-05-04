@@ -21,3 +21,5 @@ advance_quest,AdvanceQuest
 complete_quest,CompleteQuest
 fail_quest,FailQuest
 set_quest_flag,SetQuestFlag
+end_run,EndRun
+mark_pending_ending,MarkPendingEnding

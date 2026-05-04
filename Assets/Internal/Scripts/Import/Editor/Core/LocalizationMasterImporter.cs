@@ -26,10 +26,11 @@ namespace Internal.Scripts.Import.Editor.Core
                 "companion.", "companion_type.", "companion_quality.", "companion_bonus.",
                 "caravan_upgrade.", "draft_animal."
             }, true),
+            ("Player", new[] { "background.", "achievement.", "unlock." }, true),
         };
 
-        [MenuItem("SPJ/Import/Localization")]
-        public static void ImportAll()
+        [MenuItem("SPJ/Import/Localization/Import")]
+        public static void Import()
         {
             if (IsCompiling()) return;
 

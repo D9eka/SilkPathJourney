@@ -41,6 +41,7 @@ namespace Internal.Scripts.UI.Screens.Workshop
 
         private WorkshopScreenViewModel _viewModel;
         private IDisposable _stateSubscription;
+        private IDisposable _questSlotSubscription;
         private LocalizationService.LocalizedTextHandle _mainCartHeaderHandle;
         private LocalizationService.LocalizedTextHandle _extraCartsHeaderHandle;
         private readonly List<ExtraCartCardView> _spawnedExtraCarts = new();
@@ -84,7 +85,6 @@ namespace Internal.Scripts.UI.Screens.Workshop
         public override void BindViewModel(IScreenViewModel viewModel)
         {
             _viewModel = viewModel as WorkshopScreenViewModel;
-            _questCardView?.Hide();
             SetupIcons();
             SubscribeViewModel();
         }
@@ -104,15 +104,21 @@ namespace Internal.Scripts.UI.Screens.Workshop
                 return;
 
             _stateSubscription = _viewModel.State.Subscribe(ApplyState);
+            _questSlotSubscription = _viewModel.QuestSlot.Subscribe(state =>
+            {
+                if (state.HasValue)
+                    _questCardView.Initialize(state.Value.Description, () => _viewModel.OnQuestSlotTalk());
+                else
+                    _questCardView.Hide();
+            });
         }
 
         private void UnsubscribeViewModel()
         {
-            if (_viewModel == null)
-                return;
-
             _stateSubscription?.Dispose();
             _stateSubscription = null;
+            _questSlotSubscription?.Dispose();
+            _questSlotSubscription = null;
         }
 
         private void ApplyState(WorkshopViewState state)
@@ -130,13 +136,6 @@ namespace Internal.Scripts.UI.Screens.Workshop
             RebuildExtraCarts(state.AvailableExtraCarts);
             RebuildUpgrades(state.Upgrades);
 
-            if (_questCardView != null)
-            {
-                if (state.HasQuest)
-                    _questCardView.Initialize(state.QuestDescription, () => _viewModel?.TalkToQuestGiver(state.QuestEventId));
-                else
-                    _questCardView.Hide();
-            }
         }
 
         private void ApplyMainCart(MainCartViewData data)

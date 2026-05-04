@@ -12,15 +12,18 @@ namespace Internal.Scripts.UI.Screens.TargetSelection.Search
         public readonly int ResultsCount;
         public readonly bool ShowResults;
         public readonly bool ShowEmpty;
-        public readonly BuildingId? ActiveFilter;
+        public readonly IReadOnlyCollection<BuildingId> ActiveFilters;
+        public readonly bool QuestFilterActive;
 
         public CitySearchViewState(
             IReadOnlyList<CityRowData> results,
-            BuildingId? activeFilter)
+            IReadOnlyCollection<BuildingId> activeFilters,
+            bool questFilterActive = false)
         {
             Results = results;
             ResultsCount = results?.Count ?? 0;
-            ActiveFilter = activeFilter;
+            ActiveFilters = activeFilters;
+            QuestFilterActive = questFilterActive;
             ShowResults = results != null && results.Count > 0;
             ShowEmpty = results != null && results.Count == 0;
         }
@@ -35,6 +38,8 @@ namespace Internal.Scripts.UI.Screens.TargetSelection.Search
         public readonly ITooltipDataProvider CityTooltip;
         public readonly IReadOnlyList<IconLabelEntry> BuildingEntries;
         public readonly string QuestIndicatorText;
+        public readonly CitySpecializationVm Specialization;
+        public bool HasQuestActivity => !string.IsNullOrEmpty(QuestIndicatorText);
 
         public CityRowData(
             string cityId,
@@ -43,7 +48,8 @@ namespace Internal.Scripts.UI.Screens.TargetSelection.Search
             Sprite cityIcon,
             IReadOnlyList<IconLabelEntry> buildingEntries,
             ITooltipDataProvider cityTooltip = null,
-            string questIndicatorText = null)
+            string questIndicatorText = null,
+            CitySpecializationVm specialization = null)
         {
             CityId = cityId;
             NodeId = nodeId;
@@ -52,6 +58,7 @@ namespace Internal.Scripts.UI.Screens.TargetSelection.Search
             CityTooltip = cityTooltip;
             BuildingEntries = buildingEntries;
             QuestIndicatorText = questIndicatorText;
+            Specialization = specialization;
         }
     }
 }

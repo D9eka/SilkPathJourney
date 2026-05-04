@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Internal.Scripts.Economy.Cities;
 using Internal.Scripts.Events.Data;
@@ -17,7 +16,7 @@ namespace Internal.Scripts.Events
 {
     public class EventTrigger
     {
-        private readonly EventSelector _eventSelector;
+        private readonly RecentEventHistory _history;
         private readonly ScreenStackService _screenStackService;
         private readonly SaveRepository _saveRepository;
         private readonly GameClock _gameClock;
@@ -26,9 +25,10 @@ namespace Internal.Scripts.Events
         private readonly PlayerController _playerController;
         private readonly ICityNodeResolver _cityNodeResolver;
         private readonly EventToastController _toastController;
+        private readonly EventCloseSignal _closeSignal;
 
         public EventTrigger(
-            EventSelector eventSelector,
+            RecentEventHistory history,
             ScreenStackService screenStackService,
             SaveRepository saveRepository,
             GameClock gameClock,
@@ -36,9 +36,10 @@ namespace Internal.Scripts.Events
             IRoadNodeLookup nodeLookup,
             PlayerController playerController,
             ICityNodeResolver cityNodeResolver,
-            EventToastController toastController)
+            EventToastController toastController,
+            EventCloseSignal closeSignal)
         {
-            _eventSelector = eventSelector;
+            _history = history;
             _screenStackService = screenStackService;
             _saveRepository = saveRepository;
             _gameClock = gameClock;
@@ -47,7 +48,10 @@ namespace Internal.Scripts.Events
             _playerController = playerController;
             _cityNodeResolver = cityNodeResolver;
             _toastController = toastController;
+            _closeSignal = closeSignal;
         }
+
+        private EventData _currentEvent;
 
         public bool TriggerEvent(EventData eventData)
         {
@@ -64,8 +68,9 @@ namespace Internal.Scripts.Events
                 return false;
             }
 
+            _currentEvent = eventData;
             _gameClock.Pause();
-            _eventSelector.RegisterRecentEvent(eventData.Id);
+            _history.Register(eventData.Id);
             return true;
         }
 
@@ -91,14 +96,11 @@ namespace Internal.Scripts.Events
         public bool CanAffordOutcomes(List<EventOutcomeEntry> outcomes) =>
             _outcomeApplier.CanAffordAll(outcomes);
 
-        public int LastChoiceIndex { get; set; } = -1;
-
-        public event Action OnEventClosed;
-
         public void OnEventCompleted()
         {
             _gameClock.Resume();
-            OnEventClosed?.Invoke();
+            _closeSignal.RaiseClosed(_currentEvent);
+            _currentEvent = null;
         }
 
         public void ApplyOutcome(List<EventOutcomeEntry> outcomes)

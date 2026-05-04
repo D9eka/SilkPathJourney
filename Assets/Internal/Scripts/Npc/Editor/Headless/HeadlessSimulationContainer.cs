@@ -14,6 +14,7 @@ using Internal.Scripts.Items;
 using Internal.Scripts.Npc.Behavior;
 using Internal.Scripts.Npc.Behavior.Actions;
 using Internal.Scripts.Npc.Behavior.Phases;
+using Internal.Scripts.Meta;
 using Internal.Scripts.Npc.Lifecycle;
 using Internal.Scripts.Npc.Routing;
 using Internal.Scripts.Npc.Trading;
@@ -91,7 +92,7 @@ namespace Internal.Scripts.Npc.Editor.Headless
             var weightCalc = new ItemWeightCalculator(itemCatalog);
 
             var headlessPlayerConfig = ScriptableObject.CreateInstance<PlayerConfig>();
-            var economySaveBuilder = new EconomySaveBuilder(economyDb, headlessPlayerConfig, caravanDb, econSimSettings, guildSettings);
+            var economySaveBuilder = new EconomySaveBuilder(economyDb, headlessPlayerConfig, caravanDb, econSimSettings, guildSettings, new PersistentProgressService(new JsonFileStorage()));
             saveRepo.Data.Economy = economySaveBuilder.Build();
 
             var inventoryRepo = new InventoryRepository(saveRepo);

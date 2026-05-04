@@ -21,6 +21,7 @@ namespace Internal.Scripts.World.State
 
         public void SetSelectedSpeed(TimeSpeed speed)
         {
+            if (_pauseStack > 0) return;
             SelectedSpeed.Value = speed;
             ApplyTimeScale();
         }

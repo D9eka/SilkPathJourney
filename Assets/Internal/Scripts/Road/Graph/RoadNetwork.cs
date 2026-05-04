@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using Internal.Scripts.Economy.Generated;
+using Internal.Scripts.Meta;
 using Internal.Scripts.Road.Core;
 using Internal.Scripts.Road.Nodes;
 using Internal.Scripts.Road.Path;
@@ -16,6 +18,7 @@ namespace Internal.Scripts.Road.Graph
         private readonly IRoadNodeLookup _nodeLookup;
         private readonly RoadSamplerCache _samplerCache;
         private readonly RoadUnlockService _unlockService;
+        private readonly PersistentProgressService _persistent;
 
         private readonly HashSet<string> _nodes = new();
         private readonly Dictionary<string, List<RoadGraphEdge>> _edges = new();
@@ -25,12 +28,13 @@ namespace Internal.Scripts.Road.Graph
         public IReadOnlyDictionary<RoadSegmentId, RoadSegmentData> Segments => _segments;
         public IEnumerable<string> Nodes => _nodes;
 
-        public RoadNetwork(RoadRuntime[] roadRuntimes, IRoadNodeLookup nodeLookup, RoadSamplerCache samplerCache, RoadUnlockService unlockService)
+        public RoadNetwork(RoadRuntime[] roadRuntimes, IRoadNodeLookup nodeLookup, RoadSamplerCache samplerCache, RoadUnlockService unlockService, PersistentProgressService persistent)
         {
             _roadRuntimes = roadRuntimes ?? Array.Empty<RoadRuntime>();
             _nodeLookup = nodeLookup;
             _samplerCache = samplerCache;
             _unlockService = unlockService;
+            _persistent = persistent;
         }
 
         public void Initialize()
@@ -39,6 +43,8 @@ namespace Internal.Scripts.Road.Graph
             _edges.Clear();
             _segments.Clear();
             _runtimeByRoadId.Clear();
+
+            HashSet<CultureId> unlockedRegions = BuildLegacyUnlockedRegions();
 
             foreach (RoadRuntime runtime in _roadRuntimes)
             {
@@ -58,8 +64,15 @@ namespace Internal.Scripts.Road.Graph
 
                 if (data.IsHidden && !_unlockService.IsUnlocked(data.RoadId))
                 {
-                    runtime.gameObject.SetActive(false);
-                    continue;
+                    if (data.Region != CultureId.None && unlockedRegions.Contains(data.Region))
+                    {
+                        _unlockService.UnlockRoad(data.RoadId);
+                    }
+                    else
+                    {
+                        runtime.gameObject.SetActive(false);
+                        continue;
+                    }
                 }
 
                 if (!_nodeLookup.Contains(data.StartNodeId) || !_nodeLookup.Contains(data.EndNodeId))
@@ -159,6 +172,20 @@ namespace Internal.Scripts.Road.Graph
                 }
             }
             return false;
+        }
+
+        private HashSet<CultureId> BuildLegacyUnlockedRegions()
+        {
+            var result = new HashSet<CultureId>();
+            const string Prefix = "unlock_route_";
+            foreach (string id in _persistent.UnlockedIds)
+            {
+                if (!id.StartsWith(Prefix, System.StringComparison.Ordinal)) continue;
+                string clean = id.Substring(Prefix.Length).Replace("_", "");
+                if (System.Enum.TryParse(clean, ignoreCase: true, out CultureId region) && region != CultureId.None)
+                    result.Add(region);
+            }
+            return result;
         }
 
         private void AddEdge(string from, string to, RoadSegmentId id, RoadRuntime runtime, RoadData data, float length, float speedMul, float cost)

@@ -215,7 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e20cae7b36fb94e448e09aa3757c7f03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Screens.CityEntryConfirm.CityEntryResultView
-  _dutyPaidView: {fileID: 4155677854082147399}
+  _dutyPaidView: {fileID: 6880767485861917367}
   _resultOutcomeText: {fileID: 4705171188045117439}
   _consequencesText: {fileID: 399766263694247405}
   _continueButton: {fileID: 7729119146976882243}
@@ -832,8 +832,8 @@ MonoBehaviour:
     m_WaitForCompletion: 0
     m_LocalVariables: []
   _modifiersContent: {fileID: 7342494566809444749}
-  _iconLabelPrefab: {fileID: 5991343299907203831, guid: 329fc54ed49f66c47a544a517c018bf5, type: 3}
-  _dutyCountView: {fileID: 3806807040247937883}
+  _iconLabelPrefab: {fileID: 3750854262641221176, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+  _dutyCountView: {fileID: 5909555842276027819}
   _dutyDiscountText: {fileID: 8376837845705480160}
   _hiddenItemsText: {fileID: 6848057444284215787}
   _detectionPercentText: {fileID: 7433393275321215268}
@@ -2005,10 +2005,66 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1030062754330446488}
     m_Modifications:
+    - target: {fileID: 207109107926658373, guid: bb35f4e949138ad4486d27969de31797, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 207109107926658373, guid: bb35f4e949138ad4486d27969de31797, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 207109107926658373, guid: bb35f4e949138ad4486d27969de31797, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 207109107926658373, guid: bb35f4e949138ad4486d27969de31797, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 207109107926658373, guid: bb35f4e949138ad4486d27969de31797, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 207109107926658373, guid: bb35f4e949138ad4486d27969de31797, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1709544718004931092, guid: bb35f4e949138ad4486d27969de31797, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1709544718004931092, guid: bb35f4e949138ad4486d27969de31797, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1709544718004931092, guid: bb35f4e949138ad4486d27969de31797, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1709544718004931092, guid: bb35f4e949138ad4486d27969de31797, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1709544718004931092, guid: bb35f4e949138ad4486d27969de31797, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1709544718004931092, guid: bb35f4e949138ad4486d27969de31797, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1948565326443644296, guid: bb35f4e949138ad4486d27969de31797, type: 3}
+      propertyPath: _cityNameView
+      value: 
+      objectReference: {fileID: 3561441347228591528}
     - target: {fileID: 1948565326443644296, guid: bb35f4e949138ad4486d27969de31797, type: 3}
       propertyPath: _iconLabelPrefab
       value: 
-      objectReference: {fileID: -3252938706320881464, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+      objectReference: {fileID: 3750854262641221176, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+    - target: {fileID: 1948565326443644296, guid: bb35f4e949138ad4486d27969de31797, type: 3}
+      propertyPath: _questIndicatorView
+      value: 
+      objectReference: {fileID: 2597030482664342265}
     - target: {fileID: 3080914791319985484, guid: bb35f4e949138ad4486d27969de31797, type: 3}
       propertyPath: m_fontSize
       value: 32
@@ -2329,6 +2385,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5212ecbc69a16bd40a70be4eeec8eb45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Screens.TargetSelection.Search.CityInfoView
+--- !u!114 &2597030482664342265 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3466822475188815951, guid: bb35f4e949138ad4486d27969de31797, type: 3}
+  m_PrefabInstance: {fileID: 1447381552763341494}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0914381f2b422d7478e325f813b5f604, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Components.IconLabel
+--- !u!114 &3561441347228591528 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2700728022215651102, guid: bb35f4e949138ad4486d27969de31797, type: 3}
+  m_PrefabInstance: {fileID: 1447381552763341494}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0914381f2b422d7478e325f813b5f604, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Components.IconLabel
 --- !u!224 &7065565114892850070 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8510624430026463520, guid: bb35f4e949138ad4486d27969de31797, type: 3}
@@ -2471,6 +2549,30 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5982333265983251573, guid: 10b3bbe4edf11ad4a9927b259aaad62a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8836845747630854764, guid: 10b3bbe4edf11ad4a9927b259aaad62a, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8836845747630854764, guid: 10b3bbe4edf11ad4a9927b259aaad62a, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8836845747630854764, guid: 10b3bbe4edf11ad4a9927b259aaad62a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8836845747630854764, guid: 10b3bbe4edf11ad4a9927b259aaad62a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8836845747630854764, guid: 10b3bbe4edf11ad4a9927b259aaad62a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8836845747630854764, guid: 10b3bbe4edf11ad4a9927b259aaad62a, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
@@ -3212,6 +3314,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4756972749975386499}
     m_Modifications:
+    - target: {fileID: 490569216977697586, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 490569216977697586, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 490569216977697586, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 490569216977697586, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 490569216977697586, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 490569216977697586, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2829723450315599667, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
       propertyPath: m_Name
       value: DutyCount
@@ -3353,22 +3479,22 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
---- !u!114 &3806807040247937883 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: -3252938706320881464, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
-  m_PrefabInstance: {fileID: 7354171132461659027}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62393b25545a23841874d2021ed74fb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Components.IconLabelView
 --- !u!224 &4572267732893048944 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6448229880392651747, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
   m_PrefabInstance: {fileID: 7354171132461659027}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5909555842276027819 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3750854262641221176, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+  m_PrefabInstance: {fileID: 7354171132461659027}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0914381f2b422d7478e325f813b5f604, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Components.IconLabel
 --- !u!1001 &7741920334750035087
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3377,6 +3503,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8577186839235813998}
     m_Modifications:
+    - target: {fileID: 490569216977697586, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 490569216977697586, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 490569216977697586, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 490569216977697586, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 490569216977697586, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 490569216977697586, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2829723450315599667, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
       propertyPath: m_Name
       value: DutyPaid
@@ -3523,14 +3673,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6448229880392651747, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
   m_PrefabInstance: {fileID: 7741920334750035087}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4155677854082147399 stripped
+--- !u!114 &6880767485861917367 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: -3252938706320881464, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3750854262641221176, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
   m_PrefabInstance: {fileID: 7741920334750035087}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62393b25545a23841874d2021ed74fb8, type: 3}
+  m_Script: {fileID: 11500000, guid: 0914381f2b422d7478e325f813b5f604, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Components.IconLabelView
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Components.IconLabel

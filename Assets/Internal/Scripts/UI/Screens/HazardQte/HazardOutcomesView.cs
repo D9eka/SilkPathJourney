@@ -11,10 +11,10 @@ namespace Internal.Scripts.UI.Screens.HazardQte
     public sealed class HazardOutcomesView
     {
         private readonly Transform _container;
-        private readonly IconLabelView _prefab;
-        private readonly List<IconLabelView> _spawned = new();
+        private readonly IconLabel _prefab;
+        private readonly List<IconLabel> _spawned = new();
 
-        public HazardOutcomesView(Transform container, IconLabelView prefab)
+        public HazardOutcomesView(Transform container, IconLabel prefab)
         {
             _container = container;
             _prefab = prefab;

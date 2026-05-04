@@ -34,6 +34,7 @@ namespace Internal.Scripts.UI.StackService
         public ScreenId TopId => _stack.Count > 0 ? _stack[^1].Id : ScreenId.None;
 
         public event Action<ScreenId> OnScreenClosed;
+        public event Action<ScreenId> OnScreenOpened;
 
         public ScreenStackService(UIScreenRoots roots, ScreenCatalog catalog,
             IScreenViewModelFactory viewModelFactory, LocalizationService localizationService,
@@ -64,6 +65,11 @@ namespace Internal.Scripts.UI.StackService
             return _stack.Exists(instance => instance.Id == id);
         }
 
+        public T GetViewModel<T>(ScreenId id) where T : ScreenViewModelBase
+        {
+            return _instances.TryGetValue(id, out ScreenInstance inst) ? inst.ViewModel as T : null;
+        }
+
         public bool TryOpen(ScreenId id, object args, out ScreenOpenResult result)
         {
             if (!ValidateOpenRequest(id, out ScreenConfig config, out result))
@@ -89,6 +95,7 @@ namespace Internal.Scripts.UI.StackService
             UpdateSortingOrders();
             UpdateOverlays();
             _cameraMover?.ResetMovement();
+            OnScreenOpened?.Invoke(id);
 
             result = ScreenOpenResult.Success;
             return true;

@@ -32,7 +32,7 @@ MonoBehaviour:
     m_WaitForCompletion: 0
     m_LocalVariables: []
   <Icon>k__BackingField: {fileID: 0}
-  <StartCityId>k__BackingField: 
+  <StartCityId>k__BackingField: samarkand
   <Branch>k__BackingField: 5
   <OrderInBranch>k__BackingField: 1
   <BranchName>k__BackingField:
@@ -64,7 +64,16 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    <TriggerEventId>k__BackingField: event_artifact1_accept
+    <Narrative>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Quests
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: quest.quest_artifact_1.narrative.stage_accept
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <TriggerEventIds>k__BackingField: []
     <AutoCompleteCondition>k__BackingField:
       <Type>k__BackingField: 0
       <Param>k__BackingField: 
@@ -79,7 +88,17 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    <TriggerEventId>k__BackingField: event_artifact1_decipher
+    <Narrative>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Quests
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: quest.quest_artifact_1.narrative.stage_decipher
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <TriggerEventIds>k__BackingField:
+    - event_artifact1_decipher
     <AutoCompleteCondition>k__BackingField:
       <Type>k__BackingField: 0
       <Param>k__BackingField: 
@@ -94,7 +113,17 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    <TriggerEventId>k__BackingField: event_artifact1_complete
+    <Narrative>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <TriggerEventIds>k__BackingField:
+    - event_artifact1_complete
     <AutoCompleteCondition>k__BackingField:
       <Type>k__BackingField: 0
       <Param>k__BackingField: 
@@ -111,6 +140,8 @@ MonoBehaviour:
     <Param>k__BackingField: 
     <Value>k__BackingField: 30
   <FailConsequences>k__BackingField: []
+  <GiverBuilding>k__BackingField: 11
+  <BriefingEventId>k__BackingField: quest_artifact_start
   references:
     version: 2
     RefIds: []

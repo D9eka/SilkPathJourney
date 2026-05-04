@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: NavHighlandPass
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
   <Id>k__BackingField: nav_highland_pass
-  <Category>k__BackingField: 23
+  <Category>k__BackingField: 25
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Events
@@ -128,6 +128,7 @@ MonoBehaviour:
     <Conditions>k__BackingField:
     - <Type>k__BackingField: 10
       <Param>k__BackingField: Guide
+      <ParamList>k__BackingField: []
       <Value>k__BackingField: 1
     <Outcomes>k__BackingField:
     - <Type>k__BackingField: 3

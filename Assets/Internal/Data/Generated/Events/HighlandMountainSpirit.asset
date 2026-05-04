@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HighlandMountainSpirit
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
   <Id>k__BackingField: highland_mountain_spirit
-  <Category>k__BackingField: 20
+  <Category>k__BackingField: 22
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Events
@@ -64,6 +64,7 @@ MonoBehaviour:
     <Conditions>k__BackingField:
     - <Type>k__BackingField: 5
       <Param>k__BackingField: 
+      <ParamList>k__BackingField: []
       <Value>k__BackingField: 5
     <Outcomes>k__BackingField:
     - <Type>k__BackingField: 2
@@ -119,6 +120,7 @@ MonoBehaviour:
     <Conditions>k__BackingField:
     - <Type>k__BackingField: 13
       <Param>k__BackingField: Tibetan
+      <ParamList>k__BackingField: []
       <Value>k__BackingField: 2
     <Outcomes>k__BackingField:
     - <Type>k__BackingField: 10

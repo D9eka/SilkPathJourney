@@ -10,6 +10,7 @@ using Internal.Scripts.Events.Generated;
 using Internal.Scripts.Events.Outcomes;
 using Internal.Scripts.Inventory;
 using Internal.Scripts.Items;
+using Internal.Scripts.Meta;
 using Internal.Scripts.Player.Languages;
 using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Localization.Args;
@@ -58,6 +59,7 @@ namespace Internal.Scripts.UI.Screens.Event
         private const float ConfirmResultDelay = 0.15f;
 
         private readonly EventTrigger _eventTrigger;
+        private readonly EventCloseSignal _closeSignal;
         private readonly ScreenStackService _screenStackService;
         private readonly UiThemeService _themeService;
         private readonly ResourceIconCatalog _resourceIcons;
@@ -70,6 +72,8 @@ namespace Internal.Scripts.UI.Screens.Event
         private readonly PlayerLanguageRepository _languageRepo;
         private readonly TooltipService _tooltipService;
         private readonly IEventOutcomeScaler _outcomeScaler;
+        private readonly RunEndOutcomeApplier _runEndApplier;
+        private readonly RunStatsService _runStats;
         private List<EventOutcomeEntry> _lastAppliedOutcomes;
         public List<EventOutcomeEntry> LastAppliedOutcomes => _lastAppliedOutcomes;
         private Tween _closeTween;
@@ -85,6 +89,7 @@ namespace Internal.Scripts.UI.Screens.Event
 
         public EventScreenViewModel(
             EventTrigger eventTrigger,
+            EventCloseSignal closeSignal,
             ScreenStackService screenStackService,
             UiThemeService themeService,
             ResourceIconCatalog resourceIcons,
@@ -96,9 +101,12 @@ namespace Internal.Scripts.UI.Screens.Event
             EventOutcomeFormatter formatter,
             PlayerLanguageRepository languageRepo,
             TooltipService tooltipService,
-            IEventOutcomeScaler outcomeScaler)
+            IEventOutcomeScaler outcomeScaler,
+            RunEndOutcomeApplier runEndApplier,
+            RunStatsService runStats)
         {
             _eventTrigger = eventTrigger;
+            _closeSignal = closeSignal;
             _screenStackService = screenStackService;
             _themeService = themeService;
             _resourceIcons = resourceIcons;
@@ -111,6 +119,8 @@ namespace Internal.Scripts.UI.Screens.Event
             _languageRepo = languageRepo;
             _tooltipService = tooltipService;
             _outcomeScaler = outcomeScaler;
+            _runEndApplier = runEndApplier;
+            _runStats = runStats;
         }
 
         public override ScreenId Id => ScreenId.Event;
@@ -253,7 +263,7 @@ namespace Internal.Scripts.UI.Screens.Event
 
             EventChoice choice = allChoices[choiceIndex];
             int originalIndex = GetOriginalChoiceIndex(choice);
-            _eventTrigger.LastChoiceIndex = choiceIndex;
+            _closeSignal.LastChoiceIndex = choiceIndex;
 
             SkillCheckData? skillCheck = _state.Value?.GetSkillCheck(originalIndex);
             if (skillCheck.HasValue)
@@ -272,6 +282,7 @@ namespace Internal.Scripts.UI.Screens.Event
 
             _lastAppliedOutcomes = ScaleOutcomes(_lastAppliedOutcomes, _state.Value);
             _eventTrigger.ApplyOutcome(_lastAppliedOutcomes);
+            _runStats.RecordEventResolved(LastSkillCheckSucceeded);
             _selectedChoice.Value = choice;
         }
 
@@ -331,8 +342,11 @@ namespace Internal.Scripts.UI.Screens.Event
         {
             _selectedChoice.Value = null;
             _closeTween?.Kill();
-            _closeTween = DOVirtual.DelayedCall(ConfirmResultDelay,
-                () => _screenStackService.Close(ScreenId.Event), ignoreTimeScale: true);
+            _closeTween = DOVirtual.DelayedCall(ConfirmResultDelay, () =>
+            {
+                _screenStackService.Close(ScreenId.Event);
+                _runEndApplier.TryFlushPending();
+            }, ignoreTimeScale: true);
         }
     }
 }

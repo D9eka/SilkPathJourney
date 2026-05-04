@@ -204,7 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5212ecbc69a16bd40a70be4eeec8eb45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Screens.TargetSelection.Search.CityInfoView
-  _cityNameView: {fileID: 4876381059253942766}
+  _cityNameView: {fileID: 2700728022215651102}
   _buildingsHeaderText: {fileID: 3080914791319985484}
   _buildingsHeaderLocalized:
     m_TableReference:
@@ -216,8 +216,8 @@ MonoBehaviour:
     m_WaitForCompletion: 0
     m_LocalVariables: []
   _buildingsContent: {fileID: 6656840738719817248}
-  _iconLabelPrefab: {fileID: 5991343299907203831, guid: 329fc54ed49f66c47a544a517c018bf5, type: 3}
-  _questIndicatorView: {fileID: 6253859150445747903}
+  _iconLabelPrefab: {fileID: 3887465832040621063, guid: 329fc54ed49f66c47a544a517c018bf5, type: 3}
+  _questIndicatorView: {fileID: 3466822475188815951}
   references:
     version: 2
     RefIds: []
@@ -334,6 +334,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8510624430026463520}
     m_Modifications:
+    - target: {fileID: 490569216977697586, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 490569216977697586, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 490569216977697586, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 490569216977697586, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 490569216977697586, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 490569216977697586, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2829723450315599667, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
       propertyPath: m_Name
       value: HaveQuest
@@ -479,17 +503,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
---- !u!114 &6253859150445747903 stripped
+--- !u!114 &3466822475188815951 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: -3252938706320881464, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3750854262641221176, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
   m_PrefabInstance: {fileID: 293040432097859191}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62393b25545a23841874d2021ed74fb8, type: 3}
+  m_Script: {fileID: 11500000, guid: 0914381f2b422d7478e325f813b5f604, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Components.IconLabelView
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Components.IconLabel
 --- !u!224 &6732213288124810644 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6448229880392651747, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
@@ -503,6 +527,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8510624430026463520}
     m_Modifications:
+    - target: {fileID: 490569216977697586, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 490569216977697586, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 490569216977697586, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 490569216977697586, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 490569216977697586, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 490569216977697586, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2829723450315599667, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
       propertyPath: m_Name
       value: CityIconLabel
@@ -648,17 +696,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
---- !u!114 &4876381059253942766 stripped
+--- !u!114 &2700728022215651102 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: -3252938706320881464, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3750854262641221176, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
   m_PrefabInstance: {fileID: 1258579931456483622}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62393b25545a23841874d2021ed74fb8, type: 3}
+  m_Script: {fileID: 11500000, guid: 0914381f2b422d7478e325f813b5f604, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Components.IconLabelView
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Components.IconLabel
 --- !u!224 &5191499383500907205 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6448229880392651747, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}

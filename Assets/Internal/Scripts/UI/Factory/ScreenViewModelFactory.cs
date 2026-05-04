@@ -6,7 +6,6 @@ using Internal.Scripts.UI.Screens.Hud;
 using Internal.Scripts.UI.Screens.Inventory;
 using Internal.Scripts.UI.Screens.MainMenu;
 using Internal.Scripts.UI.Screens.Pause;
-using Internal.Scripts.UI.Screens.Save;
 using Internal.Scripts.UI.Screens.TargetSelection;
 using Internal.Scripts.UI.Screens.Trade;
 using Internal.Scripts.UI.Screens.EnterCity;
@@ -21,7 +20,17 @@ using Internal.Scripts.UI.Screens.Guild;
 using Internal.Scripts.UI.Screens.CityEntryConfirm;
 using Internal.Scripts.UI.Screens.Camp;
 using Internal.Scripts.UI.Screens.HazardQte;
+using Internal.Scripts.UI.Screens.NewGame;
+using Internal.Scripts.UI.Screens.Legacy;
+using Internal.Scripts.UI.Screens.RunEnd;
 using Internal.Scripts.UI.Screens.TargetSelection.Search;
+using Internal.Scripts.UI.Screens.Healer;
+using Internal.Scripts.UI.Screens.Archive;
+using Internal.Scripts.UI.Screens.Archive.Tabs;
+using Internal.Scripts.UI.Screens.Settings;
+using Internal.Scripts.UI.Screens.Journal;
+using Internal.Scripts.UI.Screens.Temple;
+using Internal.Scripts.UI.Screens.Barracks;
 using Plugins.Zenject.Source.Main;
 
 namespace Internal.Scripts.UI.Factory
@@ -46,8 +55,6 @@ namespace Internal.Scripts.UI.Factory
                 ScreenId.TargetSelection => CreateTargetSelection(view),
                 ScreenId.Pause => CreatePause(view),
                 ScreenId.MainMenu => CreateMainMenu(view),
-                ScreenId.SaveGame => CreateSaveGame(view),
-                ScreenId.LoadGame => CreateLoadGame(view),
                 ScreenId.Trader => CreateTrader(view),
                 ScreenId.LanguageSchool => CreateLanguageSchool(view),
                 ScreenId.EnterCity => CreateEnterCity(view),
@@ -60,6 +67,17 @@ namespace Internal.Scripts.UI.Factory
                 ScreenId.CityEntryConfirm => CreateCityEntryConfirm(view),
                 ScreenId.Camp => CreateCamp(view),
                 ScreenId.HazardQte => CreateHazardQte(view),
+                ScreenId.NewGame => CreateNewGame(view),
+                ScreenId.ConfirmNewGame => CreateConfirmNewGame(view),
+                ScreenId.ConfirmEndRun => CreateConfirmEndRun(view),
+                ScreenId.RunEnd => CreateRunEnd(view),
+                ScreenId.Legacy => CreateLegacy(view),
+                ScreenId.Healer => CreateHealer(view),
+                ScreenId.Archive => CreateArchive(view),
+                ScreenId.Settings => CreateSettings(view),
+                ScreenId.Journal => CreateJournal(view),
+                ScreenId.Temple => CreateTemple(view),
+                ScreenId.Barracks => CreateBarracks(view),
                 _ => null
             };
         }
@@ -119,22 +137,6 @@ namespace Internal.Scripts.UI.Factory
                 return null;
 
             return _container.Instantiate<MainMenuScreenViewModel>();
-        }
-
-        private ScreenViewModelBase CreateSaveGame(IScreenView view)
-        {
-            if (view is not SaveGameScreen)
-                return null;
-
-            return _container.Instantiate<SaveLoadScreenViewModel>();
-        }
-
-        private ScreenViewModelBase CreateLoadGame(IScreenView view)
-        {
-            if (view is not LoadGameScreen)
-                return null;
-
-            return _container.Instantiate<SaveLoadScreenViewModel>();
         }
 
         private ScreenViewModelBase CreateTrader(IScreenView view)
@@ -233,5 +235,102 @@ namespace Internal.Scripts.UI.Factory
             return _container.Instantiate<HazardQteViewModel>();
         }
 
+        private ScreenViewModelBase CreateNewGame(IScreenView view)
+        {
+            if (view is not NewGameScreen)
+                return null;
+
+            return _container.Instantiate<NewGameScreenViewModel>();
+        }
+
+        private ScreenViewModelBase CreateConfirmNewGame(IScreenView view)
+        {
+            if (view is not ConfirmNewGameScreen)
+                return null;
+
+            return _container.Instantiate<ConfirmNewGameScreenViewModel>();
+        }
+
+        private ScreenViewModelBase CreateConfirmEndRun(IScreenView view)
+        {
+            if (view is not ConfirmEndRunScreen)
+                return null;
+
+            return _container.Instantiate<ConfirmEndRunScreenViewModel>();
+        }
+
+        private ScreenViewModelBase CreateRunEnd(IScreenView view)
+        {
+            if (view is not RunEndScreen)
+                return null;
+
+            return _container.Instantiate<RunEndScreenViewModel>();
+        }
+
+        private ScreenViewModelBase CreateLegacy(IScreenView view)
+        {
+            if (view is not LegacyScreen)
+                return null;
+
+            return _container.Instantiate<LegacyScreenViewModel>();
+        }
+
+        private ScreenViewModelBase CreateHealer(IScreenView view)
+        {
+            if (view is not HealerScreen)
+                return null;
+
+            var formatter = _container.Instantiate<HealerEntryFormatter>();
+            return _container.Instantiate<HealerScreenViewModel>(new object[] { formatter });
+        }
+
+        private ScreenViewModelBase CreateArchive(IScreenView view)
+        {
+            if (view is not ArchiveScreen)
+                return null;
+
+            var questSlot = _container.Instantiate<Internal.Scripts.UI.Screens.Building.BuildingQuestSlotViewModel>();
+            var builders = new IArchiveTabBuilder[]
+            {
+                _container.Instantiate<CitiesArchiveTabBuilder>(),
+                _container.Instantiate<CulturesArchiveTabBuilder>(),
+                _container.Instantiate<LanguagesArchiveTabBuilder>()
+            };
+            return _container.Instantiate<ArchiveScreenViewModel>(new object[] { builders, questSlot });
+        }
+
+        private ScreenViewModelBase CreateSettings(IScreenView view)
+        {
+            if (view is not SettingsScreen)
+                return null;
+
+            return _container.Instantiate<SettingsScreenViewModel>();
+        }
+
+        private ScreenViewModelBase CreateJournal(IScreenView view)
+        {
+            if (view is not JournalScreen)
+                return null;
+
+            return _container.Instantiate<JournalScreenViewModel>();
+        }
+
+        private ScreenViewModelBase CreateTemple(IScreenView view)
+        {
+            if (view is not TempleScreen)
+                return null;
+
+            var questSlot = _container.Instantiate<Internal.Scripts.UI.Screens.Building.BuildingQuestSlotViewModel>();
+            return _container.Instantiate<TempleScreenViewModel>(new object[] { questSlot });
+        }
+
+        private ScreenViewModelBase CreateBarracks(IScreenView view)
+        {
+            if (view is not BarracksScreen)
+                return null;
+
+            var questSlot = _container.Instantiate<Internal.Scripts.UI.Screens.Building.BuildingQuestSlotViewModel>();
+            return _container.Instantiate<BarracksScreenViewModel>(new object[] { questSlot });
+        }
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Internal.Scripts.Caravan;
 using Internal.Scripts.Caravan.Generated;
@@ -27,6 +28,11 @@ namespace Internal.Scripts.Player
             _economyDb = economyDb;
             _nameDb = nameDb;
         }
+
+        public event Action CompanionHired;
+        public event Action CompanionRemoved;
+        public event Action<CompanionState> OnHired;
+        public event Action<CompanionState> OnDismissed;
 
         public int GetHireCost(CompanionType type, CompanionQuality quality, float regionMultiplier = 1f)
         {
@@ -90,6 +96,9 @@ namespace Internal.Scripts.Player
                 });
             });
 
+            CompanionHired?.Invoke();
+            var hired = _resourceRepo.Current.Companions[^1];
+            OnHired?.Invoke(hired);
             return true;
         }
 
@@ -112,11 +121,19 @@ namespace Internal.Scripts.Player
 
         public void RemoveCompanion(int index)
         {
+            CompanionState dismissed = null;
+            var current = _resourceRepo.Current;
+            if (index >= 0 && index < current.Companions.Count)
+                dismissed = current.Companions[index];
+
             _resourceRepo.UpdateResources(s =>
             {
                 if (index >= 0 && index < s.Companions.Count)
                     s.Companions.RemoveAt(index);
             });
+            CompanionRemoved?.Invoke();
+            if (dismissed != null)
+                OnDismissed?.Invoke(dismissed);
         }
 
         public void HealCompanion(int index)

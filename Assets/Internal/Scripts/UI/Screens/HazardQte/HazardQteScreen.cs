@@ -18,7 +18,7 @@ namespace Internal.Scripts.UI.Screens.HazardQte
     {
         private const float FADE_DURATION = 0.3f;
 
-        [SerializeField] private IconLabelView _header;
+        [SerializeField] private IconLabel _header;
         [SerializeField] private FillBar _timerBar;
         [SerializeField] private TextMeshProUGUI _timerText;
         [SerializeField] private TextMeshProUGUI _hintText;
@@ -26,7 +26,7 @@ namespace Internal.Scripts.UI.Screens.HazardQte
         [SerializeField] private CanvasGroup _resultCanvasGroup;
         [SerializeField] private TextMeshProUGUI _resultTitleText;
         [SerializeField] private Transform _resultOutcomesContainer;
-        [SerializeField] private IconLabelView _iconLabelPrefab;
+        [SerializeField] private IconLabel _iconLabelPrefab;
         [SerializeField] private Color _successColor = new(0.2f, 0.9f, 0.2f);
         [SerializeField] private Color _failColor = new(0.9f, 0.2f, 0.2f);
         [SerializeField] private Transform _minigameContainer;

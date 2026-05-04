@@ -11,6 +11,8 @@ namespace Internal.Scripts.Economy.Buildings
         Warehouse = 6,
         LanguageSchool = 7,
         Caravansary = 8,
-        Barracks = 9
+        Barracks = 9,
+        Healer = 10,
+        Archive = 11
     }
 }

@@ -14,8 +14,8 @@ namespace Internal.Scripts.Import.Editor.Camp
         private const string CAMP_FOLDER = "Assets/Internal/Data/Camp";
         private const string DATABASE_PATH = CAMP_FOLDER + "/CampActionDatabase.asset";
 
-        [MenuItem("SPJ/Import/Camp")]
-        public static void ImportAll()
+        [MenuItem("SPJ/Import/Camp/Import")]
+        public static void Import()
         {
             if (IsCompiling()) return;
 

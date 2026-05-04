@@ -3,41 +3,31 @@ using System.Collections.Generic;
 using System.Linq;
 using Internal.Scripts.Economy.Cities;
 using Internal.Scripts.Events;
-using Internal.Scripts.Player;
+using Internal.Scripts.Quests.Data;
 using Internal.Scripts.Quests.Save;
-using Internal.Scripts.Road.Nodes;
 using Internal.Scripts.Save;
-using Internal.Scripts.UI.WorldLabel;
 using R3;
-using Zenject;
 
 namespace Internal.Scripts.Quests
 {
-    public class QuestRepository : IInitializable, IQuestAvailabilityProvider
+    public class QuestRepository
     {
         private readonly SaveRepository _saveRepository;
         private readonly DayTracker _dayTracker;
-        private readonly ICityEntryService _cityEntryService;
-        private readonly IPlayerStateProvider _playerState;
-        private readonly IRoadNodeLookup _nodeLookup;
-        private readonly ICityNodeResolver _cityNodeResolver;
+        private readonly QuestDatabase _questDatabase;
+        private readonly PlayerCityLocator _cityLocator;
         private readonly ReactiveProperty<int> _version = new(0);
-        private readonly ReactiveProperty<bool> _hasAvailableQuest = new(false);
 
         public QuestRepository(
             SaveRepository saveRepository,
             DayTracker dayTracker,
-            ICityEntryService cityEntryService,
-            IPlayerStateProvider playerState,
-            IRoadNodeLookup nodeLookup,
-            ICityNodeResolver cityNodeResolver)
+            QuestDatabase questDatabase,
+            PlayerCityLocator cityLocator)
         {
             _saveRepository = saveRepository;
             _dayTracker = dayTracker;
-            _cityEntryService = cityEntryService;
-            _playerState = playerState;
-            _nodeLookup = nodeLookup;
-            _cityNodeResolver = cityNodeResolver;
+            _questDatabase = questDatabase;
+            _cityLocator = cityLocator;
         }
 
         public event Action<string> QuestStarted;
@@ -46,14 +36,8 @@ namespace Internal.Scripts.Quests
         public event Action<string> QuestFailed;
 
         public Observable<int> Changed => _version;
-        public ReadOnlyReactiveProperty<bool> HasAvailableQuest => _hasAvailableQuest;
 
         private QuestSaveData QuestData => _saveRepository.Data.Quests;
-
-        public void Initialize()
-        {
-            _ = _saveRepository.Data.Quests;
-        }
 
         public void StartQuest(string questId)
         {
@@ -64,7 +48,7 @@ namespace Internal.Scripts.Quests
                 QuestId = questId,
                 CurrentStageIndex = 0,
                 StartDay = _dayTracker.CurrentDay,
-                StartCityId = ResolveCurrentCityId()
+                StartCityId = _cityLocator.ResolveCurrentCityId()
             });
 
             if (string.IsNullOrEmpty(QuestData.TrackedQuestId))
@@ -197,18 +181,6 @@ namespace Internal.Scripts.Quests
         {
             if (QuestData.TrackedQuestId == questId)
                 QuestData.TrackedQuestId = null;
-        }
-
-        private string ResolveCurrentCityId()
-        {
-            var current = _cityEntryService.CurrentCity;
-            if (current != null) return current.Id;
-
-            string nearestNode = _nodeLookup.FindNearestNodeId(_playerState.CurrentPosition);
-            if (!string.IsNullOrEmpty(nearestNode) && _cityNodeResolver.TryGetCityByNodeId(nearestNode, out var nearCity))
-                return nearCity.Id;
-
-            return string.Empty;
         }
 
         private void SaveAndNotify()

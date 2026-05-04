@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: LangHighlandTibetanMonk
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
   <Id>k__BackingField: lang_highland_tibetan_monk
-  <Category>k__BackingField: 19
+  <Category>k__BackingField: 21
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Events
@@ -90,6 +90,7 @@ MonoBehaviour:
     <Conditions>k__BackingField:
     - <Type>k__BackingField: 13
       <Param>k__BackingField: Tibetan
+      <ParamList>k__BackingField: []
       <Value>k__BackingField: 1
     <Outcomes>k__BackingField:
     - <Type>k__BackingField: 10
@@ -131,6 +132,7 @@ MonoBehaviour:
     <Conditions>k__BackingField:
     - <Type>k__BackingField: 10
       <Param>k__BackingField: Guide
+      <ParamList>k__BackingField: []
       <Value>k__BackingField: 1
     <Outcomes>k__BackingField:
     - <Type>k__BackingField: 10

@@ -19,18 +19,21 @@ namespace Internal.Scripts.Import.Editor.Events
         private const string LOCALIZATION_TABLE_NAME = "Events";
         private const string EVENTS_FOLDER = GENERATED_DATA_FOLDER + "/Events";
 
+        [MenuItem("SPJ/Import/Events/Generate")]
+        public static void Generate()
+        {
+            EventConditionTypeGenerator.Generate();
+            EventOutcomeTypeGenerator.Generate();
+            EventCategoryGenerator.Generate();
+        }
+
         [MenuItem("SPJ/Import/Events/Import")]
-        public static void ImportAll()
+        public static void Import()
         {
             if (IsCompiling()) return;
 
             try
             {
-                // 1. Generate enums
-                EventConditionTypeGenerator.Generate();
-                EventOutcomeTypeGenerator.Generate();
-                EventCategoryGenerator.Generate();
-
                 // 1b. Generate road event CSVs from hidden roads
                 RoadEventGenerator.Generate();
 
@@ -98,12 +101,14 @@ namespace Internal.Scripts.Import.Editor.Events
 
         private static void UpdateCrisisEventConfig(List<EventData> allEvents)
         {
-            var danger = allEvents.Where(e => e.Category == EventCategory.CrisisDanger).ToList();
-            var morale = allEvents.Where(e => e.Category == EventCategory.CrisisMorale).ToList();
-            var cart   = allEvents.Where(e => e.Category == EventCategory.CrisisCart).ToList();
+            var danger  = allEvents.Where(e => e.Category == EventCategory.CrisisDanger).ToList();
+            var morale  = allEvents.Where(e => e.Category == EventCategory.CrisisMorale).ToList();
+            var cart    = allEvents.Where(e => e.Category == EventCategory.CrisisCart).ToList();
+            var famine  = allEvents.Where(e => e.Category == EventCategory.CrisisFamine).ToList();
+            var money   = allEvents.Where(e => e.Category == EventCategory.CrisisMoney).ToList();
 
             CrisisEventConfig config = LoadOrCreateAsset<CrisisEventConfig>(CRISIS_CONFIG_PATH);
-            config.ApplyImport(danger, morale, cart);
+            config.ApplyImport(danger, morale, cart, famine, money, config.OnCaravanLost);
             EditorUtility.SetDirty(config);
         }
 

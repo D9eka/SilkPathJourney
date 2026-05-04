@@ -39,7 +39,7 @@ namespace Internal.Scripts.UI.Screens.Event.ConditionLines
                 format ??= LocalizationService.Resolve(LocEvents.Table, LocEvents.Event_LanguageConditionInfo);
 
                 string languageName = _catalog.GetLanguageName(languageType);
-                string proficiencyName = ((LanguageProficiency)Mathf.RoundToInt(cond.Value)).ToString();
+                string proficiencyName = TraderUICatalog.GetProficiencyName((LanguageProficiency)Mathf.RoundToInt(cond.Value));
 
                 lines ??= new List<string>();
                 lines.Add(LocArgRenderer.Format(format, new List<ILocArg>

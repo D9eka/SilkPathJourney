@@ -13,14 +13,17 @@ namespace Internal.Scripts.Events.Conditions
             EventConditionType.ActiveQuest,
             EventConditionType.NoActiveQuest,
             EventConditionType.CompletedQuest,
-            EventConditionType.NotCompletedQuest
+            EventConditionType.NotCompletedQuest,
+            EventConditionType.QuestAvailable
         };
 
         private readonly QuestRepository _questRepository;
+        private readonly QuestAvailabilityService _availability;
 
-        public QuestConditionEvaluator(QuestRepository questRepository)
+        public QuestConditionEvaluator(QuestRepository questRepository, QuestAvailabilityService availability)
         {
             _questRepository = questRepository;
+            _availability = availability;
         }
 
         public IEnumerable<EventConditionType> SupportedTypes => Types;
@@ -34,6 +37,7 @@ namespace Internal.Scripts.Events.Conditions
                 EventConditionType.CompletedQuest => _questRepository.IsCompleted(condition.Param),
                 EventConditionType.NotCompletedQuest =>
                     !_questRepository.IsCompleted(condition.Param) && !_questRepository.IsFailed(condition.Param),
+                EventConditionType.QuestAvailable => _availability.IsAvailable(condition.Param),
                 _ => true
             };
         }

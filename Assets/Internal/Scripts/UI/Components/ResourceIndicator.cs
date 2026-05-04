@@ -2,7 +2,6 @@ using DG.Tweening;
 using Internal.Scripts.UI.Theme;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using Zenject;
 
 namespace Internal.Scripts.UI.Components
@@ -11,7 +10,7 @@ namespace Internal.Scripts.UI.Components
     {
         [Header("Display")]
         [SerializeField] private ResourceType _resourceType;
-        [SerializeField] private Image _icon;
+        [SerializeField] private IconView _iconView;
         [SerializeField] private TextMeshProUGUI _valueText;
         [SerializeField] private TextMeshProUGUI _changeText;
         [SerializeField] private LayoutVisibilityAnimator _changeAnimator;
@@ -20,7 +19,12 @@ namespace Internal.Scripts.UI.Components
 
         public ResourceType ResourceType => _resourceType;
 
-        public void SetResourceType(ResourceType type) => _resourceType = type;
+        public void SetResourceType(ResourceType type)
+        {
+            _resourceType = type;
+            if (_iconView != null)
+                _iconView.SetResourceType(type);
+        }
 
         private Color _positiveColor = new Color(0.2f, 0.8f, 0.2f, 1f);
         private Color _negativeColor = new Color(0.9f, 0.2f, 0.2f, 1f);
@@ -55,10 +59,11 @@ namespace Internal.Scripts.UI.Components
 
         public void SetIcon(Sprite icon)
         {
-            if (_icon != null)
+            if (_iconView != null)
             {
-                _icon.sprite = icon;
-                _icon.gameObject.SetActive(icon != null);
+                _iconView.gameObject.SetActive(icon != null);
+                if (icon != null)
+                    _iconView.SetSprite(icon);
             }
         }
 

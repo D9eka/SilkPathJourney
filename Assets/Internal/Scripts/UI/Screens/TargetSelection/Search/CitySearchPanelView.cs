@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Internal.Scripts.Economy.Generated;
 using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Localization;
@@ -23,6 +24,7 @@ namespace Internal.Scripts.UI.Screens.TargetSelection.Search
         [SerializeField] private TextMeshProUGUI _placeholderText;
 
         [Header("Filters")]
+        [SerializeField] private BuildingFilterButton _questFilterButton;
         [SerializeField] private BuildingFilterButton[] _filterButtons;
 
         [Header("Results")]
@@ -195,19 +197,30 @@ namespace Internal.Scripts.UI.Screens.TargetSelection.Search
 
         private void BindFilterButtons()
         {
-            if (_filtersBound || _filterButtons == null || _filterButtons.Length == 0 || _viewModel == null)
+            if (_filtersBound || _viewModel == null)
                 return;
 
             var catalog = _viewModel.BuildingFilterCatalog;
             var tooltip = _viewModel.TooltipService;
 
-            foreach (BuildingFilterButton btn in _filterButtons)
+            if (_questFilterButton != null)
             {
-                if (btn == null)
-                    continue;
+                string questTooltip = LocalizationService.Resolve(
+                    "UI", "UI.CitySearch.Filter.Quest", "Quests");
+                _questFilterButton.InitializeWithTooltip(catalog, tooltip, questTooltip,
+                    () => _viewModel?.ToggleQuestFilter());
+            }
 
-                BuildingId id = btn.Building;
-                btn.Initialize(catalog, tooltip, () => _viewModel?.SetFilter(id));
+            if (_filterButtons != null)
+            {
+                foreach (BuildingFilterButton btn in _filterButtons)
+                {
+                    if (btn == null)
+                        continue;
+
+                    BuildingId id = btn.Building;
+                    btn.Initialize(catalog, tooltip, () => _viewModel?.ToggleFilter(id));
+                }
             }
 
             _filtersBound = true;
@@ -215,11 +228,16 @@ namespace Internal.Scripts.UI.Screens.TargetSelection.Search
 
         private void UnbindFilterButtons()
         {
-            if (!_filtersBound || _filterButtons == null)
+            if (!_filtersBound)
                 return;
 
-            foreach (BuildingFilterButton btn in _filterButtons)
-                btn?.Unbind();
+            _questFilterButton?.Unbind();
+
+            if (_filterButtons != null)
+            {
+                foreach (BuildingFilterButton btn in _filterButtons)
+                    btn?.Unbind();
+            }
 
             _filtersBound = false;
         }
@@ -250,7 +268,7 @@ namespace Internal.Scripts.UI.Screens.TargetSelection.Search
                 ReleaseRows();
             }
 
-            UpdateFilterHighlights(state.ActiveFilter);
+            UpdateFilterHighlights(state);
         }
 
         private void RebuildRows(IReadOnlyList<CityRowData> results)
@@ -285,16 +303,19 @@ namespace Internal.Scripts.UI.Screens.TargetSelection.Search
             _activeRows.Clear();
         }
 
-        private void UpdateFilterHighlights(BuildingId? active)
+        private void UpdateFilterHighlights(CitySearchViewState state)
         {
+            _questFilterButton?.SetActive(state.QuestFilterActive);
+
             if (_filterButtons == null)
                 return;
 
+            var active = state.ActiveFilters;
             foreach (BuildingFilterButton btn in _filterButtons)
             {
                 if (btn == null)
                     continue;
-                btn.SetActive(active.HasValue && btn.Building == active.Value);
+                btn.SetActive(active != null && active.Contains(btn.Building));
             }
         }
 

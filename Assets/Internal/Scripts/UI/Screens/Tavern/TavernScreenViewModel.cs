@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Internal.Scripts.Caravan;
 using Internal.Scripts.Caravan.Generated;
 using Internal.Scripts.Economy;
+using Internal.Scripts.Economy.Buildings;
 using Internal.Scripts.Economy.Cities;
 using Internal.Scripts.Economy.Cities.Rumors;
 using Internal.Scripts.Economy.Generated;
@@ -13,10 +14,13 @@ using Internal.Scripts.Player;
 using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Localization;
 using Internal.Scripts.UI.Localization.Generated;
+using Internal.Scripts.UI.Screens.Building;
 using Internal.Scripts.UI.Screens.Core.Config;
 using Internal.Scripts.UI.Screens.Core.ViewModel;
+using Internal.Scripts.UI.Screens.Shared;
 using Internal.Scripts.UI.Theme;
 using R3;
+using UnityEngine.Localization;
 
 namespace Internal.Scripts.UI.Screens.Tavern
 {
@@ -33,15 +37,20 @@ namespace Internal.Scripts.UI.Screens.Tavern
         private readonly RumorFormatter _rumorFormatter;
         private readonly CompanionHireFormatter _hireFormatter;
         private readonly ReactiveProperty<TavernViewState> _state = new();
+        private readonly BuildingQuestSlotViewModel _questSlotVM;
 
         private string _cityId;
         private CultureId _cityCulture;
         private readonly List<(CompanionType type, CompanionQuality quality)> _availableSlots = new();
         private List<RumorData> _currentRumors = new();
+        private List<PriceTipData> _currentPriceTips = new();
+
+        public event Action<string, string> OnCompanionHiredInCity;
 
         public UiThemeService ThemeService => _themeService;
         public ResourceIconCatalog ResourceIcons => _resourceIcons;
         public Observable<TavernViewState> State => _state;
+        public Observable<BuildingQuestSlotState?> QuestSlot => _questSlotVM.State;
         public override ScreenId Id => ScreenId.Tavern;
 
         public TavernScreenViewModel(
@@ -54,7 +63,8 @@ namespace Internal.Scripts.UI.Screens.Tavern
             NameDatabase nameDb,
             UiThemeService themeService,
             ResourceIconCatalog resourceIcons,
-            RumorService rumorService)
+            RumorService rumorService,
+            BuildingQuestSlotViewModel questSlotVM)
         {
             _resourceRepository = resourceRepository;
             _companionService = companionService;
@@ -66,7 +76,10 @@ namespace Internal.Scripts.UI.Screens.Tavern
             _rumorService = rumorService;
             _rumorFormatter = new RumorFormatter(economyDb);
             _hireFormatter = new CompanionHireFormatter(caravanDb, economyDb, nameDb, companionService);
+            _questSlotVM = questSlotVM;
         }
+
+        public void OnQuestSlotTalk() => _questSlotVM.OnTalk();
 
         protected override void OnOpen(object args)
         {
@@ -74,11 +87,13 @@ namespace Internal.Scripts.UI.Screens.Tavern
             var city = _economyDb.Cities.Find(c =>
                 string.Equals(c.Id, _cityId, StringComparison.OrdinalIgnoreCase));
             _cityCulture = city?.PrimaryCulture ?? CultureId.None;
+            _questSlotVM.Bind(BuildingType.Tavern, _cityId);
             BuildState();
         }
 
         protected override void OnClose()
         {
+            _questSlotVM.Dispose();
         }
 
         public void HireCompanion(int index)
@@ -88,20 +103,18 @@ namespace Internal.Scripts.UI.Screens.Tavern
 
             var (type, quality) = _availableSlots[index];
             int cost = _companionService.GetHireCost(type, quality);
+            int countBefore = _resourceRepository.Current.Companions?.Count ?? 0;
             if (!_companionService.HireCompanion(type, quality, cost, _cityCulture))
                 return;
 
+            var companions = _resourceRepository.Current.Companions;
+            if (companions != null && companions.Count > countBefore)
+            {
+                string companionName = companions[^1].Name;
+                OnCompanionHiredInCity?.Invoke(_cityId, companionName);
+            }
+
             BuildState();
-        }
-
-        public void TalkToQuestGiver(string eventId)
-        {
-            if (string.IsNullOrEmpty(eventId))
-                return;
-
-            var eventData = _eventDb.GetById(eventId);
-            if (eventData != null)
-                _eventTrigger.TriggerEvent(eventData);
         }
 
         private void BuildState()
@@ -119,10 +132,30 @@ namespace Internal.Scripts.UI.Screens.Tavern
             string rumorsText = _rumorFormatter.FormatRumorsText(_currentRumors);
             var roadInfos = _rumorFormatter.BuildRoadInfoEntries(_currentRumors, money, rumorCost);
 
+            _currentPriceTips = _rumorService.GetAvailablePriceTips(_cityId);
+            var priceTips = BuildPriceTipEntries(_currentPriceTips, money);
+
             _state.Value = new TavernViewState(
-                money, rumorsText, roadInfos, hireList,
+                money, rumorsText, roadInfos, priceTips, hireList,
                 currentCount, maxCompanions, slotsFormatted,
                 false, null, null);
+        }
+
+        private List<PriceTipEntry> BuildPriceTipEntries(List<PriceTipData> tips, int playerMoney)
+        {
+            string buyPriceTipButton = ResolveLoc(LocUI.Ui_Tavern_BuyPriceTipButton, "Слух о ценах");
+            var result = new List<PriceTipEntry>(tips.Count);
+            for (int i = 0; i < tips.Count; i++)
+            {
+                var tip = tips[i];
+                string cityName = LocalizationService.ResolveString(tip.City.Name, tip.City.Id, "TavernPriceTip");
+                string description = string.Format(
+                    ResolveLoc(LocUI.Ui_Tavern_BuyPriceTip, "Купить слух о ценах в [{0}]: {1} монет"),
+                    cityName, tip.Cost);
+                bool canBuy = playerMoney >= tip.Cost;
+                result.Add(new PriceTipEntry(tip.City.Id, cityName, buyPriceTipButton, description, canBuy, i));
+            }
+            return result;
         }
 
         public void BuyRoadInfo(int index)
@@ -137,6 +170,26 @@ namespace Internal.Scripts.UI.Screens.Tavern
             _resourceRepository.UpdateResources(s => s.Money -= cost);
             _rumorService.PurchaseRumors(_currentRumors[index].City.Id);
             BuildState();
+        }
+
+        public void BuyPriceTipForCity(int index)
+        {
+            if (index < 0 || index >= _currentPriceTips.Count)
+                return;
+
+            var tip = _currentPriceTips[index];
+            if (_resourceRepository.Current.Money < tip.Cost)
+                return;
+
+            _resourceRepository.UpdateResources(s => s.Money -= tip.Cost);
+            _rumorService.PurchasePriceTip(tip.City.Id);
+            BuildState();
+        }
+
+        private static string ResolveLoc(string key, string fallback = null, params object[] args)
+        {
+            var localized = new LocalizedString(LocUI.Table, key);
+            return LocalizationService.ResolveString(localized, fallback ?? key, key, args);
         }
 
     }

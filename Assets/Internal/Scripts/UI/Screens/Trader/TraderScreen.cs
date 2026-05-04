@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Localization;
 using Internal.Scripts.UI.Screens.Core.ViewModel;
 using Internal.Scripts.UI.Theme;
@@ -15,7 +16,7 @@ namespace Internal.Scripts.UI.Screens.Trader
         [Header("Prefabs")]
         [SerializeField] private ProfileItem _profileItemPrefab;
         [SerializeField] private SkillView _skillViewPrefab;
-        [SerializeField] private LanguageView _languageViewPrefab;
+        [SerializeField] private SkillView _languageViewPrefab;
 
         [Header("Containers")]
         [SerializeField] private RectTransform _profileContent;
@@ -34,7 +35,7 @@ namespace Internal.Scripts.UI.Screens.Trader
         private IDisposable _stateSubscription;
         private readonly List<ProfileItem> _spawnedProfiles = new();
         private readonly List<SkillView> _spawnedSkills = new();
-        private readonly List<LanguageView> _spawnedLanguages = new();
+        private readonly List<SkillView> _spawnedLanguages = new();
         private LocalizationService.LocalizedTextHandle _profileHeaderHandle;
         private LocalizationService.LocalizedTextHandle _skillsHeaderHandle;
         private LocalizationService.LocalizedTextHandle _languagesHeaderHandle;
@@ -144,7 +145,7 @@ namespace Internal.Scripts.UI.Screens.Trader
 
         private void RebuildLanguages(IReadOnlyList<LanguageViewData> languages)
         {
-            foreach (LanguageView view in _spawnedLanguages)
+            foreach (SkillView view in _spawnedLanguages)
                 Destroy(view.gameObject);
             _spawnedLanguages.Clear();
 
@@ -153,7 +154,7 @@ namespace Internal.Scripts.UI.Screens.Trader
 
             foreach (LanguageViewData data in languages)
             {
-                LanguageView instance = Instantiate(_languageViewPrefab, _languagesContent);
+                SkillView instance = Instantiate(_languageViewPrefab, _languagesContent);
                 instance.gameObject.InitializeColorBinders(themeService: _viewModel?.ThemeService);
                 instance.Initialize(Localization, data.Name, data.Description, data.Progress, data.Value);
                 _spawnedLanguages.Add(instance);

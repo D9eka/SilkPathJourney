@@ -20,10 +20,10 @@ namespace Internal.Scripts.UI.Screens.CityEntryConfirm
         [SerializeField] private TextMeshProUGUI _modifiersLabel;
         [SerializeField] private LocalizedString _modifiersLabelLocalized;
         [SerializeField] private RectTransform _modifiersContent;
-        [SerializeField] private IconLabelView _iconLabelPrefab;
+        [SerializeField] private IconLabel _iconLabelPrefab;
 
         [Header("Entry Conditions")]
-        [SerializeField] private IconLabelView _dutyCountView;
+        [SerializeField] private IconLabel _dutyCountView;
         [SerializeField] private TextMeshProUGUI _dutyDiscountText;
         [SerializeField] private TextMeshProUGUI _hiddenItemsText;
         [SerializeField] private TextMeshProUGUI _detectionPercentText;
@@ -42,7 +42,7 @@ namespace Internal.Scripts.UI.Screens.CityEntryConfirm
         [SerializeField] private LocalizedString _enterCityButtonLocalized;
         [SerializeField] private LocalizedString _leaveButtonLocalized;
 
-        private readonly List<IconLabelView> _spawnedModifiers = new();
+        private readonly List<IconLabel> _spawnedModifiers = new();
 
         private TooltipService _tooltipService;
 
@@ -138,7 +138,7 @@ namespace Internal.Scripts.UI.Screens.CityEntryConfirm
                 _leaveButtonLocalized, "Уйти", "CityEntryConfirm.LeaveButton");
         }
 
-        private void RebuildIconLabels(RectTransform container, List<IconLabelView> pool, IconLabelEntry[] entries)
+        private void RebuildIconLabels(RectTransform container, List<IconLabel> pool, IconLabelEntry[] entries)
         {
             foreach (var card in pool)
                 Destroy(card.gameObject);
@@ -148,7 +148,7 @@ namespace Internal.Scripts.UI.Screens.CityEntryConfirm
 
             foreach (var entry in entries)
             {
-                IconLabelView card = Instantiate(_iconLabelPrefab, container);
+                IconLabel card = Instantiate(_iconLabelPrefab, container);
                 card.Initialize(entry.Icon, entry.Label);
 
                 if (entry.TooltipProvider != null && _tooltipService != null)

@@ -113,20 +113,13 @@ namespace Internal.Scripts.Player.StartMovement
         private void SubscribeToNodes()
         {
             foreach (CityView view in _cityViewSpawner.Views)
-            {
-                if (view.City != null && view.City.NodeId == _currentPlayerNode)
-                    continue;
                 view.OnClick += OnChooseNodeCollider;
-            }
         }
 
         private void UnsubscribeToNodes()
         {
             foreach (CityView view in _cityViewSpawner.Views)
-            {
-                if (view.City != null && view.City.NodeId == _currentPlayerNode) continue;
                 view.OnClick -= OnChooseNodeCollider;
-            }
         }
 
         private void OnChooseNodeCollider(IInteractableObject interactableObject)

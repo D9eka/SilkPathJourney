@@ -57,6 +57,8 @@ namespace Internal.Scripts.UI.Screens.LanguageSchool
             _foodCalculator = foodCalculator;
         }
 
+        public event Action<LanguageType, LanguageProficiency> OnLanguageStudied;
+
         public override ScreenId Id => ScreenId.LanguageSchool;
         public Observable<LanguageSchoolViewState> State => _state;
 
@@ -82,6 +84,7 @@ namespace Internal.Scripts.UI.Screens.LanguageSchool
             _resourceRepository.UpdateResources(s => s.Money -= cost);
             _dayTracker.AdvanceDays(days);
             _languageRepository.SetLanguage(language, nextLevel);
+            OnLanguageStudied?.Invoke(language, nextLevel);
 
             BuildState();
         }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HighlandThinAirMinor
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
   <Id>k__BackingField: highland_thin_air_minor
-  <Category>k__BackingField: 25
+  <Category>k__BackingField: 27
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Events

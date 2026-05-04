@@ -26,6 +26,7 @@ namespace Internal.Scripts.Events.Conditions
             QuestConditionEvaluator questCondition,
             QuestStageEvaluator questStage,
             QuestFlagEvaluator questFlag,
+            NoQuestFlagEvaluator noQuestFlag,
             TravelEvaluator travel,
             NoItemEvaluator noItem,
             DangerAboveEvaluator dangerAbove)
@@ -45,6 +46,7 @@ namespace Internal.Scripts.Events.Conditions
             Register(questCondition);
             Register(questStage);
             Register(questFlag);
+            Register(noQuestFlag);
             Register(travel);
             Register(noItem);
             Register(dangerAbove);

@@ -35,6 +35,7 @@ namespace Internal.Scripts.UI.Screens.Shared
             if (_button != null)
             {
                 _button.interactable = interactable;
+                _button.onClick.RemoveListener(HandleClick);
                 _button.onClick.AddListener(HandleClick);
             }
         }

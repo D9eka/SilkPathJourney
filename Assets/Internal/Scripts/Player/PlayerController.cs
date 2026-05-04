@@ -19,6 +19,7 @@ namespace Internal.Scripts.Player
         private string _lastToNode;
 
         public string CurrentNodeId => _roadAgent?.CurrentNodeId ?? string.Empty;
+        public string StationaryNodeId => _roadAgent?.StationaryNodeId;
         public string DestinationNodeId => _roadAgent?.DestinationNodeId ?? string.Empty;
         public Vector3 CurrentPosition => _roadAgent?.CurrentPose.Position ?? Vector3.zero;
         public string CurrentFromNodeId => _roadAgent?.CurrentFromNodeId;
@@ -105,6 +106,14 @@ namespace Internal.Scripts.Player
             _playerStartMovement.SetCurrentPlayerNode(nodeId);
             OnCurrentNodeChanged?.Invoke(nodeId);
             NotifyDestinationChanged();
+        }
+
+        public void Teleport(string nodeId)
+        {
+            if (_roadAgent == null || string.IsNullOrWhiteSpace(nodeId))
+                return;
+
+            _roadAgent.TeleportTo(nodeId);
         }
 
         private void NotifyDestinationChanged()

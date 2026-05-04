@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ed68a03586ab844fb0ef5bbe5108819, type: 3}
+  m_Name: BackgroundDatabase
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Player.Background.BackgroundDatabase
+  <Backgrounds>k__BackingField:
+  - {fileID: 11400000, guid: e03373a793f67aa45ac52a1365b81068, type: 2}
+  - {fileID: 11400000, guid: 90029802d30631545b7c60ced824ed08, type: 2}
+  - {fileID: 11400000, guid: b2aa1b0e198d41f49a7a0eb5f1259c0b, type: 2}
+  - {fileID: 11400000, guid: 29113349928422449901533142c7ff9a, type: 2}
+  - {fileID: 11400000, guid: a0352f7509e023443a6add746c78ab1d, type: 2}
+  - {fileID: 11400000, guid: 7504946e62030d04cb04bd010b1f4bae, type: 2}
+  - {fileID: 11400000, guid: 46e0ccc4b7758c0488ad8db5a27114be, type: 2}
+  - {fileID: 11400000, guid: 85f213fea4622994980d45241e23da95, type: 2}

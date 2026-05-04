@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Internal.Scripts.Events.Data;
 using Internal.Scripts.Events.Generated;
 using Internal.Scripts.Import.Editor.Core;
@@ -49,7 +50,11 @@ namespace Internal.Scripts.Import.Editor.Events.Tables
                     continue;
                 }
 
-                EventCondition condition = new EventCondition(condType, param, value);
+                string[] paramList = param.Contains(',')
+                    ? param.Split(',').Select(s => s.Trim()).Where(s => !string.IsNullOrEmpty(s)).ToArray()
+                    : null;
+
+                EventCondition condition = new EventCondition(condType, param, paramList, value);
 
                 if (string.IsNullOrWhiteSpace(choiceIndexStr))
                 {

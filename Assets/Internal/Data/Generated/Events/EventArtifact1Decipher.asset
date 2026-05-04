@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EventArtifact1Decipher
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
   <Id>k__BackingField: event_artifact1_decipher
-  <Category>k__BackingField: 29
+  <Category>k__BackingField: 31
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Events
@@ -68,19 +68,103 @@ MonoBehaviour:
       <Value>k__BackingField: 1
     - <Type>k__BackingField: 7
       <Param>k__BackingField: Trade
-      <Value>k__BackingField: 2
+      <Value>k__BackingField: 3
+    - <Type>k__BackingField: 10
+      <Param>k__BackingField: 
+      <Value>k__BackingField: 3
+  - <Text>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Events
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: event.event_artifact1_decipher.choice2
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <ResultText>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Events
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: event.event_artifact1_decipher.choice2.result
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <Conditions>k__BackingField: []
+    <Outcomes>k__BackingField: []
+  - <Text>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Events
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: event.event_artifact1_decipher.choice3
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <ResultText>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Events
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: event.event_artifact1_decipher.choice3.result
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <Conditions>k__BackingField:
+    - <Type>k__BackingField: 10
+      <Param>k__BackingField: Translator
+      <ParamList>k__BackingField: []
+      <Value>k__BackingField: 1
+    <Outcomes>k__BackingField:
+    - <Type>k__BackingField: 19
+      <Param>k__BackingField: quest_artifact_1
+      <Value>k__BackingField: 1
+    - <Type>k__BackingField: 9
+      <Param>k__BackingField: Persian
+      <Value>k__BackingField: 1
+    - <Type>k__BackingField: 10
+      <Param>k__BackingField: 
+      <Value>k__BackingField: 5
   <IsMinor>k__BackingField: 0
   <Biome>k__BackingField: 0
   <AutoOutcomes>k__BackingField: []
-  <SkillChecks>k__BackingField: []
+  <SkillChecks>k__BackingField:
+  - <ChoiceIndex>k__BackingField: 1
+    <SkillType>k__BackingField: 3
+    <BaseChance>k__BackingField: 0.4
+    <FailResultText>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Events
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: event.event_artifact1_decipher.choice1.fail
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <FailOutcomes>k__BackingField:
+    - <Type>k__BackingField: 19
+      <Param>k__BackingField: quest_artifact_1
+      <Value>k__BackingField: 1
+    - <Type>k__BackingField: 17
+      <Param>k__BackingField: 
+      <Value>k__BackingField: 1
+    - <Type>k__BackingField: 10
+      <Param>k__BackingField: 
+      <Value>k__BackingField: -2
   <Conditions>k__BackingField:
   - <Type>k__BackingField: 22
     <Param>k__BackingField: quest_artifact_1
+    <ParamList>k__BackingField: []
     <Value>k__BackingField: 1
   - <Type>k__BackingField: 25
     <Param>k__BackingField: quest_artifact_1
+    <ParamList>k__BackingField: []
     <Value>k__BackingField: 1
-  <Weight>k__BackingField: 0
+  - <Type>k__BackingField: 14
+    <Param>k__BackingField: 
+    <ParamList>k__BackingField: []
+    <Value>k__BackingField: 1
+  <Weight>k__BackingField: 1
   references:
     version: 2
     RefIds: []

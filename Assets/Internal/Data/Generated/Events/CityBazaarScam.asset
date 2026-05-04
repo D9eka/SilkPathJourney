@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CityBazaarScam
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
   <Id>k__BackingField: city_bazaar_scam
-  <Category>k__BackingField: 24
+  <Category>k__BackingField: 26
   <Name>k__BackingField:
     m_TableReference:
       m_TableCollectionName: Events
@@ -119,6 +119,7 @@ MonoBehaviour:
     <Conditions>k__BackingField:
     - <Type>k__BackingField: 10
       <Param>k__BackingField: Merchant
+      <ParamList>k__BackingField: []
       <Value>k__BackingField: 1
     <Outcomes>k__BackingField:
     - <Type>k__BackingField: 1
@@ -162,6 +163,7 @@ MonoBehaviour:
   <Conditions>k__BackingField:
   - <Type>k__BackingField: 16
     <Param>k__BackingField: 
+    <ParamList>k__BackingField: []
     <Value>k__BackingField: 1
   <Weight>k__BackingField: 0.5
   references:

@@ -22,19 +22,22 @@ namespace Internal.Scripts.Import.Editor.Economy
         private const string CITIES_FOLDER = GENERATED_DATA_FOLDER + "/Cities";
         private const string LOCALIZATION_TABLE_NAME = "Economy";
 
-        [MenuItem("SPJ/Import/Economy")]
-        public static void ImportAll()
+        [MenuItem("SPJ/Import/Economy/Generate")]
+        public static void Generate()
+        {
+            ItemTypeGenerator.Generate();
+            CityTypeGenerator.Generate();
+            CultureIdGenerator.Generate();
+            BuildingIdGenerator.Generate();
+        }
+
+        [MenuItem("SPJ/Import/Economy/Import")]
+        public static void Import()
         {
             if (IsCompiling()) return;
 
             try
             {
-                // 1. Generate enums
-                ItemTypeGenerator.Generate();
-                CityTypeGenerator.Generate();
-                CultureIdGenerator.Generate();
-                BuildingIdGenerator.Generate();
-
                 // 2. Ensure folders
                 EnsureAssetFolder(ITEMS_FOLDER);
                 EnsureAssetFolder(CITY_TYPES_FOLDER);

@@ -47,7 +47,8 @@ namespace Internal.Scripts.Npc.Core
         {
             RoadPathCursor cursor = new RoadPathCursor(_network,
                 new SegmentMover(_network, _samplerCache, _poseSampler),
-                new NpcNextSegmentProvider(_pathFinder));
+                new NpcNextSegmentProvider(_pathFinder),
+                _pathFinder);
             RoadAgent agent = new RoadAgent(view, config, cursor, _gameDayDeltaProvider, startNodeId);
             _simulation.Register(agent);
             return agent;

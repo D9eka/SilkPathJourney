@@ -10,8 +10,6 @@ namespace Internal.Scripts.UI.Screens.Core.Config
         TargetSelection = 5,
         Pause = 6,
         MainMenu = 7,
-        SaveGame = 8,
-        LoadGame = 9,
         Trader = 10,
         LanguageSchool = 11,
         EnterCity = 12,
@@ -23,6 +21,17 @@ namespace Internal.Scripts.UI.Screens.Core.Config
         CityEntryConfirm = 18,
         Guild = 19,
         Camp = 20,
-        HazardQte = 21
+        HazardQte = 21,
+        NewGame = 22,
+        ConfirmNewGame = 23,
+        RunEnd = 24,
+        Legacy = 25,
+        Healer = 26,
+        Archive = 27,
+        Settings = 28,
+        Journal = 29,
+        Temple = 30,
+        Barracks = 31,
+        ConfirmEndRun = 32
     }
 }

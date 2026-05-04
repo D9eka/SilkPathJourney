@@ -9,8 +9,8 @@ namespace Internal.Scripts.UI.Screens.Camp
     public class CampActionButtonView : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI _nameText;
-        [SerializeField] private IconLabelView _effectLabel;
-        [SerializeField] private IconLabelView _costLabel;
+        [SerializeField] private IconLabel _effectLabel;
+        [SerializeField] private IconLabel _costLabel;
         [SerializeField] private TextMeshProUGUI _hintText;
         [SerializeField] private Button _button;
         [SerializeField] private CanvasGroup _canvasGroup;
@@ -33,12 +33,10 @@ namespace Internal.Scripts.UI.Screens.Camp
             _nameText.text = state.Name;
 
             bool hasEffect = !string.IsNullOrEmpty(state.Effect.Label);
-                _effectLabel.gameObject.SetActive(hasEffect);
+            _effectLabel.gameObject.SetActive(hasEffect);
             if (hasEffect)
-            {
                 _effectLabel.Initialize(state.Effect.Icon, state.Effect.Label);
-            }
-                
+
             _costLabel.Initialize(state.Cost.Icon, state.Cost.Label);
 
             bool hasHint = !string.IsNullOrEmpty(state.HintText);

@@ -107,6 +107,8 @@ MonoBehaviour:
   _clearButton: {fileID: 5078142036055308712}
   _clearButtonObject: {fileID: 2874449153483886602}
   _hintText: {fileID: 8618560632692478044}
+  _placeholderText: {fileID: 3537758320038681694}
+  _questFilterButton: {fileID: 1293880273173138982}
   _filterButtons:
   - {fileID: 3602176353444122048}
   - {fileID: 5488710726776789601}
@@ -116,7 +118,6 @@ MonoBehaviour:
   - {fileID: 4567728857412285443}
   - {fileID: 4678346982193617507}
   - {fileID: 3883472166888711222}
-  - {fileID: 1293880273173138982}
   _scrollViewRoot: {fileID: 8415352342012096480}
   _resultsHeader: {fileID: 7295826754321999491}
   _scrollContent: {fileID: 8502871976571069793}
@@ -2385,7 +2386,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2199341484552695378, guid: 598a8249a0014fd4796180794dffb2df, type: 3}
       propertyPath: m_Name
-      value: FilterButton (8)
+      value: QuestFilterButton
       objectReference: {fileID: 0}
     - target: {fileID: 5572489492262162765, guid: 598a8249a0014fd4796180794dffb2df, type: 3}
       propertyPath: m_Pivot.x
@@ -2469,7 +2470,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6035788446389470077, guid: 598a8249a0014fd4796180794dffb2df, type: 3}
       propertyPath: _building
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2820,7 +2821,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6035788446389470077, guid: 598a8249a0014fd4796180794dffb2df, type: 3}
       propertyPath: _building
-      value: 1
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2853,7 +2854,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2199341484552695378, guid: 598a8249a0014fd4796180794dffb2df, type: 3}
       propertyPath: m_Name
-      value: FilterButton (7)
+      value: FilterButton (Healer)
       objectReference: {fileID: 0}
     - target: {fileID: 5572489492262162765, guid: 598a8249a0014fd4796180794dffb2df, type: 3}
       propertyPath: m_Pivot.x
@@ -3117,7 +3118,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2199341484552695378, guid: 598a8249a0014fd4796180794dffb2df, type: 3}
       propertyPath: m_Name
-      value: FilterButton (5)
+      value: FilterButton (Archive)
       objectReference: {fileID: 0}
     - target: {fileID: 5572489492262162765, guid: 598a8249a0014fd4796180794dffb2df, type: 3}
       propertyPath: m_Pivot.x
@@ -3201,7 +3202,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6035788446389470077, guid: 598a8249a0014fd4796180794dffb2df, type: 3}
       propertyPath: _building
-      value: 6
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

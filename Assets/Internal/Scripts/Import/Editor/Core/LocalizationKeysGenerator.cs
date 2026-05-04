@@ -33,6 +33,13 @@ namespace Internal.Scripts.Import.Editor.Core
                 foreach (SharedTableData.SharedTableEntry entry in collection.SharedData.Entries)
                 {
                     string key = entry.Key;
+
+                    if (!IsValidLocalizationKey(key))
+                    {
+                        Debug.LogError($"[SPJ] LocalizationKeysGenerator: invalid localization key '{key}' in table '{tableName}'. Key must be a dot-separated identifier, not a CSV row. Generation aborted.");
+                        return;
+                    }
+
                     string constName = KeyToConstName(key);
 
                     if (!ImportHelpers.IsValidIdentifier(constName))
@@ -92,15 +99,66 @@ namespace Internal.Scripts.Import.Editor.Core
             {
                 sb.AppendLine($"    public static class {className}");
                 sb.AppendLine("    {");
-                sb.AppendLine($"        public const string Table = \"{tableName}\";");
+                sb.AppendLine($"        public const string Table = \"{EscapeStringLiteral(tableName)}\";");
 
                 foreach (var (constName, key) in consts)
-                    sb.AppendLine($"        public const string {constName} = \"{key}\";");
+                    sb.AppendLine($"        public const string {constName} = \"{EscapeStringLiteral(key)}\";");
 
                 sb.AppendLine("    }");
             }
 
             sb.AppendLine("}");
+            return sb.ToString();
+        }
+
+        private static bool IsValidLocalizationKey(string key)
+        {
+            if (string.IsNullOrWhiteSpace(key) || !key.Contains("."))
+                return false;
+
+            for (int i = 0; i < key.Length; i++)
+            {
+                char c = key[i];
+                if (char.IsLetterOrDigit(c) || c == '_' || c == '.')
+                    continue;
+
+                return false;
+            }
+
+            return true;
+        }
+
+        private static string EscapeStringLiteral(string value)
+        {
+            if (string.IsNullOrEmpty(value))
+                return string.Empty;
+
+            var sb = new StringBuilder(value.Length);
+            foreach (char c in value)
+            {
+                switch (c)
+                {
+                    case '\\':
+                        sb.Append(@"\\");
+                        break;
+                    case '"':
+                        sb.Append("\\\"");
+                        break;
+                    case '\r':
+                        sb.Append(@"\r");
+                        break;
+                    case '\n':
+                        sb.Append(@"\n");
+                        break;
+                    case '\t':
+                        sb.Append(@"\t");
+                        break;
+                    default:
+                        sb.Append(c);
+                        break;
+                }
+            }
+
             return sb.ToString();
         }
     }

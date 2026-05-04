@@ -19,6 +19,7 @@ namespace Internal.Scripts.UI.Theme
             if (_themeService == null)
                 return;
 
+            _themeService.PaletteChanged -= OnPaletteChanged;
             _themeService.PaletteChanged += OnPaletteChanged;
             ApplyImmediate();
         }
@@ -39,7 +40,10 @@ namespace Internal.Scripts.UI.Theme
         {
             _themeService = themeService;
             if (isActiveAndEnabled)
+            {
+                _themeService.PaletteChanged -= OnPaletteChanged;
                 _themeService.PaletteChanged += OnPaletteChanged;
+            }
             ApplyImmediate();
         }
 

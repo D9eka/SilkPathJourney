@@ -14,6 +14,7 @@ namespace Internal.Scripts.Camp
         private readonly CampActionService _campActionService;
         private readonly EventSelector _eventSelector;
         private readonly EventTrigger _eventTrigger;
+        private readonly EventCloseSignal _closeSignal;
         private readonly DayTracker _dayTracker;
         private readonly IPlayerStateEvents _playerStateEvents;
         private readonly ScreenStackService _screenStackService;
@@ -22,6 +23,7 @@ namespace Internal.Scripts.Camp
             CampActionService campActionService,
             EventSelector eventSelector,
             EventTrigger eventTrigger,
+            EventCloseSignal closeSignal,
             DayTracker dayTracker,
             IPlayerStateEvents playerStateEvents,
             ScreenStackService screenStackService)
@@ -29,6 +31,7 @@ namespace Internal.Scripts.Camp
             _campActionService = campActionService;
             _eventSelector = eventSelector;
             _eventTrigger = eventTrigger;
+            _closeSignal = closeSignal;
             _dayTracker = dayTracker;
             _playerStateEvents = playerStateEvents;
             _screenStackService = screenStackService;
@@ -37,13 +40,13 @@ namespace Internal.Scripts.Camp
         public void Initialize()
         {
             _playerStateEvents.OnCurrentNodeChanged += HandleNodeChanged;
-            _eventTrigger.OnEventClosed += HandleEventClosed;
+            _closeSignal.Closed += HandleEventClosed;
         }
 
         public void Dispose()
         {
             _playerStateEvents.OnCurrentNodeChanged -= HandleNodeChanged;
-            _eventTrigger.OnEventClosed -= HandleEventClosed;
+            _closeSignal.Closed -= HandleEventClosed;
         }
 
         public bool ExecuteActionAndAdvance(CampActionType type)
@@ -75,7 +78,7 @@ namespace Internal.Scripts.Camp
             return _eventTrigger.TriggerEvent(eventData);
         }
 
-        private void HandleEventClosed()
+        private void HandleEventClosed(EventData _)
         {
             if (_campActionService.CurrentAction.HasValue)
             {

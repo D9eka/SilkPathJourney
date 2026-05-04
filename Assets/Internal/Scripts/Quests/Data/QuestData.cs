@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Internal.Scripts.Economy.Buildings;
 using Internal.Scripts.Events.Data;
 using Internal.Scripts.Quests.Generated;
 using UnityEngine;
@@ -34,6 +35,10 @@ namespace Internal.Scripts.Quests.Data
         [field: SerializeField] public List<QuestFailCondition> FailConditions { get; private set; }
         [field: SerializeField] public List<EventOutcomeEntry> FailConsequences { get; private set; }
 
+        [Header("Building issuing")]
+        [field: SerializeField] public BuildingType GiverBuilding { get; private set; }
+        [field: SerializeField] public string BriefingEventId { get; private set; }
+
 #if UNITY_EDITOR
         public void ApplyImport(
             string id,
@@ -48,7 +53,9 @@ namespace Internal.Scripts.Quests.Data
             List<QuestStageData> stages,
             List<QuestRewardData> rewards,
             List<QuestFailCondition> failConditions,
-            List<EventOutcomeEntry> failConsequences)
+            List<EventOutcomeEntry> failConsequences,
+            BuildingType giverBuilding,
+            string briefingEventId)
         {
             Id = id;
             Name = name;
@@ -63,6 +70,8 @@ namespace Internal.Scripts.Quests.Data
             Rewards = rewards ?? new List<QuestRewardData>();
             FailConditions = failConditions ?? new List<QuestFailCondition>();
             FailConsequences = failConsequences ?? new List<EventOutcomeEntry>();
+            GiverBuilding = giverBuilding;
+            BriefingEventId = briefingEventId ?? string.Empty;
         }
 #endif
     }
@@ -72,15 +81,18 @@ namespace Internal.Scripts.Quests.Data
     {
         [field: SerializeField] public string Id { get; private set; }
         [field: SerializeField] public LocalizedString Description { get; private set; }
-        [field: SerializeField] public string TriggerEventId { get; private set; }
+        [field: SerializeField] public LocalizedString Narrative { get; private set; }
+        [field: SerializeField] public string[] TriggerEventIds { get; private set; }
         [field: SerializeField] public QuestStageCondition AutoCompleteCondition { get; private set; }
 
 #if UNITY_EDITOR
-        public QuestStageData(string id, LocalizedString description, string triggerEventId, QuestStageCondition autoCompleteCondition)
+        public QuestStageData(string id, LocalizedString description, LocalizedString narrative,
+            string[] triggerEventIds, QuestStageCondition autoCompleteCondition)
         {
             Id = id;
             Description = description;
-            TriggerEventId = triggerEventId;
+            Narrative = narrative;
+            TriggerEventIds = triggerEventIds ?? System.Array.Empty<string>();
             AutoCompleteCondition = autoCompleteCondition;
         }
 #endif

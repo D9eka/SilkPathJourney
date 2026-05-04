@@ -8,25 +8,21 @@ using UnityEngine.Localization;
 
 namespace Internal.Scripts.UI.Screens.TargetSelection.Search
 {
-    /// <summary>
-    /// Отображение общей информации о городе: иконка типа + название/тип, заголовок "Здания:" со списком,
-    /// маркер квеста. Используется в CityRowView (карточка поиска) и CityEntryPreviewView (ConfirmWindow).
-    /// </summary>
-    public class CityInfoView : MonoBehaviour
+    public class CityInfoView : MonoBehaviour, ILocalizationConsumer
     {
         [Header("City")]
-        [SerializeField] private IconLabelView _cityNameView;
+        [SerializeField] private IconLabel _cityNameView;
 
         [Header("Buildings")]
         [SerializeField] private TextMeshProUGUI _buildingsHeaderText;
         [SerializeField] private LocalizedString _buildingsHeaderLocalized;
         [SerializeField] private RectTransform _buildingsContent;
-        [SerializeField] private IconLabelView _iconLabelPrefab;
+        [SerializeField] private IconLabel _iconLabelPrefab;
 
         [Header("Quest Marker")]
-        [SerializeField] private IconLabelView _questIndicatorView;
+        [SerializeField] private IconLabel _questIndicatorView;
 
-        private readonly List<IconLabelView> _spawnedBuildings = new();
+        private readonly List<IconLabel> _spawnedBuildings = new();
         private TooltipService _tooltipService;
         private LocalizationService _localization;
         private LocalizationService.LocalizedTextHandle _buildingsHeaderHandle;
@@ -85,7 +81,7 @@ namespace Internal.Scripts.UI.Screens.TargetSelection.Search
 
         private void RebuildBuildings(IReadOnlyList<IconLabelEntry> entries)
         {
-            foreach (IconLabelView view in _spawnedBuildings)
+            foreach (IconLabel view in _spawnedBuildings)
             {
                 if (view != null)
                 {
@@ -100,7 +96,7 @@ namespace Internal.Scripts.UI.Screens.TargetSelection.Search
 
             foreach (IconLabelEntry entry in entries)
             {
-                IconLabelView view = Instantiate(_iconLabelPrefab, _buildingsContent);
+                IconLabel view = Instantiate(_iconLabelPrefab, _buildingsContent);
                 view.Initialize(entry.Icon, entry.Label);
                 if (entry.TooltipProvider != null)
                     view.SetTooltip(entry.TooltipProvider, _tooltipService);

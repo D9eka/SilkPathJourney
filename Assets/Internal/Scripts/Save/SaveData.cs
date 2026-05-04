@@ -1,5 +1,9 @@
 using System;
+using System.Collections.Generic;
+using Internal.Scripts.Economy.MarketMemory;
 using Internal.Scripts.Economy.Save;
+using Internal.Scripts.Journal;
+using Internal.Scripts.Meta;
 using Internal.Scripts.Npc.Save;
 using Internal.Scripts.Player.Languages;
 using Internal.Scripts.Player.Skills;
@@ -12,6 +16,8 @@ namespace Internal.Scripts.Save
     public class SaveData
     {
         public int Version = 2;
+        public string SelectedBackgroundId;
+        public string SelectedCartClassId;
         public EconomySaveData Economy;
         public PlayerSaveData Player;
         public CameraSaveData Camera;
@@ -21,5 +27,8 @@ namespace Internal.Scripts.Save
         public PlayerLanguageState Languages;
         public QuestSaveData Quests;
         public WorldModifierSaveData WorldModifiers;
+        public RunStatsData RunStats;
+        public List<JournalEntry> Journal = new();
+        public Dictionary<string, MarketSnapshot> MarketMemory = new();
     }
 }

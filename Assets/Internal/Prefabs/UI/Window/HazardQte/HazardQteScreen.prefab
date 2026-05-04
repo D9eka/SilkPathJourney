@@ -525,7 +525,7 @@ MonoBehaviour:
   _animationRoots:
   - {fileID: 7623091047660154348}
   _canvasGroup: {fileID: 2750842224331824524}
-  _header: {fileID: 2467241392835603375}
+  _header: {fileID: 4966324244993965407}
   _timerBar: {fileID: 1066345015913790881}
   _timerText: {fileID: 5902560441438114615}
   _hintText: {fileID: 5073706634907814952}
@@ -533,7 +533,7 @@ MonoBehaviour:
   _resultCanvasGroup: {fileID: 3986412573469664096}
   _resultTitleText: {fileID: 2826680547009387223}
   _resultOutcomesContainer: {fileID: 5771404916502723931}
-  _iconLabelPrefab: {fileID: 5991343299907203831, guid: 329fc54ed49f66c47a544a517c018bf5, type: 3}
+  _iconLabelPrefab: {fileID: 4966324244993965407}
   _successColor: {r: 0.2, g: 0.9, b: 0.2, a: 1}
   _failColor: {r: 0.9, g: 0.2, b: 0.2, a: 1}
   _minigameContainer: {fileID: 8524789539940336166}
@@ -1091,6 +1091,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7623091047660154348}
     m_Modifications:
+    - target: {fileID: 490569216977697586, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 490569216977697586, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 490569216977697586, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 490569216977697586, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 490569216977697586, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 490569216977697586, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2829723450315599667, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
       propertyPath: m_Name
       value: IconLabelHeader
@@ -1232,22 +1256,22 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
---- !u!114 &2467241392835603375 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: -3252938706320881464, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
-  m_PrefabInstance: {fileID: 8135290393860973415}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62393b25545a23841874d2021ed74fb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Components.IconLabelView
 --- !u!224 &2997969549215019140 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6448229880392651747, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
   m_PrefabInstance: {fileID: 8135290393860973415}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4966324244993965407 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3750854262641221176, guid: 42e5d5e39e3ba8242b1770ae62a69627, type: 3}
+  m_PrefabInstance: {fileID: 8135290393860973415}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0914381f2b422d7478e325f813b5f604, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Components.IconLabel
 --- !u!1001 &9027457632946812119
 PrefabInstance:
   m_ObjectHideFlags: 0

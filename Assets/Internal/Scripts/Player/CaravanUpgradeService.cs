@@ -23,17 +23,16 @@ namespace Internal.Scripts.Player
             if (state.ActiveUpgrades.Contains(upgradeId))
                 return false;
 
-            int idx = _caravanDb.CaravanUpgrades.FindIndex(u => u.Type == type);
-            if (idx < 0)
+            if (!_caravanDb.CaravanUpgrades.Exists(u => u.Type == type))
                 return false;
 
-            var upgradeEntry = _caravanDb.CaravanUpgrades[idx];
-            if (state.Money < upgradeEntry.Price)
+            int price = GetUpgradePrice(type);
+            if (state.Money < price)
                 return false;
 
             _resourceRepo.UpdateResources(s =>
             {
-                s.Money -= upgradeEntry.Price;
+                s.Money -= price;
                 s.ActiveUpgrades.Add(upgradeId);
             });
 
@@ -44,6 +43,12 @@ namespace Internal.Scripts.Player
         {
             string upgradeId = type.ToString().ToLowerInvariant();
             return _resourceRepo.Current.ActiveUpgrades.Contains(upgradeId);
+        }
+
+        public int GetUpgradePrice(CaravanUpgradeType type)
+        {
+            int idx = _caravanDb.CaravanUpgrades.FindIndex(u => u.Type == type);
+            return idx >= 0 ? _caravanDb.CaravanUpgrades[idx].Price : 0;
         }
     }
 }

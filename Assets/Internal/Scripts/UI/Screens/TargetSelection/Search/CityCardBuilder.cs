@@ -37,6 +37,8 @@ namespace Internal.Scripts.UI.Screens.TargetSelection.Search
             IconLabelEntry[] buildingEntries = ResolveBuildingEntries(city);
             string questText = _questIndicator?.GetIndicatorText(city.Id);
 
+            CitySpecializationVm specialization = CitySpecializationVm.Build(typeData);
+
             return new CityRowData(
                 cityId: city.Id,
                 nodeId: city.NodeId,
@@ -44,7 +46,8 @@ namespace Internal.Scripts.UI.Screens.TargetSelection.Search
                 cityIcon: cityIcon,
                 buildingEntries: buildingEntries,
                 cityTooltip: typeData,
-                questIndicatorText: questText);
+                questIndicatorText: questText,
+                specialization: specialization);
         }
 
         private IconLabelEntry[] ResolveBuildingEntries(CityData city)

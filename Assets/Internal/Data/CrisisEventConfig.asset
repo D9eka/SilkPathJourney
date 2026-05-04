@@ -21,3 +21,12 @@ MonoBehaviour:
   <OnCartBroken>k__BackingField:
   - {fileID: 11400000, guid: 6b357ff6dbd2343408142e5e999a7943, type: 2}
   - {fileID: 11400000, guid: 036366effb6d1494fa70b9a5e0f56f3e, type: 2}
+  <OnFoodDepleted>k__BackingField:
+  - {fileID: 11400000, guid: 4a1b22f79337cb64b880ff6af4a38a2c, type: 2}
+  - {fileID: 11400000, guid: f13f16d866c5aeb4883b8ef6363c84fc, type: 2}
+  - {fileID: 11400000, guid: 5e3ecf7b414178d43b32b32e258c50e7, type: 2}
+  <OnMoneyDepleted>k__BackingField:
+  - {fileID: 11400000, guid: 5a30353f15f22034cb518743741ca1d2, type: 2}
+  - {fileID: 11400000, guid: 89139c6cf00503b4e9e23046d8eb06ab, type: 2}
+  - {fileID: 11400000, guid: 3249cc25d7800104b9e4d5da41b74a9f, type: 2}
+  <OnCaravanLost>k__BackingField: []

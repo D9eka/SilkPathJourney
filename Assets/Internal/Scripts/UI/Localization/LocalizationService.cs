@@ -148,6 +148,12 @@ namespace Internal.Scripts.UI.Localization
             return handle;
         }
 
+        public LocalizedTextHandle BindText(TextMeshProUGUI target, string table, string key,
+            string context, string fallback, Func<string, string> postProcess, params object[] args)
+        {
+            return BindText(target, GetLocalizedString(table, key), context, fallback, postProcess, args);
+        }
+
         public LocalizedTextHandle BindText(TextMeshProUGUI target, LocalizedString localized,
             string context, Func<string, string> postProcess)
         {
@@ -156,6 +162,22 @@ namespace Internal.Scripts.UI.Localization
             if (handle.TryBind())
                 handle.SetArguments(fallback);
             return handle;
+        }
+
+        public LocalizedTextHandle BindText(TextMeshProUGUI target, string table, string key, string context)
+        {
+            return BindText(target, GetLocalizedString(table, key), context);
+        }
+
+        private LocalizedString GetLocalizedString(string table, string key)
+        {
+            var cacheKey = (table, key);
+            if (!_cache.TryGetValue(cacheKey, out var localized))
+            {
+                localized = new LocalizedString(table, key);
+                _cache[cacheKey] = localized;
+            }
+            return localized;  
         }
 
         private static readonly Dictionary<(string table, string key), LocalizedString> _cache = new();
