@@ -208,14 +208,19 @@ namespace Internal.Scripts.UI.Screens.Hud
         private void UpdateState()
         {
             HudMode mode = DetermineMode();
-            CityData city = null;
-            if (mode == HudMode.City && _cityEntryService.IsInCityView)
-                TryGetEnterCity(out city);
+            bool isAtCityNode = TryGetEnterCity(out CityData city);
+            if (mode != HudMode.City || !_cityEntryService.IsInCityView)
+                city = null;
 
             bool showLockCamera = _playerStateProvider.State == PlayerState.Moving
                                   && !_cameraFollowService.IsFollowing;
 
-            _state.Value = new HudViewState(mode, _activeActionIndex, city, showLockCamera);
+            bool showChangeRoute = !isAtCityNode
+                                  && !_cityEntryService.IsInCityView
+                                  && !_playerStartMovement.IsChoosingTarget
+                                  && !_turnChoiceState.IsChoosingTurn;
+
+            _state.Value = new HudViewState(mode, _activeActionIndex, city, showLockCamera, isAtCityNode, showChangeRoute);
         }
 
         private HudMode DetermineMode()
@@ -238,8 +243,7 @@ namespace Internal.Scripts.UI.Screens.Hud
         {
             if (_turnChoiceState.IsChoosingTurn)
                 return _turnChoiceState.CurrentTurnNodeId;
-
-            return _playerStateProvider.CurrentNodeId;
+            return _playerStateProvider.StationaryNodeId;
         }
     }
 }

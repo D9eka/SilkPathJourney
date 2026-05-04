@@ -8,13 +8,18 @@ namespace Internal.Scripts.UI.Screens.Hud
         public readonly int ActiveActionIndex;
         public readonly CityData City;
         public readonly bool ShowLockCameraButton;
+        public readonly bool IsAtCityNode;
+        public readonly bool ShowChangeRouteButton;
 
-        public HudViewState(HudMode mode, int activeActionIndex, CityData city, bool showLockCameraButton = false)
+        public HudViewState(HudMode mode, int activeActionIndex, CityData city, bool showLockCameraButton = false,
+            bool isAtCityNode = false, bool showChangeRouteButton = false)
         {
             Mode = mode;
             ActiveActionIndex = activeActionIndex;
             City = city;
             ShowLockCameraButton = showLockCameraButton;
+            IsAtCityNode = isAtCityNode;
+            ShowChangeRouteButton = showChangeRouteButton;
         }
     }
 

@@ -140,6 +140,11 @@ namespace Internal.Scripts.UI.Screens.Hud
             switch (_model.CurrentMode)
             {
                 case HudMode.Travel:
+                    if (_model.TryGetEnterCity(out CityData _))
+                    {
+                        EnterCity();
+                        return;
+                    }
                     _model.SetSpeed(0);
                     OpenCamp();
                     break;
@@ -222,13 +227,12 @@ namespace Internal.Scripts.UI.Screens.Hud
 
         private void EnterCity()
         {
-            if (_turnChoiceState.IsChoosingTurn)
-            {
-                _arrowsController.HideArrows();
-                string turnNodeId = _turnChoiceState.CurrentTurnNodeId;
-                if (!string.IsNullOrWhiteSpace(turnNodeId))
-                    _playerMovementControl.CancelDestinationAtNode(turnNodeId);
-            }
+            _arrowsController.HideArrows();
+            string nodeId = _turnChoiceState.IsChoosingTurn
+                ? _turnChoiceState.CurrentTurnNodeId
+                : _playerStateProvider.StationaryNodeId;
+            if (!string.IsNullOrWhiteSpace(nodeId))
+                _playerMovementControl.CancelDestinationAtNode(nodeId);
 
             TryOpenCityEntryConfirm();
         }
@@ -293,6 +297,8 @@ namespace Internal.Scripts.UI.Screens.Hud
         }
 
         private void HandleDayChanged(int day) => DayChanged?.Invoke(day);
+
+        public void OpenTargetSelection() => StartMove();
 
         private void StartMove()
         {

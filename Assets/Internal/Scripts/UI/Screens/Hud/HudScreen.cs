@@ -59,6 +59,8 @@ namespace Internal.Scripts.UI.Screens.Hud
         [Header("CameraControls")]
         [SerializeField] private Button _lockCameraButton;
         [SerializeField] private TextMeshProUGUI _lockCameraButtonText;
+        [SerializeField] private Button _changeRouteButton;
+        [SerializeField] private TextMeshProUGUI _changeRouteButtonText;
         [Header("LocalizedStrings")]
         [SerializeField] private LocalizedString _dayTextLocalizedString;
         [SerializeField] private LocalizedString _enterCityLocalizedString;
@@ -67,6 +69,7 @@ namespace Internal.Scripts.UI.Screens.Hud
         [SerializeField] private LocalizedString _fastMoveLocalizedString;
         [SerializeField] private LocalizedString _leaveCityLocalizedString;
         [SerializeField] private LocalizedString _lockCameraLocalizedString;
+        [SerializeField] private LocalizedString _changeRouteLocalizedString;
 
         private HudScreenViewModel _viewModel;
         private IDisposable _stateSubscription;
@@ -76,6 +79,7 @@ namespace Internal.Scripts.UI.Screens.Hud
         private LocalizationService.LocalizedTextGroup _buttonHandles;
         private LocalizationService.LocalizedTextHandle _cityHandle;
         private LocalizationService.LocalizedTextHandle _lockCameraHandle;
+        private LocalizationService.LocalizedTextHandle _changeRouteHandle;
         private LocalizationService.LocalizedTextHandle _dayHandle;
 
         private void OnEnable()
@@ -128,7 +132,9 @@ namespace Internal.Scripts.UI.Screens.Hud
             _openCompanionsButton.onClick.AddListener(OnOpenCaravan);
             _openDiaryButton.onClick.AddListener(OnOpenDiary);
             _lockCameraButton.onClick.AddListener(OnLockCamera);
+            _changeRouteButton.onClick.AddListener(OnChangeRoute);
             _lockCameraHandle = Localization.BindText(_lockCameraButtonText, _lockCameraLocalizedString, "Hud.LockCamera");
+            _changeRouteHandle = Localization.BindText(_changeRouteButtonText, _changeRouteLocalizedString, "Hud.ChangeRoute");
 
             _timeSpeedSubscription = _viewModel.TimeSpeedState.Subscribe(ApplyTimeSpeedBorder);
             _trackerSubscription = _viewModel.TrackerState.Subscribe(ApplyTrackerState);
@@ -163,6 +169,10 @@ namespace Internal.Scripts.UI.Screens.Hud
             _cityHandle = null;
             _lockCameraHandle?.Dispose();
             _lockCameraHandle = null;
+            _changeRouteHandle?.Dispose();
+            _changeRouteHandle = null;
+            _dayHandle?.Dispose();
+            _dayHandle = null;
 
             _startActionButton.onClick.RemoveListener(OnStartAction);
             _actionButton.onClick.RemoveListener(OnAction);
@@ -174,6 +184,7 @@ namespace Internal.Scripts.UI.Screens.Hud
             _openCompanionsButton.onClick.RemoveListener(OnOpenCaravan);
             _openDiaryButton.onClick.RemoveListener(OnOpenDiary);
             _lockCameraButton.onClick.RemoveListener(OnLockCamera);
+            _changeRouteButton.onClick.RemoveListener(OnChangeRoute);
 
             if (_questTracker != null && _questTracker.OpenQuestsButton != null)
                 _questTracker.OpenQuestsButton.onClick.RemoveListener(OnOpenQuests);
@@ -188,7 +199,7 @@ namespace Internal.Scripts.UI.Screens.Hud
             switch (state.Mode)
             {
                 case HudMode.Travel:
-                    ApplyTravelMode(state.ActiveActionIndex);
+                    ApplyTravelMode(state);
                     break;
                 case HudMode.City:
                     ApplyCityMode(state.City);
@@ -197,9 +208,10 @@ namespace Internal.Scripts.UI.Screens.Hud
 
             if (_lockCameraButton != null)
                 _lockCameraButton.gameObject.SetActive(state.ShowLockCameraButton);
+            _changeRouteButton.gameObject.SetActive(state.ShowChangeRouteButton);
         }
 
-        private void ApplyTravelMode(int activeActionIndex)
+        private void ApplyTravelMode(HudViewState state)
         {
             _startActionButton.gameObject.SetActive(true);
             _actionButton.gameObject.SetActive(true);
@@ -208,11 +220,14 @@ namespace Internal.Scripts.UI.Screens.Hud
 
             _buttonHandles?.Dispose();
             _buttonHandles = Localization.CreateTextGroup();
-            _buttonHandles.Bind(_startActionButtonText, _campLocalizedString, "Hud.Camp");
+            if (state.IsAtCityNode)
+                _buttonHandles.Bind(_startActionButtonText, _enterCityLocalizedString, "Hud.EnterCity");
+            else
+                _buttonHandles.Bind(_startActionButtonText, _campLocalizedString, "Hud.Camp");
             _buttonHandles.Bind(_actionButtonText, _moveLocalizedString, "Hud.Move");
             _buttonHandles.Bind(_endActionButtonText, _fastMoveLocalizedString, "Hud.Rush");
 
-            SetActionBorder(activeActionIndex);
+            SetActionBorder(state.ActiveActionIndex);
         }
 
         private void ApplyCityMode(CityData city)
@@ -307,6 +322,7 @@ namespace Internal.Scripts.UI.Screens.Hud
             _startActionButton.interactable = state;
             _actionButton.interactable = state;
             _endActionButton.interactable = state;
+            _changeRouteButton.interactable = state;
             if (_pauseTimeButton != null) _pauseTimeButton.interactable = state;
             if (_normalTimeButton != null) _normalTimeButton.interactable = state;
             if (_fastTimeButton != null) _fastTimeButton.interactable = state;
@@ -359,6 +375,7 @@ namespace Internal.Scripts.UI.Screens.Hud
         private void OnOpenCaravan() => _viewModel?.OpenCaravan();
         private void OnOpenDiary() => _viewModel?.OpenDiary();
         private void OnLockCamera() => _viewModel?.LockCameraToPlayer();
+        private void OnChangeRoute() => _viewModel?.OpenTargetSelection();
         private void OnPauseTime() => _viewModel?.OnTimeSpeedSelected(TimeSpeed.Paused);
         private void OnNormalTime() => _viewModel?.OnTimeSpeedSelected(TimeSpeed.Normal);
         private void OnFastTime() => _viewModel?.OnTimeSpeedSelected(TimeSpeed.Fast);
