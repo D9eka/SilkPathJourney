@@ -26,6 +26,7 @@ namespace Internal.Scripts.Npc.Core
         public string CurrentFromNodeId => _currentSegment?.FromNodeId;
         public string CurrentToNodeId => _currentSegment?.ToNodeId;
         public float DistanceOnSegment => _distanceOnSegment;
+        public float SegmentLength => _segmentLength;
 
         public SegmentMover(IRoadNetwork network, RoadSamplerCache samplerCache, RoadPoseSampler poseSampler)
         {
@@ -91,6 +92,30 @@ namespace Internal.Scripts.Npc.Core
         public void SetPose(RoadPathSegment segment)
         {
             CurrentPose = SamplePose(segment, 0f);
+        }
+
+        public bool ReverseCurrentSegment()
+        {
+            if (_currentSegment == null)
+                return false;
+
+            var reverseId = new RoadSegmentId(
+                _currentSegment.SegmentId.RoadId,
+                !_currentSegment.SegmentId.Forward);
+
+            if (!_network.TryGetSegment(reverseId, out _))
+                return false;
+
+            var reverseSegment = new RoadPathSegment(
+                reverseId,
+                _currentSegment.ToNodeId,
+                _currentSegment.FromNodeId,
+                _currentSegment.LengthMeters);
+
+            _currentSegment = reverseSegment;
+            _distanceOnSegment = _segmentLength - _distanceOnSegment;
+            UpdatePose();
+            return true;
         }
 
         public void Cancel()

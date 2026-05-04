@@ -19,6 +19,7 @@ namespace Internal.Scripts.Player
         private string _lastToNode;
 
         public string CurrentNodeId => _roadAgent?.CurrentNodeId ?? string.Empty;
+        public string StationaryNodeId => _roadAgent?.StationaryNodeId;
         public string DestinationNodeId => _roadAgent?.DestinationNodeId ?? string.Empty;
         public Vector3 CurrentPosition => _roadAgent?.CurrentPose.Position ?? Vector3.zero;
         public string CurrentFromNodeId => _roadAgent?.CurrentFromNodeId;

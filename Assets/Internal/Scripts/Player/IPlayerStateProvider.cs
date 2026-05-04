@@ -6,6 +6,7 @@ namespace Internal.Scripts.Player
     {
         PlayerState State { get; }
         string CurrentNodeId { get; }
+        string StationaryNodeId { get; }
         string DestinationNodeId { get; }
         string CurrentFromNodeId { get; }
         string CurrentToNodeId { get; }
