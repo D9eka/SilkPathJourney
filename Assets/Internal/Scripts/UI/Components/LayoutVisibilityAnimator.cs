@@ -17,17 +17,27 @@ namespace Internal.Scripts.UI.Components
         private Sequence _sequence;
         private float _targetWidth;
 
+        private bool _initialized;
+
         private void Awake()
         {
-            _canvasGroup = GetComponent<CanvasGroup>();
-            _layoutElement = GetComponent<LayoutElement>();
-            _targetWidth = _layoutElement.preferredWidth;
+            EnsureInitialized();
             _layoutElement.preferredWidth = 0f;
             _canvasGroup.alpha = 0f;
         }
 
+        private void EnsureInitialized()
+        {
+            if (_initialized) return;
+            _canvasGroup = GetComponent<CanvasGroup>();
+            _layoutElement = GetComponent<LayoutElement>();
+            _targetWidth = _layoutElement.preferredWidth;
+            _initialized = true;
+        }
+
         public void Show()
         {
+            EnsureInitialized();
             KillSequence();
             _layoutElement.preferredWidth = _targetWidth;
             _sequence = DOTween.Sequence()
@@ -38,6 +48,7 @@ namespace Internal.Scripts.UI.Components
 
         public void Hide()
         {
+            EnsureInitialized();
             KillSequence();
             _sequence = DOTween.Sequence()
                 .Join(_canvasGroup.DOFade(0f, _hideDuration).SetEase(_hideEase))
@@ -48,6 +59,7 @@ namespace Internal.Scripts.UI.Components
 
         public void ShowImmediate()
         {
+            EnsureInitialized();
             KillSequence();
             _layoutElement.preferredWidth = _targetWidth;
             _canvasGroup.alpha = 1f;
@@ -55,6 +67,7 @@ namespace Internal.Scripts.UI.Components
 
         public void HideImmediate()
         {
+            EnsureInitialized();
             KillSequence();
             _layoutElement.preferredWidth = 0f;
             _canvasGroup.alpha = 0f;
