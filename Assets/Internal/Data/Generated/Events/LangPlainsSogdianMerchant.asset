@@ -90,6 +90,7 @@ MonoBehaviour:
     <Conditions>k__BackingField:
     - <Type>k__BackingField: 13
       <Param>k__BackingField: Sogdian
+      <ParamList>k__BackingField: []
       <Value>k__BackingField: 1
     <Outcomes>k__BackingField:
     - <Type>k__BackingField: 1
@@ -128,6 +129,7 @@ MonoBehaviour:
     <Conditions>k__BackingField:
     - <Type>k__BackingField: 10
       <Param>k__BackingField: Translator
+      <ParamList>k__BackingField: []
       <Value>k__BackingField: 1
     <Outcomes>k__BackingField:
     - <Type>k__BackingField: 1

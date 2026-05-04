@@ -86,20 +86,7 @@ MonoBehaviour:
   <IsMinor>k__BackingField: 0
   <Biome>k__BackingField: 0
   <AutoOutcomes>k__BackingField: []
-  <SkillChecks>k__BackingField:
-  - <ChoiceIndex>k__BackingField: 1
-    <SkillType>k__BackingField: 1
-    <BaseChance>k__BackingField: 0.5
-    <FailResultText>k__BackingField:
-      m_TableReference:
-        m_TableCollectionName: Events
-      m_TableEntryReference:
-        m_KeyId: 0
-        m_Key: template.discovery.0.choice1.fail
-      m_FallbackState: 0
-      m_WaitForCompletion: 0
-      m_LocalVariables: []
-    <FailOutcomes>k__BackingField: []
+  <SkillChecks>k__BackingField: []
   <Conditions>k__BackingField: []
   <Weight>k__BackingField: 0
   references:

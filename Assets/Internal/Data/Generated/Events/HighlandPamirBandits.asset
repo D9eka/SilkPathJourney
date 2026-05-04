@@ -64,6 +64,7 @@ MonoBehaviour:
     <Conditions>k__BackingField:
     - <Type>k__BackingField: 1
       <Param>k__BackingField: 
+      <ParamList>k__BackingField: []
       <Value>k__BackingField: 20
     <Outcomes>k__BackingField:
     - <Type>k__BackingField: 1
@@ -122,6 +123,7 @@ MonoBehaviour:
     <Conditions>k__BackingField:
     - <Type>k__BackingField: 10
       <Param>k__BackingField: Guard
+      <ParamList>k__BackingField: []
       <Value>k__BackingField: 1
     <Outcomes>k__BackingField:
     - <Type>k__BackingField: 3
@@ -136,10 +138,36 @@ MonoBehaviour:
   <IsMinor>k__BackingField: 0
   <Biome>k__BackingField: 3
   <AutoOutcomes>k__BackingField: []
-  <SkillChecks>k__BackingField: []
+  <SkillChecks>k__BackingField:
+  - <ChoiceIndex>k__BackingField: 2
+    <SkillType>k__BackingField: 1
+    <BaseChance>k__BackingField: 0.3
+    <FailResultText>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Events
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: event.highland_pamir_bandits.choice2.fail
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <FailOutcomes>k__BackingField:
+    - <Type>k__BackingField: 2
+      <Param>k__BackingField: 
+      <Value>k__BackingField: -8
+    - <Type>k__BackingField: 5
+      <Param>k__BackingField: 
+      <Value>k__BackingField: -8
+    - <Type>k__BackingField: 3
+      <Param>k__BackingField: 
+      <Value>k__BackingField: 10
+    - <Type>k__BackingField: 16
+      <Param>k__BackingField: Guard
+      <Value>k__BackingField: 1
   <Conditions>k__BackingField:
   - <Type>k__BackingField: 3
     <Param>k__BackingField: 
+    <ParamList>k__BackingField: []
     <Value>k__BackingField: 30
   <Weight>k__BackingField: 0.7
   references:

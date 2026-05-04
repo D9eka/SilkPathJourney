@@ -61,10 +61,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    <Conditions>k__BackingField:
-    - <Type>k__BackingField: 31
-      <Param>k__BackingField: quest_artifact_2
-      <Value>k__BackingField: 1
+    <Conditions>k__BackingField: []
     <Outcomes>k__BackingField:
     - <Type>k__BackingField: 20
       <Param>k__BackingField: quest_artifact_1
@@ -111,17 +108,28 @@ MonoBehaviour:
       <Param>k__BackingField: 
       <Value>k__BackingField: 5
   <IsMinor>k__BackingField: 0
-  <Biome>k__BackingField: 0
+  <Biome>k__BackingField: 2
   <AutoOutcomes>k__BackingField: []
   <SkillChecks>k__BackingField: []
   <Conditions>k__BackingField:
   - <Type>k__BackingField: 22
     <Param>k__BackingField: quest_artifact_1
+    <ParamList>k__BackingField: []
     <Value>k__BackingField: 1
   - <Type>k__BackingField: 25
     <Param>k__BackingField: quest_artifact_1
+    <ParamList>k__BackingField: []
     <Value>k__BackingField: 2
-  <Weight>k__BackingField: 0
+  - <Type>k__BackingField: 12
+    <Param>k__BackingField: N_Aksu,N_Kucha,N_Khotan,N_Kashgar,N_Hami
+    <ParamList>k__BackingField:
+    - N_Aksu
+    - N_Kucha
+    - N_Khotan
+    - N_Kashgar
+    - N_Hami
+    <Value>k__BackingField: 1
+  <Weight>k__BackingField: 1
   references:
     version: 2
     RefIds: []

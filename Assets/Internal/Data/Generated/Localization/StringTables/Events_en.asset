@@ -12878,252 +12878,216 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643651
-    m_Localized: Caravan on the Pamir Road
+    m_Localized: Oncoming Caravan on the Trail
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643652
-    m_Localized: "The trail narrows to the width of a single cart \u2014 a sheer
-      wall of brown schist on the left, a cloud-filled valley dropping away on the
-      right. From beyond a rocky outcrop come the creak of wheels and the shouts
-      of drovers. An oncoming caravan: a dozen laden yaks and three wagons piled
-      with wool bales. There is no room to pass on this stretch \u2014 someone must
-      back up to a widening half a verst behind. The leader of the oncoming caravan,
-      a broad-shouldered Turk in a fox-fur hat, is already waving his arms and shouting:\r\n\r\n<npc_speech
-      lang=\"Turkic\">Toqta, yolchu! Bu yol tar \u2014 ikimiz syghmaz. Kim aldin
-      kech\xE4r? S\xF6yl\xE4 tez!</npc_speech>"
+    m_Localized: "A narrow path above the abyss. An oncoming caravan emerges from
+      behind a rock spur \u2014 a broad-shouldered Turkic driver, three yaks loaded
+      with wool, three carts. There is no room for both, someone must yield. The
+      Turk plants his fists on his hips and stares at you, waiting."
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643653
-    m_Localized: Yield the road
+    m_Localized: Hold our ground
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643654
-    m_Localized: "Half a day spent backing the carts along the narrow trail \u2014
-      wheel by wheel, step by step, brake shoes grinding against rock. Drivers shouted,
-      yaks balked, one bale nearly tumbled into the abyss. The oncoming caravan passed,
-      the Turk nodded farewell, but the time lost is considerable. The men are exhausted
-      and irritable."
+    m_Localized: "You dig in and refuse to move. An hour of arguing, two hours of
+      shouting, three hours of mutual cursing. The Turk spits and turns his caravan
+      around \u2014 but the day is lost, nerves are frayed, and night falls fast
+      in the mountains."
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643655
-    m_Localized: Insist on right of passage
+    m_Localized: Back up to a wide ledge
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643656
-    m_Localized: "You pointed to the width of your carts, the weight of your load,
-      and the cliff edge \u2014 calmly and convincingly. The Turk eyed the drop,
-      weighed the risk, and grudgingly ordered his men to back up. His yaks, bred
-      for mountain trails, retreated more surely than your horses would have. Within
-      an hour the way is clear. The drivers are proud \u2014 their caravan did not
-      yield."
+    m_Localized: "Your drivers carefully back the wagons up \u2014 meter by meter
+      \u2014 to a wide ledge. The Turk nods with respect and passes first; in parting,
+      he gestures ahead: \"Two leagues on \u2014 a rockslide. Be careful.\" You move
+      on with a warning and the sense that the mountains accept those who know how
+      to yield."
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643657
-    m_Localized: "The Turk did not yield \u2014 both caravans stood face to face,
-      drivers cursing, yaks bellowing. When your outermost yak tried to squeeze past,
-      it knocked a stone off the trail edge, jolting the cart hard enough to crack
-      a side post. You had to retreat anyway, now with a damaged wagon and bruised
-      pride."
+    m_Localized: 'The maneuver goes badly. One wagon''s rear wheel slips over the
+      edge, bales of cashmere tumble into the abyss. You barely save the rest. The
+      Turk passes by, calling over his shoulder: "Learn to drive a caravan before
+      climbing the Pamirs." Repairs will take days.'
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643658
-    m_Localized: The guide knows a bypass trail
+    m_Localized: Settle it amicably
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643659
-    m_Localized: "The guide touched your elbow and nodded toward a barely visible
-      path climbing up the scree. \"Herders use it \u2014 up to the ridge and back
-      down. Carts won't fit, but we can lead the yaks one by one, and the wagons
-      wait.\" Two hours later the caravan had bypassed the jam, and the Turk, impressed
-      by your resourcefulness, presented a bale of cashmere wool \u2014 a mark of
-      respect from one mountain traveler to another."
+    m_Localized: "You step forward with open hands and propose a trade \u2014 we
+      yield now, you share the road ahead. The Turk thinks, then offers a calloused
+      palm. An hour later both caravans share a campfire, swapping routes and rumors.
+      On parting he gifts a bale of cashmere \u2014 \"for a wise head.\" The road
+      ahead grows clearer."
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643660
-    m_Localized: Well in the Taklamakan Desert
+    m_Localized: The Well in the Desert
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643661
-    m_Localized: "Third day without resupply. The waterskins are nearly empty, the
-      camels plod heavily, every lip in the caravan is cracked. By calculation, the
-      only well on this route should be somewhere here \u2014 among grey salt flats
-      and dead poplars buried to their crowns in sand. At last, a driver spots the
-      stone masonry of a well, half-choked with sand. But relief fades quickly: the
-      water at the bottom is cloudy, yellowish, with a sickly-sweet smell. Mineral
-      salts, perhaps \u2014 or something worse. A dead raven lies at the wellhead,
-      wings splayed."
+    m_Localized: 'In the middle of the sands, a half-buried stone well. Beside it,
+      a dead raven, wings spread. Withered poplars rise from the dunes like grey
+      skeletal hands. One of your drivers has lowered a copper cup into the shaft:
+      there is water, but cloudy, smelling of iron. Your reserves are running out,
+      the next source is two days away.'
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643662
-    m_Localized: "Risk it \u2014 drink the water"
+    m_Localized: Drink it as it is
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643663
-    m_Localized: "There is no choice \u2014 the waterskins are empty, and Khotan
-      is still two marches away. The water was strained through cloth, boiled, and
-      distributed. The taste is bitter, metallic, but it wets the throat. By evening
-      two drivers are doubled over \u2014 cramps, fever, weakness. The water was
-      tainted with mineral salts. The caravan crawls on with the sick riding in the
-      carts."
+    m_Localized: "The caravan eagerly draws water. Thirst recedes, but by evening
+      three drivers double over with stomach cramps. By morning two have bloody dysentery.
+      The water had to be drunk \u2014 but the dead raven at the well had warned
+      for a reason."
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643664
-    m_Localized: Search for another source
+    m_Localized: Boil and filter
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643665
-    m_Localized: "You noticed a strip of green at the base of a dune \u2014 a sure
-      sign of underground water. Two hours of digging with hands and scoops before
-      a clear spring broke through. The water is clean, cold, without aftertaste.
-      Waterskins filled, camels watered, men weep with relief. The dead well is left
-      behind \u2014 a warning for those who follow."
+    m_Localized: "You remember the old caravan master's lesson \u2014 boil, then
+      filter through cloth with charcoal. Building a fire is hard, the wind fights
+      you, but you manage. The water clears and becomes drinkable. The caravan drinks
+      calmly, and the desert ceases to frighten."
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643666
-    m_Localized: "Half a day of wandering among the dunes yielded nothing \u2014
-      no greenery, no damp sand, no animal tracks. The caravan returned to the poisoned
-      well, having spent time and the last of its strength. Thirst presses, the men
-      stare at the cloudy water with desperation."
+    m_Localized: 'Your attempt to purify the water ends badly: the fire dies, the
+      filter clogs, the waterskins tip over. Most of the reserve drains into the
+      sand. The caravan must ration every drop and push harder than it wants.'
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643667
-    m_Localized: The healer purifies the water
+    m_Localized: Send scouts to find another source
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643668
-    m_Localized: "The healer examined the water, sniffed it, rubbed a drop between
-      his fingers. \"Salts. Not poison, but not drinkable as is.\" He pulled a handful
-      of powdered alum from his satchel and dropped it into a leather bucket of cloudy
-      water. Within an hour the sediment settled to the bottom, leaving a clear layer
-      above. Boiled and strained \u2014 clean water, fit to drink. Waterskins filled
-      to the brim, camels watered. The drivers look at the healer as if he performed
-      a miracle."
+    m_Localized: "Two of your best scouts ride out at sunset and return at dawn \u2014
+      they have found a spring hidden among the rocks, clean and cold. The caravan
+      happily changes course and fills its skins. The dead raven stays to guard the
+      poisoned well \u2014 let it warn whoever comes next."
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643669
-    m_Localized: Tang Patrol on the Gansu Corridor
+    m_Localized: Tang Patrol on the Road
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643670
-    m_Localized: "The loess road ends at a bamboo barrier stretched between two mud-brick
-      watchtowers. Strips of dried meat hang on ropes, a field kitchen smokes nearby.
-      This is a Gansu Corridor checkpoint \u2014 Tang soldiers inspect every caravan
-      heading west. An officer in lamellar armor with red-lacquered plates stands
-      in the middle of the road, holding a wooden writing tablet. Two soldiers with
-      bronze-tipped halberds block the passage. The officer raises his hand and addresses
-      you in Chinese:\r\n\r\n<npc_speech lang=\"Chinese\">Zh\xE0nzh\xF9! N\xEDn sh\xEC
-      n\u01CE gu\xF3 sh\u0101ngr\xE9n? Ch\u016Bsh\xEC t\u014Dngx\xEDng w\xE9nsh\u016B
-      h\xE9 hu\xF2w\xF9 q\u012Bngd\u0101n. W\xE8i j\u012Bng x\u01D4k\u011B, b\xF9d\xE9
-      t\u014Dngx\xEDng.</npc_speech>"
+    m_Localized: "On the road through the Gansu Corridor \u2014 a Tang post: two
+      mud-brick towers, a bamboo pole across the road, a silk standard with a gold
+      dragon. An officer in red lacquered armor demands papers. Chinese characters
+      carved on a signpost at the entrance \u2014 your caravan cannot read them.
+      Two soldiers with halberds stand behind the officer. Without papers, no one
+      passes."
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643671
-    m_Localized: Pay the toll without questions
+    m_Localized: Pay the toll outright
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643672
-    m_Localized: "Silver changed hands, the officer made a note on his tablet and
-      nodded to the soldiers. The barrier rose. Quick, painless, but the purse is
-      noticeably lighter. The officer did not even count the coins \u2014 a habit
-      born of hundreds of caravans."
+    m_Localized: You set out the silver on a lacquered tray without haggling. The
+      officer counts it, stamps a paper, and raises the barrier. No spare word, no
+      glance. The road opens, your purse is lighter.
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643673
-    m_Localized: Try to negotiate
+    m_Localized: Negotiate by gesture
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643674
-    m_Localized: "You bowed in the Tang fashion \u2014 correctly, deeply, palms pressed
-      together before your chest. The officer raised an eyebrow. You spoke of respect
-      for the empire, of cargo that would bring credit to the post, and of a modest
-      gift worthy of a brave guardian. The toll was reduced to a token sum, and the
-      officer, clearly flattered, issued a safe-conduct on imperial paper \u2014
-      it will speed passage through checkpoints ahead."
+    m_Localized: "You bow, fold your hands in respect, show a smaller number on your
+      fingers \u2014 and smile as merchants smile across all Asia. The officer grunts,
+      eyes the goods sideways, and a quarter-hour later you part on mutually agreeable
+      terms. In farewell, he hands over a sheet of rice paper bearing a seal \u2014
+      a pass for the next posts."
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643675
-    m_Localized: "The officer frowned \u2014 your bow was clumsy, your words sounded
-      like a poorly rehearsed speech. \"No papers \u2014 pay double toll. Or wait
-      here until the post commander arrives.\" You paid in full and endured a lecture
-      about barbarians ignorant of the customs of the Celestial Empire. The men are
-      grimly silent."
+    m_Localized: "The officer reads your gestures as evasion. His face darkens, the
+      soldiers step forward. In the end you pay more than you should, and you draw
+      suspicion of dishonesty. The officer makes a note in his list \u2014 at the
+      next post you will be met more harshly."
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643676
-    m_Localized: The translator handles the formalities
+    m_Localized: The translator leads the negotiation
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643677
-    m_Localized: "The translator stepped forward and addressed the officer in flawless
-      Chinese \u2014 respectful but assured, with the correct titles and courtly
-      turns of phrase. The officer straightened as if before an inspector. Within
-      a quarter-hour the toll was paid at the minimum rate, a safe-conduct was issued,
-      and the soldiers treated the caravan to hot noodles from the field kitchen.
-      The translator even picked up a few military terms \u2014 useful at the next
-      checkpoint."
+    m_Localized: Your translator steps forward and addresses the officer in flawless
+      Chinese, citing a line from the Analects. The officer raises his eyebrows in
+      surprise, then laughs and invites you to tea in the commander's tent. Over
+      a cup of pale green tea he explains the best way through the next posts, stamps
+      your paper with a double seal, and wishes you a fair road. You leave with a
+      pass, advice, and a few Chinese phrases lodged in memory.
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643678
-    m_Localized: Pirates on the Levantine Coast
+    m_Localized: Levantine Pirates
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643679
-    m_Localized: "The caravan trail hugs the coast \u2014 a drop to the sea on the
-      right, rocky hills in dry thorny scrub on the left. The salt wind carries the
-      smell of seaweed and smoke. From behind a headland a long boat with a lateen
-      sail slides out \u2014 then another. On the shore, among storm-thrown driftwood,
-      figures appear in dark wrappings, with curved sabres and round camel-hide shields.
-      Coastal pirates \u2014 half a dozen, perhaps more \u2014 block the trail ahead.
-      Their leader, a wiry man with a scar across his left brow, raises his hand
-      and shouts:\r\n\r\n<npc_speech lang=\"Arabic\">Qif, yaa taajir! Haadhihi ardhunaa
-      wa bahrunaa. Idfaa' al-kharaaj aw sa-na'khudhu maa na-sha'!</npc_speech>"
+    m_Localized: "A path above the sea \u2014 cliff on the right, grey water lapping
+      below. Six men in dark wrappings emerge from around the bend. The leader \u2014
+      lean, with a scar across his cheek \u2014 raises a curved sabre. Two boats
+      with patched sails lie on the beach below. The pirates take their time: they
+      are at home on this ground, and your caravan is pinned between rock and drop."
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643680
-    m_Localized: Pay the tribute
+    m_Localized: Buy them off without a fight
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643681
-    m_Localized: "A purse of coins landed at the leader's feet. He picked it up,
-      weighed it in his palm, and grinned \u2014 yellow teeth, one gold. He waved
-      to his men, and the pirates parted, never taking their eyes off the wagons.
-      Tribute paid, passage clear. Bitter, but the caravan is whole, and that is
-      what matters."
+    m_Localized: "You hand over a purse of silver. The leader counts it without haste,
+      then nods \u2014 he keeps his word. The pirates step aside, and the caravan
+      moves past. Cold sweat, but everyone is alive."
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643682
-    m_Localized: Offer a trade instead of tribute
+    m_Localized: Haggle the ransom down
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643683
-    m_Localized: "You raised your hands \u2014 empty, no weapon \u2014 and spoke
-      business. Pirates do not only plunder: they have coral from the seabed, pearls
-      from shells, salvage from wrecked ships. You offered a fair trade and laid
-      out a sample. The leader turned it over, grunted, and nodded. An hour later
-      the caravan moved on \u2014 with a branch of coral in the bales and a reputation
-      as someone worth dealing with."
+    m_Localized: "You talk to the leader as merchant to merchant \u2014 praise your
+      wares, lament the road's hardships, haggle over every coin. The scar on his
+      cheek twists into a reluctant smile. You settle for a quarter of his demand.
+      In parting, he tosses you a piece of coral \u2014 \"for a bold tongue.\" The
+      caravan passes almost unscathed."
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643684
-    m_Localized: "The leader listened, spat, and laughed. \"You came to haggle \u2014
-      with us?\" His men closed ranks, sabres drawn. You ended up paying more than
-      originally demanded \u2014 plus one bale, ripped open and picked through before
-      your eyes. The humiliation stings as much as the loss."
+    m_Localized: The leader cuts off the haggling in irritation and orders the wagons
+      searched. The pirates rummage through the bales, take whatever is valuable,
+      beat two of the drivers. The boats put to sea heavily loaded, and you are left
+      with bruises, foul mood, and a lighter caravan.
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643685
-    m_Localized: The guard organizes a defense
+    m_Localized: Stand and fight
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643686
-    m_Localized: "The guard assessed the situation instantly: six men, lightly armed,
-      boats on the shore \u2014 an escape route. He quietly ordered the drivers to
-      wheel the carts into a half-circle, drew his crossbow, and put a bolt into
-      the sand at the leader's feet. The pirates froze. \"The next one hits the chest,\"
-      the guard said in Arabic, gesturing at the crossbow. The leader looked at the
-      cart barricade, at the crossbow, at the determined faces of the drivers \u2014
-      and backed off. His men tossed a branch of coral onto the trail as a truce
-      token and vanished behind the headland. The caravan passed without loss."
+    m_Localized: "Your guards charge, the caravan is tight and does not panic. The
+      pirates were not expecting a fight \u2014 two go down at once, the rest retreat
+      to the boats, abandoning their loot. Among the spoils \u2014 a piece of coral,
+      a purse of silver, a curved sabre. The caravan walks away without loss, and
+      word that this path will not yield easily will spread along the coast. Your
+      fame grows."
     m_Metadata:
       m_Items: []
   - m_Id: 10857774513643687
@@ -13273,14 +13237,12 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 12985643238940681
-    m_Localized: Continue
+    m_Localized: I'm ready
     m_Metadata:
       m_Items: []
   - m_Id: 12985643238940682
-    m_Localized: "You accept the silver and the new charter. Vahu-Man shakes your
-      hand firmly, in the merchant fashion. \"The road to Constantinople is long,
-      but you have proven yourself capable.\" The caravan is unloaded, silver jingles
-      in the purse, and ahead waits a new contract \u2014 harder and more profitable."
+    m_Localized: "You clasp Vahu-Man's hand. The guild charter inside your robe,
+      silver in your purse, Samarkand behind you \u2014 Constantinople lies ahead."
     m_Metadata:
       m_Items: []
   - m_Id: 12985643238940683
@@ -13300,14 +13262,12 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 12985643238940685
-    m_Localized: Continue
+    m_Localized: I'll set out
     m_Metadata:
       m_Items: []
   - m_Id: 12985643238940686
-    m_Localized: "Tinley bows and hands you a small pouch of silver \u2014 \"from
-      the grateful congregation.\" The scroll is delivered, but the monk is right:
-      the path of the spirit has only begun. Ahead lie new temples, new secrets,
-      and a new journey laid out by Lobsang."
+    m_Localized: Tinley places a new scroll and a stick of frankincense in your hand.
+      "The road knows you now. Go."
     m_Metadata:
       m_Items: []
   - m_Id: 12985643238940687
@@ -13327,14 +13287,12 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 12985643238940689
-    m_Localized: Continue
+    m_Localized: I'll take the route
     m_Metadata:
       m_Items: []
   - m_Id: 12985643238940690
-    m_Localized: 'You accept the reward and the new assignment. The young merchants
-      thank you, and the headman relays Dariush''s words: the next route will pass
-      through Mashhad. The convoy is complete, but the caravan master''s path is
-      only gaining momentum.'
+    m_Localized: 'The headman claps your shoulder approvingly and adds in a low voice:
+      "Dariush waits for you in Samarkand. Don''t dawdle with the cargo."'
     m_Metadata:
       m_Items: []
   - m_Id: 12985643238940691
@@ -13353,13 +13311,12 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 12985643238940693
-    m_Localized: Continue
+    m_Localized: I am
     m_Metadata:
       m_Items: []
   - m_Id: 12985643238940694
-    m_Localized: Master Chen hands you a purse of silver and explains the next task.
-      The secret of purple unfolds step by step, and each step brings new knowledge
-      and new connections in the world of silk.
+    m_Localized: Master Chen Wei nods, hides a smile in his grey moustache, and draws
+      a small bundle of samples from the cabinet. "Then let us speak of purple. Come."
     m_Metadata:
       m_Items: []
   - m_Id: 12985643238940695
@@ -13376,14 +13333,13 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 12985643238940697
-    m_Localized: Decipher
+    m_Localized: Decipher it now
     m_Metadata:
       m_Items: []
   - m_Id: 12985643238940698
-    m_Localized: "You spend half the night over the map, but the result is worth
-      the lost sleep. The route is clear: the first relic is hidden in temple ruins,
-      a few days' travel away. Knowledge of old trade routes helped \u2014 you read
-      the map with growing confidence."
+    m_Localized: "You bend over the parchment and work into the deep night. The signs
+      yield, the route emerges clearer. The first mark is clear \u2014 and now the
+      map will be a reliable guide."
     m_Metadata:
       m_Items: []
   - m_Id: 12985643238940699
@@ -13402,14 +13358,13 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 12985643238940701
-    m_Localized: Continue
+    m_Localized: On to the next mark
     m_Metadata:
       m_Items: []
   - m_Id: 12985643238940702
-    m_Localized: "You carefully wrap the figurine and stow it among the cargo. Silver
-      from the cache will cover expenses, and the inscription on the relic points
-      the way to the next find. The first stage is complete \u2014 ahead lie new
-      ruins, new riddles, and ever more valuable relics."
+    m_Localized: The bronze idol goes into a leather bag, the coordinates into memory.
+      Farukh's map unfolds on your knee, and you plot a course to the next temple.
+      The hunt continues.
     m_Metadata:
       m_Items: []
   - m_Id: 25356240325435392
@@ -16354,6 +16309,1277 @@ MonoBehaviour:
       \u0434\u0432\u0435\u0440\u044C. \xAB\u042F \u0431\u0443\u0434\u0443 \u0432
       \u0410\u0440\u0445\u0438\u0432\u0435 \u0421\u0430\u043C\u0430\u0440\u043A\u0430\u043D\u0434\u0430.
       \u0412\u043E\u0437\u0432\u0440\u0430\u0449\u0430\u0439\u0441\u044F.\xBB"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31159760157016064
+    m_Localized: Old Dariush
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31159760190570496
+    m_Localized: "At the barracks doors, a heavy, grey-haired man in a worn camel-hair
+      caftan stops you \u2014 his face scarred by desert wind, an old-school caravan
+      master's tattoo faded on his left hand. This is Dariush, a Silk Road veteran
+      who now teaches the young. He gets straight to the point: \"I've got a batch
+      of greenhorns. Ten men, six wagons. They need to reach Anxi. The barracks pays,
+      but the men are mine.\" He looks over your caravan with an appraising eye.
+      \"Will you take it?\""
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31159760190570497
+    m_Localized: Decline
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31159760190570498
+    m_Localized: Dariush nods without offense. "Every man chooses his own road. Anxi
+      is not for everyone." He turns back to the barracks courtyard, where the greenhorns
+      fumble with their harnesses.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31159760190570499
+    m_Localized: Take command
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31159760190570500
+    m_Localized: "You grip Dariush's wiry hand. He watches as you size up the greenhorns
+      and bark out short orders \u2014 a flicker of approval in his eyes. \"I see
+      a man. Two weeks to Anxi on a bad road. Bring them in, and we'll talk about
+      real work.\" He hands you a paiza bearing the barracks seal and a list of charges."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31159760190570501
+    m_Localized: "You agree, but Dariush sees the greenhorns don't trust you \u2014
+      your words come halting, your voice unsure. He grimaces and shakes his head.
+      \"Fine, take them. But I'll hold the paiza for now.\" One senior greenhorn,
+      Hasan, gets a say in matters \u2014 and argues with you over every detail.
+      The road will run longer than it should."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31159760190570502
+    m_Localized: A veteran guard speaks for you
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31159760190570503
+    m_Localized: "Your guard steps forward and slaps Dariush on the shoulder \u2014
+      turns out they served together on a caravan to Khorasan. Dariush breaks into
+      a rare smile. \"If you're with Rustam, that's a different conversation.\" He
+      hands over the paiza and the list without hesitation, adding: \"And two of
+      my own men go with you. Look after them like your own.\" You leave with the
+      task, a bronze paiza, and two extra fighters in the caravan."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31159760190570504
+    m_Localized: Let me think
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31159760190570505
+    m_Localized: "Dariush shrugs and tucks the paiza into his belt. \"Think it over.
+      The convoy moves in three days \u2014 with you or without you.\""
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31159760190570506
+    m_Localized: Approach the caravan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31159760190570507
+    m_Localized: You dismount and approach the merchant. He bows and invites you
+      to look over his wares.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31159760190570508
+    m_Localized: Nod and pass by
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31159760190570509
+    m_Localized: "You answer the invitation with a nod and continue on. The merchant
+      shrugs and turns back to his bales \u2014 every man to his own road."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31159760190570510
+    m_Localized: Look at the goods
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31159760190570511
+    m_Localized: "You sit on the edge of the carpet and pick things up one by one.
+      The merchant gladly speaks of each item \u2014 where it was bought, from whom,
+      at what price."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31159760190570512
+    m_Localized: Thank him and move on
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31159760190570513
+    m_Localized: "You thank him for the hospitality and do not linger. The merchant
+      presses his palms to his chest \u2014 \"safe travels.\""
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31159760190570514
+    m_Localized: Open a goods exchange
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31159760190570515
+    m_Localized: "The caravans halt facing each other, the drivers unroll their bales.
+      Bargaining begins between the two trains \u2014 businesslike and unhurried,
+      as befits the Silk Road."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31159760190570516
+    m_Localized: Exchange greetings and part ways
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31159760190570517
+    m_Localized: "You exchange greetings \u2014 short news from the road, the names
+      of cities, directions. The caravans part, each carrying the other's route in
+      memory."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31159760190570518
+    m_Localized: The hides slipped from under the wheels, the cart slid sideways.
+      You held it back, but the axle struck the rock. Part of the cargo tumbled into
+      the abyss, the axle cracked. A day lost, and your faith in the drivers shaken.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31159760190570519
+    m_Localized: Your gestures came out clumsy, your broken words insulting. The
+      commander scowled and doubled the toll "for disrespect." Twice the silver was
+      paid, and two riders escorted the caravan to the pass like a guard detail.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31159760190570520
+    m_Localized: The skirmish did not go to plan. There were more bandits than visible
+      behind the boulders, and the barricade held. The caravan broke through at the
+      cost of wounded men, lost bales, and a fallen pack animal.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31159760190570521
+    m_Localized: The caravan went around the monk, but the bypass narrowed and ran
+      under an overhanging ledge. A rockfall struck without warning. Two drivers
+      were hurt, a cart smashed, cargo scattered down the slope. The monk's prayers
+      had been a warning for a reason.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31159760190570522
+    m_Localized: Without the guide, the caravan missed a turn in the fog and wandered
+      into a maze of stone. Two days lost finding the way back, the animals exhausted,
+      rain stains spread in the bales. The money you saved turned into triple the
+      loss.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31159760190570523
+    m_Localized: The bold ones picked their way down the slope by touch, slipping
+      on loose stone in the dark. One fell and injured his leg; another returned
+      with a torn coat and no torch. The lights flickered on, out of reach. By morning
+      you had to call for help.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31159760190570524
+    m_Localized: The stones and logs gave way, the rope snapped. The cart broke loose,
+      tumbled down the slope, and shattered against a rocky outcrop twenty meters
+      below. Cargo scattered over the stones, some into the ravine. The horses were
+      cut free just in time.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31159760190570525
+    m_Localized: The felled sapling was rotten inside, the leather straps snapped
+      on the first jolt. The cart sagged again, and the cargo had to be unloaded
+      and carried on foot to the nearest camp. Half a day's delay became two.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31159760190570526
+    m_Localized: The pick struck too close to a support. The ceiling cracked, dust
+      pouring down. One driver barely escaped with two crystals in his hands; the
+      rest were buried. No one will risk going back in for the haul.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31159760190570527
+    m_Localized: "You try to shift the altar, but the slab crashes down, exposing
+      an empty niche \u2014 someone has been here before you. Cracks appear in the
+      walls, stone dust covers the frescoes. You leave empty-handed with the uneasy
+      sense of having disturbed a place better left alone."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496568623104
+    m_Localized: Hadji Yusuf
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177536
+    m_Localized: "In Bukhara, in the shaded courtyard of the Al-Bukhari trading house,
+      Hadji Yusuf receives you \u2014 third-generation senior of a Sogdian merchant
+      family. A bowl of green tea sits on the table beside a parchment contract sealed
+      with the guild's stamp. Yusuf waits. The numbers in the contract are written
+      boldly, but his eyes are not on them \u2014 they are on you."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177537
+    m_Localized: Accept the guild terms
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177538
+    m_Localized: "You sign the contract without amendments. Yusuf nods with faint
+      disappointment \u2014 in Bukhara, those who haggle are respected. The guild
+      seal goes on the parchment, silver is counted onto a lacquered tray. The deal
+      is done, but Yusuf will not remember you."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177539
+    m_Localized: Haggle for Samarkand's share
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177540
+    m_Localized: "You speak of road costs, of the Emir's tariffs, of rising cotton
+      prices in Chang'an. Yusuf listens, nods, refills the tea \u2014 and the contract
+      numbers slowly shift in your favor. An hour later the parchment lies before
+      you with Samarkand's share raised by a quarter, and an invitation to return."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177541
+    m_Localized: "Yusuf demolishes your arguments one by one \u2014 he has traded
+      cotton for thirty years and has heard it all. He does not grow angry, but his
+      eyes turn weary. The contract is signed on the guild's terms, without your
+      markup. In parting Yusuf adds: \"Samarkand is a good city. Return when you
+      know the price of cotton not from another man's mouth.\""
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177542
+    m_Localized: The translator handles it in Sogdian
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177543
+    m_Localized: "Your translator switches to Sogdian \u2014 fluent, courteous, peppered
+      with apt Bukharan proverbs. Yusuf brightens: it has been long since he last
+      negotiated in his native tongue with a stranger. The tea moves from green to
+      white, then sweets arrive. The contract is discussed not as a deal but as the
+      start of a long friendship. By evening you leave with silver, a doubled share,
+      and a handful of Sogdian phrases lodged in memory."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177544
+    m_Localized: The Stone Stele at the Pass
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177545
+    m_Localized: The trail through the high pass forks at a weathered stele covered
+      in Tibetan inscriptions. One path leads down into green valleys, the other
+      higher, into the clouds. At the foot of the stele sits a thin old yak herder
+      in worn sheepskin, fingering polished bone prayer beads. He looks at your caravan
+      and smiles as if he has been waiting. Lobsang spoke of a mountain temple but
+      never said how to find it.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177546
+    m_Localized: Follow Lobsang's scroll directions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177547
+    m_Localized: "You take out the scroll and check its descriptions against the
+      terrain. The thin air deceives: what looked close turns into a half-day's march.
+      But by the evening of the third day a thin column of smoke rises above a cliff
+      \u2014 the temple. The caravan arrives on its own, without guides, and the
+      men's trust in your judgment grows."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177548
+    m_Localized: "You lose the trail on the third day. The scroll describes \"two
+      stone fingers by a white stream\" \u2014 there are dozens of such fingers in
+      Tibet. The caravan wanders, supplies dwindle, one of the drivers falls ill.
+      You find the temple only when you stumble onto the herder, who leads you in.
+      You arrive \u2014 but exhausted."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177549
+    m_Localized: Ask the old herder
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177550
+    m_Localized: "You sit beside the old man and share his silence for a long time
+      \u2014 that is the way of the mountains. Then he speaks: he points up the higher
+      trail, draws a circle and three marks in the dirt with his staff. Your interpreter
+      has enough gestures and fragments \u2014 the temple lies past the second pass,
+      by a white stream. The old man breaks off a piece of yak cheese and offers
+      it: \"For the road.\""
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177551
+    m_Localized: The translator speaks Tibetan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177552
+    m_Localized: "Your translator presses palms to chest and addresses the old man
+      in Tibetan \u2014 not merely words, but with the proper formulas of respect.
+      The old man's face brightens and he speaks freely, telling not only of the
+      trail but of the pass spirits, of which mantras to chant at the cliff before
+      the temple, of which gift the abbot will receive without offense. You leave
+      with a detailed mental map, a blessing, and a few Tibetan words lodged in memory."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177553
+    m_Localized: Smoke Above the Dunes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177554
+    m_Localized: "The sandstorm subsided by morning. The caravan halts on a dune
+      crest, and a scout points west: above the dunes, three leagues out, a thin
+      column of grey smoke rises. Vultures circle in the sky. Out there is the missing
+      caravan \u2014 or what remains of it. The sand has not yet covered the tracks."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177555
+    m_Localized: Make straight for the smoke
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177556
+    m_Localized: "The caravan moves toward the smoke at a brisk pace. Two hours on,
+      you see what remains of the camp: four wagons, waterskins, surviving drivers
+      burning their last brushwood to be noticed. Embraces, tears, flasks of water.
+      You lead them all to the well \u2014 the broken caravan is saved."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177557
+    m_Localized: "The \"smoke\" turns out to be a mirage \u2014 hot air over a salt
+      flat distorted by morning light. The caravan loses half a day, supplies, and
+      faith in your judgment. When you finally find the lost ones by other signs,
+      four are in fever and two have died of thirst. You saved them \u2014 but at
+      great cost."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177558
+    m_Localized: Loop wider to read the tracks
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177559
+    m_Localized: "You loop wide around the smoke, reading tracks in the sand: deep
+      ruts of loaded wagons, light footprints of men walking alongside. The signs
+      are clear \u2014 the caravan moved slowly but is not plundered. By noon you
+      reach the camp from the side rather than the front, surprising and pleasing
+      the drivers. Discipline pays."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177560
+    m_Localized: The guide reads the sand
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177561
+    m_Localized: "Your guide dismounts and walks on foot, bent close to the sand.
+      Within a quarter-hour he knows all: a caravan of six wagons, three drivers,
+      two camels, lost water on the second day, has been moving west for three days
+      now. He leads you to them by the shortest path \u2014 exactly at sunset, when
+      their strength is at its end. The caravan is saved entire, and among the gifts
+      of thanks is a parcel of dates from their last cargo."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177562
+    m_Localized: Ambush at the Salt Flat
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177563
+    m_Localized: "You approach the crossroads by the salt lake, and from behind low
+      hills come shouts. A dozen riders in black felt have surrounded a small merchant
+      convoy \u2014 three wagons, drivers pressed to the ground, the bandit leader
+      already dismounted and cutting the ropes on the bales. The bandits have not
+      yet seen you, and the merchants have only just spotted you and are crying for
+      help."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177564
+    m_Localized: Charge head-on with a war cry
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177565
+    m_Localized: "You raise your hand and send the caravan into a charging attack
+      with a cry. The bandits, not expecting the strike, freeze for a moment. That
+      moment is enough: three fall at once, the rest abandon their loot and flee
+      toward the hills. The leader hurls his sabre at you before riding off \u2014
+      it remains in the sand as a trophy. The merchants are saved, the route is cleared,
+      and among the thanks are a blade and a merchant's gratitude."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177566
+    m_Localized: 'Your charge breaks the caravan''s order: some surge forward, others
+      bog down in the sand. The bandits seize the moment and counter. The skirmish
+      dissolves into a melee in which the bandits manage to carry off some bales
+      and several camels. The merchants are saved, but not all, and goods are lost.
+      The bandits withdraw only when you pay them off in silver.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177567
+    m_Localized: Flank them, pin them to the rocks
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177568
+    m_Localized: "You loop behind the low hills and come at the bandits from the
+      rear. When they turn \u2014 and they turn late, absorbed in plunder \u2014
+      your caravan stands behind them in close order. The leader reads the odds in
+      an instant: he drops his loot, signals his men, and the band rides east at
+      a gallop. None killed, the route cleared, the merchants kiss your hands."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177569
+    m_Localized: Guard Rustam leads the charge
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177570
+    m_Localized: "Your guard Rustam steps forward and takes command \u2014 a former
+      caravanserai watchman, he knows bandits like these. He sets your people precisely:
+      three to flank, two from the rear, the rest from the front. The attack runs
+      in concert, without shouts, like a proper detachment. The bandits break, drop
+      their weapons, the leader begs for mercy. Rustam releases them unarmed \u2014
+      let them tell the road that caravans are no longer easy prey."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177571
+    m_Localized: The Herbalist from the Kunlun Mountains
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177572
+    m_Localized: "In a mountain village north of Anxi, in an adobe yard with vats
+      under a thatch roof, the old herbalist Wu Jing receives you \u2014 a wrinkled
+      face, dye-blue fingers, a knotted staff at his side. He sells specially-cured
+      indigo grown on mountain terraces: deep, saturated, without the greenish-grey
+      of the lowland kind. Chen Wei mentioned this very man \u2014 this is the lost
+      ingredient."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177573
+    m_Localized: Buy the indigo at the asking price
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177574
+    m_Localized: "You set out silver without a word. Wu Jing nods, measures a handful
+      of paste into a clay dish, wraps it in oiled cloth. A businesslike deal, no
+      extra words. You leave with the pigment, a lighter purse, and a shadow of disappointment
+      in the old man \u2014 he had hoped for talk of craft."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177575
+    m_Localized: Haggle, mentioning Master Chen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177576
+    m_Localized: "You mention the name of Master Chen Wei \u2014 and the old man's
+      face changes. \"Chen? The one from Chang'an? He studied with me in his youth.\"
+      The price drops by half on its own, the conversation turns to grades, temperatures,
+      secrets of curing. You leave not only with the pigment but with a handful of
+      advice to pass to Chen, and with respect for the old master."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177577
+    m_Localized: "The old man hears your mention of Chen but does not believe. \"Chen
+      does not send hagglers \u2014 he comes himself when he needs to.\" The price
+      does not drop, and for your persistence he charges a surcharge \u2014 \"for
+      the trouble.\" You get the pigment, but at a higher price than usual, and the
+      old man sees you off without a greeting."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177578
+    m_Localized: The healer discusses the pigment's medicinal value
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177579
+    m_Localized: "Your healer leans over the vats and speaks with Wu Jing about indigo's
+      properties in treating wounds and fever. The old man brightens: dyes are not
+      only for cloth, and a companion who understands that is rare in the mountains.
+      The talk runs long, tea succeeds tea. By evening's end the old man gives the
+      pigment for almost nothing \u2014 \"for the good conversation\" \u2014 and
+      adds a salve recipe from the dye dregs. You leave richer than you came."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177580
+    m_Localized: The Workshop by the Canal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177581
+    m_Localized: "Chang'an, night. The competitors' workshop stands on the bank of
+      the Ziwu Canal, beneath an adobe wall topped with tile. A lantern sways above
+      the door, in whose light a Tang watchman is visible \u2014 older, but sober.
+      Inside, according to Chen, lie records of the stolen recipes. The moon is behind
+      a cloud, the sound of water in the canal smothers footsteps. A window near
+      the roof is ajar."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177582
+    m_Localized: Bribe the watchman
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177583
+    m_Localized: You approach with a string of coins in your open palm. The watchman
+      looks without blinking, then sets the lantern on the ground and turns toward
+      the canal. You go inside, take the papers you need, leave. The watchman does
+      not stir. A minute later you are across the quarter. A simple deal, but in
+      Chang'an rumor of such deals spreads fast.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177584
+    m_Localized: Slip in quietly through the roof
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177585
+    m_Localized: "You climb up the wall ledge to the open window, slip inside, and
+      find the chest of records in the half-dark. The moon comes out from behind
+      the cloud \u2014 for a moment your shadow shows on the wall, but the watchman
+      outside is looking at the canal. You leave the way you came with the papers
+      in your robe. No one will know, save you and Chen."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177586
+    m_Localized: "The tile creaks louder under your hand than you expected. The watchman
+      raises his lantern and shouts. Two guards run up from the corner post. You
+      jump into the canal and swim across \u2014 cold, dark, bruised on stones. You
+      escape, but without the papers, and a description of you enters the Chang'an
+      watch book. A handful of silver had to be thrown to a patrolman to keep him
+      quiet."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177587
+    m_Localized: The translator distracts the watchman with a tale in Chinese
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177588
+    m_Localized: "Your translator approaches the watchman with a smile and launches
+      into a long tale of bandits around the corner, of lights above the pagoda,
+      of demons abroad this night \u2014 in flawless literary Chinese, with a quotation
+      from Confucius. The watchman, bored all night, is captivated. While he listens
+      spellbound, you go inside, take the papers, leave. The watchman does not even
+      turn around. In parting he thanks the translator for the \"pleasant conversation.\""
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177589
+    m_Localized: Gathering of Masters
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177590
+    m_Localized: "A teahouse by the western gate of Chang'an, morning. Chen Wei has
+      arranged the meeting: seven free dyers sit at a corner table \u2014 some young,
+      some old, each with fingers stained their own hue. They came on word of purple
+      but look askance: their craft is dear, and they do not follow the first comer.
+      On the table \u2014 three bowls of different blues, for testing."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177591
+    m_Localized: Hire everyone who came
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177592
+    m_Localized: "You set out a purse and promise an advance to each. There is much
+      joy, the skepticism vanishes. By noon you have hired a team of seven, among
+      whom \u2014 two true masters and five apprentices. The workshop will run quickly,
+      but not perfectly: the purple will come out, but not of the finest grade. Chen
+      Wei will grumble later."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177593
+    m_Localized: Bargain with the dyers' guild
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177594
+    m_Localized: "You call out the guild's elder and turn to serious bargaining:
+      you speak of shares, of exclusivity on purple, of the workshop running only
+      with the best. The elder is skeptical but agrees to terms. By evening you have
+      a contract with three chosen masters at half the price, and a sample of silk
+      from the guild \u2014 as a mark of respect. Chen will be pleased."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177595
+    m_Localized: The guild's elder listens to your terms and shakes his head. "Young
+      man, the guild does not sell purple at half-price." After two hours of argument
+      you pay twice what you intended and get two masters instead of three. The guild
+      remembers you as "the one who came with empty promises."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177596
+    m_Localized: The merchant partner calls the best
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177597
+    m_Localized: "Your merchant companion stands, scans the hall, and calls out names
+      one by one \u2014 he knows them all. The two best dyers in Chang'an raise their
+      heads and nod: respect for the merchant outweighs money. The deal is struck
+      on free terms, the masters come of their own will, and exactly the right men
+      enter the workshop. Chen Wei will later say: \"With such a partner, things
+      can be done.\""
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177598
+    m_Localized: The Bazaar Charlatan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177599
+    m_Localized: "The Samarkand bazaar, the antiquities row. On a worn carpet, between
+      bronze pitchers and rusted blades, lie \"ancient idols\" \u2014 jade figurines
+      bearing inscriptions in supposedly Sogdian. The merchant, fat and loud, shouts
+      in every language at once, promising \"the ancient gold of ancestors.\" A crowd
+      gathers. Among real figurines, Farukh said, there are forgeries."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177600
+    m_Localized: Buy a fake as evidence
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177601
+    m_Localized: "You pick the most blatantly \"ancient\" figurine and buy without
+      haggling. The merchant beams, the crowd watches with respect. You put the bundle
+      in your bag and walk away quietly \u2014 the evidence is yours now, and tomorrow
+      the bazaar council will receive a parchment detailing the forgery. The charlatan
+      will not know it was you until too late."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177602
+    m_Localized: Denounce the swindler before the crowd
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177603
+    m_Localized: "You raise one of the figurines above your head and loudly point
+      to the error in the inscription: the Sogdian verb is in the wrong tense, and
+      the \"ancient\" patina smells of vinegar. The crowd, captivated a moment ago,
+      bursts into laughter. The merchant flushes red, tries to justify himself, but
+      is shoved behind the counter by the bazaar guard. Among the scattered \"antiquities\"
+      you pick up one real piece \u2014 it came to the charlatan by chance and was
+      used as bait. This one is the genuine artifact."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177604
+    m_Localized: "You shout about forgery but cannot find the words the crowd will
+      hear. The merchant laughs first, the crowd picks it up: \"Envious man! A competitor!\"
+      The bazaar guard escorts you off \u2014 not him. By evening you are released
+      with a warning, but your face is remembered by the traders along the whole
+      row. The charlatan watches you go and smiles."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177605
+    m_Localized: The translator reads the inscriptions and finds the error
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177606
+    m_Localized: "Your translator picks up a figurine, bends close, reads in a whisper
+      \u2014 and shakes his head. Then aloud, clearly, in proper-accented Sogdian,
+      he explains to the crowd: the inscription is a schoolboy forgery, copied from
+      a famous stele but with a fifth-form grammatical error. The merchant realizes
+      he has been exposed by someone who speaks his trade better than he does, and
+      goes red with shame. The crowd laughs, the guard moves on the charlatan, and
+      your translator quietly takes the real figurine from the counter \u2014 the
+      one without errors."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177607
+    m_Localized: The Crevice in the Pamirs
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177608
+    m_Localized: Your caravan halts at a narrow gorge in the Pamir mountains. By
+      Farukh's map coordinates, somewhere here lies a stone-blocked entrance to a
+      vault-cave. The gorge walls are red with iron ore, the wind smells of snow.
+      But the rockfall is fresh, with three possible directions in it. The map is
+      silent on the details.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177609
+    m_Localized: Clear the rockfall alone
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177610
+    m_Localized: "You roll up your sleeves and lead the men to clear the largest
+      of the rockfalls. A day and a half of heavy work, scraped hands, a cracked
+      sideboard on one wagon. But the fall yields, and behind it \u2014 a narrow
+      crawl-space into a stone niche. The vault. Inside, the dust of centuries and
+      silence."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177611
+    m_Localized: Follow the map's coordinates exactly
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177612
+    m_Localized: "You take out the map, check landmarks by sun and rock-shadow, measure
+      paces. The reckoning is exact: the real entrance is not where the obvious fall
+      is, but in a side niche covered by a flat stone. Two men shift the stone, and
+      you stand inside the vault, bypassing the rockfalls. Among the dust \u2014
+      a jade figurine. The map did not lie."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177613
+    m_Localized: "You check coordinates, but in the mountains landmarks deceive.
+      The map says \"by the red rock in shadow\" \u2014 but here are three rocks,
+      and the shadows shift hourly. You spend two days measuring, then give up and
+      dig through the main fall. The vault is found \u2014 but late, supplies dwindling,
+      one driver with frostbitten fingers."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177614
+    m_Localized: The guide recalls an old trail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31170496602177615
+    m_Localized: "Your guide stares long at the red rocks, the rockfall, the wind,
+      then waves his hand: \"Not here. Everyone walks here. The old men walked higher.\"
+      He leads you to a narrow crevice some forty meters above, overgrown with thorn.
+      Past the thorn \u2014 the same passage into the vault, but without any rockfall,
+      as if centuries had not passed. The trail knew the way. In a niche among the
+      dust \u2014 a jade figurine with a face worn smooth."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31198603757355008
+    m_Localized: "The signs blur before your eyes \u2014 the road's weariness outweighs
+      any riddle. You roll up the map, promising yourself to return to it with a
+      clear head. The deciphering does not come quickly: the next day on the road,
+      while resting, you finally piece the route together \u2014 but a day is lost,
+      and the company grumbles at the delay."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31198603807686656
+    m_Localized: The translator helps with the inscriptions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31198603807686657
+    m_Localized: "Your translator sits down across from you, smooths the parchment,
+      and reads the Old Persian script aloud \u2014 slowly, checking each sign against
+      the light. By the end of the first hour the route emerges clearer than it would
+      have alone. The translator even spots a small marginal note \u2014 a warning
+      about rockfalls in one of the gorges that you would have missed. A handful
+      of Persian words lodges in your memory."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31198603807686658
+    m_Localized: The Sand Temple at Khotan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31198603807686659
+    m_Localized: "On the southern edge of the Khotan oasis, among sandstone hills,
+      the skeleton of a forgotten Buddhist stupa rises. The brickwork crumbles in
+      the wind, traces of saffron plaster cling to the niches. By Farukh's map \u2014
+      the relic is here, in a hidden niche beneath the altar stone. A local shepherd
+      watches from afar, not approaching: the place is considered sacred but visited
+      by no one. Sand whispers softly at the temple's base."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31198603807686660
+    m_Localized: Dig out the altar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31198603807686661
+    m_Localized: "You roll up your sleeves and clear the sand by hand. Beneath the
+      altar slab, a narrow niche opens, lined with glazed tile. Inside \u2014 a jade
+      Buddha figurine wrapped in faded silk. The shepherd, seeing your find, nods
+      with respect: \"The stone has accepted you.\" You leave the temple with the
+      relic and a growing certainty that Farukh's map runs true."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31198603807686662
+    m_Localized: "You dig in the wrong spot \u2014 the altar slab tips sideways,
+      and one wagon, parked too close, drops a wheel into the collapsing pit. You
+      find the figurine eventually, in a side niche just below, but a wagon's sideboard
+      cracks from the impact, and the shepherd shakes his head: \"The stone does
+      not love the hasty.\""
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31198603807686663
+    m_Localized: Just take it from the surface
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31198603807686664
+    m_Localized: "You look around and spot the edge of bronze wrapping in a crack
+      of the slab \u2014 the relic almost waits for you. You carefully draw it out,
+      bow to the altar, and leave. Simple. A businesslike decision, without excavation."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31198603807686665
+    m_Localized: The translator reads the inscriptions on the stupa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31198603807686666
+    m_Localized: "Your translator circles the stupa, traces fingertips along half-worn
+      Sanskrit signs, and whispers a translation: a prayer for travelers, names of
+      donors, a date \u2014 the fifth century. And most importantly: exact instructions
+      for which stone hides the relic. No excavation, no guessing \u2014 you lift
+      the right slab and draw out the jade Buddha. The shepherd, hearing Sanskrit,
+      presses his palms together. You leave with a sacred object and the respect
+      of Khotan's monks."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31198603807686667
+    m_Localized: The Fire Altar by Balkh
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31198603807686668
+    m_Localized: "Five leagues from Balkh, among dusty Bactrian hills, stands the
+      ruin of a Zoroastrian fire temple. The altar stone at the hall's center is
+      black with the soot of ages. An elderly guardian in a faded grey caftan keeps
+      watch at the entrance \u2014 the last of the community. By Farukh's map the
+      relic lies at the altar's base, beneath a layer of ash. The guardian watches
+      without hostility, but without invitation. Words must be chosen carefully."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31198603807686669
+    m_Localized: Bargain with the guardian
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31198603807686670
+    m_Localized: "You sit beside the old man, speak quietly \u2014 that the relic
+      must be preserved, that you will not sell it, that Farukh of Samarkand sent
+      you. The guardian listens long, then nods: \"Let the gift return to the trade
+      road on which it was made.\" He himself rakes away the ash and presents the
+      bronze figurine \u2014 a winged asura. You leave with the relic and the blessing
+      of Balkh's last priest."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31198603807686671
+    m_Localized: "You speak too loudly, too hastily. The guardian darkens: \"The
+      stranger does not understand fire.\" In the end he agrees to part with the
+      relic only for silver \u2014 and takes twice what it should have cost. You
+      leave with the figurine but with a heavy sense that the deal was not what Farukh
+      would have wanted."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31198603807686672
+    m_Localized: Pay him off
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31198603807686673
+    m_Localized: "You set out a purse of silver without words. The guardian silently
+      accepts the money, rakes away the ash, and hands over the figurine. A businesslike
+      deal, impersonal. The relic is yours now \u2014 but cold reads in the old man's
+      eyes."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31198603807686674
+    m_Localized: The translator handles it in Persian
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31198603807686675
+    m_Localized: "Your translator approaches the guardian and speaks in pure Persian,
+      quoting a line from the Avesta \u2014 about travelers whose work is to bind
+      lands together. The old man brightens: it has been long since he last heard
+      the word of faith from a stranger's lips. The talk runs long, tea succeeds
+      tea. By evening the guardian himself leads you to the altar and presents the
+      bronze figurine with a bow. \"May your road be bright as fire.\" You leave
+      with the relic and a few Persian phrases lodged in memory."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31198603807686676
+    m_Localized: The Cave Sanctuary by Kucha
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31198603807686677
+    m_Localized: "In the cliffs north of Kucha, in the bluff above a dry riverbed,
+      the entrances of cave sanctuaries gape black. The Tocharian monks departed
+      long ago, but the frescoes survive \u2014 Buddhas in blue folds, a thousand
+      wrathful faces on the ceilings. By Farukh's map the relic lies in one of the
+      upper caves, which must be climbed to along weathered rock. From below the
+      cave looks deceptively close. Wind from the Lop desert drives sand into the
+      cracks."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31198603807686678
+    m_Localized: Climb up to the cave
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31198603807686679
+    m_Localized: "You climb the cliff meter by meter, testing each handhold. Halfway
+      up the wind hurls sand in your face, the rock sways \u2014 but you hold on.
+      The cave is cool and quiet. Beneath your feet a layer of sand conceals a flat
+      stone; beneath that \u2014 a jade Buddha figurine in meditation pose. You descend
+      slowly and carefully, the relic inside your robe. Your crew's respect grows."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31198603807686680
+    m_Localized: "Halfway up the climb the rock gives way under your hand, and you
+      slide ten meters down, catching on roots and cracks. Skinned palms, a battered
+      knee. You still reach the cave on the second attempt, find the relic \u2014
+      but your sense of the place is now bound up with pain and fear, and the crew
+      sees you limping."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31198603807686681
+    m_Localized: Wait for dry weather
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31198603807686682
+    m_Localized: 'You make camp at the cliff''s foot and wait two days for the wind
+      to subside. On the third day you climb without incident: the rock is dry, no
+      sand, the relic lies exactly where the map promised. Time spent, but legs intact.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31198603807686683
+    m_Localized: The guide leads by a side trail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31198603807686684
+    m_Localized: "Your guide stares long at the cliff, then waves to the left: \"Not
+      here. The old men walked higher upstream.\" An hour's loop later, you stand
+      at the cliff's far side, where the cave joins a natural grotto you can walk
+      into. No climbing. The guide lights a torch, leads you through the grotto,
+      and the relic \u2014 a jade Buddha \u2014 lies on a stone shelf as if you were
+      expected. Mountain experience pays off once again."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431464939520
+    m_Localized: Silk Acquired
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882560
+    m_Localized: On the market the last of ten bales is loaded onto the cart. The
+      bales are tightly bound, market seals stamped. Chen Wei waits in Chang'an.
+      Time to head east.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882561
+    m_Localized: Set out
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882562
+    m_Localized: The caravan leaves through the city gates, raising dust. Ten bales
+      of silk sway to the rhythm of the pack animals' steps.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882563
+    m_Localized: Chang'an Ahead
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882564
+    m_Localized: After long weeks on the road, the walls of Chang'an appear. Master
+      Chen's guild warehouse stands by the eastern gate. The bales of silk are intact.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882565
+    m_Localized: Enter the city
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882566
+    m_Localized: The caravan passes through the gates. The guards salute the guild
+      charter. Vahu-Man's office lies ahead.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882567
+    m_Localized: Bukharan Domes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882568
+    m_Localized: "Bukhara's minarets reflect the evening sun. The Al-Bukhari occupy
+      a whole quarter \u2014 their trading-house courtyard is recognizable from afar
+      by the red-and-white standard."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882569
+    m_Localized: Approach the trading house
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882570
+    m_Localized: The doorkeeper escorts you into the shaded courtyard. Hadji Yusuf
+      already waits.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882571
+    m_Localized: Return to Samarkand
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882572
+    m_Localized: "Samarkand greets you with the smell of dust and rose oil. In your
+      purse \u2014 the signed contract with the Al-Bukhari seal. Vahu-Man waits in
+      the guild hall."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882573
+    m_Localized: Go to the guild
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882574
+    m_Localized: The doors of the guild hall stand open. Vahu-Man looks up from his
+      scrolls and nods.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882575
+    m_Localized: Mashhad Walls
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882576
+    m_Localized: The walls of Mashhad appear at sunset. The guild agent's shop is
+      on the main street. You hold the contract in your hand.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882577
+    m_Localized: Hand over the contract
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882578
+    m_Localized: The agent meets you at the shop door and raises a hand in greeting.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882579
+    m_Localized: Baghdad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882580
+    m_Localized: "Above the city \u2014 the blue dome of the House of Wisdom. The
+      cargo's recipient should wait at the warehouses on the Tigris bank."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882581
+    m_Localized: Deliver the cargo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882582
+    m_Localized: "The caravan reaches the warehouses. The recipient \u2014 a tall
+      scarred merchant \u2014 rises to meet you."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882583
+    m_Localized: Walls of Constantinople
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882584
+    m_Localized: "The golden domes of Constantinople shine ahead. Vahu-Man stands
+      beside you, gazing at the horizon. \"All is ready. One step \u2014 and the
+      Silk Road is complete.\""
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882585
+    m_Localized: Enter the city
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882586
+    m_Localized: Vahu-Man takes the first step through the gate. You follow.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882587
+    m_Localized: Anxi and Mogao
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882588
+    m_Localized: Anxi opens at dawn. The Mogao caves lie an hour from the city, among
+      sandstone hills. Lobsang's scroll rests in a leather bag.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882589
+    m_Localized: Go to the caves
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882590
+    m_Localized: The trail winds among dunes. The coolness of the caves promises
+      silence.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882591
+    m_Localized: The Mogao Caves
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882592
+    m_Localized: "The caves are cool and quiet. Thousands of Buddhas gaze from the
+      walls. Tinley asked you to linger here \u2014 to hear what silence says."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882593
+    m_Localized: Sit in silence
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882594
+    m_Localized: "An hour passes \u2014 perhaps two. The walls of the cave breathe.
+      You rise, carrying the first of three voices."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882595
+    m_Localized: Bibi-Khanym
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882596
+    m_Localized: "The Bibi-Khanym mosque in Samarkand \u2014 a wonder of blue tile.
+      In its shade the city's sounds fade. Tinley asked to hear the second voice
+      \u2014 the voice of stone."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882597
+    m_Localized: Enter the mosque
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882598
+    m_Localized: In the empty mosque your footstep echoes. The stone speaks without
+      words.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882599
+    m_Localized: The Fire Temple
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882600
+    m_Localized: "The Zoroastrian Fire Temple in Mashhad \u2014 a low stone building
+      with an eternal flame in its yard. Tinley asked to hear the third voice \u2014
+      the voice of fire."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882601
+    m_Localized: Approach the flame
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882602
+    m_Localized: "Heat touches your skin. You stand long. The fire speaks \u2014
+      and now you carry three voices of the same silence."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882603
+    m_Localized: Samarkand Once More
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882604
+    m_Localized: "Samarkand greets you with the same scent of roses and dust. Lobsang
+      waits at the monastery on the outskirts \u2014 you must deliver the temple's
+      message."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882605
+    m_Localized: Go to the monastery
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882606
+    m_Localized: Lobsang sits by the window, as he did on the first day. "You came.
+      Tell me."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882607
+    m_Localized: Anxi Beyond the Horizon
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882608
+    m_Localized: "The walls of Anxi appear at sunset. The convoy of newcomers walks
+      in formation \u2014 tired but alive. Dariush waits for the answer."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882609
+    m_Localized: Enter the city
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882610
+    m_Localized: The local headman meets you at the gate. The caravan completed the
+      route.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882611
+    m_Localized: The Mashhad Warehouse
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882612
+    m_Localized: "Mashhad smells of turpentine and horse sweat. The warehouse for
+      the fire cargo lies by the southern gate. The recipient \u2014 a tall scarred
+      man."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882613
+    m_Localized: Hand over the cargo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882614
+    m_Localized: The recipient counts the vessels twice. Dariush sits in the corner
+      on a bale.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882615
+    m_Localized: Baghdad at Sunset
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882616
+    m_Localized: "Baghdad's domes are lit by the setting sun. Dariush waits by the
+      House of Wisdom \u2014 the last halt of the great journey."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882617
+    m_Localized: Go to Dariush
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882618
+    m_Localized: Dariush raises a cup when he sees you. "You made it. Now you are
+      a legend."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882619
+    m_Localized: Chang'an at Dawn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882620
+    m_Localized: "Chang'an at dawn \u2014 the noisiest city in the world. Chen's
+      workshop is narrow, reeking of indigo, on the east edge of the market. The
+      raw materials are in the caravan."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882621
+    m_Localized: Go to the workshop
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882622
+    m_Localized: Chen Wei stands over a vat without turning. "You came. Set it down."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882623
+    m_Localized: "Chang'an \u2014 Final Road"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882624
+    m_Localized: "Chang'an is familiar. But today Chen Wei's workshop awaits a special
+      cargo \u2014 purple cloth for an imperial order."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882625
+    m_Localized: Bring the cloth
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882626
+    m_Localized: The master carefully unrolls the purple bolt and gazes at the color
+      long. "The finest batch I have ever seen."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882627
+    m_Localized: "Chang'an \u2014 End of the Hunt"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882628
+    m_Localized: "Chang'an greets you with the scent of every spice in the world.
+      The Archive in the Imperial quarter \u2014 there the fifth and final artifact
+      must be delivered."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882629
+    m_Localized: Go to the Archive
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882630
+    m_Localized: The Chinese archivist accepts the relic with a bow. "Six hundred
+      years have passed since this object left these walls."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882631
+    m_Localized: Trials of the Spirit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882632
+    m_Localized: "Tinley leads you into the dry stone courtyard of the mountain temple.
+      The air is thin, the cypress motionless. \"Before the blessing \u2014 three
+      trials. All are within you. Choose by which you will enter.\""
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882633
+    m_Localized: The trial of silence
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882634
+    m_Localized: 'You sit across from Tinley and speak no word. An hour, two. Time
+      loses shape. When you raise your eyes, the monk nods: "The silence has accepted
+      you. Enter the temple."'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882635
+    m_Localized: The trial of fear
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882636
+    m_Localized: Tinley leads you to a narrow crevice above the abyss. You stand
+      at its edge until the wind dies. When you turn around, the monk is already
+      at the temple entrance. "Fear has passed. Enter."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882637
+    m_Localized: The trial of choice
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31384431506882638
+    m_Localized: 'Tinley places two bowls before you: one with water, one empty.
+      "Choose one, give the other to a stranger." You give the full one and keep
+      the empty. Tinley smiles. "A choice made shows itself in every choice after.
+      Enter."'
     m_Metadata:
       m_Items: []
   references:

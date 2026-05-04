@@ -575,6 +575,158 @@ MonoBehaviour:
     m_Key: quest_branch.legend_of_artifacts.description
     m_Metadata:
       m_Items: []
+  - m_Id: 18208261827330048
+    m_Key: quest.quest_artifact_1.narrative.stage_accept
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18208261869273088
+    m_Key: quest.quest_artifact_1.narrative.stage_decipher
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18208261869273089
+    m_Key: quest.quest_empire_2.narrative.stage_accept
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18208261869273090
+    m_Key: quest.quest_empire_2.narrative.stage_negotiate
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18208261869273091
+    m_Key: quest.quest_silk_2.narrative.stage_accept
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18208261869273092
+    m_Key: quest.quest_silk_2.narrative.stage_find
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18208261869273093
+    m_Key: quest.quest_caravaneer_2.narrative.stage_accept
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18208261869273094
+    m_Key: quest.quest_mystic_3.narrative.stage_accept
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18208261869273095
+    m_Key: quest.quest_mystic_3.narrative.stage_find
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971050008576
+    m_Key: quest.quest_empire_4.stage_complete.narrative
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980096
+    m_Key: quest.quest_empire_5.stage_complete.narrative
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980097
+    m_Key: quest.quest_mystic_3.stage_complete.narrative
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980098
+    m_Key: quest.quest_mystic_4.stage_complete.narrative
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980099
+    m_Key: quest.quest_mystic_5.stage_complete.narrative
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980100
+    m_Key: quest.quest_caravaneer_2.stage_complete.narrative
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980101
+    m_Key: quest.quest_caravaneer_3.stage_complete.narrative
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980102
+    m_Key: quest.quest_caravaneer_4.stage_complete.narrative
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980103
+    m_Key: quest.quest_caravaneer_5.stage_complete.narrative
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980104
+    m_Key: quest.quest_silk_5.stage_complete.narrative
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980105
+    m_Key: quest.quest_empire_1.stage_buy_silk.narrative
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980106
+    m_Key: quest.quest_empire_1.stage_deliver.narrative
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980107
+    m_Key: quest.quest_empire_2.stage_travel.narrative
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980108
+    m_Key: quest.quest_empire_2.stage_return.narrative
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980109
+    m_Key: quest.quest_empire_3.stage_escort.narrative
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980110
+    m_Key: quest.quest_empire_4.stage_transport.narrative
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980111
+    m_Key: quest.quest_empire_5.stage_journey.narrative
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980112
+    m_Key: quest.quest_mystic_1.stage_deliver.narrative
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980113
+    m_Key: quest.quest_mystic_2.stage_mogao.narrative
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980114
+    m_Key: quest.quest_mystic_2.stage_bibi_khanym.narrative
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980115
+    m_Key: quest.quest_mystic_2.stage_fire_temple.narrative
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980116
+    m_Key: quest.quest_mystic_5.stage_deliver.narrative
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980117
+    m_Key: quest.quest_caravaneer_1.stage_escort.narrative
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980118
+    m_Key: quest.quest_caravaneer_2.stage_transport.narrative
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980119
+    m_Key: quest.quest_caravaneer_5.stage_journey.narrative
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980120
+    m_Key: quest.quest_silk_1.stage_deliver.narrative
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980121
+    m_Key: quest.quest_silk_5.stage_deliver.narrative
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980122
+    m_Key: quest.quest_artifact_5.stage_deliver.narrative
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980123
+    m_Key: quest.quest_mystic_4.stage_trials.narrative
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

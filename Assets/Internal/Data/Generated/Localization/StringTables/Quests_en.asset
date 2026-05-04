@@ -210,8 +210,9 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 481288234
-    m_Localized: The map points to three artifacts scattered along the Silk Road.
-      Collect them
+    m_Localized: 'The map points to three artifacts scattered along the Silk Road:
+      temple ruins near Khotan, a fire altar by Balkh, and a cave sanctuary below
+      Kucha. Collect them.'
     m_Metadata:
       m_Items: []
   - m_Id: 481288235
@@ -266,7 +267,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 481288247
-    m_Localized: Conduct negotiations
+    m_Localized: Negotiate at the Al-Bukhari trading house in Bukhara
     m_Metadata:
       m_Items: []
   - m_Id: 481288248
@@ -298,7 +299,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 481288255
-    m_Localized: Complete the delivery
+    m_Localized: Hand the cargo to the recipient in Baghdad
     m_Metadata:
       m_Items: []
   - m_Id: 481288256
@@ -310,7 +311,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 481288258
-    m_Localized: Complete the great route
+    m_Localized: Enter Constantinople with Vahu-Man
     m_Metadata:
       m_Items: []
   - m_Id: 481288259
@@ -350,11 +351,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 481288268
-    m_Localized: Find the hidden temple in the mountains
+    m_Localized: Climb to the high mountain pass and ask the locals
     m_Metadata:
       m_Items: []
   - m_Id: 481288269
-    m_Localized: Enter the temple
+    m_Localized: Enter the discovered mountain temple
     m_Metadata:
       m_Items: []
   - m_Id: 481288270
@@ -366,7 +367,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 481288272
-    m_Localized: Receive the temple's blessing
+    m_Localized: Receive Tinley's blessing at the mountain temple
     m_Metadata:
       m_Items: []
   - m_Id: 481288273
@@ -378,7 +379,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 481288275
-    m_Localized: Complete the spiritual journey
+    m_Localized: Deliver the message to Lobsang in Samarkand
     m_Metadata:
       m_Items: []
   - m_Id: 481288276
@@ -402,7 +403,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 485482500
-    m_Localized: Complete the delivery
+    m_Localized: Deliver the fire cargo in Mashhad
     m_Metadata:
       m_Items: []
   - m_Id: 485482501
@@ -410,11 +411,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 485482502
-    m_Localized: Find the missing caravan
+    m_Localized: Follow the caravan's tracks across the Taklamakan desert
     m_Metadata:
       m_Items: []
   - m_Id: 485482503
-    m_Localized: Lead the caravan to safety
+    m_Localized: Bring the rescued caravan to the nearest waystation
     m_Metadata:
       m_Items: []
   - m_Id: 485482504
@@ -422,11 +423,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 485482505
-    m_Localized: Repel the bandit attack
+    m_Localized: Defend the merchants on the road between Merv and Bukhara
     m_Metadata:
       m_Items: []
   - m_Id: 485482506
-    m_Localized: Secure the route
+    m_Localized: Clear the road between Merv and Bukhara
     m_Metadata:
       m_Items: []
   - m_Id: 485482507
@@ -438,7 +439,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 485482509
-    m_Localized: Become a legend of the roads
+    m_Localized: Report to Dariush in Baghdad about the journey's end
     m_Metadata:
       m_Items: []
   - m_Id: 485482510
@@ -458,7 +459,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 485482514
-    m_Localized: Find the key ingredient
+    m_Localized: Find the herbalist from the Kunlun mountains near Anxi
     m_Metadata:
       m_Items: []
   - m_Id: 485482515
@@ -470,7 +471,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 485482517
-    m_Localized: Infiltrate the competitors' workshop
+    m_Localized: Infiltrate the competitors' workshop in Chang'an by night
     m_Metadata:
       m_Items: []
   - m_Id: 485482518
@@ -482,7 +483,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 485482520
-    m_Localized: Gather materials and craftsmen
+    m_Localized: Find master dyers in Chang'an
     m_Metadata:
       m_Items: []
   - m_Id: 485482521
@@ -498,7 +499,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 485482524
-    m_Localized: Present the cloth to the imperial court
+    m_Localized: Present the purple cloth to the imperial court in Chang'an
     m_Metadata:
       m_Items: []
   - m_Id: 485482525
@@ -506,11 +507,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 485482526
-    m_Localized: Decipher the map's inscriptions
+    m_Localized: Decipher the map at the next camp
     m_Metadata:
       m_Items: []
   - m_Id: 485482527
-    m_Localized: Learn the first artifact's location
+    m_Localized: Find the temple ruins in the desert between Kashgar and Anxi
     m_Metadata:
       m_Items: []
   - m_Id: 485482528
@@ -518,7 +519,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 485482529
-    m_Localized: Collect three artifacts
+    m_Localized: Find the artifacts near Khotan, Balkh, and Kucha
     m_Metadata:
       m_Items: []
   - m_Id: 485482530
@@ -530,7 +531,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 485482532
-    m_Localized: Expose the forgers
+    m_Localized: Find the trader of fake relics at a major bazaar
     m_Metadata:
       m_Items: []
   - m_Id: 485482533
@@ -542,7 +543,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 485482535
-    m_Localized: Find the lost vault
+    m_Localized: Find the crevice in the Pamirs by Farukh's map coordinates
     m_Metadata:
       m_Items: []
   - m_Id: 485482536
@@ -601,6 +602,173 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 485482549
     m_Localized: Search for the ancient relics of the Silk Road
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18208261827330048
+    m_Localized: Farukh handed you a map marked in Old Persian. Decipher it at the
+      next camp.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18208261869273088
+    m_Localized: "The map is deciphered \u2014 the first mark lies between Kashgar
+      and Anxi, in the desert by the ruins of an ancient temple."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18208261869273089
+    m_Localized: "The guild has sent you to Bukhara \u2014 to meet with the Al-Bukhari
+      trading house."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18208261869273090
+    m_Localized: The contract is signed. Return to Samarkand and report back.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18208261869273091
+    m_Localized: "Chen Wei described the lost ingredient \u2014 a special indigo
+      from the herbalist near Anxi."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18208261869273092
+    m_Localized: The indigo is in your hands. Return to Master Chen in Chang'an.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18208261869273093
+    m_Localized: Dariush has entrusted you with the fire cargo. Do not ignite it,
+      do not lose it before Mashhad.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18208261869273094
+    m_Localized: Lobsang spoke of a mountain temple. Climb into the highlands and
+      ask the locals.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18208261869273095
+    m_Localized: "The temple is found \u2014 climb to it along the white trail past
+      the stele."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971050008576
+    m_Localized: "The Baghdad recipient counted silver and shook your hand \u2014
+      the cargo is delivered."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980096
+    m_Localized: The golden domes of Constantinople lie behind you. The great route
+      is complete.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980097
+    m_Localized: You crossed the threshold of the mountain temple. Tinley waits at
+      the door.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980098
+    m_Localized: "Tinley touched your forehead \u2014 the temple's blessing is with
+      you."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980099
+    m_Localized: The message is delivered to Lobsang in Samarkand. The spiritual
+      path is complete.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980100
+    m_Localized: The fire cargo is delivered to the recipient in Mashhad. Dariush
+      is pleased.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980101
+    m_Localized: The rescued caravan reached the waystation. All alive.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980102
+    m_Localized: The road is cleared of the ambush. Merchants breathe easier.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980103
+    m_Localized: "Dariush in Baghdad raised a cup to you \u2014 now you are a legend
+      of the roads."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980104
+    m_Localized: The purple cloth is presented to the court. The Emperor signed an
+      edict of patronage.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980105
+    m_Localized: Ten bales of silk acquired and packed. The road to Chang'an opens.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980106
+    m_Localized: The caravan entered Chang'an. The silk is in the guild warehouse.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980107
+    m_Localized: Arrived in Bukhara. Hadji Yusuf waits in the trading house courtyard.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980108
+    m_Localized: The contract is brought to Samarkand. Vahu-Man waits for the report.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980109
+    m_Localized: The contract is delivered to Mashhad.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980110
+    m_Localized: The cargo is delivered to Baghdad.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980111
+    m_Localized: "Constantinople \u2014 the end of the Silk Road."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980112
+    m_Localized: Arrived in Anxi. The Mogao caves are near.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980113
+    m_Localized: "The first voice is heard \u2014 the voice of Mogao."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980114
+    m_Localized: "The second voice is heard \u2014 the voice of Bibi-Khanym's stone."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980115
+    m_Localized: The third voice is heard. All three shrines have been visited.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980116
+    m_Localized: Arrived in Samarkand. Lobsang waits.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980117
+    m_Localized: The newcomers are in Anxi. The convoy is complete.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980118
+    m_Localized: The fire cargo is in Mashhad.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980119
+    m_Localized: Arrived in Baghdad. Dariush waits.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980120
+    m_Localized: The raw materials are delivered to Chang'an.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980121
+    m_Localized: The purple cloth is in Chang'an.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980122
+    m_Localized: The fifth artifact is in Chang'an. The hunt is complete.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 18412971070980123
+    m_Localized: The trial is passed. The temple opens.
     m_Metadata:
       m_Items: []
   references:

@@ -64,7 +64,16 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    <TriggerEventId>k__BackingField: 
+    <Narrative>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <TriggerEventIds>k__BackingField: []
     <AutoCompleteCondition>k__BackingField:
       <Type>k__BackingField: 0
       <Param>k__BackingField: 
@@ -79,11 +88,21 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    <TriggerEventId>k__BackingField: 
+    <Narrative>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Quests
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: quest.quest_empire_1.stage_buy_silk.narrative
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <TriggerEventIds>k__BackingField:
+    - event_empire1_silk_acquired
     <AutoCompleteCondition>k__BackingField:
-      <Type>k__BackingField: 1
-      <Param>k__BackingField: silk
-      <Value>k__BackingField: 10
+      <Type>k__BackingField: 0
+      <Param>k__BackingField: 
+      <Value>k__BackingField: 0
   - <Id>k__BackingField: stage_deliver
     <Description>k__BackingField:
       m_TableReference:
@@ -94,10 +113,20 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    <TriggerEventId>k__BackingField: 
+    <Narrative>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Quests
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: quest.quest_empire_1.stage_deliver.narrative
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <TriggerEventIds>k__BackingField:
+    - event_empire1_arrival_changan
     <AutoCompleteCondition>k__BackingField:
-      <Type>k__BackingField: 2
-      <Param>k__BackingField: changan
+      <Type>k__BackingField: 0
+      <Param>k__BackingField: 
       <Value>k__BackingField: 0
   - <Id>k__BackingField: stage_complete
     <Description>k__BackingField:
@@ -109,7 +138,17 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    <TriggerEventId>k__BackingField: event_empire1_complete
+    <Narrative>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <TriggerEventIds>k__BackingField:
+    - event_empire1_complete
     <AutoCompleteCondition>k__BackingField:
       <Type>k__BackingField: 0
       <Param>k__BackingField: 

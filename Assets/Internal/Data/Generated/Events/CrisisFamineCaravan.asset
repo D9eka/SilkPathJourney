@@ -128,6 +128,7 @@ MonoBehaviour:
     <Conditions>k__BackingField:
     - <Type>k__BackingField: 10
       <Param>k__BackingField: Healer
+      <ParamList>k__BackingField: []
       <Value>k__BackingField: 1
     <Outcomes>k__BackingField:
     - <Type>k__BackingField: 2
@@ -194,6 +195,7 @@ MonoBehaviour:
   <Conditions>k__BackingField:
   - <Type>k__BackingField: 6
     <Param>k__BackingField: 
+    <ParamList>k__BackingField: []
     <Value>k__BackingField: 0
   <Weight>k__BackingField: 0.6
   references:

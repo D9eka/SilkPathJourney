@@ -61,10 +61,7 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    <Conditions>k__BackingField:
-    - <Type>k__BackingField: 31
-      <Param>k__BackingField: quest_silk_5
-      <Value>k__BackingField: 1
+    <Conditions>k__BackingField: []
     <Outcomes>k__BackingField:
     - <Type>k__BackingField: 20
       <Param>k__BackingField: quest_silk_4
@@ -99,7 +96,19 @@ MonoBehaviour:
   <Biome>k__BackingField: 0
   <AutoOutcomes>k__BackingField: []
   <SkillChecks>k__BackingField: []
-  <Conditions>k__BackingField: []
+  <Conditions>k__BackingField:
+  - <Type>k__BackingField: 22
+    <Param>k__BackingField: quest_silk_4
+    <ParamList>k__BackingField: []
+    <Value>k__BackingField: 1
+  - <Type>k__BackingField: 25
+    <Param>k__BackingField: quest_silk_4
+    <ParamList>k__BackingField: []
+    <Value>k__BackingField: 2
+  - <Type>k__BackingField: 16
+    <Param>k__BackingField: changan
+    <ParamList>k__BackingField: []
+    <Value>k__BackingField: 1
   <Weight>k__BackingField: 1
   references:
     version: 2

@@ -5,6 +5,7 @@ Hud,Main,Button,LeaveCity,UI.Hud.Main.Button.LeaveCity,,,Покинуть гор
 Hud,Main,Button,Camp,UI.Hud.Main.Button.Camp,,,Лагерь,Camp,перевод
 Hud,Main,Button,Move,UI.Hud.Main.Button.Move,,,Двигаться,Move,перевод
 Hud,Main,Button,Rush,UI.Hud.Main.Button.Rush,,,Ускориться,Rush,перевод
+Hud,Main,Button,ChangeRoute,UI.Hud.Main.Button.ChangeRoute,,,Изменить маршрут,Change route,перевод
 Hud,Main,Text,DayText,UI.Hud.Main.Text.DayText,Формат: День {0},,День {0},Day {0},перевод
 Inventory,Main,Header,Main,UI.Inventory.Main.Header.Main,,,Груз,Cargo,перевод
 Inventory,Main,Button,DropButton,UI.Inventory.Main.Button.DropButton,,,Выбросить,Drop,перевод

@@ -64,7 +64,16 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    <TriggerEventId>k__BackingField: 
+    <Narrative>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <TriggerEventIds>k__BackingField: []
     <AutoCompleteCondition>k__BackingField:
       <Type>k__BackingField: 0
       <Param>k__BackingField: 
@@ -79,7 +88,17 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    <TriggerEventId>k__BackingField: event_artifact3_expose
+    <Narrative>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <TriggerEventIds>k__BackingField:
+    - event_artifact3_expose
     <AutoCompleteCondition>k__BackingField:
       <Type>k__BackingField: 0
       <Param>k__BackingField: 
@@ -94,7 +113,17 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    <TriggerEventId>k__BackingField: event_artifact3_complete
+    <Narrative>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <TriggerEventIds>k__BackingField:
+    - event_artifact3_complete
     <AutoCompleteCondition>k__BackingField:
       <Type>k__BackingField: 0
       <Param>k__BackingField: 

@@ -64,7 +64,16 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    <TriggerEventId>k__BackingField: 
+    <Narrative>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <TriggerEventIds>k__BackingField: []
     <AutoCompleteCondition>k__BackingField:
       <Type>k__BackingField: 0
       <Param>k__BackingField: 
@@ -79,10 +88,20 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    <TriggerEventId>k__BackingField: 
+    <Narrative>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Quests
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: quest.quest_mystic_5.stage_deliver.narrative
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <TriggerEventIds>k__BackingField:
+    - event_mystic5_arrival_samarkand
     <AutoCompleteCondition>k__BackingField:
-      <Type>k__BackingField: 2
-      <Param>k__BackingField: samarkand
+      <Type>k__BackingField: 0
+      <Param>k__BackingField: 
       <Value>k__BackingField: 0
   - <Id>k__BackingField: stage_complete
     <Description>k__BackingField:
@@ -94,7 +113,17 @@ MonoBehaviour:
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
-    <TriggerEventId>k__BackingField: event_mystic5_complete
+    <Narrative>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Quests
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: quest.quest_mystic_5.stage_complete.narrative
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <TriggerEventIds>k__BackingField:
+    - event_mystic5_complete
     <AutoCompleteCondition>k__BackingField:
       <Type>k__BackingField: 0
       <Param>k__BackingField: 
