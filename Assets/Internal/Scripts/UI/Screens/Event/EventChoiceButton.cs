@@ -1,4 +1,5 @@
 using System;
+using DG.Tweening;
 using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Localization;
 using Internal.Scripts.UI.Localization.Args;
@@ -36,23 +37,27 @@ namespace Internal.Scripts.UI.Screens.Event
             Action onHoverExit = null,
             ConditionContent condition = null)
         {
+            _textHandle?.Dispose();
+            _textHandle = null;
+            _button.onClick.RemoveAllListeners();
+
+            DOTween.Kill(transform);
+            transform.localScale = Vector3.one;
+            transform.localRotation = Quaternion.identity;
+
             _onClickCallback = onClickCallback;
             _onHoverEnter = onHoverEnter;
             _onHoverExit = onHoverExit;
 
-            if (_text != null && localizedText != null && localization != null)
+            if (localizedText != null && localization != null)
                 _textHandle = localization.BindText(_text, localizedText, "Choice");
 
-            if (_conditionText != null)
-            {
-                bool hasCondition = condition != null;
-                _conditionText.gameObject.SetActive(hasCondition);
-                if (hasCondition)
-                    _conditionText.text = LocArgRenderer.Format(condition.Format, condition.Args);
-            }
+            bool hasCondition = condition != null;
+            _conditionText.gameObject.SetActive(hasCondition);
+            if (hasCondition)
+                _conditionText.text = LocArgRenderer.Format(condition.Format, condition.Args);
 
-            if (_button != null)
-                _button.onClick.AddListener(HandleClick);
+            _button.onClick.AddListener(HandleClick);
         }
 
         private void OnDestroy()
@@ -63,8 +68,7 @@ namespace Internal.Scripts.UI.Screens.Event
                 _hover.Exited -= OnHoverExit;
             }
             _textHandle?.Dispose();
-            if (_button != null)
-                _button.onClick.RemoveListener(HandleClick);
+            _button.onClick.RemoveListener(HandleClick);
         }
 
         private void HandleClick()
@@ -74,8 +78,7 @@ namespace Internal.Scripts.UI.Screens.Event
 
         public void SetInteractable(bool interactable)
         {
-            if (_button != null)
-                _button.interactable = interactable;
+            _button.interactable = interactable;
         }
 
         private void OnHoverEnter() => _onHoverEnter?.Invoke();

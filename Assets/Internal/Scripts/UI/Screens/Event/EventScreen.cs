@@ -183,36 +183,45 @@ namespace Internal.Scripts.UI.Screens.Event
         {
             if (eventData == null) return;
 
-            BindLocalizedText(ref _nameHandle, _eventNameText, eventData.Name, "EventName");
-            BindLocalizedText(ref _typeHandle, _eventTypeText, eventData.EventType, "EventType");
+            ClearChoiceButtons();
 
-            object[] formatArgs = _viewModel.FormatArgs;
-            BindLocalizedTextWithArgs(ref _descriptionHandle, _eventDescriptionText,
-                eventData.Description, "EventDescription", formatArgs,
-                raw => LocArgRenderer.ProcessNpcSpeech(raw, _viewModel?.LanguageRepo));
-
-            _nameHandle.TextChanged += RequestLayoutRefresh;
-            _typeHandle.TextChanged += RequestLayoutRefresh;
-            _descriptionHandle.TextChanged += RequestLayoutRefresh;
-
-            if (eventData.Image != null)
-                _eventImage.sprite = eventData.Image;
-
-            _currentChoices = eventData.Choices != null
-                ? new List<EventChoice>(eventData.Choices)
-                : new List<EventChoice>();
-            _choiceMade = false;
-            SpawnResourceIndicators();
-
-            if (_currentChoices.Count == 0)
+            try
             {
-                Debug.LogError($"[SPJ Events] Event '{eventData.Id}' has no choices. Data issue?");
-                return;
-            }
+                BindLocalizedText(ref _nameHandle, _eventNameText, eventData.Name, "EventName");
+                BindLocalizedText(ref _typeHandle, _eventTypeText, eventData.EventType, "EventType");
 
-            CreateChoiceButtons(_currentChoices);
-            _scrollViewLayout?.Refresh();
-            _scrollRect?.Refresh();
+                object[] formatArgs = _viewModel.FormatArgs;
+                BindLocalizedTextWithArgs(ref _descriptionHandle, _eventDescriptionText,
+                    eventData.Description, "EventDescription", formatArgs,
+                    raw => LocArgRenderer.ProcessNpcSpeech(raw, _viewModel?.LanguageRepo));
+
+                if (_nameHandle != null) _nameHandle.TextChanged += RequestLayoutRefresh;
+                if (_typeHandle != null) _typeHandle.TextChanged += RequestLayoutRefresh;
+                if (_descriptionHandle != null) _descriptionHandle.TextChanged += RequestLayoutRefresh;
+
+                if (eventData.Image != null)
+                    _eventImage.sprite = eventData.Image;
+
+                _currentChoices = eventData.Choices != null
+                    ? new List<EventChoice>(eventData.Choices)
+                    : new List<EventChoice>();
+                _choiceMade = false;
+                SpawnResourceIndicators();
+
+                if (_currentChoices.Count == 0)
+                {
+                    Debug.LogError($"[SPJ Events] Event '{eventData.Id}' has no choices. Data issue?");
+                    return;
+                }
+
+                CreateChoiceButtons(_currentChoices);
+                _scrollViewLayout?.Refresh();
+                _scrollRect?.Refresh();
+            }
+            catch (System.Exception ex)
+            {
+                Debug.LogError($"[SPJ Events] UpdateContent threw for '{eventData.Id}': {ex}");
+            }
         }
 
         private void SpawnResourceIndicators()
@@ -221,11 +230,12 @@ namespace Internal.Scripts.UI.Screens.Event
             if (_currentChoices == null) return;
 
             List<EventResourceInfo> resources = _viewModel.GetAffectedResources(_currentChoices);
-            foreach (EventResourceInfo info in resources)
-                SpawnResourceIndicator(info);
 
             if (_resourceIndicatorsRoot != null)
                 _resourceIndicatorsRoot.gameObject.SetActive(resources.Count > 0);
+
+            foreach (EventResourceInfo info in resources)
+                SpawnResourceIndicator(info);
 
             SetCurrentResourceValues();
         }
