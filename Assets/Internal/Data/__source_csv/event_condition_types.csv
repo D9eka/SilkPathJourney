@@ -30,3 +30,4 @@ no_item,NoItem
 danger_above,DangerAbove
 not_completed_quest,NotCompletedQuest
 quest_available,QuestAvailable
+no_quest_flag,NoQuestFlag

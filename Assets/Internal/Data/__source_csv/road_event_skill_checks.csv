@@ -1,2 +1,1 @@
 ﻿event_id,choice_index,skill_type,base_chance,fail_result_key
-road_discover_R_N_Urumqi__N_Kucha,1,Survival,0,5,event.road_discover_R_N_Urumqi__N_Kucha.choice1.fail
