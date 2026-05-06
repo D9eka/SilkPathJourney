@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: CampAction_Order
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Camp.CampActionData
   <Type>k__BackingField: 3
+  <Icon>k__BackingField: {fileID: 21300000, guid: 4a109815c56f4c4cbfa98e86b486319d, type: 3}
   <CostSupplies>k__BackingField: 0
   <AffectedResource>k__BackingField: 3
   <Name>k__BackingField:

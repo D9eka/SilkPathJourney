@@ -19,6 +19,7 @@ namespace Internal.Scripts.Camp
     public class CampActionData : ScriptableObject
     {
         [field: SerializeField] public CampActionType Type { get; private set; }
+        [field: SerializeField] public Sprite Icon { get; private set; }
         [field: SerializeField] public float CostSupplies { get; private set; }
         [field: SerializeField] public EventOutcomeType AffectedResource { get; private set; }
 

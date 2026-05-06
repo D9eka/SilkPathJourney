@@ -9,6 +9,7 @@ namespace Internal.Scripts.Caravan
     {
         [field: SerializeField] public string Id { get; private set; }
         [field: SerializeField] public CartClass ClassType { get; private set; }
+        [field: SerializeField] public Sprite Icon { get; private set; }
         [field: SerializeField] public float SpeedKmDay { get; private set; }
         [field: SerializeField] public float Capacity { get; private set; }
         [field: SerializeField] public float Durability { get; private set; }
