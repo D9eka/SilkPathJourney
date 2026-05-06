@@ -9,6 +9,7 @@ using Internal.Scripts.Player.Background;
 using Internal.Scripts.Meta;
 using Internal.Scripts.Save;
 using Internal.Scripts.UI.Localization;
+using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Screens.Core.Config;
 using Internal.Scripts.UI.Screens.Core.ViewModel;
 using Internal.Scripts.UI.Theme;
@@ -30,6 +31,7 @@ namespace Internal.Scripts.UI.Screens.NewGame
         private readonly ItemCatalog _itemCatalog;
         private readonly EconomyDatabase _economyDatabase;
         private readonly PersistentProgressService _persistent;
+        private readonly ResourceIconCatalog _iconCatalog;
 
         public NewGameScreenViewModel(
             BackgroundDatabase backgroundDatabase,
@@ -41,6 +43,7 @@ namespace Internal.Scripts.UI.Screens.NewGame
             ItemCatalog itemCatalog,
             EconomyDatabase economyDatabase,
             PersistentProgressService persistent,
+            ResourceIconCatalog iconCatalog,
             [Inject(Id = SceneRefId.Game)] SceneReference gameScene)
         {
             _backgroundDatabase = backgroundDatabase;
@@ -52,6 +55,7 @@ namespace Internal.Scripts.UI.Screens.NewGame
             _itemCatalog = itemCatalog;
             _economyDatabase = economyDatabase;
             _persistent = persistent;
+            _iconCatalog = iconCatalog;
             _gameScene = gameScene;
 
             CanStart = Observable.CombineLatest(
@@ -65,6 +69,7 @@ namespace Internal.Scripts.UI.Screens.NewGame
         public LocalizationService Localization => _localization;
         public ItemCatalog ItemCatalog => _itemCatalog;
         public EconomyDatabase EconomyDatabase => _economyDatabase;
+        public ResourceIconCatalog IconCatalog => _iconCatalog;
 
         public override ScreenId Id => ScreenId.NewGame;
 
