@@ -1,14 +1,18 @@
 using System;
 using System.Collections.Generic;
 using Internal.Scripts.Economy;
+using Internal.Scripts.Journal;
 using Internal.Scripts.Quests;
 using Internal.Scripts.Quests.Data;
+using Internal.Scripts.Quests.Generated;
 using Internal.Scripts.UI.Localization;
 using Internal.Scripts.UI.Screens.Core.Config;
 using Internal.Scripts.UI.Screens.Core.ViewModel;
+using Internal.Scripts.UI.Screens.Journal;
 using Internal.Scripts.UI.StackService;
 using Internal.Scripts.UI.Theme;
 using R3;
+using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
 
@@ -21,6 +25,7 @@ namespace Internal.Scripts.UI.Screens.Quests
         private readonly EconomyDatabase _economyDatabase;
         private readonly ScreenStackService _screenStackService;
         private readonly UiThemeService _themeService;
+        private readonly JournalIconCatalog _journalIconCatalog;
 
         private readonly ReactiveProperty<QuestsViewState> _state = new(QuestsViewState.Empty);
         private IDisposable _changedSubscription;
@@ -31,13 +36,15 @@ namespace Internal.Scripts.UI.Screens.Quests
             QuestDatabase questDatabase,
             EconomyDatabase economyDatabase,
             ScreenStackService screenStackService,
-            UiThemeService themeService)
+            UiThemeService themeService,
+            JournalIconCatalog journalIconCatalog)
         {
             _questRepository = questRepository;
             _questDatabase = questDatabase;
             _economyDatabase = economyDatabase;
             _screenStackService = screenStackService;
             _themeService = themeService;
+            _journalIconCatalog = journalIconCatalog;
         }
 
         public string GetRuntimeStartCityId(string questId)
@@ -54,6 +61,19 @@ namespace Internal.Scripts.UI.Screens.Quests
         public QuestData GetQuestData(string questId)
         {
             return _questDatabase.GetById(questId);
+        }
+
+        public Sprite GetStageIcon(QuestStageConditionType conditionType)
+        {
+            var journalType = conditionType switch
+            {
+                QuestStageConditionType.InCity    => JournalEntryType.Arrival,
+                QuestStageConditionType.InAnyCity => JournalEntryType.Arrival,
+                QuestStageConditionType.HasItem   => JournalEntryType.Trade,
+                QuestStageConditionType.OnRoute   => JournalEntryType.Travel,
+                _                                 => JournalEntryType.QuestAdvanced,
+            };
+            return _journalIconCatalog?.Get(journalType);
         }
 
         public void SelectQuest(string questId)

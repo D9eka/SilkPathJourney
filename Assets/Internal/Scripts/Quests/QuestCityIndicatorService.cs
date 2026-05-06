@@ -1,5 +1,7 @@
 using Internal.Scripts.UI.Localization;
 using Internal.Scripts.UI.Localization.Generated;
+using Internal.Scripts.UI.WorldLabel;
+using UnityEngine;
 
 namespace Internal.Scripts.Quests
 {
@@ -31,6 +33,17 @@ namespace Internal.Scripts.Quests
                 return QuestCityIndicator.NewAvailable;
 
             return QuestCityIndicator.None;
+        }
+
+        public Sprite GetIndicatorIcon(string cityId, QuestIndicatorIcons icons)
+        {
+            if (icons == null) return null;
+            return GetIndicator(cityId) switch
+            {
+                QuestCityIndicator.NewAvailable => icons.NewAvailable,
+                QuestCityIndicator.ActiveStageHere => icons.ActiveStage,
+                _ => null,
+            };
         }
 
         public string GetIndicatorText(string cityId) => GetIndicator(cityId) switch

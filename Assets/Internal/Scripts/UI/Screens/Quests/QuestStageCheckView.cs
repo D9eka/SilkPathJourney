@@ -18,11 +18,9 @@ namespace Internal.Scripts.UI.Screens.Quests
 
         public void SetState(StageDisplayState state, string description, Sprite icon = null)
         {
-            if (_icon != null && icon != null)
-                _icon.sprite = icon;
-
-            if (_text != null)
-                _text.text = description ?? string.Empty;
+            _icon.gameObject.SetActive(icon != null);
+            if (icon != null) _icon.sprite = icon;
+            _text.text = description ?? string.Empty;
         }
     }
 }
