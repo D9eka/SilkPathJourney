@@ -39,6 +39,7 @@ namespace Internal.Scripts.WorldModifiers
             _playerEvents.OnCurrentNodeChanged += HandleNodeChanged;
             _playerEvents.OnCurrentSegmentChanged += HandleSegmentChanged;
             _repoSubscription = _repo.Changed.Subscribe(_ => HandleRepoChanged());
+            RevealCurrentLocation();
         }
 
         public void Dispose()
@@ -73,28 +74,25 @@ namespace Internal.Scripts.WorldModifiers
             _isHandlingRepoChange = true;
             try
             {
-                int day = _dayTracker.CurrentDay;
-
-                string roadId = _roadResolver.GetCurrentRoadId();
-                if (roadId != null)
-                {
-                    var roadMods = _repo.GetRoadModifiers(roadId);
-                    if (roadMods.Exists(m => m.LastSeenDay == -1))
-                        _repo.MarkRoadSeen(roadId, day);
-                }
-
-                string nodeId = _playerState.CurrentNodeId;
-                if (!string.IsNullOrEmpty(nodeId) && _cityResolver.TryGetCityByNodeId(nodeId, out CityData city))
-                {
-                    var cityMods = _repo.GetCityModifiers(city.Id);
-                    if (cityMods.Exists(m => m.LastSeenDay == -1))
-                        _repo.MarkCitySeen(city.Id, day);
-                }
+                RevealCurrentLocation();
             }
             finally
             {
                 _isHandlingRepoChange = false;
             }
+        }
+
+        private void RevealCurrentLocation()
+        {
+            int day = _dayTracker.CurrentDay;
+
+            string roadId = _roadResolver.GetCurrentRoadId();
+            if (roadId != null)
+                _repo.MarkRoadSeen(roadId, day);
+
+            string nodeId = _playerState.CurrentNodeId;
+            if (!string.IsNullOrEmpty(nodeId) && _cityResolver.TryGetCityByNodeId(nodeId, out CityData city))
+                _repo.MarkCitySeen(city.Id, day);
         }
     }
 }
