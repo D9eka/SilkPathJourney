@@ -68,7 +68,9 @@ namespace Internal.Scripts.UI.Screens.Legacy.Tabs.Achievement
         {
             _nameText.text = data.Name;
             _rewardText.text = $"+{data.LegacyReward}";
-            _statusIcon.gameObject.SetActive(data.IsEarned);
+            if (data.Icon != null)
+                _statusIcon.SetSprite(data.Icon);
+            _statusIcon.gameObject.SetActive(data.Icon != null);
 
             _requirementsHandle?.Dispose();
             _requirementsHandle = _localization?.BindText(

@@ -46,7 +46,7 @@ namespace Internal.Scripts.UI.Screens.Legacy.Tabs.Achievement
                 bool isEarned = _persistent.EarnedAchievementIds.Contains(ach.Id, StringComparer.Ordinal);
                 int progress = ResolveProgress(ach);
                 string earnedDate = isEarned ? FormatEarnedDate(_persistent.GetAchievementEarnedDate(ach.Id)) : null;
-                result.Add(new AchievementEntryData(ach.Id, achName, desc, ach.LegacyReward, isEarned, ach.Value, progress, earnedDate));
+                result.Add(new AchievementEntryData(ach.Id, achName, desc, ach.LegacyReward, isEarned, ach.Value, progress, earnedDate, ach.Icon));
             }
             return result;
         }

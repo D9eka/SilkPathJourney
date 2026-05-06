@@ -128,6 +128,8 @@ namespace Internal.Scripts.UI.Screens.NewGame
 
         private void BindLocked(BackgroundData data, NewGameScreenViewModel viewModel)
         {
+            Sprite lockIcon = viewModel.IconCatalog?.Get(ResourceType.Lock)?.Icon;
+            _lockedLabel.Initialize(lockIcon, null);
             LocalizationService loc = viewModel.Localization;
             string emptyFallback = string.Empty;
 

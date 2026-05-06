@@ -31,7 +31,7 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  <Icon>k__BackingField: {fileID: 0}
+  <Icon>k__BackingField: {fileID: 21300000, guid: 76fe9a6d21e446f0bce989e1c457df09, type: 3}
   <StartCityId>k__BackingField: changan
   <Branch>k__BackingField: 4
   <OrderInBranch>k__BackingField: 1

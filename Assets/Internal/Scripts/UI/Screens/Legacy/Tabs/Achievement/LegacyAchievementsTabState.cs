@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Internal.Scripts.UI.Screens.Legacy.Tabs.Achievement
 {
@@ -12,9 +13,10 @@ namespace Internal.Scripts.UI.Screens.Legacy.Tabs.Achievement
         public readonly int TargetValue;
         public readonly int CurrentProgress;
         public readonly string EarnedDate;
+        public readonly Sprite Icon;
 
         public AchievementEntryData(string id, string name, string description, int legacyReward, bool isEarned,
-            int targetValue = 0, int currentProgress = 0, string earnedDate = null)
+            int targetValue = 0, int currentProgress = 0, string earnedDate = null, Sprite icon = null)
         {
             Id = id;
             Name = name;
@@ -24,6 +26,7 @@ namespace Internal.Scripts.UI.Screens.Legacy.Tabs.Achievement
             TargetValue = targetValue;
             CurrentProgress = currentProgress;
             EarnedDate = earnedDate;
+            Icon = icon;
         }
     }
 
