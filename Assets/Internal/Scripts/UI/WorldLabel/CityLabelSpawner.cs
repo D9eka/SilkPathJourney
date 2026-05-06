@@ -28,6 +28,7 @@ namespace Internal.Scripts.UI.WorldLabel
         private readonly QuestCityIndicatorService _questIndicator;
         private readonly QuestRepository _questRepo;
         private readonly QuestIndicatorIcons _questIcons;
+        private readonly WorldModifierIcons _modifierIcons;
         private readonly Dictionary<string, CityLabelView> _cityLabels = new();
         private IDisposable _modifierSubscription;
         private IDisposable _questSubscription;
@@ -43,7 +44,8 @@ namespace Internal.Scripts.UI.WorldLabel
             GameBalanceConfig balanceConfig,
             QuestCityIndicatorService questIndicator,
             QuestRepository questRepo,
-            QuestIndicatorIcons questIcons)
+            QuestIndicatorIcons questIcons,
+            WorldModifierIcons modifierIcons)
             : base(worldStateController, worldCanvas)
         {
             _cityViewSpawner = cityViewSpawner;
@@ -55,6 +57,7 @@ namespace Internal.Scripts.UI.WorldLabel
             _questIndicator = questIndicator;
             _questRepo = questRepo;
             _questIcons = questIcons;
+            _modifierIcons = modifierIcons;
         }
 
         protected override bool ShouldShowInViewMode(WorldViewMode viewMode) => true;
@@ -122,10 +125,12 @@ namespace Internal.Scripts.UI.WorldLabel
                 var staleness = ModifierStalenessHelper.GetStaleness(entry.LastSeenDay, _dayTracker.CurrentDay,
                     _balanceConfig.StalenessActualDays, _balanceConfig.StalenessStaleDays);
                 float alpha = ModifierStalenessHelper.GetAlpha(staleness);
-                if (staleness == ModifierStaleness.Unknown)
-                    modifiers.AddIcon(mod.Icon, "???", ModifierStalenessHelper.GetUnknownDescription());
-                else
-                    modifiers.AddIcon(mod.Icon, mod.GetTooltipTitle(), mod.GetTooltipDescription(), alpha);
+                Sprite icon = staleness == ModifierStaleness.Unknown ? _modifierIcons.Unknown : mod.Icon;
+                string title = staleness == ModifierStaleness.Unknown ? ModifierStalenessHelper.UnknownTitle : mod.GetTooltipTitle();
+                string desc = staleness == ModifierStaleness.Unknown
+                    ? ModifierStalenessHelper.GetUnknownDescription()
+                    : mod.GetTooltipDescription();
+                modifiers.AddIcon(icon, title, desc, alpha);
                 added = true;
             }
             return added;

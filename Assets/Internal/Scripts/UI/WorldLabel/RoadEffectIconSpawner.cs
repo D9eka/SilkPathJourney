@@ -32,6 +32,7 @@ namespace Internal.Scripts.UI.WorldLabel
         private readonly WorldModifierRepository _modifierRepo;
         private readonly Events.DayTracker _dayTracker;
         private readonly GameBalanceConfig _balanceConfig;
+        private readonly WorldModifierIcons _modifierIcons;
         private readonly List<RoadLabelView> _labels = new();
         private readonly Dictionary<string, RoadLabelView> _roadLabels = new();
         private IDisposable _modifierSubscription;
@@ -46,7 +47,8 @@ namespace Internal.Scripts.UI.WorldLabel
             ICityNodeResolver cityResolver,
             WorldModifierRepository modifierRepo,
             Events.DayTracker dayTracker,
-            GameBalanceConfig balanceConfig)
+            GameBalanceConfig balanceConfig,
+            WorldModifierIcons modifierIcons)
         {
             _roads = roads;
             _worldStateController = worldStateController;
@@ -58,6 +60,7 @@ namespace Internal.Scripts.UI.WorldLabel
             _modifierRepo = modifierRepo;
             _dayTracker = dayTracker;
             _balanceConfig = balanceConfig;
+            _modifierIcons = modifierIcons;
         }
 
         public void Initialize()
@@ -131,10 +134,12 @@ namespace Internal.Scripts.UI.WorldLabel
                 var staleness = ModifierStalenessHelper.GetStaleness(entry.LastSeenDay, _dayTracker.CurrentDay,
                     _balanceConfig.StalenessActualDays, _balanceConfig.StalenessStaleDays);
                 float alpha = ModifierStalenessHelper.GetAlpha(staleness);
-                if (staleness == ModifierStaleness.Unknown)
-                    label.Modifiers.AddIcon(mod.Icon, "???", ModifierStalenessHelper.GetUnknownDescription());
-                else
-                    label.Modifiers.AddIcon(mod.Icon, mod.GetTooltipTitle(), mod.GetTooltipDescription(), alpha);
+                Sprite icon = staleness == ModifierStaleness.Unknown ? _modifierIcons.Unknown : mod.Icon;
+                string title = staleness == ModifierStaleness.Unknown ? ModifierStalenessHelper.UnknownTitle : mod.GetTooltipTitle();
+                string desc = staleness == ModifierStaleness.Unknown
+                    ? ModifierStalenessHelper.GetUnknownDescription()
+                    : mod.GetTooltipDescription();
+                label.Modifiers.AddIcon(icon, title, desc, alpha);
                 added = true;
             }
             return added;

@@ -45,7 +45,7 @@ namespace Internal.Scripts.UI.WorldLabel.Components
 
         public void SetIcon(Sprite icon, float alpha = 1f)
         {
-            if (_icon == null) return;
+            if (_icon == null) _icon = GetComponent<Image>();
             _icon.sprite = icon;
             if (alpha < 1f)
             {
