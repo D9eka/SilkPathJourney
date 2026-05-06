@@ -76,6 +76,7 @@ namespace Internal.Scripts.Installers
         [SerializeField] private ItemCategoryCatalog _itemCategoryCatalog;
         [SerializeField] private BuildingFilterCatalog _buildingFilterCatalog;
         [SerializeField] private JournalIconCatalog _journalIconCatalog;
+        [SerializeField] private WorldModifierIcons _worldModifierIcons;
 
         [Header("Scenes")]
         [SerializeField] private SceneReference _gameScene;
@@ -112,6 +113,7 @@ namespace Internal.Scripts.Installers
             Container.BindInstance(_questDatabase).AsSingle();
             Container.BindInstance(_questIndicatorIcons).AsSingle();
             Container.BindInstance(_journalIconCatalog).AsSingle();
+            Container.BindInstance(_worldModifierIcons).AsSingle();
             Container.BindInstance(_caravanDatabase).AsSingle();
             Container.BindInstance(_playerProfile).AsSingle();
             Container.BindInstance(_backgroundDatabase).AsSingle();
