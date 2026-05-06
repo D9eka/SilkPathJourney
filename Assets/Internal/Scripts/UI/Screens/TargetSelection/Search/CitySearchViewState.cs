@@ -37,6 +37,7 @@ namespace Internal.Scripts.UI.Screens.TargetSelection.Search
         public readonly Sprite CityIcon;
         public readonly ITooltipDataProvider CityTooltip;
         public readonly IReadOnlyList<IconLabelEntry> BuildingEntries;
+        public readonly Sprite QuestIndicatorIcon;
         public readonly string QuestIndicatorText;
         public readonly CitySpecializationVm Specialization;
         public bool HasQuestActivity => !string.IsNullOrEmpty(QuestIndicatorText);
@@ -48,6 +49,7 @@ namespace Internal.Scripts.UI.Screens.TargetSelection.Search
             Sprite cityIcon,
             IReadOnlyList<IconLabelEntry> buildingEntries,
             ITooltipDataProvider cityTooltip = null,
+            Sprite questIndicatorIcon = null,
             string questIndicatorText = null,
             CitySpecializationVm specialization = null)
         {
@@ -57,6 +59,7 @@ namespace Internal.Scripts.UI.Screens.TargetSelection.Search
             CityIcon = cityIcon;
             CityTooltip = cityTooltip;
             BuildingEntries = buildingEntries;
+            QuestIndicatorIcon = questIndicatorIcon;
             QuestIndicatorText = questIndicatorText;
             Specialization = specialization;
         }

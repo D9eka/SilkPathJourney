@@ -131,7 +131,7 @@ namespace Internal.Scripts.UI.Screens.TargetSelection
             if (inPreview)
             {
                 _confirmCityInfo?.Apply(rowData.CityIcon, rowData.Name, rowData.CityTooltip,
-                    rowData.BuildingEntries, rowData.QuestIndicatorText);
+                    rowData.BuildingEntries, rowData.QuestIndicatorIcon, rowData.QuestIndicatorText);
                 _confirmMarketView?.ApplyMarketProfile(rowData.Specialization);
             }
 

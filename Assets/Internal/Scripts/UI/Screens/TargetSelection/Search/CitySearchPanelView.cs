@@ -207,7 +207,8 @@ namespace Internal.Scripts.UI.Screens.TargetSelection.Search
             {
                 string questTooltip = LocalizationService.Resolve(
                     "UI", "UI.CitySearch.Filter.Quest", "Quests");
-                _questFilterButton.InitializeWithTooltip(catalog, tooltip, questTooltip,
+                Sprite questIcon = _viewModel.QuestIndicatorIcons?.NewAvailable;
+                _questFilterButton.InitializeWithSprite(questIcon, questTooltip, tooltip,
                     () => _viewModel?.ToggleQuestFilter());
             }
 

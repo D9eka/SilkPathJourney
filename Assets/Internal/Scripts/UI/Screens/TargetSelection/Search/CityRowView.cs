@@ -42,7 +42,7 @@ namespace Internal.Scripts.UI.Screens.TargetSelection.Search
 
             if (_cityInfo != null)
                 _cityInfo.Apply(data.CityIcon, data.Name, data.CityTooltip,
-                    data.BuildingEntries, data.QuestIndicatorText);
+                    data.BuildingEntries, data.QuestIndicatorIcon, data.QuestIndicatorText);
 
             if (_selectButton != null)
             {
