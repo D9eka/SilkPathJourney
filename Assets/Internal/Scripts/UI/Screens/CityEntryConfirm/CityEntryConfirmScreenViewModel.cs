@@ -15,8 +15,10 @@ using Internal.Scripts.UI.Screens.Core.Config;
 using Internal.Scripts.UI.Screens.Core.ViewModel;
 using Internal.Scripts.UI.StackService;
 using Internal.Scripts.UI.Tooltip;
+using Internal.Scripts.UI.WorldLabel;
 using Internal.Scripts.WorldModifiers;
 using R3;
+using UnityEngine;
 using UnityEngine.Localization.Settings;
 
 namespace Internal.Scripts.UI.Screens.CityEntryConfirm
@@ -37,6 +39,8 @@ namespace Internal.Scripts.UI.Screens.CityEntryConfirm
         private readonly ResourceIconCatalog _resourceIcons;
         private readonly TooltipService _tooltipService;
         private readonly QuestCityIndicatorService _questIndicator;
+        private readonly BuildingFilterCatalog _buildingFilterCatalog;
+        private readonly QuestIndicatorIcons _questIcons;
 
         public ResourceIconCatalog ResourceIcons => _resourceIcons;
         public TooltipService TooltipService => _tooltipService;
@@ -60,7 +64,9 @@ namespace Internal.Scripts.UI.Screens.CityEntryConfirm
             WorldModifierRepository modifierRepo,
             ResourceIconCatalog resourceIcons,
             TooltipService tooltipService,
-            QuestCityIndicatorService questIndicator)
+            QuestCityIndicatorService questIndicator,
+            BuildingFilterCatalog buildingFilterCatalog,
+            QuestIndicatorIcons questIcons)
         {
             _tariffService = tariffService;
             _smugglingService = smugglingService;
@@ -76,6 +82,8 @@ namespace Internal.Scripts.UI.Screens.CityEntryConfirm
             _resourceIcons = resourceIcons;
             _tooltipService = tooltipService;
             _questIndicator = questIndicator;
+            _buildingFilterCatalog = buildingFilterCatalog;
+            _questIcons = questIcons;
         }
 
         public override ScreenId Id => ScreenId.CityEntryConfirm;
@@ -122,6 +130,7 @@ namespace Internal.Scripts.UI.Screens.CityEntryConfirm
                 CityType = ResolveCityType(),
                 Buildings = ResolveBuildings(),
                 Modifiers = ResolveModifiers(),
+                QuestIndicatorIcon = _questIndicator?.GetIndicatorIcon(_city.Id, _questIcons),
                 QuestIndicatorText = _questIndicator?.GetIndicatorText(_city.Id),
                 IsGuildMember = _guildService.IsMember,
                 GuildDiscountPct = _guildSettings.MemberTariffDiscount,
@@ -176,6 +185,7 @@ namespace Internal.Scripts.UI.Screens.CityEntryConfirm
                 CityType = ResolveCityType(),
                 Buildings = ResolveBuildings(),
                 Modifiers = ResolveModifiers(),
+                QuestIndicatorIcon = _questIndicator?.GetIndicatorIcon(_city.Id, _questIcons),
                 QuestIndicatorText = _questIndicator?.GetIndicatorText(_city.Id),
                 TariffAmount = tariff,
                 IsGuildMember = _guildService.IsMember,
@@ -209,7 +219,8 @@ namespace Internal.Scripts.UI.Screens.CityEntryConfirm
                 var building = _database.GetBuilding(buildingId);
                 if (building == null) continue;
                 string name = LocalizationService.ResolveString(building.Name, building.Type.ToString(), "CityEntry.Building");
-                list.Add(new IconLabelEntry(null, name));
+                Sprite icon = _buildingFilterCatalog?.Get(buildingId)?.Icon;
+                list.Add(new IconLabelEntry(icon, name));
             }
             return list.ToArray();
         }
