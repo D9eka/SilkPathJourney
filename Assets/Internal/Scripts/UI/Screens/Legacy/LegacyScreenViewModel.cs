@@ -17,7 +17,8 @@ namespace Internal.Scripts.UI.Screens.Legacy
         private readonly LegacyShopTabViewModel _shopTab;
         private readonly LegacyAchievementsTabViewModel _achievementsTab;
         private readonly LegacyLifetimeTabViewModel _lifetimeTab;
-        
+        private readonly AchievementService _achievementService;
+
         public readonly UiThemeService ThemeService;
 
         private readonly ReactiveProperty<LegacyViewState> _state = new();
@@ -35,11 +36,13 @@ namespace Internal.Scripts.UI.Screens.Legacy
             UnlockRepository unlockRepository,
             AchievementDatabase achievementDatabase,
             ItemCatalog itemCatalog,
-            UiThemeService themeService)
+            UiThemeService themeService,
+            AchievementService achievementService)
         {
             _shopTab = new LegacyShopTabViewModel(persistent, unlockRepository, themeService);
             _achievementsTab = new LegacyAchievementsTabViewModel(persistent, achievementDatabase, themeService);
             _lifetimeTab = new LegacyLifetimeTabViewModel(persistent, itemCatalog);
+            _achievementService = achievementService;
             ThemeService = themeService;
         }
 
@@ -50,6 +53,7 @@ namespace Internal.Scripts.UI.Screens.Legacy
 
         protected override void OnOpen(object args)
         {
+            _achievementService.CheckLifetime();
             _activeTab = _defaultTab;
             BuildState(_activeTab);
         }
