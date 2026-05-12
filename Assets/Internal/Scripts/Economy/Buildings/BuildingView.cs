@@ -58,11 +58,23 @@ namespace Internal.Scripts.Economy.Buildings
             if (_data == null) return;
 
             _labelHelper.CreateLabel(
-                transform.position,
+                ComputeLabelAnchor(),
                 $"BuildingLabel_{_data.Id}",
                 _data.Name,
                 _data.Id,
                 _data);
+        }
+
+        private Vector3 ComputeLabelAnchor()
+        {
+            if (_renderers == null || _renderers.Length == 0)
+                return transform.position;
+
+            Bounds combined = _renderers[0].bounds;
+            for (int i = 1; i < _renderers.Length; i++)
+                combined.Encapsulate(_renderers[i].bounds);
+
+            return new Vector3(combined.center.x, combined.max.y, combined.center.z);
         }
 
         public void TriggerHoverEnter()
