@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Pickup_Water
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Travel.Pickups.PickupData
   <Type>k__BackingField: 1
-  <Prefab>k__BackingField: {fileID: 5928119014498311152, guid: 65adca569e6a11f4d91530d07dcfdc54, type: 3}
+  <Prefab>k__BackingField: {fileID: 5291723611290827877, guid: 79f1f518164609e44892def1454be397, type: 3}
   <Rewards>k__BackingField:
   - <Type>k__BackingField: 2
     <Param>k__BackingField: 

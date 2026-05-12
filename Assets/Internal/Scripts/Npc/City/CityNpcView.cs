@@ -24,12 +24,6 @@ namespace Internal.Scripts.Npc.City
 
         private void Start()
         {
-            NpcLabelView label = _labelHelper.CreateNpcLabel(
-                transform.position,
-                Vector3.zero,
-                $"NpcLabel_{_displayName}",
-                _displayName);
-            label?.HideIcon();
         }
 
         private void OnDestroy()

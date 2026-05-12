@@ -10,12 +10,12 @@ namespace Internal.Scripts.Player
 {
     public sealed class ConvoyVisualizer : ITickable, IDisposable
     {
-        private const int BUFFER_SIZE = 120;
-        private const float SPACING_METERS = 0.5f;
+        private const int BUFFER_SIZE = 600;
         private const float ROTATION_SPEED = 10f;
-        private const int SAMPLES_PER_SPACING = 10;
-        private const float RECORD_INTERVAL = SPACING_METERS / SAMPLES_PER_SPACING;
+        private const float RECORD_INTERVAL = 0.05f;
         private const float MIN_MOVE_THRESHOLD = 0.01f;
+        private const float CARAVAN_GAP_METERS = 0.1f;
+        private const float DEFAULT_UNIT_LENGTH = 3f;
         private static readonly Vector3 FALLBACK_CART_SCALE = new(0.6f, 0.4f, 1.2f);
 
         private readonly RoadAgentView _playerView;
@@ -34,6 +34,7 @@ namespace Internal.Scripts.Player
         private CartClass _currentMainCartClass = (CartClass)(-1);
         private DraftAnimalType _currentAnimalType = (DraftAnimalType)(-1);
         private CartFollowerView _mainCartView;
+        private bool _animalDiagWarned;
 
         public ConvoyVisualizer(
             RoadAgentView playerView,
@@ -56,7 +57,9 @@ namespace Internal.Scripts.Player
 
         private void RecordPosition()
         {
-            Vector3 currentPos = _playerView.VisualRoot.position;
+            Vector3 currentPos = _mainCartView != null
+                ? _mainCartView.AnimalFrontWorld
+                : _playerView.VisualRoot.position;
             Vector3 currentFwd = _playerView.VisualRoot.forward;
 
             float moved = Vector3.Distance(currentPos, _lastRecordedPosition);
@@ -105,18 +108,40 @@ namespace Internal.Scripts.Player
             if (_bufferCount == 0 || _followers.Count == 0)
                 return;
 
+            float playerUnitLength = ComputeHeadDistance(_mainCartView) + ComputeTailDistance(_mainCartView);
+            float distanceAlongPath = playerUnitLength + CARAVAN_GAP_METERS;
+
             for (int i = 0; i < _followers.Count; i++)
             {
-                int offset = (i + 1) * SAMPLES_PER_SPACING;
-                if (offset >= _bufferCount)
-                    offset = _bufferCount - 1;
+                var follower = _followers[i];
+                float headDist = ComputeHeadDistance(follower);
+                float tailDist = ComputeTailDistance(follower);
 
-                int idx = (_bufferHead - 1 - offset + BUFFER_SIZE * 2) % BUFFER_SIZE;
+                float pivotDistance = distanceAlongPath + headDist;
+                int sampleSteps = Mathf.RoundToInt(pivotDistance / RECORD_INTERVAL);
+                if (sampleSteps >= _bufferCount) sampleSteps = _bufferCount - 1;
+                if (sampleSteps < 0) sampleSteps = 0;
 
-                _followers[i].transform.position = _positionBuffer[idx];
-                RoadAgentView.SmoothRotate(_followers[i].transform, _forwardBuffer[idx], ROTATION_SPEED);
-                _followers[i].UpdateMovementState();
+                int idx = (_bufferHead - 1 - sampleSteps + BUFFER_SIZE * 2) % BUFFER_SIZE;
+
+                follower.transform.position = _positionBuffer[idx] + Vector3.up * RoadAgentView.ROAD_GROUND_OFFSET;
+                RoadAgentView.SmoothRotate(follower.transform, _forwardBuffer[idx], ROTATION_SPEED);
+                follower.UpdateMovementState();
+
+                distanceAlongPath += headDist + tailDist + CARAVAN_GAP_METERS;
             }
+        }
+
+        private static float ComputeHeadDistance(CartFollowerView view)
+        {
+            if (view == null) return DEFAULT_UNIT_LENGTH * 0.5f;
+            return Vector3.Distance(view.AnimalFrontWorld, view.transform.position);
+        }
+
+        private static float ComputeTailDistance(CartFollowerView view)
+        {
+            if (view == null) return DEFAULT_UNIT_LENGTH * 0.5f;
+            return Vector3.Distance(view.CaravanBackWorld, view.transform.position);
         }
 
         public void Dispose()
@@ -168,15 +193,31 @@ namespace Internal.Scripts.Player
 
             string animalId = _resourceRepo.Current.DraftAnimalId;
             if (!Enum.TryParse<DraftAnimalType>(animalId, true, out var animalType))
+            {
+                if (!_animalDiagWarned)
+                {
+                    Debug.LogWarning($"[ConvoyVisualizer] DraftAnimalId='{animalId}' is not a valid DraftAnimalType");
+                    _animalDiagWarned = true;
+                }
                 return;
+            }
 
             if (animalType != _currentAnimalType)
             {
                 var entry = _catalog.GetAnimal(animalType);
                 if (entry.Prefab != null)
+                {
                     _mainCartView.SetAnimal(entry.Prefab, entry.Scale > 0 ? entry.Scale : 1f, entry.Offset);
+                }
                 else
+                {
+                    if (!_animalDiagWarned)
+                    {
+                        Debug.LogWarning($"[ConvoyVisualizer] No prefab for animal type {animalType} in catalog");
+                        _animalDiagWarned = true;
+                    }
                     _mainCartView.ClearAnimal();
+                }
                 _currentAnimalType = animalType;
             }
         }
