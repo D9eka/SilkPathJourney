@@ -85,6 +85,7 @@ namespace Internal.Scripts.UI.WorldLabel
                 CityLabelView label = CreateAndConfigureLabel(
                     position,
                     $"CityLabel_{city.Id}");
+                label.gameObject.InitializeColorBinders(colorController: _colorController, biome: city.Biome);
                 label._nameLabel.SetColorController(_colorController, city.Biome);
                 label._nameLabel.SetLocalizedText(city.Name, city.Id);
                 label._nameLabel.SetTooltipProvider(city);

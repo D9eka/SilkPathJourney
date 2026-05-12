@@ -51,8 +51,17 @@ namespace Internal.Scripts.Camera.Follow
             _inputManager.OnChangePosition += OnInput;
             _playerStateEvents.OnCurrentNodeChanged += OnNodeChanged;
 
-            if (_playerStateProvider.State == PlayerState.Moving)
-                StartFollowing();
+            SnapToPlayer();
+            StartFollowing();
+        }
+
+        private void SnapToPlayer()
+        {
+            if (_roadAgentView == null || _roadAgentView.VisualRoot == null)
+                return;
+            Vector3 p = _roadAgentView.VisualRoot.position;
+            Vector2 clamped = _bounds.Clamp(new Vector2(p.x, p.z));
+            _mover.ApplyPosition(clamped);
         }
 
         public void LateTick()

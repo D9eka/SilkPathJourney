@@ -122,7 +122,7 @@ namespace Internal.Scripts.UI.WorldLabel
         public WorldCanvasBillboard AddBillboard(GameObject target)
         {
             var bb = target.AddComponent<WorldCanvasBillboard>();
-            bb.Initialize(_camera, _settings, _zoomerData);
+            bb.Initialize(_camera, _settings);
             return bb;
         }
 

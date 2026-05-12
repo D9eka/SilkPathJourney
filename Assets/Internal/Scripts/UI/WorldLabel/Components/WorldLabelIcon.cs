@@ -55,6 +55,14 @@ namespace Internal.Scripts.UI.WorldLabel.Components
             }
         }
 
+        public void SetTintColor(Color color)
+        {
+            if (_icon == null) _icon = GetComponent<Image>();
+            float keepAlpha = _icon.color.a;
+            color.a = keepAlpha;
+            _icon.color = color;
+        }
+
         private void OnHoverEnter()
         {
             if (_tooltipService == null) return;
