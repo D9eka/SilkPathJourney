@@ -14,6 +14,9 @@ namespace Internal.Scripts.UI.Screens.Trader
 
         public void Initialize(LocalizationService localization, LocalizedString header, string content)
         {
+            _headerHandle?.Dispose();
+            _headerHandle = null;
+
             if (_headerText != null && header != null && localization != null)
                 _headerHandle = localization.BindText(_headerText, header, "ProfileItem.Header");
 

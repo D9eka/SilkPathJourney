@@ -14,12 +14,14 @@ namespace Internal.Scripts.UI.Screens.Trader
     public class TraderScreen : PopupScreen
     {
         [Header("Prefabs")]
-        [SerializeField] private ProfileItem _profileItemPrefab;
         [SerializeField] private SkillView _skillViewPrefab;
         [SerializeField] private SkillView _languageViewPrefab;
 
+        [Header("Profile Items")]
+        [SerializeField] private ProfileItem _cartProfileItem;
+        [SerializeField] private ProfileItem _backstoryProfileItem;
+
         [Header("Containers")]
-        [SerializeField] private RectTransform _profileContent;
         [SerializeField] private RectTransform _skillsContent;
         [SerializeField] private RectTransform _languagesContent;
 
@@ -33,7 +35,6 @@ namespace Internal.Scripts.UI.Screens.Trader
 
         private TraderScreenViewModel _viewModel;
         private IDisposable _stateSubscription;
-        private readonly List<ProfileItem> _spawnedProfiles = new();
         private readonly List<SkillView> _spawnedSkills = new();
         private readonly List<SkillView> _spawnedLanguages = new();
         private LocalizationService.LocalizedTextHandle _profileHeaderHandle;
@@ -101,29 +102,18 @@ namespace Internal.Scripts.UI.Screens.Trader
 
         private void ApplyState(TraderViewState state)
         {
-            RebuildProfiles(state.ProfileItems);
+            ApplyProfileItem(_cartProfileItem, state.Cart);
+            ApplyProfileItem(_backstoryProfileItem, state.Backstory);
             RebuildSkills(state.Skills);
             RebuildLanguages(state.Languages);
         }
 
-        private void RebuildProfiles(IReadOnlyList<ProfileEntry> items)
+        private void ApplyProfileItem(ProfileItem item, ProfileEntry entry)
         {
-            foreach (ProfileItem item in _spawnedProfiles)
-                Destroy(item.gameObject);
-            _spawnedProfiles.Clear();
-
-            if (items == null || _profileItemPrefab == null || _profileContent == null)
-                return;
-
-            foreach (ProfileEntry entry in items)
-            {
-                ProfileItem instance = Instantiate(_profileItemPrefab, _profileContent);
-                instance.gameObject.InitializeColorBinders(themeService: _viewModel?.ThemeService);
-                instance.Initialize(Localization, entry.Header, entry.Content);
-                _spawnedProfiles.Add(instance);
-            }
+            if (item == null) return;
+            item.gameObject.InitializeColorBinders(themeService: _viewModel?.ThemeService);
+            item.Initialize(Localization, entry.Header, entry.Content);
         }
-
 
         private void RebuildSkills(IReadOnlyList<SkillViewData> skills)
         {

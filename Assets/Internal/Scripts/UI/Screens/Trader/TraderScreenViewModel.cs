@@ -76,37 +76,39 @@ namespace Internal.Scripts.UI.Screens.Trader
 
         private void BuildState()
         {
-            var profiles = BuildProfiles();
+            ProfileEntry cart = BuildCartEntry();
+            ProfileEntry backstory = BuildBackstoryEntry();
             var skills = BuildSkills();
             var languages = BuildLanguages();
-            _state.Value = new TraderViewState(profiles, skills, languages);
+            _state.Value = new TraderViewState(cart, backstory, skills, languages);
         }
 
-        private List<ProfileEntry> BuildProfiles()
+        private ProfileEntry BuildCartEntry()
         {
-            var list = new List<ProfileEntry>();
+            _catalog.TryGetProfileHeader("cart", out LocalizedString header);
             CartClassData cartClass = _caravanDb.GetCartClassById(_resourceRepository.Current.CartClassId);
-            BackgroundData background = _backgroundDb.GetById(_activeSaveSlot.SelectedBackgroundId);
-
-            foreach (var item in _catalog.ProfileItems)
+            string value = "";
+            if (cartClass != null)
             {
-                string value = "";
-                if (item.Id == "cart" && cartClass != null)
-                {
-                    string cartName = LocalizationService.ResolveString(cartClass.Name, cartClass.Id, "Trader.CartName");
-                    string cartDesc = LocalizationService.ResolveString(cartClass.Description, cartClass.Id, "Trader.CartDesc");
-                    value = $"{cartName}\n{cartDesc}";
-                }
-                else if (item.Id == "backstory" && background != null)
-                {
-                    string bgName = LocalizationService.ResolveString(background.Name, background.Id, "Trader.BackgroundName");
-                    string bgDesc = LocalizationService.ResolveString(background.Description, background.Id, "Trader.BackgroundDesc");
-                    value = $"{bgName}\n{bgDesc}";
-                }
-                list.Add(new ProfileEntry(item.Header, value));
+                string cartName = LocalizationService.ResolveString(cartClass.Name, cartClass.Id, "Trader.CartName");
+                string cartDesc = LocalizationService.ResolveString(cartClass.Description, cartClass.Id, "Trader.CartDesc");
+                value = $"{cartName}\n{cartDesc}";
             }
+            return new ProfileEntry(header, value);
+        }
 
-            return list;
+        private ProfileEntry BuildBackstoryEntry()
+        {
+            _catalog.TryGetProfileHeader("backstory", out LocalizedString header);
+            BackgroundData background = _backgroundDb.GetById(_activeSaveSlot.SelectedBackgroundId);
+            string value = "";
+            if (background != null)
+            {
+                string bgName = LocalizationService.ResolveString(background.Name, background.Id, "Trader.BackgroundName");
+                string bgDesc = LocalizationService.ResolveString(background.Description, background.Id, "Trader.BackgroundDesc");
+                value = $"{bgName}\n{bgDesc}";
+            }
+            return new ProfileEntry(header, value);
         }
 
         private List<SkillViewData> BuildSkills()
