@@ -8,3 +8,11 @@ quest_caravaneer_2,days_since_start,,25
 quest_caravaneer_4,danger_above,,90
 quest_silk_1,days_since_start,,30
 quest_artifact_1,days_since_start,,30
+quest_bg_merchant_1,days_since_start,,45
+quest_bg_caravaneer_1,days_since_start,,45
+quest_bg_wanderer_1,days_since_start,,45
+quest_bg_diplomat_1,days_since_start,,45
+quest_bg_smuggler_1,days_since_start,,45
+quest_bg_bandit_1,days_since_start,,45
+quest_bg_scholar_1,days_since_start,,45
+quest_bg_pilgrim_1,days_since_start,,45

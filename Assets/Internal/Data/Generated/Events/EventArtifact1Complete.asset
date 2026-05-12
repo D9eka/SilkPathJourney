@@ -69,9 +69,6 @@ MonoBehaviour:
     - <Type>k__BackingField: 18
       <Param>k__BackingField: quest_artifact_2
       <Value>k__BackingField: 1
-    - <Type>k__BackingField: 19
-      <Param>k__BackingField: quest_artifact_2
-      <Value>k__BackingField: 1
     - <Type>k__BackingField: 1
       <Param>k__BackingField: 
       <Value>k__BackingField: 20
@@ -101,6 +98,9 @@ MonoBehaviour:
     - <Type>k__BackingField: 20
       <Param>k__BackingField: quest_artifact_1
       <Value>k__BackingField: 0
+    - <Type>k__BackingField: 18
+      <Param>k__BackingField: quest_artifact_2
+      <Value>k__BackingField: 1
     - <Type>k__BackingField: 1
       <Param>k__BackingField: 
       <Value>k__BackingField: 20
@@ -121,11 +121,9 @@ MonoBehaviour:
     <ParamList>k__BackingField: []
     <Value>k__BackingField: 2
   - <Type>k__BackingField: 12
-    <Param>k__BackingField: N_Aksu,N_Kucha,N_Khotan,N_Kashgar,N_Hami
+    <Param>k__BackingField: N_Aksu,N_Kashgar,N_Hami
     <ParamList>k__BackingField:
     - N_Aksu
-    - N_Kucha
-    - N_Khotan
     - N_Kashgar
     - N_Hami
     <Value>k__BackingField: 1

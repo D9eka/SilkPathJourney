@@ -571,8 +571,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 6593451503116297
-    m_Localized: "Heart of the Celestial Empire \u2014 the great capital of the Ming
-      dynasty. The finest goods and immeasurable riches are gathered here."
+    m_Localized: Heart of the Celestial Empire - the great capital of the Ming dynasty.
+      The finest goods and immeasurable riches are gathered here.
     m_Metadata:
       m_Items: []
   - m_Id: 6593451503116298
@@ -591,8 +591,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 6593451503116301
-    m_Localized: "Pearl of the south \u2014 a city of craftsmen and weavers. Silk
-      and tea from Hangzhou are renowned throughout the empire."
+    m_Localized: Pearl of the south - a city of craftsmen and weavers. Silk and tea
+      from Hangzhou are renowned throughout the empire.
     m_Metadata:
       m_Items: []
   - m_Id: 6593451503116302
@@ -601,8 +601,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 6593451503116303
-    m_Localized: "Southern gateway of China. The port connects the empire with overseas
-      lands \u2014 from India to the Spice Islands."
+    m_Localized: Southern gateway of China. The port connects the empire with overseas
+      lands - from India to the Spice Islands.
     m_Metadata:
       m_Items: []
   - m_Id: 6593451503116304
@@ -849,8 +849,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 7217665172037682
-    m_Localized: "Mother of cities \u2014 the oldest city in Central Asia. Lapis
-      lazuli is mined and cotton grown here."
+    m_Localized: Mother of cities - the oldest city in Central Asia. Lapis lazuli
+      is mined and cotton grown here.
     m_Metadata:
       m_Items: []
   - m_Id: 7217665172037683
@@ -864,8 +864,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 7217665172037685
-    m_Localized: "The port of Gujarat \u2014 India's trading window to Arabia and
-      Africa. Textiles and spices head westward."
+    m_Localized: The port of Gujarat - India's trading window to Arabia and Africa.
+      Textiles and spices head westward.
     m_Metadata:
       m_Items: []
   - m_Id: 7217665176231936
@@ -909,8 +909,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 7217665176231944
-    m_Localized: "The great crossroads \u2014 here the northern and southern routes
-      around the Taklamakan converge. The road west lies open."
+    m_Localized: The great crossroads - here the northern and southern routes around
+      the Taklamakan converge. The road west lies open.
     m_Metadata:
       m_Items: []
   - m_Id: 7217665176231945
@@ -964,8 +964,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 7217665176231955
-    m_Localized: "The Fergana Valley \u2014 fertile lands at the gateway to Central
-      Asia. Fruits and cotton abound here."
+    m_Localized: The Fergana Valley - fertile lands at the gateway to Central Asia.
+      Fruits and cotton abound here.
     m_Metadata:
       m_Items: []
   - m_Id: 7217665176231956
@@ -984,8 +984,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 7217665176231959
-    m_Localized: "An Omani port \u2014 the starting point for voyages to India. Dhows
-      laden with goods depart with the monsoon winds."
+    m_Localized: An Omani port - the starting point for voyages to India. Dhows laden
+      with goods depart with the monsoon winds.
     m_Metadata:
       m_Items: []
   - m_Id: 7217665176231960
@@ -1024,8 +1024,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 7217665176231967
-    m_Localized: "The Jade Gate \u2014 China's ancient frontier. Beyond these gates
-      the empire ends and the unknown begins."
+    m_Localized: The Jade Gate - China's ancient frontier. Beyond these gates the
+      empire ends and the unknown begins.
     m_Metadata:
       m_Items: []
   - m_Id: 7219978439745536
@@ -1203,7 +1203,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 17330261711642635
-    m_Localized: "Bandits rob merchants \u2014 prices rise due to risks"
+    m_Localized: Bandits rob merchants - prices rise due to risks
     m_Metadata:
       m_Items: []
   - m_Id: 17330261711642636
@@ -1219,7 +1219,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 17330261711642639
-    m_Localized: "Drought destroyed crops \u2014 food and water prices soared"
+    m_Localized: Drought destroyed crops - food and water prices soared
     m_Metadata:
       m_Items: []
   - m_Id: 17330261711642640
@@ -1227,7 +1227,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 17330261711642641
-    m_Localized: "Epidemic has paralyzed trade \u2014 prices have surged"
+    m_Localized: Epidemic has paralyzed trade - prices have surged
     m_Metadata:
       m_Items: []
   - m_Id: 17330261711642642
@@ -1235,7 +1235,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 17330261711642643
-    m_Localized: "Festival attracted merchants \u2014 prices are lower"
+    m_Localized: Festival attracted merchants - prices are lower
     m_Metadata:
       m_Items: []
   - m_Id: 17330261711642644
@@ -1251,8 +1251,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 17330261711642647
-    m_Localized: "Military conflict has disrupted trade routes \u2014 prices and
-      danger have surged"
+    m_Localized: Military conflict has disrupted trade routes - prices and danger
+      have surged
     m_Metadata:
       m_Items: []
   - m_Id: 17330261711642648
@@ -1260,8 +1260,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 31115015099506688
-    m_Localized: "Do not ride to {0} now \u2014 troops hold the roads and looters
-      give no one any rest."
+    m_Localized: Do not ride to {0} now - troops hold the roads and looters give
+      no one any rest.
     m_Metadata:
       m_Items: []
   - m_Id: 31115015145644032
@@ -1275,8 +1275,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 31115015145644034
-    m_Localized: "Keep clear of the road to {0} \u2014 a gang has been raiding for
-      three weeks, three caravans already stripped."
+    m_Localized: Keep clear of the road to {0} - a gang has been raiding for three
+      weeks, three caravans already stripped.
     m_Metadata:
       m_Items: []
   - m_Id: 31115015145644035
@@ -1285,29 +1285,29 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 31115015145644036
-    m_Localized: "{0} is restless these days \u2014 bandits own the approaches. But
-      trade still moves if you travel in a large convoy."
+    m_Localized: '{0} is restless these days - bandits own the approaches. But trade
+      still moves if you travel in a large convoy.'
     m_Metadata:
       m_Items: []
   - m_Id: 31115015145644037
-    m_Localized: "Skirt around {0} \u2014 plague is there. Gate guards drive off
-      anyone without a physician's seal."
+    m_Localized: Skirt around {0} - plague is there. Gate guards drive off anyone
+      without a physician's seal.
     m_Metadata:
       m_Items: []
   - m_Id: 31115015145644038
-    m_Localized: "I rode to {0} but did not enter. Smoke from bonfires hung above
-      the walls and the smell \u2014 unmistakable. I turned back."
+    m_Localized: I rode to {0} but did not enter. Smoke from bonfires hung above
+      the walls and the smell - unmistakable. I turned back.
     m_Metadata:
       m_Items: []
   - m_Id: 31115015145644039
-    m_Localized: "Sickness is making its rounds in {0}. Folk are thinning out, trade
-      has all but stopped, but not every shop is shuttered \u2014 you can go, with
-      great caution."
+    m_Localized: Sickness is making its rounds in {0}. Folk are thinning out, trade
+      has all but stopped, but not every shop is shuttered - you can go, with great
+      caution.
     m_Metadata:
       m_Items: []
   - m_Id: 31115015145644040
-    m_Localized: "There is a festival in {0} right now \u2014 merchants poured in
-      from all sides, prices fell, and spirits are high. Best time to go."
+    m_Localized: There is a festival in {0} right now - merchants poured in from
+      all sides, prices fell, and spirits are high. Best time to go.
     m_Metadata:
       m_Items: []
   - m_Id: 31115015145644041
@@ -1316,28 +1316,28 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 31115015145644042
-    m_Localized: "There is a feast in {0} \u2014 crowds everywhere, noise. Goods
-      sell briskly, but the cut-purses are busy too."
+    m_Localized: There is a feast in {0} - crowds everywhere, noise. Goods sell briskly,
+      but the cut-purses are busy too.
     m_Metadata:
       m_Items: []
   - m_Id: 31115015145644043
-    m_Localized: "A large convoy from the west arrived in {0} recently. The market
-      is bursting with goods \u2014 no point going now, prices have dropped."
+    m_Localized: A large convoy from the west arrived in {0} recently. The market
+      is bursting with goods - no point going now, prices have dropped.
     m_Metadata:
       m_Items: []
   - m_Id: 31115015145644044
-    m_Localized: "You are late to {0} with silk. They have been unloading a whole
-      convoy since last week \u2014 you will not sell at a good price."
+    m_Localized: You are late to {0} with silk. They have been unloading a whole
+      convoy since last week - you will not sell at a good price.
     m_Metadata:
       m_Items: []
   - m_Id: 31115015145644045
-    m_Localized: "{0} is awash in goods right now \u2014 a massive convoy just arrived.
-      You can pick up something cheap, but there is nothing worth hauling there."
+    m_Localized: '{0} is awash in goods right now - a massive convoy just arrived.
+      You can pick up something cheap, but there is nothing worth hauling there.'
     m_Metadata:
       m_Items: []
   - m_Id: 31115015145644046
-    m_Localized: "In {0} the tax-men strip you to the last coin \u2014 haul your
-      goods elsewhere."
+    m_Localized: In {0} the tax-men strip you to the last coin - haul your goods
+      elsewhere.
     m_Metadata:
       m_Items: []
   - m_Id: 31115015145644047
@@ -1346,13 +1346,13 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 31115015145644048
-    m_Localized: "I was in {0} \u2014 taxes bite hard, I will not deny it. But their
-      wares are good, if you do not buy too much."
+    m_Localized: I was in {0} - taxes bite hard, I will not deny it. But their wares
+      are good, if you do not buy too much.
     m_Metadata:
       m_Items: []
   - m_Id: 31115015145644049
-    m_Localized: "Do not count on water in {0} \u2014 the wells are low, and prices
-      for water and grain are the worst I have seen. Stock up here."
+    m_Localized: Do not count on water in {0} - the wells are low, and prices for
+      water and grain are the worst I have seen. Stock up here.
     m_Metadata:
       m_Items: []
   - m_Id: 31115015145644050
@@ -1362,9 +1362,9 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 31115015145644051
-    m_Localized: "They say {0} has seen no rain since spring. Food is scarce in the
-      bazaar, but everything else sells \u2014 people have no mind for trade, only
-      for feeding themselves."
+    m_Localized: They say {0} has seen no rain since spring. Food is scarce in the
+      bazaar, but everything else sells - people have no mind for trade, only for
+      feeding themselves.
     m_Metadata:
       m_Items: []
   - m_Id: 33352844525568000
@@ -1405,8 +1405,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 33352844571705352
-    m_Localized: "Sogdian merchants \u2014 middlemen of the Great Road. Their cities
-      are crossroads of civilizations."
+    m_Localized: Sogdian merchants - middlemen of the Great Road. Their cities are
+      crossroads of civilizations.
     m_Metadata:
       m_Items: []
   - m_Id: 33352844571705353

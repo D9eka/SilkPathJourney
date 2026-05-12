@@ -10,3 +10,11 @@ quest_caravaneer_2,reputation,,-10
 quest_caravaneer_4,reputation,,-15
 quest_silk_3,reputation,,-30
 quest_artifact_3,reputation,,-15
+quest_bg_merchant_1,reputation,,-5
+quest_bg_caravaneer_1,reputation,,-5
+quest_bg_wanderer_1,reputation,,-5
+quest_bg_diplomat_1,reputation,,-5
+quest_bg_smuggler_1,reputation,,-5
+quest_bg_bandit_1,reputation,,-5
+quest_bg_scholar_1,reputation,,-5
+quest_bg_pilgrim_1,reputation,,-5

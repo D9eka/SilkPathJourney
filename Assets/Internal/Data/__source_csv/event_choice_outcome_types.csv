@@ -23,3 +23,4 @@ fail_quest,FailQuest
 set_quest_flag,SetQuestFlag
 end_run,EndRun
 mark_pending_ending,MarkPendingEnding
+queue_event,QueueEvent

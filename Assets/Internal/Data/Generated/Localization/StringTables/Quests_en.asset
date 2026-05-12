@@ -23,8 +23,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 481288192
-    m_Localized: Guildmaster Vahu-Man has tasked you with delivering ten bales of
-      silk to Chang'an. The first test for a future guild partner
+    m_Localized: Guildmaster Vahu-Man has tasked you with bringing ten bales of silk
+      from Chang'an to Samarkand. The first test for a future guild partner
     m_Metadata:
       m_Items: []
   - m_Id: 481288193
@@ -50,8 +50,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 481288198
-    m_Localized: "The guild entrusts you with precious cargo for Baghdad. Loss is
-      unacceptable \u2014 the guild's reputation is at stake"
+    m_Localized: The guild entrusts you with precious cargo for Baghdad. Loss is
+      unacceptable - the guild's reputation is at stake
     m_Metadata:
       m_Items: []
   - m_Id: 481288199
@@ -59,8 +59,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 481288200
-    m_Localized: "The final leg of the great route \u2014 from Chang'an to Constantinople.
-      Complete what Vahu-Man began"
+    m_Localized: The final leg of the great route - from Chang'an to Constantinople.
+      Complete what Vahu-Man began
     m_Metadata:
       m_Items: []
   - m_Id: 481288201
@@ -247,11 +247,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 481288242
-    m_Localized: Buy 10 bales of silk
+    m_Localized: Reach Chang'an and buy 10 bales of silk
     m_Metadata:
       m_Items: []
   - m_Id: 481288243
-    m_Localized: Deliver silk to Chang'an
+    m_Localized: Return to Samarkand with the silk
     m_Metadata:
       m_Items: []
   - m_Id: 481288244
@@ -567,8 +567,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 485482541
-    m_Localized: "Career in the trade guild \u2014 from simple deliveries to the
-      empire's grand contract. Unlocks access to Constantinople"
+    m_Localized: Career in the trade guild - from simple deliveries to the empire's
+      grand contract. Unlocks access to Constantinople
     m_Metadata:
       m_Items: []
   - m_Id: 485482542
@@ -585,7 +585,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 485482545
-    m_Localized: "Old Dariush's trials \u2014 become a legend of the roads"
+    m_Localized: Old Dariush's trials - become a legend of the roads
     m_Metadata:
       m_Items: []
   - m_Id: 485482546
@@ -610,13 +610,13 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 18208261869273088
-    m_Localized: "The map is deciphered \u2014 the first mark lies between Kashgar
-      and Anxi, in the desert by the ruins of an ancient temple."
+    m_Localized: The map is deciphered - the first mark lies between Kashgar and
+      Anxi, in the desert by the ruins of an ancient temple.
     m_Metadata:
       m_Items: []
   - m_Id: 18208261869273089
-    m_Localized: "The guild has sent you to Bukhara \u2014 to meet with the Al-Bukhari
-      trading house."
+    m_Localized: The guild has sent you to Bukhara - to meet with the Al-Bukhari
+      trading house.
     m_Metadata:
       m_Items: []
   - m_Id: 18208261869273090
@@ -624,8 +624,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 18208261869273091
-    m_Localized: "Chen Wei described the lost ingredient \u2014 a special indigo
-      from the herbalist near Anxi."
+    m_Localized: Chen Wei described the lost ingredient - a special indigo from the
+      herbalist near Anxi.
     m_Metadata:
       m_Items: []
   - m_Id: 18208261869273092
@@ -643,13 +643,13 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 18208261869273095
-    m_Localized: "The temple is found \u2014 climb to it along the white trail past
-      the stele."
+    m_Localized: The temple is found - climb to it along the white trail past the
+      stele.
     m_Metadata:
       m_Items: []
   - m_Id: 18412971050008576
-    m_Localized: "The Baghdad recipient counted silver and shook your hand \u2014
-      the cargo is delivered."
+    m_Localized: The Baghdad recipient counted silver and shook your hand - the cargo
+      is delivered.
     m_Metadata:
       m_Items: []
   - m_Id: 18412971070980096
@@ -663,8 +663,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 18412971070980098
-    m_Localized: "Tinley touched your forehead \u2014 the temple's blessing is with
-      you."
+    m_Localized: Tinley touched your forehead - the temple's blessing is with you.
     m_Metadata:
       m_Items: []
   - m_Id: 18412971070980099
@@ -686,8 +685,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 18412971070980103
-    m_Localized: "Dariush in Baghdad raised a cup to you \u2014 now you are a legend
-      of the roads."
+    m_Localized: Dariush in Baghdad raised a cup to you - now you are a legend of
+      the roads.
     m_Metadata:
       m_Items: []
   - m_Id: 18412971070980104
@@ -696,11 +695,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 18412971070980105
-    m_Localized: Ten bales of silk acquired and packed. The road to Chang'an opens.
+    m_Localized: Ten bales of silk acquired and packed. The road to Samarkand opens.
     m_Metadata:
       m_Items: []
   - m_Id: 18412971070980106
-    m_Localized: The caravan entered Chang'an. The silk is in the guild warehouse.
+    m_Localized: The caravan entered Samarkand. The silk is in the guild warehouse.
     m_Metadata:
       m_Items: []
   - m_Id: 18412971070980107
@@ -720,7 +719,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 18412971070980111
-    m_Localized: "Constantinople \u2014 the end of the Silk Road."
+    m_Localized: Constantinople - the end of the Silk Road.
     m_Metadata:
       m_Items: []
   - m_Id: 18412971070980112
@@ -728,11 +727,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 18412971070980113
-    m_Localized: "The first voice is heard \u2014 the voice of Mogao."
+    m_Localized: The first voice is heard - the voice of Mogao.
     m_Metadata:
       m_Items: []
   - m_Id: 18412971070980114
-    m_Localized: "The second voice is heard \u2014 the voice of Bibi-Khanym's stone."
+    m_Localized: The second voice is heard - the voice of Bibi-Khanym's stone.
     m_Metadata:
       m_Items: []
   - m_Id: 18412971070980115
@@ -769,6 +768,635 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 18412971070980123
     m_Localized: The trial is passed. The temple opens.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829307416576
+    m_Localized: Witnesses
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829328388096
+    m_Localized: Question your father's former trade partners in Chang'an and record
+      their testimony on the family's honesty.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829328388097
+    m_Localized: Find father's partners in Chang'an
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829328388098
+    m_Localized: Record the testimony
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829328388099
+    m_Localized: Your father's former partners remember every deal but are afraid
+      to speak openly.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829328388100
+    m_Localized: Testimony collected
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829328388101
+    m_Localized: Documents in Luoyang
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829328388102
+    m_Localized: Luoyang's archives hold authentic trade records that refute the
+      official's accusations.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829328388103
+    m_Localized: Travel to Luoyang
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829328388104
+    m_Localized: Locate the documents
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829328388105
+    m_Localized: The archive hall smells of aged lacquer and damp paper - the needed
+      scrolls are hidden in a far corner.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829328388106
+    m_Localized: Documents found
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829328388107
+    m_Localized: Confronting Lu Jian
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829328388108
+    m_Localized: Present the evidence to the Military Governor and secure your family's
+      official rehabilitation.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829328388109
+    m_Localized: Go before the Military Governor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829328388110
+    m_Localized: Family rehabilitated
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829328388111
+    m_Localized: Inquiries at the Post
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829328388112
+    m_Localized: Question guards and post riders in Lanzhou - who passed through
+      the Hexi Corridor that summer.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829328388113
+    m_Localized: Go to the garrison in Lanzhou
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829328388114
+    m_Localized: Question the post riders
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582400
+    m_Localized: An old guard remembers a Turkic drover with three camels - they
+      headed west and never returned.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582401
+    m_Localized: First lead found
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582402
+    m_Localized: The Last Caravanserai
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582403
+    m_Localized: "Find the inn in Yumen where K\xFCl was last spotted before his
+      disappearance."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582404
+    m_Localized: Reach Yumen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582405
+    m_Localized: Question the innkeeper
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582406
+    m_Localized: 'The innkeeper remembers that night: the Turk dined alone and left
+      before dawn - no one saw him again.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582407
+    m_Localized: Route reconstructed
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582408
+    m_Localized: The Truth at Hami
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582409
+    m_Localized: "In Hami live those who know the fate of K\xFCl and the sold silk."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582410
+    m_Localized: Follow the trail to Hami
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582411
+    m_Localized: Truth uncovered
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582412
+    m_Localized: The Surviving Servant
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582413
+    m_Localized: Find Rustam's servant in Jiuquan who survived the fire and saw the
+      arsonist.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582414
+    m_Localized: Search for survivor in Jiuquan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582415
+    m_Localized: Locate the servant
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582416
+    m_Localized: Rustam's servant hides at the market under a false name - three
+      years have not lifted the fear.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582417
+    m_Localized: Witness found
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582418
+    m_Localized: Trail to Hami
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582419
+    m_Localized: Follow the arsonist from Jiuquan to Hami through a chain of witnesses.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582420
+    m_Localized: Follow the trail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582421
+    m_Localized: Establish the route
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582422
+    m_Localized: Traders at the pass saw a Turk with a burn scar on his neck - walking
+      east in haste.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582423
+    m_Localized: Arsonist tracked
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582424
+    m_Localized: Confrontation at Hami
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582425
+    m_Localized: Find the arsonist in Hami and decide his fate.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582426
+    m_Localized: Search in Hami
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582427
+    m_Localized: Justice served
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582428
+    m_Localized: Receive the Letter
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582429
+    m_Localized: Receive the coded letter from Prefect Zheng Wei in Hangzhou and
+      find a translator for partial decoding.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582430
+    m_Localized: Report to Prefect Zheng Wei
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582431
+    m_Localized: Find a translator
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582432
+    m_Localized: 'A Sogdian scholar recognises some characters: the letter uses a
+      mixed Chinese-Sogdian cipher.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582433
+    m_Localized: Letter received
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582434
+    m_Localized: Through the Tibetan Post
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582435
+    m_Localized: Carry the letter through a Tibetan checkpoint without arousing suspicion.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582436
+    m_Localized: Move to the Tibetan post
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582437
+    m_Localized: Pass inspection
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582438
+    m_Localized: The Tibetan officer demands to inspect the cargo - diplomatic skill
+      may deflect suspicion.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582439
+    m_Localized: Post cleared
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582440
+    m_Localized: Delivery to Xi'an
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582441
+    m_Localized: Deliver the letter to Prefect He Bin in Xi'an and receive formal
+      acknowledgement.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582442
+    m_Localized: Head for Xi'an
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582443
+    m_Localized: Mission complete
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582444
+    m_Localized: Meeting with Abu Bakr
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582445
+    m_Localized: Meet Abu Bakr in Quanzhou and learn his demands.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582446
+    m_Localized: Find Abu Bakr
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582447
+    m_Localized: Hear his demands
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582448
+    m_Localized: 'Abu Bakr names his price: two hundred silver dirhams, or he goes
+      to the customs house.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582449
+    m_Localized: Demands known
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582450
+    m_Localized: Money or Leverage
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582451
+    m_Localized: Gather two hundred dirhams or find evidence to use against Abu Bakr.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582452
+    m_Localized: Begin the search
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582453
+    m_Localized: Gather funds or evidence
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582454
+    m_Localized: Local money changers know Abu Bakr's past dealings - for a small
+      fee they share names.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582455
+    m_Localized: Ready for the final deal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582456
+    m_Localized: Settling with Abu Bakr
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582457
+    m_Localized: Pay off Abu Bakr or hand him to the customs authorities.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582458
+    m_Localized: Make the decision
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582459
+    m_Localized: Affair settled
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582460
+    m_Localized: Debt to Varahran
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582461
+    m_Localized: Find the drover Varahran in Yumen and return the fifty coins taken
+      from him seven years ago.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582462
+    m_Localized: Search for Varahran in Yumen
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582463
+    m_Localized: Return the money
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582464
+    m_Localized: Varahran is silent for a long moment, coins clenched in his fist,
+      then nods without a word.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582465
+    m_Localized: First debt repaid
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582466
+    m_Localized: Family in Jiuquan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582467
+    m_Localized: The second family moved from Yumen to Jiuquan - find them and return
+      what is owed.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582468
+    m_Localized: Track the family to Jiuquan
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582469
+    m_Localized: Find the new address
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582470
+    m_Localized: At Jiuquan's market someone names a shopkeeper - the very man robbed
+      on the road.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582471
+    m_Localized: Second debt repaid
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582472
+    m_Localized: Service in Hami
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582473
+    m_Localized: The third family lives in Hami. The head refuses money - he asks
+      for a service instead.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582474
+    m_Localized: Travel to Hami
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582475
+    m_Localized: All debts repaid
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582476
+    m_Localized: First Part of the Treatise
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582477
+    m_Localized: The first part of your father's treatise is with the bookseller
+      Nanaidat in Beijing - buy or trade for it.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582478
+    m_Localized: Find Nanaidat in Beijing
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582479
+    m_Localized: Obtain the manuscript
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582480
+    m_Localized: Nanaidat keeps the manuscript behind the counter - his price is
+      steep but he is open to trade.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582481
+    m_Localized: First part obtained
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582482
+    m_Localized: The Monastery Manuscript
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582483
+    m_Localized: The second part is kept in a monastery near Lijiang - the monks
+      will give it in exchange for a service.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582484
+    m_Localized: Travel to the monastery
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582485
+    m_Localized: Fulfil the monks' request
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582486
+    m_Localized: The abbot asks for medicinal herbs from mountain paths - a simple
+      errand for a caravan.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582487
+    m_Localized: Second part obtained
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582488
+    m_Localized: The Rival in Samarkand
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582489
+    m_Localized: The third part belongs to a rival scholar in Samarkand - only negotiation
+      will help.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582490
+    m_Localized: Reach the rival
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582491
+    m_Localized: Treatise restored
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582492
+    m_Localized: Incense for Famen Temple
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582493
+    m_Localized: Bring incense to the Buddhist Famen Temple near Chang'an and receive
+      the first blessing.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582494
+    m_Localized: Go to Famen Temple
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582495
+    m_Localized: Bring incense to the altar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582496
+    m_Localized: A monk in saffron robes accepts the incense with both hands - sandalwood
+      fills the hall.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582497
+    m_Localized: First blessing received
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582498
+    m_Localized: The Zoroastrian Flame
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582499
+    m_Localized: In Samarkand burns a sacred flame. Undergo the Zoroastrian purification
+      rite.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582500
+    m_Localized: Reach Samarkand
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582501
+    m_Localized: Undergo the rite
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582502
+    m_Localized: The priest asks about the journey and intentions - the answer must
+      be honest or the rite will be refused.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582503
+    m_Localized: Second blessing received
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582504
+    m_Localized: The Manichaean Monastery
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582505
+    m_Localized: In Dunhuang stands a Manichaean monastery. Complete the pilgrimage
+      and fulfil the vow.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582506
+    m_Localized: Go to Dunhuang
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582507
+    m_Localized: Vow fulfilled
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582508
+    m_Localized: The Merchant's Son
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582509
+    m_Localized: After the An Lushan Rebellion, an official blacklisted your family.
+      Restore your name.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582510
+    m_Localized: The Missing Partner
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582511
+    m_Localized: "Three years ago K\xFCl-Tegin vanished in the Hexi Corridor with
+      a silk cargo. Find the trail."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582512
+    m_Localized: Ashes of the Inn
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582513
+    m_Localized: Who burned down Rustam's inn in Jiuquan, and why two guests died
+      in the fire.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582514
+    m_Localized: The Coded Dispatch
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582515
+    m_Localized: The coded letter of Prefect Zheng Wei must reach Xi'an past Tibetan
+      checkpoints.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582516
+    m_Localized: The Old Debt
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582517
+    m_Localized: Abu Bakr has surfaced in Quanzhou demanding his cut from an old
+      musk smuggling run.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582518
+    m_Localized: Making Amends
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582519
+    m_Localized: Seven years ago your gang robbed three families. Time to repay what
+      was taken.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582520
+    m_Localized: The Scattered Treatise
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582521
+    m_Localized: Your father's treatise on Silk Road routes was stolen and split
+      among three holders.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582522
+    m_Localized: The Triple Vow
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21023829332582523
+    m_Localized: 'The vow demands three sacred sites: a Buddhist temple, a Zoroastrian
+      flame, and a Manichaean monastery.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21302004633559040
+    m_Localized: " \u0411\u0430\u043B\u0445 \u0438\u043B\u0438 \u041A\u0443\u0447\u0430"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21302004679696384
+    m_Localized: Find the second of the remaining artifacts
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21302004683890688
+    m_Localized: Find the last artifact
     m_Metadata:
       m_Items: []
   references:

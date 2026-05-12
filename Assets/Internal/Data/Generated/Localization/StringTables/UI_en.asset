@@ -1211,7 +1211,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 23588335015419905
-    m_Localized: "Guild warehouse is empty \u2014 nothing to trade"
+    m_Localized: Guild warehouse is empty - nothing to trade
     m_Metadata:
       m_Items: []
   - m_Id: 23588335015419906

@@ -23,9 +23,9 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 556785664
-    m_Localized: "Your father was a successful merchant on the eastern coast, but
+    m_Localized: Your father was a successful merchant on the eastern coast, but
       went bankrupt from a bad deal. You inherited knowledge of prices and goods
-      \u2014 but start your journey from scratch."
+      - but start your journey from scratch.
     m_Metadata:
       m_Items: []
   - m_Id: 556785665
@@ -33,9 +33,9 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 556785666
-    m_Localized: "You spent years leading other people's caravans through dangerous
-      roads. You know the desert, steppe and mountains \u2014 but trading was never
-      your thing. Now it's time to try for yourself."
+    m_Localized: You spent years leading other people's caravans through dangerous
+      roads. You know the desert, steppe and mountains - but trading was never your
+      thing. Now it's time to try for yourself.
     m_Metadata:
       m_Items: []
   - m_Id: 556785667
@@ -52,9 +52,9 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 556785670
-    m_Localized: "You served as a court official, but fell out of favor. You know
-      how to persuade and negotiate, and speak Persian \u2014 the language of diplomacy.
-      But the desert and mountains are new to you."
+    m_Localized: You served as a court official, but fell out of favor. You know
+      how to persuade and negotiate, and speak Persian - the language of diplomacy.
+      But the desert and mountains are new to you.
     m_Metadata:
       m_Items: []
   - m_Id: 556785671
@@ -62,9 +62,9 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 556785672
-    m_Localized: "You traded forbidden goods through border cities. You know secret
-      paths and how to hide cargo. But your reputation is tarnished \u2014 honest
-      merchants avoid you."
+    m_Localized: You traded forbidden goods through border cities. You know secret
+      paths and how to hide cargo. But your reputation is tarnished - honest merchants
+      avoid you.
     m_Metadata:
       m_Items: []
   - m_Id: 556785673
@@ -72,9 +72,9 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 556785674
-    m_Localized: "You spent years robbing caravans in the steppes. Tired of that
-      life, you decided to go straight. But the past won't let go \u2014 people know
-      you and don't trust you."
+    m_Localized: You spent years robbing caravans in the steppes. Tired of that life,
+      you decided to go straight. But the past won't let go - people know you and
+      don't trust you.
     m_Metadata:
       m_Items: []
   - m_Id: 556785675
