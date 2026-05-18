@@ -2475,6 +2475,10 @@ MonoBehaviour:
     m_Key: UI.Hud.Main.Button.ChangeRoute
     m_Metadata:
       m_Items: []
+  - m_Id: 36293359008997376
+    m_Key: UI.Camp.Action.SkipDay.Name
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

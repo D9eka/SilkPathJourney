@@ -44,8 +44,6 @@ quest_silk_5,status,silk_master,1
 quest_silk_5,unlock_item,imperial_silk,1
 quest_artifact_1,money,,20
 quest_artifact_1,reputation,,5
-quest_artifact_2,money,,30
-quest_artifact_2,reputation,,10
 quest_artifact_3,money,,40
 quest_artifact_3,reputation,,10
 quest_artifact_4,money,,60

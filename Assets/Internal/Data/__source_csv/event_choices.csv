@@ -749,7 +749,6 @@ event_mystic1_complete,2,event.event_mystic1_complete.choice2,event.event_mystic
 event_caravaneer1_complete,2,event.event_caravaneer1_complete.choice2,event.event_caravaneer1_complete.choice2.result
 event_silk1_complete,2,event.event_silk1_complete.choice2,event.event_silk1_complete.choice2.result
 event_artifact1_decipher,2,event.event_artifact1_decipher.choice2,event.event_artifact1_decipher.choice2.result
-event_artifact1_complete,2,event.event_artifact1_complete.choice2,event.event_artifact1_complete.choice2.result
 event_empire5_complete,2,event.event_empire5_complete.choice2,event.event_empire5_complete.choice2.result
 event_mystic5_complete,1,event.event_mystic5_complete.choice1,event.event_mystic5_complete.choice1.result
 event_mystic5_complete,2,event.event_mystic5_complete.choice2,event.event_mystic5_complete.choice2.result

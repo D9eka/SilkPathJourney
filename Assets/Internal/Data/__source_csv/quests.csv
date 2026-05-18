@@ -20,10 +20,9 @@ quest_silk_3,quest.quest_silk_3.name,quest.quest_silk_3.description,,secrets_of_
 quest_silk_4,quest.quest_silk_4.name,quest.quest_silk_4.description,,secrets_of_silk,4,changan,,
 quest_silk_5,quest.quest_silk_5.name,quest.quest_silk_5.description,,secrets_of_silk,5,changan,,
 quest_artifact_1,quest.quest_artifact_1.name,quest.quest_artifact_1.description,,legend_of_artifacts,1,samarkand,Archive,quest_artifact_start
-quest_artifact_2,quest.quest_artifact_2.name,quest.quest_artifact_2.description,,legend_of_artifacts,2,,,
-quest_artifact_3,quest.quest_artifact_3.name,quest.quest_artifact_3.description,,legend_of_artifacts,3,,,
-quest_artifact_4,quest.quest_artifact_4.name,quest.quest_artifact_4.description,,legend_of_artifacts,4,,,
-quest_artifact_5,quest.quest_artifact_5.name,quest.quest_artifact_5.description,,legend_of_artifacts,5,,,
+quest_artifact_3,quest.quest_artifact_3.name,quest.quest_artifact_3.description,,legend_of_artifacts,2,,,
+quest_artifact_4,quest.quest_artifact_4.name,quest.quest_artifact_4.description,,legend_of_artifacts,3,,,
+quest_artifact_5,quest.quest_artifact_5.name,quest.quest_artifact_5.description,,legend_of_artifacts,4,,,
 quest_bg_merchant_1,quest.quest_bg_merchant_1.name,quest.quest_bg_merchant_1.description,,bg_merchant_story,1,changan,Guild,bg_merchant_briefing
 quest_bg_merchant_2,quest.quest_bg_merchant_2.name,quest.quest_bg_merchant_2.description,,bg_merchant_story,2,,,
 quest_bg_merchant_3,quest.quest_bg_merchant_3.name,quest.quest_bg_merchant_3.description,,bg_merchant_story,3,,,

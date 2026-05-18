@@ -319,7 +319,16 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 11185858546753536
-    m_Localized: Language of Sogdian merchants and caravan traders
+    m_Localized: Sogdian belongs to the Eastern Iranian branch and is written in
+      the Sogdian alphabet - the very script that later gave rise to the Uyghur writing
+      system, and through it to Mongolian and Manchu. From the fifth to the eighth
+      century it served as the principal commercial language of the Silk Road from
+      Dunhuang and Chang'an in the east to Samarkand and Merv in the west. Trade
+      letters in Sogdian have been found in caves near Dunhuang; merchant colonies
+      in Tang China maintained correspondence with their homeland in this tongue.
+      A knowledge of Sogdian opens doors to the most reliable broker networks on
+      the road. By the end of the era Arabization displaces it from business use,
+      but in the memory of living merchants it still holds.
     m_Metadata:
       m_Items: []
   - m_Id: 11185858546753537
@@ -327,7 +336,15 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 11185858546753538
-    m_Localized: Official language of the Tang Empire
+    m_Localized: The Chinese of the Tang dynasty is Middle Chinese in its court and
+      chancery forms; the logographic script is shared by all educated people regardless
+      of spoken dialect. It is used in imperial edicts, Buddhist sutra translations,
+      poetry, and diplomatic correspondence. In the port of Guangzhou and in the
+      foreign quarters of Chang'an a merchant without Chinese depends on an interpreter
+      - which means added expense and the risk of being misled. Knowing the language
+      allows direct dealings with officials, reading customs registers, and taking
+      part in government supply auctions. Chinese also serves as a bridge language
+      for Japanese and Korean traders visiting Tang.
     m_Metadata:
       m_Items: []
   - m_Id: 11185858546753539
@@ -335,7 +352,16 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 11185858546753540
-    m_Localized: Language of the Tibetan Empire and mountain monasteries
+    m_Localized: The Tibetan language is written in an alphabet devised in the seventh
+      century on the orders of King Songtsen Gampo, modeled on Indian Brahmi - created
+      specifically for translating Buddhist canons from Sanskrit. During the height
+      of the Tibetan Empire (618-842) a knowledge of Tibetan is essential for trading
+      in Lhasa and in the Tarim Basin oases when they are under Tibetan control.
+      Tibet's monasteries are repositories of texts and at the same time nodal points
+      of mountain commerce, where valley grain is exchanged for plateau salt. After
+      842 Tibet's political unity collapses, but the monastic network keeps the language
+      alive. For a merchant traveling through Nepal toward India or along mountain
+      trails into Yunnan, Tibetan is the key to a passable route.
     m_Metadata:
       m_Items: []
   - m_Id: 11185858546753541
@@ -343,7 +369,15 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 11185858546753542
-    m_Localized: Language of Turkic khaganates and nomadic tribes
+    m_Localized: 'Turkic is more precisely a family of closely related tongues spoken
+      from Manchuria to Semirechye. Old Turkic writing - the Orkhon-Yenisei runes
+      - left inscriptions on stone steles across the Mongolian steppe, recording
+      khagan titles and epic narratives. From 744 the Uyghur Khaganate becomes the
+      dominant steppe power and adopts the Manichaean faith, lending the language
+      new cultural prestige. A knowledge of Turkic opens routes through the steppe
+      belt and allows direct negotiation with khagan border guards at the checkpoints.
+      The Uyghurs control key nodes of the silk trade between Tang and the west:
+      without Turkic there is no bargaining here.'
     m_Metadata:
       m_Items: []
   - m_Id: 11185858546753543
@@ -351,7 +385,16 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 11185858546753544
-    m_Localized: Sacred language of India and Buddhist texts
+    m_Localized: Sanskrit is the classical literary language of Indian scholarship,
+      written in the Tang period in scripts of the Brahmi family, including Gupta
+      and Sharada. It is not the spoken tongue of any people, but is understood by
+      educated individuals across the subcontinent and far beyond it. Buddhist monks
+      from China - such as Xuanzang in the seventh century - learn Sanskrit specifically
+      to read the sutras in the original and bring translations home. In monasteries
+      from Nalanda to Luoyang a knowledge of Sanskrit means access to a thousand-year
+      library of philosophy, medicine, mathematics, and astronomy. For a merchant
+      trading with Indian monasteries or Brahmin communities, even a basic knowledge
+      of Sanskrit greeting formulas is a mark of respect and trustworthiness.
     m_Metadata:
       m_Items: []
   - m_Id: 11185858546753545
@@ -359,7 +402,15 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 11185858546753546
-    m_Localized: Language of the Sasanian legacy and trade routes
+    m_Localized: After the Arab conquest of 651 Middle Persian (Pahlavi) gradually
+      yields to New Persian (Farsi) - a language now written in the Arabic alphabet
+      but retaining Iranian grammar and a vast native vocabulary. Under the Abbasids,
+      Persian officials and scholars hold key positions at court; Farsi becomes the
+      language of poetry and diplomacy in the eastern caliphate. Zoroastrian communities
+      of Yazd and Nishapur still write liturgical texts in Pahlavi. Along trade routes
+      from Merv to Nishapur and onward into India, Farsi is understood in most bazaars.
+      A knowledge of Persian allows a merchant to communicate with educated caliphate
+      officials, read contracts, and navigate the Persio-Arabic commercial world.
     m_Metadata:
       m_Items: []
   - m_Id: 11185858546753547
@@ -367,7 +418,16 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 11185858546753548
-    m_Localized: Language of the Caliphate and Islamic scholarship
+    m_Localized: 'Arabic emerged from the Arabian Peninsula with the Islamic armies
+      of the seventh century and by the Tang era had become the language of administration,
+      law, and worship from Iberia to Khurasan. Arabic script - a cursive ligature
+      read right to left - is used to record the Quran and is carried over into administrative
+      documents of the conquered peoples. In Baghdad and Damascus Arabic is simultaneously
+      the language of markets, courts, and scholarly disputation. Quranic Arabic
+      carries a special religious standing: Muslims of any origin strive to learn
+      at least the suras used in prayer, creating a broad audience of comprehenders.
+      For a merchant in the caliphate a working knowledge of Arabic cuts the cost
+      of an interpreter and earns the trust of Muslim partners.'
     m_Metadata:
       m_Items: []
   - m_Id: 11185858546753549
@@ -375,7 +435,15 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 11185858546753550
-    m_Localized: Language of Byzantium and the Hellenistic heritage
+    m_Localized: Greek is the state language of the Byzantine Empire and the language
+      of Orthodox worship; the Greek alphabet is used for secular documents and patristic
+      texts alike. In Constantinople an educated merchant reads Plato and a trade
+      contract with the same alphabet. Greek also served as the scholarly language
+      of the Hellenistic world - through its mediation, Arab translators in Baghdad
+      work from Aristotle and Galen. In Black Sea and Mediterranean ports a knowledge
+      of Greek eases trade with Byzantine trading posts. Outside Constantinople and
+      Asia Minor native speakers are fewer, but Greek retains the prestige of classical
+      and Christian learning.
     m_Metadata:
       m_Items: []
   - m_Id: 12255451369431040
@@ -2492,6 +2560,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 32499912833892352
     m_Localized: Change route
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36293359008997376
+    m_Localized: Skip day
     m_Metadata:
       m_Items: []
   references:

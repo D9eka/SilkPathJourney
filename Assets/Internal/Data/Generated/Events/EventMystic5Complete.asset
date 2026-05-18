@@ -112,10 +112,6 @@ MonoBehaviour:
     <Param>k__BackingField: samarkand
     <ParamList>k__BackingField: []
     <Value>k__BackingField: 1
-  - <Type>k__BackingField: 34
-    <Param>k__BackingField: Temple
-    <ParamList>k__BackingField: []
-    <Value>k__BackingField: 1
   <Weight>k__BackingField: 1
   references:
     version: 2

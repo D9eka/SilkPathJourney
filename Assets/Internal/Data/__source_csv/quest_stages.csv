@@ -66,12 +66,11 @@ quest_silk_5,stage_deliver,quest.quest_silk_5.stage_deliver,quest.quest_silk_5.s
 quest_silk_5,stage_complete,quest.quest_silk_5.stage_complete,quest.quest_silk_5.stage_complete.narrative,event_silk5_complete,,,
 quest_artifact_1,stage_accept,quest.quest_artifact_1.stage_accept,quest.quest_artifact_1.narrative.stage_accept,,,,
 quest_artifact_1,stage_decipher,quest.quest_artifact_1.stage_decipher,quest.quest_artifact_1.narrative.stage_decipher,event_artifact1_decipher,,,
-quest_artifact_1,stage_complete,quest.quest_artifact_1.stage_complete,,event_artifact1_complete,,,
-quest_artifact_2,stage_accept,quest.quest_artifact_2.stage_accept,,,OnRoute,,1
-quest_artifact_2,stage_collect_1,quest.quest_artifact_2.stage_collect_1,,"event_artifact2_khotan,event_artifact2_balkh,event_artifact2_kucha",quest_flag,quest_artifact_2.artifacts_collected,1
-quest_artifact_2,stage_collect_2,quest.quest_artifact_2.stage_collect_2,,"event_artifact2_khotan,event_artifact2_balkh,event_artifact2_kucha",quest_flag,quest_artifact_2.artifacts_collected,2
-quest_artifact_2,stage_collect_3,quest.quest_artifact_2.stage_collect_3,,"event_artifact2_khotan,event_artifact2_balkh,event_artifact2_kucha",quest_flag,quest_artifact_2.artifacts_collected,3
-quest_artifact_2,stage_complete,quest.quest_artifact_2.stage_complete,,event_artifact2_complete,,,
+quest_artifact_1,stage_first_relic,quest.quest_artifact_1.stage_first_relic,,event_artifact1_complete,,,
+quest_artifact_1,stage_collect_1,quest.quest_artifact_1.stage_collect_1,,"event_artifact2_khotan,event_artifact2_balkh,event_artifact2_kucha",quest_flag,quest_artifact_1.artifacts_collected,1
+quest_artifact_1,stage_collect_2,quest.quest_artifact_1.stage_collect_2,,"event_artifact2_khotan,event_artifact2_balkh,event_artifact2_kucha",quest_flag,quest_artifact_1.artifacts_collected,2
+quest_artifact_1,stage_collect_3,quest.quest_artifact_1.stage_collect_3,,"event_artifact2_khotan,event_artifact2_balkh,event_artifact2_kucha",quest_flag,quest_artifact_1.artifacts_collected,3
+quest_artifact_1,stage_complete,quest.quest_artifact_1.stage_complete,,event_artifact2_complete,,,
 quest_artifact_3,stage_accept,quest.quest_artifact_3.stage_accept,,,,,
 quest_artifact_3,stage_expose,quest.quest_artifact_3.stage_expose,,event_artifact3_expose,,,
 quest_artifact_3,stage_complete,quest.quest_artifact_3.stage_complete,,event_artifact3_complete,,,

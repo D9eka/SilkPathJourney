@@ -31,7 +31,7 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  <Icon>k__BackingField: {fileID: 0}
+  <Icon>k__BackingField: {fileID: 21300000, guid: 160d566e030b46c5b0490c51bdfe000e, type: 3}
   <StartCityId>k__BackingField: samarkand
   <Branch>k__BackingField: 1
   <OrderInBranch>k__BackingField: 1
@@ -163,10 +163,7 @@ MonoBehaviour:
   - <Type>k__BackingField: 3
     <Target>k__BackingField: carpet
     <Value>k__BackingField: 1
-  <FailConditions>k__BackingField:
-  - <Type>k__BackingField: 3
-    <Param>k__BackingField: 
-    <Value>k__BackingField: 774
+  <FailConditions>k__BackingField: []
   <FailConsequences>k__BackingField:
   - <Type>k__BackingField: 11
     <Param>k__BackingField: 
