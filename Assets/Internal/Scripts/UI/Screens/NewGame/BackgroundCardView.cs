@@ -49,6 +49,8 @@ namespace Internal.Scripts.UI.Screens.NewGame
         private LocalizationService.LocalizedTextHandle _recommendedHandle;
         private LocalizationService.LocalizedTextHandle _lockedHandle;
         private LocalizationService.LocalizedTextHandle _lockedDescriptionHandle;
+        private LocalizationService.LocalizedTextHandle _titleHandle;
+        private LocalizationService.LocalizedTextHandle _featuresHandle;
 
         public BackgroundData Data => _data;
 
@@ -60,7 +62,19 @@ namespace Internal.Scripts.UI.Screens.NewGame
             bool unlocked = viewModel.IsBackgroundUnlocked(data);
             LocalizationService loc = viewModel.Localization;
 
-            _titleText.text = LocalizationService.ResolveString(data.Name, data.Id, $"Background.{data.Id}.Name");
+            _titleHandle?.Dispose();
+            _titleHandle = loc.BindText(_titleText, data.Name, $"Background.{data.Id}.Title");
+
+            _featuresHandle?.Dispose();
+            _featuresHandle = null;
+            _selectButtonHandle?.Dispose();
+            _selectButtonHandle = null;
+            _recommendedHandle?.Dispose();
+            _recommendedHandle = null;
+            _lockedHandle?.Dispose();
+            _lockedHandle = null;
+            _lockedDescriptionHandle?.Dispose();
+            _lockedDescriptionHandle = null;
 
             BindRoleText(loc, data);
 
@@ -99,21 +113,18 @@ namespace Internal.Scripts.UI.Screens.NewGame
             float secondaryProgress = (float)data.GetSkillValue(data.SecondarySkillType) / BackgroundData.MaxSkillValue;
             _secondarySkillBar.Initialize(loc, secondarySkillName, null, secondaryProgress, (string)null);
 
-            _featuresText.text = string.IsNullOrEmpty(data.FeaturesKey)
-                ? string.Empty
-                : LocalizationService.Resolve("Player", data.FeaturesKey);
+            if (string.IsNullOrEmpty(data.FeaturesKey))
+                _featuresText.text = string.Empty;
+            else
+                _featuresHandle = loc.BindText(_featuresText, "Player", data.FeaturesKey, $"Background.{data.Id}.Features");
 
-            _selectButtonHandle?.Dispose();
             _selectButtonHandle = loc.BindText(_selectButtonText, _selectButtonString, $"{name}.SelectButton");
             _selectButton.onClick.RemoveAllListeners();
             _selectButton.onClick.AddListener(OnClick);
 
             _recommendedRoot.SetActive(data.IsRecommended);
             if (data.IsRecommended)
-            {
-                _recommendedHandle?.Dispose();
                 _recommendedHandle = loc.BindText(_recommendedText, _recommendedString, $"{name}.Recommended");
-            }
         }
 
         private void BindRoleText(LocalizationService loc, BackgroundData data)
@@ -133,12 +144,10 @@ namespace Internal.Scripts.UI.Screens.NewGame
             LocalizationService loc = viewModel.Localization;
             string emptyFallback = string.Empty;
 
-            _lockedHandle?.Dispose();
             TextMeshProUGUI lockedTmp = GetLockedLabelText();
             if (lockedTmp != null)
                 _lockedHandle = loc.BindText(lockedTmp, _lockedFormatString, $"{name}.Locked");
 
-            _lockedDescriptionHandle?.Dispose();
             if (_lockedDescriptionText != null && _lockedDescriptionString != null)
                 _lockedDescriptionHandle = loc.BindText(_lockedDescriptionText, _lockedDescriptionString,
                     $"{name}.LockedDescription", emptyFallback, postProcess: null,
@@ -156,11 +165,15 @@ namespace Internal.Scripts.UI.Screens.NewGame
             _recommendedHandle?.Dispose();
             _lockedHandle?.Dispose();
             _lockedDescriptionHandle?.Dispose();
+            _titleHandle?.Dispose();
+            _featuresHandle?.Dispose();
             _roleHandle = null;
             _selectButtonHandle = null;
             _recommendedHandle = null;
             _lockedHandle = null;
             _lockedDescriptionHandle = null;
+            _titleHandle = null;
+            _featuresHandle = null;
         }
 
         private void OnClick()

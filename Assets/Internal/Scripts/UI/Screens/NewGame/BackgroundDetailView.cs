@@ -54,6 +54,9 @@ namespace Internal.Scripts.UI.Screens.NewGame
         private LocalizationService.LocalizedTextHandle _languagesTitleHandle;
         private LocalizationService.LocalizedTextHandle _itemsTitleHandle;
         private LocalizationService.LocalizedTextHandle _startingCityHeaderHandle;
+        private LocalizationService.LocalizedTextHandle _nameHandle;
+        private LocalizationService.LocalizedTextHandle _descriptionHandle;
+        private LocalizationService.LocalizedTextHandle _featuresHandle;
 
         private UiThemeService _themeService;
         private LocalizationService _localization;
@@ -73,11 +76,7 @@ namespace Internal.Scripts.UI.Screens.NewGame
 
         public void SetData(BackgroundData data)
         {
-            _nameText.text = LocalizationService.ResolveString(data.Name, data.Id, $"Background.{data.Id}.Name");
-            _descriptionText.text = LocalizationService.ResolveString(data.Description, data.Id, $"Background.{data.Id}.Description");
-            _featuresText.text = string.IsNullOrEmpty(data.FeaturesKey)
-                ? string.Empty
-                : LocalizationService.Resolve("Player", data.FeaturesKey);
+            RebindNameDescFeatures(data);
 
             RefreshStartingCity(data);
             RebuildSkills(data);
@@ -106,6 +105,31 @@ namespace Internal.Scripts.UI.Screens.NewGame
                 if (c != null && string.Equals(c.Id, cityId, StringComparison.OrdinalIgnoreCase))
                     return c;
             return null;
+        }
+
+        private void DisposeDataHandles()
+        {
+            _nameHandle?.Dispose();
+            _descriptionHandle?.Dispose();
+            _featuresHandle?.Dispose();
+            _nameHandle = null;
+            _descriptionHandle = null;
+            _featuresHandle = null;
+        }
+
+        private void RebindNameDescFeatures(BackgroundData data)
+        {
+            DisposeDataHandles();
+
+            if (_localization == null) return;
+
+            _nameHandle = _localization.BindText(_nameText, data.Name, $"Background.{data.Id}.Name");
+            _descriptionHandle = _localization.BindText(_descriptionText, data.Description, $"Background.{data.Id}.Description");
+
+            if (string.IsNullOrEmpty(data.FeaturesKey))
+                _featuresText.text = string.Empty;
+            else
+                _featuresHandle = _localization.BindText(_featuresText, "Player", data.FeaturesKey, $"Background.{data.Id}.Features");
         }
 
         private void BindHeaders()
@@ -238,6 +262,7 @@ namespace Internal.Scripts.UI.Screens.NewGame
             ClearLanguages();
             ClearResources();
             DisposeHeaderHandles();
+            DisposeDataHandles();
         }
     }
 }
