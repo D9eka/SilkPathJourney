@@ -19,6 +19,9 @@ namespace Internal.Scripts.Camp
         private readonly IPlayerStateEvents _playerStateEvents;
         private readonly ScreenStackService _screenStackService;
 
+        private bool _pendingSkipDayAdvance;
+        private EventData _pendingSkipDayEvent;
+
         public CampController(
             CampActionService campActionService,
             EventSelector eventSelector,
@@ -70,20 +73,50 @@ namespace Internal.Scripts.Camp
 
             EventData eventData = _eventSelector.SelectEvent(
                 minor: false,
-                filter: evt => CampEventOutcomeScaler.ParseCampAction(evt) == actionType
-                             || evt.Category == EventCategory.CampAny);
+                filter: evt => CampEventOutcomeScaler.ParseCampAction(evt) == actionType);
 
             if (eventData == null) return false;
 
             return _eventTrigger.TriggerEvent(eventData);
         }
 
-        private void HandleEventClosed(EventData _)
+        public void SkipDayAndAdvance()
+        {
+            bool opened = TryTriggerSkipDayEvent();
+            if (opened)
+                _pendingSkipDayAdvance = true;
+            else
+                _dayTracker.AdvanceDays(1);
+        }
+
+        private bool TryTriggerSkipDayEvent()
+        {
+            if (_screenStackService.IsOpen(ScreenId.Event)) return false;
+
+            EventData eventData = _eventSelector.SelectEvent(
+                minor: false,
+                filter: evt => evt.Category == EventCategory.CampAny);
+
+            if (eventData == null) return false;
+
+            bool triggered = _eventTrigger.TriggerEvent(eventData);
+            if (triggered)
+                _pendingSkipDayEvent = eventData;
+            return triggered;
+        }
+
+        private void HandleEventClosed(EventData closedEvent)
         {
             if (_campActionService.CurrentAction.HasValue)
             {
                 _dayTracker.AdvanceDays(1);
                 _campActionService.ClearCurrentAction();
+            }
+            else if (_pendingSkipDayAdvance && closedEvent == _pendingSkipDayEvent)
+            {
+                _dayTracker.AdvanceDays(1);
+                _pendingSkipDayAdvance = false;
+                _pendingSkipDayEvent = null;
             }
         }
 

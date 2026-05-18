@@ -8,6 +8,7 @@ using R3;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Localization;
+using UnityEngine.UI;
 
 namespace Internal.Scripts.UI.Screens.Camp
 {
@@ -17,21 +18,27 @@ namespace Internal.Scripts.UI.Screens.Camp
         [SerializeField] private ResourceIndicator[] _resourceViews;
         [SerializeField] private TextMeshProUGUI _dayText;
         [SerializeField] private LocalizedString _dayTextLocalizedString;
+        [SerializeField] private Button _skipDayButton;
+        [SerializeField] private TextMeshProUGUI _skipDayLabel;
+        [SerializeField] private LocalizedString _skipDayLocalizedString;
 
         private CampScreenViewModel _viewModel;
         private IDisposable _stateSubscription;
         private LocalizationService.LocalizedTextHandle _dayHandle;
+        private LocalizationService.LocalizedTextHandle _skipDayHandle;
 
         protected override void OnEnable()
         {
             base.OnEnable();
             SubscribeViewModel();
+            _skipDayButton.onClick.AddListener(HandleSkipDayClicked);
         }
 
         protected override void OnDisable()
         {
             base.OnDisable();
             UnsubscribeViewModel();
+            _skipDayButton.onClick.RemoveListener(HandleSkipDayClicked);
         }
 
         public override void BindViewModel(IScreenViewModel viewModel)
@@ -46,6 +53,7 @@ namespace Internal.Scripts.UI.Screens.Camp
                 return;
 
             SetupIcons();
+            BindSkipDayLabel();
             _stateSubscription = _viewModel.State.Subscribe(ApplyState);
             _viewModel.DayChanged += ApplyDay;
             ApplyDay(_viewModel.CurrentDay);
@@ -61,7 +69,24 @@ namespace Internal.Scripts.UI.Screens.Camp
 
             _dayHandle?.Dispose();
             _dayHandle = null;
+            _skipDayHandle?.Dispose();
+            _skipDayHandle = null;
         }
+
+        protected override void OnLocalizationReady()
+        {
+            base.OnLocalizationReady();
+            BindSkipDayLabel();
+        }
+
+        private void BindSkipDayLabel()
+        {
+            if (Localization == null) return;
+            _skipDayHandle?.Dispose();
+            _skipDayHandle = Localization.BindText(_skipDayLabel, _skipDayLocalizedString, "Camp.SkipDay");
+        }
+
+        private void HandleSkipDayClicked() => _viewModel?.SkipDay();
 
         private void ApplyDay(int day)
         {

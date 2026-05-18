@@ -103,6 +103,11 @@ namespace Internal.Scripts.UI.Screens.Camp
             _campController.ExecuteActionAndAdvance(type);
         }
 
+        public void SkipDay()
+        {
+            _campController.SkipDayAndAdvance();
+        }
+
         private void OnLocaleChanged(Locale _) => BuildState();
 
         private void BuildState()
