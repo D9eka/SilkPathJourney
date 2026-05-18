@@ -9,6 +9,8 @@ namespace Internal.Scripts.InteractableObjects
         [SerializeField] protected float _hoverScale = 1.1f;
     
         public event Action<IInteractableObject> OnClick;
+
+        public virtual int InteractionPriority => 0;
     
         protected Vector3 OriginalScale;
     

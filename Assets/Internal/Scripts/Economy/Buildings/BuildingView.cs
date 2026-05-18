@@ -30,6 +30,7 @@ namespace Internal.Scripts.Economy.Buildings
         private BuildingData _data;
 
         public event Action<IInteractableObject> OnClick;
+        public int InteractionPriority => 0;
         public BuildingData Data => _data;
         public BuildingId BuildingId => _buildingId;
 
