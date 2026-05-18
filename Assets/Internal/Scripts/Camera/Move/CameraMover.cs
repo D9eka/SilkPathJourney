@@ -20,6 +20,7 @@ namespace Internal.Scripts.Camera.Move
 
         private Vector2? _animTarget;
         private Vector2 _animStart;
+        private bool _animStartPending;
         private float _animElapsed;
         private float _animDuration;
         private Action _animCallback;
@@ -48,9 +49,15 @@ namespace Internal.Scripts.Camera.Move
 
             if (_animTarget.HasValue)
             {
+                if (_animStartPending)
+                {
+                    _animStart = _camera.transform.GetWorldTarget();
+                    _animStartPending = false;
+                }
+
                 _animElapsed += Time.deltaTime;
                 float t = Mathf.Clamp01(_animElapsed / _animDuration);
-                float eased = EaseOutCubic(t);
+                float eased = EaseInOutSine(t);
                 Vector2 current = Vector2.Lerp(_animStart, _animTarget.Value, eased);
                 ApplyPosition(_bounds.Clamp(current));
 
@@ -92,7 +99,7 @@ namespace Internal.Scripts.Camera.Move
         public void MoveTo(Vector2 worldPosition, float duration, Action onComplete = null)
         {
             _animTarget = worldPosition;
-            _animStart = _camera.transform.GetWorldTarget();
+            _animStartPending = true;
             _animElapsed = 0f;
             _animDuration = Mathf.Max(duration, 0.001f);
             _animCallback = onComplete;
@@ -102,6 +109,7 @@ namespace Internal.Scripts.Camera.Move
         {
             _moveDelta = Vector2.zero;
             _animTarget = null;
+            _animStartPending = false;
             _animCallback = null;
         }
 
@@ -112,7 +120,7 @@ namespace Internal.Scripts.Camera.Move
             _camera.transform.position = new Vector3(worldTarget.x, currentY, worldTarget.y + zOffset);
         }
 
-        private static float EaseOutCubic(float t) => 1f - Mathf.Pow(1f - t, 3f);
+        private static float EaseInOutSine(float t) => -(Mathf.Cos(Mathf.PI * t) - 1f) * 0.5f;
 
         private void ChangePosition(Vector2 delta)
         {

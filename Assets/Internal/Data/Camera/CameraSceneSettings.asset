@@ -29,3 +29,4 @@ MonoBehaviour:
   <TargetSelectionZoomSize>k__BackingField: 225
   <FollowZoomSize>k__BackingField: 75
   <PreviewMoveSpeed>k__BackingField: 150
+  <PreviewZoomDuration>k__BackingField: 0.7

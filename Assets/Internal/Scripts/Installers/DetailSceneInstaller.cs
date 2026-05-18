@@ -26,7 +26,7 @@ namespace Internal.Scripts.Installers
                         ctx.Container.Resolve<GroundSnapper>(),
                         ctx.Container.Resolve<UnityEngine.Camera>(),
                         _worldCanvasSettings,
-                        ctx.Container.Resolve<CameraZoomerData>());
+                        ctx.Container.Resolve<CameraZoomerData>(),
                     return factory.Create();
                 })
                 .AsSingle();

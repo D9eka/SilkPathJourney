@@ -147,7 +147,7 @@ namespace Internal.Scripts.Installers
             Container.Bind<DetailSceneLoader>().AsSingle();
             Container.BindInterfacesAndSelfTo<CameraSceneLoader>().AsSingle();
 
-            Container.Bind<CameraController>().AsSingle();
+            Container.BindInterfacesAndSelfTo<CameraController>().AsSingle();
             Container.Bind<CityViewAnimator>().AsSingle();
             Container.Bind<CitySceneController>().AsSingle();
             Container.BindInterfacesAndSelfTo<CityEntryService>().AsSingle().NonLazy();
