@@ -695,6 +695,7 @@ MonoBehaviour:
   _eventDescriptionText: {fileID: 1382749814789771788}
   _eventDescriptionTextNoImage: {fileID: 4083501249283264031}
   _eventLocationText: {fileID: 1101028690284135607}
+  _eventLocationRoot: {fileID: 1635129942883279808}
   _eventImage: {fileID: 5764184883304493988}
   _resourceIndicatorsRoot: {fileID: 2481171469397820918}
   _resourceIndicatorPrefab: {fileID: 783079172605956593, guid: d42cfadb0380fec4794cf1f9b812ff93, type: 3}

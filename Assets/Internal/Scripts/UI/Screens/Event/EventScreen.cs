@@ -32,6 +32,7 @@ namespace Internal.Scripts.UI.Screens.Event
         [SerializeField] private TextMeshProUGUI _eventDescriptionText;
         [SerializeField] private TextMeshProUGUI _eventDescriptionTextNoImage;
         [SerializeField] private TextMeshProUGUI _eventLocationText;
+        [SerializeField] private Transform _eventLocationRoot;
         [SerializeField] private Image _eventImage;
         [Header("Resource Preview")]
         [SerializeField] private Transform _resourceIndicatorsRoot;
@@ -431,13 +432,14 @@ namespace Internal.Scripts.UI.Screens.Event
 
         private void UpdateLocation(CityData city, bool isAtCity)
         {
-            if (_eventLocationText == null) return;
-
             if (city == null)
             {
-                _eventLocationText.text = "";
+                _eventLocationRoot.gameObject.SetActive(false);
+                RequestLayoutRefresh();
                 return;
             }
+
+            _eventLocationRoot.gameObject.SetActive(true);
 
             string cityName = LocalizationService.ResolveString(city.Name, city.Id, "CityName");
 
