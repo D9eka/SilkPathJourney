@@ -34,13 +34,10 @@ namespace Internal.Scripts.Player
         [SerializeField] private MainCartEntry[] _mainCarts;
         [SerializeField] private ExtraCartEntry[] _extraCarts;
         [SerializeField] private AnimalPrefabEntry[] _animals;
-        [SerializeField] private GameObject _riderPrefab;
 
         private Dictionary<CartClass, GameObject> _mainCartLookup;
         private Dictionary<ExtraCartType, GameObject> _extraCartLookup;
         private Dictionary<DraftAnimalType, AnimalPrefabEntry> _animalLookup;
-
-        public GameObject RiderPrefab => _riderPrefab;
 
         public GameObject GetMainCart(CartClass cartClass)
         {

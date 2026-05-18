@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7165407511980034da7e035a241fcecc, type: 3}
+  m_Name: JournalIconCatalog
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Screens.Journal.JournalIconCatalog
+  _entries:
+  - Type: 0
+    Icon: {fileID: 21300000, guid: 556c06c9ade843c4a9c8ce476ecc4b89, type: 3}
+  - Type: 1
+    Icon: {fileID: 21300000, guid: 542b3171e4e7429aaef87d64d045e63b, type: 3}
+  - Type: 2
+    Icon: {fileID: 21300000, guid: 542b3171e4e7429aaef87d64d045e63b, type: 3}
+  - Type: 3
+    Icon: {fileID: 21300000, guid: 542b3171e4e7429aaef87d64d045e63b, type: 3}
+  - Type: 4
+    Icon: {fileID: 21300000, guid: 542b3171e4e7429aaef87d64d045e63b, type: 3}
+  - Type: 5
+    Icon: {fileID: 21300000, guid: 36fb4af88b4741b9939f47ed7ea4e5df, type: 3}
+  - Type: 6
+    Icon: {fileID: 21300000, guid: c45308b497804e43b19220055ff8eb6d, type: 3}
+  - Type: 7
+    Icon: {fileID: 21300000, guid: 8993e5690d13443daad836a860c710e7, type: 3}
+  - Type: 8
+    Icon: {fileID: 21300000, guid: f1ccd2d7403d4ee59f81b44f4edbf0e3, type: 3}
+  - Type: 9
+    Icon: {fileID: 21300000, guid: c2bfcd1d8b8b4e81bdc04c04d010400c, type: 3}
+  - Type: 10
+    Icon: {fileID: 21300000, guid: 5866b13d8889461b8fe60906c599bf45, type: 3}
+  - Type: 11
+    Icon: {fileID: 21300000, guid: c37471a394d043668961df2c2f782f1d, type: 3}
+  - Type: 12
+    Icon: {fileID: 21300000, guid: 9b195013fc69409a824e5efcadc1aecb, type: 3}
+  - Type: 13
+    Icon: {fileID: 21300000, guid: c45308b497804e43b19220055ff8eb6d, type: 3}
+  - Type: 14
+    Icon: {fileID: 21300000, guid: b4ce634d541349e88a2445cfe0ec28d4, type: 3}
+  - Type: 15
+    Icon: {fileID: 21300000, guid: b4ce634d541349e88a2445cfe0ec28d4, type: 3}
+  - Type: 16
+    Icon: {fileID: 21300000, guid: c2607a8b5a764815ac31bbeb1da48a8c, type: 3}

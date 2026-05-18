@@ -28,6 +28,7 @@ namespace Internal.Scripts.Npc.Core
         public string CurrentToNodeId => _cursor.CurrentToNodeId;
         public float DistanceOnSegment => _cursor.DistanceOnSegment;
         public float SpeedMetersPerDay { get; set; }
+        public float BaseSpeedMetersPerDay { get; set; }
         public float Weight { get; set; }
 
         public RoadAgent(RoadAgentView view, RoadAgentConfig config,
@@ -39,6 +40,7 @@ namespace Internal.Scripts.Npc.Core
             _gameDayDeltaProvider = gameDayDeltaProvider;
             _currentNodeId = startNodeId;
             SpeedMetersPerDay = _config.SpeedMetersPerDay;
+            BaseSpeedMetersPerDay = _config.SpeedMetersPerDay;
         }
         
         public void Initialize()

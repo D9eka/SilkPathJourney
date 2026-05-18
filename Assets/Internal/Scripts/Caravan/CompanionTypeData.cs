@@ -9,6 +9,7 @@ namespace Internal.Scripts.Caravan
     {
         [field: SerializeField] public string Id { get; private set; }
         [field: SerializeField] public CompanionType Type { get; private set; }
+        [field: SerializeField] public Sprite Icon { get; private set; }
         [field: SerializeField] public int HireCostBase { get; private set; }
         [field: SerializeField] public int DailyCostBase { get; private set; }
         [field: SerializeField] public LocalizedString Name { get; private set; } = new();

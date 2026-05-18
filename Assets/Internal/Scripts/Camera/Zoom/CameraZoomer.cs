@@ -26,6 +26,10 @@ namespace Internal.Scripts.Camera.Zoom
 
         public float Size => _cameraZoomerData.YToSize(_camera.transform.position.y);
 
+        public float SizeToY(float size) => _cameraZoomerData.SizeToY(size);
+
+        public void Stop() => _tweenY?.Kill();
+
         public CameraZoomer(
             UnityEngine.Camera camera,
             ICameraInput inputManager,
@@ -103,6 +107,7 @@ namespace Internal.Scripts.Camera.Zoom
             _tweenY?.Kill();
 
             _tweenY = _camera.transform.DOMoveY(targetY, duration)
+                .SetEase(Ease.InOutSine)
                 .OnComplete(() => onComplete?.Invoke());
         }
 

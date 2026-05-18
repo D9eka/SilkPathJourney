@@ -253,6 +253,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
+  m_UseReflectionProbes: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -529,6 +530,10 @@ PrefabInstance:
     - target: {fileID: 1880891631010415320, guid: 10b3bbe4edf11ad4a9927b259aaad62a, type: 3}
       propertyPath: m_Name
       value: ResourceIndicatorHeader
+      objectReference: {fileID: 0}
+    - target: {fileID: 3041985982183212487, guid: 10b3bbe4edf11ad4a9927b259aaad62a, type: 3}
+      propertyPath: _resourceType
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 5577065890034305523, guid: 10b3bbe4edf11ad4a9927b259aaad62a, type: 3}
       propertyPath: m_Pivot.x

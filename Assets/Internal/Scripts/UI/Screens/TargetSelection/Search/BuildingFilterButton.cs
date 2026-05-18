@@ -16,10 +16,15 @@ namespace Internal.Scripts.UI.Screens.TargetSelection.Search
 
         public BuildingId Building => _building;
 
-        public void Initialize(BuildingFilterCatalog catalog, TooltipService tooltipService, Action onClick)
+        private void EnsureButton()
         {
             if (_iconButton == null)
                 _iconButton = GetComponent<IconFilterButton>();
+        }
+
+        public void Initialize(BuildingFilterCatalog catalog, TooltipService tooltipService, Action onClick)
+        {
+            EnsureButton();
 
             BuildingFilterEntry entry = catalog?.Get(_building);
             Sprite icon = entry?.Icon;
@@ -34,18 +39,23 @@ namespace Internal.Scripts.UI.Screens.TargetSelection.Search
         public void InitializeWithTooltip(BuildingFilterCatalog catalog, TooltipService tooltipService,
             string tooltip, Action onClick)
         {
-            if (_iconButton == null)
-                _iconButton = GetComponent<IconFilterButton>();
+            EnsureButton();
 
             BuildingFilterEntry entry = catalog?.Get(_building);
             Sprite icon = entry?.Icon;
             _iconButton.Configure(icon, tooltip, tooltipService, onClick);
         }
 
+        public void InitializeWithSprite(Sprite icon, string tooltip,
+            TooltipService tooltipService, Action onClick)
+        {
+            EnsureButton();
+            _iconButton.Configure(icon, tooltip, tooltipService, onClick);
+        }
+
         public void SetActive(bool active)
         {
-            if (_iconButton == null)
-                _iconButton = GetComponent<IconFilterButton>();
+            EnsureButton();
             _iconButton.SetActive(active);
         }
 

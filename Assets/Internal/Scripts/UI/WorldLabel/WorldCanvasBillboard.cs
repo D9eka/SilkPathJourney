@@ -1,4 +1,3 @@
-using Internal.Scripts.Camera.Zoom;
 using UnityEngine;
 
 namespace Internal.Scripts.UI.WorldLabel
@@ -6,20 +5,14 @@ namespace Internal.Scripts.UI.WorldLabel
     public class WorldCanvasBillboard : MonoBehaviour
     {
         private UnityEngine.Camera _camera;
-        private float _minScale;
-        private float _maxScale;
-        private float _minCameraY;
-        private float _maxCameraY;
+        private float _baseScale;
+        private AnimationCurve _curve;
 
-        public void Initialize(UnityEngine.Camera camera, WorldCanvasSettings settings, CameraZoomerData zoomerData)
+        public void Initialize(UnityEngine.Camera camera, WorldCanvasSettings settings)
         {
             _camera = camera;
-            _minScale = settings.MinLabelScale;
-            _maxScale = settings.MaxLabelScale;
-            _minCameraY = zoomerData.BaseYPosition +
-                (zoomerData.MinValue - zoomerData.BaseSizeValue) / zoomerData.ScaleFactor;
-            _maxCameraY = zoomerData.BaseYPosition +
-                (zoomerData.MaxValue - zoomerData.BaseSizeValue) / zoomerData.ScaleFactor;
+            _baseScale = settings.BaseScale;
+            _curve = settings.DistanceScaleCurve;
         }
 
         private void LateUpdate()
@@ -27,9 +20,8 @@ namespace Internal.Scripts.UI.WorldLabel
             if (_camera == null) return;
 
             transform.rotation = _camera.transform.rotation;
-
-            float t = Mathf.InverseLerp(_maxCameraY, _minCameraY, _camera.transform.position.y);
-            float scale = Mathf.Lerp(_minScale, _maxScale, t);
+            float distance = Vector3.Distance(_camera.transform.position, transform.position);
+            float scale = _baseScale * _curve.Evaluate(distance);
             transform.localScale = Vector3.one * scale;
         }
     }

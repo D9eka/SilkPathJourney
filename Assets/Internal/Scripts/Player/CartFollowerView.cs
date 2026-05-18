@@ -4,15 +4,18 @@ namespace Internal.Scripts.Player
 {
     public sealed class CartFollowerView : MonoBehaviour
     {
-        [SerializeField] private Transform _riderSlot;
         [SerializeField] private Transform _animalSlot;
         [SerializeField] private Animator _animator;
+        [SerializeField] private Transform _caravanBack;
 
         private static readonly int IsMoving = Animator.StringToHash("IsMoving");
 
         private Vector3 _previousPosition;
-        private GameObject _rider;
         private GameObject _animal;
+        private AnimalCaravanFront _animalFront;
+
+        public Vector3 CaravanBackWorld => _caravanBack != null ? _caravanBack.position : transform.position;
+        public Vector3 AnimalFrontWorld => _animalFront != null ? _animalFront.FrontWorld : (_animalSlot != null ? _animalSlot.position : transform.position);
 
         private void Start()
         {
@@ -29,26 +32,6 @@ namespace Internal.Scripts.Player
             _previousPosition = transform.position;
         }
 
-        public void SetRider(GameObject riderPrefab)
-        {
-            if (_rider != null)
-                return;
-
-            Transform parent = _riderSlot != null ? _riderSlot : transform;
-            _rider = Instantiate(riderPrefab, parent);
-            _rider.transform.localPosition = Vector3.zero;
-            _rider.transform.localRotation = Quaternion.identity;
-        }
-
-        public void ClearRider()
-        {
-            if (_rider == null)
-                return;
-
-            Destroy(_rider);
-            _rider = null;
-        }
-
         public void SetAnimal(GameObject prefab, float scale, Vector3 offset)
         {
             ClearAnimal();
@@ -57,6 +40,7 @@ namespace Internal.Scripts.Player
             _animal.transform.localPosition = offset;
             _animal.transform.localRotation = Quaternion.identity;
             _animal.transform.localScale = Vector3.one * scale;
+            _animalFront = _animal.GetComponent<AnimalCaravanFront>();
         }
 
         public void ClearAnimal()
@@ -64,11 +48,11 @@ namespace Internal.Scripts.Player
             if (_animal == null) return;
             Destroy(_animal);
             _animal = null;
+            _animalFront = null;
         }
 
         private void OnDestroy()
         {
-            ClearRider();
             ClearAnimal();
         }
     }

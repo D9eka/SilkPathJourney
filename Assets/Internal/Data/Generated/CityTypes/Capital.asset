@@ -31,7 +31,7 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  <Icon>k__BackingField: {fileID: 0}
+  <Icon>k__BackingField: {fileID: 21300000, guid: a2bb1ed84da64cef878a87dabd54109b, type: 3}
   <CityMoneyIncomePerScale>k__BackingField: 120
   <BaseTariffPct>k__BackingField: 3
   <CategoryCoefs>k__BackingField:

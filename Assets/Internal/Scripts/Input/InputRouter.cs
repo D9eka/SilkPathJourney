@@ -11,6 +11,7 @@ namespace Internal.Scripts.Input
     {
         private const float CAMERA_SIZE_MODIFIER = -1f;
         private const float MAX_RAY_DISTANCE = 1000f;
+        private const int RAYCAST_BUFFER_SIZE = 8;
 
         private static readonly Vector2 CameraMovementModifier = new Vector2(-1f, -1f);
 
@@ -25,6 +26,7 @@ namespace Internal.Scripts.Input
 
         private LayerMask _interactableLayerMask;
         private IInteractableObject _currentHover;
+        private readonly RaycastHit[] _raycastBuffer = new RaycastHit[RAYCAST_BUFFER_SIZE];
 
         private bool _clickRequested;
         private float _zoomValue;
@@ -131,13 +133,34 @@ namespace Internal.Scripts.Input
             Vector2 screenPos = Mouse.current.position.ReadValue();
             Ray ray = cam.ScreenPointToRay(screenPos);
 
-            if (Physics.Raycast(ray, out RaycastHit hit, MAX_RAY_DISTANCE, _interactableLayerMask))
+            int count = Physics.RaycastNonAlloc(ray, _raycastBuffer, MAX_RAY_DISTANCE, _interactableLayerMask);
+            if (count == 0)
+                return null;
+
+            if (count == RAYCAST_BUFFER_SIZE)
+                Debug.LogWarning("[InputRouter] RaycastNonAlloc buffer full — increase RAYCAST_BUFFER_SIZE");
+
+
+            IInteractableObject best = null;
+            int bestPriority = int.MinValue;
+            float bestDistance = float.MaxValue;
+
+            for (int i = 0; i < count; i++)
             {
-                if (hit.collider.TryGetComponent(out IInteractableObject view))
-                    return view;
+                var hit = _raycastBuffer[i];
+                if (!hit.collider.TryGetComponent(out IInteractableObject view))
+                    continue;
+
+                int priority = view.InteractionPriority;
+                if (priority > bestPriority || (priority == bestPriority && hit.distance < bestDistance))
+                {
+                    best = view;
+                    bestPriority = priority;
+                    bestDistance = hit.distance;
+                }
             }
 
-            return null;
+            return best;
         }
 
         private void OnClick(InputAction.CallbackContext context)

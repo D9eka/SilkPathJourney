@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69c326f2c6774ae7971dca50e0a72901, type: 3}
+  m_Name: LanguageIconCatalog
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Components.LanguageIconCatalog
+  _entries:
+  - Type: 1
+    Icon: {fileID: 21300000, guid: f63bbde0545843b39474b18bf68666fb, type: 3}
+  - Type: 2
+    Icon: {fileID: 21300000, guid: 2737eb4ef4504af5adf033dd75887d5c, type: 3}
+  - Type: 3
+    Icon: {fileID: 21300000, guid: b56dbede75fc4c2081e479f46a42fc3c, type: 3}
+  - Type: 4
+    Icon: {fileID: 21300000, guid: dafa50287bd041de934fea486a364e51, type: 3}
+  - Type: 5
+    Icon: {fileID: 21300000, guid: dbac4c01d5fc44c4954cdd946baaf67d, type: 3}
+  - Type: 6
+    Icon: {fileID: 21300000, guid: ed43d0c646b14ed380c202755ee3987a, type: 3}
+  - Type: 7
+    Icon: {fileID: 21300000, guid: 74a9abac6cd24927a9d5cfe6e8e04d31, type: 3}
+  - Type: 8
+    Icon: {fileID: 21300000, guid: f35526e8534c433e9786b01223607b40, type: 3}

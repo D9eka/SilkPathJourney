@@ -7,7 +7,6 @@ using Internal.Scripts.Events.Data;
 using Internal.Scripts.Events.Generated;
 using Internal.Scripts.Player;
 using Internal.Scripts.WorldModifiers;
-using UnityEngine;
 
 namespace Internal.Scripts.Events.Conditions
 {
@@ -47,9 +46,22 @@ namespace Internal.Scripts.Events.Conditions
                 return false;
 
             if (condition.Type == EventConditionType.InCity)
-                return true;
+                return MatchesCity(city, condition);
 
             return EvaluateCityModifier(city, condition.Param);
+        }
+
+        private static bool MatchesCity(CityData city, EventCondition condition)
+        {
+            if (condition.ParamList != null && condition.ParamList.Length > 0)
+            {
+                foreach (string id in condition.ParamList)
+                    if (string.Equals(city.Id, id, StringComparison.OrdinalIgnoreCase))
+                        return true;
+                return false;
+            }
+
+            return string.Equals(city.Id, condition.Param, StringComparison.OrdinalIgnoreCase);
         }
 
         private bool EvaluateCityModifier(CityData city, string param)

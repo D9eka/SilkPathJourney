@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3fa4114d1b337a42a101a6fba5c70ad, type: 3}
+  m_Name: CultureBuildingCatalog
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Economy.Buildings.CultureBuildingCatalog
+  <Sets>k__BackingField:
+  - Culture: 1
+    Prefabs:
+    - {fileID: 6856845826373665207, guid: a4cd2bbb27e9cec408ef02e3ec14b838, type: 3}
+    - {fileID: 180119100424889078, guid: 769d395207072854792fb1fcc8dafd3f, type: 3}
+    - {fileID: 7323161986036889856, guid: f762894f950565c42a9073985c0e1bcb, type: 3}
+    - {fileID: 6400576306166588735, guid: f99c52178d8b80f418b47fef858e0234, type: 3}
+  - Culture: 2
+    Prefabs:
+    - {fileID: 2060116435947485932, guid: efc310f8f1b3d4448a9c821d1bc878df, type: 3}
+    - {fileID: 7211043040967765420, guid: 654ae0c76518f804590f278e6acfd48e, type: 3}
+    - {fileID: 8007355209918318410, guid: 885d09df5bd318a4183ebba9591e0996, type: 3}
+    - {fileID: 6917901761495438946, guid: 0cedd7ccb940b204dacf1ba79ba015f2, type: 3}
+  - Culture: 3
+    Prefabs:
+    - {fileID: 2490281827564040848, guid: 72cdeecb2065a2a4a976d17f6cc70fda, type: 3}
+    - {fileID: 5704004254973163227, guid: b71e4af999f460f4cb6be79220b5e363, type: 3}
+    - {fileID: 2449692489323526966, guid: 575b59be777d11543844e22cc584065d, type: 3}
+    - {fileID: 7996484471420176276, guid: edb294397e307d74aae7e7f8a706c8f8, type: 3}
+  - Culture: 4
+    Prefabs:
+    - {fileID: 4971222033175813063, guid: cafaebe10fed8454482113a74c7a16ec, type: 3}
+    - {fileID: 8309768021480375832, guid: 806e0d998e80c3c4e8944d5ae32ad348, type: 3}
+    - {fileID: 5731640229187754370, guid: c1f2d5145bef26340a4e857c8bb227e6, type: 3}
+    - {fileID: 5487754606776008218, guid: a9a641e49c83e094caf098cc4659cb7f, type: 3}
+  - Culture: 5
+    Prefabs:
+    - {fileID: 4084940872008885877, guid: be158fdbf826f3b449085545639550bd, type: 3}
+    - {fileID: 7218890771900876517, guid: 1c1490d79057b724ab1eeef84af26894, type: 3}
+    - {fileID: 3582275607015497950, guid: cdbb1b147dc245b4a9a46aabcc4b29a0, type: 3}
+    - {fileID: 3276495822657640271, guid: d84ba283496789b49aef54f4dde8be86, type: 3}
+  - Culture: 6
+    Prefabs:
+    - {fileID: 4152068531422101013, guid: 7b5c5509ca6483d41b06e2bf98508047, type: 3}
+    - {fileID: 3113080497145375437, guid: b80c5ec9577349b44ae6f2d040c7e017, type: 3}
+    - {fileID: 5436708579478197364, guid: c9987ca66c960a248bc94c0ec57dfe09, type: 3}
+    - {fileID: 3481167389378136561, guid: e82da9f8e66bb9943a208dfd2b33756c, type: 3}
+  - Culture: 7
+    Prefabs:
+    - {fileID: 6009831245758526013, guid: b40f576451998ff4fb32149d73bf573b, type: 3}
+    - {fileID: 1191176707117776315, guid: 7eca513f92fca054fa1b00ec9ef7416f, type: 3}
+    - {fileID: 7610452205085403677, guid: fca5f25522673844ab8cd5a703d73b23, type: 3}
+    - {fileID: 2891048305981793020, guid: d31f4aaae230559478ed2dc85c5af552, type: 3}
+  - Culture: 8
+    Prefabs:
+    - {fileID: 169977903508898664, guid: 65d702cd2e9b8cb469adf003635fba08, type: 3}
+    - {fileID: 1248375019500950687, guid: ca91018985b06f647be9ce2afbba59c6, type: 3}
+    - {fileID: 9007712409728619137, guid: e2a2d2ef8dbeacc47820161fabc6ee45, type: 3}
+    - {fileID: 5921588068248810099, guid: b664a58a1bcdb6b4890863a4c444fa20, type: 3}
+  - Culture: 9
+    Prefabs:
+    - {fileID: 9118292619699976421, guid: 019416b4905e409488f20b25c0ad5328, type: 3}
+    - {fileID: 8879336191624541498, guid: e3767ccb6214fba4bbccc3f600efc033, type: 3}
+    - {fileID: 8295365597867198757, guid: 3beb8d8a96deaba46870708a29e1253c, type: 3}
+    - {fileID: 2845234320005652102, guid: fbe969d44bcbeee4e858e3a6bc89377f, type: 3}
+  - Culture: 10
+    Prefabs:
+    - {fileID: 8541053165934380402, guid: 1be6fa23e9b8feb468337f8029aeecfe, type: 3}
+    - {fileID: 3544242419174082818, guid: 1c972be2df3f5d046b9367599d5b2b85, type: 3}
+    - {fileID: 2225008581134828995, guid: 83d2cb2f3732a7342bd72a3736d8c317, type: 3}
+    - {fileID: 3996547621483084010, guid: c766e4b3e8580ce48ba348aa036327b5, type: 3}
+  - Culture: 11
+    Prefabs:
+    - {fileID: 7916977280349930938, guid: a2676827077ad8b4b99593345103b915, type: 3}
+    - {fileID: 1593979210722469720, guid: c9b249ef8d71d4840b9ad4368015860b, type: 3}
+    - {fileID: 7961892578307287489, guid: b8c4011b5a53b5e43af02edf710c9226, type: 3}
+    - {fileID: 4284402312237589593, guid: c559da0617fc0504d8adce851be240a6, type: 3}

@@ -31,7 +31,9 @@ MonoBehaviour:
   _screenCatalog: {fileID: 11400000, guid: 666dbe6a588aa6e48900895fc40fcca8, type: 2}
   _resourceIconCatalog: {fileID: 11400000, guid: a42aa19a74ddc194c8d99e338c0cd34a, type: 2}
   _itemCategoryCatalog: {fileID: 11400000, guid: 9f55077a1d778fb438d20c5d8997d14e, type: 2}
-  _buildingFilterCatalog: {fileID: 0}
+  _buildingFilterCatalog: {fileID: 11400000, guid: 896b5159389640eaa7d7e705423b4d02, type: 2}
+  _journalIconCatalog: {fileID: 11400000, guid: 23b06cfc4b1d4efb9e0aaa1cfc596d60, type: 2}
+  _worldModifierIcons: {fileID: 11400000, guid: 64c5da417929a6e479bdb63869102eae, type: 2}
   _gameScene:
     _sceneAsset: {fileID: 102900000, guid: 4469673e4990f2a41b1bebe1d3d4d6e8, type: 3}
     _sceneName: StrategicView

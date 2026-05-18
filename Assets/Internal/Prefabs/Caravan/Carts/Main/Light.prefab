@@ -32,6 +32,7 @@ Transform:
   m_Children:
   - {fileID: 7581771196340552034}
   - {fileID: 8657090273307645451}
+  - {fileID: 5534003401552033502}
   - {fileID: 5054602005420337759}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -50,6 +51,7 @@ MonoBehaviour:
   _riderSlot: {fileID: 7581771196340552034}
   _animalSlot: {fileID: 8657090273307645451}
   _animator: {fileID: 0}
+  _caravanBack: {fileID: 5534003401552033502}
 --- !u!1 &237240569881448990
 GameObject:
   m_ObjectHideFlags: 0
@@ -75,7 +77,7 @@ Transform:
   m_GameObject: {fileID: 237240569881448990}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.423, z: 0.573}
+  m_LocalPosition: {x: 0, y: 0.82, z: -2.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -92,8 +94,6 @@ GameObject:
   - component: {fileID: 5054602005420337759}
   - component: {fileID: 8180053663881815889}
   - component: {fileID: 5002592620956160283}
-  - component: {fileID: 4238248668211004625}
-  - component: {fileID: 4722306760321027097}
   m_Layer: 0
   m_Name: Light
   m_TagString: Untagged
@@ -110,8 +110,8 @@ Transform:
   m_GameObject: {fileID: 1393476260141324169}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.2, z: 0.32}
-  m_LocalScale: {x: 0.64, y: 0.4, z: 0.64}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5229171662036922192}
@@ -123,7 +123,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1393476260141324169}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 8148188476708289613, guid: 68091aef5b7e6c149b225848ba03fa92, type: 3}
 --- !u!23 &5002592620956160283
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -149,7 +149,9 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e1f0439852348df4296bd8813feed1fa, type: 2}
+  - {fileID: 2100000, guid: 005e7d5fa18073d47b4f5104b05c17d9, type: 2}
+  - {fileID: 2100000, guid: e98f24532b1aa2a459864ef46d505c87, type: 2}
+  - {fileID: 2100000, guid: 0c23b6188cad67b479f5dccd9eedb87b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -171,43 +173,39 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4238248668211004625
-BoxCollider:
+--- !u!1 &7322544393175792182
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1393476260141324169}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4722306760321027097
-MonoBehaviour:
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5534003401552033502}
+  m_Layer: 0
+  m_Name: CaravanBack
+  m_TagString: Untagged
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5534003401552033502
+Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1393476260141324169}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69e039e68b123ba4e9d80407824eacd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Player.CartFollowerView
-  _riderSlot: {fileID: 0}
-  _animalSlot: {fileID: 0}
-  _animator: {fileID: 0}
+  m_GameObject: {fileID: 7322544393175792182}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -3.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5229171662036922192}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8934542584422984423
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,7 +231,7 @@ Transform:
   m_GameObject: {fileID: 8934542584422984423}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.612, y: -0.008, z: 0.748}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

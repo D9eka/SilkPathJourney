@@ -49,5 +49,8 @@ namespace Internal.Scripts.Camera
 
         [Tooltip("Camera move speed (units/sec) when previewing a target city")]
         [field: SerializeField] public float PreviewMoveSpeed { get; private set; } = 200f;
+
+        [Tooltip("Minimum zoom duration when previewing a target city (sec)")]
+        [field: SerializeField] public float PreviewZoomDuration { get; private set; } = 0.7f;
     }
 }

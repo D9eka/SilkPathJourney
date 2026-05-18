@@ -102,7 +102,7 @@ namespace Internal.Scripts.Events.Outcomes
             stats.LegacyBonus = bonus;
             _persistent.AddLegacyPoints(earned);
             _persistent.RecordRunCompleted(stats, endType, earned);
-            _achievementService.CheckAll(stats, endType);
+            _achievementService.CheckAll(endType);
             _saveRepository.Save();
 
             var args = new RunEndArgs(endType, reasonKey, stats, branchId);

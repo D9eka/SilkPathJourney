@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Internal.Scripts.Caravan;
 using Internal.Scripts.Caravan.Generated;
 using Internal.Scripts.Economy;
 using Internal.Scripts.Npc.Core;
@@ -10,17 +11,17 @@ namespace Internal.Scripts.Player
 {
     public sealed class ConvoyVisualizer : ITickable, IDisposable
     {
-        private const int BUFFER_SIZE = 120;
-        private const float SPACING_METERS = 0.5f;
+        private const int BUFFER_SIZE = 600;
         private const float ROTATION_SPEED = 10f;
-        private const int SAMPLES_PER_SPACING = 10;
-        private const float RECORD_INTERVAL = SPACING_METERS / SAMPLES_PER_SPACING;
+        private const float RECORD_INTERVAL = 0.05f;
         private const float MIN_MOVE_THRESHOLD = 0.01f;
-        private static readonly Vector3 FALLBACK_CART_SCALE = new(0.6f, 0.4f, 1.2f);
+        private const float CARAVAN_GAP_METERS = 0.1f;
+        private const float DEFAULT_UNIT_LENGTH = 3f;
 
         private readonly RoadAgentView _playerView;
         private readonly PlayerResourceRepository _resourceRepo;
         private readonly ConvoyPrefabCatalog _catalog;
+        private readonly CaravanDatabase _caravanDb;
 
         private readonly Vector3[] _positionBuffer = new Vector3[BUFFER_SIZE];
         private readonly Vector3[] _forwardBuffer = new Vector3[BUFFER_SIZE];
@@ -34,14 +35,19 @@ namespace Internal.Scripts.Player
         private CartClass _currentMainCartClass = (CartClass)(-1);
         private DraftAnimalType _currentAnimalType = (DraftAnimalType)(-1);
         private CartFollowerView _mainCartView;
+        private bool _animalIdDiagWarned;
+        private bool _animalPrefabDiagWarned;
+        private bool _extraCartDiagWarned;
 
         public ConvoyVisualizer(
             RoadAgentView playerView,
             PlayerResourceRepository resourceRepo,
+            CaravanDatabase caravanDb,
             [Inject(Optional = true)] ConvoyPrefabCatalog catalog)
         {
             _playerView = playerView;
             _resourceRepo = resourceRepo;
+            _caravanDb = caravanDb;
             _catalog = catalog;
             _lastRecordedPosition = _playerView.VisualRoot.position;
         }
@@ -56,7 +62,9 @@ namespace Internal.Scripts.Player
 
         private void RecordPosition()
         {
-            Vector3 currentPos = _playerView.VisualRoot.position;
+            Vector3 currentPos = _mainCartView != null
+                ? _mainCartView.AnimalFrontWorld
+                : _playerView.VisualRoot.position;
             Vector3 currentFwd = _playerView.VisualRoot.forward;
 
             float moved = Vector3.Distance(currentPos, _lastRecordedPosition);
@@ -93,11 +101,15 @@ namespace Internal.Scripts.Player
             while (_followers.Count < cartCount)
             {
                 string typeId = carts[_followers.Count].TypeId ?? "";
-                Enum.TryParse<ExtraCartType>(typeId, true, out var extraType);
+                var data = _caravanDb.ExtraCarts.Find(e => e.Id == typeId);
+                if (data == null && !string.IsNullOrEmpty(typeId) && !_extraCartDiagWarned)
+                {
+                    Debug.LogWarning($"[ConvoyVisualizer] No ExtraCartData for TypeId='{typeId}'");
+                    _extraCartDiagWarned = true;
+                }
+                var extraType = data?.Type ?? ExtraCartType.Unknown;
                 _followers.Add(CreateFollower(extraType));
             }
-
-            SyncRiders();
         }
 
         private void UpdateFollowerPositions()
@@ -105,18 +117,45 @@ namespace Internal.Scripts.Player
             if (_bufferCount == 0 || _followers.Count == 0)
                 return;
 
+            float playerUnitLength = ComputeHeadDistance(_mainCartView) + ComputeTailDistance(_mainCartView);
+            float distanceAlongPath = playerUnitLength + CARAVAN_GAP_METERS;
+
             for (int i = 0; i < _followers.Count; i++)
             {
-                int offset = (i + 1) * SAMPLES_PER_SPACING;
-                if (offset >= _bufferCount)
-                    offset = _bufferCount - 1;
+                var follower = _followers[i];
+                if (follower == null)
+                {
+                    distanceAlongPath += DEFAULT_UNIT_LENGTH + CARAVAN_GAP_METERS;
+                    continue;
+                }
+                float headDist = ComputeHeadDistance(follower);
+                float tailDist = ComputeTailDistance(follower);
 
-                int idx = (_bufferHead - 1 - offset + BUFFER_SIZE * 2) % BUFFER_SIZE;
+                float pivotDistance = distanceAlongPath + headDist;
+                int sampleSteps = Mathf.RoundToInt(pivotDistance / RECORD_INTERVAL);
+                if (sampleSteps >= _bufferCount) sampleSteps = _bufferCount - 1;
+                if (sampleSteps < 0) sampleSteps = 0;
 
-                _followers[i].transform.position = _positionBuffer[idx];
-                RoadAgentView.SmoothRotate(_followers[i].transform, _forwardBuffer[idx], ROTATION_SPEED);
-                _followers[i].UpdateMovementState();
+                int idx = (_bufferHead - 1 - sampleSteps + BUFFER_SIZE * 2) % BUFFER_SIZE;
+
+                follower.transform.position = _positionBuffer[idx] + Vector3.up * RoadAgentView.ROAD_GROUND_OFFSET;
+                RoadAgentView.SmoothRotate(follower.transform, _forwardBuffer[idx], ROTATION_SPEED);
+                follower.UpdateMovementState();
+
+                distanceAlongPath += headDist + tailDist + CARAVAN_GAP_METERS;
             }
+        }
+
+        private static float ComputeHeadDistance(CartFollowerView view)
+        {
+            if (view == null) return DEFAULT_UNIT_LENGTH * 0.5f;
+            return Vector3.Distance(view.AnimalFrontWorld, view.transform.position);
+        }
+
+        private static float ComputeTailDistance(CartFollowerView view)
+        {
+            if (view == null) return DEFAULT_UNIT_LENGTH * 0.5f;
+            return Vector3.Distance(view.CaravanBackWorld, view.transform.position);
         }
 
         public void Dispose()
@@ -168,15 +207,37 @@ namespace Internal.Scripts.Player
 
             string animalId = _resourceRepo.Current.DraftAnimalId;
             if (!Enum.TryParse<DraftAnimalType>(animalId, true, out var animalType))
+            {
+                if (!_animalIdDiagWarned)
+                {
+                    Debug.LogWarning($"[ConvoyVisualizer] DraftAnimalId='{animalId}' is not a valid DraftAnimalType");
+                    _animalIdDiagWarned = true;
+                }
                 return;
+            }
 
             if (animalType != _currentAnimalType)
             {
                 var entry = _catalog.GetAnimal(animalType);
                 if (entry.Prefab != null)
+                {
                     _mainCartView.SetAnimal(entry.Prefab, entry.Scale > 0 ? entry.Scale : 1f, entry.Offset);
+                    foreach (var follower in _followers)
+                        if (follower != null)
+                            follower.SetAnimal(entry.Prefab, entry.Scale > 0 ? entry.Scale : 1f, entry.Offset);
+                }
                 else
+                {
+                    if (!_animalPrefabDiagWarned)
+                    {
+                        Debug.LogWarning($"[ConvoyVisualizer] No prefab for animal type {animalType} in catalog");
+                        _animalPrefabDiagWarned = true;
+                    }
                     _mainCartView.ClearAnimal();
+                    foreach (var follower in _followers)
+                        if (follower != null)
+                            follower.ClearAnimal();
+                }
                 _currentAnimalType = animalType;
             }
         }
@@ -184,22 +245,11 @@ namespace Internal.Scripts.Player
         private CartFollowerView CreateFollower(ExtraCartType extraType)
         {
             GameObject prefab = _catalog?.GetExtraCart(extraType);
-            GameObject go;
-            if (prefab != null)
-            {
-                go = UnityEngine.Object.Instantiate(prefab);
-            }
-            else
-            {
-                go = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                go.name = "ConvoyCart";
-                go.transform.localScale = FALLBACK_CART_SCALE;
+            if (prefab == null) return null;
 
-                var collider = go.GetComponent<Collider>();
-                if (collider != null)
-                    UnityEngine.Object.Destroy(collider);
-            }
-
+            GameObject go = UnityEngine.Object.Instantiate(prefab, _playerView.VisualRoot);
+            go.transform.localPosition = Vector3.zero;
+            go.transform.localRotation = Quaternion.identity;
             var view = go.GetComponent<CartFollowerView>() ?? go.AddComponent<CartFollowerView>();
             SetAnimalOnCart(view);
             return view;
@@ -216,22 +266,5 @@ namespace Internal.Scripts.Player
                 view.SetAnimal(entry.Prefab, entry.Scale > 0 ? entry.Scale : 1f, entry.Offset);
         }
 
-        private void SyncRiders()
-        {
-            var companions = _resourceRepo.Current.Companions;
-            GameObject riderPrefab = _catalog?.RiderPrefab;
-
-            for (int i = 0; i < _followers.Count; i++)
-            {
-                bool hasRider = riderPrefab != null
-                    && i < (companions?.Count ?? 0)
-                    && !companions[i].IsInjured;
-
-                if (hasRider)
-                    _followers[i].SetRider(riderPrefab);
-                else
-                    _followers[i].ClearRider();
-            }
-        }
     }
 }

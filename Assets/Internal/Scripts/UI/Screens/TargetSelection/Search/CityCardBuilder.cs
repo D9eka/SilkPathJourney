@@ -6,6 +6,7 @@ using Internal.Scripts.Economy.Generated;
 using Internal.Scripts.Quests;
 using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Localization;
+using Internal.Scripts.UI.WorldLabel;
 using UnityEngine;
 
 namespace Internal.Scripts.UI.Screens.TargetSelection.Search
@@ -15,15 +16,18 @@ namespace Internal.Scripts.UI.Screens.TargetSelection.Search
         private readonly EconomyDatabase _economyDb;
         private readonly BuildingFilterCatalog _buildingFilterCatalog;
         private readonly QuestCityIndicatorService _questIndicator;
+        private readonly QuestIndicatorIcons _questIcons;
 
         public CityCardBuilder(
             EconomyDatabase economyDb,
             BuildingFilterCatalog buildingFilterCatalog,
-            QuestCityIndicatorService questIndicator)
+            QuestCityIndicatorService questIndicator,
+            QuestIndicatorIcons questIcons)
         {
             _economyDb = economyDb;
             _buildingFilterCatalog = buildingFilterCatalog;
             _questIndicator = questIndicator;
+            _questIcons = questIcons;
         }
 
         public CityRowData Build(CityData city)
@@ -36,6 +40,7 @@ namespace Internal.Scripts.UI.Screens.TargetSelection.Search
             Sprite cityIcon = typeData?.Icon;
             IconLabelEntry[] buildingEntries = ResolveBuildingEntries(city);
             string questText = _questIndicator?.GetIndicatorText(city.Id);
+            Sprite questIcon = _questIndicator?.GetIndicatorIcon(city.Id, _questIcons);
 
             CitySpecializationVm specialization = CitySpecializationVm.Build(typeData);
 
@@ -46,6 +51,7 @@ namespace Internal.Scripts.UI.Screens.TargetSelection.Search
                 cityIcon: cityIcon,
                 buildingEntries: buildingEntries,
                 cityTooltip: typeData,
+                questIndicatorIcon: questIcon,
                 questIndicatorText: questText,
                 specialization: specialization);
         }

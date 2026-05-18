@@ -1778,8 +1778,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2579676087591298420, guid: 8bce9bce8d064844cb89ea7ad3b7fb41, type: 3}
       propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: d83fe2f8d3ccc1b4a8834b38dcc619a8, type: 3}
+      value:
+      objectReference: {fileID: 21300000, guid: 42aa5068d6174ec9a921d5c0e1c1eddd, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2464,8 +2464,8 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2301887894077380450, guid: 8ad249b434294b84faf38eafa3f4474b, type: 3}
       propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: a697a1c2bfe10b546b356ed4a9506725, type: 3}
+      value:
+      objectReference: {fileID: 21300000, guid: b4ce634d541349e88a2445cfe0ec28d4, type: 3}
     - target: {fileID: 4224199774708826445, guid: 8ad249b434294b84faf38eafa3f4474b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2947,8 +2947,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2579676087591298420, guid: 8bce9bce8d064844cb89ea7ad3b7fb41, type: 3}
       propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: a697a1c2bfe10b546b356ed4a9506725, type: 3}
+      value:
+      objectReference: {fileID: 21300000, guid: 0c2cfd03579140268ae5cd8215d59486, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3486,8 +3486,8 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6239887160019998405, guid: f571cc5789f8ab144b6473e9a15c84a8, type: 3}
       propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: a697a1c2bfe10b546b356ed4a9506725, type: 3}
+      value:
+      objectReference: {fileID: 21300000, guid: 4e703676641649cea8f53e682cd84204, type: 3}
     - target: {fileID: 8251542984140738988, guid: f571cc5789f8ab144b6473e9a15c84a8, type: 3}
       propertyPath: m_Name
       value: DiaryScreenActionButton
@@ -3688,7 +3688,7 @@ PrefabInstance:
     - target: {fileID: 2579676087591298420, guid: 8bce9bce8d064844cb89ea7ad3b7fb41, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: a697a1c2bfe10b546b356ed4a9506725, type: 3}
+      objectReference: {fileID: 21300000, guid: d713ea681ce5482f998a8e85a750007c, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

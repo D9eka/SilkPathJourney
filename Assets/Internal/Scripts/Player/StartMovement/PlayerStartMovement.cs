@@ -138,6 +138,7 @@ namespace Internal.Scripts.Player.StartMovement
                 return;
 
             _isChoosingTarget = state;
+            _cityViewSpawner.SetCollidersEnabled(state);
             OnSelectionStateChanged?.Invoke(state);
         }
     }

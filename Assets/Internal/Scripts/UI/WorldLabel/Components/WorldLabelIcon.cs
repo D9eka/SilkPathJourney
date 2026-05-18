@@ -45,7 +45,7 @@ namespace Internal.Scripts.UI.WorldLabel.Components
 
         public void SetIcon(Sprite icon, float alpha = 1f)
         {
-            if (_icon == null) return;
+            if (_icon == null) _icon = GetComponent<Image>();
             _icon.sprite = icon;
             if (alpha < 1f)
             {
@@ -53,6 +53,14 @@ namespace Internal.Scripts.UI.WorldLabel.Components
                 c.a = alpha;
                 _icon.color = c;
             }
+        }
+
+        public void SetTintColor(Color color)
+        {
+            if (_icon == null) _icon = GetComponent<Image>();
+            float keepAlpha = _icon.color.a;
+            color.a = keepAlpha;
+            _icon.color = color;
         }
 
         private void OnHoverEnter()

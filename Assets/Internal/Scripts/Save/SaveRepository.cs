@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Internal.Scripts.Config;
 using Internal.Scripts.Economy.Save;
+using Internal.Scripts.Events;
 using Internal.Scripts.Economy.Save.Models;
 using Internal.Scripts.Inventory;
 using Internal.Scripts.Items;
@@ -142,6 +143,7 @@ namespace Internal.Scripts.Save
             data.Economy.CityInventories ??= new List<CityInventoryState>();
             data.RunStats ??= new RunStatsData();
             data.MarketMemory ??= new Dictionary<string, Economy.MarketMemory.MarketSnapshot>();
+            data.EventQueue ??= new List<Events.QueuedEvent>();
 
             if (!data.Economy.IsInitialized && data.Economy.CityInventories.Count > 0)
                 data.Economy.IsInitialized = true;

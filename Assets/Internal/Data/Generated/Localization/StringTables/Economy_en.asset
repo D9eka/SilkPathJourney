@@ -571,38 +571,91 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 6593451503116297
-    m_Localized: "Heart of the Celestial Empire \u2014 the great capital of the Ming
-      dynasty. The finest goods and immeasurable riches are gathered here."
+    m_Localized: 'On the northeastern edge of the Great Wall lies Youzhou - a frontier
+      hub from which the Tang launches troops against Khitan raids and campaigns
+      toward Koguryo and Bohai. The city itself is modest: earthen ramparts, timber
+      barracks, a noisy horse-and-felt market where Turkic and Khitan horsemen haggle
+      with imperial buyers. Youzhou''s importance lies in its roads: the track from
+      Liaodong meets here the mountain trail through the Yan hills and the post road
+      south to Luoyang. The rebellion of An Lushan will ignite from this very region
+      - the general gathers in these parts the triple governorate of Fanyang, Pinglu,
+      and Hedong, building a power that will shake the whole empire.'
     m_Metadata:
       m_Items: []
   - m_Id: 6593451503116298
-    m_Localized: An ancient city at the start of the Silk Road. For centuries caravans
-      departed westward from here across the endless steppes.
+    m_Localized: 'The Tang capital spreads across eighty square li - a precise grid
+      of boulevards, markets, and wards housing more than a million souls. The Western
+      Market roars with Sogdian, Persian, Indian, and Arab voices: silk and porcelain
+      change hands here alongside Tocharian horses and overseas spices sold at the
+      roadside. In the Hufan wards foreigners build Nestorian churches and Manichaean
+      chapels beside Daoist and Buddhist monasteries - the Tang court tolerates foreign
+      faiths. The Imperial Secretariat and the Bureau of Six Departments govern a
+      vast realm stretching from Korea to the Pamirs; the Hanlin Academy trains officials
+      who have passed the rigorous keju examinations. From here the road west begins:
+      beyond the Jade Gate the Silk Road opens.'
     m_Metadata:
       m_Items: []
   - m_Id: 6593451503116299
-    m_Localized: A frontier city at the edge of the desert. Merchants prepare here
-      for the perilous crossing through waterless lands.
+    m_Localized: 'Lanzhou stands where the Yellow River cuts through the loess plateaus
+      in a sharp bend: the ferry crossings are expensive but unavoidable - this is
+      the point where eastern China connects to the Hexi Corridor. Floating bridges
+      of inflated ox-skin bags - the bayan - keep the crossing open even in flood
+      season, though passage demands skill and light loads. The local market sells
+      horses from the Tibetan plateau, wool from the Qiang highlanders, and salt
+      from the Qaidam salt lakes. The city''s strategic importance is such that the
+      Ministry of War maintains here a permanent supply headquarters for the western
+      armies, and every merchant must register at the prefectural office before continuing
+      the journey.'
     m_Metadata:
       m_Items: []
   - m_Id: 6593451503116300
-    m_Localized: A growing port on the coast. Sea junks and river boats bring goods
-      here from across southern China.
+    m_Localized: On the bank of the Huangpu river where it enters the Yangtze estuary
+      lies a small fishing village called Hudu - the future Shanghai. The Yangtze
+      - the main trading artery of southern China - carries past it barges loaded
+      with silk from Hangzhou and rice from Sichuan; river boats stop here to take
+      on water and salt from coastal evaporation pans. Fresh fish and reed matting
+      are the chief local goods; sea salt produced on the muddy shores travels to
+      inland markets. While Guangzhou and Quanzhou receive overseas merchants the
+      Yangtze mouth remains an internal river hub for transferring southern cargoes
+      to the northern route along the Grand Canal.
     m_Metadata:
       m_Items: []
   - m_Id: 6593451503116301
-    m_Localized: "Pearl of the south \u2014 a city of craftsmen and weavers. Silk
-      and tea from Hangzhou are renowned throughout the empire."
+    m_Localized: 'On the southern shore of the picturesque Xihu - West Lake - Hangzhou
+      spreads among tea plantations and sericulture estates that yield more revenue
+      to the treasury than some entire provinces. The local mian silk is prized for
+      its particular softness: thread is reeled directly at the cocoon pools before
+      the silk can dry. The Great Southern Canal - part of the Sui Grand Canal -
+      links Hangzhou to Luoyang and Chang''an: grain barges and silk bales travel
+      north without reloading. The city''s weavers belong to guilds answerable to
+      the Ministry of the Imperial Household; officials accept silk as tax payment
+      at a fixed rate against silver. Green tea from the Tianmu mountains is already
+      reaching the tables of connoisseurs in Chang''an.'
     m_Metadata:
       m_Items: []
   - m_Id: 6593451503116302
-    m_Localized: The greatest maritime port of Ming. Ships depart from here to Southeast
-      Asia and distant Arabia.
+    m_Localized: 'Quanzhou - the Zaytun of Arab pilots - stands at the mouth of the
+      Taiwan Strait on a bay with convenient anchorage. Under the Tang it is already
+      a major maritime port: the Office of Maritime Trade collects dues here from
+      Arab and Malay ships bringing pepper and camphor. Local shipyards build ocean-going
+      junks with watertight bulkheads - a secret unknown to western shipbuilders.
+      A Manichaean oratory and a Nestorian chapel stand beside Buddhist monasteries
+      in the foreign merchants'' wards. Quanzhou porcelain - bluish-white with dense
+      clay body - is beginning to build its reputation in the markets of Southeast
+      Asia, though the Chang''an court still prefers kilns of the north.'
     m_Metadata:
       m_Items: []
   - m_Id: 6593451503116303
-    m_Localized: "Southern gateway of China. The port connects the empire with overseas
-      lands \u2014 from India to the Spice Islands."
+    m_Localized: 'Guangzhou breathes salt air, spices, and ship-timber resin: in
+      the mouth of the Pearl River dozens of Arab, Persian, and Malay vessels lie
+      at anchor awaiting the trade winds for the return voyage. The Office of Maritime
+      Trade - the Shibosi - collects duties here and issues permits to foreign captains;
+      Arab and Persian merchants live in a special ward called Dianliu under the
+      supervision of an imperial official. From Guangzhou silk, porcelain, lacquerware,
+      and tea travel westward; returning ships bring incense, pearls, tortoiseshell,
+      and rare tropical timbers. The poet Zhang Jiuling, a native of this region
+      and chief minister under Emperor Xuanzong, enhanced the city''s standing by
+      reforming its trade regulations.'
     m_Metadata:
       m_Items: []
   - m_Id: 6593451503116304
@@ -814,73 +867,174 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 7217665172037675
-    m_Localized: An oasis on the northern route across the Taklamakan. Caravans stock
-      up on water before crossing the desert.
+    m_Localized: 'Among the bare rocks of the Tian Shan, Aksu spreads as a green
+      patch of orchards and fields watered by glacial rivers flowing down from the
+      heights. Here the northern route around the Taklamakan makes its first long
+      halt after barren steppes: merchants mend damaged harness, swap exhausted camels
+      for fresh ones, and stock grain for the grueling crossing to Kashgar. Aksu
+      answers to the Tang military protectorate of Anxi and serves as a rear base
+      for the garrisons guarding the passes against Turkic raids. Sogdian traders
+      keep permanent warehouses here, while local Uyghur merchants supply horses
+      and felt to imperial supply trains.'
     m_Metadata:
       m_Items: []
   - m_Id: 7217665172037676
-    m_Localized: One of the world's oldest bazaars. Caravans from east and west meet
-      beneath the stone vaults of the covered market.
+    m_Localized: 'The scent of myrrh and tanned leather hangs over the covered lanes
+      of Aleppo - market streets that have never stood empty since Assyrian times.
+      Under Abbasid rule the city became a transit hub between Mesopotamia and the
+      Syrian coast: bales of silk arriving from Persia are reloaded here alongside
+      bolts of purple linen dispatched eastward. Aleppo soap, boiled from olive oil
+      and laurel extract, is bought by merchants from across the Levant. The city
+      is graced by the Umayyad mosque and a citadel atop an ancient tell, from which
+      sentries watch the roads toward Antioch and Raqqa.'
     m_Metadata:
       m_Items: []
   - m_Id: 7217665172037677
-    m_Localized: Sacred confluence of the Ganges and Yamuna. Pilgrims from across
-      India come to bathe in the holy waters.
+    m_Localized: Where the grey-green Ganges swallows the yellow Yamuna stands Prayaga
+      - the sacred confluence that Brahmin priests call the very spot where the gods
+      stirred the nectar of immortality. Thousands of pilgrims camp on the sandbars
+      at great festival times, bathing in the three rivers - the visible Ganges and
+      Yamuna and the invisible Saraswati said to flow underground. Trading boats
+      carrying grain, sugar, and cotton ply the Ganges here, linking Bengal to the
+      north. The site falls under the protection of a raja of the Pratihara line,
+      who patronises both Hindu Brahmin scholars and the Buddhist monasteries of
+      the Pala realm.
     m_Metadata:
       m_Items: []
   - m_Id: 7217665172037678
-    m_Localized: A fortress at the crossroads of worlds. Crusaders and Muslims fought
-      for centuries over control of this coast.
+    m_Localized: 'Antioch sits in the valley of the Orontes where the Amanus mountains
+      open toward the Syrian shore: basalt walls raised in Justinian''s day now carry
+      Arab sentries. After the conquest of 637 it passed to the Umayyad Caliphate,
+      and under the Abbasids it became a frontier post against Byzantium - both powers
+      exchange embassies and prisoners through these gates. Silk, olive oil, and
+      Antiochene glassware travel by merchant ship to Constantinople and Alexandria.
+      A Nestorian community and a small Greek congregation live alongside the Muslim
+      majority under the protection of dhimmi agreements - the poll tax opens doors,
+      though not always hearts.'
     m_Metadata:
       m_Items: []
   - m_Id: 7217665172037679
-    m_Localized: The last Chinese outpost. Beyond its walls lies the endless desert
-      and the lands of nomads.
+    m_Localized: Anxi is the headquarters of the Great Anxi Protectorate, whose authority
+      stretches from the eastern Tarim Basin to Sogdia. Within its rammed-earth walls
+      the Tang stores imperial grain reserves and an arsenal, and on the parade ground
+      officials of the Ministry of Personnel distribute orders to the garrisons of
+      the four great oases. Merchants heading west must present their paizi travel
+      pass here and pay duty into the imperial treasury. The desert horizon beyond
+      the north gate holds the threat of Turgesh and Uyghur ambushes, while the southern
+      road leads through Dunhuang toward the flanks of the Kunlun range. Here Chinese
+      speech fades and a mixing of tongues begins - Sogdian, Tocharian, Uyghur -
+      the first syllables of the western world.
     m_Metadata:
       m_Items: []
   - m_Id: 7217665172037680
-    m_Localized: A dusty port on the Red Sea shore. Pilgrims embark from here to
-      the holy cities of Arabia.
+    m_Localized: 'Under the searing Nubian sun Aydhab looks like a scatter of mud-brick
+      huts and warehouses, yet each year with the arrival of pilgrimage season the
+      quay becomes a cauldron of people, camels, and rigging. Ships from Fustat and
+      Aden anchor in the shallow bay, ferrying pilgrims to the Arabian shore at Jeddah,
+      within easy reach of Mecca. Transit trade settles here too: Ethiopian captives,
+      ivory, and ostrich feathers move northward, while Yemeni spices and Indian
+      cloth head west into Egypt. The local Beja nomads hold a monopoly on camel
+      transport between the Red Sea and the Nile valley.'
     m_Metadata:
       m_Items: []
   - m_Id: 7217665172037681
-    m_Localized: The Round City on the Tigris. The House of Wisdom holds the knowledge
-      of the entire world. The Caliph rules from his golden palace.
+    m_Localized: "Madinat al-Salam - the City of Peace - was built by Caliph al-Mansur
+      in just a few years as a perfect circle: four gates face the four cardinal
+      points and at the center rises the golden-domed palace. The House of Wisdom
+      translates Greek, Syriac, and Persian works on mathematics, astronomy, and
+      medicine, drawing scholars from across the known world. Along the Nahraw\u0101n
+      and Sar\u0101t canals ships arrive carrying rice from Khuzestan, spices from
+      India, and silk from China; the Karkh market on the western bank of the Tigris
+      hums with trade in a dozen languages. Abbasid caliphs receive here embassies
+      from the Tang court and Tibetan kings, exchanging gifts - glass and horses
+      for silk and paper."
     m_Metadata:
       m_Items: []
   - m_Id: 7217665172037682
-    m_Localized: "Mother of cities \u2014 the oldest city in Central Asia. Lapis
-      lazuli is mined and cotton grown here."
+    m_Localized: 'Balkh is called the Mother of Cities: even the ruins of its Bactrian
+      walls stand twice the height of present buildings, and every layer of soil
+      holds sherds from Greek, Kushan, and Sasanian times. After the Arab conquest
+      a Caliphate garrison is stationed here, yet the Persian Dari language and Zoroastrian
+      families have held on in the suburbs. From the Badakhshan mines nearby comes
+      lapis lazuli - the blue stone that colors frescoes from Samarkand to Baghdad;
+      the cotton fields around the city supply cloth for all of Central Asia. Sogdian
+      merchants keep transit warehouses in Balkh between Merv and Kabul, while local
+      scholars copy Avestan texts in secrecy from zealous officials.'
     m_Metadata:
       m_Items: []
   - m_Id: 7217665172037683
-    m_Localized: A city of scholars and artisans. Bukhara's madrasas are renowned
-      across the Muslim world. Its masters weave the finest carpets.
+    m_Localized: 'Bukhara lies in the fertile Zerafshan valley, surrounded by orchards
+      of apricot and mulberry: sericulture here is so developed that local raw silk
+      travels to Chang''an and Constantinople under its own name. After the Arab
+      conquest the city is governed by the Persian Barmakid family - descended from
+      local Buddhist priests who converted to Islam and rose to become viziers of
+      the caliph. On the main bazaar Sogdian merchants, Arab tax collectors, and
+      Chinese envoys haggle over musk, silver vessels, and cotton cloth. Bukharan
+      craftsmen weave brocade shot with gold thread, purchased at courts from Baghdad
+      to Chang''an.'
     m_Metadata:
       m_Items: []
   - m_Id: 7217665172037684
-    m_Localized: Capital of the Mamluks at the foot of the pyramids. The Nile carries
-      Africa's wealth through the greatest bazaar of the East.
+    m_Localized: 'On the eastern bank of the Nile beside the ancient Babylon fortress,
+      an Arab army pitched its first camp in 641 and named it Fustat - the Tent.
+      From a temporary bivouac it grew into the capital of Arab Egypt: whitewashed
+      houses stretch along Trajan''s canal linking the Nile to the Red Sea, and the
+      quay receives grain barges that feed Arabia. The mosque of Amr ibn al-As -
+      the first on the African shore - stands at the city''s center, where Coptic
+      priests and Muslim judges conduct their affairs side by side under the same
+      authority. Egypt''s linen cloth, papyrus, and alum from the eastern desert
+      travel to Baghdad and Mediterranean ports. The pyramids of Giza rise on the
+      horizon - silent witnesses to the succession of rulers.'
     m_Metadata:
       m_Items: []
   - m_Id: 7217665172037685
-    m_Localized: "The port of Gujarat \u2014 India's trading window to Arabia and
-      Africa. Textiles and spices head westward."
+    m_Localized: 'At the mouth of the Sabarmati river Cambay receives ships from
+      across the Indian Ocean: Arab dhows anchor alongside Persian and Malay vessels,
+      drawn by the wealth of Gujarat. Local weavers produce fine cotton called qutn
+      in Arabic sources and bright indigo-dyed cloth that travels to Oman and on
+      to Zanzibar. The port is controlled by trading clans of Gujarati Vaishya merchants;
+      Arab factors maintain permanent offices here, trading dates, frankincense,
+      and silver dirhams in exchange for cotton, teak, and black pepper. The tides
+      in the Gulf of Cambay are treacherous - navigators know that entering the harbor
+      must be timed precisely to the tidal schedule or a vessel will run aground.'
     m_Metadata:
       m_Items: []
   - m_Id: 7217665176231936
-    m_Localized: The end of the Silk Road. The dome of Hagia Sophia is visible for
-      miles. The Walls of Theodosius are impregnable. Here East meets West.
+    m_Localized: 'Above the Golden Horn floats the dome of Hagia Sophia - the largest
+      in the world, a reminder of Justinian''s power, though the present basileis
+      fight on two fronts: Arabs press from east and south while Bulgars push from
+      the north. The Theodosian walls have survived several Arab sieges, and the
+      citizens give thanks for the fleet''s secret fire - Greek fire that burns enemy
+      ships in the Bosphorus. The bazaars of the Mese trade in silk, contested and
+      coveted: after Justinian spirited silkworm eggs out of China, Constantinople
+      began producing its own pavoloke silk, yet Tang raw silk is still prized higher.
+      Iconoclast disputes split the court and the Church, but merchants are more
+      occupied with the customs duties at the Bosphorus than with theology.'
     m_Metadata:
       m_Items: []
   - m_Id: 7217665176231937
-    m_Localized: The oldest continuously inhabited city. Damascus steel and silk
-      are prized from China to Europe.
+    m_Localized: 'Damascus smells of roses and iron smoke: the rose oil pressed here
+      from May to July travels to Persia and India, while smiths in the steelworkers''
+      quarter forge blades with a wavy pattern that resists both rust and dulling.
+      Under the Umayyads Damascus was the Caliphate''s capital - the Umayyad court
+      stood here and the treasury was kept here, but after the capital moved to Baghdad
+      in 762 the city lost its political luster while keeping its commercial one.
+      The Umayyad mosque, raised over the basilica of John the Baptist, astonishes
+      with mosaic landscapes - green gardens said to depict the paradise of Allah.
+      Damascene silk woven in geometric interlace travels north to Constantinople
+      and east across the Palmyrene desert.'
     m_Metadata:
       m_Items: []
   - m_Id: 7217665176231938
-    m_Localized: Capital of the Delhi Sultanate. Its vast market and immeasurable
-      riches attract merchants from across Asia.
+    m_Localized: On the bank of the Yamuna lie the ruins of ancient Indraprastha
+      - the city of the Pandavas from the Mahabharata - and beside them a modest
+      settlement called Dilli, which local Rajput chieftains give over to a market
+      and a river crossing. The Pratiharas rule northern Hindustan from Kannauj,
+      and Dilli remains a humble market town on the road between the capital and
+      the mountain passes of Aryavarta. Here horses and oxen are changed, iron from
+      the Haryana mines and cotton from the Ghaggar valley change hands. Merchants
+      traveling from Kabul into the heart of India make their first long halt here
+      and pay toll to the Rajput collector.
     m_Metadata:
       m_Items: []
   - m_Id: 7217665176231939
@@ -889,63 +1043,147 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 7217665176231940
-    m_Localized: A trading town on the road from the Levant to Egypt. The last stop
-      before the Sinai Desert.
+    m_Localized: 'Gaza stands at the border of the green Syrian hills and the yellow
+      Sinai wedge: in its harbor warehouses Egyptian linen, Palestinian olive oil,
+      and Arabian frankincense are all heaped together. Under the Umayyads and then
+      the Abbasids the city serves as a mustering point for Cairo and Damascus merchant
+      caravans: camel trains for the crossing of Sinai to Fustat are assembled here.
+      Gazan wines, famous across the Mediterranean since late-Roman times, are still
+      produced by local Christian communities, though Muslim officials turn a blind
+      eye for the sake of customs revenue. The tomb of Hashim - the Prophet''s grandfather
+      - gives the city a special sanctity in the eyes of Muslim pilgrims traveling
+      from Egypt to Mecca.'
     m_Metadata:
       m_Items: []
   - m_Id: 7217665176231941
-    m_Localized: An island fortress in the Persian Gulf. All sea routes between India
-      and Persia pass through this port.
+    m_Localized: 'Hormuz lies on the mainland shore at the mouth of the Persian Gulf,
+      within a day''s sail of the Arabian coast with a favorable wind. Through this
+      port flows the trade of two seas: from the Indian Ocean come pepper and cinnamon
+      from Malabar, pearls from Ceylon, and teak from the Malabar coast; from the
+      Persian Gulf come dates, horses, and silver vessels moving inland. Persian
+      navigators know the channel by heart and charge handsomely for piloting foreign
+      ships. The Abbasid governor collects duties in kind - a share of cargo from
+      every hull - and ships them to Basra for transfer onto river boats bound for
+      Baghdad.'
     m_Metadata:
       m_Items: []
   - m_Id: 7217665176231942
-    m_Localized: A caravan stop in the narrow Hexi Corridor between mountains and
-      desert. Water skins are filled here for the long road ahead.
+    m_Localized: 'Jiuquan - the Wine Spring - takes its name from a legend: the general
+      Huo Qubing ordered a jar of wine poured into the local spring to share it with
+      his soldiers after a victory over the Xiongnu. Today a large Tang garrison
+      stationed here guards the Hexi Corridor between the Qilian mountains and the
+      Gobi sands. Along this narrow passage twenty to a hundred li wide runs the
+      main thread of the Silk Road from Luoyang to Hami: every merchant convoy passes
+      Jiuquan. Local armorers supply bows and spears to the forces of the Anxi Protectorate;
+      the imperial granaries accept grain brought from beyond the Yellow River and
+      dispatch it to the western garrisons.'
     m_Metadata:
       m_Items: []
   - m_Id: 7217665176231943
-    m_Localized: A mountain pass between worlds. The road from Central Asia to India
-      runs through this harsh frontier city.
+    m_Localized: 'Kabul sits in a valley at twelve hundred metres elevation, squeezed
+      between spurs of the Hindu Kush: from here one pass leads north to Balkh and
+      Sogdia, another east to Peshawar and the Indian plain. The Shahis of Kabulistan
+      - a local Buddhist dynasty of Turkic origin - held their independence between
+      the Tang, the Caliphate, and the Tibetans, trading frankincense, lapis lazuli,
+      and sure-footed mountain horses. Arab armies approached the city several times,
+      but the mountain trails and the fierce Kabuli archers drove the conquerors
+      back. Languages here are thoroughly mixed: the Turkic nobility speaks its own
+      dialect, merchants speak Dari, Buddhist monks speak Prakrit and Tocharian.'
     m_Metadata:
       m_Items: []
   - m_Id: 7217665176231944
-    m_Localized: "The great crossroads \u2014 here the northern and southern routes
-      around the Taklamakan converge. The road west lies open."
+    m_Localized: The great crossroads - here the northern and southern routes around
+      the Taklamakan converge. The road west lies open.
     m_Metadata:
       m_Items: []
   - m_Id: 7217665176231945
-    m_Localized: City of jade and silk on the southern route. Stones from the Yurunkash
-      riverbanks are worth their weight in gold in Beijing.
+    m_Localized: 'From the glaciers of the Kunlun two rivers descend - the Yurunkash
+      and the Karakash, white and black - and on their banks mountain folk gather
+      jade: smooth pebbles the color of spinach and milk that travel to Chang''an
+      at the price of silver. Khotan on the southern route around the Taklamakan
+      has guarded the secret of sericulture for several centuries - legend holds
+      that a Khotanese king learned the art from a Chinese princess who hid mulberry
+      cocoons in her headdress. Local Buddhist monasteries flourish under the patronage
+      of the Khotanese kings who maintain independence between Tang overlords and
+      Tibetan viceroys; monks copy sutras in the Khotanese Saka language. Cloth bearing
+      the Khotanese pattern - geometric medallions - is imitated by craftsmen from
+      Sogdia to Iran.'
     m_Metadata:
       m_Items: []
   - m_Id: 7217665176231946
-    m_Localized: An ancient Buddhist center on the northern route. Monastery ruins
-      recall its former grandeur.
+    m_Localized: 'Kucha is the most populous oasis on the northern route: within
+      its rammed-earth walls live the Tocharian Kucheans, whose music and dances
+      won such favor in Chang''an that Kuchean harpists and acrobats became indispensable
+      guests at imperial banquets. The cave monasteries in the Kizil gorge are painted
+      with frescoes depicting jatakas about the Buddha''s past lives - pigments are
+      made here from local vitriol and imported lapis lazuli. The celebrated translator
+      of Buddhist texts Kumarajiva was born in Kucha and from here was taken to China,
+      where he rendered hundreds of sutras into Chinese. Kuchean iron and leather
+      trade against Chinese silk and paper; along the road stand caravanserais whose
+      innkeepers converse in three languages at once.'
     m_Metadata:
       m_Items: []
   - m_Id: 7217665176231947
-    m_Localized: Sacred city on the roof of the world. The Potala Palace towers above
-      the valley. Monks preserve ancient wisdom.
+    m_Localized: 'Lhasa lies in the wide valley of the Kyichu river at an elevation
+      of thirty-five hundred metres: the air is so thin that newly arrived lowland
+      merchants lose consciousness on the first climb. The red hill of Marpori is
+      crowned by the Potala - the palace-monastery of King Songtsen Gampo who unified
+      Tibet and embraced Buddhism from Indian and Chinese teachers. The Tibetan realm
+      is now at the peak of its power: the tsenpo controls the trade routes between
+      India and China, levying duties in musk and gold dust. The Jokhang monastery
+      holds the Jowo statue - a golden Buddha gifted by Tang princess Wencheng. Tibetan
+      warriors in lamellar armor with yak-tail plumes on their helmets are the terror
+      of western China.'
     m_Metadata:
       m_Items: []
   - m_Id: 7217665176231948
-    m_Localized: Mountain city of the Naxi people. Tea and horses are the main goods
-      on the ancient Tea Horse Road.
+    m_Localized: 'In the deep gorge where the Jinsha river makes its sharpest turn
+      on the way to the sea the Naxi people built Lijiang across three hills joined
+      by wooden bridges over crystal streams. Here the southwestern branch of the
+      Silk Road crosses the Tea-Horse Road: compressed puerh tea in bamboo wrapping
+      travels on mules over the passes into Tibet while sturdy Tibetan horses are
+      driven back - horses the Tang need for cavalry. The dongba shamans of the Naxi
+      preserve a script of pictographic signs - one of the few original writing systems
+      of Yunnan. Nanzhao - the state of the Bai people that rivals the Tang for Yunnan
+      - maintains trading posts near Lijiang.'
     m_Metadata:
       m_Items: []
   - m_Id: 7217665176231949
-    m_Localized: A city on the road from Central Asia to Persia. Caravans rest here
-      after crossing the mountains.
+    m_Localized: At the point where the road from Merv crosses the spurs of the Kopet
+      Dag and descends to the Nishapur plain stands a modest settlement of Sanabad
+      with the tomb of Imam Ali al-Ridha - son of Caliph Husayn from the Alid line.
+      Shia pilgrims have already begun making their way to the shrine, although the
+      settlement does not yet bear the name Mashhad - the city of martyrdom. Abbasid
+      officials look with suspicion upon the Alid devotees who prefer to pray over
+      the imam's grave rather than in the caliph's mosque. Merchants at this waystation
+      offer fresh camels, fodder, and lodgings; local potters make vessels from Nishapur's
+      pink clay.
     m_Metadata:
       m_Items: []
   - m_Id: 7217665176231950
-    m_Localized: The holiest site of Islam. Millions of pilgrims from around the
-      world flock to the Kaaba. Trade thrives during the Hajj season.
+    m_Localized: 'In a basin among the bare mountains of the Hejaz stands Mecca:
+      the Kaaba - a cube of black stone draped in the kiswa - is the center around
+      which pilgrims from across the Islamic world circuit seven times. The hajj
+      each year brings together in one place merchants from Khorasan and Anatolia
+      with traders from Zanzibar and Hindustan: while pilgrims pray their servants
+      and partners trade livestock, cloth, spices, and price intelligence from three
+      horizons away. The Abbasid governor of the Hejaz collects taxes in Mecca and
+      keeps order during the hajj; revenue from the trade enriches local Qurayshi
+      notables. Zamzam water drawn by pilgrims into flasks travels across the Muslim
+      world as a sacred object.'
     m_Metadata:
       m_Items: []
   - m_Id: 7217665176231951
-    m_Localized: City of the Prophet. The second holiest city of Islam. Pilgrims
-      come to pay respects at the Prophet's Mosque.
+    m_Localized: 'Yathrib, renamed Madinat an-Nabi - City of the Prophet - during
+      Muhammad''s lifetime, lies in an oasis amid the lava fields of the Hejaz. The
+      Prophet''s Mosque with his tomb is the second holiest site of Islam: pilgrims
+      who complete the hajj in Mecca walk here two days through the desert or hire
+      a camel driver. Here the hadith and traditions are kept - the recorded words
+      and deeds of the Prophet noted by his companions; Medina''s theologians are
+      one of the chief schools of Muslim jurisprudential thought. The date palms
+      of the oasis yield fruit distributed across the Caliphate as a blessed food;
+      trade in livestock and wool sustains the citizens in the intervals between
+      pilgrimage seasons.'
     m_Metadata:
       m_Items: []
   - m_Id: 7217665176231952
@@ -954,38 +1192,91 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 7217665176231953
-    m_Localized: A city on the Tigris opposite the ruins of Nineveh. A strategic
-      crossing between Mesopotamia and the Levant.
+    m_Localized: 'On the western bank of the Tigris stands Mosul, and directly opposite
+      it rise enormous tell mounds: buried beneath them is Nineveh, the capital of
+      Assyrian kings who ruled from the Nile to the Zagros a thousand years ago.
+      Mosul is the main crossing between Mesopotamia and the road to Syria: boatmen
+      on kelekh hide-raft ferries keep service running even in flood season. The
+      cotton cloth woven by Mosul craftsmen gave the word muslin to many western
+      languages; tanneries supply harness and saddlebags for merchant caravans. The
+      Abbasid governor collects here taxes from northern Jazira - the fertile triangle
+      between the Tigris and Euphrates - and forwards them to Baghdad.'
     m_Metadata:
       m_Items: []
   - m_Id: 7217665176231954
-    m_Localized: City of turquoise mines and poetry. Birthplace of Omar Khayyam.
-      Caravans carry precious stones from here.
+    m_Localized: 'Nishapur grew into the principal city of Persian Khorasan after
+      the Arab conquest: wide streets with covered bazaars, madrasas, and caravanserais
+      speak of the wealth produced by a trading crossroads between Balkh and Rey.
+      In the mountains to the northwest lie veins of turquoise - the stone Arabs
+      call firuza; Nishapur''s sky-blue turquoise travels to Baghdad, Constantinople,
+      and Chang''an set in gold and silver. Persian scholars under the patronage
+      of Abbasid governors translate and annotate works on medicine and astrology.
+      The local climate is mild: the peaches, melons, and grapes of Nishapur are
+      already considered the finest in Khorasan in the eighth century.'
     m_Metadata:
       m_Items: []
   - m_Id: 7217665176231955
-    m_Localized: "The Fergana Valley \u2014 fertile lands at the gateway to Central
-      Asia. Fruits and cotton abound here."
+    m_Localized: Osh lies at the foot of Sulaiman-Too mountain in the southern part
+      of the Fergana valley - the most fertile valley of Central Asia, surrounded
+      on all sides by the ranges of the Pamir-Alai and Tian Shan. Fergana horses
+      - the nergizt that the Chinese called "heavenly horses" and for which Emperor
+      Wu launched military campaigns - are still the most valued commodity here.
+      Cotton, pomegranates, and apricots from the valley travel westward while silk
+      and bronze mirrors from Chang'an arrive through Samarkand. After the Arab army's
+      victory over the Tang at the Talas river in 751 the valley passed under Abbasid
+      authority; many Sogdian landowners converted to Islam while keeping their land
+      and craft.
     m_Metadata:
       m_Items: []
   - m_Id: 7217665176231956
-    m_Localized: A city on the banks of the Ganges. River trade brings goods from
-      deep within India.
+    m_Localized: 'Pataliputra - now contracted to the modest town of Patna - stands
+      where the Son joins the Ganges: once the capital of the Mauryas and the Guptas,
+      and the broad earthen ramparts of that distant greatness are still visible
+      at the riverbank. Now a provincial center of the Pala realm, monks from the
+      Buddhist monastery of Nalanda a few days'' journey away come here for rice
+      and cloth. River boats carrying Bengali rice, cane sugar, and sesame oil dock
+      and depart with the current; on the market Tamilian merchants bargain with
+      Bihari landowners. It was here that the Chinese pilgrim Xuanzang, returning
+      from India in 645, transferred manuscript sutras from river boats to elephants.'
     m_Metadata:
       m_Items: []
   - m_Id: 7217665176231957
-    m_Localized: An ancient city at the foot of the Alborz. The ruins of Rey hold
-      memories of millennia of trade.
+    m_Localized: 'Rey stands at the southern foot of the Alborz mountains at the
+      crossroads of roads to Khorasan and the Caspian shore: all routes from western
+      Persia eastward converge here. The city is older than living memory - the Avestan
+      Ragha is mentioned in the Zend-Avesta as one of the first creations of Ahura
+      Mazda. Under the Abbasids Rey is the provincial capital of Jibal, a major market
+      for grain and woolen cloth from the mountain pastures. The craftsmen of Rey
+      produce excellent swords and daggers from Damascus blanks; the local bazaar
+      sells copper and alum mined from the Alborz. Near the city a naphtha spring
+      bubbles up, used to treat skin ailments and to grease the axles of merchant
+      carts.'
     m_Metadata:
       m_Items: []
   - m_Id: 7217665176231958
-    m_Localized: Heart of the Silk Road. Registan Square gleams with mosaics. Merchants
-      from around the world trade at the great bazaar.
+    m_Localized: 'Samarkand - the Maracanda of the ancient Greeks - lies on the bank
+      of the Zerafshan where the river spreads into irrigation canals feeding the
+      melons and vineyards of all Sogdia. Sogdian merchant-sartirs maintain colonies
+      in Chang''an, Dunhuang, and Persepolis: it is they who stitch the western Silk
+      Road into a single chain. Samarkand paper - produced by a technique that Chinese
+      prisoners transmitted to the Arabs after Talas - is gradually displacing papyrus
+      and parchment across the Caliphate. On the bazaar one can buy Sogdian silver
+      with hunting scenes, glass from Syria, and muslin from Mosul; payment is made
+      simultaneously in Chinese kaiyuan tongbao coins and Arab dirhams. Arab governors
+      sit in the citadel but commercial affairs are still managed by Sogdian dehqan
+      landowners.'
     m_Metadata:
       m_Items: []
   - m_Id: 7217665176231959
-    m_Localized: "An Omani port \u2014 the starting point for voyages to India. Dhows
-      laden with goods depart with the monsoon winds."
+    m_Localized: 'Suhar is the wealthiest city of the Omani coast: the domes of mosques
+      and the towers of watch-forts are visible from the sea long before the harbor
+      entrance. Voyages to India and China from Suhar are routine for local navigators
+      who use teak dhows with stitched planks and steer by stars following oral sailing
+      directions. An Arab geographer will later write that in Suhar live the richest
+      merchants of the East. Copper from the Omani mines of Jebel Akhdar is the chief
+      export: it travels in ingots to India and is exchanged for pepper and cotton
+      cloth. The fishing fleet supplies dried fish to all of Hadramaut and part of
+      the Persian coast.'
     m_Metadata:
       m_Items: []
   - m_Id: 7217665176231960
@@ -994,8 +1285,15 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 7217665176231961
-    m_Localized: A Bengali port on the route to the islands of Southeast Asia. Monsoons
-      set the rhythm of trade.
+    m_Localized: 'Tamralipti stands where the Ganges delta meets the Bay of Bengal:
+      behind the distant mangrove shores lie shallows where crocodiles lurk but ships
+      come nonetheless - so rich is the cargo of the Bengali port. The Chinese pilgrim
+      Xuanzang described dozens of Buddhist monasteries here and twenty-four thousand
+      monks in the mid-seventh century. From here ships depart for Ceylon, Sumatra,
+      and further east; returning they bring spices, camphor, and Sumatran gold.
+      Cotton and jute cloth from Bengali workshops travel to Ceylon and the Malabar
+      ports. The Pala realm patronises the city: its rulers build monastery-viharas
+      across eastern Hindustan.'
     m_Metadata:
       m_Items: []
   - m_Id: 7217665176231962
@@ -1009,13 +1307,26 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 7217665176231964
-    m_Localized: A Black Sea port at the foot of the mountains. Gateway to Anatolia
-      for merchants from the Caucasus and Persia.
+    m_Localized: 'Trebizond clings to the steep slope between the Pontic mountains
+      and the Black Sea: wooded ridges loom above the city while Byzantine trading
+      galleys and Armenian flatboats rock in the harbor below. This is the chief
+      landing place for goods from the Caucasus - Iberian gold, Armenian horses,
+      and Caucasian furs - which are reloaded here onto ships bound for Constantinople.
+      The local theme of Chaldia guards the flank of the Roman Empire against Arab
+      raids through the Armenian mountains. Greek merchants keep offices here and
+      receive goods from Persia along the mountain road through Bayburt; Pontic wine
+      and local hazelnuts travel westward with the prevailing wind.'
     m_Metadata:
       m_Items: []
   - m_Id: 7217665176231965
-    m_Localized: A Levantine port with a Crusader fortress. Ships carry goods along
-      the Mediterranean coast.
+    m_Localized: 'Tarabulus al-Sham - Tripoli of Syria - lies on a narrow headland
+      between the sea and the Lebanon mountains: three separate quarters divided
+      by canals gave the city its name - three poleis. Under the Umayyads and the
+      Abbasids this is the chief port of the Syrian coast between Tyre and Latakia.
+      Arab and Egyptian vessels load here the cedar timber of Mount Lebanon - the
+      most prized shipbuilding material on the Caliphate''s seas. Tripoli''s workshops
+      produce glass and purple dye from local murex snails; the local market trades
+      silk from the east and olive oil from the Lebanon mountains.'
     m_Metadata:
       m_Items: []
   - m_Id: 7217665176231966
@@ -1024,8 +1335,15 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 7217665176231967
-    m_Localized: "The Jade Gate \u2014 China's ancient frontier. Beyond these gates
-      the empire ends and the unknown begins."
+    m_Localized: 'Yumen Guan - the Jade Gate - stands where the wall ends and the
+      Gobi desert begins: a square tower of yellow brick ten paces high with a single
+      door barred by a bolt of tamarisk wood. The name comes from Khotanese jade
+      that once passed through here into China in thousand-catty bale-loads. Every
+      merchant heading west or arriving from the west must present papers to the
+      imperial guard here and pay the road toll. The poet Wang Zhihuan wrote of the
+      gate lines memorized by every educated Tang person: beyond it not a single
+      green leaf grows - only the yellow river wind. The garrison soldiers rotate
+      every three years and dream of reassignment eastward.'
     m_Metadata:
       m_Items: []
   - m_Id: 7219978439745536
@@ -1033,8 +1351,15 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 7219978485882880
-    m_Localized: A desert oasis on the road from China westward. Caravans stop here
-      to fill their water before the long crossing.
+    m_Localized: 'Hami is the first oasis beyond the Jade Gate, a garden amid gravel
+      and salt flats: groundwater lifted by underground qanat channels feeds vegetable
+      plots and vineyards. The local grapes are so sweet that they are dried in clay
+      towers with wind-vents and sent to Chang''an as a delicacy for the imperial
+      table. Turkic chieftains and Tang garrison officials share authority over the
+      city by tacit agreement: the former provide horses and scouting, the latter
+      pay in grain from the state granaries. All routes - the northern one along
+      the Tian Shan and the southern one through the Lop Nor basin - diverge here,
+      making Hami the first node of route choice for every caravan.'
     m_Metadata:
       m_Items: []
   - m_Id: 9425860418330624
@@ -1042,8 +1367,15 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 9425860468662272
-    m_Localized: An oasis on the northern route along the Tian Shan. Caravans pass
-      through here on the way to Kucha.
+    m_Localized: 'In the wide valley at the northern foot of the Tian Shan where
+      Turkic and Uyghur herds winter the Tang administration established a fortified
+      post called Luntai which local inhabitants name differently. The site serves
+      as a base for controlling the northern bypass route: when the main road through
+      Hami is cut by steppe raids merchants turn north past Urumqi toward Karashahr
+      and Kucha. The pasturelands yield excellent horses and wool; grain is brought
+      here by camel from Hami. The Uyghur Khaganate established after 744 claims
+      these steppes and the Tang commanders conduct here constant diplomatic negotiation
+      between military sorties.'
     m_Metadata:
       m_Items: []
   - m_Id: 10856455639916544
@@ -1203,7 +1535,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 17330261711642635
-    m_Localized: "Bandits rob merchants \u2014 prices rise due to risks"
+    m_Localized: Bandits rob merchants - prices rise due to risks
     m_Metadata:
       m_Items: []
   - m_Id: 17330261711642636
@@ -1219,7 +1551,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 17330261711642639
-    m_Localized: "Drought destroyed crops \u2014 food and water prices soared"
+    m_Localized: Drought destroyed crops - food and water prices soared
     m_Metadata:
       m_Items: []
   - m_Id: 17330261711642640
@@ -1227,7 +1559,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 17330261711642641
-    m_Localized: "Epidemic has paralyzed trade \u2014 prices have surged"
+    m_Localized: Epidemic has paralyzed trade - prices have surged
     m_Metadata:
       m_Items: []
   - m_Id: 17330261711642642
@@ -1235,7 +1567,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 17330261711642643
-    m_Localized: "Festival attracted merchants \u2014 prices are lower"
+    m_Localized: Festival attracted merchants - prices are lower
     m_Metadata:
       m_Items: []
   - m_Id: 17330261711642644
@@ -1251,8 +1583,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 17330261711642647
-    m_Localized: "Military conflict has disrupted trade routes \u2014 prices and
-      danger have surged"
+    m_Localized: Military conflict has disrupted trade routes - prices and danger
+      have surged
     m_Metadata:
       m_Items: []
   - m_Id: 17330261711642648
@@ -1260,8 +1592,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 31115015099506688
-    m_Localized: "Do not ride to {0} now \u2014 troops hold the roads and looters
-      give no one any rest."
+    m_Localized: Do not ride to {0} now - troops hold the roads and looters give
+      no one any rest.
     m_Metadata:
       m_Items: []
   - m_Id: 31115015145644032
@@ -1275,8 +1607,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 31115015145644034
-    m_Localized: "Keep clear of the road to {0} \u2014 a gang has been raiding for
-      three weeks, three caravans already stripped."
+    m_Localized: Keep clear of the road to {0} - a gang has been raiding for three
+      weeks, three caravans already stripped.
     m_Metadata:
       m_Items: []
   - m_Id: 31115015145644035
@@ -1285,29 +1617,29 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 31115015145644036
-    m_Localized: "{0} is restless these days \u2014 bandits own the approaches. But
-      trade still moves if you travel in a large convoy."
+    m_Localized: '{0} is restless these days - bandits own the approaches. But trade
+      still moves if you travel in a large convoy.'
     m_Metadata:
       m_Items: []
   - m_Id: 31115015145644037
-    m_Localized: "Skirt around {0} \u2014 plague is there. Gate guards drive off
-      anyone without a physician's seal."
+    m_Localized: Skirt around {0} - plague is there. Gate guards drive off anyone
+      without a physician's seal.
     m_Metadata:
       m_Items: []
   - m_Id: 31115015145644038
-    m_Localized: "I rode to {0} but did not enter. Smoke from bonfires hung above
-      the walls and the smell \u2014 unmistakable. I turned back."
+    m_Localized: I rode to {0} but did not enter. Smoke from bonfires hung above
+      the walls and the smell - unmistakable. I turned back.
     m_Metadata:
       m_Items: []
   - m_Id: 31115015145644039
-    m_Localized: "Sickness is making its rounds in {0}. Folk are thinning out, trade
-      has all but stopped, but not every shop is shuttered \u2014 you can go, with
-      great caution."
+    m_Localized: Sickness is making its rounds in {0}. Folk are thinning out, trade
+      has all but stopped, but not every shop is shuttered - you can go, with great
+      caution.
     m_Metadata:
       m_Items: []
   - m_Id: 31115015145644040
-    m_Localized: "There is a festival in {0} right now \u2014 merchants poured in
-      from all sides, prices fell, and spirits are high. Best time to go."
+    m_Localized: There is a festival in {0} right now - merchants poured in from
+      all sides, prices fell, and spirits are high. Best time to go.
     m_Metadata:
       m_Items: []
   - m_Id: 31115015145644041
@@ -1316,28 +1648,28 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 31115015145644042
-    m_Localized: "There is a feast in {0} \u2014 crowds everywhere, noise. Goods
-      sell briskly, but the cut-purses are busy too."
+    m_Localized: There is a feast in {0} - crowds everywhere, noise. Goods sell briskly,
+      but the cut-purses are busy too.
     m_Metadata:
       m_Items: []
   - m_Id: 31115015145644043
-    m_Localized: "A large convoy from the west arrived in {0} recently. The market
-      is bursting with goods \u2014 no point going now, prices have dropped."
+    m_Localized: A large convoy from the west arrived in {0} recently. The market
+      is bursting with goods - no point going now, prices have dropped.
     m_Metadata:
       m_Items: []
   - m_Id: 31115015145644044
-    m_Localized: "You are late to {0} with silk. They have been unloading a whole
-      convoy since last week \u2014 you will not sell at a good price."
+    m_Localized: You are late to {0} with silk. They have been unloading a whole
+      convoy since last week - you will not sell at a good price.
     m_Metadata:
       m_Items: []
   - m_Id: 31115015145644045
-    m_Localized: "{0} is awash in goods right now \u2014 a massive convoy just arrived.
-      You can pick up something cheap, but there is nothing worth hauling there."
+    m_Localized: '{0} is awash in goods right now - a massive convoy just arrived.
+      You can pick up something cheap, but there is nothing worth hauling there.'
     m_Metadata:
       m_Items: []
   - m_Id: 31115015145644046
-    m_Localized: "In {0} the tax-men strip you to the last coin \u2014 haul your
-      goods elsewhere."
+    m_Localized: In {0} the tax-men strip you to the last coin - haul your goods
+      elsewhere.
     m_Metadata:
       m_Items: []
   - m_Id: 31115015145644047
@@ -1346,13 +1678,13 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 31115015145644048
-    m_Localized: "I was in {0} \u2014 taxes bite hard, I will not deny it. But their
-      wares are good, if you do not buy too much."
+    m_Localized: I was in {0} - taxes bite hard, I will not deny it. But their wares
+      are good, if you do not buy too much.
     m_Metadata:
       m_Items: []
   - m_Id: 31115015145644049
-    m_Localized: "Do not count on water in {0} \u2014 the wells are low, and prices
-      for water and grain are the worst I have seen. Stock up here."
+    m_Localized: Do not count on water in {0} - the wells are low, and prices for
+      water and grain are the worst I have seen. Stock up here.
     m_Metadata:
       m_Items: []
   - m_Id: 31115015145644050
@@ -1362,9 +1694,9 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 31115015145644051
-    m_Localized: "They say {0} has seen no rain since spring. Food is scarce in the
-      bazaar, but everything else sells \u2014 people have no mind for trade, only
-      for feeding themselves."
+    m_Localized: They say {0} has seen no rain since spring. Food is scarce in the
+      bazaar, but everything else sells - people have no mind for trade, only for
+      feeding themselves.
     m_Metadata:
       m_Items: []
   - m_Id: 33352844525568000
@@ -1392,12 +1724,31 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 33352844571705349
-    m_Localized: The great empire of the East. Birthplace of silk and porcelain.
+    m_Localized: The Tang Empire stretched from the Yellow Sea to the Tarim Basin;
+      its capital Chang'an held over a million inhabitants in the seventh and eighth
+      centuries and welcomed merchants from dozens of peoples. Speakers of Chinese
+      with regional dialects use a shared logographic script that unifies the educated
+      elite across vast distances. Confucianism governs the state order, Buddhism
+      penetrates daily life ever deeper, and Daoism persists in temples and alchemical
+      workshops. The empire's chief exports - silk, porcelain, paper, and tea - are
+      indispensable to western markets. Imperial officials who passed the keju examination
+      administer the realm and receive foreign embassies. In the ports of Guangzhou
+      and in Chang'an itself, foreigners may live in their own quarters - Tang China
+      is curious about the world, so long as the world pays its duties.
     m_Metadata:
       m_Items: []
   - m_Id: 33352844571705350
-    m_Localized: Nomads of the open plains. Masters of horsemanship and livestock
-      trade.
+    m_Localized: 'The steppe peoples - Turks, Uyghurs, and affiliated tribes - occupy
+      a belt from Manchuria to Semirechye. Their languages belong to the Turkic family;
+      runic inscriptions on Orkhon steles record epics and khagan proclamations.
+      Before 763, most nomads follow Tengrism, faith in the sky and ancestral spirits;
+      after the Uyghur khagan helped Tang suppress the An Lushan rebellion, he adopted
+      Manichaeism and made it the state creed of the khaganate. The steppe''s chief
+      wealth is horses, felt, furs, and livestock - horses above all, traded to Tang
+      in exchange for bolts of silk. The nomads serve as indispensable intermediaries
+      between China and western markets, letting bales of silk and spice-laden packs
+      pass through their grazing lands. The line between trade and raid is thin here:
+      today the khaganate sells horses, tomorrow it demands tribute.'
     m_Metadata:
       m_Items: []
   - m_Id: 33352844571705351
@@ -1405,42 +1756,130 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 33352844571705352
-    m_Localized: "Sogdian merchants \u2014 middlemen of the Great Road. Their cities
-      are crossroads of civilizations."
+    m_Localized: 'The Sogdians of Samarkand, Bukhara, and Penjikent were the Silk
+      Road''s foremost merchants for centuries. They speak Sogdian - an Iranian tongue
+      written in the Sogdian alphabet, which later gave rise to the Uyghur and Mongol
+      scripts. Religiously they are diverse: Zoroastrian fire temples stand beside
+      Manichaean prayer houses and Nestorian churches. In their colonies strung along
+      the entire route - from Dunhuang to Chang''an - debt records and trade contracts
+      in Sogdian serve as the commercial lingua franca of the road. Chief commodities
+      include silk, lapis lazuli, musk, enslaved persons, and Sasanian-style silver
+      vessels. By the end of the Tang period, Arab conquest and Islamization gradually
+      absorb Sogdian identity, transforming Samarkand into a Muslim city.'
     m_Metadata:
       m_Items: []
   - m_Id: 33352844571705353
-    m_Localized: Land of poets and scholars. Persian is the diplomatic language of
-      the East.
+    m_Localized: In 651 the last Sasanian shah fell to Arab armies - but Persian
+      civilization did not vanish. New Persian (Farsi) takes shape in this era from
+      Middle Persian under Arabic influence; Zoroastrian communities persist in Yazd
+      and Nishapur, paying the jizya and preserving their rites. Persian scholars
+      and poets at the Abbasid court in Baghdad compose treatises on astronomy, medicine,
+      and philosophy - the Arab-Persian synthesis fuels the caliphate's intellectual
+      flowering. From the markets of Nishapur and Ray, turquoise, carpets, perfumes,
+      and glassware move in both eastern and western directions. Persia is a land
+      conquered by the sword but not defeated in culture; its merchants and diplomats
+      carry Persian etiquette to courts from India to China.
     m_Metadata:
       m_Items: []
   - m_Id: 33352844571705354
-    m_Localized: Land between rivers. The oldest trade routes originate here.
+    m_Localized: 'In 762 the caliph al-Mansur laid the foundations of Baghdad on
+      the banks of the Tigris - and within decades it grew into the largest city
+      in the world. The Abbasid caliphate speaks Arabic; Arabic script became the
+      language of the Quran, law, scholarship, and trade contracts from the Maghreb
+      to Khurasan. Islam defines the legal order and the calendar: Friday prayers
+      in the mosques mark the rhythm of the markets. The chief wealth of Mesopotamia
+      is rice from the irrigated fields of lower Iraq, dates, linen, and the products
+      of Baghdad''s workshops. The House of Wisdom at the caliph''s court gathers
+      scholar-translators of Greek, Persian, and Indian texts, making Baghdad the
+      intellectual center of the known world. For a merchant, a working knowledge
+      of Arabic and Islamic etiquette opens the doors to the wealthiest markets of
+      the age.'
     m_Metadata:
       m_Items: []
   - m_Id: 33352844571705355
-    m_Localized: Crossroads of three seas. Arab merchants control the sea routes.
+    m_Localized: The Levant - the coastline of Syria and Palestine - passed from
+      Byzantium to the Umayyad Caliphate in 636-638, then submitted to the Abbasids
+      after 750; its chief city Damascus was the capital of the entire Islamic world
+      until that same year. Arabic became the language of power, but Syriac Christians,
+      Jews, and remnants of the Greek population continue to live in their own communities.
+      Damascene silk and blades of Damascus steel travel across the entire Old World;
+      the glassworks of Sidon and Tyre supply goods to the caliphate's markets. Levantine
+      merchants are seasoned middlemen of Mediterranean trade, linking Europe, Egypt,
+      and Mesopotamia. In the bazaars of Damascus and Aleppo, western spices meet
+      Chinese silk, and Arabic serves as the language of transaction for all.
     m_Metadata:
       m_Items: []
   - m_Id: 33352844571705356
-    m_Localized: Bridge between East and West. Here cultures and religions meet.
+    m_Localized: 'Anatolia in the Tang era is Byzantine territory divided into themes:
+      military-administrative districts holding the frontier against Arab raids.
+      Greek dominates in cities and churches, though Armenian and Syriac are still
+      heard in the countryside. Orthodox Christianity is the Empire''s state faith;
+      the iconoclast controversies of the eighth and ninth centuries tear society
+      apart, dividing monasteries and the capital court. Asia Minor''s ports - Ephesus,
+      Trebizond - receive ships from Constantinople and trade caravans from the east.
+      Copper and iron from Pontic mines, woollen cloth, and Cappadocian horses are
+      sold here. A traveller from Iran or Syria feels the world change when crossing
+      the mountain passes: different smells, different prayers, different coins.'
     m_Metadata:
       m_Items: []
   - m_Id: 33352844571705357
-    m_Localized: Heir of Rome. Constantinople is the trade capital of the world.
+    m_Localized: The Eastern Roman Empire - Byzantium - has ruled from Constantinople
+      for three centuries, regarding itself as the lawful continuation of Rome; its
+      state language is Greek, with official Latin preserved in titles and law. Orthodox
+      Christianity permeates everything from palace etiquette to street commerce.
+      Constantinople stands at the Bosphorus crossing, where routes from the Black
+      Sea, Europe, and Asia Minor converge; the imperial monopoly on purple silk
+      brocade makes it the foremost article of diplomatic gifts. The naval secret
+      of Greek fire keeps Constantinople undefeated by sea. Imperial diplomatic missions
+      reach Khazaria, Georgia, and even China, weaving alliances against Arab expansion.
+      For a merchant, access to the Constantinopolitan markets is a privilege negotiated
+      through embassies, not purchased at a stall.
     m_Metadata:
       m_Items: []
   - m_Id: 33352844571705358
-    m_Localized: Land of spices and cotton. Ancient traditions of trade and wisdom.
+    m_Localized: 'India in the Tang era is not a single kingdom: the north is divided
+      between the Pratiharas and the Palas, while the south belongs to the Cholas
+      and Rashtrakutas. Sanskrit is the sacred language of scholars, monks, and Brahmins
+      across the subcontinent; local Prakrits and Dravidian tongues are the languages
+      of markets and villages. Buddhism flourishes under the Palas in the east -
+      the monastery of Nalanda receives students from Tibet, China, and Central Asia;
+      Hinduism with its temple economies is stronger in the west and south. Chief
+      export goods are cotton and cotton cloth, pepper and spices, gemstones from
+      the Deccan and Ceylon, and indigo. The seaports of Cambay in the west and Tamralipti
+      in the east link India to Arabia and Southeast Asia. For a merchant in Indian
+      cities it matters greatly to know whom you are dealing with - caste and religion
+      determine the rules of commercial exchange.'
     m_Metadata:
       m_Items: []
   - m_Id: 33352844571705359
-    m_Localized: Homeland of incense and maritime trade. Arab navigators reached
-      the edge of the world.
+    m_Localized: 'The Arabian Peninsula is the cradle of Islam: from Mecca and Medina
+      in the seventh century armies marched out that within a century had conquered
+      lands from Spain to the Indus. Arabic - the language of the Quran - became
+      the chief commercial tongue of the caliphate; its speakers settled across the
+      conquered world, bringing their faith with them. Pre-Islamic Arabia lived on
+      aromatics - frankincense and myrrh from Hadramawt - and sea trade through the
+      Persian Gulf and the Red Sea; these routes thrive under the caliphate as well.
+      Merchant communities of Oman and the Hijaz outfit ships bound for India, Ceylon,
+      and the ports of East Africa. The camel is the peninsula''s primary means of
+      transport: without it neither the desert routes nor the seasonal trade in myrrh
+      and spices would be possible. For a merchant, knowledge of Arab commercial
+      customs and respect for the Friday prayer is the key to business ties throughout
+      the caliphate.'
     m_Metadata:
       m_Items: []
   - m_Id: 33352844571705360
-    m_Localized: Roof of the world. Monasteries preserve the knowledge of centuries.
+    m_Localized: 'The Tibetan Empire under kings of the Yarlung dynasty was a formidable
+      power from the seventh to the ninth century: it wrested Tarim oases from Tang,
+      entered alliances with the Arabs against China, and controlled the mountain
+      passes through which pilgrims and goods traveled. The Tibetan language is written
+      in a script created in the seventh century under King Songtsen Gampo, modeled
+      on Indian Brahmi for translating Buddhist sutras. Buddhism entered Tibet from
+      India and China, merging with the native Bon religion; monasteries became both
+      sacred and economic centers. The chief goods Tibet brings to market are yak
+      wool, musk, alluvial gold, and highland medicinal herbs. After the collapse
+      of the Tibetan Empire in 842 power fragmented, but monastic culture survived.
+      For a merchant trading in the Tarim or Nepal, the Tibetan language is a necessary
+      tool, and knowledge of Buddhist customs opens the gates of monasteries.'
     m_Metadata:
       m_Items: []
   - m_Id: 33459451552989184

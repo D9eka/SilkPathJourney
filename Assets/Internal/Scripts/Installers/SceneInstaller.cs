@@ -90,8 +90,6 @@ namespace Internal.Scripts.Installers
         [SerializeField] private DetailSceneBounds _strategicBounds;
         [Header("NPC")]
         [SerializeField] private NpcSpawnEntry[] _spawns;
-        [Header("Player")]
-        [SerializeField] private RoadAgentView _playerViewPrefab;
         [Header("Interactables")]
         [SerializeField] private LayerMask _interactableLayerMask;
         [Header("Arrows")]
@@ -128,7 +126,6 @@ namespace Internal.Scripts.Installers
             InstallCamp();
             InstallPickups();
             InstallHazards();
-            InstallPathVisualization();
 
             Container.BindInterfacesAndSelfTo<AutoSaveController>().AsSingle();
             Container.BindInterfacesTo<CameraSaveController>().AsSingle();
@@ -150,7 +147,7 @@ namespace Internal.Scripts.Installers
             Container.Bind<DetailSceneLoader>().AsSingle();
             Container.BindInterfacesAndSelfTo<CameraSceneLoader>().AsSingle();
 
-            Container.Bind<CameraController>().AsSingle();
+            Container.BindInterfacesAndSelfTo<CameraController>().AsSingle();
             Container.Bind<CityViewAnimator>().AsSingle();
             Container.Bind<CitySceneController>().AsSingle();
             Container.BindInterfacesAndSelfTo<CityEntryService>().AsSingle().NonLazy();
@@ -232,7 +229,9 @@ namespace Internal.Scripts.Installers
             InstallArrows();
             Container.BindInterfacesTo<PlayerChoiceInputView>().AsSingle();
             Container.Bind<PathHintsCreator>().AsSingle();
-            Container.Bind<RoadAgentView>().FromComponentInNewPrefab(_playerViewPrefab).AsSingle();
+            Container.Bind<RoadAgentView>()
+                .FromMethod(_ => new GameObject("PlayerView").AddComponent<RoadAgentView>())
+                .AsSingle();
             Container.BindInterfacesAndSelfTo<SegmentMover>().AsSingle().WhenInjectedInto<PlayerInitializer>();
             Container.BindInterfacesAndSelfTo<PlayerNextSegmentsProvider>().AsSingle();
             Container.BindInterfacesTo<PlayerStartMovement>().AsSingle();
@@ -251,7 +250,6 @@ namespace Internal.Scripts.Installers
             Container.BindInterfacesTo<PlayerInitializer>().AsSingle();
             Container.BindInterfacesTo<ConvoyVisualizer>().AsSingle();
             Container.BindInterfacesTo<CityNodeResolver>().AsSingle();
-            Container.BindInterfacesTo<RoadNodeProximityScaler>().AsSingle();
 
             if (_enterCityButton != null)
                 Container.BindInterfacesTo<PlayerCityButtonsController>().AsSingle()
@@ -351,6 +349,7 @@ namespace Internal.Scripts.Installers
             Container.Bind<Events.Conditions.TravelEvaluator>().AsSingle();
             Container.Bind<Events.Conditions.NoItemEvaluator>().AsSingle();
             Container.Bind<Events.Conditions.DangerAboveEvaluator>().AsSingle();
+            Container.Bind<Events.Conditions.BackgroundEvaluator>().AsSingle();
             Container.Bind<Events.Conditions.ConditionEvaluator>().AsSingle();
 
             Container.Bind<Events.Outcomes.ResourceApplier>().AsSingle();
@@ -374,6 +373,7 @@ namespace Internal.Scripts.Installers
             Container.Bind<Events.Outcomes.FailQuestApplier>().AsSingle();
             Container.Bind<Events.Outcomes.SetQuestFlagApplier>().AsSingle();
             Container.Bind<Events.Outcomes.MarkPendingEndingApplier>().AsSingle();
+            Container.Bind<Events.Outcomes.QueueEventApplier>().AsSingle();
             Container.Bind<Events.Outcomes.OutcomeApplier>().AsSingle();
 
             Container.Bind<SkillCheckService>().AsSingle();
@@ -385,6 +385,7 @@ namespace Internal.Scripts.Installers
             Container.Bind<CompanionConditionLine>().AsSingle();
             Container.Bind<ConditionLineBuilder>().AsSingle();
 
+            Container.Bind<EventQueueService>().AsSingle();
             Container.Bind<EventToastController>().AsSingle();
             Container.Bind<EventCloseSignal>().AsSingle();
             Container.Bind<RecentEventHistory>().AsSingle();

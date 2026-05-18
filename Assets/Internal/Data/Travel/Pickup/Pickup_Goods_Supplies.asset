@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Pickup_Goods_Supplies
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Travel.Pickups.PickupData
   <Type>k__BackingField: 3
-  <Prefab>k__BackingField: {fileID: 3677904407626796111, guid: f7a53d50d59239b428c25ff50fc98b8c, type: 3}
+  <Prefab>k__BackingField: {fileID: 5291723611290827877, guid: 79f1f518164609e44892def1454be397, type: 3}
   <Rewards>k__BackingField:
   - <Type>k__BackingField: 4
     <Param>k__BackingField: supplies

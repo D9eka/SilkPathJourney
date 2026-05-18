@@ -14,35 +14,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Components.ResourceIconCatalog
   _resources:
   - Type: 0
-    Icon: {fileID: 21300000, guid: bb00b5c131ada4847b485922ba7460b4, type: 3}
+    Icon: {fileID: 21300000, guid: a180af99222a4944869fdd953f403497, type: 3}
     IncreaseIsPositive: 1
   - Type: 1
-    Icon: {fileID: 21300000, guid: 363ebd89022ee4942afe398312842b9d, type: 3}
+    Icon: {fileID: 21300000, guid: 38cb3be2285e4350a0affe1f877aac1a, type: 3}
     IncreaseIsPositive: 1
   - Type: 2
-    Icon: {fileID: 21300000, guid: 7efb6fd4a28f4004fbed305fd05df5a8, type: 3}
+    Icon: {fileID: 21300000, guid: dae3cbf8bff24119ac7db782ed3f5c93, type: 3}
     IncreaseIsPositive: 0
   - Type: 3
-    Icon: {fileID: 21300000, guid: 4fa80a6f676605e44a5ff3589f87f832, type: 3}
+    Icon: {fileID: 21300000, guid: f4dba425774a47f4a045ae2890c57960, type: 3}
     IncreaseIsPositive: 1
   - Type: 4
-    Icon: {fileID: 21300000, guid: 00db168372123bc49b391f4a860edaf1, type: 3}
+    Icon: {fileID: 21300000, guid: f4dba425774a47f4a045ae2890c57960, type: 3}
     IncreaseIsPositive: 1
   - Type: 5
-    Icon: {fileID: 21300000, guid: 193c6c737e362dd43a23ca103db86812, type: 3}
+    Icon: {fileID: 21300000, guid: 0cd673a1a4b349a3a2eed835a2309412, type: 3}
     IncreaseIsPositive: 0
   - Type: 6
-    Icon: {fileID: 21300000, guid: bc19e25243bb80348ad84a8c93adae97, type: 3}
+    Icon: {fileID: 21300000, guid: b4ce634d541349e88a2445cfe0ec28d4, type: 3}
     IncreaseIsPositive: 0
   - Type: 7
-    Icon: {fileID: 21300000, guid: c96ea78a4cce708428b032364da616bd, type: 3}
+    Icon: {fileID: 21300000, guid: fe147ec9adbc4597b9fa378736dae2b7, type: 3}
     IncreaseIsPositive: 1
   - Type: 8
-    Icon: {fileID: 21300000, guid: 46339337edcbc9a4b8deb1a56789fb0d, type: 3}
+    Icon: {fileID: 21300000, guid: 41a1fa16f42242feb905590bf759ea6e, type: 3}
     IncreaseIsPositive: 0
   - Type: 9
-    Icon: {fileID: 21300000, guid: bb00b5c131ada4847b485922ba7460b4, type: 3}
+    Icon: {fileID: 21300000, guid: 6340fdf8ef5046e7ad2196e8ac7c68f5, type: 3}
     IncreaseIsPositive: 0
   - Type: 10
-    Icon: {fileID: 21300000, guid: bc19e25243bb80348ad84a8c93adae97, type: 3}
+    Icon: {fileID: 21300000, guid: 6272538caced4e9da1067a96b77791de, type: 3}
     IncreaseIsPositive: 0
+  - Type: 11
+    Icon: {fileID: 21300000, guid: ab5d391c65214c8f8efb3e4ac201ebc3, type: 3}
+    IncreaseIsPositive: 1
+  - Type: 12
+    Icon: {fileID: 21300000, guid: cc0c3d6a6abb420892a28efccd8e0d3d, type: 3}
+    IncreaseIsPositive: 0
+  - Type: 13
+    Icon: {fileID: 21300000, guid: 7af1d8f776a248a79a9f4d857e12e568, type: 3}
+    IncreaseIsPositive: 1

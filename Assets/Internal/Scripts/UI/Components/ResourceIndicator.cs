@@ -37,6 +37,9 @@ namespace Internal.Scripts.UI.Components
         {
             ApplyThemeColors();
 
+            if (_iconView != null)
+                _iconView.SetResourceType(_resourceType);
+
             if (_valueText != null && !_cachedColor)
             {
                 _normalValueColor = _valueText.color;

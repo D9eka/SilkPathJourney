@@ -18,7 +18,7 @@ aksu,N_Aksu,city.aksu.name,city.aksu.description,oasis_stop,steppe,,0.45,FALSE,�
 kashgar,N_Kashgar,city.kashgar.name,city.kashgar.description,trade_hub,steppe,central_asia,1.10,FALSE,"Перекрёсток путей — север, юг, запад",перевод,Кашгар,Kashgar
 khotan,N_Khotan,city.khotan.name,city.khotan.description,resource_city,steppe,,0.85,FALSE,"Нефрит, шёлк — южный путь",перевод,Хотан,Khotan
 osh,N_Osh,city.osh.name,city.osh.description,market_town,central_asia,,0.75,FALSE,Ферганская долина — вход в Среднюю Азию,перевод,Ош,Osh
-samarkand,N_Samarkand,city.samarkand.name,city.samarkand.description,trade_hub,central_asia,,1.15,FALSE,"Сердце Шёлкового пути, площадь Регистан",перевод,Самарканд,Samarkand
+samarkand,N_Samarkand,city.samarkand.name,city.samarkand.description,trade_hub,central_asia,persia,1.15,FALSE,"Сердце Шёлкового пути, площадь Регистан",перевод,Самарканд,Samarkand
 bukhara,N_Bukhara,city.bukhara.name,city.bukhara.description,craft_city,central_asia,,1.05,FALSE,"Ремёсла, медресе, учёность",перевод,Бухара,Bukhara
 balkh,N_Balkh,city.balkh.name,city.balkh.description,resource_city,central_asia,,0.80,FALSE,"Мать городов, сырьевой центр",перевод,Балх,Balkh
 kabul,N_Kabul,city.kabul.name,city.kabul.description,border_city,central_asia,india,0.90,FALSE,Горный перевал между мирами,перевод,Кабул,Kabul

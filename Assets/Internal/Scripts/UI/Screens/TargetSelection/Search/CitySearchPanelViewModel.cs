@@ -7,6 +7,7 @@ using Internal.Scripts.Economy.Generated;
 using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Theme;
 using Internal.Scripts.UI.Tooltip;
+using Internal.Scripts.UI.WorldLabel;
 using R3;
 using UnityEngine.Localization.Settings;
 
@@ -20,6 +21,7 @@ namespace Internal.Scripts.UI.Screens.TargetSelection.Search
         private readonly TooltipService _tooltipService;
         private readonly CameraController _cameraController;
         private readonly CityCardBuilder _cardBuilder;
+        private readonly QuestIndicatorIcons _questIndicatorIcons;
 
         private readonly ReactiveProperty<CitySearchViewState> _state = new();
         private readonly ReactiveProperty<string> _searchQuery = new(string.Empty);
@@ -39,6 +41,7 @@ namespace Internal.Scripts.UI.Screens.TargetSelection.Search
         public UiThemeService ThemeService => _themeService;
         public BuildingFilterCatalog BuildingFilterCatalog => _buildingFilterCatalog;
         public TooltipService TooltipService => _tooltipService;
+        public QuestIndicatorIcons QuestIndicatorIcons => _questIndicatorIcons;
 
         public CitySearchPanelViewModel(
             EconomyDatabase economyDb,
@@ -46,7 +49,8 @@ namespace Internal.Scripts.UI.Screens.TargetSelection.Search
             BuildingFilterCatalog buildingFilterCatalog,
             TooltipService tooltipService,
             CameraController cameraController,
-            CityCardBuilder cardBuilder)
+            CityCardBuilder cardBuilder,
+            QuestIndicatorIcons questIndicatorIcons)
         {
             _economyDb = economyDb;
             _themeService = themeService;
@@ -54,6 +58,7 @@ namespace Internal.Scripts.UI.Screens.TargetSelection.Search
             _tooltipService = tooltipService;
             _cameraController = cameraController;
             _cardBuilder = cardBuilder;
+            _questIndicatorIcons = questIndicatorIcons;
         }
 
         public void Activate()

@@ -27,5 +27,6 @@
         SetQuestFlag = 22,
         EndRun = 23,
         MarkPendingEnding = 24,
+        QueueEvent = 25,
     }
 }

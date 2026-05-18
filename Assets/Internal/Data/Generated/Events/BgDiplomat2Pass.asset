@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6987321839e5c54cac58e088f94c8c8, type: 3}
+  m_Name: BgDiplomat2Pass
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Events.Data.EventData
+  <Id>k__BackingField: bg_diplomat_2_pass
+  <Category>k__BackingField: 31
+  <Name>k__BackingField:
+    m_TableReference:
+      m_TableCollectionName: Events
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: event.bg_diplomat_2_pass.name
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  <EventType>k__BackingField:
+    m_TableReference:
+      m_TableCollectionName: Events
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: event_type.quest.name
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  <Description>k__BackingField:
+    m_TableReference:
+      m_TableCollectionName: Events
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: event.bg_diplomat_2_pass.description
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  <Image>k__BackingField: {fileID: 0}
+  <Choices>k__BackingField:
+  - <Text>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Events
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: event.bg_diplomat_2_pass.choice1
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <ResultText>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Events
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: event.bg_diplomat_2_pass.choice1.result
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <Conditions>k__BackingField: []
+    <Outcomes>k__BackingField:
+    - <Type>k__BackingField: 19
+      <Param>k__BackingField: quest_bg_diplomat_2
+      <Value>k__BackingField: 1
+  <IsMinor>k__BackingField: 0
+  <Biome>k__BackingField: 0
+  <AutoOutcomes>k__BackingField: []
+  <SkillChecks>k__BackingField: []
+  <Conditions>k__BackingField: []
+  <Weight>k__BackingField: 0
+  references:
+    version: 2
+    RefIds: []

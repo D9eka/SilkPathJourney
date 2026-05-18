@@ -1,0 +1,119 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a07634707e6ad045a20e3515f59dfc7, type: 3}
+  m_Name: QuestBgBandit3
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Quests.Data.QuestData
+  <Id>k__BackingField: quest_bg_bandit_3
+  <Name>k__BackingField:
+    m_TableReference:
+      m_TableCollectionName: Quests
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: quest.quest_bg_bandit_3.name
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  <Description>k__BackingField:
+    m_TableReference:
+      m_TableCollectionName: Quests
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: quest.quest_bg_bandit_3.description
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  <Icon>k__BackingField: {fileID: 0}
+  <StartCityId>k__BackingField: 
+  <Branch>k__BackingField: 11
+  <OrderInBranch>k__BackingField: 3
+  <BranchName>k__BackingField:
+    m_TableReference:
+      m_TableCollectionName: Quests
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: quest_branch.bg_bandit_story.name
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  <BranchDescription>k__BackingField:
+    m_TableReference:
+      m_TableCollectionName: Quests
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: quest_branch.bg_bandit_story.description
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  <Stages>k__BackingField:
+  - <Id>k__BackingField: stage_accept
+    <Description>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Quests
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: quest.quest_bg_bandit_3.stage_accept
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <Narrative>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <TriggerEventIds>k__BackingField: []
+    <AutoCompleteCondition>k__BackingField:
+      <Type>k__BackingField: 0
+      <Param>k__BackingField: 
+      <Value>k__BackingField: 0
+  - <Id>k__BackingField: stage_complete
+    <Description>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Quests
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: quest.quest_bg_bandit_3.stage_complete
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <Narrative>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <TriggerEventIds>k__BackingField:
+    - bg_bandit_3_complete
+    <AutoCompleteCondition>k__BackingField:
+      <Type>k__BackingField: 0
+      <Param>k__BackingField: 
+      <Value>k__BackingField: 0
+  <Rewards>k__BackingField:
+  - <Type>k__BackingField: 1
+    <Target>k__BackingField: 
+    <Value>k__BackingField: 80
+  - <Type>k__BackingField: 2
+    <Target>k__BackingField: 
+    <Value>k__BackingField: 15
+  <FailConditions>k__BackingField: []
+  <FailConsequences>k__BackingField: []
+  <GiverBuilding>k__BackingField: 0
+  <BriefingEventId>k__BackingField: 
+  references:
+    version: 2
+    RefIds: []

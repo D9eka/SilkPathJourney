@@ -43,13 +43,13 @@ namespace Internal.Scripts.UI.Tooltip
             Canvas.ForceUpdateCanvases();
             LayoutRebuilder.ForceRebuildLayoutImmediate(_rectTransform);
 
-            DOTween.KillAll(_canvasGroup);
+            DOTween.Kill(_canvasGroup);
             _canvasGroup.DOFade(1f, FADE_IN_DURATION).SetEase(Ease.OutQuad);
         }
 
         public void Hide()
         {
-            DOTween.KillAll(_canvasGroup);
+            DOTween.Kill(_canvasGroup);
             _canvasGroup.DOFade(0f, FADE_OUT_DURATION)
                 .SetEase(Ease.InQuad)
                 .OnComplete(() => gameObject.SetActive(false));

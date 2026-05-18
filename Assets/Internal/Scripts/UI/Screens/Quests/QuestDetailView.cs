@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Internal.Scripts.Economy;
 using Internal.Scripts.Quests.Data;
 using Internal.Scripts.Quests.Generated;
+using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Localization;
 using Internal.Scripts.UI.Localization.Generated;
 using TMPro;
@@ -23,7 +24,7 @@ namespace Internal.Scripts.UI.Screens.Quests
         [SerializeField] private TextMeshProUGUI _citiesText;
 
         [Header("Branch")]
-        [SerializeField] private TextMeshProUGUI _branchNameText;
+        [SerializeField] private IconLabel _branchLabel;
         [SerializeField] private TextMeshProUGUI _branchDescriptionText;
 
         [Header("Lists")]
@@ -83,15 +84,14 @@ namespace Internal.Scripts.UI.Screens.Quests
                 }
             }
 
-            if (_questImage != null)
-                _questImage.sprite = quest.Icon;
+            _questImage.sprite = ResolveCityTypeIcon(quest);
 
             if (_citiesText != null)
                 _citiesText.text = BuildCitiesText(quest);
 
-            if (_branchNameText != null)
-                _branchNameText.text = LocalizationService.ResolveString(
-                    quest.BranchName, quest.Branch.ToString(), BranchName(quest.Branch));
+            string branchName = LocalizationService.ResolveString(
+                quest.BranchName, quest.Branch.ToString(), BranchName(quest.Branch));
+            _branchLabel.Initialize(quest.Icon, branchName);
 
             if (_branchDescriptionText != null)
                 _branchDescriptionText.text = LocalizationService.ResolveString(
@@ -157,6 +157,17 @@ namespace Internal.Scripts.UI.Screens.Quests
                 default:
                     return c.Type.ToString();
             }
+        }
+
+        private Sprite ResolveCityTypeIcon(QuestData quest)
+        {
+            string cityId = !string.IsNullOrEmpty(quest.StartCityId)
+                ? quest.StartCityId : _runtimeStartCityId;
+            if (string.IsNullOrEmpty(cityId) || _economyDatabase == null) return null;
+            var city = _economyDatabase.Cities
+                .Find(c => string.Equals(c.Id, cityId, StringComparison.OrdinalIgnoreCase));
+            if (city == null) return null;
+            return _economyDatabase.GetCityType(city.Type)?.Icon;
         }
 
         private string BuildCitiesText(QuestData quest)

@@ -4,6 +4,8 @@ namespace Internal.Scripts.Npc.Core
 {
     public class RoadAgentView : MonoBehaviour
     {
+        public const float ROAD_GROUND_OFFSET = 0.5f;
+
         [SerializeField] private Transform _visualRoot;
         [SerializeField] private float _rotationSpeed = 10f;
 
@@ -12,7 +14,7 @@ namespace Internal.Scripts.Npc.Core
         public void SetPose(Vector3 position, Vector3 forward)
         {
             Transform t = VisualRoot;
-            t.position = position;
+            t.position = position + Vector3.up * ROAD_GROUND_OFFSET;
             SmoothRotate(t, forward, _rotationSpeed);
         }
 

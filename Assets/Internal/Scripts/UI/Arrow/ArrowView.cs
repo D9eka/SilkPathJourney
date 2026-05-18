@@ -11,6 +11,8 @@ namespace Internal.Scripts.UI.Arrow
         public RoadPathSegment Segment { get; private set; }
         public GameObject RootObject { get; set; }
 
+        public override int InteractionPriority => 1;
+
         [SerializeField] private Image _arrowImage;
 
         private UnityEngine.Camera _camera;

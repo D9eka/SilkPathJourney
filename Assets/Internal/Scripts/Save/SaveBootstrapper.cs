@@ -69,6 +69,9 @@ namespace Internal.Scripts.Save
             if (data.Version < 6)
                 changed |= MigrateToV6(data);
 
+            if (data.Version < 7)
+                changed |= MigrateToV7(data);
+
             changed |= SyncActiveSaveSlotIds(data);
 
             BackgroundData selectedBackground = _backgroundDatabase?.GetById(_activeSaveSlot?.SelectedBackgroundId);
@@ -198,6 +201,26 @@ namespace Internal.Scripts.Save
 #pragma warning restore CS0618
 
             data.Version = 6;
+            return true;
+        }
+
+        private bool MigrateToV7(SaveData data)
+        {
+            if (string.IsNullOrEmpty(data.SelectedBackgroundId))
+            {
+                BackgroundData fallback = _backgroundDatabase?.GetFirstUnlocked();
+                if (fallback != null)
+                    data.SelectedBackgroundId = fallback.Id;
+            }
+
+            if (string.IsNullOrEmpty(data.SelectedCartClassId))
+            {
+                string cartId = data.Economy?.PlayerResources?.CartClassId;
+                if (!string.IsNullOrEmpty(cartId))
+                    data.SelectedCartClassId = cartId;
+            }
+
+            data.Version = 7;
             return true;
         }
 

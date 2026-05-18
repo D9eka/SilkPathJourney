@@ -165,7 +165,7 @@ namespace Internal.Scripts.UI.Screens.Building
             if (available != null)
                 return new SlotResolution(SlotKind.AvailableQuest, available, null);
 
-            var active = _availability.GetActiveStageInBuildingCity(_cityId);
+            var active = _availability.GetActiveStageInBuildingCity(_cityId, _building);
             if (active != null)
                 return new SlotResolution(SlotKind.ActiveStage, active, null);
 

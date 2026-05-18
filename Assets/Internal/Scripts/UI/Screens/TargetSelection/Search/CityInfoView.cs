@@ -39,7 +39,7 @@ namespace Internal.Scripts.UI.Screens.TargetSelection.Search
         }
 
         public void Apply(Sprite icon, string label, ITooltipDataProvider cityTooltip,
-            IReadOnlyList<IconLabelEntry> buildings, string questIndicatorText)
+            IReadOnlyList<IconLabelEntry> buildings, Sprite questIndicatorIcon, string questIndicatorText)
         {
             if (_cityNameView != null)
             {
@@ -49,7 +49,7 @@ namespace Internal.Scripts.UI.Screens.TargetSelection.Search
 
             UpdateBuildingsHeaderVisibility(buildings);
             RebuildBuildings(buildings);
-            ApplyQuestIndicator(questIndicatorText);
+            ApplyQuestIndicator(questIndicatorIcon, questIndicatorText);
         }
 
         private void BindBuildingsHeader()
@@ -68,7 +68,7 @@ namespace Internal.Scripts.UI.Screens.TargetSelection.Search
             _buildingsHeaderText.gameObject.SetActive(hasBuildings);
         }
 
-        private void ApplyQuestIndicator(string questText)
+        private void ApplyQuestIndicator(Sprite icon, string questText)
         {
             if (_questIndicatorView == null)
                 return;
@@ -76,7 +76,7 @@ namespace Internal.Scripts.UI.Screens.TargetSelection.Search
             bool show = !string.IsNullOrEmpty(questText);
             _questIndicatorView.gameObject.SetActive(show);
             if (show)
-                _questIndicatorView.SetLabel(questText);
+                _questIndicatorView.Initialize(icon, questText);
         }
 
         private void RebuildBuildings(IReadOnlyList<IconLabelEntry> entries)

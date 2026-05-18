@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Components.ItemCategoryCatalog
   _entries:
   - Category: 1
-    Icon: {fileID: 0}
+    Icon: {fileID: 21300000, guid: 8ebb3e75202f4067a120ce31d6752405, type: 3}
     Name:
       m_TableReference:
         m_TableCollectionName: GUID:bd0fd534586ea9547b344b35cd78732d
@@ -25,7 +25,7 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
   - Category: 2
-    Icon: {fileID: 0}
+    Icon: {fileID: 21300000, guid: 8f3dac6f526b427f80000dc282bbc8de, type: 3}
     Name:
       m_TableReference:
         m_TableCollectionName: GUID:bd0fd534586ea9547b344b35cd78732d
@@ -36,7 +36,7 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
   - Category: 3
-    Icon: {fileID: 0}
+    Icon: {fileID: 21300000, guid: 708e2fd596184df28f7b257805773b4e, type: 3}
     Name:
       m_TableReference:
         m_TableCollectionName: GUID:bd0fd534586ea9547b344b35cd78732d
@@ -47,7 +47,7 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
   - Category: 4
-    Icon: {fileID: 0}
+    Icon: {fileID: 21300000, guid: e6a65e6ea3714bfca3afe7bec2d87af6, type: 3}
     Name:
       m_TableReference:
         m_TableCollectionName: GUID:bd0fd534586ea9547b344b35cd78732d
@@ -58,7 +58,7 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
   - Category: 5
-    Icon: {fileID: 0}
+    Icon: {fileID: 21300000, guid: 172879bb857343f09e90ee1dc25adfe5, type: 3}
     Name:
       m_TableReference:
         m_TableCollectionName: GUID:bd0fd534586ea9547b344b35cd78732d
@@ -69,12 +69,23 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
   - Category: 6
-    Icon: {fileID: 0}
+    Icon: {fileID: 21300000, guid: b3c26d756ec54706ab3c0733afd21724, type: 3}
     Name:
       m_TableReference:
         m_TableCollectionName: GUID:bd0fd534586ea9547b344b35cd78732d
       m_TableEntryReference:
         m_KeyId: 3360399972884480
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  - Category: 7
+    Icon: {fileID: 21300000, guid: c9b80c90eaad4608816b0e9420bc4a47, type: 3}
+    Name:
+      m_TableReference:
+        m_TableCollectionName: GUID:bd0fd534586ea9547b344b35cd78732d
+      m_TableEntryReference:
+        m_KeyId: 0
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0

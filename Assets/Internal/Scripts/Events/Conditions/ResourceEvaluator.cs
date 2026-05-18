@@ -54,7 +54,7 @@ namespace Internal.Scripts.Events.Conditions
             else
             {
                 if (!Getters.TryGetValue(condition.Type, out var getter))
-                    return true;
+                    return false;
 
                 current = getter(resources);
             }

@@ -91,7 +91,8 @@ namespace Internal.Scripts.UI.Screens.Quests
                         StageDesc(quest.Id, quest.Stages[i].Id))
                     : string.Empty;
 
-                view.SetState(state, desc);
+                Sprite stageIcon = _viewModel.GetStageIcon(quest.Stages[i].AutoCompleteCondition.Type);
+                view.SetState(state, desc, stageIcon);
             }
 
             for (int i = totalStages; i < _spawnedStages.Count; i++)

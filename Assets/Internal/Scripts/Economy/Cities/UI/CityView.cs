@@ -1,4 +1,3 @@
-using DG.Tweening;
 using Internal.Scripts.InteractableObjects;
 using UnityEngine;
 
@@ -14,21 +13,6 @@ namespace Internal.Scripts.Economy.Cities.UI
         {
             if (!IsHoverEnabled) return;
             base.TriggerHoverEnter();
-        }
-
-        private const float MIN_Y_SCALE = 0.125f;
-
-        public void SetYScaleFactor(float factor)
-        {
-            transform.DOKill();
-            var s = OriginalScale;
-            s.y = Mathf.Max(OriginalScale.y * Mathf.Clamp01(factor), MIN_Y_SCALE);
-            transform.localScale = s;
-        }
-
-        public void AnimateRestoreScale(float duration = 0.3f)
-        {
-            transform.DOScale(OriginalScale, duration);
         }
 
         public void ApplyBiomeColor(Color color)

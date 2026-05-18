@@ -32,7 +32,8 @@ namespace Internal.Scripts.Events.Outcomes
             FailQuestApplier failQuest,
             SetQuestFlagApplier setQuestFlag,
             MarkPendingEndingApplier markPendingEnding,
-            RunEndOutcomeApplier runEnd)
+            RunEndOutcomeApplier runEnd,
+            QueueEventApplier queueEvent)
         {
             Register(resource);
             Register(item);
@@ -56,6 +57,7 @@ namespace Internal.Scripts.Events.Outcomes
             Register(setQuestFlag);
             Register(markPendingEnding);
             Register(runEnd);
+            Register(queueEvent);
         }
 
         public ResourceType? GetAffectedResource(EventOutcomeType type)

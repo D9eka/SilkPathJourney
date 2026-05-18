@@ -14,9 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.WorldLabel.WorldCanvasSettings
   <CanvasScale>k__BackingField: 0.02
   <OffsetAboveGround>k__BackingField: 10
-  <MinLabelScale>k__BackingField: 0.01
-  <MaxLabelScale>k__BackingField: 0.06
+  <MinLabelScale>k__BackingField: 0.003
+  <MaxLabelScale>k__BackingField: 0.018
   <LabelPrefab>k__BackingField: {fileID: 3244611437414605031, guid: 3c4c268c851d0e046a9da51812e3a87e, type: 3}
   <NpcLabelPrefab>k__BackingField: {fileID: 3105363379873258302, guid: e6ad355cef088fe48963e2904197a645, type: 3}
   <RoadLabelPrefab>k__BackingField: {fileID: -2492048874987045028, guid: 26de67b4b0b62744c810b37dfe443191, type: 3}
   <FloatingRewardLabelPrefab>k__BackingField: {fileID: 7749881819775845016, guid: 19b5e57e469890f41901fb9fc91dfba5, type: 3}
+  <UiAlwaysOnTopMaterial>k__BackingField: {fileID: 2100000, guid: d498b075773e6264285d17cecab32579, type: 2}
+  <TmpAlwaysOnTopMaterial>k__BackingField: {fileID: 2100000, guid: c5b2e7a1d9f648c3a7e1d4b6c9f2a5b7, type: 2}

@@ -15,6 +15,7 @@ namespace Internal.Scripts.UI.Screens.CityEntryConfirm
         public IconLabelEntry CityType;
         public IconLabelEntry[] Buildings;
         public IconLabelEntry[] Modifiers;
+        public Sprite QuestIndicatorIcon;
         public string QuestIndicatorText;
 
         public int TariffAmount;

@@ -30,7 +30,9 @@ namespace Internal.Scripts.UI.Screens.Event
         [SerializeField] private TextMeshProUGUI _eventNameText;
         [SerializeField] private TextMeshProUGUI _eventTypeText;
         [SerializeField] private TextMeshProUGUI _eventDescriptionText;
+        [SerializeField] private TextMeshProUGUI _eventDescriptionTextNoImage;
         [SerializeField] private TextMeshProUGUI _eventLocationText;
+        [SerializeField] private Transform _eventLocationRoot;
         [SerializeField] private Image _eventImage;
         [Header("Resource Preview")]
         [SerializeField] private Transform _resourceIndicatorsRoot;
@@ -57,6 +59,7 @@ namespace Internal.Scripts.UI.Screens.Event
         private bool _choiceMade;
         private int _lastLinkIndex = -1;
         private string _unknownLanguageTooltip;
+        private TextMeshProUGUI _activeDescriptionText;
 
         private LocalizationService.LocalizedTextHandle _mainHeaderHandle;
         private LocalizationService.LocalizedTextHandle _nameHandle;
@@ -105,19 +108,20 @@ namespace Internal.Scripts.UI.Screens.Event
 
         private void Update()
         {
-            if (_eventDescriptionText == null || _viewModel?.TooltipService == null)
+            TextMeshProUGUI textForLink = _activeDescriptionText ?? _eventDescriptionText;
+            if (textForLink == null || _viewModel?.TooltipService == null)
                 return;
 
             Vector2 mousePos = Mouse.current?.position.ReadValue() ?? Vector2.zero;
             int linkIndex = TMP_TextUtilities.FindIntersectingLink(
-                _eventDescriptionText, mousePos, null);
+                textForLink, mousePos, null);
 
             if (linkIndex == _lastLinkIndex)
                 return;
             _lastLinkIndex = linkIndex;
 
             if (linkIndex >= 0 &&
-                _eventDescriptionText.textInfo.linkInfo[linkIndex].GetLinkID() == NpcSpeechLocArg.UnknownLinkId)
+                textForLink.textInfo.linkInfo[linkIndex].GetLinkID() == NpcSpeechLocArg.UnknownLinkId)
             {
                 _unknownLanguageTooltip ??= LocalizationService.Resolve(LocUI.Table, LocUI.UI_Tooltip_UnknownLanguage);
                 _viewModel.TooltipService.ShowTooltipDelayed(
@@ -175,8 +179,10 @@ namespace Internal.Scripts.UI.Screens.Event
 
         private void RequestLayoutRefresh()
         {
-            _scrollViewLayout?.Refresh();
-            _scrollRect?.Refresh();
+            if (_scrollViewLayout != null && _scrollViewLayout.gameObject.activeInHierarchy)
+                _scrollViewLayout.Refresh();
+            if (_scrollRect != null && _scrollRect.gameObject.activeInHierarchy)
+                _scrollRect.Refresh();
         }
 
         private void UpdateContent(EventData eventData)
@@ -190,17 +196,27 @@ namespace Internal.Scripts.UI.Screens.Event
                 BindLocalizedText(ref _nameHandle, _eventNameText, eventData.Name, "EventName");
                 BindLocalizedText(ref _typeHandle, _eventTypeText, eventData.EventType, "EventType");
 
+                bool hasImage = eventData.Image != null;
+                if (_eventImage != null)
+                {
+                    _eventImage.gameObject.SetActive(hasImage);
+                    if (hasImage) _eventImage.sprite = eventData.Image;
+                }
+                if (_scrollRect != null)
+                    _scrollRect.gameObject.SetActive(hasImage);
+                if (_eventDescriptionTextNoImage != null)
+                    _eventDescriptionTextNoImage.gameObject.SetActive(!hasImage);
+
+                _activeDescriptionText = hasImage ? _eventDescriptionText : _eventDescriptionTextNoImage;
+
                 object[] formatArgs = _viewModel.FormatArgs;
-                BindLocalizedTextWithArgs(ref _descriptionHandle, _eventDescriptionText,
+                BindLocalizedTextWithArgs(ref _descriptionHandle, _activeDescriptionText,
                     eventData.Description, "EventDescription", formatArgs,
                     raw => LocArgRenderer.ProcessNpcSpeech(raw, _viewModel?.LanguageRepo));
 
                 if (_nameHandle != null) _nameHandle.TextChanged += RequestLayoutRefresh;
                 if (_typeHandle != null) _typeHandle.TextChanged += RequestLayoutRefresh;
                 if (_descriptionHandle != null) _descriptionHandle.TextChanged += RequestLayoutRefresh;
-
-                if (eventData.Image != null)
-                    _eventImage.sprite = eventData.Image;
 
                 _currentChoices = eventData.Choices != null
                     ? new List<EventChoice>(eventData.Choices)
@@ -215,8 +231,7 @@ namespace Internal.Scripts.UI.Screens.Event
                 }
 
                 CreateChoiceButtons(_currentChoices);
-                _scrollViewLayout?.Refresh();
-                _scrollRect?.Refresh();
+                RequestLayoutRefresh();
             }
             catch (System.Exception ex)
             {
@@ -379,8 +394,9 @@ namespace Internal.Scripts.UI.Screens.Event
                 if (!string.IsNullOrEmpty(skillCheck)) parts.Add(skillCheck);
                 parts.Add(resolved);
                 if (!string.IsNullOrEmpty(summary)) parts.Add(summary);
-                if (_eventDescriptionText != null)
-                    _eventDescriptionText.text = string.Join("\n\n", parts);
+                TextMeshProUGUI target = _activeDescriptionText ?? _eventDescriptionText;
+                if (target != null)
+                    target.text = string.Join("\n\n", parts);
             }
 
             _choiceMade = true;
@@ -388,9 +404,8 @@ namespace Internal.Scripts.UI.Screens.Event
             SpawnContinueButton();
 
             AnimateOutcomeResults();
-            _eventDescriptionText?.ForceMeshUpdate();
-            _scrollViewLayout?.Refresh();
-            _scrollRect?.Refresh();
+            (_activeDescriptionText ?? _eventDescriptionText)?.ForceMeshUpdate();
+            RequestLayoutRefresh();
         }
 
         private void AnimateOutcomeResults()
@@ -417,13 +432,14 @@ namespace Internal.Scripts.UI.Screens.Event
 
         private void UpdateLocation(CityData city, bool isAtCity)
         {
-            if (_eventLocationText == null) return;
-
             if (city == null)
             {
-                _eventLocationText.text = "";
+                _eventLocationRoot.gameObject.SetActive(false);
+                RequestLayoutRefresh();
                 return;
             }
+
+            _eventLocationRoot.gameObject.SetActive(true);
 
             string cityName = LocalizationService.ResolveString(city.Name, city.Id, "CityName");
 

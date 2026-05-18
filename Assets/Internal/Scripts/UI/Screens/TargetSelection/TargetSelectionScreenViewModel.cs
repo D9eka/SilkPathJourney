@@ -56,7 +56,8 @@ namespace Internal.Scripts.UI.Screens.TargetSelection
             _playerStartMovement.OnCityPreview += HandleCityPreview;
             _playerStartMovement.BeginSelection();
             _cameraController.UnfollowPlayer();
-            _cameraController.ZoomCamera(_settings.TargetSelectionZoomSize);
+            Vector2 openXZ = _cameraController.CameraTransform.GetWorldTarget();
+            _cameraController.FocusOn(openXZ, _settings.TargetSelectionZoomSize, _settings.PreviewZoomDuration);
 
             _searchPanel.Activate();
             _searchPanel.CityRowClicked += HandleSearchCityClicked;
@@ -71,6 +72,7 @@ namespace Internal.Scripts.UI.Screens.TargetSelection
             _playerStartMovement.OnCityPreview -= HandleCityPreview;
             if (_playerStartMovement.IsChoosingTarget)
                 _playerStartMovement.CancelSelection();
+            _cameraController.CancelFocus();
             _cameraController.FollowPlayer();
             _gameClock.Resume();
         }
@@ -88,7 +90,8 @@ namespace Internal.Scripts.UI.Screens.TargetSelection
         public void CancelPreview()
         {
             _playerStartMovement.CancelPreview();
-            _cameraController.ZoomCamera(_settings.TargetSelectionZoomSize);
+            Vector2 cancelXZ = _cameraController.CameraTransform.GetWorldTarget();
+            _cameraController.FocusOn(cancelXZ, _settings.TargetSelectionZoomSize, _settings.PreviewZoomDuration);
             _searchPanel.SetVisible(true);
             PreviewChanged?.Invoke(null, default, default);
         }
@@ -99,8 +102,9 @@ namespace Internal.Scripts.UI.Screens.TargetSelection
             Vector2 cameraXZ = _cameraController.CameraTransform.GetWorldTarget();
             float distance = Vector2.Distance(cameraXZ, targetXZ);
             float moveDuration = Mathf.Max(distance / _settings.PreviewMoveSpeed, _settings.FollowTransitionDuration);
-            _cameraController.MoveCamera(targetXZ, moveDuration);
-            _cameraController.ZoomCamera(_settings.FollowZoomSize);
+            float zoomDur = _settings.PreviewZoomDuration > 0f ? _settings.PreviewZoomDuration : 0.7f;
+            float duration = Mathf.Max(moveDuration, zoomDur);
+            _cameraController.FocusOn(targetXZ, _settings.FollowZoomSize, duration);
 
             TravelEstimate estimate = _travelEstimator.Estimate(city.NodeId);
             CityRowData rowData = _cardBuilder.Build(city);

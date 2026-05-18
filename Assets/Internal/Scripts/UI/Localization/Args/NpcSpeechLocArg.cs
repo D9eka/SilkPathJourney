@@ -67,12 +67,27 @@ namespace Internal.Scripts.UI.Localization.Args
 
         private static bool ShouldHide(int wordIndex, int totalWords, float hideRatio)
         {
-            if (totalWords <= 0) return false;
-            int hiddenCount = (int)(totalWords * hideRatio);
-            int step = totalWords > hiddenCount && hiddenCount > 0
-                ? totalWords / hiddenCount
-                : 1;
-            return (wordIndex % step) < (hideRatio >= 1f ? step : 1);
+            if (totalWords <= 0 || hideRatio <= 0f) return false;
+            if (hideRatio >= 1f) return true;
+
+            int hiddenCount = (int)System.Math.Round(totalWords * hideRatio);
+            if (hiddenCount <= 0) return false;
+            if (hiddenCount >= totalWords) return true;
+
+            if (hiddenCount * 2 <= totalWords)
+            {
+                int step = totalWords / hiddenCount;
+                int slot = wordIndex / step;
+                return wordIndex % step == 0 && slot < hiddenCount;
+            }
+            else
+            {
+                int visibleCount = totalWords - hiddenCount;
+                int step = totalWords / visibleCount;
+                int slot = wordIndex / step;
+                bool isVisible = wordIndex % step == 0 && slot < visibleCount;
+                return !isVisible;
+            }
         }
 
         private static string WrapRichText(string text, LanguageProficiency proficiency)

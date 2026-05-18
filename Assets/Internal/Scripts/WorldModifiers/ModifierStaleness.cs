@@ -26,6 +26,8 @@ namespace Internal.Scripts.WorldModifiers
             return staleness == ModifierStaleness.Stale ? StaleAlpha : 1f;
         }
 
+        public const string UnknownTitle = "???";
+
         public static string GetUnknownDescription()
         {
             bool isRu = UnityEngine.Localization.Settings.LocalizationSettings.SelectedLocale?.Identifier.Code?.StartsWith("ru") == true;

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Internal.Scripts.Economy.MarketMemory;
 using Internal.Scripts.Economy.Save;
+using Internal.Scripts.Events;
 using Internal.Scripts.Journal;
 using Internal.Scripts.Meta;
 using Internal.Scripts.Npc.Save;
@@ -30,5 +31,6 @@ namespace Internal.Scripts.Save
         public RunStatsData RunStats;
         public List<JournalEntry> Journal = new();
         public Dictionary<string, MarketSnapshot> MarketMemory = new();
+        public List<QueuedEvent> EventQueue = new();
     }
 }

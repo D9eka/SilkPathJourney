@@ -23,6 +23,8 @@ namespace Internal.Scripts.UI.WorldLabel.Components
         public void SetColorController(StaticColorController controller, Biome biome)
         {
             gameObject.InitializeColorBinders(colorController: controller, biome: biome);
+            if (_icon != null && controller != null)
+                _icon.SetTintColor(controller.GetColor(biome, ColorSlot.CityMarker));
         }
 
         public void Initialize(TooltipService tooltipService, LocalizationService localization)

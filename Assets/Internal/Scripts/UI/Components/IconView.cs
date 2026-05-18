@@ -9,10 +9,19 @@ namespace Internal.Scripts.UI.Components
         [SerializeField] private Image _image;
         [SerializeField] private ResourceType _resourceType;
 
-        [Inject(Optional = true)] private ResourceIconCatalog _catalog;
+        private ResourceIconCatalog _catalog;
+        private bool _appliedFromCatalog;
 
         private void Awake()
         {
+            if (!_appliedFromCatalog)
+                ApplyFromCatalog();
+        }
+
+        [Inject]
+        public void Construct(ResourceIconCatalog catalog)
+        {
+            _catalog = catalog;
             ApplyFromCatalog();
         }
 
@@ -32,6 +41,7 @@ namespace Internal.Scripts.UI.Components
             if (_catalog == null) return;
             ResourceEntry entry = _catalog.Get(_resourceType);
             if (entry != null) _image.sprite = entry.Icon;
+            _appliedFromCatalog = true;
         }
     }
 }

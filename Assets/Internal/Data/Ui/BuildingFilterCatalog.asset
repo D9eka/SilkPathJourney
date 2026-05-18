@@ -1,0 +1,139 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bbb5834b5a8efb43bcba82f302ccf84, type: 3}
+  m_Name: BuildingFilterCatalog
+  m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.UI.Components.BuildingFilterCatalog
+  _entries:
+  - Building: 1
+    Icon: {fileID: 21300000, guid: 8f99b89e13b247be85e8db6d55c4390f, type: 3}
+    Name:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  - Building: 2
+    Icon: {fileID: 21300000, guid: d166d8a4e39e45d4886a527aa8f8390e, type: 3}
+    Name:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  - Building: 3
+    Icon: {fileID: 21300000, guid: b7ef8384d99c4280a35bba720466ef95, type: 3}
+    Name:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  - Building: 4
+    Icon: {fileID: 21300000, guid: a2bb1ed84da64cef878a87dabd54109b, type: 3}
+    Name:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  - Building: 5
+    Icon: {fileID: 21300000, guid: b17d7a45d6c04e1ebc543919e5448f9b, type: 3}
+    Name:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  - Building: 6
+    Icon: {fileID: 21300000, guid: 9b96de995d9d4c269bbe40a0ccde8908, type: 3}
+    Name:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  - Building: 7
+    Icon: {fileID: 21300000, guid: 01989e0161ff49aebbebb473cb062201, type: 3}
+    Name:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  - Building: 8
+    Icon: {fileID: 21300000, guid: 6ea0ddf7587b4376a13bb15961a79b27, type: 3}
+    Name:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  - Building: 9
+    Icon: {fileID: 21300000, guid: c702b223f25541a189e67f11fdb7684d, type: 3}
+    Name:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  - Building: 10
+    Icon: {fileID: 21300000, guid: 6d3843ea2a0c49b08d4cd48f5d578e92, type: 3}
+    Name:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  - Building: 11
+    Icon: {fileID: 21300000, guid: f9c5e3b3f0a94c4899a28136ee462bd8, type: 3}
+    Name:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []

@@ -1,4 +1,6 @@
+using Internal.Scripts.Caravan;
 using Internal.Scripts.Caravan.Generated;
+using Internal.Scripts.Config;
 using Internal.Scripts.Npc.Data;
 using Internal.Scripts.Npc.Lifecycle;
 using Internal.Scripts.Npc.Movement;
@@ -25,11 +27,14 @@ namespace Internal.Scripts.Npc.Core
         private readonly NpcSimulationSettings _settings;
         private readonly WorldCanvas _worldCanvas;
         private readonly ConvoyPrefabCatalog _catalog;
+        private readonly CaravanDatabase _caravanDb;
+        private readonly GameBalanceConfig _balanceConfig;
 
         public NpcFactory(IRoadPathFinder pathFinder, IRoadNetwork network,
             RoadSamplerCache samplerCache, NpcSimulation simulation, RoadPoseSampler poseSampler,
             IGameDayDeltaProvider gameDayDeltaProvider,
             NpcSimulationSettings settings, WorldCanvas worldCanvas,
+            CaravanDatabase caravanDb, GameBalanceConfig balanceConfig,
             [Zenject.InjectOptional] ConvoyPrefabCatalog catalog)
         {
             _pathFinder = pathFinder;
@@ -41,6 +46,8 @@ namespace Internal.Scripts.Npc.Core
             _settings = settings;
             _worldCanvas = worldCanvas;
             _catalog = catalog;
+            _caravanDb = caravanDb;
+            _balanceConfig = balanceConfig;
         }
 
         public RoadAgent Create(NpcView view, RoadAgentConfig config, string startNodeId)
@@ -87,25 +94,65 @@ namespace Internal.Scripts.Npc.Core
             }
 
             view.ApplyColor(color);
-            SpawnCartVisual(view);
 
-            LocalizedString localizedName = !string.IsNullOrEmpty(nameId)
-                ? new LocalizedString("Npc", nameId) : null;
-            view.InitLabel(_worldCanvas, economy.Name, localizedName);
+            CartClass cartClass = ChooseRandomCartClass();
+            DraftAnimalType animalType = ChooseRandomAnimalType();
+            float computedSpeed = ComputeSpeedFromCartAndAnimal(cartClass, animalType);
+            if (computedSpeed > 0f)
+                config.SpeedMetersPerDay = computedSpeed;
+
+            SpawnCartVisual(view, cartClass, animalType);
 
             RoadAgent roadAgent = Create(view, config, startNodeId);
             return new NpcCaravanAgent(roadAgent, view, economy, prefabIndex, colorIndex);
         }
 
-        private void SpawnCartVisual(NpcView view)
+        private CartClass ChooseRandomCartClass()
+        {
+            if (_caravanDb != null && _caravanDb.CartClasses != null && _caravanDb.CartClasses.Count > 0)
+            {
+                int idx = Random.Range(0, _caravanDb.CartClasses.Count);
+                return _caravanDb.CartClasses[idx].ClassType;
+            }
+
+            var values = (CartClass[])System.Enum.GetValues(typeof(CartClass));
+            return values.Length > 0 ? values[Random.Range(0, values.Length)] : default;
+        }
+
+        private DraftAnimalType ChooseRandomAnimalType()
+        {
+            var values = (DraftAnimalType[])System.Enum.GetValues(typeof(DraftAnimalType));
+            DraftAnimalType picked;
+            int guard = 0;
+            do
+            {
+                picked = values[Random.Range(0, values.Length)];
+                guard++;
+            } while (picked == DraftAnimalType.Unknown && guard < 8);
+            return picked;
+        }
+
+        private float ComputeSpeedFromCartAndAnimal(CartClass cartClass, DraftAnimalType animalType)
+        {
+            if (_caravanDb == null || _balanceConfig == null) return 0f;
+
+            CartClassData cartData = _caravanDb.CartClasses?.Find(c => c.ClassType == cartClass);
+            if (cartData == null) return 0f;
+
+            float speedKmDay = cartData.SpeedKmDay;
+            DraftAnimalData animal = _caravanDb.GetDraftAnimal(animalType);
+            if (animal != null)
+                speedKmDay *= 1f + animal.SpeedModPct / 100f;
+
+            float jitter = Random.Range(0.9f, 1.1f);
+            return speedKmDay * _balanceConfig.WorldUnitsPerKm * jitter;
+        }
+
+        private void SpawnCartVisual(NpcView view, CartClass cartClass, DraftAnimalType animalType)
         {
             if (_catalog == null) return;
 
-            var cartClasses = (CartClass[])System.Enum.GetValues(typeof(CartClass));
-            if (cartClasses.Length == 0) return;
-
-            CartClass randomCart = cartClasses[Random.Range(0, cartClasses.Length)];
-            GameObject cartPrefab = _catalog.GetMainCart(randomCart);
+            GameObject cartPrefab = _catalog.GetMainCart(cartClass);
             if (cartPrefab == null) return;
 
             var meshRenderer = view.GetComponent<MeshRenderer>();
@@ -116,6 +163,14 @@ namespace Internal.Scripts.Npc.Core
             GameObject cart = Object.Instantiate(cartPrefab, view.VisualRoot);
             cart.transform.localPosition = Vector3.zero;
             cart.transform.localRotation = Quaternion.identity;
+
+            var cartView = cart.GetComponent<CartFollowerView>();
+            if (cartView != null)
+            {
+                var entry = _catalog.GetAnimal(animalType);
+                if (entry.Prefab != null)
+                    cartView.SetAnimal(entry.Prefab, entry.Scale > 0 ? entry.Scale : 1f, entry.Offset);
+            }
         }
 
         private int ChoosePrefabIndex()

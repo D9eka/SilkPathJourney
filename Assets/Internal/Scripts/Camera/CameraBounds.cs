@@ -29,6 +29,15 @@ namespace Internal.Scripts.Camera
             _overrideBounds = null;
         }
 
+        public Vector2 ClampForCameraY(Vector2 worldTarget, float cameraY)
+        {
+            Vector3 saved = _camera.transform.position;
+            _camera.transform.position = new Vector3(saved.x, cameraY, saved.z);
+            Vector2 clamped = Clamp(worldTarget);
+            _camera.transform.position = saved;
+            return clamped;
+        }
+
         public Vector2 Clamp(Vector2 worldTarget)
         {
             Bounds active = _overrideBounds ?? _strategicBounds;

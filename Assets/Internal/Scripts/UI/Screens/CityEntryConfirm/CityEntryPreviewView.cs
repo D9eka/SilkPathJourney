@@ -74,7 +74,7 @@ namespace Internal.Scripts.UI.Screens.CityEntryConfirm
         {
             if (_cityInfo != null)
                 _cityInfo.Apply(state.CityType.Icon, state.CityType.Label, state.CityType.TooltipProvider,
-                    state.Buildings, state.QuestIndicatorText);
+                    state.Buildings, state.QuestIndicatorIcon, state.QuestIndicatorText);
         }
 
         private void ApplyModifiers(CityEntryConfirmViewState state)

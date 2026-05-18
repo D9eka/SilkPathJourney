@@ -1,17 +1,18 @@
 using Internal.Scripts.Player;
-using Internal.Scripts.Road.Core;
+using Internal.Scripts.Road.Graph;
+using Internal.Scripts.Road.Path;
 
 namespace Internal.Scripts.WorldModifiers
 {
     public sealed class CurrentRoadResolver
     {
         private readonly IPlayerStateProvider _playerState;
-        private readonly RoadRuntime[] _roads;
+        private readonly IRoadNetwork _network;
 
-        public CurrentRoadResolver(IPlayerStateProvider playerState, RoadRuntime[] roads)
+        public CurrentRoadResolver(IPlayerStateProvider playerState, IRoadNetwork network)
         {
             _playerState = playerState;
-            _roads = roads;
+            _network = network;
         }
 
         public string GetCurrentRoadId()
@@ -21,17 +22,9 @@ namespace Internal.Scripts.WorldModifiers
             if (string.IsNullOrEmpty(fromNode) || string.IsNullOrEmpty(toNode))
                 return null;
 
-            foreach (var road in _roads)
-            {
-                if (road?.Data == null) continue;
-                var data = road.Data;
-                if ((data.StartNodeId == fromNode && data.EndNodeId == toNode) ||
-                    (data.Bidirectional && data.StartNodeId == toNode && data.EndNodeId == fromNode))
-                {
-                    return data.RoadId;
-                }
-            }
-            return null;
+            return _network.TryGetSegment(fromNode, toNode, out RoadPathSegment segment)
+                ? segment.SegmentId.RoadId
+                : null;
         }
     }
 }

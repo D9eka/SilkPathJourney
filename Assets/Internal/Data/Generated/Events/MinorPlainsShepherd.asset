@@ -42,7 +42,30 @@ MonoBehaviour:
     m_WaitForCompletion: 0
     m_LocalVariables: []
   <Image>k__BackingField: {fileID: 0}
-  <Choices>k__BackingField: []
+  <Choices>k__BackingField:
+  - <Text>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Events
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: event.minor_plains_shepherd.choice0
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <ResultText>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Events
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: event.minor_plains_shepherd.choice0.result
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <Conditions>k__BackingField: []
+    <Outcomes>k__BackingField:
+    - <Type>k__BackingField: 10
+      <Param>k__BackingField: 
+      <Value>k__BackingField: 2
   <IsMinor>k__BackingField: 1
   <Biome>k__BackingField: 0
   <AutoOutcomes>k__BackingField:

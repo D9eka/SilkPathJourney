@@ -36,8 +36,8 @@ namespace Internal.Scripts.UI.WorldLabel.Components
         {
             if (_iconTemplate == null || _iconsContainer == null) return;
 
+            SetVisible(true);
             var labelIcon = Instantiate(_iconTemplate, _iconsContainer);
-            labelIcon.gameObject.SetActive(true);
             labelIcon.Initialize(_tooltipService, name, description, icon, alpha);
         }
 
