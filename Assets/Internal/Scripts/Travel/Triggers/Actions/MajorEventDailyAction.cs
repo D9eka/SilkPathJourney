@@ -9,6 +9,7 @@ namespace Internal.Scripts.Travel.Triggers.Actions
     {
         private readonly EventTrigger _eventTrigger;
         private readonly EventSelector _eventSelector;
+        private readonly EventQueueService _eventQueue;
         private readonly SaveRepository _saveRepository;
         private readonly GameBalanceConfig _balance;
         private readonly DayTracker _dayTracker;
@@ -16,12 +17,14 @@ namespace Internal.Scripts.Travel.Triggers.Actions
         public MajorEventDailyAction(
             EventTrigger eventTrigger,
             EventSelector eventSelector,
+            EventQueueService eventQueue,
             SaveRepository saveRepository,
             GameBalanceConfig balance,
             DayTracker dayTracker)
         {
             _eventTrigger = eventTrigger;
             _eventSelector = eventSelector;
+            _eventQueue = eventQueue;
             _saveRepository = saveRepository;
             _balance = balance;
             _dayTracker = dayTracker;
@@ -29,8 +32,13 @@ namespace Internal.Scripts.Travel.Triggers.Actions
 
         public bool CanTrigger()
         {
+            int currentDay = _dayTracker.CurrentDay;
+
+            if (_eventQueue.TryPeek(currentDay) != null)
+                return true;
+
             int lastMajorDay = _saveRepository.Data.Player.LastEventDay;
-            if (_dayTracker.CurrentDay - lastMajorDay < _balance.DaysBetweenMajorEvents)
+            if (currentDay - lastMajorDay < _balance.DaysBetweenMajorEvents)
                 return false;
 
             return _eventSelector.SelectEvent(minor: false) != null;
@@ -38,9 +46,13 @@ namespace Internal.Scripts.Travel.Triggers.Actions
 
         public void Trigger()
         {
-            EventData eventData = _eventSelector.SelectEvent(minor: false);
+            int currentDay = _dayTracker.CurrentDay;
+
+            EventData eventData = _eventQueue.TryDequeue(currentDay)
+                ?? _eventSelector.SelectEvent(minor: false);
+
             if (eventData == null) return;
-            _eventTrigger.TriggerMajorEvent(eventData, _dayTracker.CurrentDay);
+            _eventTrigger.TriggerMajorEvent(eventData, currentDay);
         }
     }
 }

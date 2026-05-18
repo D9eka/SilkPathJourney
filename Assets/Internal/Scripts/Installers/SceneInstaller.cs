@@ -350,7 +350,6 @@ namespace Internal.Scripts.Installers
             Container.Bind<Events.Conditions.NoItemEvaluator>().AsSingle();
             Container.Bind<Events.Conditions.DangerAboveEvaluator>().AsSingle();
             Container.Bind<Events.Conditions.BackgroundEvaluator>().AsSingle();
-            Container.Bind<Events.Conditions.InBuildingEvaluator>().AsSingle();
             Container.Bind<Events.Conditions.ConditionEvaluator>().AsSingle();
 
             Container.Bind<Events.Outcomes.ResourceApplier>().AsSingle();
@@ -425,7 +424,6 @@ namespace Internal.Scripts.Installers
 
         private void InstallQuests()
         {
-            Container.Bind<Economy.Buildings.CurrentBuildingService>().AsSingle();
             Container.Bind<PlayerCityLocator>().AsSingle();
             Container.Bind<QuestRepository>().AsSingle().NonLazy();
             Container.BindInterfacesAndSelfTo<QuestAvailabilityService>().AsSingle().NonLazy();
