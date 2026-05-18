@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using Internal.Scripts.Economy.Buildings;
+using Internal.Scripts.Events;
+using Internal.Scripts.Events.Data;
 using Internal.Scripts.Quests.Data;
 using Internal.Scripts.Quests.Generated;
 using Internal.Scripts.UI.WorldLabel;
@@ -13,15 +15,27 @@ namespace Internal.Scripts.Quests
     {
         private readonly QuestRepository _repository;
         private readonly QuestDatabase _questDatabase;
+        private readonly EventDatabase _eventDatabase;
         private readonly ReactiveProperty<bool> _hasAvailableQuest = new(false);
         private IDisposable _subscription;
+        private EventSelector _eventSelector;
 
         public ReadOnlyReactiveProperty<bool> HasAvailableQuest => _hasAvailableQuest;
 
-        public QuestAvailabilityService(QuestRepository repository, QuestDatabase questDatabase)
+        public QuestAvailabilityService(
+            QuestRepository repository,
+            QuestDatabase questDatabase,
+            EventDatabase eventDatabase)
         {
             _repository = repository;
             _questDatabase = questDatabase;
+            _eventDatabase = eventDatabase;
+        }
+
+        [Inject]
+        public void Construct(EventSelector eventSelector)
+        {
+            _eventSelector = eventSelector;
         }
 
         public void Initialize()
@@ -47,19 +61,35 @@ namespace Internal.Scripts.Quests
                 return false;
 
             if (quest.OrderInBranch <= 1)
-                return true;
+                return CheckBriefingConditions(quest);
 
             var allQuests = _questDatabase?.Quests;
             if (allQuests == null) return false;
 
             int prevOrder = quest.OrderInBranch - 1;
+            bool prevFound = false;
             foreach (var candidate in allQuests)
             {
                 if (candidate.Branch == quest.Branch && candidate.OrderInBranch == prevOrder)
-                    return _repository.IsCompleted(candidate.Id);
+                {
+                    if (!_repository.IsCompleted(candidate.Id))
+                        return false;
+                    prevFound = true;
+                    break;
+                }
             }
 
-            return false;
+            if (!prevFound) return false;
+
+            return CheckBriefingConditions(quest);
+        }
+
+        private bool CheckBriefingConditions(QuestData quest)
+        {
+            if (string.IsNullOrEmpty(quest.BriefingEventId)) return true;
+            var briefing = _eventDatabase?.GetById(quest.BriefingEventId);
+            if (briefing?.Conditions == null || briefing.Conditions.Count == 0) return true;
+            return _eventSelector.CheckConditions(briefing.Conditions);
         }
 
         public QuestData GetAvailableForBuilding(BuildingType building, string cityId)
@@ -77,7 +107,7 @@ namespace Internal.Scripts.Quests
             return null;
         }
 
-        public QuestData GetActiveStageInBuildingCity(string cityId)
+        public QuestData GetActiveStageInBuildingCity(string cityId, BuildingType building)
         {
             var activeQuests = _repository.GetActiveQuests();
             if (activeQuests == null) return null;
@@ -90,8 +120,8 @@ namespace Internal.Scripts.Quests
                 int stageIndex = entry.CurrentStageIndex;
                 if (stageIndex < 0 || stageIndex >= questData.Stages.Count) continue;
 
-                var condition = questData.Stages[stageIndex].AutoCompleteCondition;
-                if (condition.Type == QuestStageConditionType.InCity && condition.Param == cityId)
+                var autoCondition = questData.Stages[stageIndex].AutoCompleteCondition;
+                if (autoCondition.Type == QuestStageConditionType.InCity && autoCondition.Param == cityId)
                     return questData;
             }
 
@@ -99,7 +129,25 @@ namespace Internal.Scripts.Quests
         }
 
         public bool HasActiveStageInCity(string cityId)
-            => GetActiveStageInBuildingCity(cityId) != null;
+        {
+            var activeQuests = _repository.GetActiveQuests();
+            if (activeQuests == null) return false;
+
+            foreach (var entry in activeQuests)
+            {
+                var questData = _questDatabase?.GetById(entry.QuestId);
+                if (questData?.Stages == null) continue;
+
+                int stageIndex = entry.CurrentStageIndex;
+                if (stageIndex < 0 || stageIndex >= questData.Stages.Count) continue;
+
+                var autoCondition = questData.Stages[stageIndex].AutoCompleteCondition;
+                if (autoCondition.Type == QuestStageConditionType.InCity && autoCondition.Param == cityId)
+                    return true;
+            }
+
+            return false;
+        }
 
         public bool HasAvailableInCity(string cityId)
         {

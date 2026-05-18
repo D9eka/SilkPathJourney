@@ -38,7 +38,7 @@ namespace Internal.Scripts.Events.Conditions
                 EventConditionType.NotCompletedQuest =>
                     !_questRepository.IsCompleted(condition.Param) && !_questRepository.IsFailed(condition.Param),
                 EventConditionType.QuestAvailable => _availability.IsAvailable(condition.Param),
-                _ => true
+                _ => false
             };
         }
     }

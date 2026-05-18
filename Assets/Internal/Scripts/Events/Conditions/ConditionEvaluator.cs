@@ -29,7 +29,8 @@ namespace Internal.Scripts.Events.Conditions
             NoQuestFlagEvaluator noQuestFlag,
             TravelEvaluator travel,
             NoItemEvaluator noItem,
-            DangerAboveEvaluator dangerAbove)
+            DangerAboveEvaluator dangerAbove,
+            BackgroundEvaluator background)
         {
             Register(resource);
             Register(inventory);
@@ -50,6 +51,7 @@ namespace Internal.Scripts.Events.Conditions
             Register(travel);
             Register(noItem);
             Register(dangerAbove);
+            Register(background);
         }
 
         public bool Evaluate(EventCondition condition, PlayerResourceState resources)

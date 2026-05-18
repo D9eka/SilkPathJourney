@@ -1,5 +1,6 @@
 using System;
 using Internal.Scripts.Economy;
+using Internal.Scripts.Economy.Buildings;
 using Internal.Scripts.Economy.Cities;
 using Internal.Scripts.Economy.Save;
 using Internal.Scripts.Events;
@@ -132,6 +133,8 @@ namespace Internal.Scripts.Quests
                 var quest = _questDatabase.GetById(entry.QuestId);
                 if (quest?.Stages == null || entry.CurrentStageIndex >= quest.Stages.Count) continue;
 
+                if (IsBuildingHandover(quest, entry.CurrentStageIndex)) continue;
+
                 var stage = quest.Stages[entry.CurrentStageIndex];
                 if (stage.TriggerEventIds == null || stage.TriggerEventIds.Length == 0) continue;
 
@@ -170,6 +173,15 @@ namespace Internal.Scripts.Quests
             }
         }
 
+        private bool IsBuildingHandover(QuestData quest, int stageIndex)
+        {
+            if (quest.GiverBuilding == BuildingType.Unknown) return false;
+            if (string.IsNullOrEmpty(quest.StartCityId)) return false;
+            if (stageIndex != quest.Stages.Count - 1) return false;
+            var currentCity = _cityEntryService.CurrentCity;
+            return currentCity != null && currentCity.Id == quest.StartCityId;
+        }
+
         private bool EvaluateStageCondition(QuestStageCondition condition, QuestStateEntry entry)
         {
             switch (condition.Type)
@@ -180,7 +192,17 @@ namespace Internal.Scripts.Quests
                     return _cityEntryService.CurrentCity != null &&
                            _cityEntryService.CurrentCity.Id == condition.Param;
                 case QuestStageConditionType.QuestFlag:
-                    return _questRepository.GetFlag(entry.QuestId, condition.Param) >= condition.Value;
+                {
+                    string questId = entry.QuestId;
+                    string flagId = condition.Param;
+                    int dotIndex = condition.Param.IndexOf('.');
+                    if (dotIndex >= 0)
+                    {
+                        questId = condition.Param.Substring(0, dotIndex);
+                        flagId = condition.Param.Substring(dotIndex + 1);
+                    }
+                    return _questRepository.GetFlag(questId, flagId) >= condition.Value;
+                }
                 case QuestStageConditionType.InAnyCity:
                     return _cityEntryService.CurrentCity != null;
                 case QuestStageConditionType.OnRoute:
