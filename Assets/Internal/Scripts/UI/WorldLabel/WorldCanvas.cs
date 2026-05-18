@@ -1,8 +1,12 @@
 using Internal.Scripts.Camera.Zoom;
 using Internal.Scripts.UI.Arrow.PositionCalculation;
 using Internal.Scripts.UI.Localization;
+using Internal.Scripts.UI.Screens.Core.Config;
+using Internal.Scripts.UI.StackService;
 using Internal.Scripts.UI.Tooltip;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Internal.Scripts.UI.WorldLabel
 {
@@ -15,6 +19,8 @@ namespace Internal.Scripts.UI.WorldLabel
         private UnityEngine.Camera _camera;
         private WorldCanvasSettings _settings;
         private CameraZoomerData _zoomerData;
+        private ScreenStackService _screenStackService;
+        private GraphicRaycaster _graphicRaycaster;
         private bool _isInitialized;
 
         public void Initialize(
@@ -24,7 +30,8 @@ namespace Internal.Scripts.UI.WorldLabel
             GroundSnapper groundSnapper,
             UnityEngine.Camera camera,
             WorldCanvasSettings settings,
-            CameraZoomerData zoomerData)
+            CameraZoomerData zoomerData,
+            ScreenStackService screenStackService)
         {
             if (_isInitialized)
             {
@@ -39,7 +46,16 @@ namespace Internal.Scripts.UI.WorldLabel
             _camera = camera;
             _settings = settings;
             _zoomerData = zoomerData;
+            _screenStackService = screenStackService;
+            _graphicRaycaster = canvas.GetComponent<GraphicRaycaster>();
             _isInitialized = true;
+
+            if (_screenStackService != null)
+            {
+                _screenStackService.OnScreenOpened += OnScreenStackChanged;
+                _screenStackService.OnScreenClosed += OnScreenStackChanged;
+                RefreshRaycaster();
+            }
         }
 
         public TooltipService TooltipService => _tooltipService;
@@ -123,6 +139,7 @@ namespace Internal.Scripts.UI.WorldLabel
         {
             var bb = target.AddComponent<WorldCanvasBillboard>();
             bb.Initialize(_camera, _settings);
+            ApplyAlwaysOnTopMaterials(target);
             return bb;
         }
 
@@ -147,6 +164,23 @@ namespace Internal.Scripts.UI.WorldLabel
             PositionElement(rt, worldPosition, offset);
         }
 
+        private void OnScreenStackChanged(ScreenId _) => RefreshRaycaster();
+
+        private void RefreshRaycaster()
+        {
+            if (_graphicRaycaster == null || _screenStackService == null) return;
+            _graphicRaycaster.enabled = _screenStackService.TopId == ScreenId.Hud;
+        }
+
+        private void OnDestroy()
+        {
+            if (_screenStackService != null)
+            {
+                _screenStackService.OnScreenOpened -= OnScreenStackChanged;
+                _screenStackService.OnScreenClosed -= OnScreenStackChanged;
+            }
+        }
+
         private void PositionElement(RectTransform rt, Vector3 worldPosition, Vector3 offset)
         {
             float offsetAboveGround = _settings != null ? _settings.OffsetAboveGround : 0.1f;
@@ -154,6 +188,27 @@ namespace Internal.Scripts.UI.WorldLabel
                 ? _groundSnapper.SnapToGround(worldPosition, offsetAboveGround)
                 : worldPosition + Vector3.up * offsetAboveGround;
             rt.anchoredPosition3D = _canvas.transform.InverseTransformPoint(snappedPos + offset);
+        }
+
+        private void ApplyAlwaysOnTopMaterials(GameObject root)
+        {
+            if (root == null || _settings == null) return;
+            Material uiMat = _settings.UiAlwaysOnTopMaterial;
+            Material tmpMat = _settings.TmpAlwaysOnTopMaterial;
+            if (uiMat == null && tmpMat == null) return;
+
+            Graphic[] graphics = root.GetComponentsInChildren<Graphic>(true);
+            foreach (Graphic g in graphics)
+            {
+                if (g is TMP_Text tmp)
+                {
+                    if (tmpMat != null) tmp.fontMaterial = tmpMat;
+                }
+                else
+                {
+                    if (uiMat != null) g.material = uiMat;
+                }
+            }
         }
     }
 }

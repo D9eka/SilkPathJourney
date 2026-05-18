@@ -18,5 +18,9 @@ namespace Internal.Scripts.UI.WorldLabel
         [field: SerializeField] public NpcLabelView NpcLabelPrefab { get; private set; }
         [field: SerializeField] public RoadLabelView RoadLabelPrefab { get; private set; }
         [field: SerializeField] public FloatingRewardLabel FloatingRewardLabelPrefab { get; private set; }
+
+        [Header("Always-On-Top Materials")]
+        [field: SerializeField] public Material UiAlwaysOnTopMaterial { get; private set; }
+        [field: SerializeField] public Material TmpAlwaysOnTopMaterial { get; private set; }
     }
 }
