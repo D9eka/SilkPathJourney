@@ -40,9 +40,9 @@ MonoBehaviour:
     m_LocalVariables: []
   <Buildings>k__BackingField: 010000000300000004000000020000000500000007000000080000000a000000
   <DetailScene>k__BackingField:
-    _sceneAsset: {fileID: 102900000, guid: f33f21a974403b84e9f833831579bd99, type: 3}
-    _sceneName: New Scene
-    _cameraSize: 15
+    _sceneAsset: {fileID: 102900000, guid: db90f4bd7fbff804bbc4ea3de56b5a7b, type: 3}
+    _sceneName: Changan_Diorama
+    _cameraSize: 25
   references:
     version: 2
     RefIds: []

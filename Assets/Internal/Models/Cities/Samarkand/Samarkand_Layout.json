@@ -1,0 +1,368 @@
+{
+  "spawns": [
+    {
+      "name": "Spawn__archive__01",
+      "function": "archive",
+      "prefab": "Housing_MiddleEast_01",
+      "position": [
+        -17.0,
+        -22.0,
+        0.0
+      ],
+      "rotation_z_deg": 0.0
+    },
+    {
+      "name": "Spawn__caravansary__01",
+      "function": "caravansary",
+      "prefab": "Caravansary_MiddleEast",
+      "position": [
+        14.0,
+        -20.0,
+        0.0
+      ],
+      "rotation_z_deg": 0.0
+    },
+    {
+      "name": "Spawn__guild__01",
+      "function": "guild",
+      "prefab": "Workshop_MiddleEast",
+      "position": [
+        -3.0,
+        -22.0,
+        0.0
+      ],
+      "rotation_z_deg": 0.0
+    },
+    {
+      "name": "Spawn__healer__01",
+      "function": "healer",
+      "prefab": "Housing_MiddleEast_02",
+      "position": [
+        -38.0,
+        -22.0,
+        0.0
+      ],
+      "rotation_z_deg": 0.0
+    },
+    {
+      "name": "Spawn__language_school__01",
+      "function": "language_school",
+      "prefab": "Workshop_MiddleEast",
+      "position": [
+        4.0,
+        -12.0,
+        0.0
+      ],
+      "rotation_z_deg": 180.00000500895632
+    },
+    {
+      "name": "Spawn__shop__01",
+      "function": "shop",
+      "prefab": "Shop_MiddleEast",
+      "position": [
+        5.0,
+        -6.0,
+        0.0
+      ],
+      "rotation_z_deg": 180.00000500895632
+    },
+    {
+      "name": "Spawn__tavern__01",
+      "function": "tavern",
+      "prefab": "Housing_MiddleEast_02",
+      "position": [
+        17.0,
+        12.0,
+        0.0
+      ],
+      "rotation_z_deg": 180.00000500895632
+    },
+    {
+      "name": "Spawn__temple__01",
+      "function": "temple",
+      "prefab": "Temple_MiddleEast",
+      "position": [
+        -10.0,
+        -15.0,
+        0.5
+      ],
+      "rotation_z_deg": 0.0
+    }
+  ],
+  "decor": [
+    {
+      "name": "Decor__Housing_MiddleEast_01__01",
+      "prefab": "Housing_MiddleEast_01",
+      "position": [
+        -45.0,
+        22.0,
+        0.4000000059604645
+      ],
+      "rotation_z_deg": 0.0
+    },
+    {
+      "name": "Decor__Housing_MiddleEast_01__02",
+      "prefab": "Housing_MiddleEast_01",
+      "position": [
+        -32.0,
+        22.0,
+        0.4000000059604645
+      ],
+      "rotation_z_deg": 0.0
+    },
+    {
+      "name": "Decor__Housing_MiddleEast_01__03",
+      "prefab": "Housing_MiddleEast_01",
+      "position": [
+        -45.0,
+        10.0,
+        0.4000000059604645
+      ],
+      "rotation_z_deg": 0.0
+    },
+    {
+      "name": "Decor__Housing_MiddleEast_01__04",
+      "prefab": "Housing_MiddleEast_01",
+      "position": [
+        -32.0,
+        10.0,
+        0.4000000059604645
+      ],
+      "rotation_z_deg": 0.0
+    },
+    {
+      "name": "Decor__Housing_MiddleEast_01__05",
+      "prefab": "Housing_MiddleEast_01",
+      "position": [
+        -12.0,
+        12.0,
+        0.0
+      ],
+      "rotation_z_deg": 0.0
+    },
+    {
+      "name": "Decor__Housing_MiddleEast_01__06",
+      "prefab": "Housing_MiddleEast_01",
+      "position": [
+        -19.0,
+        22.0,
+        0.0
+      ],
+      "rotation_z_deg": 180.00000500895632
+    },
+    {
+      "name": "Decor__Housing_MiddleEast_01__07",
+      "prefab": "Housing_MiddleEast_01",
+      "position": [
+        -5.0,
+        22.0,
+        0.0
+      ],
+      "rotation_z_deg": 180.00000500895632
+    },
+    {
+      "name": "Decor__Housing_MiddleEast_01__08",
+      "prefab": "Housing_MiddleEast_01",
+      "position": [
+        16.0,
+        18.0,
+        0.0
+      ],
+      "rotation_z_deg": 0.0
+    },
+    {
+      "name": "Decor__Housing_MiddleEast_01__09",
+      "prefab": "Housing_MiddleEast_01",
+      "position": [
+        16.0,
+        25.0,
+        0.0
+      ],
+      "rotation_z_deg": 180.00000500895632
+    },
+    {
+      "name": "Decor__Housing_MiddleEast_01__11",
+      "prefab": "Housing_MiddleEast_01",
+      "position": [
+        3.0,
+        -17.5,
+        0.0
+      ],
+      "rotation_z_deg": 0.0
+    },
+    {
+      "name": "Decor__Housing_MiddleEast_02__01",
+      "prefab": "Housing_MiddleEast_02",
+      "position": [
+        -19.0,
+        12.0,
+        0.0
+      ],
+      "rotation_z_deg": 0.0
+    },
+    {
+      "name": "Decor__Housing_MiddleEast_02__02",
+      "prefab": "Housing_MiddleEast_02",
+      "position": [
+        -5.0,
+        12.0,
+        0.0
+      ],
+      "rotation_z_deg": 0.0
+    },
+    {
+      "name": "Decor__Housing_MiddleEast_02__03",
+      "prefab": "Housing_MiddleEast_02",
+      "position": [
+        -12.0,
+        22.0,
+        0.0
+      ],
+      "rotation_z_deg": 180.00000500895632
+    },
+    {
+      "name": "Decor__Housing_MiddleEast_02__04",
+      "prefab": "Housing_MiddleEast_02",
+      "position": [
+        10.0,
+        18.0,
+        0.0
+      ],
+      "rotation_z_deg": 0.0
+    },
+    {
+      "name": "Decor__Housing_MiddleEast_02__05",
+      "prefab": "Housing_MiddleEast_02",
+      "position": [
+        10.0,
+        25.0,
+        0.0
+      ],
+      "rotation_z_deg": 180.00000500895632
+    },
+    {
+      "name": "Decor__Housing_MiddleEast_02__06",
+      "prefab": "Housing_MiddleEast_02",
+      "position": [
+        -45.0,
+        -22.0,
+        0.0
+      ],
+      "rotation_z_deg": 180.00000500895632
+    },
+    {
+      "name": "Decor__Housing_MiddleEast_02__07",
+      "prefab": "Housing_MiddleEast_02",
+      "position": [
+        -31.0,
+        -22.0,
+        0.0
+      ],
+      "rotation_z_deg": 180.00000500895632
+    },
+    {
+      "name": "Decor__Shop_MiddleEast__01",
+      "prefab": "Shop_MiddleEast",
+      "position": [
+        10.0,
+        -6.0,
+        0.0
+      ],
+      "rotation_z_deg": 180.00000500895632
+    },
+    {
+      "name": "Decor__Shop_MiddleEast__02",
+      "prefab": "Shop_MiddleEast",
+      "position": [
+        15.0,
+        -6.0,
+        0.0
+      ],
+      "rotation_z_deg": 180.00000500895632
+    },
+    {
+      "name": "Decor__Shop_MiddleEast__03",
+      "prefab": "Shop_MiddleEast",
+      "position": [
+        5.0,
+        6.0,
+        0.0
+      ],
+      "rotation_z_deg": 0.0
+    },
+    {
+      "name": "Decor__Shop_MiddleEast__04",
+      "prefab": "Shop_MiddleEast",
+      "position": [
+        10.0,
+        6.0,
+        0.0
+      ],
+      "rotation_z_deg": 0.0
+    },
+    {
+      "name": "Decor__Shop_MiddleEast__05",
+      "prefab": "Shop_MiddleEast",
+      "position": [
+        15.0,
+        6.0,
+        0.0
+      ],
+      "rotation_z_deg": 0.0
+    },
+    {
+      "name": "Decor__Shop_MiddleEast__06",
+      "prefab": "Shop_MiddleEast",
+      "position": [
+        -15.0,
+        -6.0,
+        0.0
+      ],
+      "rotation_z_deg": 180.00000500895632
+    },
+    {
+      "name": "Decor__Shop_MiddleEast__07",
+      "prefab": "Shop_MiddleEast",
+      "position": [
+        -10.0,
+        -6.0,
+        0.0
+      ],
+      "rotation_z_deg": 180.00000500895632
+    },
+    {
+      "name": "Decor__Workshop_MiddleEast__01",
+      "prefab": "Workshop_MiddleEast",
+      "position": [
+        -38.0,
+        18.0,
+        0.4000000059604645
+      ],
+      "rotation_z_deg": 0.0
+    },
+    {
+      "name": "Decor__Workshop_MiddleEast__02",
+      "prefab": "Workshop_MiddleEast",
+      "position": [
+        -45.0,
+        -10.0,
+        0.0
+      ],
+      "rotation_z_deg": 0.0
+    },
+    {
+      "name": "Decor__Workshop_MiddleEast__03",
+      "prefab": "Workshop_MiddleEast",
+      "position": [
+        -31.0,
+        -10.0,
+        0.0
+      ],
+      "rotation_z_deg": 0.0
+    }
+  ],
+  "version": 7,
+  "layout": "sogdian_afrasiab_v7_two_sided_bazaar",
+  "interactive_count": 8,
+  "decor_count": 27
+}
