@@ -12,7 +12,7 @@ namespace Internal.Scripts.UI.Screens.MainMenu
 {
     public sealed class MainMenuScreenViewModel : ScreenViewModelBase
     {
-        private readonly ISaveService _saveService;
+        private readonly SaveRepository _saveRepository;
         private readonly ActiveSaveSlot _activeSaveSlot;
         private readonly SceneReference _gameScene;
         private readonly QuitGameService _quitGameService;
@@ -24,14 +24,14 @@ namespace Internal.Scripts.UI.Screens.MainMenu
         public Observable<bool> HasActiveRun => _hasActiveRun;
 
         public MainMenuScreenViewModel(
-            ISaveService saveService,
+            SaveRepository saveRepository,
             ActiveSaveSlot activeSaveSlot,
             QuitGameService quitGameService,
             SceneLoaderService sceneLoader,
             ScreenStackService screenStackService,
             [Inject(Id = SceneRefId.Game)] SceneReference gameScene)
         {
-            _saveService = saveService;
+            _saveRepository = saveRepository;
             _activeSaveSlot = activeSaveSlot;
             _quitGameService = quitGameService;
             _sceneLoader = sceneLoader;
@@ -43,7 +43,7 @@ namespace Internal.Scripts.UI.Screens.MainMenu
 
         protected override void OnOpen(object args)
         {
-            _hasActiveRun.Value = _saveService.HasActiveRun();
+            _hasActiveRun.Value = _saveRepository.HasActiveRun();
         }
 
         protected override void OnClose()
@@ -63,7 +63,7 @@ namespace Internal.Scripts.UI.Screens.MainMenu
 
         private void NewGameConfirmed()
         {
-            _saveService.DeleteRun();
+            _saveRepository.DeleteRun();
             _hasActiveRun.Value = false;
             _screenStackService.TryOpen(ScreenId.NewGame, out _);
         }

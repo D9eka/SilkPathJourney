@@ -130,7 +130,8 @@ namespace Internal.Scripts.UI.Screens.Hud
 
         public override void OnFocusLost()
         {
-            InteractableChanged?.Invoke(false);
+            if (!_screenStackService.TopShowsDimOverlay)
+                InteractableChanged?.Invoke(false);
             if (_screenStackService.TopId == ScreenId.TargetSelection)
                 VisibilityChanged?.Invoke(false);
         }

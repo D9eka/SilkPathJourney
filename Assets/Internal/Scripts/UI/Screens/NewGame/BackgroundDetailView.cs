@@ -62,14 +62,16 @@ namespace Internal.Scripts.UI.Screens.NewGame
         private LocalizationService _localization;
         private ItemCatalog _itemCatalog;
         private EconomyDatabase _economyDatabase;
+        private ResourceIconCatalog _iconCatalog;
 
         public void Initialize(UiThemeService themeService, LocalizationService localization,
-            ItemCatalog itemCatalog, EconomyDatabase economyDatabase)
+            ItemCatalog itemCatalog, EconomyDatabase economyDatabase, ResourceIconCatalog iconCatalog)
         {
             _themeService = themeService;
             _localization = localization;
             _itemCatalog = itemCatalog;
             _economyDatabase = economyDatabase;
+            _iconCatalog = iconCatalog;
 
             BindHeaders();
         }
@@ -200,8 +202,8 @@ namespace Internal.Scripts.UI.Screens.NewGame
         {
             ClearResources();
 
-            SpawnIconLabel(ResourceType.Money, data.StartingMoney.ToString());
-            SpawnIconLabel(ResourceType.Food, data.StartingSupplies.ToString());
+            SpawnResource(ResourceType.Money, data.StartingMoney);
+            SpawnResource(ResourceType.Food, data.StartingSupplies);
 
             if (data.StartingItems == null) return;
 
@@ -214,17 +216,28 @@ namespace Internal.Scripts.UI.Screens.NewGame
             }
         }
 
-        private void SpawnIconLabel(ResourceType type, string label)
+        private void SpawnResource(ResourceType type, int value)
         {
-            IconLabel instance = Instantiate(_iconLabelPrefab, _resourcesContent);
-            instance.gameObject.InitializeColorBinders(themeService: _themeService);
+            Sprite icon = _iconCatalog != null ? _iconCatalog.Get(type)?.Icon : null;
+            if (icon != null)
+            {
+                IconLabel instance = Instantiate(_iconLabelPrefab, _resourcesContent);
+                instance.gameObject.InitializeColorBinders(themeService: _themeService);
+                instance.Initialize(icon, value.ToString());
+                _spawnedResourceItems.Add(instance.gameObject);
+            }
+            else
+            {
+                SpawnText($"{value} {ResolveResourceName(type)}");
+            }
+        }
 
-            IconView iconView = instance.GetComponentInChildren<IconView>();
-            if (iconView != null)
-                iconView.SetResourceType(type);
-
-            instance.SetLabel(label);
-            _spawnedResourceItems.Add(instance.gameObject);
+        private string ResolveResourceName(ResourceType type)
+        {
+            return LocalizationService.ResolveString(
+                new LocalizedString("UI", $"UI.Global.Resource.{type}"),
+                type.ToString(),
+                $"Resource.{type}");
         }
 
         private void SpawnText(string text)

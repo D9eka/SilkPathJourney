@@ -241,8 +241,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 481288240
-    m_Localized: Gather all the relics and deliver them to Chang'an. The grand hunt's
-      finale
+    m_Localized: Gather all the relics and return them to the Samarkand Archive.
+      The grand hunt's finale
     m_Metadata:
       m_Items: []
   - m_Id: 481288241
@@ -418,7 +418,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 485482503
-    m_Localized: Bring the rescued caravan to the nearest waystation
+    m_Localized: Bring the rescued caravan to Bukhara
     m_Metadata:
       m_Items: []
   - m_Id: 485482504
@@ -538,7 +538,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 485482533
-    m_Localized: Recover the genuine relics
+    m_Localized: Return the genuine relics to the Samarkand Archive
     m_Metadata:
       m_Items: []
   - m_Id: 485482534
@@ -550,7 +550,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 485482536
-    m_Localized: Open the vault
+    m_Localized: "Return to Osh \u2014 Farukh will learn of the find"
     m_Metadata:
       m_Items: []
   - m_Id: 485482537
@@ -558,7 +558,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 485482538
-    m_Localized: Deliver the relics to Chang'an
+    m_Localized: Return to the Samarkand Archive with the relics
     m_Metadata:
       m_Items: []
   - m_Id: 485482539
@@ -680,7 +680,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 18412971070980101
-    m_Localized: The rescued caravan reached the waystation. All alive.
+    m_Localized: The rescued caravan reached Bukhara. Report to Dariush.
     m_Metadata:
       m_Items: []
   - m_Id: 18412971070980102
@@ -688,8 +688,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 18412971070980103
-    m_Localized: Dariush in Baghdad raised a cup to you - now you are a legend of
-      the roads.
+    m_Localized: "Dariush is beside you \u2014 the last step to the House of Wisdom.
+      Speak with him."
     m_Metadata:
       m_Items: []
   - m_Id: 18412971070980104
@@ -766,7 +766,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 18412971070980122
-    m_Localized: The fifth artifact is in Chang'an. The hunt is complete.
+    m_Localized: All relics gathered. The road home leads to the Samarkand Archive.
     m_Metadata:
       m_Items: []
   - m_Id: 18412971070980123
@@ -2045,6 +2045,165 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 22214312746541058
     m_Localized: Find the last artifact
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23880194623266816
+    m_Localized: Visit the first of the three sanctuaries
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23880194648432640
+    m_Localized: Visit the second sanctuary
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23880194648432641
+    m_Localized: Visit the last sanctuary
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23880194648432642
+    m_Localized: "You return to Tinley at Mogao carrying three voices in memory \u2014
+      the silence of the caves, the echo of stone, and the heat of fire."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23880194648432643
+    m_Localized: Lobsang's scroll is delivered. Tinley received it with both hands
+      and said nothing for a long while.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023245974921216
+    m_Localized: Carry the cargo through the pass
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246000087040
+    m_Localized: Deliver cargo to Mashhad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246000087041
+    m_Localized: "Move along the road \u2014 search for the first trace of the caravan"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246000087042
+    m_Localized: "Investigate the dry clay flat \u2014 find the second trace"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246000087043
+    m_Localized: "Reach the old tower \u2014 find the survivors"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246000087044
+    m_Localized: Shadow the workshop apprentices by the Ziwu Canal during the day
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246000087045
+    m_Localized: "Chen says: watch them until evening \u2014 learn their routine
+      and find the weak point"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246000087046
+    m_Localized: Enter the workshop by night through the canal and take the records
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246000087047
+    m_Localized: "The reconnaissance is done. The guard, the shift change, the open
+      window by the roof \u2014 all known. Wait for night."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246000087048
+    m_Localized: Find free master dyers in Chang'an
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246000087049
+    m_Localized: "Chen says: go to the western gate \u2014 free masters gather there
+      in the mornings"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246000087050
+    m_Localized: Strike a deal with the masters and launch purple dye production
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246000087051
+    m_Localized: "The masters are found. Now what matters is striking the right deal
+      \u2014 the quality of the purple depends on it."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246000087052
+    m_Localized: "Samarkand. Survey the trading row and gather evidence \u2014 find
+      the forger among the sellers"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246000087053
+    m_Localized: "\"The antiquities row in the bazaar\" \u2014 Farukh said \u2014
+      \"is where the most 'ancient' pieces change hands. Walk, watch, listen. One
+      of them is selling forgeries as genuine.\""
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246000087054
+    m_Localized: "Samarkand. Expose the forger before witnesses \u2014 prove the
+      forgery"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246000087055
+    m_Localized: "You have a lead. Now you need a moment and a proof \u2014 publicly,
+      so the bazaar council cannot look away."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246000087056
+    m_Localized: "Travel the route through Osh toward the Pamir gorge \u2014 find
+      the point marked on Farukh's map"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246000087057
+    m_Localized: "Farukh marks it out: \"Osh is your jump-off. Then the Pamir range.
+      On the map \u2014 a red rock by the gorge, crosses mark rockfalls.\" He wraps
+      the map in leather. \"The terrain will show the rest.\""
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246000087058
+    m_Localized: Clear the entrance and enter the vault
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246000087059
+    m_Localized: 'The gorge is found. The entrance is blocked by stone. Choose: by
+      force, by reckoning, or by the trail''s memory.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246000087060
+    m_Localized: "Dariush gave a map and the last known position. Signs will appear
+      on the way through the sands \u2014 do not pass them by."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246000087061
+    m_Localized: The first clue leads to a dry clay flat. The second camp should
+      leave marks there.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246000087062
+    m_Localized: Tracks from the clay flat lead to a tower at the canyon's edge.
+      Someone is still alive and waiting for help.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246000087063
+    m_Localized: The fire cargo is on its way to Mashhad. Mountain roads hold dangers
+      for fragile cargo.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246000087064
+    m_Localized: The pass is behind you. Mashhad is near - keep the vessels steady.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246004281344
+    m_Localized: Lead the convoy west
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246004281345
+    m_Localized: The greenhorns march in formation. The road ahead is an unknown.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246004281346
+    m_Localized: Continue on to Anxi
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246004281347
+    m_Localized: The first hardships are behind you. Anxi is not far now.
     m_Metadata:
       m_Items: []
   references:

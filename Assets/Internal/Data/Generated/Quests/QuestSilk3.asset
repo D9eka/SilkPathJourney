@@ -31,7 +31,7 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  <Icon>k__BackingField: {fileID: 21300000, guid: 76fe9a6d21e446f0bce989e1c457df09, type: 3}
+  <Icon>k__BackingField: {fileID: 0}
   <StartCityId>k__BackingField: changan
   <Branch>k__BackingField: 4
   <OrderInBranch>k__BackingField: 3
@@ -78,31 +78,56 @@ MonoBehaviour:
       <Type>k__BackingField: 0
       <Param>k__BackingField: 
       <Value>k__BackingField: 0
-  - <Id>k__BackingField: stage_infiltrate
+  - <Id>k__BackingField: stage_infiltrate_1
     <Description>k__BackingField:
       m_TableReference:
         m_TableCollectionName: Quests
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: quest.quest_silk_3.stage_infiltrate
+        m_Key: quest.quest_silk_3.stage_infiltrate_1
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
     <Narrative>k__BackingField:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: Quests
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: quest.quest_silk_3.stage_infiltrate_1.narrative
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
     <TriggerEventIds>k__BackingField:
-    - event_silk3_infiltrate
+    - event_silk3_recon
     <AutoCompleteCondition>k__BackingField:
-      <Type>k__BackingField: 0
-      <Param>k__BackingField: 
-      <Value>k__BackingField: 0
+      <Type>k__BackingField: 3
+      <Param>k__BackingField: quest_silk_3.infil_progress
+      <Value>k__BackingField: 1
+  - <Id>k__BackingField: stage_infiltrate_2
+    <Description>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Quests
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: quest.quest_silk_3.stage_infiltrate_2
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <Narrative>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Quests
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: quest.quest_silk_3.stage_infiltrate_2.narrative
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <TriggerEventIds>k__BackingField:
+    - event_silk3_breakin
+    <AutoCompleteCondition>k__BackingField:
+      <Type>k__BackingField: 3
+      <Param>k__BackingField: quest_silk_3.infil_progress
+      <Value>k__BackingField: 2
   - <Id>k__BackingField: stage_complete
     <Description>k__BackingField:
       m_TableReference:
@@ -123,6 +148,7 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
     <TriggerEventIds>k__BackingField:
+    - event_silk3_complete_damaged
     - event_silk3_complete
     <AutoCompleteCondition>k__BackingField:
       <Type>k__BackingField: 0
@@ -140,8 +166,8 @@ MonoBehaviour:
   - <Type>k__BackingField: 11
     <Param>k__BackingField: 
     <Value>k__BackingField: -30
-  <GiverBuilding>k__BackingField: 0
-  <BriefingEventId>k__BackingField: 
+  <GiverBuilding>k__BackingField: 5
+  <BriefingEventId>k__BackingField: quest_silk3_start
   references:
     version: 2
     RefIds: []

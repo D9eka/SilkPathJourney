@@ -13,15 +13,17 @@ namespace Internal.Scripts.Caravan
         [field: SerializeField] public int HireCostBase { get; private set; }
         [field: SerializeField] public int DailyCostBase { get; private set; }
         [field: SerializeField] public LocalizedString Name { get; private set; } = new();
+        [field: SerializeField] public bool IsStory { get; private set; }
 
 #if UNITY_EDITOR
-        public void ApplyImport(string id, CompanionType type, int hireCostBase, int dailyCostBase, LocalizedString name)
+        public void ApplyImport(string id, CompanionType type, int hireCostBase, int dailyCostBase, LocalizedString name, bool isStory = false)
         {
             Id = id;
             Type = type;
             HireCostBase = hireCostBase;
             DailyCostBase = dailyCostBase;
             Name = name;
+            IsStory = isStory;
         }
 #endif
     }

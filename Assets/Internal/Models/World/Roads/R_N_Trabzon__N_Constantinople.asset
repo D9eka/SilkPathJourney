@@ -21,7 +21,7 @@ MonoBehaviour:
   <SpeedMul>k__BackingField: 1
   <Bidirectional>k__BackingField: 1
   <SampleStepMeters>k__BackingField: 0.01
-  <IsHidden>k__BackingField: 0
+  <IsHidden>k__BackingField: 1
   <StartNodeId>k__BackingField: N_Trabzon
   <EndNodeId>k__BackingField: N_Constantinople
   <PointsLocal>k__BackingField:

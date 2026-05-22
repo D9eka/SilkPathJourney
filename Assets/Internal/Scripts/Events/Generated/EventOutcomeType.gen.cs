@@ -28,5 +28,8 @@
         EndRun = 23,
         MarkPendingEnding = 24,
         QueueEvent = 25,
+        RemoveCompanion = 26,
+        AddCart = 27,
+        RemoveCart = 28,
     }
 }

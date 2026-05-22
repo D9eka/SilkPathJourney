@@ -86,7 +86,7 @@ namespace Internal.Scripts.UI.Screens.NewGame
         {
             base.OnLocalizationReady();
             if (_viewModel != null)
-                _detailView.Initialize(_viewModel.ThemeService, Localization, _viewModel.ItemCatalog, _viewModel.EconomyDatabase);
+                _detailView.Initialize(_viewModel.ThemeService, Localization, _viewModel.ItemCatalog, _viewModel.EconomyDatabase, _viewModel.IconCatalog);
             RefreshStartButtonText();
             RefreshDetail(_viewModel?.SelectedBackground.Value);
         }
@@ -96,7 +96,7 @@ namespace Internal.Scripts.UI.Screens.NewGame
             if (_viewModel == null || _backgroundSubscription != null)
                 return;
 
-            _detailView.Initialize(_viewModel.ThemeService, Localization, _viewModel.ItemCatalog, _viewModel.EconomyDatabase);
+            _detailView.Initialize(_viewModel.ThemeService, Localization, _viewModel.ItemCatalog, _viewModel.EconomyDatabase, _viewModel.IconCatalog);
             RebuildList();
             _backgroundSubscription = _viewModel.SelectedBackground.Subscribe(OnBackgroundSelected);
             _cartClassSubscription = _viewModel.SelectedCartClass.Subscribe(OnCartClassSelected);

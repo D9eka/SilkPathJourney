@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Internal.Scripts.Caravan;
 using Internal.Scripts.Economy;
 using Internal.Scripts.Economy.Save;
 using Internal.Scripts.Events.Data;
@@ -16,10 +17,12 @@ namespace Internal.Scripts.Events.Outcomes
         };
 
         private readonly PlayerResourceRepository _resourceRepository;
+        private readonly CaravanDatabase _caravanDatabase;
 
-        public CompanionApplier(PlayerResourceRepository resourceRepository)
+        public CompanionApplier(PlayerResourceRepository resourceRepository, CaravanDatabase caravanDatabase)
         {
             _resourceRepository = resourceRepository;
+            _caravanDatabase = caravanDatabase;
         }
 
         public IEnumerable<EventOutcomeType> SupportedTypes => Types;
@@ -29,9 +32,11 @@ namespace Internal.Scripts.Events.Outcomes
             string typeId = entry.Param;
             string qualityId = entry.Value > 0 ? ((int)entry.Value).ToString() : DEFAULT_QUALITY;
 
+            bool isStory = _caravanDatabase?.GetCompanionTypeById(typeId)?.IsStory ?? false;
+
             _resourceRepository.UpdateResources(s =>
             {
-                if (s.Companions.Count >= s.MaxCompanions)
+                if (!isStory && s.Companions.Count >= s.MaxCompanions)
                     return;
 
                 s.Companions.Add(new CompanionState

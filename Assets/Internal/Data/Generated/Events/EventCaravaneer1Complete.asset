@@ -66,12 +66,6 @@ MonoBehaviour:
     - <Type>k__BackingField: 20
       <Param>k__BackingField: quest_caravaneer_1
       <Value>k__BackingField: 1
-    - <Type>k__BackingField: 18
-      <Param>k__BackingField: quest_caravaneer_2
-      <Value>k__BackingField: 1
-    - <Type>k__BackingField: 19
-      <Param>k__BackingField: quest_caravaneer_2
-      <Value>k__BackingField: 1
     - <Type>k__BackingField: 4
       <Param>k__BackingField: greek_fire
       <Value>k__BackingField: 1
@@ -81,38 +75,12 @@ MonoBehaviour:
     - <Type>k__BackingField: 11
       <Param>k__BackingField: 
       <Value>k__BackingField: 5
-  - <Text>k__BackingField:
-      m_TableReference:
-        m_TableCollectionName: Events
-      m_TableEntryReference:
-        m_KeyId: 0
-        m_Key: event.event_caravaneer1_complete.choice2
-      m_FallbackState: 0
-      m_WaitForCompletion: 0
-      m_LocalVariables: []
-    <ResultText>k__BackingField:
-      m_TableReference:
-        m_TableCollectionName: Events
-      m_TableEntryReference:
-        m_KeyId: 0
-        m_Key: event.event_caravaneer1_complete.choice2.result
-      m_FallbackState: 0
-      m_WaitForCompletion: 0
-      m_LocalVariables: []
-    <Conditions>k__BackingField: []
-    <Outcomes>k__BackingField:
-    - <Type>k__BackingField: 20
-      <Param>k__BackingField: quest_caravaneer_1
+    - <Type>k__BackingField: 26
+      <Param>k__BackingField: recruit_caravan
       <Value>k__BackingField: 0
-    - <Type>k__BackingField: 4
-      <Param>k__BackingField: greek_fire
-      <Value>k__BackingField: 1
-    - <Type>k__BackingField: 1
-      <Param>k__BackingField: 
-      <Value>k__BackingField: 20
-    - <Type>k__BackingField: 11
-      <Param>k__BackingField: 
-      <Value>k__BackingField: 5
+    - <Type>k__BackingField: 28
+      <Param>k__BackingField: quest_convoy_cart
+      <Value>k__BackingField: 0
   <IsMinor>k__BackingField: 0
   <Biome>k__BackingField: 0
   <AutoOutcomes>k__BackingField: []
@@ -125,7 +93,7 @@ MonoBehaviour:
   - <Type>k__BackingField: 25
     <Param>k__BackingField: quest_caravaneer_1
     <ParamList>k__BackingField: []
-    <Value>k__BackingField: 2
+    <Value>k__BackingField: 3
   - <Type>k__BackingField: 16
     <Param>k__BackingField: anxi
     <ParamList>k__BackingField: []

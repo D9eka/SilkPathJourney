@@ -85,6 +85,10 @@ namespace Internal.Scripts.Events
             return eligible[eligible.Count - 1];
         }
 
+        public static bool IsPoolSelectable(EventData evt) =>
+            evt != null && evt.Category != EventCategory.Quest && evt.Weight > 0f &&
+            evt.Choices != null && evt.Choices.Count > 0;
+
         private bool IsEligible(EventData evt, bool minor, Biome currentBiome, Predicate<EventData> filter = null)
         {
 #if UNITY_EDITOR
@@ -92,8 +96,7 @@ namespace Internal.Scripts.Events
                 return false;
 #endif
             if (evt.IsMinor != minor) return false;
-            if (evt.Category == EventCategory.Quest) return false;
-            if (evt.Weight <= 0f) return false;
+            if (!IsPoolSelectable(evt)) return false;
             Biome eventBiome = evt.Biome;
             if (eventBiome != Biome.Unknown && eventBiome != currentBiome) return false;
             if (!CheckConditions(evt.Conditions)) return false;

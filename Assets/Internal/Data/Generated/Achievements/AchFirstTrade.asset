@@ -34,7 +34,7 @@ MonoBehaviour:
   <Trigger>k__BackingField: 2
   <Value>k__BackingField: 100
   <LegacyReward>k__BackingField: 20
-  <Icon>k__BackingField: {fileID: 21300000, guid: 1a194c8700bb492399a9415dd9f51fa9, type: 3}
+  <Icon>k__BackingField: {fileID: 0}
   references:
     version: 2
     RefIds: []

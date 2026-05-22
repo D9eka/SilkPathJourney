@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using Internal.Scripts.Import.Editor.Core;
 using Internal.Scripts.Import.Editor.Roads.DTO;
@@ -33,12 +34,19 @@ namespace Internal.Scripts.Import.Editor.Roads
                         continue;
                     }
 
+                    var validIds = new HashSet<string>(StringComparer.Ordinal);
                     foreach (RoadJsonSingle r in combined.Roads)
+                    {
+                        if (!string.IsNullOrWhiteSpace(r?.RoadId))
+                            validIds.Add(r.RoadId);
                         Upsert(ROAD_ASSETS_FOLDER, r, path);
+                    }
+
+                    int removed = PruneStaleRoadAssets(ROAD_ASSETS_FOLDER, validIds);
 
                     AssetDatabase.SaveAssets();
                     AssetDatabase.Refresh();
-                    Debug.Log($"[SPJ] Imported roads: {combined.Roads.Length} from {path}");
+                    Debug.Log($"[SPJ] Imported roads: {combined.Roads.Length}, removed stale: {removed} from {path}");
                 }
                 catch (Exception e)
                 {
@@ -84,6 +92,25 @@ namespace Internal.Scripts.Import.Editor.Roads
                 roadData.PointsLocal.Add(new Vector3(p.X, p.Y, p.Z));
 
             EditorUtility.SetDirty(roadData);
+        }
+
+        private static int PruneStaleRoadAssets(string assetDir, HashSet<string> validIds)
+        {
+            int removed = 0;
+            string[] guids = AssetDatabase.FindAssets("t:RoadData", new[] { assetDir });
+            foreach (string guid in guids)
+            {
+                string p = AssetDatabase.GUIDToAssetPath(guid);
+                RoadData rd = AssetDatabase.LoadAssetAtPath<RoadData>(p);
+                string id = rd != null && !string.IsNullOrWhiteSpace(rd.RoadId)
+                    ? rd.RoadId
+                    : Path.GetFileNameWithoutExtension(p);
+                if (validIds.Contains(id))
+                    continue;
+                if (AssetDatabase.DeleteAsset(p))
+                    removed++;
+            }
+            return removed;
         }
     }
 }

@@ -2479,6 +2479,22 @@ MonoBehaviour:
     m_Key: UI.Camp.Action.SkipDay.Name
     m_Metadata:
       m_Items: []
+  - m_Id: 39094774043500544
+    m_Key: UI.Survey.Main.Button.Open
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39094774089637888
+    m_Key: UI.Survey.Main.Header.Title
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39094774089637889
+    m_Key: UI.Survey.Main.Text.Description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39178506121240576
+    m_Key: UI.Building.QuestSlot.Handover
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

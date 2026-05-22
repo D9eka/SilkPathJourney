@@ -6,6 +6,7 @@ using Internal.Scripts.Economy;
 using Internal.Scripts.Economy.Cities;
 using Internal.Scripts.Economy.Cities.UI;
 using Internal.Scripts.Economy.Generated;
+using Internal.Scripts.Import.Editor.Core;
 using Internal.Scripts.Import.Editor.Roads.DTO;
 using Internal.Scripts.Road.Core;
 using Internal.Scripts.Road.Nodes;
@@ -90,11 +91,27 @@ namespace Internal.Scripts.Import.Editor.Roads
                 rr.SetWorldRoot(wr);
             }
 
+            var validNames = new HashSet<string>(
+                roadDatas.Where(r => r != null && !string.IsNullOrWhiteSpace(r.RoadId))
+                         .Select(r => $"Road_{r.RoadId}"),
+                StringComparer.Ordinal);
+
+            var orphans = roadsRoot.transform.Cast<Transform>()
+                .Where(t => t.name.StartsWith("Road_", StringComparison.Ordinal) && !validNames.Contains(t.name))
+                .ToList();
+
+            int removedFromScene = 0;
+            foreach (Transform t in orphans)
+            {
+                Undo.DestroyObjectImmediate(t.gameObject);
+                removedFromScene++;
+            }
+
             BindCitiesToNodes();
             RoadMaterialPainter.PaintRoadMaterials();
 
             EditorSceneManager.MarkSceneDirty(scene);
-            Debug.Log($"[SPJ] Roads built. Created: {created}, Updated: {updated}, Total: {roadDatas.Length}");
+            Debug.Log($"[SPJ] Roads built. Created: {created}, Updated: {updated}, Removed orphans: {removedFromScene}, Total: {roadDatas.Length}");
         }
 
         private static RoadData[] FindAllRoadDataAssets()
@@ -125,7 +142,7 @@ namespace Internal.Scripts.Import.Editor.Roads
                 return;
             }
 
-            Dictionary<string, Transform> nodes = BuildNodeLookup();
+            Dictionary<string, Transform> nodes = ImportHelpers.BuildSceneNodeLookup("[SPJ]");
             if (nodes.Count == 0)
             {
                 Debug.LogWarning($"[SPJ] No nodes found with prefix '{NodeIdRules.NodePrefix}'. City-node links were not created.");
@@ -245,29 +262,5 @@ namespace Internal.Scripts.Import.Editor.Roads
             return result;
         }
 
-        private static Dictionary<string, Transform> BuildNodeLookup()
-        {
-            Dictionary<string, Transform> nodes = new Dictionary<string, Transform>(StringComparer.Ordinal);
-            Transform[] transforms = Object.FindObjectsByType<Transform>(FindObjectsSortMode.None);
-
-            foreach (Transform t in transforms)
-            {
-                if (t == null || string.IsNullOrWhiteSpace(t.name))
-                    continue;
-
-                if (!t.name.StartsWith(NodeIdRules.NodePrefix, StringComparison.Ordinal))
-                    continue;
-
-                if (nodes.ContainsKey(t.name))
-                {
-                    Debug.LogWarning($"[SPJ] Duplicate node id '{t.name}' found on '{t.name}'. Using the first occurrence.");
-                    continue;
-                }
-
-                nodes[t.name] = t;
-            }
-
-            return nodes;
-        }
     }
 }

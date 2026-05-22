@@ -243,6 +243,34 @@ MonoBehaviour:
     m_Key: caravan_upgrade.road_lanterns.desc
     m_Metadata:
       m_Items: []
+  - m_Id: 23155129006940160
+    m_Key: companion_type.vahuman.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23155129032105984
+    m_Key: companion_bonus.vahuman.story
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23298180392148992
+    m_Key: companion_type.dariyush.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23298180413120512
+    m_Key: companion_type.chen_wei.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23298180413120513
+    m_Key: companion_type.farukh.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23298180413120514
+    m_Key: companion_type.recruit_caravan.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23298180413120515
+    m_Key: companion_bonus.recruit_caravan.story
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

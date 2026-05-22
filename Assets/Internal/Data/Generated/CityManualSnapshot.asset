@@ -1,0 +1,1705 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5ab9188ebfa8084395bdcc10150131b, type: 3}
+  m_Name: CityManualSnapshot
+  m_EditorClassIdentifier: Assembly-CSharp-Editor::Internal.Scripts.Economy.Cities.Editor.CityManualSnapshotData
+  _cities:
+  - NodeId: N_Hami
+    ViewLocalPosition: {x: 0, y: 0, z: 0}
+    ViewLocalRotation: {x: 0, y: 0, z: 0, w: 1}
+    ViewLocalScale: {x: 0.35, y: 0.35, z: 0.35}
+    ViewColliders:
+    - Kind: 1
+      Enabled: 1
+      IsTrigger: 0
+      Center: {x: 0, y: 0, z: 0}
+      BoxSize: {x: 0, y: 0, z: 0}
+      Radius: 0.84
+      Height: 0
+      Direction: 0
+      MeshGuid: 
+      Convex: 0
+    Buildings:
+    - PrefabGuid: 0cedd7ccb940b204dacf1ba79ba015f2
+      Name: Building_Steppe_04
+      LocalPosition: {x: 0.248, y: -0.208, z: 0.315}
+      LocalRotation: {x: -0.040928274, y: -0.89869255, z: 0.019048536, w: -0.43624964}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: efc310f8f1b3d4448a9c821d1bc878df
+      Name: Building_Steppe_01
+      LocalPosition: {x: -0.363, y: -0.141, z: -0.364}
+      LocalRotation: {x: -0.019543694, y: -0.9796634, z: -0.024965301, w: 0.19812734}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: 885d09df5bd318a4183ebba9591e0996
+      Name: Building_Steppe_03
+      LocalPosition: {x: -0.407, y: -0.201, z: 0.459}
+      LocalRotation: {x: -0.0032786105, y: 0.95867133, z: 0.02246391, w: 0.28360903}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+  - NodeId: N_Rayy
+    ViewLocalPosition: {x: 0, y: 0, z: 0}
+    ViewLocalRotation: {x: 0, y: 0, z: 0, w: 1}
+    ViewLocalScale: {x: 0.413, y: 0.413, z: 0.413}
+    ViewColliders:
+    - Kind: 1
+      Enabled: 1
+      IsTrigger: 0
+      Center: {x: -0.51, y: 0, z: 0}
+      BoxSize: {x: 0, y: 0, z: 0}
+      Radius: 1.38
+      Height: 0
+      Direction: 0
+      MeshGuid: 
+      Convex: 0
+    Buildings:
+    - PrefabGuid: 806e0d998e80c3c4e8944d5ae32ad348
+      Name: Building_Persia_02
+      LocalPosition: {x: -1.1450073, y: -1.1501025, z: 0.51156545}
+      LocalRotation: {x: 0.015894469, y: 0.80360484, z: 0.10314731, w: 0.5859414}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: c1f2d5145bef26340a4e857c8bb227e6
+      Name: Building_Persia_03
+      LocalPosition: {x: -0.067, y: -0.926, z: -0.711}
+      LocalRotation: {x: 0.0560667, y: 0.048887104, z: -0.028117126, w: 0.996833}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: a9a641e49c83e094caf098cc4659cb7f
+      Name: Building_Persia_04
+      LocalPosition: {x: 0.041, y: -1.094, z: 0.639}
+      LocalRotation: {x: 0.027506843, y: -0.992845, z: 0.019839058, w: 0.11449292}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: cafaebe10fed8454482113a74c7a16ec
+      Name: Building_Persia_01
+      LocalPosition: {x: -1.179, y: -0.934, z: -0.532}
+      LocalRotation: {x: -0.052425273, y: 0.0926534, z: 0.043380804, w: 0.9933706}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+  - NodeId: N_Anxi
+    ViewLocalPosition: {x: 0, y: 0, z: 0}
+    ViewLocalRotation: {x: 0, y: 0, z: 0, w: 1}
+    ViewLocalScale: {x: 0.33949998, y: 0.33949998, z: 0.33949998}
+    ViewColliders:
+    - Kind: 1
+      Enabled: 1
+      IsTrigger: 0
+      Center: {x: 0.24, y: 0.8, z: 0}
+      BoxSize: {x: 0, y: 0, z: 0}
+      Radius: 1.07
+      Height: 0
+      Direction: 0
+      MeshGuid: 
+      Convex: 0
+    Buildings:
+    - PrefabGuid: 769d395207072854792fb1fcc8dafd3f
+      Name: Building_China_02
+      LocalPosition: {x: -0.334, y: 0.785, z: -0.273}
+      LocalRotation: {x: -0.018477865, y: -0.9789025, z: 0.1726623, w: 0.10768551}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: f99c52178d8b80f418b47fef858e0234
+      Name: Building_China_04
+      LocalPosition: {x: 0.733, y: 0.244, z: -0.369}
+      LocalRotation: {x: -0.16686977, y: -0.119195364, z: -0.04787442, w: 0.9775761}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: a4cd2bbb27e9cec408ef02e3ec14b838
+      Name: Building_China_01
+      LocalPosition: {x: 0.104, y: 2.136, z: 0.939}
+      LocalRotation: {x: 0.008598716, y: -0.9837394, z: 0.17343518, w: -0.045859788}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+  - NodeId: N_Jiuquan
+    ViewLocalPosition: {x: 0, y: 0, z: 0}
+    ViewLocalRotation: {x: 0, y: 0, z: 0, w: 1}
+    ViewLocalScale: {x: 0.35, y: 0.35, z: 0.35}
+    ViewColliders:
+    - Kind: 1
+      Enabled: 1
+      IsTrigger: 0
+      Center: {x: -0.23, y: 0.91, z: -0.22}
+      BoxSize: {x: 0, y: 0, z: 0}
+      Radius: 0.87
+      Height: 0
+      Direction: 0
+      MeshGuid: 
+      Convex: 0
+    Buildings:
+    - PrefabGuid: a4cd2bbb27e9cec408ef02e3ec14b838
+      Name: Building_China_01
+      LocalPosition: {x: -0.032, y: 1.206, z: -0.275}
+      LocalRotation: {x: -0.17322384, y: 0.14147419, z: -0.012132911, w: 0.9745929}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: f99c52178d8b80f418b47fef858e0234
+      Name: Building_China_04
+      LocalPosition: {x: 0.125, y: 2.069, z: 0.649}
+      LocalRotation: {x: 0.036954504, y: 0.9733789, z: -0.16967045, w: -0.14959909}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: 769d395207072854792fb1fcc8dafd3f
+      Name: Building_China_02
+      LocalPosition: {x: -0.744, y: 1.012, z: -0.198}
+      LocalRotation: {x: 0.16032498, y: -0.27207422, z: -0.066705294, w: -0.9464787}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+  - NodeId: N_Suhar
+    ViewLocalPosition: {x: 0, y: 0, z: 0}
+    ViewLocalRotation: {x: 0, y: 0, z: 0, w: 1}
+    ViewLocalScale: {x: 0.43399996, y: 0.43399996, z: 0.43399996}
+    ViewColliders:
+    - Kind: 1
+      Enabled: 1
+      IsTrigger: 0
+      Center: {x: 0.81, y: 0, z: 0}
+      BoxSize: {x: 0, y: 0, z: 0}
+      Radius: 1.65
+      Height: 0
+      Direction: 0
+      MeshGuid: 
+      Convex: 0
+    Buildings:
+    - PrefabGuid: c766e4b3e8580ce48ba348aa036327b5
+      Name: Building_Arabia_04
+      LocalPosition: {x: -0.0065449746, y: -0.4850884, z: 0.36879194}
+      LocalRotation: {x: -0.0009342166, y: 0.99813414, z: -0.0052060275, w: 0.060830627}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: 83d2cb2f3732a7342bd72a3736d8c317
+      Name: Building_Arabia_03
+      LocalPosition: {x: 0.13271345, y: -0.48289436, z: 1.2470478}
+      LocalRotation: {x: 0.006102139, y: -0.9997225, z: 0.0037383628, w: -0.02244529}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: 1be6fa23e9b8feb468337f8029aeecfe
+      Name: Building_Arabia_01
+      LocalPosition: {x: -0.82905173, y: -0.49269798, z: 0.94096494}
+      LocalRotation: {x: 0.0004491555, y: 0.9100035, z: 0.0004127062, w: 0.41460013}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: 1c972be2df3f5d046b9367599d5b2b85
+      Name: Building_Arabia_02
+      LocalPosition: {x: 0.64579463, y: -0.48783106, z: -1.075031}
+      LocalRotation: {x: -0.000006646071, y: 0.08496845, z: -0.019546123, w: 0.9961919}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+  - NodeId: N_Hormuz
+    ViewLocalPosition: {x: 0, y: 0, z: 0}
+    ViewLocalRotation: {x: 0, y: 0, z: 0, w: 1}
+    ViewLocalScale: {x: 0.45499998, y: 0.45499998, z: 0.45499998}
+    ViewColliders:
+    - Kind: 1
+      Enabled: 1
+      IsTrigger: 0
+      Center: {x: 0, y: 0, z: -0.48}
+      BoxSize: {x: 0, y: 0, z: 0}
+      Radius: 1.51
+      Height: 0
+      Direction: 0
+      MeshGuid: 
+      Convex: 0
+    Buildings:
+    - PrefabGuid: c766e4b3e8580ce48ba348aa036327b5
+      Name: Building_Arabia_04
+      LocalPosition: {x: 0.30185574, y: -0.5233262, z: 0.2119756}
+      LocalRotation: {x: 0.058172382, y: -0.82160383, z: -0.085250385, w: 0.56063855}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: 83d2cb2f3732a7342bd72a3736d8c317
+      Name: Building_Arabia_03
+      LocalPosition: {x: -0.915, y: -0.383, z: -0.319}
+      LocalRotation: {x: -0.021492254, y: 0.8380255, z: -0.0147310775, w: 0.54500866}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: 1be6fa23e9b8feb468337f8029aeecfe
+      Name: Building_Arabia_01
+      LocalPosition: {x: 0.214, y: -0.38652468, z: -1.276}
+      LocalRotation: {x: -0, y: -0.49602738, z: -0, w: 0.8683069}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: 1c972be2df3f5d046b9367599d5b2b85
+      Name: Building_Arabia_02
+      LocalPosition: {x: 0.517, y: -0.357, z: -0.717}
+      LocalRotation: {x: 0.040363383, y: -0.66588086, z: -0.03612094, w: 0.7440893}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+  - NodeId: N_Balkh
+    ViewLocalPosition: {x: 0, y: 0, z: 0.312}
+    ViewLocalRotation: {x: 0, y: 0, z: 0, w: 1}
+    ViewLocalScale: {x: 0.413, y: 0.413, z: 0.413}
+    ViewColliders:
+    - Kind: 1
+      Enabled: 1
+      IsTrigger: 0
+      Center: {x: 0.41, y: 0, z: 0}
+      BoxSize: {x: 0, y: 0, z: 0}
+      Radius: 1.25
+      Height: 0
+      Direction: 0
+      MeshGuid: 
+      Convex: 0
+    Buildings:
+    - PrefabGuid: edb294397e307d74aae7e7f8a706c8f8
+      Name: Building_CentralAsia_04
+      LocalPosition: {x: -0.58, y: -2.886, z: -1.089}
+      LocalRotation: {x: -0.04775054, y: 0.064703844, z: -0.00028210657, w: 0.99676144}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: 72cdeecb2065a2a4a976d17f6cc70fda
+      Name: Building_CentralAsia_01
+      LocalPosition: {x: 0.338, y: -2.871, z: -1.331}
+      LocalRotation: {x: -0.026173681, y: 0.09392492, z: 0.022571705, w: 0.9949792}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: b71e4af999f460f4cb6be79220b5e363
+      Name: Building_CentralAsia_02
+      LocalPosition: {x: 1.172, y: -2.99, z: -1.375}
+      LocalRotation: {x: -0.04756295, y: 0.01299123, z: -0.008157154, w: 0.99875045}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: 575b59be777d11543844e22cc584065d
+      Name: Building_CentralAsia_03
+      LocalPosition: {x: 0.38, y: -2.86, z: -0.189}
+      LocalRotation: {x: 0.013566664, y: 0.9882496, z: -0.039955895, w: -0.14690937}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+  - NodeId: N_Kucha
+    ViewLocalPosition: {x: 0, y: 0, z: 0}
+    ViewLocalRotation: {x: 0, y: 0, z: 0, w: 1}
+    ViewLocalScale: {x: 0.33949998, y: 0.33949998, z: 0.33949998}
+    ViewColliders:
+    - Kind: 1
+      Enabled: 1
+      IsTrigger: 0
+      Center: {x: 0, y: 0, z: 0}
+      BoxSize: {x: 0, y: 0, z: 0}
+      Radius: 1.16
+      Height: 0
+      Direction: 0
+      MeshGuid: 
+      Convex: 0
+    Buildings:
+    - PrefabGuid: 654ae0c76518f804590f278e6acfd48e
+      Name: Building_Steppe_02
+      LocalPosition: {x: 0.52, y: -0.98, z: 0.43}
+      LocalRotation: {x: 0.0009489321, y: -0.84982544, z: 0.00057533704, w: 0.5270632}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: 885d09df5bd318a4183ebba9591e0996
+      Name: Building_Steppe_03
+      LocalPosition: {x: -0.38, y: -0.28, z: -0.26}
+      LocalRotation: {x: 0.15002632, y: 0.49447122, z: 0.087440275, w: 0.85167164}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: efc310f8f1b3d4448a9c821d1bc878df
+      Name: Building_Steppe_01
+      LocalPosition: {x: -0.28499836, y: 0.3302884, z: -0.89546794}
+      LocalRotation: {x: 0.14799014, y: 0.057443824, z: -0.09084391, w: 0.983131}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: efc310f8f1b3d4448a9c821d1bc878df
+      Name: Building_Steppe_01 (1)
+      LocalPosition: {x: 0.53, y: -0.02, z: -0.26}
+      LocalRotation: {x: 0.14799014, y: 0.057443824, z: -0.09084391, w: 0.983131}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+  - NodeId: N_Aksu
+    ViewLocalPosition: {x: 0, y: 0, z: 0}
+    ViewLocalRotation: {x: 0, y: 0, z: 0, w: 1}
+    ViewLocalScale: {x: 0.33949998, y: 0.33949998, z: 0.33949998}
+    ViewColliders:
+    - Kind: 1
+      Enabled: 1
+      IsTrigger: 0
+      Center: {x: 0, y: 0, z: 0}
+      BoxSize: {x: 0, y: 0, z: 0}
+      Radius: 0.8
+      Height: 0
+      Direction: 0
+      MeshGuid: 
+      Convex: 0
+    Buildings:
+    - PrefabGuid: efc310f8f1b3d4448a9c821d1bc878df
+      Name: Building_Steppe_01
+      LocalPosition: {x: -0.21476494, y: -1.0597312, z: 0.17397605}
+      LocalRotation: {x: -0.00041091806, y: 0.8518099, z: 0.055710692, w: 0.52088004}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: 654ae0c76518f804590f278e6acfd48e
+      Name: Building_Steppe_02
+      LocalPosition: {x: 0.097, y: 0.293, z: -0.225}
+      LocalRotation: {x: 0.029644597, y: -0.9811497, z: -0.19096042, w: 0.0007821029}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: 885d09df5bd318a4183ebba9591e0996
+      Name: Building_Steppe_03
+      LocalPosition: {x: 0.241, y: -1.05, z: 0.351}
+      LocalRotation: {x: 0.01583283, y: 0.66317236, z: 0.053415086, w: 0.7463904}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+  - NodeId: N_Antioch
+    ViewLocalPosition: {x: 0, y: 0, z: 0}
+    ViewLocalRotation: {x: 0, y: 0, z: 0, w: 1}
+    ViewLocalScale: {x: 0.43399996, y: 0.43399996, z: 0.43399996}
+    ViewColliders:
+    - Kind: 1
+      Enabled: 1
+      IsTrigger: 0
+      Center: {x: 0, y: 0, z: 0}
+      BoxSize: {x: 0, y: 0, z: 0}
+      Radius: 0.76
+      Height: 0
+      Direction: 0
+      MeshGuid: 
+      Convex: 0
+    Buildings:
+    - PrefabGuid: e82da9f8e66bb9943a208dfd2b33756c
+      Name: Building_Levant_04
+      LocalPosition: {x: 0.015636744, y: -0.38817614, z: -0.3685193}
+      LocalRotation: {x: -0.076738894, y: -0.06900522, z: 0.028968211, w: 0.99423856}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: 7b5c5509ca6483d41b06e2bf98508047
+      Name: Building_Levant_01
+      LocalPosition: {x: 0.462, y: -0.246, z: 0.45}
+      LocalRotation: {x: -0.01794918, y: -0.79132664, z: 0.08504935, w: 0.60518306}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+  - NodeId: N_Allahabad
+    ViewLocalPosition: {x: 0, y: 0, z: 0}
+    ViewLocalRotation: {x: 0, y: 0, z: 0, w: 1}
+    ViewLocalScale: {x: 0.38149998, y: 0.38149998, z: 0.38149998}
+    ViewColliders:
+    - Kind: 1
+      Enabled: 1
+      IsTrigger: 0
+      Center: {x: 0, y: 0, z: 0}
+      BoxSize: {x: 0, y: 0, z: 0}
+      Radius: 1.39
+      Height: 0
+      Direction: 0
+      MeshGuid: 
+      Convex: 0
+    Buildings:
+    - PrefabGuid: fbe969d44bcbeee4e858e3a6bc89377f
+      Name: Building_India_04
+      LocalPosition: {x: -0.656, y: 0.011, z: -0.134}
+      LocalRotation: {x: -0.00052231835, y: -0.9730165, z: 0.010214924, w: 0.23050854}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: e3767ccb6214fba4bbccc3f600efc033
+      Name: Building_India_02
+      LocalPosition: {x: 0.81, y: 0.037, z: 0.793}
+      LocalRotation: {x: -0.006101376, y: -0.92318606, z: 0.010476169, w: 0.38416222}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: 019416b4905e409488f20b25c0ad5328
+      Name: Building_India_01
+      LocalPosition: {x: -0.243, y: 0.026, z: 0.962}
+      LocalRotation: {x: 0.0031328097, y: -0.9940841, z: -0.011748658, w: 0.107930094}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+  - NodeId: N_Samarkand
+    ViewLocalPosition: {x: 0, y: 0, z: 0}
+    ViewLocalRotation: {x: 0, y: 0, z: 0, w: 1}
+    ViewLocalScale: {x: 0.45499998, y: 0.45499998, z: 0.45499998}
+    ViewColliders:
+    - Kind: 1
+      Enabled: 1
+      IsTrigger: 0
+      Center: {x: -0.53, y: 0, z: 0}
+      BoxSize: {x: 0, y: 0, z: 0}
+      Radius: 1.27
+      Height: 0
+      Direction: 0
+      MeshGuid: 
+      Convex: 0
+    Buildings:
+    - PrefabGuid: b71e4af999f460f4cb6be79220b5e363
+      Name: Building_CentralAsia_02
+      LocalPosition: {x: 0.04, y: -0.846, z: -0.484}
+      LocalRotation: {x: -0.045201913, y: -0.27006313, z: -0.16766179, w: 0.94705456}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: 72cdeecb2065a2a4a976d17f6cc70fda
+      Name: Building_CentralAsia_01
+      LocalPosition: {x: -0.19, y: 0.06, z: 0.556}
+      LocalRotation: {x: 0.06091653, y: 0.9783769, z: -0.16261268, w: 0.11236078}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: edb294397e307d74aae7e7f8a706c8f8
+      Name: Building_CentralAsia_04
+      LocalPosition: {x: -0.986, y: -0.017, z: 0.356}
+      LocalRotation: {x: 0.03815428, y: 0.9538887, z: -0.16940467, w: 0.2448318}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: 575b59be777d11543844e22cc584065d
+      Name: Building_CentralAsia_03
+      LocalPosition: {x: -0.752, y: -1.08, z: -1.0110205}
+      LocalRotation: {x: -0.0070952526, y: 0.379697, z: 0.017283669, w: 0.9249222}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+  - NodeId: N_Lanzhou
+    ViewLocalPosition: {x: 0, y: 0, z: 0}
+    ViewLocalRotation: {x: 0, y: 0, z: 0, w: 1}
+    ViewLocalScale: {x: 0.4445, y: 0.4445, z: 0.4445}
+    ViewColliders:
+    - Kind: 1
+      Enabled: 1
+      IsTrigger: 0
+      Center: {x: 0.31, y: 0, z: 0.17}
+      BoxSize: {x: 0, y: 0, z: 0}
+      Radius: 1.52
+      Height: 0
+      Direction: 0
+      MeshGuid: 
+      Convex: 0
+    Buildings:
+    - PrefabGuid: f762894f950565c42a9073985c0e1bcb
+      Name: Building_China_03
+      LocalPosition: {x: 1.0169795, y: 0.21758795, z: 0.86506957}
+      LocalRotation: {x: -0.022256225, y: -0.9357496, z: 0.17221604, w: 0.3069512}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: 769d395207072854792fb1fcc8dafd3f
+      Name: Building_China_02
+      LocalPosition: {x: -0.03, y: -0.27, z: 0.77}
+      LocalRotation: {x: -0.16716318, y: 0.97325474, z: -0.047012422, w: -0.1504046}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: f99c52178d8b80f418b47fef858e0234
+      Name: Building_China_04
+      LocalPosition: {x: -0.84, y: -0.89, z: -0.35}
+      LocalRotation: {x: -0.06071508, y: 0.22919425, z: -0.090750284, w: 0.9672374}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: a4cd2bbb27e9cec408ef02e3ec14b838
+      Name: Building_China_01
+      LocalPosition: {x: 0.46, y: -0.57, z: -0.7}
+      LocalRotation: {x: -0.12883236, y: 0.11414173, z: 0.0023132884, w: 0.9850729}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+  - NodeId: N_Damascus
+    ViewLocalPosition: {x: 0, y: 0, z: 0}
+    ViewLocalRotation: {x: 0, y: 0, z: 0, w: 1}
+    ViewLocalScale: {x: 0.45499998, y: 0.45499998, z: 0.45499998}
+    ViewColliders:
+    - Kind: 1
+      Enabled: 1
+      IsTrigger: 0
+      Center: {x: 0, y: 0, z: 0.22}
+      BoxSize: {x: 0, y: 0, z: 0}
+      Radius: 0.98
+      Height: 0
+      Direction: 0
+      MeshGuid: 
+      Convex: 0
+    Buildings:
+    - PrefabGuid: 7b5c5509ca6483d41b06e2bf98508047
+      Name: Building_Levant_01
+      LocalPosition: {x: 0.039494693, y: -0.20153582, z: -0.36673075}
+      LocalRotation: {x: 0.014689213, y: -0.035003357, z: 0.04021592, w: 0.9984697}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: b80c5ec9577349b44ae6f2d040c7e017
+      Name: Building_Levant_02
+      LocalPosition: {x: 0.991, y: -0.157, z: 0.29}
+      LocalRotation: {x: 0.041564003, y: -0.81214696, z: -0.012540391, w: 0.58183545}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: e82da9f8e66bb9943a208dfd2b33756c
+      Name: Building_Levant_04
+      LocalPosition: {x: -0.433, y: -0.283, z: 0.37}
+      LocalRotation: {x: -0.059480622, y: 0.97782457, z: 0.06380546, w: 0.19039449}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+  - NodeId: N_Mosul
+    ViewLocalPosition: {x: 0, y: 0, z: 0}
+    ViewLocalRotation: {x: 0, y: 0, z: 0, w: 1}
+    ViewLocalScale: {x: 0.43399996, y: 0.43399996, z: 0.43399996}
+    ViewColliders:
+    - Kind: 1
+      Enabled: 1
+      IsTrigger: 0
+      Center: {x: -0.26, y: 0, z: -0.36}
+      BoxSize: {x: 0, y: 0, z: 0}
+      Radius: 1.48
+      Height: 0
+      Direction: 0
+      MeshGuid: 
+      Convex: 0
+    Buildings:
+    - PrefabGuid: cdbb1b147dc245b4a9a46aabcc4b29a0
+      Name: Building_Mesopotamia_03
+      LocalPosition: {x: -0.84, y: -0.683, z: -0.49}
+      LocalRotation: {x: -0.00007603841, y: 0.3896056, z: 0.00016477177, w: 0.92098176}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: 1c1490d79057b724ab1eeef84af26894
+      Name: Building_Mesopotamia_02
+      LocalPosition: {x: 0.148, y: -0.771, z: 0.422}
+      LocalRotation: {x: 0.0064445413, y: 0.91161275, z: 0.00552736, w: -0.41096255}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: be158fdbf826f3b449085545639550bd
+      Name: Building_Mesopotamia_01
+      LocalPosition: {x: 0.553, y: -0.624, z: -0.417}
+      LocalRotation: {x: -0.01795599, y: 0.87147605, z: -0.026373822, w: -0.4893991}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: d84ba283496789b49aef54f4dde8be86
+      Name: Building_Mesopotamia_04
+      LocalPosition: {x: 0.012, y: -0.622, z: -1.138}
+      LocalRotation: {x: 0.092049286, y: 0.36933532, z: 0.0367936, w: 0.9239938}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+  - NodeId: N_Bukhara
+    ViewLocalPosition: {x: 0, y: 0, z: 0}
+    ViewLocalRotation: {x: 0, y: 0, z: 0, w: 1}
+    ViewLocalScale: {x: 0.45499998, y: 0.45499998, z: 0.45499998}
+    ViewColliders:
+    - Kind: 1
+      Enabled: 1
+      IsTrigger: 0
+      Center: {x: 0, y: 0, z: 0}
+      BoxSize: {x: 0, y: 0, z: 0}
+      Radius: 1.36
+      Height: 0
+      Direction: 0
+      MeshGuid: 
+      Convex: 0
+    Buildings:
+    - PrefabGuid: b71e4af999f460f4cb6be79220b5e363
+      Name: Building_CentralAsia_02
+      LocalPosition: {x: 0.213, y: -0.475, z: 0.733}
+      LocalRotation: {x: 0.0069448934, y: -0.9571366, z: -0.007850832, w: 0.2894473}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: 72cdeecb2065a2a4a976d17f6cc70fda
+      Name: Building_CentralAsia_01
+      LocalPosition: {x: -0.744, y: -0.481, z: 0.402}
+      LocalRotation: {x: 0.00068264746, y: 0.98335254, z: 0.003695084, w: 0.18166924}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: 575b59be777d11543844e22cc584065d
+      Name: Building_CentralAsia_03
+      LocalPosition: {x: -0.749, y: -0.445, z: -0.773}
+      LocalRotation: {x: 0.016401445, y: -0.008153493, z: 0.0052223527, w: 0.9998186}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: edb294397e307d74aae7e7f8a706c8f8
+      Name: Building_CentralAsia_04
+      LocalPosition: {x: 0.415, y: -0.448, z: -0.51}
+      LocalRotation: {x: 0.0027971098, y: -0.13435346, z: -0.011339709, w: 0.9908647}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+  - NodeId: N_Patna
+    ViewLocalPosition: {x: 0, y: 0, z: 0}
+    ViewLocalRotation: {x: 0, y: 0, z: 0, w: 1}
+    ViewLocalScale: {x: 0.40249997, y: 0.40249997, z: 0.40249997}
+    ViewColliders:
+    - Kind: 1
+      Enabled: 1
+      IsTrigger: 0
+      Center: {x: 0, y: 0.07, z: 0}
+      BoxSize: {x: 0, y: 0, z: 0}
+      Radius: 1.64
+      Height: 0
+      Direction: 0
+      MeshGuid: 
+      Convex: 0
+    Buildings:
+    - PrefabGuid: 019416b4905e409488f20b25c0ad5328
+      Name: Building_India_01
+      LocalPosition: {x: -0.681, y: 0.045, z: 0.989}
+      LocalRotation: {x: 0.007103824, y: 0.9950091, z: -0.03774749, w: 0.092095666}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: 3beb8d8a96deaba46870708a29e1253c
+      Name: Building_India_03
+      LocalPosition: {x: 0.098, y: 0.035, z: 0.708}
+      LocalRotation: {x: 0.001971217, y: 0.99809223, z: 0.022941418, w: -0.05728647}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: e3767ccb6214fba4bbccc3f600efc033
+      Name: Building_India_02
+      LocalPosition: {x: 1.027, y: 0.008, z: 1.009}
+      LocalRotation: {x: -0.011433946, y: -0.9643991, z: 0.015294885, w: 0.26376063}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: fbe969d44bcbeee4e858e3a6bc89377f
+      Name: Building_India_04
+      LocalPosition: {x: 0.76, y: -0.076, z: -0.415}
+      LocalRotation: {x: -0.014017092, y: -0.97715175, z: 0.031073108, w: -0.20979163}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+  - NodeId: N_Mashhad
+    ViewLocalPosition: {x: 0, y: 0, z: 0}
+    ViewLocalRotation: {x: 0, y: 0, z: 0, w: 1}
+    ViewLocalScale: {x: 0.413, y: 0.413, z: 0.413}
+    ViewColliders:
+    - Kind: 1
+      Enabled: 1
+      IsTrigger: 0
+      Center: {x: -0.34, y: 0, z: -0.54}
+      BoxSize: {x: 0, y: 0, z: 0}
+      Radius: 1.12
+      Height: 0
+      Direction: 0
+      MeshGuid: 
+      Convex: 0
+    Buildings:
+    - PrefabGuid: a9a641e49c83e094caf098cc4659cb7f
+      Name: Building_Persia_04
+      LocalPosition: {x: -0.044341817, y: -0.59784484, z: 0.3661763}
+      LocalRotation: {x: 0.025566392, y: 0.9894714, z: -0.03397544, w: 0.13834168}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: 806e0d998e80c3c4e8944d5ae32ad348
+      Name: Building_Persia_02
+      LocalPosition: {x: -0.613, y: -0.73, z: -1.532}
+      LocalRotation: {x: 0.019770924, y: 0.28172734, z: 0.025521142, w: -0.95895123}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: cafaebe10fed8454482113a74c7a16ec
+      Name: Building_Persia_01
+      LocalPosition: {x: -1.165, y: -0.573, z: -0.281}
+      LocalRotation: {x: -0.011624563, y: 0.868176, z: -0.0096047325, w: 0.49602732}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: c1f2d5145bef26340a4e857c8bb227e6
+      Name: Building_Persia_03
+      LocalPosition: {x: 0.246, y: -0.662, z: -0.783}
+      LocalRotation: {x: -0.008779669, y: -0.13346544, z: -0.0017589307, w: 0.99101305}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+  - NodeId: N_Chang`an
+    ViewLocalPosition: {x: 0, y: 0, z: 0}
+    ViewLocalRotation: {x: 0, y: 0, z: 0, w: 1}
+    ViewLocalScale: {x: 0.45499998, y: 0.45499998, z: 0.45499998}
+    ViewColliders:
+    - Kind: 1
+      Enabled: 1
+      IsTrigger: 0
+      Center: {x: 0, y: 0, z: 0}
+      BoxSize: {x: 0, y: 0, z: 0}
+      Radius: 1.81
+      Height: 0
+      Direction: 0
+      MeshGuid: 
+      Convex: 0
+    Buildings:
+    - PrefabGuid: a4cd2bbb27e9cec408ef02e3ec14b838
+      Name: Building_China_01
+      LocalPosition: {x: 0.76, y: -0.25, z: -0.46}
+      LocalRotation: {x: 0.012028719, y: -0.87805676, z: -0.013037994, w: 0.47822765}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: f99c52178d8b80f418b47fef858e0234
+      Name: Building_China_04
+      LocalPosition: {x: -0.24, y: -0.26, z: -0.74}
+      LocalRotation: {x: 0.017195173, y: -0.796443, z: -0.0116727, w: 0.60435635}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: f762894f950565c42a9073985c0e1bcb
+      Name: Building_China_03
+      LocalPosition: {x: 0.38, y: -0.31, z: 0.68}
+      LocalRotation: {x: 0.00081120926, y: 0.97524387, z: -0.0045737945, w: -0.22108331}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: 769d395207072854792fb1fcc8dafd3f
+      Name: Building_China_02
+      LocalPosition: {x: -1.2, y: -0.3, z: 0.18}
+      LocalRotation: {x: 0.00536289, y: 0.62471026, z: 0.0010422443, w: 0.7808376}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+  - NodeId: N_Kashgar
+    ViewLocalPosition: {x: 0, y: 0, z: 0}
+    ViewLocalRotation: {x: 0, y: 0, z: 0, w: 1}
+    ViewLocalScale: {x: 0.45499998, y: 0.45499998, z: 0.45499998}
+    ViewColliders:
+    - Kind: 1
+      Enabled: 1
+      IsTrigger: 0
+      Center: {x: 0, y: 0, z: 0.41}
+      BoxSize: {x: 0, y: 0, z: 0}
+      Radius: 0.92
+      Height: 0
+      Direction: 0
+      MeshGuid: 
+      Convex: 0
+    Buildings:
+    - PrefabGuid: 885d09df5bd318a4183ebba9591e0996
+      Name: Building_Steppe_03
+      LocalPosition: {x: 0.0972402, y: -1.5210928, z: 0.25872034}
+      LocalRotation: {x: 0.1053381, y: -0.9800087, z: 0.13804923, w: 0.097104475}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: 654ae0c76518f804590f278e6acfd48e
+      Name: Building_Steppe_02
+      LocalPosition: {x: 0.261, y: -1.247, z: -0.523}
+      LocalRotation: {x: 0.08348508, y: -0.95442885, z: 0.15226273, w: 0.24271779}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: efc310f8f1b3d4448a9c821d1bc878df
+      Name: Building_Steppe_01
+      LocalPosition: {x: 0.215, y: -1.346, z: 0.355}
+      LocalRotation: {x: -0.17303571, y: 0.9813902, z: 0.014571928, w: 0.08197377}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: 0cedd7ccb940b204dacf1ba79ba015f2
+      Name: Building_Steppe_04
+      LocalPosition: {x: -0.532, y: -2.167, z: 0.16}
+      LocalRotation: {x: -0.14641178, y: 0.8307024, z: 0.09336644, w: 0.5289422}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+  - NodeId: N_Tripoly
+    ViewLocalPosition: {x: 0, y: 0, z: 0}
+    ViewLocalRotation: {x: 0, y: 0, z: 0, w: 1}
+    ViewLocalScale: {x: 0.4445, y: 0.4445, z: 0.4445}
+    ViewColliders:
+    - Kind: 1
+      Enabled: 1
+      IsTrigger: 0
+      Center: {x: 0, y: 0, z: -0.48}
+      BoxSize: {x: 0, y: 0, z: 0}
+      Radius: 0.96
+      Height: 0
+      Direction: 0
+      MeshGuid: 
+      Convex: 0
+    Buildings:
+    - PrefabGuid: b80c5ec9577349b44ae6f2d040c7e017
+      Name: Building_Levant_02
+      LocalPosition: {x: -0.553, y: -0.224, z: 0.007}
+      LocalRotation: {x: -0.03554769, y: 0.6104044, z: 0.06746226, w: 0.78841096}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: c9987ca66c960a248bc94c0ec57dfe09
+      Name: Building_Levant_03
+      LocalPosition: {x: 0.428, y: -0.164, z: -0.585}
+      LocalRotation: {x: 0.015391969, y: -0.4786785, z: 0.099825, w: 0.87216103}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+  - NodeId: N_Hangzhou
+    ViewLocalPosition: {x: 0, y: 0, z: 0}
+    ViewLocalRotation: {x: 0, y: 0, z: 0, w: 1}
+    ViewLocalScale: {x: 0.45499998, y: 0.45499998, z: 0.45499998}
+    ViewColliders:
+    - Kind: 1
+      Enabled: 1
+      IsTrigger: 0
+      Center: {x: 0, y: 0, z: 0.1}
+      BoxSize: {x: 0, y: 0, z: 0}
+      Radius: 0.74
+      Height: 0
+      Direction: 0
+      MeshGuid: 
+      Convex: 0
+    Buildings:
+    - PrefabGuid: f99c52178d8b80f418b47fef858e0234
+      Name: Building_China_04
+      LocalPosition: {x: -0.36836565, y: -0.18190755, z: 0.1360537}
+      LocalRotation: {x: -0.018191367, y: 0.8109993, z: -0.005519986, w: 0.58473825}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: 769d395207072854792fb1fcc8dafd3f
+      Name: Building_China_02
+      LocalPosition: {x: 0.3926246, y: -0.16825521, z: 0.006964443}
+      LocalRotation: {x: -0.00042674993, y: -0.69971603, z: 0.007464773, w: 0.714382}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+  - NodeId: N_Osh
+    ViewLocalPosition: {x: 0, y: 0, z: 0}
+    ViewLocalRotation: {x: 0, y: 0, z: 0, w: 1}
+    ViewLocalScale: {x: 0.40249997, y: 0.40249997, z: 0.40249997}
+    ViewColliders:
+    - Kind: 1
+      Enabled: 1
+      IsTrigger: 0
+      Center: {x: 0, y: 0, z: 0}
+      BoxSize: {x: 0, y: 0, z: 0}
+      Radius: 1.28
+      Height: 0
+      Direction: 0
+      MeshGuid: 
+      Convex: 0
+    Buildings:
+    - PrefabGuid: edb294397e307d74aae7e7f8a706c8f8
+      Name: Building_CentralAsia_04
+      LocalPosition: {x: 0.658, y: -1.163, z: 0.65}
+      LocalRotation: {x: -0.1418853, y: -0.92517054, z: 0.10011127, w: 0.33749926}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: b71e4af999f460f4cb6be79220b5e363
+      Name: Building_CentralAsia_02
+      LocalPosition: {x: 0.009, y: -0.666, z: 0.733}
+      LocalRotation: {x: -0.17353725, y: 0.98417854, z: -0.0062063034, w: -0.03519769}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: 72cdeecb2065a2a4a976d17f6cc70fda
+      Name: Building_CentralAsia_01
+      LocalPosition: {x: -0.836, y: -0.883, z: -0.142}
+      LocalRotation: {x: -0.0054167104, y: 0.5084944, z: -0.05042477, w: 0.85957056}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: 575b59be777d11543844e22cc584065d
+      Name: Building_CentralAsia_03
+      LocalPosition: {x: 0.218, y: -1.135, z: -0.854}
+      LocalRotation: {x: 0.060317267, y: -0.070502736, z: -0.1628359, w: 0.98228085}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+  - NodeId: N_Beijing
+    ViewLocalPosition: {x: 0, y: 0, z: 0}
+    ViewLocalRotation: {x: 0, y: 0, z: 0, w: 1}
+    ViewLocalScale: {x: 0.45499998, y: 0.45499998, z: 0.45499998}
+    ViewColliders:
+    - Kind: 1
+      Enabled: 1
+      IsTrigger: 0
+      Center: {x: 0, y: 0, z: 0.46}
+      BoxSize: {x: 0, y: 0, z: 0}
+      Radius: 1.26
+      Height: 0
+      Direction: 0
+      MeshGuid: 
+      Convex: 0
+    Buildings:
+    - PrefabGuid: 769d395207072854792fb1fcc8dafd3f
+      Name: Building_China_02
+      LocalPosition: {x: -0.9, y: -0.35, z: 1.06}
+      LocalRotation: {x: 0.02160353, y: -0.9872163, z: 0.005971766, w: 0.15780298}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: f762894f950565c42a9073985c0e1bcb
+      Name: Building_China_03
+      LocalPosition: {x: 0.62, y: -0.33, z: 0.83}
+      LocalRotation: {x: -0.002535946, y: 0.890353, z: 0.0098149665, w: -0.45515808}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: a4cd2bbb27e9cec408ef02e3ec14b838
+      Name: Building_China_01
+      LocalPosition: {x: -0.847033, y: -0.2947448, z: 0.059107244}
+      LocalRotation: {x: 0.012649975, y: 0.56785667, z: 0.01767376, w: 0.82284045}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: f99c52178d8b80f418b47fef858e0234
+      Name: Building_China_04
+      LocalPosition: {x: -0.03, y: -0.34, z: -0.5}
+      LocalRotation: {x: -0.03099324, y: 0.098856606, z: -0.046919327, w: 0.9935117}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+  - NodeId: N_Baghdad
+    ViewLocalPosition: {x: 0, y: 0, z: 0}
+    ViewLocalRotation: {x: 0, y: 0, z: 0, w: 1}
+    ViewLocalScale: {x: 0.45499998, y: 0.45499998, z: 0.45499998}
+    ViewColliders:
+    - Kind: 1
+      Enabled: 1
+      IsTrigger: 0
+      Center: {x: 0, y: 0, z: 0}
+      BoxSize: {x: 0, y: 0, z: 0}
+      Radius: 1.21
+      Height: 0
+      Direction: 0
+      MeshGuid: 
+      Convex: 0
+    Buildings:
+    - PrefabGuid: d84ba283496789b49aef54f4dde8be86
+      Name: Building_Mesopotamia_04
+      LocalPosition: {x: 0.447, y: -0.368, z: -0.525}
+      LocalRotation: {x: 0.06006112, y: 0.7101547, z: -0.07982881, w: -0.696922}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: be158fdbf826f3b449085545639550bd
+      Name: Building_Mesopotamia_01
+      LocalPosition: {x: -0.51, y: -0.406, z: 0.296}
+      LocalRotation: {x: -0.04031379, y: 0.5935974, z: 0.0749226, w: 0.80025226}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: 1c1490d79057b724ab1eeef84af26894
+      Name: Building_Mesopotamia_02
+      LocalPosition: {x: -0.535, y: -0.423, z: -0.646}
+      LocalRotation: {x: -0.055967398, y: 0.3054483, z: 0.009938648, w: 0.9505105}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+  - NodeId: N_Trabzon
+    ViewLocalPosition: {x: 0, y: 0, z: 0}
+    ViewLocalRotation: {x: 0, y: 0, z: 0, w: 1}
+    ViewLocalScale: {x: 0.4445, y: 0.4445, z: 0.4445}
+    ViewColliders:
+    - Kind: 1
+      Enabled: 1
+      IsTrigger: 0
+      Center: {x: -0.42, y: 0, z: 0}
+      BoxSize: {x: 0, y: 0, z: 0}
+      Radius: 1.2
+      Height: 0
+      Direction: 0
+      MeshGuid: 
+      Convex: 0
+    Buildings:
+    - PrefabGuid: b40f576451998ff4fb32149d73bf573b
+      Name: Building_Anatolia_01
+      LocalPosition: {x: 0.2470628, y: -0.61687255, z: 0.35893986}
+      LocalRotation: {x: 0.04351348, y: -0.94070405, z: -0.117666826, w: 0.31517783}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: 7eca513f92fca054fa1b00ec9ef7416f
+      Name: Building_Anatolia_02
+      LocalPosition: {x: -0.929, y: -0.633, z: 0.372}
+      LocalRotation: {x: 0.026371019, y: 0.959949, z: -0.027371641, w: 0.2775847}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: d31f4aaae230559478ed2dc85c5af552
+      Name: Building_Anatolia_04
+      LocalPosition: {x: -0.192, y: -0.452, z: -0.491}
+      LocalRotation: {x: 0.025813743, y: -0.009367156, z: 0.009756763, w: 0.99957526}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+  - NodeId: N_Dehli
+    ViewLocalPosition: {x: 0, y: 0, z: 0}
+    ViewLocalRotation: {x: 0, y: 0, z: 0, w: 1}
+    ViewLocalScale: {x: 0.45499998, y: 0.45499998, z: 0.45499998}
+    ViewColliders:
+    - Kind: 1
+      Enabled: 1
+      IsTrigger: 0
+      Center: {x: 0, y: 0, z: 0}
+      BoxSize: {x: 0, y: 0, z: 0}
+      Radius: 1.71
+      Height: 0
+      Direction: 0
+      MeshGuid: 
+      Convex: 0
+    Buildings:
+    - PrefabGuid: 3beb8d8a96deaba46870708a29e1253c
+      Name: Building_India_03
+      LocalPosition: {x: 0.938, y: -0.075, z: 0.02}
+      LocalRotation: {x: -0.022417914, y: -0.32567844, z: -0.035257753, w: 0.944557}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: fbe969d44bcbeee4e858e3a6bc89377f
+      Name: Building_India_04
+      LocalPosition: {x: 0.6793751, y: -0.041405514, z: 1.2403615}
+      LocalRotation: {x: -0.046318274, y: -0.94685864, z: -0.006509281, w: 0.31823114}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: 019416b4905e409488f20b25c0ad5328
+      Name: Building_India_01
+      LocalPosition: {x: -0.777, y: 0.113, z: 0.975}
+      LocalRotation: {x: 0.105947554, y: 0.7795788, z: 0.13758203, w: 0.60175014}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: e3767ccb6214fba4bbccc3f600efc033
+      Name: Building_India_02
+      LocalPosition: {x: -0.48, y: 0.409, z: -1.004}
+      LocalRotation: {x: 0.16130069, y: 0.5068417, z: -0.035810087, w: 0.8460563}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+  - NodeId: N_Aleppo
+    ViewLocalPosition: {x: 0, y: 0, z: 0}
+    ViewLocalRotation: {x: 0, y: 0, z: 0, w: 1}
+    ViewLocalScale: {x: 0.45499998, y: 0.45499998, z: 0.45499998}
+    ViewColliders:
+    - Kind: 1
+      Enabled: 1
+      IsTrigger: 0
+      Center: {x: -0.39, y: 0, z: 0}
+      BoxSize: {x: 0, y: 0, z: 0}
+      Radius: 1.08
+      Height: 0
+      Direction: 0
+      MeshGuid: 
+      Convex: 0
+    Buildings:
+    - PrefabGuid: 7b5c5509ca6483d41b06e2bf98508047
+      Name: Building_Levant_01
+      LocalPosition: {x: -0.871, y: -0.37, z: 0.333}
+      LocalRotation: {x: 0.000005595131, y: 0.9997843, z: 0.00070515013, w: 0.020757684}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: c9987ca66c960a248bc94c0ec57dfe09
+      Name: Building_Levant_03
+      LocalPosition: {x: -0.263, y: -0.371, z: -0.805}
+      LocalRotation: {x: -0.0008965166, y: -0.11545515, z: -0.0016972435, w: 0.99331087}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+  - NodeId: N_Constantinople
+    ViewLocalPosition: {x: 0, y: 0, z: 0}
+    ViewLocalRotation: {x: 0, y: 0, z: 0, w: 1}
+    ViewLocalScale: {x: 0.45499998, y: 0.45499998, z: 0.45499998}
+    ViewColliders:
+    - Kind: 1
+      Enabled: 1
+      IsTrigger: 0
+      Center: {x: 1.35, y: 0, z: -0.62}
+      BoxSize: {x: 0, y: 0, z: 0}
+      Radius: 1.7
+      Height: 0
+      Direction: 0
+      MeshGuid: 
+      Convex: 0
+    Buildings:
+    - PrefabGuid: 65d702cd2e9b8cb469adf003635fba08
+      Name: Building_Byzantine_01
+      LocalPosition: {x: 0.234, y: 0.044, z: -0.33}
+      LocalRotation: {x: -0.011054654, y: 0.42866206, z: 0.004704313, w: -0.90338504}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: b664a58a1bcdb6b4890863a4c444fa20
+      Name: Building_Byzantine_04
+      LocalPosition: {x: 2.195, y: 0.034, z: 0.121}
+      LocalRotation: {x: 0.0021678826, y: -0.942634, z: 0.00097609794, w: 0.33381972}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: e2a2d2ef8dbeacc47820161fabc6ee45
+      Name: Building_Byzantine_03
+      LocalPosition: {x: 1.417, y: 0.026, z: -0.603}
+      LocalRotation: {x: -0.0007803904, y: -0.61340255, z: -0.0006845518, w: 0.78976977}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: ca91018985b06f647be9ce2afbba59c6
+      Name: Building_Byzantine_02
+      LocalPosition: {x: 1.363, y: 0.446, z: -1.398}
+      LocalRotation: {x: -0.06974117, y: 0.12686804, z: -0.04037051, w: -0.98864096}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+  - NodeId: N_Mecca
+    ViewLocalPosition: {x: 0, y: 0, z: 0}
+    ViewLocalRotation: {x: 0, y: 0, z: 0, w: 1}
+    ViewLocalScale: {x: 0.392, y: 0.392, z: 0.392}
+    ViewColliders:
+    - Kind: 1
+      Enabled: 1
+      IsTrigger: 0
+      Center: {x: 0, y: 0, z: -1.04}
+      BoxSize: {x: 0, y: 0, z: 0}
+      Radius: 1.35
+      Height: 0
+      Direction: 0
+      MeshGuid: 
+      Convex: 0
+    Buildings:
+    - PrefabGuid: c766e4b3e8580ce48ba348aa036327b5
+      Name: Building_Arabia_04
+      LocalPosition: {x: -0.479, y: -0.432, z: -0.269}
+      LocalRotation: {x: -0.0017204784, y: -0.67779016, z: 0.0027545798, w: -0.7352482}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: 1be6fa23e9b8feb468337f8029aeecfe
+      Name: Building_Arabia_01
+      LocalPosition: {x: 0.504, y: -0.44, z: -0.679}
+      LocalRotation: {x: 0.0036035771, y: 0.74568594, z: 0.004076468, w: -0.66627544}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: 83d2cb2f3732a7342bd72a3736d8c317
+      Name: Building_Arabia_03
+      LocalPosition: {x: -0.721, y: -0.423, z: -1.464}
+      LocalRotation: {x: 0.005041121, y: 0.46154478, z: 0.00006390199, w: 0.88710266}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+  - NodeId: N_Aydhab
+    ViewLocalPosition: {x: 0, y: 0, z: 0}
+    ViewLocalRotation: {x: 0, y: 0, z: 0, w: 1}
+    ViewLocalScale: {x: 0.42349997, y: 0.42349997, z: 0.42349997}
+    ViewColliders:
+    - Kind: 1
+      Enabled: 1
+      IsTrigger: 0
+      Center: {x: 0.91, y: 0, z: 0}
+      BoxSize: {x: 0, y: 0, z: 0}
+      Radius: 1.94
+      Height: 0
+      Direction: 0
+      MeshGuid: 
+      Convex: 0
+    Buildings:
+    - PrefabGuid: 83d2cb2f3732a7342bd72a3736d8c317
+      Name: Building_Arabia_03
+      LocalPosition: {x: 1.2454267, y: -0.16479193, z: 0.14715885}
+      LocalRotation: {x: -0.007172545, y: -0.95258135, z: 0.083912745, w: 0.29239723}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: 1c972be2df3f5d046b9367599d5b2b85
+      Name: Building_Arabia_02
+      LocalPosition: {x: -0.001, y: -0.332, z: 0.775}
+      LocalRotation: {x: -0.01623161, y: 0.9784765, z: -0.0670486, w: 0.1944861}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: c766e4b3e8580ce48ba348aa036327b5
+      Name: Building_Arabia_04
+      LocalPosition: {x: 1.135, y: -0.369, z: -1.081}
+      LocalRotation: {x: -0.08189249, y: 0.29689026, z: -0.014008707, w: 0.9512905}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: 1be6fa23e9b8feb468337f8029aeecfe
+      Name: Building_Arabia_01
+      LocalPosition: {x: 1.8696611, y: -0.1408303, z: 1.0397618}
+      LocalRotation: {x: -0.0027542405, y: -0.8362736, z: -0.00664003, w: 0.54826534}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+  - NodeId: N_Quanzhou
+    ViewLocalPosition: {x: 0, y: 0, z: 0}
+    ViewLocalRotation: {x: 0, y: 0, z: 0, w: 1}
+    ViewLocalScale: {x: 0.45499998, y: 0.45499998, z: 0.45499998}
+    ViewColliders:
+    - Kind: 1
+      Enabled: 1
+      IsTrigger: 0
+      Center: {x: 0, y: 0, z: -0.73}
+      BoxSize: {x: 0, y: 0, z: 0}
+      Radius: 1.57
+      Height: 0
+      Direction: 0
+      MeshGuid: 
+      Convex: 0
+    Buildings:
+    - PrefabGuid: f99c52178d8b80f418b47fef858e0234
+      Name: Building_China_04
+      LocalPosition: {x: 0.43, y: -0.07, z: 0.31}
+      LocalRotation: {x: 0.0009791508, y: -0.9948146, z: -0.0034489355, w: 0.101642266}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: a4cd2bbb27e9cec408ef02e3ec14b838
+      Name: Building_China_01
+      LocalPosition: {x: -0.46, y: -0.07, z: -1.59}
+      LocalRotation: {x: 0.0009233363, y: -0.8037093, z: -0.00019925907, w: 0.59502137}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: 769d395207072854792fb1fcc8dafd3f
+      Name: Building_China_02
+      LocalPosition: {x: -0.49, y: -0.06, z: -0.62}
+      LocalRotation: {x: -0.0017460941, y: 0.5712649, z: 0.003397059, w: 0.82075685}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: f762894f950565c42a9073985c0e1bcb
+      Name: Building_China_03
+      LocalPosition: {x: 0.68326265, y: -0.039685234, z: -1.1470573}
+      LocalRotation: {x: -0.011277926, y: -0.20723866, z: 0.026777575, w: 0.97785884}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+  - NodeId: N_Lijang
+    ViewLocalPosition: {x: 0, y: 0, z: 0}
+    ViewLocalRotation: {x: 0, y: 0, z: 0, w: 1}
+    ViewLocalScale: {x: 0.40249997, y: 0.40249997, z: 0.40249997}
+    ViewColliders:
+    - Kind: 1
+      Enabled: 1
+      IsTrigger: 0
+      Center: {x: 0, y: 0, z: 0}
+      BoxSize: {x: 0, y: 0, z: 0}
+      Radius: 1.41
+      Height: 0
+      Direction: 0
+      MeshGuid: 
+      Convex: 0
+    Buildings:
+    - PrefabGuid: 769d395207072854792fb1fcc8dafd3f
+      Name: Building_China_02
+      LocalPosition: {x: 0.12605087, y: -1.0542396, z: 0.37190697}
+      LocalRotation: {x: 0.00032689195, y: -0.9625844, z: -0.0011651354, w: 0.27097952}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: f762894f950565c42a9073985c0e1bcb
+      Name: Building_China_03
+      LocalPosition: {x: -0.57, y: -1.07, z: -0.62}
+      LocalRotation: {x: -0.0069488315, y: 0.4711937, z: -0.0037135296, w: 0.88199466}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+  - NodeId: N_Lhasa
+    ViewLocalPosition: {x: 0, y: 0, z: 0}
+    ViewLocalRotation: {x: 0, y: 0, z: 0, w: 1}
+    ViewLocalScale: {x: 0.38149998, y: 0.38149998, z: 0.38149998}
+    ViewColliders:
+    - Kind: 1
+      Enabled: 1
+      IsTrigger: 0
+      Center: {x: 0, y: 1.66, z: 0}
+      BoxSize: {x: 0, y: 0, z: 0}
+      Radius: 1.62
+      Height: 0
+      Direction: 0
+      MeshGuid: 
+      Convex: 0
+    Buildings:
+    - PrefabGuid: c559da0617fc0504d8adce851be240a6
+      Name: Building_Tibet_04
+      LocalPosition: {x: 0.054, y: 0.704, z: -0.573}
+      LocalRotation: {x: 0.08844952, y: -0.69092035, z: 0.043600053, w: 0.7161737}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: a2676827077ad8b4b99593345103b915
+      Name: Building_Tibet_01
+      LocalPosition: {x: 0.947, y: 0.834, z: -0.749}
+      LocalRotation: {x: 0.050064657, y: -0.7159985, z: 0.0016063965, w: 0.6963025}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: c9b249ef8d71d4840b9ad4368015860b
+      Name: Building_Tibet_02
+      LocalPosition: {x: -0.9, y: 1.03, z: -0.57}
+      LocalRotation: {x: -0.014951316, y: -0.9833385, z: -0.17300336, w: 0.053775754}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+  - NodeId: N_Tamralipti
+    ViewLocalPosition: {x: 0, y: 0, z: 0}
+    ViewLocalRotation: {x: 0, y: 0, z: 0, w: 1}
+    ViewLocalScale: {x: 0.4445, y: 0.4445, z: 0.4445}
+    ViewColliders:
+    - Kind: 1
+      Enabled: 1
+      IsTrigger: 0
+      Center: {x: 0, y: 0.32, z: -0.46}
+      BoxSize: {x: 0, y: 0, z: 0}
+      Radius: 1.17
+      Height: 0
+      Direction: 0
+      MeshGuid: 
+      Convex: 0
+    Buildings:
+    - PrefabGuid: e3767ccb6214fba4bbccc3f600efc033
+      Name: Building_India_02
+      LocalPosition: {x: 0.432, y: 0.02, z: 0.01}
+      LocalRotation: {x: 0.0013220182, y: -0.82507735, z: -0.00029816432, w: 0.5650183}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: fbe969d44bcbeee4e858e3a6bc89377f
+      Name: Building_India_04
+      LocalPosition: {x: -0.789, y: 0.02, z: -0.118}
+      LocalRotation: {x: 0.00016151562, y: 0.80596316, z: 0.001164899, w: 0.59196454}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: 019416b4905e409488f20b25c0ad5328
+      Name: Building_India_01
+      LocalPosition: {x: -0.805, y: 0.01, z: -1.111}
+      LocalRotation: {x: 0.0032532932, y: 0.78511673, z: -0.0033574037, w: -0.6193303}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: 3beb8d8a96deaba46870708a29e1253c
+      Name: Building_India_03
+      LocalPosition: {x: 0.502, y: 0.047, z: -0.865}
+      LocalRotation: {x: 0.029706392, y: -0.5744896, z: 0.0027723995, w: 0.81796795}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+  - NodeId: N_Nishapur
+    ViewLocalPosition: {x: 0, y: 0, z: 0}
+    ViewLocalRotation: {x: 0, y: 0, z: 0, w: 1}
+    ViewLocalScale: {x: 0.413, y: 0.413, z: 0.413}
+    ViewColliders:
+    - Kind: 1
+      Enabled: 1
+      IsTrigger: 0
+      Center: {x: 0.73, y: 0, z: 0}
+      BoxSize: {x: 0, y: 0, z: 0}
+      Radius: 1.22
+      Height: 0
+      Direction: 0
+      MeshGuid: 
+      Convex: 0
+    Buildings:
+    - PrefabGuid: c1f2d5145bef26340a4e857c8bb227e6
+      Name: Building_Persia_03
+      LocalPosition: {x: 1.26, y: -0.6, z: 0.39}
+      LocalRotation: {x: -0.0062932377, y: -0.9846972, z: 0.002450647, w: 0.17414318}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: a9a641e49c83e094caf098cc4659cb7f
+      Name: Building_Persia_04
+      LocalPosition: {x: 0.02, y: -0.6, z: -0.53}
+      LocalRotation: {x: -0.008092586, y: 0.061906952, z: -0.0062828544, w: 0.9980294}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: cafaebe10fed8454482113a74c7a16ec
+      Name: Building_Persia_01
+      LocalPosition: {x: 0.82, y: -0.62, z: -0.66}
+      LocalRotation: {x: 0.004567288, y: 0.026599161, z: 0.006621988, w: 0.9996138}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: 806e0d998e80c3c4e8944d5ae32ad348
+      Name: Building_Persia_02
+      LocalPosition: {x: 0.06, y: -0.49, z: 0.63}
+      LocalRotation: {x: -0.05495076, y: -0.9777947, z: 0.00061936904, w: 0.20223147}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+  - NodeId: N_Cairo
+    ViewLocalPosition: {x: 0, y: 0, z: 0}
+    ViewLocalRotation: {x: 0, y: 0, z: 0, w: 1}
+    ViewLocalScale: {x: 0.45499998, y: 0.45499998, z: 0.45499998}
+    ViewColliders:
+    - Kind: 1
+      Enabled: 1
+      IsTrigger: 0
+      Center: {x: 0, y: 0, z: 0}
+      BoxSize: {x: 0, y: 0, z: 0}
+      Radius: 1.32
+      Height: 0
+      Direction: 0
+      MeshGuid: 
+      Convex: 0
+    Buildings:
+    - PrefabGuid: b80c5ec9577349b44ae6f2d040c7e017
+      Name: Building_Levant_02
+      LocalPosition: {x: 0.478, y: -0.111, z: -0.055}
+      LocalRotation: {x: -0.07126075, y: -0.6311305, z: -0.010138869, w: 0.77232987}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: e82da9f8e66bb9943a208dfd2b33756c
+      Name: Building_Levant_04
+      LocalPosition: {x: -0.607, y: -0.468, z: 0.642}
+      LocalRotation: {x: -0.054990448, y: 0.92569315, z: -0.06889343, w: 0.36786124}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: c9987ca66c960a248bc94c0ec57dfe09
+      Name: Building_Levant_03
+      LocalPosition: {x: 0.191, y: -0.162, z: -1.126}
+      LocalRotation: {x: 0.020903377, y: -0.3418953, z: 0.09524888, w: 0.9346648}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: 7b5c5509ca6483d41b06e2bf98508047
+      Name: Building_Levant_01
+      LocalPosition: {x: -0.633, y: -0.004, z: -0.274}
+      LocalRotation: {x: 0.014101644, y: 0.48263168, z: -0.05289102, w: 0.87411124}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+  - NodeId: N_Cambay
+    ViewLocalPosition: {x: 0, y: 0, z: 0}
+    ViewLocalRotation: {x: 0, y: 0, z: 0, w: 1}
+    ViewLocalScale: {x: 0.45499998, y: 0.45499998, z: 0.45499998}
+    ViewColliders:
+    - Kind: 1
+      Enabled: 1
+      IsTrigger: 0
+      Center: {x: 0, y: 0, z: -1.02}
+      BoxSize: {x: 0, y: 0, z: 0}
+      Radius: 1.54
+      Height: 0
+      Direction: 0
+      MeshGuid: 
+      Convex: 0
+    Buildings:
+    - PrefabGuid: 3beb8d8a96deaba46870708a29e1253c
+      Name: Building_India_03
+      LocalPosition: {x: 0.711, y: 0.092, z: -0.397}
+      LocalRotation: {x: 0.03478252, y: -0.7879842, z: -0.10343178, w: 0.605948}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: fbe969d44bcbeee4e858e3a6bc89377f
+      Name: Building_India_04
+      LocalPosition: {x: -0.609, y: -0.008, z: -0.279}
+      LocalRotation: {x: 0.01320378, y: 0.98695755, z: -0.019992482, w: 0.15918794}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: 019416b4905e409488f20b25c0ad5328
+      Name: Building_India_01
+      LocalPosition: {x: 0.401, y: -0.079, z: -1.358}
+      LocalRotation: {x: -0.022983719, y: -0.44137308, z: -0.0067666806, w: 0.89700377}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: e3767ccb6214fba4bbccc3f600efc033
+      Name: Building_India_02
+      LocalPosition: {x: -0.578, y: 0.003, z: -0.895}
+      LocalRotation: {x: 0.0033969828, y: 0.95942706, z: -0.010935235, w: 0.28172448}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+  - NodeId: N_Medina
+    ViewLocalPosition: {x: 0, y: 0, z: 0}
+    ViewLocalRotation: {x: 0, y: 0, z: 0, w: 1}
+    ViewLocalScale: {x: 0.38149998, y: 0.38149998, z: 0.38149998}
+    ViewColliders:
+    - Kind: 1
+      Enabled: 1
+      IsTrigger: 0
+      Center: {x: 0.13, y: 0, z: 0}
+      BoxSize: {x: 0, y: 0, z: 0}
+      Radius: 1.29
+      Height: 0
+      Direction: 0
+      MeshGuid: 
+      Convex: 0
+    Buildings:
+    - PrefabGuid: 1be6fa23e9b8feb468337f8029aeecfe
+      Name: Building_Arabia_01
+      LocalPosition: {x: 1.2537056, y: -0.67832935, z: -0.031100504}
+      LocalRotation: {x: -0.0026332594, y: -0.72079945, z: -0.029822247, w: 0.69249684}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: 83d2cb2f3732a7342bd72a3736d8c317
+      Name: Building_Arabia_03
+      LocalPosition: {x: 0.751023, y: -0.7149159, z: 1.0043453}
+      LocalRotation: {x: -0.0629424, y: -0.95847464, z: -0.033314954, w: 0.27614263}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: c766e4b3e8580ce48ba348aa036327b5
+      Name: Building_Arabia_04
+      LocalPosition: {x: -1.2527932, y: -0.71439594, z: 0.0570047}
+      LocalRotation: {x: -0.040243007, y: 0.7055799, z: 0.039722703, w: 0.70637083}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+  - NodeId: N_Kabul
+    ViewLocalPosition: {x: 0, y: 0, z: 0}
+    ViewLocalRotation: {x: 0, y: 0, z: 0, w: 1}
+    ViewLocalScale: {x: 0.43399996, y: 0.43399996, z: 0.43399996}
+    ViewColliders:
+    - Kind: 1
+      Enabled: 1
+      IsTrigger: 0
+      Center: {x: 0, y: 0, z: 0}
+      BoxSize: {x: 0, y: 0, z: 0}
+      Radius: 1.25
+      Height: 0
+      Direction: 0
+      MeshGuid: 
+      Convex: 0
+    Buildings:
+    - PrefabGuid: 575b59be777d11543844e22cc584065d
+      Name: Building_CentralAsia_03
+      LocalPosition: {x: 0.67, y: -1.64, z: -0.62}
+      LocalRotation: {x: 0.035507288, y: -0.7399379, z: -0.009025686, w: 0.6716768}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: 72cdeecb2065a2a4a976d17f6cc70fda
+      Name: Building_CentralAsia_01
+      LocalPosition: {x: 0.5, y: -2.34, z: 0.03}
+      LocalRotation: {x: 0.0005639288, y: 0.99906677, z: 0.013762289, w: 0.040938146}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: edb294397e307d74aae7e7f8a706c8f8
+      Name: Building_CentralAsia_04
+      LocalPosition: {x: -0.77, y: -1.73, z: -0.33}
+      LocalRotation: {x: 0.01712867, y: 0.8181707, z: 0.0047975173, w: 0.5747002}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: b71e4af999f460f4cb6be79220b5e363
+      Name: Building_CentralAsia_02
+      LocalPosition: {x: -0.8055745, y: -0.8547522, z: -0.9611411}
+      LocalRotation: {x: 0.163782, y: 0.42206383, z: 0.05769887, w: 0.88978004}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+  - NodeId: N_Shanghai
+    ViewLocalPosition: {x: 0, y: 0, z: 0}
+    ViewLocalRotation: {x: 0, y: 0, z: 0, w: 1}
+    ViewLocalScale: {x: 0.45499998, y: 0.45499998, z: 0.45499998}
+    ViewColliders:
+    - Kind: 1
+      Enabled: 1
+      IsTrigger: 0
+      Center: {x: 0.45, y: 0, z: -0.31}
+      BoxSize: {x: 0, y: 0, z: 0}
+      Radius: 1.04
+      Height: 0
+      Direction: 0
+      MeshGuid: 
+      Convex: 0
+    Buildings:
+    - PrefabGuid: f762894f950565c42a9073985c0e1bcb
+      Name: Building_China_03
+      LocalPosition: {x: 0.92, y: 0.03, z: -0.1}
+      LocalRotation: {x: -0.009786793, y: 0.7846453, z: 0.0044364897, w: -0.6198519}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: 769d395207072854792fb1fcc8dafd3f
+      Name: Building_China_02
+      LocalPosition: {x: -0.32, y: 0.04, z: 0.05}
+      LocalRotation: {x: -0.0013829909, y: 0.7005513, z: -0.0013642599, w: 0.71359944}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+  - NodeId: N_Khotan
+    ViewLocalPosition: {x: 0, y: 0, z: 0}
+    ViewLocalRotation: {x: 0, y: 0, z: 0, w: 1}
+    ViewLocalScale: {x: 0.42349997, y: 0.42349997, z: 0.42349997}
+    ViewColliders:
+    - Kind: 1
+      Enabled: 1
+      IsTrigger: 0
+      Center: {x: 0, y: 0, z: 0.35}
+      BoxSize: {x: 0, y: 0, z: 0}
+      Radius: 1.11
+      Height: 0
+      Direction: 0
+      MeshGuid: 
+      Convex: 0
+    Buildings:
+    - PrefabGuid: 885d09df5bd318a4183ebba9591e0996
+      Name: Building_Steppe_03
+      LocalPosition: {x: -0.14882387, y: -0.68138695, z: 0.23290034}
+      LocalRotation: {x: 0.06746828, y: 0.9193185, z: -0.16000542, w: 0.35312858}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: 0cedd7ccb940b204dacf1ba79ba015f2
+      Name: Building_Steppe_04
+      LocalPosition: {x: 0.15506272, y: -1.1362894, z: -0.22879516}
+      LocalRotation: {x: -0.15271743, y: -0.26762792, z: -0.08265039, w: 0.94774556}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: efc310f8f1b3d4448a9c821d1bc878df
+      Name: Building_Steppe_01
+      LocalPosition: {x: 0.7859121, y: -0.651349, z: 0.5151992}
+      LocalRotation: {x: 0.019566692, y: -0.8710499, z: 0.17254229, w: 0.4594763}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: 654ae0c76518f804590f278e6acfd48e
+      Name: Building_Steppe_02
+      LocalPosition: {x: -0.36666134, y: -0.046451934, z: 0.86524385}
+      LocalRotation: {x: 0.10024335, y: 0.97366637, z: -0.141792, w: 0.14771669}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+  - NodeId: N_Yumen
+    ViewLocalPosition: {x: 0, y: 0, z: 0}
+    ViewLocalRotation: {x: 0, y: 0, z: 0, w: 1}
+    ViewLocalScale: {x: 0.33949998, y: 0.33949998, z: 0.33949998}
+    ViewColliders:
+    - Kind: 1
+      Enabled: 1
+      IsTrigger: 0
+      Center: {x: -0.23, y: 0, z: -0.2}
+      BoxSize: {x: 0, y: 0, z: 0}
+      Radius: 1.06
+      Height: 0
+      Direction: 0
+      MeshGuid: 
+      Convex: 0
+    Buildings:
+    - PrefabGuid: 769d395207072854792fb1fcc8dafd3f
+      Name: Building_China_02
+      LocalPosition: {x: 0.11397743, y: 1.0706248, z: 0.37578142}
+      LocalRotation: {x: 0.1001576, y: -0.97240335, z: 0.14185259, w: 0.15581398}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: a4cd2bbb27e9cec408ef02e3ec14b838
+      Name: Building_China_01
+      LocalPosition: {x: -0.0988619, y: 0.12912527, z: -0.38003993}
+      LocalRotation: {x: -0.17352922, y: 0.032586206, z: -0.0064265653, w: 0.9842685}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: f99c52178d8b80f418b47fef858e0234
+      Name: Building_China_04
+      LocalPosition: {x: -0.82, y: 1.665, z: 0.361}
+      LocalRotation: {x: -0.1680661, y: 0.24395044, z: -0.04367464, w: 0.9541145}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+  - NodeId: N_Gaza
+    ViewLocalPosition: {x: 0, y: 0, z: 0}
+    ViewLocalRotation: {x: 0, y: 0, z: 0, w: 1}
+    ViewLocalScale: {x: 0.40249997, y: 0.40249997, z: 0.40249997}
+    ViewColliders:
+    - Kind: 1
+      Enabled: 1
+      IsTrigger: 0
+      Center: {x: 0, y: 0, z: 0}
+      BoxSize: {x: 0, y: 0, z: 0}
+      Radius: 1.41
+      Height: 0
+      Direction: 0
+      MeshGuid: 
+      Convex: 0
+    Buildings:
+    - PrefabGuid: 7b5c5509ca6483d41b06e2bf98508047
+      Name: Building_Levant_01
+      LocalPosition: {x: -0.2318412, y: -0.70355034, z: 0.2868771}
+      LocalRotation: {x: 0.008277292, y: 0.9596276, z: -0.01869996, w: 0.28052905}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: c9987ca66c960a248bc94c0ec57dfe09
+      Name: Building_Levant_03
+      LocalPosition: {x: 0.645, y: -0.652, z: 0.662}
+      LocalRotation: {x: -0.014538598, y: -0.013611343, z: 0.071374595, w: 0.99725074}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: b80c5ec9577349b44ae6f2d040c7e017
+      Name: Building_Levant_02
+      LocalPosition: {x: -0.754, y: -0.706, z: -0.287}
+      LocalRotation: {x: 0.054962113, y: 0.8296233, z: 0.05895159, w: 0.55247545}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: e82da9f8e66bb9943a208dfd2b33756c
+      Name: Building_Levant_04
+      LocalPosition: {x: 0.257, y: -0.698, z: -0.454}
+      LocalRotation: {x: 0.105122596, y: -0.2619639, z: -0.016377518, w: 0.9591955}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+  - NodeId: N_Urumqi
+    ViewLocalPosition: {x: 0, y: 0, z: 0}
+    ViewLocalRotation: {x: 0, y: 0, z: 0, w: 1}
+    ViewLocalScale: {x: 0.35, y: 0.35, z: 0.35}
+    ViewColliders:
+    - Kind: 1
+      Enabled: 1
+      IsTrigger: 0
+      Center: {x: 0, y: 0, z: 0}
+      BoxSize: {x: 0, y: 0, z: 0}
+      Radius: 0.77
+      Height: 0
+      Direction: 0
+      MeshGuid: 
+      Convex: 0
+    Buildings:
+    - PrefabGuid: 0cedd7ccb940b204dacf1ba79ba015f2
+      Name: Building_Steppe_04
+      LocalPosition: {x: -0.06278447, y: -0.67754084, z: 0.26916233}
+      LocalRotation: {x: -0.17299366, y: 0.96618134, z: 0.015062974, w: 0.19063047}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: 885d09df5bd318a4183ebba9591e0996
+      Name: Building_Steppe_03
+      LocalPosition: {x: 0.041958947, y: -0.6431883, z: -0.27318954}
+      LocalRotation: {x: -0.004112653, y: -0.08288328, z: 0.17359951, w: 0.98131377}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: efc310f8f1b3d4448a9c821d1bc878df
+      Name: Building_Steppe_01
+      LocalPosition: {x: 0.423, y: -0.132, z: 0.343}
+      LocalRotation: {x: 0.13099697, y: -0.80824494, z: 0.113989025, w: 0.5626601}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+  - NodeId: N_Guangzhou
+    ViewLocalPosition: {x: 0, y: 0, z: 0}
+    ViewLocalRotation: {x: 0, y: 0, z: 0, w: 1}
+    ViewLocalScale: {x: 0.45499998, y: 0.45499998, z: 0.45499998}
+    ViewColliders:
+    - Kind: 1
+      Enabled: 1
+      IsTrigger: 0
+      Center: {x: 0, y: 0, z: -0.46}
+      BoxSize: {x: 0, y: 0, z: 0}
+      Radius: 1.6
+      Height: 0
+      Direction: 0
+      MeshGuid: 
+      Convex: 0
+    Buildings:
+    - PrefabGuid: f762894f950565c42a9073985c0e1bcb
+      Name: Building_China_03
+      LocalPosition: {x: 0.81, y: -0.28, z: 0.06}
+      LocalRotation: {x: 0.026097424, y: -0.8636123, z: -0.0028936372, w: 0.5034724}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: 769d395207072854792fb1fcc8dafd3f
+      Name: Building_China_02
+      LocalPosition: {x: -0.47792792, y: -0.2907056, z: 0.29289296}
+      LocalRotation: {x: -0.0048854346, y: 0.8158811, z: -0.0072124377, w: 0.57815415}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: f99c52178d8b80f418b47fef858e0234
+      Name: Building_China_04
+      LocalPosition: {x: -0.5572946, y: -0.29862323, z: -0.5770236}
+      LocalRotation: {x: 0.019561559, y: 0.6395423, z: 0.016043277, w: 0.7683396}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 
+    - PrefabGuid: a4cd2bbb27e9cec408ef02e3ec14b838
+      Name: Building_China_01
+      LocalPosition: {x: -0.31, y: -0.25, z: -1.51}
+      LocalRotation: {x: 0.031413954, y: 0.26599103, z: 0.01717783, w: 0.9633104}
+      LocalScale: {x: 0.12, y: 0.12, z: 0.12}
+      ColliderEnabledStates: 

@@ -32,6 +32,9 @@ namespace Internal.Scripts.UI.Screens.Pause
         [SerializeField] private TextMeshProUGUI _autoSaveHintText;
         [SerializeField] private LocalizedString _autoSaveHintLocalizedString;
 
+        [Header("Survey")]
+        [SerializeField] private SurveyBlock _surveyBlock;
+
         [Header("Localization")]
         [SerializeField] private LocalizedString _headerLocalizedString;
         [SerializeField] private LocalizedString _backToGameLocalizedString;
@@ -55,6 +58,7 @@ namespace Internal.Scripts.UI.Screens.Pause
             BindHeaderLocalization();
             BindButtonLocalization();
             BindAutoSaveHintLocalization();
+            _surveyBlock.BindLocalization(Localization);
         }
 
         private void OnEnable()

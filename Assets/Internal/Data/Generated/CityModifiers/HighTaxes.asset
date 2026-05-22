@@ -31,7 +31,7 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  <Icon>k__BackingField: {fileID: 21300000, guid: c55f1ac08a7e48e398477d6a41f3d13d, type: 3}
+  <Icon>k__BackingField: {fileID: 0}
   <PricePct>k__BackingField: 20
   <DangerPct>k__BackingField: 0
   <ConflictGroup>k__BackingField: economy

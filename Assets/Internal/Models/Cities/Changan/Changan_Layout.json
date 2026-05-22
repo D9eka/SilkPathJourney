@@ -1,0 +1,104 @@
+{
+  "spawns": [
+    {
+      "name": "Spawn__caravansary__01",
+      "function": "caravansary",
+      "prefab": "Caravansary_EastAsia",
+      "interactive": true,
+      "position": [
+        13.0,
+        -22.0,
+        0.0
+      ],
+      "rotation_z_deg": 0.0
+    },
+    {
+      "name": "Spawn__guild__01",
+      "function": "guild",
+      "prefab": "Housing_EastAsia_01",
+      "interactive": true,
+      "position": [
+        4.5,
+        12.0,
+        0.0
+      ],
+      "rotation_z_deg": 0.0
+    },
+    {
+      "name": "Spawn__healer__01",
+      "function": "healer",
+      "prefab": "Housing_EastAsia_02",
+      "interactive": true,
+      "position": [
+        -29.0,
+        -12.0,
+        0.0
+      ],
+      "rotation_z_deg": 0.0
+    },
+    {
+      "name": "Spawn__language_school__01",
+      "function": "language_school",
+      "prefab": "Workshop_EastAsia",
+      "interactive": true,
+      "position": [
+        -40.5,
+        12.0,
+        0.0
+      ],
+      "rotation_z_deg": 0.0
+    },
+    {
+      "name": "Spawn__shop__01",
+      "function": "shop",
+      "prefab": "Shop_EastAsia",
+      "interactive": true,
+      "position": [
+        -15.0,
+        14.0,
+        0.0
+      ],
+      "rotation_z_deg": 0.0
+    },
+    {
+      "name": "Spawn__tavern__01",
+      "function": "tavern",
+      "prefab": "Housing_EastAsia_02",
+      "interactive": true,
+      "position": [
+        -1.5,
+        12.0,
+        0.0
+      ],
+      "rotation_z_deg": 0.0
+    },
+    {
+      "name": "Spawn__temple__01",
+      "function": "temple",
+      "prefab": "Temple_EastAsia",
+      "interactive": true,
+      "position": [
+        -37.5,
+        -14.0,
+        0.0
+      ],
+      "rotation_z_deg": 0.0
+    },
+    {
+      "name": "Spawn__workshop__01",
+      "function": "workshop",
+      "prefab": "Workshop_EastAsia",
+      "interactive": true,
+      "position": [
+        -29.0,
+        12.0,
+        0.0
+      ],
+      "rotation_z_deg": 0.0
+    }
+  ],
+  "version": 4,
+  "layout": "tang_fang_central_interactive",
+  "decor_count": 36,
+  "interactive_count": 8
+}

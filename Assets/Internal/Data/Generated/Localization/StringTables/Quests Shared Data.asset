@@ -1331,6 +1331,146 @@ MonoBehaviour:
     m_Key: quest.quest_artifact_1.stage_collect_3
     m_Metadata:
       m_Items: []
+  - m_Id: 23880194623266816
+    m_Key: quest.quest_mystic_2.stage_visit_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23880194648432640
+    m_Key: quest.quest_mystic_2.stage_visit_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23880194648432641
+    m_Key: quest.quest_mystic_2.stage_visit_3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23880194648432642
+    m_Key: quest.quest_mystic_2.stage_complete.narrative
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23880194648432643
+    m_Key: quest.quest_mystic_1.stage_complete.narrative
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023245974921216
+    m_Key: quest.quest_caravaneer_2.stage_transport_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246000087040
+    m_Key: quest.quest_caravaneer_2.stage_transport_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246000087041
+    m_Key: quest.quest_caravaneer_3.stage_find_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246000087042
+    m_Key: quest.quest_caravaneer_3.stage_find_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246000087043
+    m_Key: quest.quest_caravaneer_3.stage_find_3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246000087044
+    m_Key: quest.quest_silk_3.stage_infiltrate_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246000087045
+    m_Key: quest.quest_silk_3.stage_infiltrate_1.narrative
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246000087046
+    m_Key: quest.quest_silk_3.stage_infiltrate_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246000087047
+    m_Key: quest.quest_silk_3.stage_infiltrate_2.narrative
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246000087048
+    m_Key: quest.quest_silk_4.stage_build_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246000087049
+    m_Key: quest.quest_silk_4.stage_build_1.narrative
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246000087050
+    m_Key: quest.quest_silk_4.stage_build_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246000087051
+    m_Key: quest.quest_silk_4.stage_build_2.narrative
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246000087052
+    m_Key: quest.quest_artifact_3.stage_expose_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246000087053
+    m_Key: quest.quest_artifact_3.stage_expose_1.narrative
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246000087054
+    m_Key: quest.quest_artifact_3.stage_expose_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246000087055
+    m_Key: quest.quest_artifact_3.stage_expose_2.narrative
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246000087056
+    m_Key: quest.quest_artifact_4.stage_search_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246000087057
+    m_Key: quest.quest_artifact_4.stage_search_1.narrative
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246000087058
+    m_Key: quest.quest_artifact_4.stage_search_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246000087059
+    m_Key: quest.quest_artifact_4.stage_search_2.narrative
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246000087060
+    m_Key: quest.quest_caravaneer_3.stage_find_1.narrative
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246000087061
+    m_Key: quest.quest_caravaneer_3.stage_find_2.narrative
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246000087062
+    m_Key: quest.quest_caravaneer_3.stage_find_3.narrative
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246000087063
+    m_Key: quest.quest_caravaneer_2.stage_transport_1.narrative
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246000087064
+    m_Key: quest.quest_caravaneer_2.stage_transport_2.narrative
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246004281344
+    m_Key: quest.quest_caravaneer_1.stage_escort_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246004281345
+    m_Key: quest.quest_caravaneer_1.stage_escort_1.narrative
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246004281346
+    m_Key: quest.quest_caravaneer_1.stage_escort_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24023246004281347
+    m_Key: quest.quest_caravaneer_1.stage_escort_2.narrative
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

@@ -12,9 +12,11 @@ EditorBuildSettings:
     path: Assets/Internal/Scenes/StrategicView.unity
     guid: 4469673e4990f2a41b1bebe1d3d4d6e8
   - enabled: 1
-    path: Assets/Internal/Scenes/New Scene.unity
-    guid: f33f21a974403b84e9f833831579bd99
+    path: Assets/Internal/Scenes/Changan_Diorama.unity
+    guid: db90f4bd7fbff804bbc4ea3de56b5a7b
+  - enabled: 1
+    path: Assets/Internal/Scenes/Samarkand_Diorama.unity
+    guid: efb57fd714b95a94189cb1c7eee265c1
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: aea28463198d1aa4487253fae08a57af, type: 2}
     com.unity.localization.settings: {fileID: 11400000, guid: dc28dd0e9cea5334dbce31bfc7528352, type: 2}
-  m_UseUCBPForAssetBundles: 0

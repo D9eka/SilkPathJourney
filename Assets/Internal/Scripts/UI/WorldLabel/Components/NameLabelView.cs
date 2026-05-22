@@ -79,6 +79,15 @@ namespace Internal.Scripts.UI.WorldLabel.Components
             if (_icon != null)
                 _icon.gameObject.SetActive(false);
         }
+        
+        public void AnchorToRoot(float horizontalOffset = 0f)
+        {
+            var rt = (RectTransform)transform;
+            rt.anchorMin = new Vector2(0.5f, 0.5f);
+            rt.anchorMax = new Vector2(0.5f, 0.5f);
+            rt.pivot = new Vector2(0.5f, 0f);
+            rt.anchoredPosition = new Vector2(horizontalOffset, 0f);
+        }
 
         public void Show()
         {

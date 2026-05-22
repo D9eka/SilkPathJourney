@@ -154,3 +154,6 @@ Input,Key,,ArrowLeft,UI.Input.Key.ArrowLeft,,,←,←,перевод
 Input,Key,,ArrowRight,UI.Input.Key.ArrowRight,,,→,→,перевод
 Input,Key,,LeftStick,UI.Input.Key.LeftStick,,,Левый стик,Left Stick,перевод
 Input,Key,,RightStick,UI.Input.Key.RightStick,,,Правый стик,Right Stick,перевод
+Survey,Main,Button,Open,UI.Survey.Main.Button.Open,Кнопка опроса (MainMenu/Pause/RunEnd),,Пройти опрос,Take Survey,перевод
+Survey,Main,Header,Title,UI.Survey.Main.Header.Title,Заголовок блока опроса,,Ваше мнение,Your Feedback,перевод
+Survey,Main,Text,Description,UI.Survey.Main.Text.Description,Описание блока опроса,,Игра в раннем доступе. Пройдите короткий опрос и помогите мне доработать баланс и механики,The game is in early access. Take a short survey to help me improve the balance and mechanics,перевод

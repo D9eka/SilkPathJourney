@@ -1,4 +1,11 @@
 ﻿event_id,choice_index,type,param,value,branch
+road_discover_R_N_Trabzon__N_Constantinople,1,unlock_road,R_N_Trabzon__N_Constantinople,0,
+road_discover_R_N_Trabzon__N_Constantinople,1,add_skill_xp,Survival,3,
+road_discover_R_N_Trabzon__N_Constantinople,1,danger,,15,fail
+road_encounter_R_N_Trabzon__N_Constantinople,1,unlock_road,R_N_Trabzon__N_Constantinople,0,
+road_encounter_R_N_Trabzon__N_Constantinople,1,add_skill_xp,Survival,3,
+road_quest_R_N_Trabzon__N_Constantinople,1,unlock_road,R_N_Trabzon__N_Constantinople,0,
+road_quest_R_N_Trabzon__N_Constantinople,1,add_skill_xp,Survival,3,
 road_discover_R_N_Urumqi__N_Kucha,1,unlock_road,R_N_Urumqi__N_Kucha,0,
 road_discover_R_N_Urumqi__N_Kucha,1,add_skill_xp,Survival,3,
 road_discover_R_N_Urumqi__N_Kucha,1,danger,,15,fail

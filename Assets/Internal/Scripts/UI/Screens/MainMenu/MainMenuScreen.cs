@@ -38,6 +38,9 @@ namespace Internal.Scripts.UI.Screens.MainMenu
         [SerializeField] private LocalizedString _quitLocalizedString;
         [SerializeField] private LocalizedString _legacyShopLocalizedString;
 
+        [Header("Survey")]
+        [SerializeField] private SurveyBlock _surveyBlock;
+
         private MainMenuScreenViewModel _viewModel;
         private LocalizationService.LocalizedTextHandle _headerHandle;
         private LocalizationService.LocalizedTextGroup _buttonHandles;
@@ -53,6 +56,7 @@ namespace Internal.Scripts.UI.Screens.MainMenu
         {
             BindHeaderLocalization();
             BindButtonLocalization();
+            _surveyBlock.BindLocalization(Localization);
         }
 
         private void OnEnable()

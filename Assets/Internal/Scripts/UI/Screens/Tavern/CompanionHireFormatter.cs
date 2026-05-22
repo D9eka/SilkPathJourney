@@ -48,6 +48,8 @@ namespace Internal.Scripts.UI.Screens.Tavern
 
             foreach (var typeData in _caravanDb.CompanionTypes)
             {
+                if (typeData.IsStory) continue;
+
                 foreach (var qualityEntry in _caravanDb.CompanionQualities)
                 {
                     var entry = FormatEntry(typeData, qualityEntry, cityCulture,

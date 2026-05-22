@@ -35,6 +35,9 @@ namespace Internal.Scripts.UI.Screens.RunEnd
         [SerializeField] private Button _legacyShopButton;
         [SerializeField] private TextMeshProUGUI _legacyShopButtonText;
 
+        [Header("Survey")]
+        [SerializeField] private SurveyButton _surveyBlock;
+
         private RunEndScreenViewModel _viewModel;
         private IDisposable _stateSubscription;
         private LocalizationService.LocalizedTextHandle _titleHandle;
@@ -61,6 +64,7 @@ namespace Internal.Scripts.UI.Screens.RunEnd
             _newRunButtonHandle = Localization.BindText(_newRunButtonText, "UI", LocUI.UI_RunEnd_Button_NewRun, $"{name}.NewRunButton");
             _legacyShopButtonHandle?.Dispose();
             _legacyShopButtonHandle = Localization.BindText(_legacyShopButtonText, "UI", LocUI.UI_RunEnd_Button_LegacyShop, $"{name}.LegacyShopButton");
+            _surveyBlock.BindLocalization(Localization);
         }
 
         private void OnDisable()

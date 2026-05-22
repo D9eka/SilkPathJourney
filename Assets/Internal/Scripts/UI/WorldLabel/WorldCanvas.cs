@@ -65,7 +65,8 @@ namespace Internal.Scripts.UI.WorldLabel
             return CreateLabel(worldPosition, Vector3.zero, goName);
         }
 
-        public CityLabelView CreateLabel(Vector3 worldPosition, Vector3 offset, string goName = "Label")
+        public CityLabelView CreateLabel(Vector3 worldPosition, Vector3 offset, string goName = "Label",
+            bool snapToGround = true)
         {
             if (!_isInitialized || _canvas == null)
             {
@@ -76,7 +77,7 @@ namespace Internal.Scripts.UI.WorldLabel
             CityLabelView label = Instantiate(_settings.LabelPrefab, _canvas.transform);
             label.gameObject.name = goName;
 
-            PositionElement(label.GetComponent<RectTransform>(), worldPosition, offset);
+            PositionElement(label.GetComponent<RectTransform>(), worldPosition, offset, snapToGround);
             AddBillboard(label.gameObject);
             label._nameLabel.Initialize(_tooltipService, _localizationService);
             label.Modifiers?.Initialize(_tooltipService);
@@ -181,13 +182,18 @@ namespace Internal.Scripts.UI.WorldLabel
             }
         }
 
-        private void PositionElement(RectTransform rt, Vector3 worldPosition, Vector3 offset)
+        private void PositionElement(RectTransform rt, Vector3 worldPosition, Vector3 offset,
+            bool snapToGround = true)
         {
             float offsetAboveGround = _settings != null ? _settings.OffsetAboveGround : 0.1f;
-            Vector3 snappedPos = _groundSnapper != null
-                ? _groundSnapper.SnapToGround(worldPosition, offsetAboveGround)
-                : worldPosition + Vector3.up * offsetAboveGround;
-            rt.anchoredPosition3D = _canvas.transform.InverseTransformPoint(snappedPos + offset);
+            Vector3 basePos;
+            if (snapToGround && _groundSnapper != null)
+                basePos = _groundSnapper.SnapToGround(worldPosition, offsetAboveGround);
+            else if (snapToGround)
+                basePos = worldPosition + Vector3.up * offsetAboveGround;
+            else
+                basePos = worldPosition; // caller controls exact height (e.g. building roof + margin)
+            rt.anchoredPosition3D = _canvas.transform.InverseTransformPoint(basePos + offset);
         }
 
         private void ApplyAlwaysOnTopMaterials(GameObject root)

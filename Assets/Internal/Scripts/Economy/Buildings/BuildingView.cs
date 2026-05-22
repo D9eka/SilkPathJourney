@@ -4,6 +4,7 @@ using Internal.Scripts.Economy.Generated;
 using Internal.Scripts.InteractableObjects;
 using Internal.Scripts.Player;
 using Internal.Scripts.Road.Nodes;
+using Internal.Scripts.UI.Components;
 using Internal.Scripts.UI.Screens.Core.Config;
 using Internal.Scripts.UI.StackService;
 using Internal.Scripts.UI.WorldLabel;
@@ -20,14 +21,23 @@ namespace Internal.Scripts.Economy.Buildings
         [Header("Outline")]
         [SerializeField] private Color _outlineColor = Color.yellow;
 
+        // Fixed world-space gap between the building roof and its label.
+        private const float LabelTopMargin = 0.01f;
+        // Screen-right shift of the label's name block (billboard-local UI units).
+        private const float LabelRightOffset = 60f;
+
         private ScreenStackService _screenStackService;
         private ICityNodeResolver _cityNodeResolver;
         private IPlayerStateProvider _playerStateProvider;
         private EconomyDatabase _economyDatabase;
+        private BuildingFilterCatalog _buildingFilterCatalog;
+        private ICityEntryService _cityEntryService;
         private NpcLabelFactory _labelHelper;
 
         private InteractableOutline _outline;
         private BuildingData _data;
+        private Transform _labelRoot;
+        private Vector3 _labelOffset;
 
         public event Action<IInteractableObject> OnClick;
         public int InteractionPriority => 0;
@@ -37,13 +47,16 @@ namespace Internal.Scripts.Economy.Buildings
         [Inject]
         public void Construct(WorldCanvas worldCanvas, ScreenStackService screenStackService,
             ICityNodeResolver cityNodeResolver, IPlayerStateProvider playerStateProvider,
-            EconomyDatabase economyDatabase)
+            EconomyDatabase economyDatabase, BuildingFilterCatalog buildingFilterCatalog,
+            ICityEntryService cityEntryService)
         {
             _labelHelper = new NpcLabelFactory(worldCanvas);
             _screenStackService = screenStackService;
             _cityNodeResolver = cityNodeResolver;
             _playerStateProvider = playerStateProvider;
             _economyDatabase = economyDatabase;
+            _buildingFilterCatalog = buildingFilterCatalog;
+            _cityEntryService = cityEntryService;
         }
 
         private void Awake()
@@ -58,12 +71,27 @@ namespace Internal.Scripts.Economy.Buildings
             _data = _economyDatabase.GetBuilding(_buildingId);
             if (_data == null) return;
 
-            _labelHelper.CreateLabel(
+            var label = _labelHelper.CreateLabel(
                 ComputeLabelAnchor(),
                 $"BuildingLabel_{_data.Id}",
                 _data.Name,
                 _data.Id,
-                _data);
+                _data,
+                snapToGround: false);
+            if (label == null) return;
+
+            label.AnchorToRoot(LabelRightOffset);
+
+            // Diorama is repositioned after the label is created, so follow the building in LateUpdate.
+            _labelRoot = label.GetComponentInParent<WorldCanvasBillboard>()?.transform;
+            if (_labelRoot != null)
+                _labelOffset = ComputeLabelAnchor() - transform.position;
+
+            BuildingFilterEntry entry = _buildingFilterCatalog.Get(_buildingId);
+            if (entry != null && entry.Icon != null)
+                label.SetIcon(entry.Icon);
+            else
+                label.HideIcon();
         }
 
         private Vector3 ComputeLabelAnchor()
@@ -75,7 +103,13 @@ namespace Internal.Scripts.Economy.Buildings
             for (int i = 1; i < _renderers.Length; i++)
                 combined.Encapsulate(_renderers[i].bounds);
 
-            return new Vector3(combined.center.x, combined.max.y, combined.center.z);
+            return new Vector3(combined.center.x, combined.max.y + LabelTopMargin, combined.center.z);
+        }
+
+        private void LateUpdate()
+        {
+            if (_labelRoot != null)
+                _labelRoot.position = transform.position + _labelOffset;
         }
 
         public void TriggerHoverEnter()
@@ -94,6 +128,7 @@ namespace Internal.Scripts.Economy.Buildings
 
             if (_data == null || _data.InteractionScreen == ScreenId.None) return;
             if (_screenStackService == null) return;
+            if (!_cityEntryService.IsInCityView) return;
 
             string cityId = ResolveCityId();
             _screenStackService.TryOpen(_data.InteractionScreen, cityId, out ScreenOpenResult _);

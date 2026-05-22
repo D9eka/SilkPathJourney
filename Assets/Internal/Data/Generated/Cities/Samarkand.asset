@@ -40,8 +40,8 @@ MonoBehaviour:
     m_LocalVariables: []
   <Buildings>k__BackingField: 0100000003000000040000000200000007000000080000000a0000000b000000
   <DetailScene>k__BackingField:
-    _sceneAsset: {fileID: 0}
-    _sceneName: 
+    _sceneAsset: {fileID: 102900000, guid: efb57fd714b95a94189cb1c7eee265c1, type: 3}
+    _sceneName: Samarkand_Diorama
     _cameraSize: 15
   references:
     version: 2

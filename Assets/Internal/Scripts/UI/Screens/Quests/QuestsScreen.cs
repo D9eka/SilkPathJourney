@@ -8,7 +8,6 @@ using R3;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Localization;
-using UnityEngine.UI;
 
 namespace Internal.Scripts.UI.Screens.Quests
 {

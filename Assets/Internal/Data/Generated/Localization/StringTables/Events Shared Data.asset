@@ -18867,6 +18867,1610 @@ MonoBehaviour:
     m_Key: event.myst_talking_raven.choice3.result
     m_Metadata:
       m_Items: []
+  - m_Id: 36851654740402176
+    m_Key: event.event_empire2_negotiate.choice4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654769762304
+    m_Key: event.event_empire2_negotiate.choice4.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654773956608
+    m_Key: event.event_empire1_silk_market.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654773956609
+    m_Key: event.event_empire1_silk_market.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654773956610
+    m_Key: event.event_empire1_silk_market.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654773956611
+    m_Key: event.event_empire1_silk_market.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654773956612
+    m_Key: event.event_empire1_silk_market.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654773956613
+    m_Key: event.event_empire1_silk_market.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654773956614
+    m_Key: event.quest_empire2_start.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654773956615
+    m_Key: event.quest_empire2_start.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654773956616
+    m_Key: event.quest_empire2_start.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654773956617
+    m_Key: event.quest_empire2_start.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654773956618
+    m_Key: event.quest_empire2_start.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654773956619
+    m_Key: event.quest_empire2_start.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654773956620
+    m_Key: event.quest_empire3_start.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654773956621
+    m_Key: event.quest_empire3_start.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654773956622
+    m_Key: event.quest_empire3_start.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654773956623
+    m_Key: event.quest_empire3_start.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654773956624
+    m_Key: event.quest_empire3_start.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654773956625
+    m_Key: event.quest_empire3_start.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654773956626
+    m_Key: event.quest_empire4_start.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654773956627
+    m_Key: event.quest_empire4_start.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654773956628
+    m_Key: event.quest_empire4_start.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654773956629
+    m_Key: event.quest_empire4_start.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654773956630
+    m_Key: event.quest_empire4_start.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654773956631
+    m_Key: event.quest_empire4_start.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654773956632
+    m_Key: event.quest_empire5_start.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654773956633
+    m_Key: event.quest_empire5_start.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654773956634
+    m_Key: event.quest_empire5_start.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654773956635
+    m_Key: event.quest_empire5_start.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654773956636
+    m_Key: event.quest_empire5_start.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654773956637
+    m_Key: event.quest_empire5_start.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654773956638
+    m_Key: event.event_empire1_complete_damaged.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654773956639
+    m_Key: event.event_empire1_complete_damaged.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654773956640
+    m_Key: event.event_empire1_complete_damaged.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654773956641
+    m_Key: event.event_empire1_complete_damaged.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654773956642
+    m_Key: event.event_empire4_complete_damaged.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654773956643
+    m_Key: event.event_empire4_complete_damaged.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654773956644
+    m_Key: event.event_empire4_complete_damaged.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654773956645
+    m_Key: event.event_empire4_complete_damaged.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654773956646
+    m_Key: event.event_empire1_road_rain.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150912
+    m_Key: event.event_empire1_road_rain.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150913
+    m_Key: event.event_empire1_road_rain.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150914
+    m_Key: event.event_empire1_road_rain.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150915
+    m_Key: event.event_empire1_road_rain.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150916
+    m_Key: event.event_empire1_road_rain.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150917
+    m_Key: event.event_empire1_road_rain.choice2.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150918
+    m_Key: event.event_empire1_road_moths.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150919
+    m_Key: event.event_empire1_road_moths.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150920
+    m_Key: event.event_empire1_road_moths.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150921
+    m_Key: event.event_empire1_road_moths.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150922
+    m_Key: event.event_empire1_road_moths.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150923
+    m_Key: event.event_empire1_road_moths.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150924
+    m_Key: event.event_empire1_road_moths.choice2.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150925
+    m_Key: event.event_empire4_road_river.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150926
+    m_Key: event.event_empire4_road_river.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150927
+    m_Key: event.event_empire4_road_river.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150928
+    m_Key: event.event_empire4_road_river.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150929
+    m_Key: event.event_empire4_road_river.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150930
+    m_Key: event.event_empire4_road_river.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150931
+    m_Key: event.event_empire4_road_river.choice2.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150932
+    m_Key: event.event_empire4_road_heat.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150933
+    m_Key: event.event_empire4_road_heat.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150934
+    m_Key: event.event_empire4_road_heat.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150935
+    m_Key: event.event_empire4_road_heat.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150936
+    m_Key: event.event_empire4_road_heat.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150937
+    m_Key: event.event_empire4_road_heat.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150938
+    m_Key: event.event_empire4_road_heat.choice2.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150939
+    m_Key: event.empire_vh_trade_advice.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150940
+    m_Key: event.empire_vh_trade_advice.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150941
+    m_Key: event.empire_vh_trade_advice.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150942
+    m_Key: event.empire_vh_trade_advice.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150943
+    m_Key: event.empire_vh_trade_advice.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150944
+    m_Key: event.empire_vh_trade_advice.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150945
+    m_Key: event.empire_vh_personal_talk.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150946
+    m_Key: event.empire_vh_personal_talk.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150947
+    m_Key: event.empire_vh_personal_talk.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150948
+    m_Key: event.empire_vh_personal_talk.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150949
+    m_Key: event.empire_vh_personal_talk.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150950
+    m_Key: event.empire_vh_personal_talk.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150951
+    m_Key: event.empire_vh_sogdian_story.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150952
+    m_Key: event.empire_vh_sogdian_story.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150953
+    m_Key: event.empire_vh_sogdian_story.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150954
+    m_Key: event.empire_vh_sogdian_story.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150955
+    m_Key: event.empire_vh_sogdian_story.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150956
+    m_Key: event.empire_vh_sogdian_story.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150957
+    m_Key: event.empire_vh_danger_warning.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150958
+    m_Key: event.empire_vh_danger_warning.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150959
+    m_Key: event.empire_vh_danger_warning.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150960
+    m_Key: event.empire_vh_danger_warning.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150961
+    m_Key: event.empire_vh_danger_warning.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150962
+    m_Key: event.empire_vh_danger_warning.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150963
+    m_Key: event.empire_vh_night_camp.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150964
+    m_Key: event.empire_vh_night_camp.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150965
+    m_Key: event.empire_vh_night_camp.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150966
+    m_Key: event.empire_vh_night_camp.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150967
+    m_Key: event.empire_vh_night_camp.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654778150968
+    m_Key: event.empire_vh_night_camp.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820093952
+    m_Key: event.quest_mystic2_start.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820093953
+    m_Key: event.quest_mystic2_start.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820093954
+    m_Key: event.quest_mystic2_start.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820093955
+    m_Key: event.quest_mystic2_start.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820093956
+    m_Key: event.quest_mystic3_start.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820093957
+    m_Key: event.quest_mystic3_start.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820093958
+    m_Key: event.quest_mystic3_start.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820093959
+    m_Key: event.quest_mystic3_start.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820093960
+    m_Key: event.quest_mystic4_start.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820093961
+    m_Key: event.quest_mystic4_start.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820093962
+    m_Key: event.quest_mystic4_start.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820093963
+    m_Key: event.quest_mystic4_start.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820093964
+    m_Key: event.quest_mystic5_start.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820093965
+    m_Key: event.quest_mystic5_start.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820093966
+    m_Key: event.quest_mystic5_start.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820093967
+    m_Key: event.quest_mystic5_start.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820093968
+    m_Key: event.event_mystic1_road_pilgrim.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820093969
+    m_Key: event.event_mystic1_road_pilgrim.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820093970
+    m_Key: event.event_mystic1_road_pilgrim.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820093971
+    m_Key: event.event_mystic1_road_pilgrim.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820093972
+    m_Key: event.event_mystic1_road_pilgrim.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820093973
+    m_Key: event.event_mystic1_road_pilgrim.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820093974
+    m_Key: event.event_mystic1_road_pilgrim.choice2.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820093975
+    m_Key: event.event_mystic1_road_sandstorm.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820093976
+    m_Key: event.event_mystic1_road_sandstorm.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820093977
+    m_Key: event.event_mystic1_road_sandstorm.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820093978
+    m_Key: event.event_mystic1_road_sandstorm.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820093979
+    m_Key: event.event_mystic1_road_sandstorm.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820093980
+    m_Key: event.event_mystic1_road_sandstorm.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820093981
+    m_Key: event.event_mystic1_road_sandstorm.choice2.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820093982
+    m_Key: event.event_mystic3_road_thinair.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820093983
+    m_Key: event.event_mystic3_road_thinair.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820093984
+    m_Key: event.event_mystic3_road_thinair.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820093985
+    m_Key: event.event_mystic3_road_thinair.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820093986
+    m_Key: event.event_mystic3_road_thinair.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820093987
+    m_Key: event.event_mystic3_road_thinair.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820093988
+    m_Key: event.event_mystic3_road_thinair.choice2.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820093989
+    m_Key: event.event_mystic3_road_hermit.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820093990
+    m_Key: event.event_mystic3_road_hermit.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820093991
+    m_Key: event.event_mystic3_road_hermit.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820093992
+    m_Key: event.event_mystic3_road_hermit.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820093993
+    m_Key: event.event_mystic3_road_hermit.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820093994
+    m_Key: event.event_mystic3_road_hermit.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820093995
+    m_Key: event.event_mystic3_road_hermit.choice2.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820093996
+    m_Key: event.event_mystic5_road_blessing.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820093997
+    m_Key: event.event_mystic5_road_blessing.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820093998
+    m_Key: event.event_mystic5_road_blessing.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820093999
+    m_Key: event.event_mystic5_road_blessing.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820094000
+    m_Key: event.event_mystic5_road_blessing.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820094001
+    m_Key: event.event_mystic5_road_blessing.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820094002
+    m_Key: event.event_mystic5_road_bandits.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820094003
+    m_Key: event.event_mystic5_road_bandits.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820094004
+    m_Key: event.event_mystic5_road_bandits.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820094005
+    m_Key: event.event_mystic5_road_bandits.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820094006
+    m_Key: event.event_mystic5_road_bandits.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820094007
+    m_Key: event.event_mystic5_road_bandits.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820094008
+    m_Key: event.event_mystic5_road_bandits.choice2.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820094009
+    m_Key: event.quest_mystic2_start.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820094010
+    m_Key: event.quest_mystic2_start.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820094011
+    m_Key: event.quest_mystic3_start.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820094012
+    m_Key: event.quest_mystic3_start.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820094013
+    m_Key: event.quest_mystic4_start.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820094014
+    m_Key: event.quest_mystic4_start.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820094015
+    m_Key: event.quest_mystic5_start.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820094016
+    m_Key: event.quest_mystic5_start.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820094017
+    m_Key: event.road_discover_R_N_Trabzon__N_Constantinople.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820094018
+    m_Key: event.road_discover_R_N_Trabzon__N_Constantinople.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820094019
+    m_Key: event.road_discover_R_N_Trabzon__N_Constantinople.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820094020
+    m_Key: event.road_discover_R_N_Trabzon__N_Constantinople.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820094021
+    m_Key: event.road_discover_R_N_Trabzon__N_Constantinople.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820094022
+    m_Key: event.road_discover_R_N_Trabzon__N_Constantinople.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820094023
+    m_Key: event.road_encounter_R_N_Trabzon__N_Constantinople.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820094024
+    m_Key: event.road_encounter_R_N_Trabzon__N_Constantinople.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820094025
+    m_Key: event.road_encounter_R_N_Trabzon__N_Constantinople.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820094026
+    m_Key: event.road_encounter_R_N_Trabzon__N_Constantinople.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820094027
+    m_Key: event.road_encounter_R_N_Trabzon__N_Constantinople.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820094028
+    m_Key: event.road_encounter_R_N_Trabzon__N_Constantinople.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820094029
+    m_Key: event.road_quest_R_N_Trabzon__N_Constantinople.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820094030
+    m_Key: event.road_quest_R_N_Trabzon__N_Constantinople.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820094031
+    m_Key: event.road_quest_R_N_Trabzon__N_Constantinople.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820094032
+    m_Key: event.road_quest_R_N_Trabzon__N_Constantinople.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820094033
+    m_Key: event.road_quest_R_N_Trabzon__N_Constantinople.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36851654820094034
+    m_Key: event.road_quest_R_N_Trabzon__N_Constantinople.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706008170496
+    m_Key: event.event_artifact5_arrival_samarkand.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706054307840
+    m_Key: event.event_artifact5_arrival_samarkand.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706054307841
+    m_Key: event.event_artifact5_arrival_samarkand.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706054307842
+    m_Key: event.event_artifact5_arrival_samarkand.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706054307843
+    m_Key: event.quest_artifact3_start.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706054307844
+    m_Key: event.quest_artifact3_start.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706054307845
+    m_Key: event.quest_artifact3_start.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706054307846
+    m_Key: event.quest_artifact3_start.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706054307847
+    m_Key: event.quest_artifact3_start.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706054307848
+    m_Key: event.quest_artifact3_start.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706054307849
+    m_Key: event.quest_artifact4_start.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706054307850
+    m_Key: event.quest_artifact4_start.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706054307851
+    m_Key: event.quest_artifact4_start.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706054307852
+    m_Key: event.quest_artifact4_start.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706054307853
+    m_Key: event.quest_artifact4_start.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706054307854
+    m_Key: event.quest_artifact4_start.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706054307855
+    m_Key: event.quest_artifact5_start.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706054307856
+    m_Key: event.quest_artifact5_start.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706054307857
+    m_Key: event.quest_artifact5_start.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706054307858
+    m_Key: event.quest_artifact5_start.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706054307859
+    m_Key: event.quest_artifact5_start.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706054307860
+    m_Key: event.quest_artifact5_start.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706054307861
+    m_Key: event.event_caravaneer2_hazard_1.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706054307862
+    m_Key: event.event_caravaneer2_hazard_1.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706054307863
+    m_Key: event.event_caravaneer2_hazard_1.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706054307864
+    m_Key: event.event_caravaneer2_hazard_1.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706054307865
+    m_Key: event.event_caravaneer2_hazard_1.choice1.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706054307866
+    m_Key: event.event_caravaneer2_hazard_1.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706054307867
+    m_Key: event.event_caravaneer2_hazard_1.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706054307868
+    m_Key: event.event_caravaneer2_hazard_2.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706054307869
+    m_Key: event.event_caravaneer2_hazard_2.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706054307870
+    m_Key: event.event_caravaneer2_hazard_2.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706054307871
+    m_Key: event.event_caravaneer2_hazard_2.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706054307872
+    m_Key: event.event_caravaneer2_hazard_2.choice1.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706054307873
+    m_Key: event.event_caravaneer2_hazard_2.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706054307874
+    m_Key: event.event_caravaneer2_hazard_2.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706054307875
+    m_Key: event.event_caravaneer2_complete_damaged.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706054307876
+    m_Key: event.event_caravaneer2_complete_damaged.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706054307877
+    m_Key: event.event_caravaneer2_complete_damaged.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706054307878
+    m_Key: event.event_caravaneer2_complete_damaged.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706058502144
+    m_Key: event.event_silk3_complete_damaged.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706058502145
+    m_Key: event.event_silk3_complete_damaged.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706058502146
+    m_Key: event.event_silk3_complete_damaged.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706058502147
+    m_Key: event.event_silk3_complete_damaged.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706058502148
+    m_Key: event.event_silk4_complete_damaged.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706058502149
+    m_Key: event.event_silk4_complete_damaged.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706058502150
+    m_Key: event.event_silk4_complete_damaged.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706058502151
+    m_Key: event.event_silk4_complete_damaged.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706058502152
+    m_Key: event.event_artifact3_complete_damaged.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706058502153
+    m_Key: event.event_artifact3_complete_damaged.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706058502154
+    m_Key: event.event_artifact3_complete_damaged.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706058502155
+    m_Key: event.event_artifact3_complete_damaged.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706058502156
+    m_Key: event.event_artifact4_complete_damaged.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706058502157
+    m_Key: event.event_artifact4_complete_damaged.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706058502158
+    m_Key: event.event_artifact4_complete_damaged.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706058502159
+    m_Key: event.event_artifact4_complete_damaged.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706058502160
+    m_Key: event.event_caravaneer3_clue_1.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706058502161
+    m_Key: event.event_caravaneer3_clue_1.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706058502162
+    m_Key: event.event_caravaneer3_clue_1.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706058502163
+    m_Key: event.event_caravaneer3_clue_1.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706058502164
+    m_Key: event.event_caravaneer3_clue_1.choice1.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706058502165
+    m_Key: event.event_caravaneer3_clue_1.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706058502166
+    m_Key: event.event_caravaneer3_clue_1.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706058502167
+    m_Key: event.event_caravaneer3_clue_2.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706058502168
+    m_Key: event.event_caravaneer3_clue_2.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706058502169
+    m_Key: event.event_caravaneer3_clue_2.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706058502170
+    m_Key: event.event_caravaneer3_clue_2.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706058502171
+    m_Key: event.event_caravaneer3_clue_2.choice1.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706058502172
+    m_Key: event.event_caravaneer3_clue_2.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706058502173
+    m_Key: event.event_caravaneer3_clue_2.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706058502174
+    m_Key: event.event_caravaneer3_clue_3.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706058502175
+    m_Key: event.event_caravaneer3_clue_3.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706058502176
+    m_Key: event.event_caravaneer3_clue_3.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706058502177
+    m_Key: event.event_caravaneer3_clue_3.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706058502178
+    m_Key: event.event_caravaneer3_clue_3.choice1.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706058502179
+    m_Key: event.event_caravaneer3_clue_3.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706058502180
+    m_Key: event.event_caravaneer3_clue_3.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706058502181
+    m_Key: event.event_caravaneer3_complete_damaged.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706058502182
+    m_Key: event.event_caravaneer3_complete_damaged.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706058502183
+    m_Key: event.event_caravaneer3_complete_damaged.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706058502184
+    m_Key: event.event_caravaneer3_complete_damaged.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696448
+    m_Key: event.event_silk3_recon.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696449
+    m_Key: event.event_silk3_recon.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696450
+    m_Key: event.event_silk3_recon.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696451
+    m_Key: event.event_silk3_recon.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696452
+    m_Key: event.event_silk3_recon.choice1.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696453
+    m_Key: event.event_silk3_recon.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696454
+    m_Key: event.event_silk3_recon.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696455
+    m_Key: event.event_silk3_recon.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696456
+    m_Key: event.event_silk3_recon.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696457
+    m_Key: event.event_silk3_breakin.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696458
+    m_Key: event.event_silk3_breakin.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696459
+    m_Key: event.event_silk3_breakin.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696460
+    m_Key: event.event_silk3_breakin.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696461
+    m_Key: event.event_silk3_breakin.choice1.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696462
+    m_Key: event.event_silk3_breakin.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696463
+    m_Key: event.event_silk3_breakin.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696464
+    m_Key: event.event_silk3_breakin.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696465
+    m_Key: event.event_silk3_breakin.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696466
+    m_Key: event.event_silk4_find_masters.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696467
+    m_Key: event.event_silk4_find_masters.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696468
+    m_Key: event.event_silk4_find_masters.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696469
+    m_Key: event.event_silk4_find_masters.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696470
+    m_Key: event.event_silk4_find_masters.choice1.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696471
+    m_Key: event.event_silk4_find_masters.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696472
+    m_Key: event.event_silk4_find_masters.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696473
+    m_Key: event.event_silk4_find_masters.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696474
+    m_Key: event.event_silk4_find_masters.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696475
+    m_Key: event.event_silk4_launch.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696476
+    m_Key: event.event_silk4_launch.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696477
+    m_Key: event.event_silk4_launch.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696478
+    m_Key: event.event_silk4_launch.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696479
+    m_Key: event.event_silk4_launch.choice1.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696480
+    m_Key: event.event_silk4_launch.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696481
+    m_Key: event.event_silk4_launch.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696482
+    m_Key: event.event_silk4_launch.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696483
+    m_Key: event.event_silk4_launch.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696484
+    m_Key: event.event_artifact3_gather.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696485
+    m_Key: event.event_artifact3_gather.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696486
+    m_Key: event.event_artifact3_gather.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696487
+    m_Key: event.event_artifact3_gather.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696488
+    m_Key: event.event_artifact3_gather.choice1.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696489
+    m_Key: event.event_artifact3_gather.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696490
+    m_Key: event.event_artifact3_gather.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696491
+    m_Key: event.event_artifact3_gather.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696492
+    m_Key: event.event_artifact3_gather.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696493
+    m_Key: event.event_artifact3_unmask.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696494
+    m_Key: event.event_artifact3_unmask.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696495
+    m_Key: event.event_artifact3_unmask.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696496
+    m_Key: event.event_artifact3_unmask.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696497
+    m_Key: event.event_artifact3_unmask.choice1.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696498
+    m_Key: event.event_artifact3_unmask.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696499
+    m_Key: event.event_artifact3_unmask.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696500
+    m_Key: event.event_artifact3_unmask.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696501
+    m_Key: event.event_artifact3_unmask.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696502
+    m_Key: event.event_artifact4_coords.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696503
+    m_Key: event.event_artifact4_coords.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696504
+    m_Key: event.event_artifact4_coords.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696505
+    m_Key: event.event_artifact4_coords.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696506
+    m_Key: event.event_artifact4_coords.choice1.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696507
+    m_Key: event.event_artifact4_coords.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696508
+    m_Key: event.event_artifact4_coords.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696509
+    m_Key: event.event_artifact4_coords.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696510
+    m_Key: event.event_artifact4_coords.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696511
+    m_Key: event.event_artifact4_enter.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696512
+    m_Key: event.event_artifact4_enter.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696513
+    m_Key: event.event_artifact4_enter.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696514
+    m_Key: event.event_artifact4_enter.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696515
+    m_Key: event.event_artifact4_enter.choice1.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696516
+    m_Key: event.event_artifact4_enter.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696517
+    m_Key: event.event_artifact4_enter.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696518
+    m_Key: event.event_artifact4_enter.choice3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706062696519
+    m_Key: event.event_artifact4_enter.choice3.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706066890752
+    m_Key: event.quest_caravaneer2_start.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706066890753
+    m_Key: event.quest_caravaneer2_start.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706066890754
+    m_Key: event.quest_caravaneer2_start.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706066890755
+    m_Key: event.quest_caravaneer2_start.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706066890756
+    m_Key: event.quest_caravaneer2_start.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706066890757
+    m_Key: event.quest_caravaneer2_start.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706066890758
+    m_Key: event.quest_caravaneer3_start.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706066890759
+    m_Key: event.quest_caravaneer3_start.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706066890760
+    m_Key: event.quest_caravaneer3_start.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706066890761
+    m_Key: event.quest_caravaneer3_start.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706066890762
+    m_Key: event.quest_caravaneer3_start.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706066890763
+    m_Key: event.quest_caravaneer3_start.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706066890764
+    m_Key: event.quest_caravaneer4_start.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706066890765
+    m_Key: event.quest_caravaneer4_start.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706066890766
+    m_Key: event.quest_caravaneer4_start.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706066890767
+    m_Key: event.quest_caravaneer4_start.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706066890768
+    m_Key: event.quest_caravaneer4_start.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706066890769
+    m_Key: event.quest_caravaneer4_start.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706066890770
+    m_Key: event.quest_caravaneer5_start.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706066890771
+    m_Key: event.quest_caravaneer5_start.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706066890772
+    m_Key: event.quest_caravaneer5_start.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706066890773
+    m_Key: event.quest_caravaneer5_start.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706066890774
+    m_Key: event.quest_caravaneer5_start.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706066890775
+    m_Key: event.quest_caravaneer5_start.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706066890776
+    m_Key: event.quest_silk2_start.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706066890777
+    m_Key: event.quest_silk2_start.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706066890778
+    m_Key: event.quest_silk2_start.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706066890779
+    m_Key: event.quest_silk2_start.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706066890780
+    m_Key: event.quest_silk2_start.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706066890781
+    m_Key: event.quest_silk2_start.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706066890782
+    m_Key: event.quest_silk3_start.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706066890783
+    m_Key: event.quest_silk3_start.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706066890784
+    m_Key: event.quest_silk3_start.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706066890785
+    m_Key: event.quest_silk3_start.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706066890786
+    m_Key: event.quest_silk3_start.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706066890787
+    m_Key: event.quest_silk3_start.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706066890788
+    m_Key: event.quest_silk4_start.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706066890789
+    m_Key: event.quest_silk4_start.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706066890790
+    m_Key: event.quest_silk4_start.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706066890791
+    m_Key: event.quest_silk4_start.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706066890792
+    m_Key: event.quest_silk4_start.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706066890793
+    m_Key: event.quest_silk4_start.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706066890794
+    m_Key: event.quest_silk5_start.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706066890795
+    m_Key: event.quest_silk5_start.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706066890796
+    m_Key: event.quest_silk5_start.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706066890797
+    m_Key: event.quest_silk5_start.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706066890798
+    m_Key: event.quest_silk5_start.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706066890799
+    m_Key: event.quest_silk5_start.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706075279360
+    m_Key: event.bg_caravaneer_1_inquire.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706113028096
+    m_Key: event.event_caravaneer1_hazard_1.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706113028097
+    m_Key: event.event_caravaneer1_hazard_1.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706113028098
+    m_Key: event.event_caravaneer1_hazard_1.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706113028099
+    m_Key: event.event_caravaneer1_hazard_1.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706113028100
+    m_Key: event.event_caravaneer1_hazard_1.choice1.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706113028101
+    m_Key: event.event_caravaneer1_hazard_1.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706113028102
+    m_Key: event.event_caravaneer1_hazard_1.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706113028103
+    m_Key: event.event_caravaneer1_hazard_2.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706113028104
+    m_Key: event.event_caravaneer1_hazard_2.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706113028105
+    m_Key: event.event_caravaneer1_hazard_2.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706113028106
+    m_Key: event.event_caravaneer1_hazard_2.choice1.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706113028107
+    m_Key: event.event_caravaneer1_hazard_2.choice1.fail
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706113028108
+    m_Key: event.event_caravaneer1_hazard_2.choice2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706113028109
+    m_Key: event.event_caravaneer1_hazard_2.choice2.result
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706113028110
+    m_Key: event.event_caravaneer1_complete_damaged.name
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706113028111
+    m_Key: event.event_caravaneer1_complete_damaged.description
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706113028112
+    m_Key: event.event_caravaneer1_complete_damaged.choice1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 36994706117222400
+    m_Key: event.event_caravaneer1_complete_damaged.choice1.result
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

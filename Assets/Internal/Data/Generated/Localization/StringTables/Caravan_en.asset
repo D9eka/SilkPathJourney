@@ -246,6 +246,34 @@ MonoBehaviour:
     m_Localized: -30% fog negative effect on roads
     m_Metadata:
       m_Items: []
+  - m_Id: 23155129006940160
+    m_Localized: Vahu-Man
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23155129032105984
+    m_Localized: Employer and mentor; shares the lore of Sogdian merchants
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23298180392148992
+    m_Localized: Dariush
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23298180413120512
+    m_Localized: Chen Wei
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23298180413120513
+    m_Localized: Farukh
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23298180413120514
+    m_Localized: Greenhorns
+    m_Metadata:
+      m_Items: []
+  - m_Id: 23298180413120515
+    m_Localized: Convoy greenhorns in your care
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -2566,6 +2566,23 @@ MonoBehaviour:
     m_Localized: Skip day
     m_Metadata:
       m_Items: []
+  - m_Id: 39094774043500544
+    m_Localized: Take Survey
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39094774089637888
+    m_Localized: Your Feedback
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39094774089637889
+    m_Localized: The game is in early access. Take a short survey to help me improve
+      the balance and mechanics
+    m_Metadata:
+      m_Items: []
+  - m_Id: 39178506121240576
+    m_Localized: Hand Over the Order
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

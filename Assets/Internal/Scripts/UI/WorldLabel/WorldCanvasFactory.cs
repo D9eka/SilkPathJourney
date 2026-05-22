@@ -5,6 +5,7 @@ using Internal.Scripts.UI.Localization;
 using Internal.Scripts.UI.StackService;
 using Internal.Scripts.UI.Tooltip;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Internal.Scripts.UI.WorldLabel
@@ -57,6 +58,7 @@ namespace Internal.Scripts.UI.WorldLabel
             {
                 Bounds b = _bounds.BoundsCollider.bounds;
                 go.transform.position = new Vector3(b.center.x, 0f, b.center.z);
+                SceneManager.MoveGameObjectToScene(go, _bounds.gameObject.scene);
             }
 
             var worldCanvas = go.AddComponent<WorldCanvas>();

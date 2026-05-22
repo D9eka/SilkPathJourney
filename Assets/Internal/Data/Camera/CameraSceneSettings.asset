@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: CameraSceneSettings
   m_EditorClassIdentifier: Assembly-CSharp::Internal.Scripts.Camera.CameraSceneSettings
   <DetailSceneLoadThreshold>k__BackingField: 100
-  <DetailSceneUnloadThreshold>k__BackingField: 110
+  <DetailSceneUnloadThreshold>k__BackingField: 160
   <MainScene>k__BackingField:
     _sceneAsset: {fileID: 102900000, guid: 4469673e4990f2a41b1bebe1d3d4d6e8, type: 3}
     _sceneName: StrategicView
     _cameraSize: 15
   <EnableDetailSceneLoading>k__BackingField: 1
-  <DefaultCityDetailZoomSize>k__BackingField: 75
+  <DefaultCityDetailZoomSize>k__BackingField: 175
   <PreloadCityScene>k__BackingField: 1
   <MoveSensitivity>k__BackingField: 1
   <MaxMoveSpeedHeight>k__BackingField: 100

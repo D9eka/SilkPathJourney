@@ -31,8 +31,8 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  <Icon>k__BackingField: {fileID: 21300000, guid: 160d566e030b46c5b0490c51bdfe000e, type: 3}
-  <StartCityId>k__BackingField: samarkand
+  <Icon>k__BackingField: {fileID: 0}
+  <StartCityId>k__BackingField: mashhad
   <Branch>k__BackingField: 1
   <OrderInBranch>k__BackingField: 4
   <BranchName>k__BackingField:
@@ -123,6 +123,7 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
     <TriggerEventIds>k__BackingField:
+    - event_empire4_complete_damaged
     - event_empire4_complete
     <AutoCompleteCondition>k__BackingField:
       <Type>k__BackingField: 0
@@ -131,7 +132,7 @@ MonoBehaviour:
   <Rewards>k__BackingField:
   - <Type>k__BackingField: 1
     <Target>k__BackingField: 
-    <Value>k__BackingField: 40
+    <Value>k__BackingField: 25
   - <Type>k__BackingField: 2
     <Target>k__BackingField: 
     <Value>k__BackingField: 10
@@ -143,8 +144,8 @@ MonoBehaviour:
   - <Type>k__BackingField: 11
     <Param>k__BackingField: 
     <Value>k__BackingField: -15
-  <GiverBuilding>k__BackingField: 0
-  <BriefingEventId>k__BackingField: 
+  <GiverBuilding>k__BackingField: 3
+  <BriefingEventId>k__BackingField: quest_empire4_start
   references:
     version: 2
     RefIds: []

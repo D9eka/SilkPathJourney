@@ -31,7 +31,7 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  <Icon>k__BackingField: {fileID: 21300000, guid: 8c848f48274a44329009c0b9962491a6, type: 3}
+  <Icon>k__BackingField: {fileID: 0}
   <SpeedPct>k__BackingField: -15
   <SuppliesPct>k__BackingField: 0
   <DangerPct>k__BackingField: 5

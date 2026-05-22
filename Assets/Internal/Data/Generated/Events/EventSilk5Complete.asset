@@ -66,6 +66,9 @@ MonoBehaviour:
     - <Type>k__BackingField: 20
       <Param>k__BackingField: quest_silk_5
       <Value>k__BackingField: 0
+    - <Type>k__BackingField: 26
+      <Param>k__BackingField: chen_wei
+      <Value>k__BackingField: 0
     - <Type>k__BackingField: 23
       <Param>k__BackingField: Victory|secrets_of_silk
       <Value>k__BackingField: 0
@@ -91,6 +94,9 @@ MonoBehaviour:
     <Outcomes>k__BackingField:
     - <Type>k__BackingField: 20
       <Param>k__BackingField: quest_silk_5
+      <Value>k__BackingField: 0
+    - <Type>k__BackingField: 26
+      <Param>k__BackingField: chen_wei
       <Value>k__BackingField: 0
     - <Type>k__BackingField: 24
       <Param>k__BackingField: secrets_of_silk

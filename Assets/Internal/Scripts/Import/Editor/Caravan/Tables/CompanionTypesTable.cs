@@ -26,6 +26,7 @@ namespace Internal.Scripts.Import.Editor.Caravan.Tables
             int hireCostIdx = FindColumnIndex(header, "hire_cost_base");
             int dailyCostIdx = FindColumnIndex(header, "daily_cost_base");
             int locIdx = FindColumnIndex(header, "loc_link");
+            int isStoryIdx = FindColumnIndex(header, "is_story");
             if (idIdx < 0 || hireCostIdx < 0 || dailyCostIdx < 0)
             {
                 Debug.LogError("[SPJ] Missing required columns in companion_types.csv");
@@ -43,9 +44,16 @@ namespace Internal.Scripts.Import.Editor.Caravan.Tables
                 TryParseInt(GetField(rows[i], hireCostIdx), out int hireCost);
                 TryParseInt(GetField(rows[i], dailyCostIdx), out int dailyCost);
 
+                bool isStory = false;
+                if (isStoryIdx >= 0)
+                {
+                    string storyRaw = GetField(rows[i], isStoryIdx).Trim();
+                    isStory = storyRaw == "1" || storyRaw.Equals("true", System.StringComparison.OrdinalIgnoreCase);
+                }
+
                 CompanionTypeData asset = LoadOrCreateAsset<CompanionTypeData>(OUTPUT_FOLDER, id);
                 asset.ApplyImport(id, type, hireCost, dailyCost,
-                    MakeLocalizedString(GetField(rows[i], locIdx).Trim(), LOC_TABLE));
+                    MakeLocalizedString(GetField(rows[i], locIdx).Trim(), LOC_TABLE), isStory);
 
                 EditorUtility.SetDirty(asset);
                 result.Add(asset);
