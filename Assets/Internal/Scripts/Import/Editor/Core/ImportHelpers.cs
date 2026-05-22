@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Text;
+using Internal.Scripts.Road.Nodes;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Localization;
@@ -112,6 +113,26 @@ namespace Internal.Scripts.Import.Editor.Core
                     AssetDatabase.CreateFolder(current, parts[i]);
                 current = next;
             }
+        }
+
+        public static Dictionary<string, Transform> BuildSceneNodeLookup(string logTag = "[SPJ]")
+        {
+            var nodes = new Dictionary<string, Transform>(StringComparer.Ordinal);
+            var transforms = UnityEngine.Object.FindObjectsByType<Transform>(FindObjectsSortMode.None);
+            foreach (Transform t in transforms)
+            {
+                if (t == null || string.IsNullOrWhiteSpace(t.name))
+                    continue;
+                if (!t.name.StartsWith(NodeIdRules.NodePrefix, StringComparison.Ordinal))
+                    continue;
+                if (nodes.ContainsKey(t.name))
+                {
+                    Debug.LogWarning($"{logTag} Duplicate node '{t.name}' — using first occurrence.");
+                    continue;
+                }
+                nodes[t.name] = t;
+            }
+            return nodes;
         }
 
         public static T LoadOrCreateAsset<T>(string folder, string id) where T : ScriptableObject
