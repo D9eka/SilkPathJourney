@@ -1886,6 +1886,10 @@ MonoBehaviour:
     m_Localized: Language School
     m_Metadata:
       m_Items: []
+  - m_Id: 39834201497788416
+    m_Localized: Mountain Temple's Message
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -89,6 +89,9 @@ MonoBehaviour:
     - <Type>k__BackingField: 19
       <Param>k__BackingField: quest_caravaneer_1
       <Value>k__BackingField: 1
+    - <Type>k__BackingField: 1
+      <Param>k__BackingField: 
+      <Value>k__BackingField: 5
     - <Type>k__BackingField: 10
       <Param>k__BackingField: 
       <Value>k__BackingField: 5
@@ -98,6 +101,12 @@ MonoBehaviour:
     - <Type>k__BackingField: 7
       <Param>k__BackingField: Charisma
       <Value>k__BackingField: 2
+    - <Type>k__BackingField: 6
+      <Param>k__BackingField: recruit_caravan
+      <Value>k__BackingField: 0
+    - <Type>k__BackingField: 27
+      <Param>k__BackingField: quest_convoy_cart|quest_caravaneer_1.convoy_no_cart
+      <Value>k__BackingField: 0
   - <Text>k__BackingField:
       m_TableReference:
         m_TableCollectionName: Events
@@ -128,6 +137,9 @@ MonoBehaviour:
     - <Type>k__BackingField: 19
       <Param>k__BackingField: quest_caravaneer_1
       <Value>k__BackingField: 1
+    - <Type>k__BackingField: 1
+      <Param>k__BackingField: 
+      <Value>k__BackingField: 5
     - <Type>k__BackingField: 10
       <Param>k__BackingField: 
       <Value>k__BackingField: 5
@@ -137,6 +149,12 @@ MonoBehaviour:
     - <Type>k__BackingField: 7
       <Param>k__BackingField: Charisma
       <Value>k__BackingField: 3
+    - <Type>k__BackingField: 6
+      <Param>k__BackingField: recruit_caravan
+      <Value>k__BackingField: 0
+    - <Type>k__BackingField: 27
+      <Param>k__BackingField: quest_convoy_cart|quest_caravaneer_1.convoy_no_cart
+      <Value>k__BackingField: 0
   - <Text>k__BackingField:
       m_TableReference:
         m_TableCollectionName: Events
@@ -183,6 +201,12 @@ MonoBehaviour:
     - <Type>k__BackingField: 10
       <Param>k__BackingField: 
       <Value>k__BackingField: -3
+    - <Type>k__BackingField: 6
+      <Param>k__BackingField: recruit_caravan
+      <Value>k__BackingField: 0
+    - <Type>k__BackingField: 27
+      <Param>k__BackingField: quest_convoy_cart|quest_caravaneer_1.convoy_no_cart
+      <Value>k__BackingField: 0
   <Conditions>k__BackingField:
   - <Type>k__BackingField: 23
     <Param>k__BackingField: quest_caravaneer_1

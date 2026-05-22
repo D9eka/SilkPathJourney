@@ -131,7 +131,7 @@ MonoBehaviour:
   <Rewards>k__BackingField:
   - <Type>k__BackingField: 1
     <Target>k__BackingField: 
-    <Value>k__BackingField: 50
+    <Value>k__BackingField: 32
   - <Type>k__BackingField: 2
     <Target>k__BackingField: 
     <Value>k__BackingField: 10
@@ -146,8 +146,8 @@ MonoBehaviour:
   - <Type>k__BackingField: 11
     <Param>k__BackingField: 
     <Value>k__BackingField: -10
-  <GiverBuilding>k__BackingField: 0
-  <BriefingEventId>k__BackingField: 
+  <GiverBuilding>k__BackingField: 2
+  <BriefingEventId>k__BackingField: quest_empire3_start
   references:
     version: 2
     RefIds: []

@@ -104,3 +104,4 @@ monk_scroll,item.monk_scroll.name,quest,0.1,0,0,перевод,Свиток Ло
 guild_cargo,item.guild_cargo.name,quest,5,0,0,перевод,Груз гильдии,Guild Cargo
 greek_fire,item.greek_fire.name,quest,2,0,0,перевод,Греческий огонь,Greek Fire
 ancient_map,item.ancient_map.name,quest,0.1,0,0,перевод,Древняя карта,Ancient Map
+temple_message,item.temple_message.name,quest,0.1,0,0,перевод,Послание горного храма,Mountain Temple's Message

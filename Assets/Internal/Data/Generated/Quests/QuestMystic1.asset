@@ -32,7 +32,7 @@ MonoBehaviour:
     m_WaitForCompletion: 0
     m_LocalVariables: []
   <Icon>k__BackingField: {fileID: 21300000, guid: 8109113490ea4a179d5ec8306a5f8007, type: 3}
-  <StartCityId>k__BackingField: 
+  <StartCityId>k__BackingField: samarkand
   <Branch>k__BackingField: 2
   <OrderInBranch>k__BackingField: 1
   <BranchName>k__BackingField:
@@ -115,10 +115,10 @@ MonoBehaviour:
       m_LocalVariables: []
     <Narrative>k__BackingField:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: Quests
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: quest.quest_mystic_1.stage_complete.narrative
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []

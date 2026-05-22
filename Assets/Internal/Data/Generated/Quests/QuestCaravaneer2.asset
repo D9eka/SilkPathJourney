@@ -32,7 +32,7 @@ MonoBehaviour:
     m_WaitForCompletion: 0
     m_LocalVariables: []
   <Icon>k__BackingField: {fileID: 21300000, guid: d7386cb0119a4a229998eb1e6d9b1aa6, type: 3}
-  <StartCityId>k__BackingField: 
+  <StartCityId>k__BackingField: anxi
   <Branch>k__BackingField: 3
   <OrderInBranch>k__BackingField: 2
   <BranchName>k__BackingField:
@@ -78,13 +78,13 @@ MonoBehaviour:
       <Type>k__BackingField: 0
       <Param>k__BackingField: 
       <Value>k__BackingField: 0
-  - <Id>k__BackingField: stage_transport
+  - <Id>k__BackingField: stage_transport_1
     <Description>k__BackingField:
       m_TableReference:
         m_TableCollectionName: Quests
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: quest.quest_caravaneer_2.stage_transport
+        m_Key: quest.quest_caravaneer_2.stage_transport_1
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
@@ -93,11 +93,37 @@ MonoBehaviour:
         m_TableCollectionName: Quests
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: quest.quest_caravaneer_2.stage_transport.narrative
+        m_Key: quest.quest_caravaneer_2.stage_transport_1.narrative
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
     <TriggerEventIds>k__BackingField:
+    - event_caravaneer2_hazard_1
+    <AutoCompleteCondition>k__BackingField:
+      <Type>k__BackingField: 3
+      <Param>k__BackingField: quest_caravaneer_2.transport_progress
+      <Value>k__BackingField: 1
+  - <Id>k__BackingField: stage_transport_2
+    <Description>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Quests
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: quest.quest_caravaneer_2.stage_transport_2
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <Narrative>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Quests
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: quest.quest_caravaneer_2.stage_transport_2.narrative
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <TriggerEventIds>k__BackingField:
+    - event_caravaneer2_hazard_2
     - event_caravaneer2_arrival_mashhad
     <AutoCompleteCondition>k__BackingField:
       <Type>k__BackingField: 0
@@ -123,6 +149,7 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
     <TriggerEventIds>k__BackingField:
+    - event_caravaneer2_complete_damaged
     - event_caravaneer2_complete
     <AutoCompleteCondition>k__BackingField:
       <Type>k__BackingField: 0
@@ -131,17 +158,17 @@ MonoBehaviour:
   <Rewards>k__BackingField:
   - <Type>k__BackingField: 1
     <Target>k__BackingField: 
-    <Value>k__BackingField: 30
+    <Value>k__BackingField: 22
   - <Type>k__BackingField: 2
     <Target>k__BackingField: 
-    <Value>k__BackingField: 10
+    <Value>k__BackingField: 5
   <FailConditions>k__BackingField: []
   <FailConsequences>k__BackingField:
   - <Type>k__BackingField: 11
     <Param>k__BackingField: 
     <Value>k__BackingField: -10
-  <GiverBuilding>k__BackingField: 0
-  <BriefingEventId>k__BackingField: 
+  <GiverBuilding>k__BackingField: 3
+  <BriefingEventId>k__BackingField: quest_caravaneer2_start
   references:
     version: 2
     RefIds: []

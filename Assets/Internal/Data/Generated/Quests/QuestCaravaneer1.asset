@@ -78,13 +78,13 @@ MonoBehaviour:
       <Type>k__BackingField: 0
       <Param>k__BackingField: 
       <Value>k__BackingField: 0
-  - <Id>k__BackingField: stage_escort
+  - <Id>k__BackingField: stage_escort_1
     <Description>k__BackingField:
       m_TableReference:
         m_TableCollectionName: Quests
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: quest.quest_caravaneer_1.stage_escort
+        m_Key: quest.quest_caravaneer_1.stage_escort_1
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
@@ -93,11 +93,37 @@ MonoBehaviour:
         m_TableCollectionName: Quests
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: quest.quest_caravaneer_1.stage_escort.narrative
+        m_Key: quest.quest_caravaneer_1.stage_escort_1.narrative
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
     <TriggerEventIds>k__BackingField:
+    - event_caravaneer1_hazard_1
+    <AutoCompleteCondition>k__BackingField:
+      <Type>k__BackingField: 3
+      <Param>k__BackingField: quest_caravaneer_1.escort_progress
+      <Value>k__BackingField: 1
+  - <Id>k__BackingField: stage_escort_2
+    <Description>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Quests
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: quest.quest_caravaneer_1.stage_escort_2
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <Narrative>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Quests
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: quest.quest_caravaneer_1.stage_escort_2.narrative
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <TriggerEventIds>k__BackingField:
+    - event_caravaneer1_hazard_2
     - event_caravaneer1_arrival_anxi
     <AutoCompleteCondition>k__BackingField:
       <Type>k__BackingField: 0
@@ -123,6 +149,7 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
     <TriggerEventIds>k__BackingField:
+    - event_caravaneer1_complete_damaged
     - event_caravaneer1_complete
     <AutoCompleteCondition>k__BackingField:
       <Type>k__BackingField: 0

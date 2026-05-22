@@ -63,6 +63,9 @@ MonoBehaviour:
       m_LocalVariables: []
     <Conditions>k__BackingField: []
     <Outcomes>k__BackingField:
+    - <Type>k__BackingField: 26
+      <Param>k__BackingField: dariyush
+      <Value>k__BackingField: 0
     - <Type>k__BackingField: 20
       <Param>k__BackingField: quest_caravaneer_5
       <Value>k__BackingField: 0
@@ -89,6 +92,9 @@ MonoBehaviour:
       m_LocalVariables: []
     <Conditions>k__BackingField: []
     <Outcomes>k__BackingField:
+    - <Type>k__BackingField: 26
+      <Param>k__BackingField: dariyush
+      <Value>k__BackingField: 0
     - <Type>k__BackingField: 20
       <Param>k__BackingField: quest_caravaneer_5
       <Value>k__BackingField: 0

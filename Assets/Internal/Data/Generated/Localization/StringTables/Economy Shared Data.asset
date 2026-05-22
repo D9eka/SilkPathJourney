@@ -1363,6 +1363,10 @@ MonoBehaviour:
     m_Key: building.languageschool.name
     m_Metadata:
       m_Items: []
+  - m_Id: 39834201497788416
+    m_Key: item.temple_message.name
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

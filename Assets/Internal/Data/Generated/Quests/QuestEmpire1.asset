@@ -98,7 +98,7 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
     <TriggerEventIds>k__BackingField:
-    - event_empire1_silk_acquired
+    - event_empire1_silk_market
     <AutoCompleteCondition>k__BackingField:
       <Type>k__BackingField: 0
       <Param>k__BackingField: 
@@ -148,6 +148,7 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
     <TriggerEventIds>k__BackingField:
+    - event_empire1_complete_damaged
     - event_empire1_complete
     <AutoCompleteCondition>k__BackingField:
       <Type>k__BackingField: 0
@@ -156,7 +157,7 @@ MonoBehaviour:
   <Rewards>k__BackingField:
   - <Type>k__BackingField: 1
     <Target>k__BackingField: 
-    <Value>k__BackingField: 20
+    <Value>k__BackingField: 150
   - <Type>k__BackingField: 2
     <Target>k__BackingField: 
     <Value>k__BackingField: 5

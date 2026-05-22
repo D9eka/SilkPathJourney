@@ -32,7 +32,7 @@ MonoBehaviour:
     m_WaitForCompletion: 0
     m_LocalVariables: []
   <Icon>k__BackingField: {fileID: 21300000, guid: fd3840ee1b20451b982b619f046c1f69, type: 3}
-  <StartCityId>k__BackingField: 
+  <StartCityId>k__BackingField: samarkand
   <Branch>k__BackingField: 5
   <OrderInBranch>k__BackingField: 3
   <BranchName>k__BackingField:
@@ -78,31 +78,56 @@ MonoBehaviour:
       <Type>k__BackingField: 0
       <Param>k__BackingField: 
       <Value>k__BackingField: 0
-  - <Id>k__BackingField: stage_search
+  - <Id>k__BackingField: stage_search_1
     <Description>k__BackingField:
       m_TableReference:
         m_TableCollectionName: Quests
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: quest.quest_artifact_4.stage_search
+        m_Key: quest.quest_artifact_4.stage_search_1
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
     <Narrative>k__BackingField:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: Quests
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: quest.quest_artifact_4.stage_search_1.narrative
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
     <TriggerEventIds>k__BackingField:
-    - event_artifact4_search
+    - event_artifact4_coords
     <AutoCompleteCondition>k__BackingField:
-      <Type>k__BackingField: 0
-      <Param>k__BackingField: 
-      <Value>k__BackingField: 0
+      <Type>k__BackingField: 3
+      <Param>k__BackingField: quest_artifact_4.search_progress
+      <Value>k__BackingField: 1
+  - <Id>k__BackingField: stage_search_2
+    <Description>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Quests
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: quest.quest_artifact_4.stage_search_2
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <Narrative>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Quests
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: quest.quest_artifact_4.stage_search_2.narrative
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    <TriggerEventIds>k__BackingField:
+    - event_artifact4_enter
+    <AutoCompleteCondition>k__BackingField:
+      <Type>k__BackingField: 3
+      <Param>k__BackingField: quest_artifact_4.search_progress
+      <Value>k__BackingField: 2
   - <Id>k__BackingField: stage_complete
     <Description>k__BackingField:
       m_TableReference:
@@ -123,6 +148,7 @@ MonoBehaviour:
       m_WaitForCompletion: 0
       m_LocalVariables: []
     <TriggerEventIds>k__BackingField:
+    - event_artifact4_complete_damaged
     - event_artifact4_complete
     <AutoCompleteCondition>k__BackingField:
       <Type>k__BackingField: 0
@@ -131,14 +157,14 @@ MonoBehaviour:
   <Rewards>k__BackingField:
   - <Type>k__BackingField: 1
     <Target>k__BackingField: 
-    <Value>k__BackingField: 60
+    <Value>k__BackingField: 50
   - <Type>k__BackingField: 2
     <Target>k__BackingField: 
-    <Value>k__BackingField: 15
+    <Value>k__BackingField: 12
   <FailConditions>k__BackingField: []
   <FailConsequences>k__BackingField: []
-  <GiverBuilding>k__BackingField: 0
-  <BriefingEventId>k__BackingField: 
+  <GiverBuilding>k__BackingField: 11
+  <BriefingEventId>k__BackingField: quest_artifact4_start
   references:
     version: 2
     RefIds: []
