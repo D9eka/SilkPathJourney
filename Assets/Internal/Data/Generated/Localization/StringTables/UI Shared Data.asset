@@ -2491,6 +2491,10 @@ MonoBehaviour:
     m_Key: UI.Survey.Main.Text.Description
     m_Metadata:
       m_Items: []
+  - m_Id: 39178506121240576
+    m_Key: UI.Building.QuestSlot.Handover
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

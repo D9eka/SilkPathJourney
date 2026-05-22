@@ -3736,6 +3736,7 @@ UI.LegacyShop.Achievement.EarnedDate,ui,,Получено: {0},Earned: {0}
 UI.LegacyShop.Achievement.TotalCounter,ui,,Получено достижений: {0}/{1},Achievements unlocked: {0}/{1}
 UI.MainMenu.LegacyShop,ui,,Наследие,Legacy
 UI.Building.QuestSlot.EndingOffer,ui,,Завершить путешествие,End the Journey
+UI.Building.QuestSlot.Handover,ui,,Сдать заказ,Hand Over the Order
 achievement.ach_first_trade.name,player,,Первый барыш,First Profit
 achievement.ach_first_trade.description,player,,Заработай 100 монет за один забег.,Earn 100 coins in a single run.
 achievement.ach_long_journey.name,player,,Долгий путь,Long Journey
@@ -6231,6 +6232,9 @@ event.event_caravaneer1_complete_damaged.name,events,,Счёт в Аньси,The
 event.event_caravaneer1_complete_damaged.description,events,,"Старшина встречает вас у ворот и сразу считает людей. Лицо у него каменное. «Пришли не все. Дариуш знает. Говорит - с тебя одного спрашивает.» Пайца принята, деньги отсчитаны - меньше, чем обещали.","The headman meets you at the gate and counts heads at once. His face is stone. ""Not all of them made it. Dariush knows. He says the reckoning falls on you alone."" The paiza is accepted, the coin counted out - less than promised."
 event.event_caravaneer1_complete_damaged.choice1,event_choices,,Принять расчёт,Accept the settlement
 event.event_caravaneer1_complete_damaged.choice1.result,event_choices,,"Вы берёте деньги молча. Старшина смотрит вслед: «Дариуш говорит, что дорога всякого учит. Приходи ещё - если не побоишься».","You take the money in silence. The headman watches you go: ""Dariush says the road teaches everyone. Come back - if you have the stomach for it."""
+UI.Survey.Main.Button.Open,interface_names,157,Пройти опрос,Take Survey
+UI.Survey.Main.Header.Title,interface_names,158,Ваше мнение,Your Feedback
+UI.Survey.Main.Text.Description,interface_names,159,Игра в раннем доступе. Пройдите короткий опрос и помогите мне доработать баланс и механики,The game is in early access. Take a short survey to help me improve the balance and mechanics
 event.road_discover_R_N_Trabzon__N_Constantinople.choice1,road_events,,Расчистить путь,Clear the path
 event.road_discover_R_N_Trabzon__N_Constantinople.choice1.result,road_events,,Караван прокладывает дорогу сквозь заросли. За поворотом открывается пригодный для движения тракт - новый маршрут найден!,"The caravan cuts through the overgrowth. Around the bend, a passable road opens up - a new route discovered!"
 event.road_discover_R_N_Trabzon__N_Constantinople.choice2,road_events,,Не рисковать,Don't risk it
@@ -6267,6 +6271,3 @@ event.road_quest_R_N_Urumqi__N_Kucha.choice2,road_events,,Поблагодари
 event.road_quest_R_N_Urumqi__N_Kucha.choice2.result,road_events,,Настоятель кивает с пониманием и закрывает дверь за алтарём.,The abbot nods with understanding and closes the door behind the altar.
 event.road_quest_R_N_Urumqi__N_Kucha.name,road_events,,Благословение храма,Temple's Blessing
 event.road_quest_R_N_Urumqi__N_Kucha.description,road_events,,"Настоятель придорожного храма узнаёт караван - вы когда-то пожертвовали щедрую сумму на восстановление. В благодарность он ведёт вас к тайной двери за алтарём, откуда начинается древний паломнический путь.","The abbot of a roadside temple recognizes the caravan - you once donated generously to its restoration. In gratitude, he leads you to a hidden door behind the altar, where an ancient pilgrim's road begins."
-UI.Survey.Main.Button.Open,interface_names,157,Пройти опрос,Take Survey
-UI.Survey.Main.Header.Title,interface_names,158,Ваше мнение,Your Feedback
-UI.Survey.Main.Text.Description,interface_names,159,Игра в раннем доступе. Пройдите короткий опрос и помогите мне доработать баланс и механики,The game is in early access. Take a short survey to help me improve the balance and mechanics

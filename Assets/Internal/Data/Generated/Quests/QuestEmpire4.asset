@@ -31,7 +31,7 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  <Icon>k__BackingField: {fileID: 21300000, guid: 160d566e030b46c5b0490c51bdfe000e, type: 3}
+  <Icon>k__BackingField: {fileID: 0}
   <StartCityId>k__BackingField: mashhad
   <Branch>k__BackingField: 1
   <OrderInBranch>k__BackingField: 4

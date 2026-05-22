@@ -31,7 +31,7 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  <Icon>k__BackingField: {fileID: 21300000, guid: fd3840ee1b20451b982b619f046c1f69, type: 3}
+  <Icon>k__BackingField: {fileID: 0}
   <StartCityId>k__BackingField: osh
   <Branch>k__BackingField: 5
   <OrderInBranch>k__BackingField: 4
