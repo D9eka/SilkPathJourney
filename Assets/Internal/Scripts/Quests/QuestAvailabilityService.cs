@@ -128,6 +128,26 @@ namespace Internal.Scripts.Quests
             return null;
         }
 
+        public QuestData GetBuildingHandover(BuildingType building, string cityId)
+        {
+            if (building == BuildingType.Unknown || string.IsNullOrEmpty(cityId)) return null;
+
+            var activeQuests = _repository.GetActiveQuests();
+            if (activeQuests == null) return null;
+
+            foreach (var entry in activeQuests)
+            {
+                var questData = _questDatabase?.GetById(entry.QuestId);
+                if (questData?.Stages == null || questData.Stages.Count == 0) continue;
+                if (questData.GiverBuilding != building) continue;
+                if (questData.StartCityId != cityId) continue;
+                if (entry.CurrentStageIndex != questData.Stages.Count - 1) continue;
+                return questData;
+            }
+
+            return null;
+        }
+
         public bool HasActiveStageInCity(string cityId)
         {
             var activeQuests = _repository.GetActiveQuests();

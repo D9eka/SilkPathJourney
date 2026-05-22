@@ -26,7 +26,7 @@ namespace Internal.Scripts.UI.Screens.Building
 
     public class BuildingQuestSlotViewModel : IDisposable
     {
-        private enum SlotKind { None, PendingEnding, AvailableQuest, ActiveStage }
+        private enum SlotKind { None, PendingEnding, AvailableQuest, Handover, ActiveStage }
 
         private readonly struct SlotResolution
         {
@@ -48,6 +48,7 @@ namespace Internal.Scripts.UI.Screens.Building
         private readonly EventDatabase _eventDb;
         private readonly EventTrigger _eventTrigger;
         private readonly ScreenStackService _screenStackService;
+        private readonly QuestStageChecker _questStageChecker;
 
         private readonly ReactiveProperty<BuildingQuestSlotState?> _state = new();
 
@@ -64,7 +65,8 @@ namespace Internal.Scripts.UI.Screens.Building
             QuestPendingEndingsService pendingEndings,
             EventDatabase eventDb,
             EventTrigger eventTrigger,
-            ScreenStackService screenStackService)
+            ScreenStackService screenStackService,
+            QuestStageChecker questStageChecker)
         {
             _questRepository = questRepository;
             _availability = availability;
@@ -72,6 +74,7 @@ namespace Internal.Scripts.UI.Screens.Building
             _eventDb = eventDb;
             _eventTrigger = eventTrigger;
             _screenStackService = screenStackService;
+            _questStageChecker = questStageChecker;
         }
 
         public void Bind(BuildingType building, string cityId)
@@ -107,6 +110,7 @@ namespace Internal.Scripts.UI.Screens.Building
         {
             if (TryTriggerPendingEnding()) return;
             if (TryTriggerAvailableBriefing()) return;
+            if (TryTriggerHandover()) return;
             if (TryTriggerActiveStage()) return;
             _screenStackService.TryOpen(ScreenId.Quests, out _);
         }
@@ -128,6 +132,18 @@ namespace Internal.Scripts.UI.Screens.Building
             if (available == null) return false;
             if (string.IsNullOrEmpty(available.BriefingEventId)) return false;
             var eventData = _eventDb.GetById(available.BriefingEventId);
+            if (eventData == null) return false;
+            _eventTrigger.TriggerEvent(eventData);
+            return true;
+        }
+
+        private bool TryTriggerHandover()
+        {
+            if (_pendingEndingBranchId != null) return false;
+            var handover = _availability.GetBuildingHandover(_building, _cityId);
+            if (handover == null) return false;
+            var finalStage = handover.Stages[handover.Stages.Count - 1];
+            var eventData = _questStageChecker.SelectFirstEligibleTriggerEvent(finalStage);
             if (eventData == null) return false;
             _eventTrigger.TriggerEvent(eventData);
             return true;
@@ -165,6 +181,14 @@ namespace Internal.Scripts.UI.Screens.Building
             if (available != null)
                 return new SlotResolution(SlotKind.AvailableQuest, available, null);
 
+            var handover = _availability.GetBuildingHandover(_building, _cityId);
+            if (handover != null)
+            {
+                var finalStage = handover.Stages[handover.Stages.Count - 1];
+                if (_questStageChecker.SelectFirstEligibleTriggerEvent(finalStage) != null)
+                    return new SlotResolution(SlotKind.Handover, handover, null);
+            }
+
             var active = _availability.GetActiveStageInBuildingCity(_cityId, _building);
             if (active != null)
                 return new SlotResolution(SlotKind.ActiveStage, active, null);
@@ -190,6 +214,14 @@ namespace Internal.Scripts.UI.Screens.Building
                 case SlotKind.AvailableQuest:
                     string questDesc = LocalizationService.ResolveString(r.Quest.Description, r.Quest.Id, QuestLocContext.QuestDesc(r.Quest.Id));
                     _state.Value = new BuildingQuestSlotState(questDesc);
+                    break;
+
+                case SlotKind.Handover:
+                    string handoverDesc = LocalizationService.ResolveString(
+                        new LocalizedString("UI", "UI.Building.QuestSlot.Handover"),
+                        "Сдать заказ",
+                        "BuildingQuestSlot.Handover");
+                    _state.Value = new BuildingQuestSlotState(handoverDesc);
                     break;
 
                 case SlotKind.ActiveStage:

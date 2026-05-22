@@ -136,20 +136,29 @@ namespace Internal.Scripts.Quests
                 if (IsBuildingHandover(quest, entry.CurrentStageIndex)) continue;
 
                 var stage = quest.Stages[entry.CurrentStageIndex];
-                if (stage.TriggerEventIds == null || stage.TriggerEventIds.Length == 0) continue;
+                var eventData = SelectFirstEligibleTriggerEvent(stage);
+                if (eventData == null) continue;
 
-                foreach (string eventId in stage.TriggerEventIds)
-                {
-                    if (string.IsNullOrEmpty(eventId)) continue;
-
-                    var eventData = _eventDatabase.GetById(eventId);
-                    if (eventData == null || eventData.Choices == null || eventData.Choices.Count == 0) continue;
-
-                    if (!_eventSelector.CheckConditions(eventData.Conditions)) continue;
-
-                    if (_eventTrigger.TriggerEvent(eventData)) return;
-                }
+                if (_eventTrigger.TriggerEvent(eventData)) return;
             }
+        }
+
+        internal EventData SelectFirstEligibleTriggerEvent(QuestStageData stage)
+        {
+            if (stage.TriggerEventIds == null || stage.TriggerEventIds.Length == 0) return null;
+
+            foreach (string eventId in stage.TriggerEventIds)
+            {
+                if (string.IsNullOrEmpty(eventId)) continue;
+
+                var eventData = _eventDatabase.GetById(eventId);
+                if (eventData == null || eventData.Choices == null || eventData.Choices.Count == 0) continue;
+
+                if (!_eventSelector.CheckConditions(eventData.Conditions)) continue;
+
+                return eventData;
+            }
+            return null;
         }
 
         private void CheckFailConditions(PlayerResourceState resources)
@@ -173,7 +182,7 @@ namespace Internal.Scripts.Quests
             }
         }
 
-        private bool IsBuildingHandover(QuestData quest, int stageIndex)
+        internal bool IsBuildingHandover(QuestData quest, int stageIndex)
         {
             if (quest.GiverBuilding == BuildingType.Unknown) return false;
             if (string.IsNullOrEmpty(quest.StartCityId)) return false;
@@ -182,7 +191,7 @@ namespace Internal.Scripts.Quests
             return currentCity != null && currentCity.Id == quest.StartCityId;
         }
 
-        private bool EvaluateStageCondition(QuestStageCondition condition, QuestStateEntry entry)
+        internal bool EvaluateStageCondition(QuestStageCondition condition, QuestStateEntry entry)
         {
             switch (condition.Type)
             {
