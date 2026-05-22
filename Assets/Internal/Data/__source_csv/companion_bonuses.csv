@@ -14,3 +14,9 @@ healer,master,healing_days,1,companion_bonus.healer.master,Лечение за 1
 merchant,novice,trading_skill,5,companion_bonus.merchant.novice,+5 к Торговле,+5 Trading skill
 merchant,experienced,trading_skill,10,companion_bonus.merchant.experienced,+10 к Торговле,+10 Trading skill
 merchant,master,trading_skill,15,companion_bonus.merchant.master,+15 к Торговле,+15 Trading skill
+vahuman,novice,story,0,companion_bonus.vahuman.story,Наниматель и наставник,Employer and mentor
+vahuman,experienced,story,0,companion_bonus.vahuman.story,Наниматель и наставник,Employer and mentor
+vahuman,master,story,0,companion_bonus.vahuman.story,Наниматель и наставник,Employer and mentor
+recruit_caravan,novice,story,0,companion_bonus.recruit_caravan.story,Подопечные новобранцы конвоя,Convoy greenhorns in your care
+recruit_caravan,experienced,story,0,companion_bonus.recruit_caravan.story,Подопечные новобранцы конвоя,Convoy greenhorns in your care
+recruit_caravan,master,story,0,companion_bonus.recruit_caravan.story,Подопечные новобранцы конвоя,Convoy greenhorns in your care

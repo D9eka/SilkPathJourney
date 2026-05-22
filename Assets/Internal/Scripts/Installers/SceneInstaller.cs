@@ -374,6 +374,9 @@ namespace Internal.Scripts.Installers
             Container.Bind<Events.Outcomes.SetQuestFlagApplier>().AsSingle();
             Container.Bind<Events.Outcomes.MarkPendingEndingApplier>().AsSingle();
             Container.Bind<Events.Outcomes.QueueEventApplier>().AsSingle();
+            Container.Bind<Events.Outcomes.RemoveCompanionApplier>().AsSingle();
+            Container.Bind<Events.Outcomes.AddCartApplier>().AsSingle();
+            Container.Bind<Events.Outcomes.RemoveCartApplier>().AsSingle();
             Container.Bind<Events.Outcomes.OutcomeApplier>().AsSingle();
 
             Container.Bind<SkillCheckService>().AsSingle();
@@ -429,7 +432,7 @@ namespace Internal.Scripts.Installers
             Container.BindInterfacesAndSelfTo<QuestAvailabilityService>().AsSingle().NonLazy();
             Container.Bind<QuestPendingEndingsService>().AsSingle();
             Container.Bind<QuestRewardApplier>().AsSingle();
-            Container.BindInterfacesTo<QuestStageChecker>().AsSingle();
+            Container.BindInterfacesAndSelfTo<QuestStageChecker>().AsSingle();
             Container.Bind<QuestCityIndicatorService>().AsSingle();
             Container.Bind<BuildingQuestSlotViewModel>().AsTransient();
             Container.Bind<UI.Screens.TargetSelection.Search.CityCardBuilder>().AsSingle();

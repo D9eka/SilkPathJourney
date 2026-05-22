@@ -1,6 +1,11 @@
-type_id,enum_name,hire_cost_base,daily_cost_base,loc_link,loc_ru,loc_en
-guard,Guard,30,1,companion_type.guard.name,Охранник,Guard
-translator,Translator,20,1,companion_type.translator.name,Переводчик,Translator
-guide,Guide,25,1,companion_type.guide.name,Проводник,Guide
-healer,Healer,40,1,companion_type.healer.name,Лекарь,Healer
-merchant,Merchant,35,1,companion_type.merchant.name,Торговец,Merchant
+type_id,enum_name,hire_cost_base,daily_cost_base,loc_link,loc_ru,loc_en,is_story
+guard,Guard,30,1,companion_type.guard.name,Охранник,Guard,0
+translator,Translator,20,1,companion_type.translator.name,Переводчик,Translator,0
+guide,Guide,25,1,companion_type.guide.name,Проводник,Guide,0
+healer,Healer,40,1,companion_type.healer.name,Лекарь,Healer,0
+merchant,Merchant,35,1,companion_type.merchant.name,Торговец,Merchant,0
+vahuman,Vahuman,0,0,companion_type.vahuman.name,Ваху-Ман,Vahu-Man,1
+recruit_caravan,RecruitCaravan,0,0,companion_type.recruit_caravan.name,Новобранцы,Greenhorns,1
+dariyush,Dariyush,0,0,companion_type.dariyush.name,Дариуш,Dariush,1
+chen_wei,ChenWei,0,0,companion_type.chen_wei.name,Чэнь Вэй,Chen Wei,1
+farukh,Farukh,0,0,companion_type.farukh.name,Фарух,Farukh,1

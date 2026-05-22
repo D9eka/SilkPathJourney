@@ -24,7 +24,7 @@ MonoBehaviour:
   <SchoolDaysConversational>k__BackingField: 10
   <SchoolCostFluent>k__BackingField: 150
   <SchoolDaysFluent>k__BackingField: 20
-  <WorldUnitsPerKm>k__BackingField: 0.0167
+  <WorldUnitsPerKm>k__BackingField: 0.0334
   <DefaultRepairPercent>k__BackingField: 5
   <RepairCostPerPercent>k__BackingField: 2
   <RestCost>k__BackingField: 20

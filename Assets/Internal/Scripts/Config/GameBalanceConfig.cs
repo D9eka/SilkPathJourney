@@ -37,7 +37,7 @@ namespace Internal.Scripts.Config
         [field: SerializeField] public int SchoolDaysFluent { get; private set; } = 20;
 
         [Header("Caravan Speed")]
-        [field: SerializeField] public float WorldUnitsPerKm { get; private set; } = 0.167f;
+        [field: SerializeField] public float WorldUnitsPerKm { get; private set; } = 0.334f;
 
         [Header("Caravan Repair")]
         [field: SerializeField] public int DefaultRepairPercent { get; private set; } = 5;
@@ -103,6 +103,7 @@ namespace Internal.Scripts.Config
 
         [Header("Barracks")]
         [field: SerializeField] public int BarracksGuardCost { get; private set; } = 80;
+        [field: SerializeField] public int MaxExtraCarts { get; private set; } = 3;
 
         [Header("Healer")]
         [field: SerializeField] public int HealerNoviceCost { get; private set; } = 10;

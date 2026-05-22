@@ -33,7 +33,10 @@ namespace Internal.Scripts.Events.Outcomes
             SetQuestFlagApplier setQuestFlag,
             MarkPendingEndingApplier markPendingEnding,
             RunEndOutcomeApplier runEnd,
-            QueueEventApplier queueEvent)
+            QueueEventApplier queueEvent,
+            RemoveCompanionApplier removeCompanion,
+            AddCartApplier addCart,
+            RemoveCartApplier removeCart)
         {
             Register(resource);
             Register(item);
@@ -58,6 +61,9 @@ namespace Internal.Scripts.Events.Outcomes
             Register(markPendingEnding);
             Register(runEnd);
             Register(queueEvent);
+            Register(removeCompanion);
+            Register(addCart);
+            Register(removeCart);
         }
 
         public ResourceType? GetAffectedResource(EventOutcomeType type)

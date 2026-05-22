@@ -24,3 +24,6 @@ set_quest_flag,SetQuestFlag
 end_run,EndRun
 mark_pending_ending,MarkPendingEnding
 queue_event,QueueEvent
+remove_companion,RemoveCompanion
+add_cart,AddCart
+remove_cart,RemoveCart

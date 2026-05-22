@@ -27,6 +27,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d0ec08a4152ab824d950d50a7370f050, type: 2}
   - {fileID: 11400000, guid: 119784a5a1b6b5a428797ef19a59ae5a, type: 2}
   - {fileID: 11400000, guid: 2dc0058f2f442cf489b7d58630be07ad, type: 2}
+  - {fileID: 11400000, guid: 9e1040ac65ec6c342b88fa70554d69ed, type: 2}
+  - {fileID: 11400000, guid: 6fb301229b49c3a44b0630bc44a4f9b5, type: 2}
+  - {fileID: 11400000, guid: cfde3f12c3ad4c448bc3f1da7dd21b99, type: 2}
+  - {fileID: 11400000, guid: 365eeeffc15a4544c953386f6c3310b9, type: 2}
+  - {fileID: 11400000, guid: cc6c9f223b862f64d8b4447d2a8368da, type: 2}
   <DraftAnimals>k__BackingField:
   - {fileID: 11400000, guid: 7f1ba611aab796841bba8bff92ce0580, type: 2}
   - {fileID: 11400000, guid: 03c66b1ba71bedc4e90411fc4fa97ec3, type: 2}
@@ -318,6 +323,84 @@ MonoBehaviour:
       m_TableEntryReference:
         m_KeyId: 0
         m_Key: companion_bonus.merchant.master
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  - <Type>k__BackingField: 6
+    <Quality>k__BackingField: 1
+    <BonusKey>k__BackingField: story
+    <BonusValue>k__BackingField: 0
+    <Description>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Caravan
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: companion_bonus.vahuman.story
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  - <Type>k__BackingField: 6
+    <Quality>k__BackingField: 2
+    <BonusKey>k__BackingField: story
+    <BonusValue>k__BackingField: 0
+    <Description>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Caravan
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: companion_bonus.vahuman.story
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  - <Type>k__BackingField: 6
+    <Quality>k__BackingField: 3
+    <BonusKey>k__BackingField: story
+    <BonusValue>k__BackingField: 0
+    <Description>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Caravan
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: companion_bonus.vahuman.story
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  - <Type>k__BackingField: 7
+    <Quality>k__BackingField: 1
+    <BonusKey>k__BackingField: story
+    <BonusValue>k__BackingField: 0
+    <Description>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Caravan
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: companion_bonus.recruit_caravan.story
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  - <Type>k__BackingField: 7
+    <Quality>k__BackingField: 2
+    <BonusKey>k__BackingField: story
+    <BonusValue>k__BackingField: 0
+    <Description>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Caravan
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: companion_bonus.recruit_caravan.story
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  - <Type>k__BackingField: 7
+    <Quality>k__BackingField: 3
+    <BonusKey>k__BackingField: story
+    <BonusValue>k__BackingField: 0
+    <Description>k__BackingField:
+      m_TableReference:
+        m_TableCollectionName: Caravan
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: companion_bonus.recruit_caravan.story
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
