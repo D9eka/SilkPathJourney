@@ -25,9 +25,11 @@ namespace Internal.Scripts.UI.WorldLabel
             string name,
             LocalizedString localizedText,
             string fallbackText,
-            ITooltipDataProvider tooltipProvider = null)
+            ITooltipDataProvider tooltipProvider = null,
+            bool snapToGround = true)
         {
-            return CreateLabel(worldPosition, Vector3.zero, name, localizedText, fallbackText, tooltipProvider);
+            return CreateLabel(worldPosition, Vector3.zero, name, localizedText, fallbackText, tooltipProvider,
+                snapToGround);
         }
 
         public NameLabelView CreateLabel(
@@ -36,11 +38,12 @@ namespace Internal.Scripts.UI.WorldLabel
             string name,
             LocalizedString localizedText,
             string fallbackText,
-            ITooltipDataProvider tooltipProvider = null)
+            ITooltipDataProvider tooltipProvider = null,
+            bool snapToGround = true)
         {
             if (_worldCanvas == null) return null;
 
-            var cityLabel = _worldCanvas.CreateLabel(worldPosition, offset, name);
+            var cityLabel = _worldCanvas.CreateLabel(worldPosition, offset, name, snapToGround);
             _label = cityLabel._nameLabel;
             _label.SetLocalizedText(localizedText, fallbackText);
             if (tooltipProvider != null)
