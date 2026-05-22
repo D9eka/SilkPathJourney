@@ -24,11 +24,13 @@ namespace Internal.Scripts.Camera
         private readonly WorldCanvas _worldCanvas;
 
         private string _activeDetailScene;
+        private string _approachPromptedScene;
 
         public string ActiveDetailScene => _activeDetailScene;
         public bool SuspendAutoLoading { get; set; }
         public event Action OnDetailSceneAutoUnloaded;
-        public event Action<CityData> OnDetailSceneAutoLoaded;
+        public event Action<CityData> OnDetailSceneRestored;
+        public event Action<CityData> OnCityApproached;
 
         public CameraSceneLoader(
             UnityEngine.Camera camera,
@@ -97,35 +99,26 @@ namespace Internal.Scripts.Camera
 
             if (cameraY < _settings.DetailSceneLoadThreshold)
             {
-                if (sceneInfo.HasValue && _activeDetailScene != sceneInfo.Value.sceneName)
+                if (sceneInfo.HasValue
+                    && _activeDetailScene != sceneInfo.Value.sceneName
+                    && _approachPromptedScene != sceneInfo.Value.sceneName)
                 {
-                    if (!string.IsNullOrEmpty(_activeDetailScene))
-                        _detailSceneLoader.DeactivateScene(_activeDetailScene);
-
-                    string sceneName = sceneInfo.Value.sceneName;
-                    Vector2 origin = sceneInfo.Value.origin;
-                    CityData city = sceneInfo.Value.city;
-                    _detailSceneLoader.LoadAndActivateScene(sceneName, origin, () =>
-                    {
-                        _activeDetailScene = sceneName;
-                        DetailSceneBounds sceneBounds = FindDetailSceneBounds(sceneName);
-                        if (sceneBounds != null)
-                            _cameraBounds.SetOverrideBounds(sceneBounds.Center, sceneBounds.Size);
-                        _tilter.TiltTo(_settings.DetailTiltAngle, 0.4f);
-                        _worldCanvas.gameObject.SetActive(false);
-                        _detailSceneLoader.SetRenderersEnabled(sceneName, true);
-                        OnDetailSceneAutoLoaded?.Invoke(city);
-                    }, hideRenderers: true);
+                    _approachPromptedScene = sceneInfo.Value.sceneName;
+                    OnCityApproached?.Invoke(sceneInfo.Value.city);
                 }
             }
-            else if (cameraY > _settings.DetailSceneUnloadThreshold && !string.IsNullOrEmpty(_activeDetailScene))
+            else if (cameraY > _settings.DetailSceneUnloadThreshold)
             {
-                _detailSceneLoader.DeactivateScene(_activeDetailScene);
-                _activeDetailScene = null;
-                _cameraBounds.ClearOverrideBounds();
-                _tilter.TiltTo(_settings.StrategicTiltAngle, 0.4f);
-                _worldCanvas.gameObject.SetActive(true);
-                OnDetailSceneAutoUnloaded?.Invoke();
+                _approachPromptedScene = null;
+                if (!string.IsNullOrEmpty(_activeDetailScene))
+                {
+                    _detailSceneLoader.DeactivateScene(_activeDetailScene);
+                    _activeDetailScene = null;
+                    _cameraBounds.ClearOverrideBounds();
+                    _tilter.TiltTo(_settings.StrategicTiltAngle, 0.4f);
+                    _worldCanvas.gameObject.SetActive(true);
+                    OnDetailSceneAutoUnloaded?.Invoke();
+                }
             }
         }
 
@@ -147,7 +140,7 @@ namespace Internal.Scripts.Camera
                 _tilter.TiltTo(_settings.DetailTiltAngle, 0.5f);
                 _worldCanvas.gameObject.SetActive(false);
                 _detailSceneLoader.SetRenderersEnabled(sceneName, true);
-                OnDetailSceneAutoLoaded?.Invoke(city);
+                OnDetailSceneRestored?.Invoke(city);
                 onComplete?.Invoke();
             }, hideMainScene: false, hideRenderers: true);
         }
@@ -155,6 +148,8 @@ namespace Internal.Scripts.Camera
         private void HandleDestinationChanged(string destinationId)
         {
             if (string.IsNullOrEmpty(destinationId)) return;
+
+            _approachPromptedScene = null;
             if (string.IsNullOrEmpty(_activeDetailScene)) return;
 
             _detailSceneLoader.DeactivateScene(_activeDetailScene);

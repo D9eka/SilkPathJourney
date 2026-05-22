@@ -33,6 +33,9 @@ namespace Internal.Scripts.UI.StackService
 
         public ScreenId TopId => _stack.Count > 0 ? _stack[^1].Id : ScreenId.None;
 
+        public bool TopShowsDimOverlay =>
+            _stack.Count > 0 && _stack[^1].Config != null && _stack[^1].Config.ShowsDimOverlay;
+
         public event Action<ScreenId> OnScreenClosed;
         public event Action<ScreenId> OnScreenOpened;
 
